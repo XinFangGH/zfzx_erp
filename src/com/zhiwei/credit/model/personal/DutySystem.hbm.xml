@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.personal.DutySystem" table="duty_system" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="systemId" column="systemId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="systemName" type="java.lang.String" update="true" insert="true" access="property" column="systemName" length="128" not-null="true" unique="false"/>  
+    <property name="systemSetting" type="java.lang.String" update="true" insert="true" access="property" column="systemSetting" length="128" not-null="true" unique="false"/>  
+    <property name="systemDesc" type="java.lang.String" update="true" insert="true" access="property" column="systemDesc" length="256" not-null="true" unique="false"/>  
+    <property name="isDefault" type="java.lang.Short" update="true" insert="true" access="property" column="isDefault" length="6" not-null="true" unique="false"/> 
+  </class> 
+</hibernate-mapping>

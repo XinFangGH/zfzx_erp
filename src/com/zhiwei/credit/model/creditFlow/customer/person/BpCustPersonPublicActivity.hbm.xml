@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.person.BpCustPersonPublicActivity"
+        table="bp_cust_person_public_activity"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="activityId"
+            column="activityId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id><!--
+         <property
+            name="personId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="personId"
+            length="10"
+            not-null="true"
+            unique="false"
+        />
+        --><property
+            name="activityStartTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="activityStartTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="activityEndTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="activityEndTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="companyNature"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="companyNature"
+            length="30"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="companyName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="companyName"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="duty"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="duty"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="honorAndAchievement"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="honorAndAchievement"
+            length="1000"
+            not-null="false"
+            unique="false"
+        />
+        <many-to-one name="person" 
+        		     class="com.zhiwei.credit.model.creditFlow.customer.person.Person"
+        		     not-null="false"
+        		     fetch="select"
+        		     >
+        	<column name="personId"></column>
+        </many-to-one>
+     </class>
+</hibernate-mapping>

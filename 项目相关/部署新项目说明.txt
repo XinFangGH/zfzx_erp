@@ -1,0 +1,12 @@
+部署新项目：
+1、需要修改zhiwei.xml
+	1)、个贷：<flowType>yndjSmallloanFlow</flowType>  其中“yndjSmallloanFlow”:为流程的key
+	2)、企贷：<flowEnterType>BondTransferFlow</flowEnterType>  其中"BondTransferFlow":为流程的key
+2、修改修改数据库：
+	试图：
+		1)、v_smallloan_project  -- 在增加：			
+			OR (`run`.`processName` LIKE '%historyCreditFlowFlow%')
+			其中“historyCreditFlowFlow”:为新流程的key
+		2)、v_project_archives  -- 增加：		
+			OR ( `run`.`processName` LIKE '%historyCreditFlowFlow%')	
+			其中“historyCreditFlowFlow”:为新流程key

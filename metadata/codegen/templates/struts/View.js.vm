@@ -1,0 +1,239 @@
+## This is a velocity template
+## to generate a Spring controller class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+/**
+ * @author
+ * @class ${class}View
+ * @extends Ext.Panel
+ * @description [${class}]管理
+ * @company 智维软件
+ * @createtime:
+ */
+${class}View = Ext.extend(Ext.Panel, {
+			// 构造函数
+			constructor : function(_cfg) {
+				Ext.applyIf(this, _cfg);
+				// 初始化组件
+				this.initUIComponents();
+				// 调用父类构造
+				${class}View.superclass.constructor.call(this, {
+							id : '${class}View',
+							title : '[${class}]管理',
+							region : 'center',
+							layout : 'border',
+							items : [this.searchPanel, this.gridPanel]
+						});
+			},// end of constructor
+			// 初始化组件
+			initUIComponents : function() {
+				// 初始化搜索条件Panel
+				this.searchPanel=new HT.SearchPanel({
+							layout : 'form',
+							region : 'north',
+							colNums:3,
+							items:[
+							############################字段类型#######################################
+							#set ($cnt=0)
+							#foreach( $column in $sqlTable.sqlColumns)
+							#set ($cnt=$cnt+1)
+							#if  (!$column.isKey())##if1
+							#if  (!$column.isVersion())##if2
+								#set($dtype="S")
+								#if ("Integer"==${column.attType}) ##if3
+									#set($dtype="N")
+								#elseif("Short"==${column.attType})
+									#set($dtype="SN")
+								#elseif("Long"==${column.attType})
+									#set($dtype="L")
+								#elseif("Double"==${column.attType})
+									#set($dtype="D")
+								#elseif("java.math.BigDecimal"==${column.attType})
+									#set($dtyp="BD")
+								#elseif("Float"==${column.attType})
+									#set($dtype="FT")
+								#elseif("java.sql.Timestamp"==${column.attType} || "java.util.Date"==${column.attType})
+									#set($dtype="D")
+								#else
+									#set($dtype="S")
+								#end ##end if3
+								{
+									fieldLabel:'${column.attName}',
+									name : 'Q_${column.attName}_${dtype}_EQ',
+									flex:1,
+									#if ("Integer"==${column.attType} || "java.math.BigDecimal"==${column.attType} || "Short"==${column.attType} || "Long"==${column.attType} || "Double"==${column.attType} || "Float"==${column.attType})##if6
+									xtype:'numberfield'
+									#elseif("java.sql.Timestamp"==${column.attType} || "java.util.Date"==${column.attType})
+									xtype:'datefield',
+									format:'Y-m-d'
+									#else
+									xtype : 'textfield'
+									#end
+								}
+								#if ($cnt<$sqlTable.sqlColumns.size())
+								,
+								#end
+							#end ##end if2
+							#end ##end if1
+							#end ##end foreach
+							###########################字段类型#######################################
+								],
+								buttons:[
+									{
+										text:'查询',
+										scope:this,
+										iconCls:'btn-search',
+										handler:this.search
+									},{
+										text:'重置',
+										scope:this,
+										iconCls:'btn-reset',
+										handler:this.reset
+									}							
+								]	
+				});// end of searchPanel
+
+				this.topbar = new Ext.Toolbar({
+						items : [{
+									iconCls : 'btn-add',
+									text : '添加[${class}]',
+									xtype : 'button',
+									scope : this,
+									handler : this.createRs
+								}, {
+									iconCls : 'btn-del',
+									text : '删除[${class}]',
+									xtype : 'button',
+									scope:this,
+									handler : this.removeSelRs
+								}]
+				});
+	
+				this.gridPanel=new HT.GridPanel({
+					region:'center',
+					tbar:this.topbar,
+					//使用RowActions
+					rowActions:true,
+					id:'${class}Grid',
+					url : __ctxPath + "/${packageModot}/list${class}.do",
+					fields : [{
+									name : '${keyVar}',
+									type : 'int'
+								}
+							############################字段类型#######################################
+							#foreach( $column in $sqlTable.sqlColumns)
+							#if  (!$column.isKey())
+							#if  (!$column.isVersion())
+							,'${column.attName}'
+							#end
+							#end
+							#end
+							###########################字段类型##################################
+							],
+					columns:[
+								{
+									header : '${keyVar}',
+									dataIndex : '${keyVar}',
+									hidden : true
+								}
+								############################字段类型#######################################
+								#foreach( $column in $sqlTable.sqlColumns)
+								#if  (!$column.isKey())
+								#if  (!$column.isVersion())
+								,{
+								#if (${column.attName})
+									header : '${column.attName}',	
+								#else
+									header : '${column.attName}',
+								#end
+									dataIndex : '${column.attName}'
+								}
+								#end
+								#end
+								#end
+								###########################字段类型##################################
+								, new Ext.ux.grid.RowActions({
+									header:'管理',
+									width:100,
+									actions:[{
+											 iconCls:'btn-del',qtip:'删除',style:'margin:0 3px 0 3px'
+										},{
+											 iconCls:'btn-edit',qtip:'编辑',style:'margin:0 3px 0 3px'
+										}
+									],
+									listeners:{
+										scope:this,
+										'action':this.onRowAction
+									}
+								})
+					]//end of columns
+				});
+				
+				this.gridPanel.addListener('rowdblclick',this.rowClick);
+					
+			},// end of the initComponents()
+			//重置查询表单
+			reset : function(){
+				this.searchPanel.getForm().reset();
+			},
+			//按条件搜索
+			search : function() {
+				$search({
+					searchPanel:this.searchPanel,
+					gridPanel:this.gridPanel
+				});
+			},
+			//GridPanel行点击处理事件
+			rowClick:function(grid,rowindex, e) {
+				grid.getSelectionModel().each(function(rec) {
+					new ${class}Form({${keyVar}:rec.data.${keyVar}}).show();
+				});
+			},
+			//创建记录
+			createRs : function() {
+				new ${class}Form().show();
+			},
+			//按ID删除记录
+			removeRs : function(id) {
+				$postDel({
+					url:__ctxPath+ '/${packageModot}/multiDel${class}.do',
+					ids:id,
+					grid:this.gridPanel
+				});
+			},
+			//把选中ID删除
+			removeSelRs : function() {
+				$delGridRs({
+					url:__ctxPath + '/${packageModot}/multiDel${class}.do',
+					grid:this.gridPanel,
+					idName:'${keyVar}'
+				});
+			},
+			//编辑Rs
+			editRs : function(record) {
+				new ${class}Form({
+					${keyVar} : record.data.${keyVar}
+				}).show();
+			},
+			//行的Action
+			onRowAction : function(grid, record, action, row, col) {
+				switch (action) {
+					case 'btn-del' :
+						this.removeRs.call(this,record.data.${keyVar});
+						break;
+					case 'btn-edit' :
+						this.editRs.call(this,record);
+						break;
+					default :
+						break;
+				}
+			}
+});

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.prosperctive.BpCustProspectiveRelation"
+        table="bp_cust_prospective_relation"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="relateId"
+            column="relateId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="relateName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="relateName"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relateship"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="relateship"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relateSex"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="relateSex"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relatejob"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="relatejob"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="isMain"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="isMain"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relateHouseDress"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="relateHouseDress"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relationShipValue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="relationShipValue"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="relationCellPhone"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="relationCellPhone"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        
+     <!-- imported bi-directional many-to-one association to BpCustProsperctive -->
+		<many-to-one
+			name="bpCustProsperctive"
+			class="com.zhiwei.credit.model.creditFlow.customer.prosperctive.BpCustProsperctive"
+            not-null="false"
+			fetch="select"
+		>	
+			<column name="perId" />
+		</many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_control" text="风控中心" iconCls="mod-control"> 
+   <Items id="ProcessTaskControl" text="流程任务监控" iconCls="btn-tree-team36" isPublic="false">
+	    <Item id="ProcessTaskComplexControl" iconCls="btn-tree-team36" text="流程任务综合监控"></Item>
+		<Item id="ProcessTaskComplianceControl" iconCls="btn-tree-team36" text="流程任务合规性监控"></Item>
+		<Item id="ProcessTaskWorkbenchControl" iconCls="btn-tree-team36" text="流程任务工作台监控"></Item>
+	</Items>
+	
+	 <Items id="creditInvestigationManage" text="征信信息管理" iconCls="btn-tree-team36" isPublic="false">
+	     <Items id="PersonCreditInvestigation" text="个人内部征信" iconCls="btn-tree-team36" isPublic="false">
+			 <Item id="BlackList?type=1" iconCls="btn-tree-team36" text="黑名单客户">
+		     	</Item>
+			 <Item id="BadCreditRecord?customerType=person_customer" iconCls="btn-tree-team36" text="不良征信登记">
+				    <Function id="_add_BadCredit_person_customer" text="增加" iconCls="btn-add"/>
+				    <Function id="_edit_BadCredit_person_customer" text="编辑" iconCls="btn-edit"/>
+				    <Function id="_del_BadCredit_person_customer" text="删除" iconCls="btn-del"/>
+				    <Function id="_out_BadCredit_person_customer" text="导出Excel" iconCls="btn-xls"/>
+			 </Item>
+			 <Item id="PersonBrowerRecord" iconCls="btn-tree-team36" text="主借款人登记"></Item>
+			 <Item id="PersonAssureRecord" iconCls="btn-tree-team36" text="保证人登记"></Item>
+			 <Item id="PersonLegalRecord" iconCls="btn-tree-team36" text="法人借款登记"></Item>
+			 <Item id="LoneExternalRecord?customerType=person_customer" iconCls="btn-tree-team36" text="外部借贷登记">
+				    <Function id="_add_LoneExternal_person_customer" text="增加" iconCls="btn-add"/>
+				    <Function id="_edit_LoneExternal_person_customer" text="编辑" iconCls="btn-edit"/>
+				    <Function id="_del_LoneExternal_person_customer" text="删除" iconCls="btn-del"/>
+				    <Function id="_out_LoneExternal_person_customer" text="导出Excel" iconCls="btn-xls"/>
+			 </Item>
+	    </Items>
+	     <Items id="EnterPriseCreditInvestigation" text="企业内部征信" iconCls="btn-tree-team36" isPublic="false">
+	     <Item id="BlackList?type=2" iconCls="btn-tree-team36" text="黑名单客户">
+		     	<!--<Function id="_black_see_customer" text="查看所有列表" iconCls="btn-edit"/>
+			    <Function id="_seeCustomerInfo" text="查看客户详细信息" iconCls="btn-edit"/>
+				<Function id="_revocateBlack" text="撤销黑名单" iconCls="btn-edit"/>
+			 --></Item>
+			 <Item id="BadCreditRecord?customerType=company_customer" iconCls="btn-tree-team36" text="不良征信登记">
+				    <Function id="_add_BadCredit_company_customer" text="增加" iconCls="btn-add"/>
+				    <Function id="_edit_BadCredit_company_customer" text="编辑" iconCls="btn-edit"/>
+				    <Function id="_del_BadCredit_company_customer" text="删除" iconCls="btn-del"/>
+				    <Function id="_out_BadCredit_company_customer" text="导出Excel" iconCls="btn-xls"/>
+			 </Item>
+			 <Item id="EnterPriseBrowerRecord" iconCls="btn-tree-team36" text="主借款人登记"></Item>
+			 <Item id="EnterPriseAssureRecord" iconCls="btn-tree-team36" text="保证人登记"></Item>
+			 <Item id="LoneExternalRecord?customerType=company_customer" iconCls="btn-tree-team36" text="外部借贷登记">
+				    <Function id="_add_LoneExternal_company_customer" text="增加" iconCls="btn-add"/>
+				     <Function id="_edit_LoneExternal_company_customer" text="编辑" iconCls="btn-edit"/>
+				    <Function id="_del_LoneExternal_company_customer" text="删除" iconCls="btn-del"/>
+				    <Function id="_out_LoneExternal_company_customer" text="导出Excel" iconCls="btn-xls"/>
+			 </Item>
+			 
+	    </Items>
+	</Items>
+	
+	<Items id="IndicatorManagement" text="风险评级中心" iconCls="btn-tree-team36" isPublic="false">
+	    <!--<Item id="IndicatorManagement1" text="定量指标管理" iconCls="btn-tree-team36">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			
+			
+			--><Item id="IndicatorManagement2" text="定性指标管理" iconCls="btn-tree-team36">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon"> 
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			<Item id="ClassTypeView" text="信用等级管理" iconCls="btn-tree-team36">
+				<Function id="_ct_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/classTypeList.do</url>
+				</Function>
+				<Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+				</Function>
+				<Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+					<url>/credit/creditmanagement/deleteClassType.do</url>
+				</Function>
+				<Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+			</Item>
+
+			<Item id="TemplateManagement" text="评估模板管理" iconCls="btn-tree-team36">
+				<Function id="_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/ratingTemplateList.do</url>
+					<url>/credit/creditmanagement/templateContentList.do</url>
+				</Function>
+				<Function id="_Template_add" text="增加模板" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/updateRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				</Function>
+				<Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/updateTemplateIndicator.do</url>
+				</Function>
+			</Item>
+
+			<Item id="CreditRatingManage?type=all" text="客户资信评估" iconCls="btn-tree-team36">
+				<Function id="_zx_see_all" text="查看所有列表" iconCls="updateIcon">
+					<url>/credit/creditmanagement/creditRatingList.do</url>
+				</Function>
+				<Function id="_creditRating_add_all" text="新建资信评估" iconCls="addIcon">
+					<url>/credit/creditmanagement/addCreditRatingSub.do</url>
+					<url>/credit/creditmanagement/addCreditRatingJson.do</url>
+					<url>/credit/creditmanagement/getScoreGrade.do</url>
+				</Function>
+				<Function id="_creditRating_delete_all" text="删除资信评估"
+					iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteCreditRating.do</url>
+				</Function>
+				<Function id="_creditRating_see_all" text="查看资信评估" iconCls="updateIcon">
+					<url>/credit/creditmanagement/CreditRatingResult.do</url>
+				</Function>
+			</Item>
+	</Items>
+	
+	<Items id="LoanControlCenter" text="贷款控制中心" iconCls="btn-tree-team36" isPublic="false">
+		<Item id="LoanFiveLevelClassification" iconCls="btn-tree-team36" text="贷款五级分类"></Item>
+	    <Item id="PostLoanSupervision" iconCls="btn-tree-team36" text="贷后监管制定"></Item>
+		<Item id="OverdueEarlyWarning" iconCls="btn-tree-team36" text="贷后逾期预警"></Item>
+		<Item id="IndustryEarlyWarning" iconCls="btn-tree-team36" text="行业预警"></Item>
+	</Items>
+		<Items id="propertyViewQuery??businessType=SmallLoan" text="担保措施监控" iconCls="btn-tree-team36">
+		<Item id="MortgageManagementQuery?businessType=SmallLoan" text="抵质押物" iconCls="btn-tree-team36"/>
+			<!--保证担保-->
+	</Items>
+   <Items id="MateriaControl" text="材料监控中心" iconCls="btn-tree-team36" isPublic="false">
+	    <Item id="RiskMaterialManager" iconCls="btn-tree-team36" text="贷款材料管理"></Item>
+		<Item id="PlArchivesMaterialManager" iconCls="btn-tree-team36" text="归档材料管理"></Item>
+	</Items>
+
+</Menus>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.arch.BorrowRecord" table="borrow_record" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="recordId" column="recordId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="borrowRemark" type="java.lang.String" update="true" insert="true" access="property" column="borrowRemark" length="128" not-null="false" unique="false"/>  
+    <property name="checkId" type="java.lang.Long" update="true" insert="true" access="property" column="checkId" length="19" not-null="false" unique="false"/>  
+    <property name="checkName" type="java.lang.String" update="true" insert="true" access="property" column="checkName" length="64" not-null="false" unique="false"/>  
+    <property name="checkContent" type="java.lang.String" update="true" insert="true" access="property" column="checkContent" length="128" not-null="false" unique="false"/>  
+    <property name="borrowDate" type="java.util.Date" update="true" insert="true" access="property" column="borrowDate" length="10" not-null="false" unique="false"/>  
+    <property name="borrowType" type="java.lang.String" update="true" insert="true" access="property" column="borrowType" length="64" not-null="false" unique="false"/>  
+    <property name="borrowReason" type="java.lang.String" update="true" insert="true" access="property" column="borrowReason" length="64" not-null="false" unique="false"/>  
+    <property name="checkUserName" type="java.lang.String" update="true" insert="true" access="property" column="checkUserName" length="64" not-null="false" unique="false"/>  
+    <property name="checkDate" type="java.util.Date" update="true" insert="true" access="property" column="checkDate" length="10" not-null="false" unique="false"/>  
+    <property name="returnDate" type="java.util.Date" update="true" insert="true" access="property" column="returnDate" length="10" not-null="false" unique="false"/>  
+    <property name="returnStatus" type="java.lang.Short" update="true" insert="true" access="property" column="returnStatus" length="5" not-null="false" unique="false"/>  
+    <property name="borrowNum" type="java.lang.String" update="true" insert="true" access="property" column="borrowNum" length="128" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="checkUserId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to BorrowFileList
+-->  
+    <set name="borrowFileLists" table="borrow_file_list" lazy="true" inverse="true" sort="unsorted" cascade="save-update,delete-orphan"> 
+      <key> 
+        <column name="recordId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.arch.BorrowFileList"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

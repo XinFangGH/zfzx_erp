@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.FormField" table="form_field" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="fieldId" column="fieldId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fieldName" type="java.lang.String" update="true" insert="true" access="property" column="fieldName" length="128" not-null="false" unique="false"/>  
+    <property name="fieldLabel" type="java.lang.String" update="true" insert="true" access="property" column="fieldLabel" length="128" not-null="false" unique="false"/>  
+    <property name="fieldType" type="java.lang.String" update="true" insert="true" access="property" column="fieldType" length="128" not-null="false" unique="false"/>  
+    <property name="isRequired" type="java.lang.Short" update="true" insert="true" access="property" column="isRequired" length="5" not-null="false" unique="false"/>  
+    <property name="fieldSize" type="java.lang.Integer" update="true" insert="true" access="property" column="fieldSize" length="10" not-null="false" unique="false"/>  
+    <property name="fieldDscp" type="java.lang.String" update="true" insert="true" access="property" column="fieldDscp" length="1024" not-null="false" unique="false"/>  
+    <property name="isPrimary" type="java.lang.Short" update="true" insert="true" access="property" column="isPrimary" length="5" not-null="false" unique="false"/>  
+    <property name="foreignKey" type="java.lang.String" update="true" insert="true" access="property" column="foreignKey" length="64" not-null="false" unique="false"/>  
+    <property name="foreignTable" type="java.lang.String" update="true" insert="true" access="property" column="foreignTable" length="64" not-null="false" unique="false"/>  
+    <property name="isList" type="java.lang.Short" update="true" insert="true" access="property" column="isList" length="5" not-null="false" unique="false"/>  
+    <property name="isQuery" type="java.lang.Short" update="true" insert="true" access="property" column="isQuery" length="5" not-null="false" unique="false"/>  
+    <property name="showFormat" type="java.lang.String" update="true" insert="true" access="property" column="showFormat" length="256" not-null="false" unique="false"/>  
+    <property name="isFlowTitle" type="java.lang.Short" update="true" insert="true" access="property" column="isFlowTitle" length="5" not-null="false" unique="false"/>  
+    <property name="isDesignShow" type="java.lang.Short" update="true" insert="true" access="property" column="isDesignShow" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FormTable -->  
+    <many-to-one name="formTable" class="com.zhiwei.credit.model.flow.FormTable" not-null="false" fetch="select"> 
+      <column name="tableId"/> 
+    </many-to-one>  
+    <set name="fieldRightss" table="field_rights" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="fieldId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.flow.FieldRights"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

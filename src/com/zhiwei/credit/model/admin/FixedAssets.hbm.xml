@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.FixedAssets" table="fixed_assets" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="assetsId" column="assetsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="assetsNo" type="java.lang.String" update="true" insert="true" access="property" column="assetsNo" length="128" not-null="false" unique="false"/>  
+    <property name="assetsName" type="java.lang.String" update="true" insert="true" access="property" column="assetsName" length="128" not-null="true" unique="false"/>  
+    <property name="model" type="java.lang.String" update="true" insert="true" access="property" column="model" length="64" not-null="false" unique="false"/>  
+    <property name="manufacturer" type="java.lang.String" update="true" insert="true" access="property" column="manufacturer" length="64" not-null="false" unique="false"/>  
+    <property name="manuDate" type="java.util.Date" update="true" insert="true" access="property" column="manuDate" length="19" not-null="false" unique="false"/>  
+    <property name="buyDate" type="java.util.Date" update="true" insert="true" access="property" column="buyDate" length="19" not-null="true" unique="false"/>  
+    <property name="beDep" type="java.lang.String" update="true" insert="true" access="property" column="beDep" length="64" not-null="true" unique="false"/>  
+    <property name="custodian" type="java.lang.String" update="true" insert="true" access="property" column="custodian" length="32" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="remainValRate" type="java.math.BigDecimal" update="true" insert="true" access="property" column="remainValRate" precision="18" scale="6" not-null="true" unique="false"/>  
+    <property name="startDepre" type="java.util.Date" update="true" insert="true" access="property" column="startDepre" length="19" not-null="false" unique="false"/>  
+    <property name="intendTerm" type="java.math.BigDecimal" update="true" insert="true" access="property" column="intendTerm" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="intendWorkGross" type="java.math.BigDecimal" update="true" insert="true" access="property" column="intendWorkGross" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="workGrossUnit" type="java.lang.String" update="true" insert="true" access="property" column="workGrossUnit" length="128" not-null="false" unique="false"/>  
+    <property name="assetValue" type="java.math.BigDecimal" update="true" insert="true" access="property" column="assetValue" precision="18" scale="4" not-null="true" unique="false"/>  
+    <property name="assetCurValue" type="java.math.BigDecimal" update="true" insert="true" access="property" column="assetCurValue" precision="18" scale="4" not-null="true" unique="false"/>  
+    <property name="depreRate" type="java.math.BigDecimal" update="true" insert="true" access="property" column="depreRate" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="defPerWorkGross" type="java.math.BigDecimal" update="true" insert="true" access="property" column="defPerWorkGross" precision="18" scale="2" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to DepreType -->  
+    <many-to-one name="depreType" class="com.zhiwei.credit.model.admin.DepreType" not-null="false" fetch="select"> 
+      <column name="depreTypeId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to AssetsType -->  
+    <many-to-one name="assetsType" class="com.zhiwei.credit.model.admin.AssetsType" not-null="false" fetch="select"> 
+      <column name="assetsTypeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to DepreRecord -->  
+    <set name="depreRecords" table="depre_record" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <!--    cascade="save-update"-->  
+      <key> 
+        <column name="assetsId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.DepreRecord"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.DocHistory" table="doc_history" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="historyId" column="historyId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <version name="version" type="java.lang.Integer" column="version" access="property" unsaved-value="undefined"/>  
+    <property name="docName" type="java.lang.String" update="true" insert="true" access="property" column="docName" length="128" not-null="true" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="128" not-null="true" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="updatetime" length="19" not-null="true" unique="false"/>  
+    <property name="mender" type="java.lang.String" update="true" insert="true" access="property" column="mender" length="64" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FileAttach -->  
+    <many-to-one name="fileAttach" class="com.zhiwei.credit.model.system.FileAttach" not-null="false" fetch="select"> 
+      <column name="fileId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to ArchivesDoc -->  
+    <many-to-one name="archivesDoc" class="com.zhiwei.credit.model.archive.ArchivesDoc" not-null="false" fetch="select"> 
+      <column name="docId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

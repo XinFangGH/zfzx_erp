@@ -1,0 +1,424 @@
+@CHARSET "UTF-8";
+
+body {
+	background:white;
+}
+
+.createtime,.viewCounts,.replyCounts,.typename,.authors,.issuer {color:green;}
+.red{background: red !important;}
+.blue{background: blue !important;}
+.orange{background: orange !important;}
+.size{font-size:12px;}
+hr{height:1px;border:none;border-top:1px dashed #ccc;}
+.name,.time,.tip {color:rgb(107,102,102);}
+.a{color:blue;}
+a{text-decoration:none;}
+.number{color:red !important;}
+.a{float:right;text-decoration:none;}
+.a,.time{font-size:12px;}
+.head{font-size:23px;}
+.comment{font-size:20px; color:#302E2E}
+.myReq .x-form-field{color:red;}
+.myTask{
+	background:url(../images/jdsp_index_main02.png) no-repeat;
+	background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.news{
+	background-:url(../images/jdsp_index_main06.png) no-repeat;
+	background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.addressBook{
+	background:url(../images/jdsp_index_main07.png) no-repeat;
+	background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.myBulletin{
+	background:url(../images/jdsp_index_main09.png) no-repeat;
+	background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.mySchedule{
+	background:url(../images/jdsp_index_main01.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.entprise{
+	background:url(../images/jdsp_index_main06.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.person{
+	background:url(../images/jdsp_index_main04.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.seach{
+	background:url(../images/jdsp_index_main03.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.setting{
+	background:url(../images/jdsp_index_main08.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.mydel{
+	background:url(../images/jdsp_index_main05.png) no-repeat;
+	    background-size: 50px 90%;
+	    margin-top: 10%;
+}
+.title {
+	color: #feeeed;
+}
+
+.author {
+	font-size: 12px;
+	color: #ccc;
+}
+
+.content {
+	font-size: 12px;
+	color: #ccc;
+	float: center;
+	margin-left: 12px;
+}
+
+.subject {
+	font-size: 16px;
+	color: green;
+}
+
+.sup{
+	font-size: 6px;
+	color: #7bbfea;
+}
+.personalAddressBookView{
+	background:url(../images/personalAddressBookView.png) no-repeat;
+}
+.publicAddressBookView{
+	background:url(../images/publicAddressBookView.png) no-repeat;
+}
+.sharedAddressBookView{
+	background:url(../images/sharedAddressBookView.png) no-repeat;
+}
+.myEmail{
+	background:url(../images/myMail.png) no-repeat;
+}
+.mail{
+	background:url(../images/mail.png) no-repeat;
+}
+
+.userImage{
+	background:url(../images/userImage.jpg) no-repeat;
+	float: right;
+	width: 23px;
+	height: 20px;
+}
+
+.mailrecipient{
+	background:url(../images/mail_recipient.png) no-repeat;
+}
+.attachment{
+	background:url(../images/attachment.png) no-repeat;
+}
+.mailcopy{
+	background:url(../images/mail_copy.png) no-repeat;
+}
+.delcopy{
+	background:url(../images/delete_copy.png) no-repeat;
+}
+.EmailImage{
+	background:url(../images/mail_box.png) no-repeat;
+	float: right;
+	width: 23px;
+	height: 20px;
+}
+.label{
+	background-color:white;
+	margin:0px;
+}
+
+.x-tab .x-button-icon.mytaskNext,
+.x-button .x-button-icon.x-icon-mask.mytaskNext {
+	background:url(../images/next.png) no-repeat;
+}
+
+.x-tab .x-button-icon.mytaskBack,
+.x-button .x-button-icon.x-icon-mask.mytaskBack {
+	background:url(../images/back.png) no-repeat;
+}
+
+.touchgridpanel{
+	padding: 0;
+	width:100%;
+}
+
+.touchgridpanel .x-grid-hd-row {
+    background-image : -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #9aa7b2), color-stop(2%, #647482), color-stop(100%, #434d57));
+}
+
+.touchgridpanel .x-grid-cell {
+	text-align   : center !important;
+    overflow       : hidden;
+    text-overflow  : ellipsis;
+	white-space    : nowrap;
+	vertical-align : middle;
+    min-height     : 2.6em;
+	line-height    : 2em;
+	font-size      : 1em;
+	font-weight    : bold;
+    border-left    : 1px solid #ccc;
+    border-bottom    : 1px solid #ccc;
+}
+
+.touchgridpanel .x-grid-cell-hd {
+    text-align   : center !important;
+    padding      : 0 !important;
+	color        : #fff;
+	text-shadow  : rgba(0, 0, 0, 0.5) 0 -0.08em 0;
+    border       : 0;
+    min-height     : 2.6em;
+	line-height    : 2em;
+}
+
+.checkedImgUrl {
+	border: 3px solid blue;
+	float: right;
+	width: 28px;
+	height: 28px;
+	background: url(../images/checkbox_checked.png) no-repeat;
+}
+.unCheckedImgUrl{
+	border: 3px solid green;
+	float: right;
+	width: 28px;
+	height: 28px;
+	background:url(../images/checkbox_unchecked.png) no-repeat;
+}
+
+
+.simpleList .x-list-disclosure {
+    -webkit-mask-size:100%;
+    -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAE+klEQVRoBe2aS28URxRGsY0h2FmwCQuEWLHjvUNgZAQ4PMwrEkIRIGEgySKwB8QvYIvEP+ANO0CwsJAA88wGBEKBZJUVQkJCQrwJ5nxN31Z5pnpc7e4ZT9vT0peqqanquqfurVvlIW3Dw8NTJtPTPplgxdoCnugeb3m45eEJtgJTJwJPGw8cP8V6TfmC4/Z/H9uEAAZsIdqHZiMBn2UNbvigSw8M2AIAD6PtqBPpmYe+8t1NoL9GLfYf3bTKKhiWo9PoA9KV0dUgn/tRh8tXWg/Hnj0KUB8yz1JNnjXUuhFd264A/f0O7dKXpQ7EIiTPfkKuVyvrSlx3US+KPF26cMbwxeg8Gg3W4LWHFd6rUUepQprQnI/Rh9A25AtjmqseHVkK7w59UxpgYFdg7wH0CwqFpWvyrKI23GZ7OWluwgqwOnqOobVoWh4Tm97DwCpBHUFp2TiUX3v5QVMnLQzMmqAsUVWWyta3UX/TAmOcwjjk6KmE830W7GbU0ZTAGKYEJdj3yAcQ2qYw1jmsG9e0KF8122UDw/SHwFX0EYWC+fpZGG/hPcn1sqk8jGHas+dQ6KXCB6o2g91IPfKsObZpgDGsqAT1hXdpz25A7QZqZU1gBsxFSh5zbEA9yniOU5R5PSvvCnYTSsLYtdkLTGf9uKdD/gS6gI6jPndgUXXe24OKSFAK4zsoSVA+G6uAGaC758/oBrIs+Zb6rbg9up35Xpa1jffpUqEEldezysbJ0VPLjhHADOpEfUiw2gtuUtAKDiGtYNXeqDWJ7zveYQnqM3V3nqx1s2s97xmRoLzzWqMgkLLaTVQJa0ZoJe+hXjRmaMYKVlslr2dlp5wgu4PsiTyszmg5qgVr0CqvoZW2WFlKxhV5gxJsdIMKtYH+Eew6yksoNLy0soJeFzqR+vEI9gx6h9wFzFoPSlA+25g3SlChnnUNU3grkWmxRg0n+ihBnUR5w9j2bCbPGjzzR3sgbc+6gL66TV4zkTHHEqSfZSzr+94V0mbzKUF1GkSWknG5QktGyoj7qBdVeZo2S1Ch2yUNXOMVUcEJyrcQjOeP4vzQCu9BpBtOck5T70HybN4w1iJcR7ouem9QPjhfG+On7EBPUNrKhrYLWp7+FS1FCjtdKvJ6VvM/Q9o2uWC1AHq60QB6hELh0voJ+im6iHReF+FZwe5HP/g8lrXNzuEfeeFu9C9Kg8nSrr9lBZ9ljK/v37xjL5qRFSytf3K15KXy9EH0D/JN3ui2Qj1rC5AAq4FnJvoDPUSNBnTnUy4YQF1maFHlCOAYuouJFN6PkWtEo+ryrH5sL2TPVi5UFXAMrfDegxrtae3ZfWh6paFFffYCx9BKZLtQo/a0YLXIhSUo3yKlAsfQ8vSBBkALtrCjxwdqbTWBY2glst9REee0Lw/ULUEZpFuOChxD1yuRybNbUV0SlAtq9SDgGFp7ushEJlhdKuqWoAzSLYOBHeidGPkc+cIztE2wA6iuCcoFtXom4Bha4f0nGmv2FqyOnoaFscFG9rsfQusYq0T2G8qayASrbdEdOlfR/TJ72AzAaHla5/QD9BnVCucvfK/fjZXtx8WzZneu/+WBf53XOb0G6XetHjQXyfv2vKLyH7qLLqMhJn5DOW5PLmBZDfRUilloGUoD/ovvXgIrT4/rkxt4XK0fw+TtYxhT6iEt4FK7L8D4locDFqnUXSadh78Bx5bEl2CLG+8AAAAASUVORK5CYII=);
+    background-color:#aaa;
+    background-image:none;
+}
+.simpleList .x-item-selected .x-list-disclosure {
+    background-color:#00ae9d;
+    background-image:none;
+}
+
+/*这是是修改List列表 某行被选中时的样式  */
+.x-list .x-list-item.x-item-selected .x-dock-horizontal {
+    background:#afb4db;
+}
+@font-face {
+	font-family: 'mini';
+	src: url('../fonts/mini.ttf');
+	src: url('../fonts/mini.ttf')
+		format('truetype');
+} 
+ 
+.loadMoreText {
+	text-align: center;
+    color: rgb(100, 100, 100);
+    clear: both;
+    font-size: 14px;
+    border-radius: 50%;
+    font-weight: normal;
+    /* text-shadow: 1px 1px 5px #990f99; */
+}
+.noMoreRecordsText {
+	text-align: center;
+	color: rgb(34, 11, 11);
+	clear: both;
+	border-radius: 50%;
+	font-weight: bold;
+	opacity: .5;
+}
+.addressBookList,.addressBookDetail{
+	width: 100%;
+	color: rgb(60, 7, 51);
+	font-weight: bold;
+}
+.x-dock.x-dock-vertical {
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+	font-family: mini;
+}
+
+.x-innerhtml {
+width: 100%;
+font-size: 14px;
+font-family: 微软雅黑;
+font-family: "Microsoft YaHei";
+}
+.newsComtent {
+	color: #84331f;
+	border:2px solid #DDEDFC;
+	border-radius:20%;
+	background-color: #DDEDFC;
+	background-image: url(../images/news_coment.png) no-repeat;
+	width: 50px;
+	height: 30px;
+	float: right;
+}
+.newsComtentImg{
+	width: 25px;
+	height: 25px;
+}
+.tablehead{
+	font-size:13px;
+	float:left;
+	margin-top:12px;
+	color:#a7573b;
+	width:29%
+}
+.tablelist{
+	font-size:12px;
+	float:left;
+	width:29%
+}
+.tableDetail{
+	float: right;
+    font-size: 12px;
+    color: #a7573b;
+    width: 2%;
+    margin-right: 10px;
+}
+.fieldlabel{
+	font-size:16px;
+	color:#a7573b;
+}
+.fieldlabelleft{
+	font-size:16px;
+	color:#a7573b;
+	text-align:right
+}
+.vmMain{
+	background:white;
+	height:50px;
+	line-height:50px;
+}
+
+.vmMain span {
+    margin-left: 35px;
+}
+
+.tableheadtwo{
+	font-size:13px;
+	float:left;
+	margin-top:12px;
+	color:#a7573b;
+	width:45%
+}
+.tablelisttwo{
+	font-size:12px;
+	float:left;
+	width:45%;
+	margin-left: 20px;
+}
+.tablelistone{
+	font-size:12px;
+	float:left;
+	width:100%;
+}
+
+.fieldlabel{
+text-shadow: #fff 0 1px 1px;
+color: #a7573b;
+text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0;
+padding: 0.2em;
+font-size: 16px;
+/*background-color: #f7f7f7;*/
+width: 100% !important;
+}
+.fieldtext{
+padding: 0.6em;
+font-family: mini;
+font-size: 16px;
+width: 100% !important;
+}
+.listline{
+border-top: 0!important;
+border-bottom: 0!important;
+}
+.listpressedCls{
+	background-color: none;
+}
+.lisselectedCls{
+	background-image: none;
+	background-color: none;
+}
+.gestureLogin{
+      margin:8% 10% 8% 20%;
+}
+.gestureLogin span{	
+	font-size:16px;
+	color:#D9D5BA;}
+.gestureLoginname{	
+	font-size:18px;
+	text-align:center;
+	padding-top:30px;
+	color:#D9D5BA;}
+.gestureLoginerror{	
+	font-size:16px;
+	text-align:center;
+	font-size:16px;
+	color:white;}
+.badgeCls{
+	width:20px;
+	height:15px;
+	line-height: 17px;	
+	background-color:#ff0101;
+	border-radius:8px;
+	position: absolute;
+    right: -5px;
+    top: -2px;
+    color: #fff;
+    text-align: center;
+    font-size:12px;
+    font-family:arial;
+	}
+	
+	
+.vmMain{
+    height: 50px;
+    line-height: 50px;
+    border-bottom: solid 1px #eeeeee;
+    color: #333333;
+    background-size: 30px;
+    background-position: left;
+    margin-left: 15px;
+    background-repeat: no-repeat;
+}
+
+.vmMain img{
+    width: 22px;
+    height: 23px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 1px;
+}
+
+.vmMain b{
+	background: url(../images/proj_ri.png) no-repeat center;
+    background-image: url("../images/proj_ri.png");
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 100% 100%;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    width: 18px;
+    height: 100%;
+    background-size: 100%;
+    float: right;
+    /* display: block; */
+    margin-right: 5px;
+}

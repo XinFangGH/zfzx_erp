@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.MailFolder" table="mail_folder" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="folderId" column="folderId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="folderName" type="java.lang.String" update="true" insert="true" access="property" column="folderName" length="128" not-null="true" unique="false"/>  
+    <property name="parentId" type="java.lang.Long" update="true" insert="true" access="property" column="parentId" length="19" not-null="false" unique="false"/>  
+    <property name="depLevel" type="java.lang.Integer" update="true" insert="true" access="property" column="depLevel" length="10" not-null="true" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="256" not-null="false" unique="false"/>  
+    <property name="isPublic" type="java.lang.Short" update="true" insert="true" access="property" column="isPublic" length="5" not-null="true" unique="false"/>  
+    <property name="folderType" type="java.lang.Short" update="true" insert="true" access="property" column="folderType" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <!-- 用不到	一对多关系 -->  
+    <!-- exported bi-directional one-to-many association to MailBox 
+	<set name="mailBoxs"
+	     table="mail_box"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="folderId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.communicate.MailBox"
+		/>
+	</set>
+--> 
+  </class> 
+</hibernate-mapping>

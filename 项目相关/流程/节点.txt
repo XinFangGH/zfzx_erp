@@ -1,0 +1,8 @@
+10_btDueDiligence   ---  尽职调查
+20_btRiskExamine    ---  风险审核
+30_btMakeFund       ---  制定资金方案
+40_btImplementMortager-  落实.....
+50_btFundExamine    ---  放款终审
+1000_btFundQuery    ---  放款确认
+1010_btBoodsIssue   ---  发布债券
+1020_btFileCheck    --- 项目归档

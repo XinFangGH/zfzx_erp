@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!--
+		################################################################
+	-->
+
+	<!-- action配置 -->
+	<bean id="mortgageAction"
+		class="com.credit.proj.mortgage.morservice.action.MortgageAction"
+		scope="prototype">
+		<property name="mortgageService" ref="mortgageService"></property>
+	</bean>
+
+
+	<!-- service配置 -->
+
+	<bean id="mortgageService"
+		class="com.credit.proj.mortgage.morservice.service.impl.MortgageServiceImpl">
+		<property name="creditBaseDao" ref="creditBaseDao"></property>
+	</bean>
+	
+	<!-- dao配置 -->
+	<bean id="creditBaseDao" class="com.zhiwei.credit.core.commons.CreditBaseDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+
+	<!-- 其他配置 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!--
+		################################################################
+	-->
+<import resource="classpath:com/credit/proj/mortgage/vehicle/xmls/applicationContext-vehicle.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/business/xmls/applicationContext-business.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/industry/xmls/applicationContext-industry.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/businessandlive/xmls/applicationContext-businessandlive.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/company/xmls/applicationContext-company.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/droit/xmls/applicationContext-droit.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/education/xmls/applicationContext-education.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/house/xmls/applicationContext-house.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/houseground/xmls/applicationContext-houseground.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/machineinfo/xmls/applicationContext-machineinfo.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/officebuilding/xmls/applicationContext-officebuilding.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/dutyperson/xmls/applicationContext-dutyperson.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/product/xmls/applicationContext-product.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/stockownership/xmls/applicationContext-stockownership.xml" />
+	<import resource="classpath:com/credit/proj/mortgage/receivables/xmls/applicationContext-receivables.xml" />
+
+</beans>

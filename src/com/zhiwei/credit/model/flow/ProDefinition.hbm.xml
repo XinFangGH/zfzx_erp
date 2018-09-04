@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProDefinition" table="pro_definition" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="defId" column="defId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="name" type="java.lang.String" update="true" insert="true" access="property" column="name" length="256" not-null="true" unique="false"/>  
+    <property name="description" type="java.lang.String" update="true" insert="true" access="property" column="description" length="1024" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="false" unique="false"/>  
+    <property name="deployId" type="java.lang.String" update="true" insert="true" access="property" column="deployId" length="64" not-null="false" unique="false"/>  
+    <property name="defXml" type="java.lang.String" update="true" insert="true" access="property" column="defXml" length="85535" not-null="false" unique="false"/>  
+    <property name="drawDefXml" type="java.lang.String" update="true" insert="true" access="property" column="drawDefXml" length="85535" not-null="false" unique="false"/>  
+    <property name="isDefault" type="java.lang.Short" update="true" insert="true" access="property" column="isDefault" length="6" not-null="true" unique="false"/>  
+    <property name="newVersion" type="java.lang.Integer" update="true" insert="true" access="property" column="newVersion" length="12" not-null="false" unique="false"/>  
+    <property name="processName" type="java.lang.String" update="true" insert="true" access="property" column="processName" length="128" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="6" not-null="true" unique="false"/>
+    <property name="pdId" type="java.lang.String" update="true" insert="true" access="property" column="pdId" length="64" not-null="false" unique="false"/>
+    <property name="DEFKEY" type="java.lang.String" update="true" insert="true" access="property" column="DEFKEY" length="64" not-null="false" unique="false"/>
+    <property name="branchCompanyId" type="java.lang.Long" update="true" insert="true" access="property" column="branchCompanyId" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProType -->  
+    <many-to-one name="proType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

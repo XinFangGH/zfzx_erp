@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.FormDefMapping" table="form_def_mapping" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="mappingId" column="mappingId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="versionNo" type="java.lang.Integer" update="true" insert="true" access="property" column="versionNo" length="10" not-null="true" unique="false"/>  
+    <property name="deployId" type="java.lang.String" update="true" insert="true" access="property" column="deployId" length="128" not-null="true" unique="false"/>  
+    <property name="useTemplate" type="java.lang.Short" update="true" insert="true" access="property" column="useTemplate" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProDefinition -->  
+    <many-to-one name="proDefinition" class="com.zhiwei.credit.model.flow.ProDefinition" not-null="false" fetch="select"> 
+      <column name="defId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to FormDef -->  
+    <many-to-one name="formDef" class="com.zhiwei.credit.model.flow.FormDef" not-null="false" fetch="select"> 
+      <column name="formDefId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to FieldRights -->  
+    <set name="fieldRightss" table="field_rights" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="mappingId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.flow.FieldRights"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<!--会员等级设置hbm-->
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.bonusSystem.gradeSet.MemberGradeSet"
+        table="web_bonus_custLevel_setting"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="levelId"
+            column="levelId"
+            type="java.lang.Long"
+            length="20"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="levelName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="levelName"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="levelMark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="levelMark"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="levelImageUrl"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="levelImageUrl"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="levelMinBonus"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="levelMinBonus"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+    </class>
+</hibernate-mapping>
+

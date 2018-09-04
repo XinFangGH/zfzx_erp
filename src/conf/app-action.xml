@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">    
+	
+	<!-- 宇展盈讯短信接口  svn:songwj -->
+	<bean id="yZYXMessageStrategyService" class="com.zhiwei.credit.service.sms.impl.YZHTMessageStrategyImpl"/>
+	
+	<!--商讯通短信接口  svn:songwj -->
+	<bean id="sXTMessageService" class="com.zhiwei.credit.service.sms.impl.SXTMessageServiceImpl"/>
+	
+	<!--华兴软通短信接口  svn:songwj -->
+	<bean id="hXSmsManagerService" class="com.zhiwei.credit.service.sms.impl.HXSmsManagerServerImpl"/>
+	<!-- 一信通短信接口  svn:songwj -->
+	<bean id="yXTessageService" class="com.zhiwei.credit.service.sms.impl.YXTessageServiceImpl"/>
+	
+	  
+	<!-- 为缺省的Action处理 -->
+	<bean id="BaseAction" class="com.zhiwei.core.web.action.BaseAction"/>
+
+
+	<bean id="LoginAction" class="com.zhiwei.credit.action.system.LoginAction" scope="prototype"/>
+	<bean id="AppUserAction" class="com.zhiwei.credit.action.system.AppUserAction" scope="prototype"/>
+	<bean id="CompanyAction" class="com.zhiwei.credit.action.system.CompanyAction" scope="prototype"/>
+	<bean id="DepartmentAction" class="com.zhiwei.credit.action.system.DepartmentAction" scope="prototype"/>
+	<bean id="ShortMessageAction" class="com.zhiwei.credit.action.info.ShortMessageAction" scope="prototype"/>
+	<bean id="InMessageAction" class="com.zhiwei.credit.action.info.InMessageAction" scope="prototype"/>  
+	<bean id="AppRoleAction" class="com.zhiwei.credit.action.system.AppRoleAction" scope="prototype"/>
+	<!-- start:  Generated for FileAttach From Template: app-action.xml.beansvm  -->
+	<bean id="FileAttachAction" class="com.zhiwei.credit.action.system.FileAttachAction" scope="prototype"/>
+	<bean id="FileDetailAction" class="com.zhiwei.credit.action.document.FileDetailAction" scope="prototype"/>
+	<!-- end:  Generated for FileAttach From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Diary From Template: app-action.xml.beansvm  -->
+	<bean id="DiaryAction" class="com.zhiwei.credit.action.system.DiaryAction" scope="prototype"/>
+	<!-- end:  Generated for Diary From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ReportTemplate From Template: app-action.xml.beansvm  -->
+	<bean id="ReportTemplateAction" class="com.zhiwei.credit.action.system.ReportTemplateAction" scope="prototype"/>
+	<!-- end:  Generated for ReportTemplate From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DocFolder From Template: app-action.xml.beansvm  -->
+	<bean id="DocFolderAction" class="com.zhiwei.credit.action.document.DocFolderAction" scope="prototype"/>
+	<!-- end:  Generated for DocFolder From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Document From Template: app-action.xml.beansvm  -->
+	<bean id="DocumentAction" class="com.zhiwei.credit.action.document.DocumentAction" scope="prototype"/>
+	<!-- end:  Generated for Document From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for News From Template: app-action.xml.beansvm  -->
+	<bean id="NewsAction" class="com.zhiwei.credit.action.info.NewsAction" scope="prototype"/>
+	<!-- end:  Generated for News From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for MailFolder From Template: app-action.xml.beansvm  -->
+	<bean id="MailFolderAction" class="com.zhiwei.credit.action.communicate.MailFolderAction" scope="prototype"/>
+	<!-- end:  Generated for MailFolder From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Mail From Template: app-action.xml.beansvm  -->
+	<bean id="MailAction" class="com.zhiwei.credit.action.communicate.MailAction" scope="prototype"/>
+	<!-- end:  Generated for Mail From Template: app-action.xml.beansvm  -->
+
+	<!-- start:  Generated for PhoneBook From Template: app-action.xml.beansvm  -->
+	<bean id="PhoneBookAction" class="com.zhiwei.credit.action.communicate.PhoneBookAction" scope="prototype"/>
+	<!-- end:  Generated for PhoneBook From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for PhoneGroup From Template: app-action.xml.beansvm  -->
+	<bean id="PhoneGroupAction" class="com.zhiwei.credit.action.communicate.PhoneGroupAction" scope="prototype"/>
+	<!-- end:  Generated for PhoneGroup From Template: app-action.xml.beansvm  -->
+	<!-- start: Generated for Diary From Template: app-action.xml.beansvm -->
+	<bean id="OutMailSetAction" class="com.zhiwei.credit.action.system.OutMailSetAction"
+		scope="prototype" />
+	<!-- end: Generated for Diary From Template: app-action.xml.beansvm -->
+	<!-- start:  Generated for ProDefinition From Template: app-action.xml.beansvm  -->
+	<bean id="ProDefinitionAction" class="com.zhiwei.credit.action.flow.ProDefinitionAction" scope="prototype"/>
+	<bean id="ProcessDetailAction" class="com.zhiwei.credit.action.flow.ProcessDetailAction" scope="prototype"/>
+	<!-- end:  Generated for ProDefinition From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ProUserAssign From Template: app-action.xml.beansvm  -->
+	<bean id="ProUserAssignAction" class="com.zhiwei.credit.action.flow.ProUserAssignAction" scope="prototype"/>
+	<!-- end:  Generated for ProUserAssign From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ProcessRun From Template: app-action.xml.beansvm  -->
+	<bean id="ProcessRunAction" class="com.zhiwei.credit.action.flow.ProcessRunAction" scope="prototype"/>
+	<!-- end:  Generated for ProcessRun From Template: app-action.xml.beansvm  -->
+
+	<!-- start:  Generated for ProcessForm From Template: app-action.xml.beansvm  -->
+	<bean id="ProcessFormAction" class="com.zhiwei.credit.action.flow.ProcessFormAction" scope="prototype"/>
+ 
+	<bean id="ProcessActivityAction" class="com.zhiwei.credit.action.flow.ProcessActivityAction" scope="prototype"/>
+ 
+	<bean id="TaskAction" class="com.zhiwei.credit.action.flow.TaskAction" scope="prototype"/>
+ 
+	<bean id="ProcessRunDetailAction" class="com.zhiwei.credit.action.flow.ProcessRunDetailAction" scope="prototype"/>
+ 
+	<!-- end:  Generated for ProcessForm From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DocPrivilege From Template: app-action.xml.beansvm  -->
+	<bean id="DocPrivilegeAction" class="com.zhiwei.credit.action.document.DocPrivilegeAction" scope="prototype"/>
+	<!-- end:  Generated for DocPrivilege From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for OfficeGoodsType From Template: app-action.xml.beansvm  -->
+	<bean id="OfficeGoodsTypeAction" class="com.zhiwei.credit.action.admin.OfficeGoodsTypeAction" scope="prototype"/>
+	<!-- end:  Generated for OfficeGoodsType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for OfficeGoods From Template: app-action.xml.beansvm  -->
+	<bean id="OfficeGoodsAction" class="com.zhiwei.credit.action.admin.OfficeGoodsAction" scope="prototype"/>
+	<!-- end:  Generated for OfficeGoods From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for GoodsApply From Template: app-action.xml.beansvm  -->
+	<bean id="GoodsApplyAction" class="com.zhiwei.credit.action.admin.GoodsApplyAction" scope="prototype"/>
+	<!-- end:  Generated for GoodsApply From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for InStock From Template: app-action.xml.beansvm  -->
+	<bean id="InStockAction" class="com.zhiwei.credit.action.admin.InStockAction" scope="prototype"/>
+	<!-- end:  Generated for InStock From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Book From Template: app-action.xml.beansvm  -->
+	<bean id="BookAction" class="com.zhiwei.credit.action.admin.BookAction" scope="prototype"/>
+	<!-- end:  Generated for Book From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for BookBorRet From Template: app-action.xml.beansvm  -->
+	<bean id="BookBorRetAction" class="com.zhiwei.credit.action.admin.BookBorRetAction" scope="prototype"/>
+	<!-- end:  Generated for BookBorRet From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for BookSn From Template: app-action.xml.beansvm  -->
+	<bean id="BookSnAction" class="com.zhiwei.credit.action.admin.BookSnAction" scope="prototype"/>
+	<!-- end:  Generated for BookSn From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for BookType From Template: app-action.xml.beansvm  -->
+	<bean id="BookTypeAction" class="com.zhiwei.credit.action.admin.BookTypeAction" scope="prototype"/>
+	<!-- end:  Generated for BookType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Region From Template: app-action.xml.beansvm  -->
+	<bean id="RegionAction" class="com.zhiwei.credit.action.system.RegionAction" scope="prototype"/>
+	<!-- end:  Generated for Region From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Customer From Template: app-action.xml.beansvm  -->
+	<bean id="CustomerAction" class="com.zhiwei.credit.action.customer.CustomerAction" scope="prototype"/>
+	<!-- end:  Generated for Customer From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CusLinkman From Template: app-action.xml.beansvm  -->
+	<bean id="CusLinkmanAction" class="com.zhiwei.credit.action.customer.CusLinkmanAction" scope="prototype"/>
+	<!-- end:  Generated for CusLinkman From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Car From Template: app-action.xml.beansvm  -->
+	<bean id="CarAction" class="com.zhiwei.credit.action.admin.CarAction" scope="prototype"/>
+	<!-- end:  Generated for Car From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CartRepair From Template: app-action.xml.beansvm  -->
+	<bean id="CartRepairAction" class="com.zhiwei.credit.action.admin.CartRepairAction" scope="prototype"/>
+	<!-- end:  Generated for CartRepair From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CarApply From Template: app-action.xml.beansvm  -->
+	<bean id="CarApplyAction" class="com.zhiwei.credit.action.admin.CarApplyAction" scope="prototype"/>
+	<!-- end:  Generated for CarApply From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Appointment From Template: app-action.xml.beansvm  -->
+	<bean id="AppointmentAction" class="com.zhiwei.credit.action.task.AppointmentAction" scope="prototype"/>
+	<!-- end:  Generated for Appointment From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CalendarPlan From Template: app-action.xml.beansvm  -->
+	<bean id="CalendarPlanAction" class="com.zhiwei.credit.action.task.CalendarPlanAction" scope="prototype"/>
+	<!-- end:  Generated for CalendarPlan From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DepreType From Template: app-action.xml.beansvm  -->
+	<bean id="DepreTypeAction" class="com.zhiwei.credit.action.admin.DepreTypeAction" scope="prototype"/>
+	<!-- end:  Generated for DepreType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for AssetsType From Template: app-action.xml.beansvm  -->
+	<bean id="AssetsTypeAction" class="com.zhiwei.credit.action.admin.AssetsTypeAction" scope="prototype"/>
+	<!-- end:  Generated for AssetsType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FixedAssets From Template: app-action.xml.beansvm  -->
+	<bean id="FixedAssetsAction" class="com.zhiwei.credit.action.admin.FixedAssetsAction" scope="prototype"/>
+	<!-- end:  Generated for FixedAssets From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DepreRecord From Template: app-action.xml.beansvm  -->
+	<bean id="DepreRecordAction" class="com.zhiwei.credit.action.admin.DepreRecordAction" scope="prototype"/>
+	<!-- end:  Generated for DepreRecord From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CusConnection From Template: app-action.xml.beansvm  -->
+	<bean id="CusConnectionAction" class="com.zhiwei.credit.action.customer.CusConnectionAction" scope="prototype"/>
+	<!-- end:  Generated for CusConnection From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Project From Template: app-action.xml.beansvm  -->
+	<bean id="ProjectAction" class="com.zhiwei.credit.action.customer.ProjectAction" scope="prototype"/>
+	<!-- end:  Generated for Project From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Contract From Template: app-action.xml.beansvm  -->
+	<bean id="ContractAction" class="com.zhiwei.credit.action.customer.ContractAction" scope="prototype"/>
+	<!-- end:  Generated for Contract From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ContractConfig From Template: app-action.xml.beansvm  -->
+	<bean id="ContractConfigAction" class="com.zhiwei.credit.action.customer.ContractConfigAction" scope="prototype"/>
+	<!-- end:  Generated for ContractConfig From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for PlanType From Template: app-action.xml.beansvm  -->
+	<bean id="PlanTypeAction" class="com.zhiwei.credit.action.task.PlanTypeAction" scope="prototype"/>
+	<!-- end:  Generated for PlanType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for WorkPlan From Template: app-action.xml.beansvm  -->
+	<bean id="WorkPlanAction" class="com.zhiwei.credit.action.task.WorkPlanAction" scope="prototype"/>
+	<!-- end:  Generated for WorkPlan From Template: app-action.xml.beansvm  -->
+
+	<bean id="MenuAction" class="com.zhiwei.credit.action.menu.MenuAction" scope="prototype"/>
+	<!-- start:  Generated for AppFunction From Template: app-action.xml.beansvm  -->
+	<bean id="AppFunctionAction" class="com.zhiwei.credit.action.system.AppFunctionAction" scope="prototype"/>
+	<!-- end:  Generated for AppFunction From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FunUrl From Template: app-action.xml.beansvm  -->
+	<bean id="FunUrlAction" class="com.zhiwei.credit.action.system.FunUrlAction" scope="prototype"/>
+	<!-- end:  Generated for FunUrl From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for HolidayRecord From Template: app-action.xml.beansvm  -->
+	<bean id="HolidayRecordAction" class="com.zhiwei.credit.action.personal.HolidayRecordAction" scope="prototype"/>
+	<!-- end:  Generated for HolidayRecord From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DutySection From Template: app-action.xml.beansvm  -->
+	<bean id="DutySectionAction" class="com.zhiwei.credit.action.personal.DutySectionAction" scope="prototype"/>
+	<!-- end:  Generated for DutySection From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DutySystem From Template: app-action.xml.beansvm  -->
+	<bean id="DutySystemAction" class="com.zhiwei.credit.action.personal.DutySystemAction" scope="prototype"/>
+	<!-- end:  Generated for DutySystem From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Duty From Template: app-action.xml.beansvm  -->
+	<bean id="DutyAction" class="com.zhiwei.credit.action.personal.DutyAction" scope="prototype"/>
+	<!-- end:  Generated for Duty From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DutyRegister From Template: app-action.xml.beansvm  -->
+	<bean id="DutyRegisterAction" class="com.zhiwei.credit.action.personal.DutyRegisterAction" scope="prototype"/>
+	<!-- end:  Generated for DutyRegister From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ErrandsRegister From Template: app-action.xml.beansvm  -->
+	<bean id="ErrandsRegisterAction" class="com.zhiwei.credit.action.personal.ErrandsRegisterAction" scope="prototype"/>
+	<!-- end:  Generated for ErrandsRegister From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Provider From Template: app-action.xml.beansvm  -->
+	<bean id="ProviderAction" class="com.zhiwei.credit.action.customer.ProviderAction" scope="prototype"/>
+	<!-- end:  Generated for Provider From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Product From Template: app-action.xml.beansvm  -->
+	<bean id="ProductAction" class="com.zhiwei.credit.action.customer.ProductAction" scope="prototype"/>
+	<!-- end:  Generated for Product From Template: app-action.xml.beansvm  -->
+	<bean id="MutilMailAction" class="com.zhiwei.credit.action.customer.MutilMailAction" scope="prototype"/>
+	<!-- start:  Generated for SysConfig From Template: app-action.xml.beansvm  -->
+	<bean id="SysConfigAction" class="com.zhiwei.credit.action.system.SysConfigAction" scope="prototype"/>
+	<!-- end:  Generated for SysConfig From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for NewsComment From Template: app-action.xml.beansvm  -->
+	<bean id="NewsCommentAction" class="com.zhiwei.credit.action.info.NewsCommentAction" scope="prototype"/>
+	<!-- end:  Generated for NewsComment From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ReportParam From Template: app-action.xml.beansvm  -->
+	<bean id="ReportParamAction" class="com.zhiwei.credit.action.system.ReportParamAction" scope="prototype"/>
+	<!-- end:  Generated for ReportParam From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Dictionary From Template: app-action.xml.beansvm  -->
+	<bean id="DictionaryAction" class="com.zhiwei.credit.action.system.DictionaryAction" scope="prototype"/>
+	<!-- end:  Generated for Dictionary From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for StandSalary From Template: app-action.xml.beansvm  -->
+	<bean id="StandSalaryAction" class="com.zhiwei.credit.action.hrm.StandSalaryAction" scope="prototype"/>
+	<!-- end:  Generated for StandSalary From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SalaryItem From Template: app-action.xml.beansvm  -->
+	<bean id="SalaryItemAction" class="com.zhiwei.credit.action.hrm.SalaryItemAction" scope="prototype"/>
+	<!-- end:  Generated for SalaryItem From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for StandSalaryItem From Template: app-action.xml.beansvm  -->
+	<bean id="StandSalaryItemAction" class="com.zhiwei.credit.action.hrm.StandSalaryItemAction" scope="prototype"/>
+	<!-- end:  Generated for StandSalaryItem From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for HireIssue From Template: app-action.xml.beansvm  -->
+	<bean id="HireIssueAction" class="com.zhiwei.credit.action.hrm.HireIssueAction" scope="prototype"/>
+	<!-- end:  Generated for HireIssue From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Resume From Template: app-action.xml.beansvm  -->
+	<bean id="ResumeAction" class="com.zhiwei.credit.action.hrm.ResumeAction" scope="prototype"/>
+	<!-- end:  Generated for Resume From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for JobChange From Template: app-action.xml.beansvm  -->
+	<bean id="JobChangeAction" class="com.zhiwei.credit.action.hrm.JobChangeAction" scope="prototype"/>
+	<!-- end:  Generated for JobChange From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for EmpProfile From Template: app-action.xml.beansvm  -->
+	<bean id="EmpProfileAction" class="com.zhiwei.credit.action.hrm.EmpProfileAction" scope="prototype"/>
+	<!-- end:  Generated for EmpProfile From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Job From Template: app-action.xml.beansvm  -->
+	<bean id="JobAction" class="com.zhiwei.credit.action.hrm.JobAction" scope="prototype"/>
+	<!-- end:  Generated for Job From Template: app-action.xml.beansvm  -->
+	<!-- end:  Generated for DocHistory From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SalaryPayoff From Template: app-action.xml.beansvm  -->
+	<bean id="SalaryPayoffAction" class="com.zhiwei.credit.action.hrm.SalaryPayoffAction" scope="prototype"/>
+	<!-- end:  Generated for SalaryPayoff From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FormDef From Template: app-action.xml.beansvm  -->
+	<bean id="FormDefAction" class="com.zhiwei.credit.action.flow.FormDefAction" scope="prototype"/>
+	<!-- end:  Generated for FormDef From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for IndexDisplay From Template: app-action.xml.beansvm  -->
+	<bean id="IndexDisplayAction" class="com.zhiwei.credit.action.system.IndexDisplayAction" scope="prototype"/>
+	<!-- end:  Generated for IndexDisplay From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SystemLog From Template: app-action.xml.beansvm  -->
+	<bean id="SystemLogAction" class="com.zhiwei.credit.action.system.SystemLogAction" scope="prototype"/>
+	<!-- end:  Generated for SystemLog From Template: app-action.xml.beansvm  -->
+	<bean id="AppTipsAction" class="com.zhiwei.credit.action.info.AppTipsAction" scope="prototype"/>
+	<!--Login in action-->
+	<bean id="SignInAction" class="com.zhiwei.credit.action.mobile.SignInAction" scope="prototype"/>
+  
+	<bean id="IndexPageAction" class="com.zhiwei.credit.action.mobile.IndexPageAction" scope="prototype"/>
+  
+	<bean id="MobileTaskAction" class="com.zhiwei.credit.action.mobile.flow.MobileTaskAction" scope="prototype"/>
+  
+	<bean id="MobileProDefAction" class="com.zhiwei.credit.action.mobile.flow.MobileProDefAction" scope="prototype"/>
+  
+	<!-- start:  Generated for OutMailUserSeting From Template: app-action.xml.beansvm  -->
+	<bean id="OutMailUserSetingAction" class="com.zhiwei.credit.action.communicate.OutMailUserSetingAction" scope="prototype"/>
+	<!-- end:  Generated for OutMailUserSeting From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for OutMail From Template: app-action.xml.beansvm  -->
+	<bean id="OutMailAction" class="com.zhiwei.credit.action.communicate.OutMailAction" scope="prototype"/>
+	<!-- end:  Generated for OutMail From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for OutMailFolder From Template: app-action.xml.beansvm  -->
+	<bean id="OutMailFolderAction" class="com.zhiwei.credit.action.communicate.OutMailFolderAction" scope="prototype"/>
+	<!-- end:  Generated for OutMailFolder From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SmsMobile From Template: app-action.xml.beansvm  -->
+	<bean id="SmsMobileAction" class="com.zhiwei.credit.action.communicate.SmsMobileAction" scope="prototype"/>
+	<!-- end:  Generated for SmsMobile From Template: app-action.xml.beansvm  -->
+	
+	<!-- start:  Generated for GlobalType From Template: app-action.xml.beansvm  -->
+	<bean id="GlobalTypeAction" class="com.zhiwei.credit.action.system.GlobalTypeAction" scope="prototype"/>
+	<!-- end:  Generated for GlobalType From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for TypeKey From Template: app-action.xml.beansvm  -->
+	<bean id="TypeKeyAction" class="com.zhiwei.credit.action.system.TypeKeyAction" scope="prototype"/>
+	<!-- end:  Generated for TypeKey From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SuggestBox From Template: app-action.xml.beansvm  -->
+	<bean id="SuggestBoxAction" class="com.zhiwei.credit.action.info.SuggestBoxAction" scope="prototype"/>
+	<!-- end:  Generated for SuggestBox From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Regulation From Template: app-action.xml.beansvm  -->
+	<bean id="RegulationAction" class="com.zhiwei.credit.action.admin.RegulationAction" scope="prototype"/>
+	<!-- end:  Generated for Regulation From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for PaintTemplate From Template: app-action.xml.beansvm  -->
+	<bean id="PaintTemplateAction" class="com.zhiwei.credit.action.document.PaintTemplateAction" scope="prototype"/>
+	<!-- end:  Generated for PaintTemplate From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Seal From Template: app-action.xml.beansvm  -->
+	<bean id="SealAction" class="com.zhiwei.credit.action.document.SealAction" scope="prototype"/>
+	<!-- end:  Generated for Seal From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Section From Template: app-action.xml.beansvm  -->
+	<bean id="SectionAction" class="com.zhiwei.credit.action.info.SectionAction" scope="prototype"/>
+	<!-- end:  Generated for Section From Template: app-action.xml.beansvm  -->
+	<bean id="FileAttachDetailAction" class="com.zhiwei.credit.action.system.FileAttachDetailAction" scope="prototype"/>
+	<!-- start:  Generated for FormTable From Template: app-action.xml.beansvm  -->
+	<bean id="FormTableAction" class="com.zhiwei.credit.action.flow.FormTableAction" scope="prototype"/>
+	<!-- end:  Generated for FormTable From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FormField From Template: app-action.xml.beansvm  -->
+	<bean id="FormFieldAction" class="com.zhiwei.credit.action.flow.FormFieldAction" scope="prototype"/>
+	<!-- end:  Generated for FormField From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ProDefRights From Template: app-action.xml.beansvm  -->
+	<bean id="ProDefRightsAction" class="com.zhiwei.credit.action.flow.ProDefRightsAction" scope="prototype"/>
+	<!-- end:  Generated for ProDefRights From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for RelativeJob From Template: app-action.xml.beansvm  -->
+	<bean id="RelativeJobAction" class="com.zhiwei.credit.action.system.RelativeJobAction" scope="prototype"/>
+	<!-- end:  Generated for RelativeJob From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for RelativeUser From Template: app-action.xml.beansvm  -->
+	<bean id="RelativeUserAction" class="com.zhiwei.credit.action.system.RelativeUserAction" scope="prototype"/>
+	<!-- end:  Generated for RelativeUser From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FormDefMapping From Template: app-action.xml.beansvm  -->
+	<bean id="FormDefMappingAction" class="com.zhiwei.credit.action.flow.FormDefMappingAction" scope="prototype"/>
+	<!-- end:  Generated for FormDefMapping From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for FieldRights From Template: app-action.xml.beansvm  -->
+	<bean id="FieldRightsAction" class="com.zhiwei.credit.action.flow.FieldRightsAction" scope="prototype"/>
+	<!-- end:  Generated for FieldRights From Template: app-action.xml.beansvm  -->
+	<bean id="FlowFormQueryAction" class="com.zhiwei.credit.action.flow.FlowFormQueryAction" scope="prototype"/>
+	<!-- start:  Generated for TaskSign From Template: app-action.xml.beansvm  -->
+	<bean id="TaskSignAction" class="com.zhiwei.credit.action.flow.TaskSignAction" scope="prototype"/>
+	<!-- end:  Generated for TaskSign From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for UserJob From Template: app-action.xml.beansvm  -->
+	<bean id="JforumAction" class="com.zhiwei.credit.action.info.JforumAction" scope="prototype"/>
+	<!-- end:  Generated for UserJob From Template: app-action.xml.beansvm  -->
+	<bean id="IconAction" class="com.zhiwei.credit.action.menu.IconAction" scope="prototype"/>
+	
+	<bean id="FormTemplateAction" class="com.zhiwei.credit.action.flow.FormTemplateAction" scope="prototype"/>
+	
+	<!-- start:  Generated for ArchFond From Template: app-action.xml.beansvm  -->
+	<bean id="ArchFondAction" class="com.zhiwei.credit.action.arch.ArchFondAction" scope="prototype"/>
+	<!-- end:  Generated for ArchFond From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchRoll From Template: app-action.xml.beansvm  -->
+	<bean id="ArchRollAction" class="com.zhiwei.credit.action.arch.ArchRollAction" scope="prototype"/>
+	<!-- end:  Generated for ArchRoll From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for RollFile From Template: app-action.xml.beansvm  -->
+	<bean id="RollFileAction" class="com.zhiwei.credit.action.arch.RollFileAction" scope="prototype"/>
+	<!-- end:  Generated for RollFile From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for RollFileList From Template: app-action.xml.beansvm  -->
+	<bean id="RollFileListAction" class="com.zhiwei.credit.action.arch.RollFileListAction" scope="prototype"/>
+	<!-- end:  Generated for RollFileList From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for BorrowFileList From Template: app-action.xml.beansvm  -->
+	<bean id="BorrowFileListAction" class="com.zhiwei.credit.action.arch.BorrowFileListAction" scope="prototype"/>
+	<!-- end:  Generated for BorrowFileList From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for BorrowRecord From Template: app-action.xml.beansvm  -->
+	<bean id="BorrowRecordAction" class="com.zhiwei.credit.action.arch.BorrowRecordAction" scope="prototype"/>
+	<!-- end:  Generated for BorrowRecord From Template: app-action.xml.beansvm -->
+	<bean id="ArchTypeAction" class="com.zhiwei.credit.action.arch.ArchTypeAction" scope="prototype"/>
+	<bean id="ArchReportAction" class="com.zhiwei.credit.action.arch.ArchReportAction" scope="prototype"/>
+
+
+
+	<!-- 新增 行政管理-会议类型设置 -->
+	<bean id="BoardTypeAction" class="com.zhiwei.credit.action.admin.BoardTypeAction"
+		scope="prototype"></bean>
+	<!--start: Generated for Conference From Template: app-action.xml.beansvm-->
+	<bean id="ConferenceAction" class="com.zhiwei.credit.action.admin.ConferenceAction"
+		scope="prototype" />
+	<!--
+			end: Generated for Conference From Template: app-action.xml.beansvm
+	-->
+	<!--
+		start: Generated for ConfAttend From Template: app-action.xml.beansvm
+	-->
+	<bean id="ConfAttendAction" class="com.zhiwei.credit.action.admin.ConfAttendAction"
+		scope="prototype" />
+	<!--
+			end: Generated for ConfAttend From Template: app-action.xml.beansvm
+		-->
+	<!--
+			start: Generated for ConfSummary From Template: app-action.xml.beansvm
+		-->
+	<bean id="ConfSummaryAction" class="com.zhiwei.credit.action.admin.ConfSummaryAction"
+		scope="prototype" />
+	<!--
+			end: Generated for ConfSummary From Template: app-action.xml.beansvm
+	-->
+	<bean id="ConfPrivilegeAction" class="com.zhiwei.credit.action.admin.ConfPrivilegeAction" scope="prototype"/>
+	<bean id="ConferenceDetailAction" class="com.zhiwei.credit.action.admin.ConferenceDetailAction" scope="prototype"/>
+	<bean id="ConfSummaryDetailAction" class="com.zhiwei.credit.action.admin.ConfSummaryDetailAction" scope="prototype"/>
+	<bean id="BoardRooAction" class="com.zhiwei.credit.action.admin.BoardRooAction" scope="prototype"/>
+	<bean id="BpmXMLAction" class="com.zhiwei.credit.action.bpm.BpmXMLAction" scope="prototype"/>
+	<!-- 公文模块action -->
+	<!-- start:  Generated for ArchTemplate From Template: app-action.xml.beansvm  -->
+	<bean id="ArchTemplateAction" class="com.zhiwei.credit.action.archive.ArchTemplateAction" scope="prototype"/>
+	<!-- end:  Generated for ArchTemplate From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchivesDep From Template: app-action.xml.beansvm  -->
+	<bean id="ArchivesDepAction" class="com.zhiwei.credit.action.archive.ArchivesDepAction" scope="prototype"/>
+	<!-- end:  Generated for ArchivesDep From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchivesDoc From Template: app-action.xml.beansvm  -->
+	<bean id="ArchivesDocAction" class="com.zhiwei.credit.action.archive.ArchivesDocAction" scope="prototype"/>
+	<!-- end:  Generated for ArchivesDoc From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for DocHistory From Template: app-action.xml.beansvm  -->
+	<bean id="DocHistoryAction" class="com.zhiwei.credit.action.archive.DocHistoryAction" scope="prototype"/>
+	<!-- end:  Generated for DocHistory From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Archives From Template: app-action.xml.beansvm  -->
+	<bean id="ArchivesAction" class="com.zhiwei.credit.action.archive.ArchivesAction" scope="prototype"/>
+	<!-- end:  Generated for Archives From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchDispatch From Template: app-action.xml.beansvm  -->
+	<bean id="ArchDispatchAction" class="com.zhiwei.credit.action.archive.ArchDispatchAction" scope="prototype"/>
+	<!-- end:  Generated for ArchDispatch From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchHasten From Template: app-action.xml.beansvm  -->
+	<bean id="ArchHastenAction" class="com.zhiwei.credit.action.archive.ArchHastenAction" scope="prototype"/>
+	<!-- end:  Generated for ArchHasten From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for ArchFlowConf From Template: app-action.xml.beansvm  -->
+	<bean id="ArchFlowConfAction" class="com.zhiwei.credit.action.archive.ArchFlowConfAction" scope="prototype"/>
+	<!-- end:  Generated for ArchFlowConf From Template: app-action.xml.beansvm  -->
+
+
+	<!-- start:  Generated for ProcessModule From Template: app-action.xml.beansvm  -->
+	<bean id="ProcessModuleAction" class="com.zhiwei.credit.action.flow.ProcessModuleAction" scope="prototype"/>
+	<!-- end:  Generated for ProcessModule From Template: app-action.xml.beansvm  -->
+	<bean id="BpmDesignAction" class = "com.zhiwei.credit.action.bpm.BpmDesignAction" scope="prototype" />
+	<!-- start:  Generated for ProHandleComp From Template: app-action.xml.beansvm  -->
+	<bean id="ProHandleCompAction" class="com.zhiwei.credit.action.flow.ProHandleCompAction" scope="prototype"/>
+	<!-- end:  Generated for ProHandleComp From Template: app-action.xml.beansvm  -->
+	<bean id="FlexPaperAction" class="com.zhiwei.credit.action.iText.FlexPaperAction" scope="prototype"/>
+	
+	<!-- start:  Generated for Demension From Template: app-action.xml.beansvm  -->
+	<bean id="DemensionAction" class="com.zhiwei.credit.action.system.DemensionAction" scope="prototype"/>
+	<!-- end:  Generated for Demension From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Organization From Template: app-action.xml.beansvm  -->
+	<bean id="OrganizationAction" class="com.zhiwei.credit.action.system.OrganizationAction" scope="prototype"/>
+	<!-- end:  Generated for Organization From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for UserOrg From Template: app-action.xml.beansvm  -->
+	<bean id="UserOrgAction" class="com.zhiwei.credit.action.system.UserOrgAction" scope="prototype"/>
+	<!-- end:  Generated for UserOrg From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for Position From Template: app-action.xml.beansvm  -->
+	<bean id="PositionAction" class="com.zhiwei.credit.action.system.PositionAction" scope="prototype"/>
+	<!-- end:  Generated for Position From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for UserPosition From Template: app-action.xml.beansvm  -->
+	<bean id="UserPositionAction" class="com.zhiwei.credit.action.system.UserPositionAction" scope="prototype"/>
+	<!-- end:  Generated for UserPosition From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SlBankAccount From Template: app-action.xml.beansvm  -->
+ 	<bean id="SlBankAccountAction" class="com.zhiwei.credit.action.creditFlow.finance.SlBankAccountAction" scope="prototype"/>
+	<!-- end:  Generated for SlBankAccount From Template: app-action.xml.beansvm  -->
+	<!-- 企业客户管理 add by chencc -->
+	<!--<import resource="classpath:com/credit/proj/customer/enterprise/xmls/applicationContext-customer.xml" />
+	--><!-- 个人客户管理 add by chencc -->
+	<!--<import resource="classpath:com/credit/proj/customer/person/xmls/application-person.xml" />
+	--><!--<import resource="classpath:com/credit/proj/customer/person/relation/xml/application-relationPersonMessage.xml" />
+	--><!-- start:  Generated for SlProcreditAssuretenet From Template: app-action.xml.beansvm 已移包  -->
+ 	<bean id="SlProcreditAssuretenetAction" class="com.zhiwei.credit.action.creditFlow.assuretenet.SlProcreditAssuretenetAction" scope="prototype"/>
+	<!-- end:  Generated for SlProcreditAssuretenet From Template: app-action.xml.beansvm  -->
+	
+	<!-- start:  Generated for SlProcreditMaterials From Template: app-action.xml.beansvm  -->
+ 	<bean id="SlProcreditMaterialsAction" class="com.zhiwei.credit.action.creditFlow.materials.SlProcreditMaterialsAction" scope="prototype"/>
+ 	<bean id="GlobalGuaranteeMaterialsDetailAction" class="com.zhiwei.credit.action.creditFlow.materials.GlobalGuaranteeMaterialsDetailAction" scope="prototype"/>
+	<!-- end:  Generated for SlProcreditMaterials From Template: app-action.xml.beansvm  -->
+	<!-- 企业客户-业务经营情况 add by chencc 
+	
+	<import resource="classpath:com/credit/proj/workflow/guarantee/enterprise/nodework/xmls/spring-businessinfo.xml" />
+	-->
+	
+	<!-- 模板文档 chencc -->
+	<!--<import resource="classpath:com/credit/publicmodel/document/xmls/spring-document.xml"/>
+	--><!-- 文件上传 chencc -->
+	<!--<import resource="classpath:com/credit/publicmodel/uploads/xmls/spring-uploads.xml"/>
+	--><!-- start:  Generated for SlCompanyMain From Template: app-action.xml.beansvm  -->
+ 	<bean id="SlCompanyMainAction" class="com.zhiwei.credit.action.creditFlow.ourmain.SlCompanyMainAction" scope="prototype"/>
+	<!-- end:  Generated for SlCompanyMain From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SlPersonMain From Template: app-action.xml.beansvm  -->
+ 	<bean id="SlPersonMainAction" class="com.zhiwei.credit.action.creditFlow.ourmain.SlPersonMainAction" scope="prototype"/>
+	<!-- end:  Generated for SlPersonMain From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for CsEnterpriseShareequity From Template: app-action.xml.beansvm  -->
+ 	<bean id="CsEnterpriseShareequityAction" class="com.zhiwei.credit.action.customer.CsEnterpriseShareequityAction" scope="prototype"/>
+	<!-- end:  Generated for CsEnterpriseShareequity From Template: app-action.xml.beansvm  -->
+	<!-- start:  Generated for SlMortgage From Template: app-action.xml.beansvm  -->
+	 <!--<bean id="SlMortgageAction" class="com.zhiwei.credit.action.creditFlow.ourmortgage.SlMortgageAction" scope="prototype"/>
+	--><!-- end:  Generated for SlMortgage From Template: app-action.xml.beansvm  -->
+	<!-- gaomm -->
+	<!--<import resource="classpath:com/credit/proj/customer/dictionary/xmls/application-dictionary.xml" />
+	--><!-- start:  Generated for SVEnterprisePerson1 From Template: app-action.xml.beansvm  -->
+ 	<bean id="SVEnterprisePersonAction" class="com.zhiwei.credit.action.creditFlow.thirdRalation.SVEnterprisePersonAction" scope="prototype"/>
+	<!-- end:  Generated for SVEnterprisePerson1 From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlFundQlide From Template: app-action.xml.beansvm  -->
+ <bean id="SlFundQlideAction" class="com.zhiwei.credit.action.creditFlow.finance.SlFundQlideAction" scope="prototype"/>
+<!-- end:  Generated for SlFundQlide From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlFundIntent From Template: app-action.xml.beansvm  -->
+ <bean id="SlFundIntentAction" class="com.zhiwei.credit.action.creditFlow.finance.SlFundIntentAction" scope="prototype"/>
+<!-- end:  Generated for SlFundIntent From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlFundIntent From Template: app-action.xml.beansvm  -->
+ <bean id="BpFundIntentAction" class="com.zhiwei.credit.action.creditFlow.finance.BpFundIntentAction" scope="prototype"/>
+<!-- end:  Generated for SlFundIntent From Template: app-action.xml.beansvm  -->
+
+
+<!-- start:  Generated for SlFundDetail From Template: app-action.xml.beansvm  -->
+ <bean id="SlFundDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.SlFundDetailAction" scope="prototype"/>
+<!-- end:  Generated for SlFundDetail From Template: app-action.xml.beansvm  -->
+
+
+<!-- start:  Generated for CsDicAreaDynam From Template: app-action.xml.beansvm  -->
+ <bean id="CsDicAreaDynamAction" class="com.zhiwei.credit.action.system.CsDicAreaDynamAction" scope="prototype"/>
+<!-- end:  Generated for CsDicAreaDynam From Template: app-action.xml.beansvm  -->
+
+
+
+ <bean id="ShareequityAction" class="com.zhiwei.credit.action.creditFlow.common.ShareequityAction" scope="prototype"/>
+
+<!-- 流程上的合同  chencc-->
+<!--<import resource="classpath:com/credit/proj/workflow/guarantee/enterprise/before/xmls/spring-smallloan.xml" />
+--><!-- 车辆制造商  luqh-->
+<!--<import resource="classpath:com/credit/proj/customer/car/xml/application-carMessage.xml" />
+--><!-- 抵质押物  luqh-->
+<import resource="classpath:com/credit/proj/mortgage/morservice/xmls/applicationContext-mortgage.xml" />
+<!-- start:  Generated for SlConferenceRecord From Template: app-action.xml.beansvm  -->
+ <bean id="SlConferenceRecordAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.meeting.SlConferenceRecordAction" scope="prototype"/>
+<!-- end:  Generated for SlConferenceRecord From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlFundQlide From Template: app-action.xml.beansvm  -->
+ <bean id="SlFinanceReportAction" class="com.zhiwei.credit.action.creditFlow.finance.SlFinanceReportAction" scope="prototype"/>
+<!-- end:  Generated for SlFundQlide From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlMortgageFinancing From Template: app-action.xml.beansvm  --><!--
+ <bean id="SlMortgageFinancingAction" class="com.zhiwei.credit.action.creditFlow.ourmortgage.SlMortgageFinancingAction" scope="prototype"/>
+--><!-- end:  Generated for SlMortgageFinancing From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for GlBankGuaranteemoney From Template: app-action.xml.beansvm  -->
+ <bean id="GlBankGuaranteemoneyAction" class="com.zhiwei.credit.action.creditFlow.guarantee.EnterpriseBusiness.GlBankGuaranteemoneyAction" scope="prototype"/>
+<!-- end:  Generated for GlBankGuaranteemoney From Template: app-action.xml.beansvm  -->
+
+
+
+<!--<import resource="classpath:com/credit/proj/customer/bankrelationperson/xmls/application-bankrelationperson.xml" />
+-->
+
+
+<!--企业资信评估 zhangcy-->
+<!--<import resource="classpath:com/credit/proj/creditmanagement/xmls/spring-creditManagement.xml" />
+
+
+
+--><!-- start:  Generated for SlPlansToCharge From Template: app-action.xml.beansvm  -->
+ <bean id="SlPlansToChargeAction" class="com.zhiwei.credit.action.creditFlow.finance.SlPlansToChargeAction" scope="prototype"/>
+<!-- end:  Generated for SlPlansToCharge From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlActualToCharge From Template: app-action.xml.beansvm  -->
+ <bean id="SlActualToChargeAction" class="com.zhiwei.credit.action.creditFlow.finance.SlActualToChargeAction" scope="prototype"/>
+<!-- end:  Generated for SlActualToCharge From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for OurProcreditAssuretenet From Template: app-action.xml.beansvm  已经移包-->
+ <bean id="OurProcreditAssuretenetAction" class="com.zhiwei.credit.action.creditFlow.assuretenet.OurProcreditAssuretenetAction" scope="prototype"/>
+<!-- end:  Generated for OurProcreditAssuretenet From Template: app-action.xml.beansvm  -->
+
+
+<!-- start:  Generated for SlRepaymentSource From Template: app-action.xml.beansvm  -->
+ <bean id="SlRepaymentSourceAction" class="com.zhiwei.credit.action.creditFlow.repaymentSource.SlRepaymentSourceAction" scope="prototype"/>
+<!-- end:  Generated for SlRepaymentSource From Template: app-action.xml.beansvm  -->
+
+
+ <bean id="SystemWordAction" class="com.zhiwei.credit.action.system.SystemWordAction" scope="prototype"/>
+<!-- end:  Generated for SystemWord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for OurProcreditMaterialsEnterprise From Template: app-action.xml.beansvm  -->
+ <bean id="OurProcreditMaterialsEnterpriseAction" class="com.zhiwei.credit.action.creditFlow.materials.OurProcreditMaterialsEnterpriseAction" scope="prototype"/>
+ <bean id="GlobalGuaranteeMaterialsExtAction" class="com.zhiwei.credit.action.creditFlow.materials.GlobalGuaranteeMaterialsExtAction" scope="prototype"/>
+ 
+<!-- start:  Generated for SlChargeDetail From Template: app-action.xml.beansvm  -->
+ <bean id="SlChargeDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.SlChargeDetailAction" scope="prototype"/>
+<!-- end:  Generated for SlChargeDetail From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlSuperviseRecord From Template: app-action.xml.beansvm  -->
+ <bean id="SlSuperviseRecordAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.supervise.SlSuperviseRecordAction" scope="prototype"/>
+<!-- end:  Generated for SlSuperviseRecord From Template: app-action.xml.beansvm  -->
+ <bean id="creditProjectAction" class="com.zhiwei.credit.action.creditFlow.common.ProjectAction" scope="prototype"/>
+<!-- start:  Generated for GlobalTypeIndependent From Template: app-action.xml.beansvm  -->
+ <bean id="GlobalTypeIndependentAction" class="com.zhiwei.credit.action.system.GlobalTypeIndependentAction" scope="prototype"/>
+<!-- end:  Generated for GlobalTypeIndependent From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for DictionaryIndependent From Template: app-action.xml.beansvm  -->
+ <bean id="DictionaryIndependentAction" class="com.zhiwei.credit.action.system.DictionaryIndependentAction" scope="prototype"/>
+<!-- end:  Generated for DictionaryIndependent From Template: app-action.xml.beansvm  --><!--
+
+ <bean id="FileFormAction" class="com.zhiwei.credit.action.creditFlow.common.FileFormAction" scope="prototype"/>
+ --><!-- add by gao  commen 贷后监管 -->
+ <bean id="globalSupervisemanageAction" class="com.zhiwei.credit.action.creditFlow.common.GlobalSupervisemanageAction" scope="prototype"/>
+<!-- start:  Generated for FlFinancingProject From Template: app-action.xml.beansvm  -->
+ <import resource="classpath:com/thirdPayInteface/app-thirdPayAction.xml"/>
+<import resource="classpath:com/thirdPayInterface/app-thirdPayAction.xml"/>
+  <import resource="classpath:com/zhiwei/credit/action/creditFlow/financeProject/xmls/app-action.xml"/>
+  <import resource="classpath:com/zhiwei/credit/action/creditFlow/smallLoan/xmls/app-action.xml"/>
+  <import resource="classpath:com/zhiwei/credit/action/creditFlow/guarantee/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/lawsuitguarantee/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/pawn/xmls/app-action.xml"/>
+<!-- start:  Generated for GlAccountRecord From Template: app-action.xml.beansvm  -->
+ <bean id="GlAccountRecordAction" class="com.zhiwei.credit.action.creditFlow.guarantee.guaranteefinance.GlAccountRecordAction" scope="prototype"/>
+<!-- end:  Generated for GlAccountRecord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for GlAccountBankCautionmoney From Template: app-action.xml.beansvm  -->
+ <bean id="GlAccountBankCautionmoneyAction" class="com.zhiwei.credit.action.creditFlow.guarantee.guaranteefinance.GlAccountBankCautionmoneyAction" scope="prototype"/>
+<!-- end:  Generated for GlAccountBankCautionmoney From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for GlAccountBank From Template: app-action.xml.beansvm  -->
+ <bean id="GlAccountBankAction" class="com.zhiwei.credit.action.creditFlow.guarantee.guaranteefinance.GlAccountBankAction" scope="prototype"/>
+<!-- end:  Generated for GlAccountBank From Template: app-action.xml.beansvm  -->
+ <bean id="VFundDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.VFundDetailAction" scope="prototype"/>
+ <bean id="VPunishDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.VPunishDetailAction" scope="prototype"/>
+ <bean id="VChargeDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.VChargeDetailAction" scope="prototype"/>
+<!-- start:  Generated for PlArchives From Template: app-action.xml.beansvm  -->
+ <bean id="PlArchivesAction" class="com.zhiwei.credit.action.creditFlow.archives.PlArchivesAction" scope="prototype"/>
+<!-- end:  Generated for PlArchives From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlProjectArchives From Template: app-action.xml.beansvm  -->
+ <bean id="PlProjectArchivesAction" class="com.zhiwei.credit.action.creditFlow.archives.PlProjectArchivesAction" scope="prototype"/>
+  <bean id="VProjectArchivesAction" class="com.zhiwei.credit.action.creditFlow.archives.VProjectArchivesAction" scope="prototype"/>
+<!-- end:  Generated for PlProjectArchives From Template: app-action.xml.beansvm  -->
+
+
+<!-- 用户登录日志 add  by chencc -->
+<!--<import resource="classpath:com/credit/publicmodel/system/xmls/spring-log.xml"/>
+
+--><!-- start:  Generated for GlFlownodeComments From Template: app-action.xml.beansvm  -->
+ <bean id="GlFlownodeCommentsAction" class="com.zhiwei.credit.action.creditFlow.guarantee.EnterpriseBusiness.GlFlownodeCommentsAction" scope="prototype"/>
+<!-- end:  Generated for GlFlownodeComments From Template: app-action.xml.beansvm  -->
+
+<bean id="SysDatabaseBRAction" class="com.zhiwei.credit.action.system.SysDatabaseBRAction" scope="prototype"/>
+<bean id="ExeclToMysqlAction" class="com.zhiwei.credit.action.creditFlow.finance.ExeclToMysqlAction" scope="prototype"/>
+
+
+<!-- end:  Generated for SgLawsuitguaranteeProject From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlEarlyRepaymentRecord From Template: app-action.xml.beansvm  -->
+ <bean id="SlEarlyRepaymentRecordAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.finance.SlEarlyRepaymentRecordAction" scope="prototype"/>
+<!-- end:  Generated for SlEarlyRepaymentRecord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlFundintentUrge From Template: app-action.xml.beansvm  -->
+ <bean id="SlFundintentUrgeAction" class="com.zhiwei.credit.action.creditFlow.finance.SlFundintentUrgeAction" scope="prototype"/>
+<!-- end:  Generated for SlFundintentUrge From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlAlterAccrualRecord From Template: app-action.xml.beansvm  -->
+ <bean id="SlAlterAccrualRecordAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.finance.SlAlterAccrualRecordAction" scope="prototype"/>
+<!-- end:  Generated for SlAlterAccrualRecord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlArchivesMaterials From Template: app-action.xml.beansvm  -->
+ <bean id="PlArchivesMaterialsAction" class="com.zhiwei.credit.action.creditFlow.archives.PlArchivesMaterialsAction" scope="prototype"/>
+<!-- end:  Generated for PlArchivesMaterials From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for OurArchivesMaterials From Template: app-action.xml.beansvm  -->
+ <bean id="OurArchivesMaterialsAction" class="com.zhiwei.credit.action.creditFlow.archives.OurArchivesMaterialsAction" scope="prototype"/>
+<!-- end:  Generated for OurArchivesMaterials From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for FinanceInfo From Template: app-action.xml.beansvm  --><!--
+ <bean id="FinanceInfoAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.finance.FinanceInfoAction" scope="prototype"/>
+--><!-- end:  Generated for FinanceInfo From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+ <bean id="BorrowerInfoAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.finance.BorrowerInfoAction" scope="prototype"/>
+ <bean id="FundIntentPrincipalLendingAction" class="com.webServices.finance.FundIntentPrincipalLendingAction" scope="prototype"/>
+ <bean id="CancelDataByTypeAction" class="com.webServices.finance.CancelDataByTypeAction" scope="prototype"/>
+  <bean id="ReCreateExcelByTypeAction" class="com.webServices.finance.ReCreateExcelByTypeAction" scope="prototype"/>
+   <bean id="ReSendDataByTypeAction" class="com.webServices.finance.ReSendDataByTypeAction" scope="prototype"/>
+<!-- end:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+
+<bean id="CreateFianceExcelDataAction" class="com.webServices.finance.CreateFianceExcelDataAction" scope="prototype"/>
+<!-- end:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+<bean id="CreateFAccruedExcelDataAction" class="com.webServices.finance.CreateFAccruedExcelDataAction" scope="prototype"/>
+<bean id="FundQlideFromWebServiceAction" class="com.webServices.finance.FundQlideFromWebServiceAction" scope="prototype"/>
+<!-- end:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlPunishInterest From Template: app-action.xml.beansvm  -->
+<bean id="SendAccruedFromExcelAction" class="com.webServices.finance.SendAccruedFromExcelAction" scope="prototype"/>
+<!-- end:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+<bean id="SendDataFromExcelAction" class="com.webServices.finance.SendDataFromExcelAction" scope="prototype"/>
+<!-- end:  Generated for BorrowerInfo From Template: app-action.xml.beansvm  -->
+ <bean id="SlPunishInterestAction" class="com.zhiwei.credit.action.creditFlow.finance.SlPunishInterestAction" scope="prototype"/>
+<!-- end:  Generated for SlPunishInterest From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlAccrued From Template: app-action.xml.beansvm  -->
+ <bean id="SlAccruedAction" class="com.zhiwei.credit.action.creditFlow.finance.SlAccruedAction" scope="prototype"/>
+<!-- end:  Generated for SlAccrued From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlPunishDetail From Template: app-action.xml.beansvm  -->
+ <bean id="SlPunishDetailAction" class="com.zhiwei.credit.action.creditFlow.finance.SlPunishDetailAction" scope="prototype"/>
+<!-- end:  Generated for SlPunishDetail From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlDataList From Template: app-action.xml.beansvm  -->
+ <bean id="SlDataListAction" class="com.zhiwei.credit.action.creditFlow.finance.SlDataListAction" scope="prototype"/>
+<!-- end:  Generated for SlDataList From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SlDataInfo From Template: app-action.xml.beansvm  -->
+ <bean id="SlDataInfoAction" class="com.zhiwei.credit.action.creditFlow.finance.SlDataInfoAction" scope="prototype"/>
+<!-- end:  Generated for SlDataInfo From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for SlLoanAccountErrorLog From Template: app-action.xml.beansvm  -->
+ <bean id="SlLoanAccountErrorLogAction" class="com.zhiwei.credit.action.creditFlow.finance.SlLoanAccountErrorLogAction" scope="prototype"/>
+<!-- end:  Generated for SlLoanAccountErrorLog From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for CsBank From Template: app-action.xml.beansvm  -->
+ <bean id="CsBankAction" class="com.zhiwei.credit.action.creditFlow.common.CsBankAction" scope="prototype"/>
+<!-- end:  Generated for CsBank From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for ProfitRateMaintenance From Template: app-action.xml.beansvm  -->
+ <bean id="ProfitRateMaintenanceAction" class="com.zhiwei.credit.action.creditFlow.finance.ProfitRateMaintenanceAction" scope="prototype"/>
+<!-- end:  Generated for ProfitRateMaintenance From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for CsHoliday From Template: app-action.xml.beansvm  -->
+ <bean id="CsHolidayAction" class="com.zhiwei.credit.action.system.CsHolidayAction" scope="prototype"/>
+ <bean id="SystemConfigAction" class="com.zhiwei.credit.action.system.SystemConfigAction" scope="prototype"/>
+ 
+<!-- end:  Generated for CsHoliday From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for InvestPerson From Template: app-action.xml.beansvm  -->
+ <bean id="InvestPersonAction" class="com.zhiwei.credit.action.customer.InvestPersonAction" scope="prototype"/>
+<!-- end:  Generated for InvestPerson From Template: app-action.xml.beansvm  -->
+
+
+<!--融资租赁action  -->
+ <bean id="InvestPersonCareAction" class="com.zhiwei.credit.action.customer.InvestPersonCareAction" scope="prototype"/>   
+<import resource="classpath:com/zhiwei/credit/action/creditFlow/leaseFinance/xmls/app-action.xml"/>
+<!-- start:  Generated for AreaManagement From Template: app-action.xml.beansvm  -->
+ <bean id="AreaManagementAction" class="com.zhiwei.credit.action.creditFlow.common.AreaManagementAction" scope="prototype"/>
+<!-- end:  Generated for AreaManagement From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for CsElementCategory From Template: app-action.xml.beansvm  --><!--
+ <bean id="CsElementCategoryAction" class="com.zhiwei.credit.action.document.CsElementCategoryAction" scope="prototype"/>
+--><!-- end:  Generated for CsElementCategory From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for InvestEnterprise From Template: app-action.xml.beansvm  -->
+ <bean id="InvestEnterpriseAction" class="com.zhiwei.credit.action.customer.InvestEnterpriseAction" scope="prototype"/>
+<!-- end:  Generated for InvestEnterprise From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for Customerbanklinkman From Template: app-action.xml.beansvm  -->
+ <bean id="CustomerbanklinkmanAction" class="com.zhiwei.credit.action.customer.CustomerbanklinkmanAction" scope="prototype"/>
+<!-- end:  Generated for Customerbanklinkman From Template: app-action.xml.beansvm  -->
+
+<bean id="BpProductParameterAction" class="com.zhiwei.credit.action.system.product.BpProductParameterAction" scope="prototype"/>
+<bean id="WorkCompanyAction" class="com.zhiwei.credit.action.creditFlow.customer.person.workcompany.WorkCompanyAction" scope="prototype"/>
+<bean id="BpMoneyBorrowDemandAction" class="com.zhiwei.credit.action.creditFlow.customer.person.BpMoneyBorrowDemandAction" scope="prototype"/>
+<bean id="InvestPersonInfoAction" class="com.zhiwei.credit.action.customer.InvestPersonInfoAction" scope="prototype"/>
+<bean id="InvestIntentionAction" class="com.zhiwei.credit.action.customer.InvestIntentionAction" scope="prototype"/>
+<bean id="FundsToPromoteAction" class="com.zhiwei.credit.action.creditFlow.finance.FundsToPromoteAction" scope="prototype"/>
+
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/customer/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/creditAssignment/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/contract/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/fileUploads/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/multiLevelDic/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/creditmanagement/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/creditmanagement/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/creditmanagement/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/log/xmls/app-action.xml"/>
+    <import resource="classpath:com/zhiwei/credit/action/creditFlow/bonusSystem/xmls/app-action.xml"/>
+ 	<import resource="classpath:com/zhiwei/credit/action/p2p/xmls/app-action.xml"/>
+ 	<import resource="classpath:com/zhiwei/credit/action/pay/YeePay/app-action.xml"/>
+ 	<import resource="classpath:com/zhiwei/credit/action/creditFlow/finance/plateFormFinanceManage/xmls/app-plateFormAction.xml"/>
+ <bean id="BpPersonPhonecheckInfoAction" class="com.zhiwei.credit.action.creditFlow.personrelation.phonecheck.BpPersonPhonecheckInfoAction" scope="prototype"/>
+ <bean id="BpPersonNetCheckInfoAction" class="com.zhiwei.credit.action.creditFlow.personrelation.netcheck.BpPersonNetCheckInfoAction" scope="prototype"/>
+  <bean id="BpFundProjectAction" class="com.zhiwei.credit.action.creditFlow.fund.project.BpFundProjectAction" scope="prototype"/>
+
+<!-- 互联网金融start -->
+<!-- start:  Generated for Articlecategory From Template: app-action.xml.beansvm  -->
+ <bean id="ArticlecategoryAction" class="com.zhiwei.credit.action.p2p.ArticlecategoryAction" scope="prototype"/>
+<!-- end:  Generated for Articlecategory From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for Article From Template: app-action.xml.beansvm  -->
+ <bean id="ArticleAction" class="com.zhiwei.credit.action.p2p.ArticleAction" scope="prototype"/>
+<!-- end:  Generated for Article From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for P2pFriendlink From Template: app-action.xml.beansvm  -->
+ <bean id="P2pFriendlinkAction" class="com.zhiwei.credit.action.p2p.P2pFriendlinkAction" scope="prototype"/>
+<!-- end:  Generated for P2pFriendlink From Template: app-action.xml.beansvm  -->
+
+<bean id="PayAction" class="com.zhiwei.credit.action.pay.PayAction" scope="prototype"/>
+<bean id="BackAction" class="com.zhiwei.credit.action.pay.BackAction" scope="prototype"/>
+<bean id="FontAction" class="com.zhiwei.credit.action.pay.FontAction" scope="prototype"/>
+<bean id="FontHuiFuAction" class="com.zhiwei.credit.action.pay.FontHuiFuAction" scope="prototype"/>
+<bean id="BkHuiFuAction" class="com.zhiwei.credit.action.pay.BkHuiFuAction" scope="prototype"/>
+
+<!-- start:  Generated for BpCustLoginlog From Template: app-action.xml.beansvm  -->
+ <bean id="BpCustLoginlogAction" class="com.zhiwei.credit.action.p2p.BpCustLoginlogAction" scope="prototype"/>
+<!-- end:  Generated for BpCustLoginlog From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for IndexShow From Template: app-action.xml.beansvm  -->
+ <bean id="IndexShowAction" class="com.zhiwei.credit.action.p2p.IndexShowAction" scope="prototype"/>
+<!-- end:  Generated for IndexShow From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpCustMember From Template: app-action.xml.beansvm  -->
+ <bean id="BpCustMemberAction" class="com.zhiwei.credit.action.p2p.BpCustMemberAction" scope="prototype"/>
+<!-- end:  Generated for BpCustMember From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for BpBusinessDirPro From Template: app-action.xml.beansvm  -->
+ <bean id="BpBusinessDirProAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.business.BpBusinessDirProAction" scope="prototype"/>
+<!-- end:  Generated for BpBusinessDirPro From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpBusinessOrPro From Template: app-action.xml.beansvm  -->
+ <bean id="BpBusinessOrProAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.business.BpBusinessOrProAction" scope="prototype"/>
+<!-- end:  Generated for BpBusinessOrPro From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpPersionDirPro From Template: app-action.xml.beansvm  -->
+ <bean id="BpPersionDirProAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.persion.BpPersionDirProAction" scope="prototype"/>
+<!-- end:  Generated for BpPersionDirPro From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpPersionOrPro From Template: app-action.xml.beansvm  -->
+ <bean id="BpPersionOrProAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.persion.BpPersionOrProAction" scope="prototype"/>
+<!-- end:  Generated for BpPersionOrPro From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlBidInfo From Template: app-action.xml.beansvm  -->
+ <bean id="PlBidInfoAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.PlBidInfoAction" scope="prototype"/>
+<!-- end:  Generated for PlBidInfo From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlBidPlan From Template: app-action.xml.beansvm  -->
+ <bean id="PlBidPlanAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.PlBidPlanAction" scope="prototype"/>
+<!-- end:  Generated for PlBidPlan From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlBiddingType From Template: app-action.xml.beansvm  -->
+ <bean id="PlBiddingTypeAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.typeManger.PlBiddingTypeAction" scope="prototype"/>
+<!-- end:  Generated for PlBiddingType From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlBusinessDirProKeep From Template: app-action.xml.beansvm  -->
+ <bean id="PlBusinessDirProKeepAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.business.PlBusinessDirProKeepAction" scope="prototype"/>
+<!-- end:  Generated for PlBusinessDirProKeep From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlKeepCreditlevel From Template: app-action.xml.beansvm  -->
+ <bean id="PlKeepCreditlevelAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.typeManger.PlKeepCreditlevelAction" scope="prototype"/>
+<!-- end:  Generated for PlKeepCreditlevel From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlKeepGtorz From Template: app-action.xml.beansvm  -->
+ <bean id="PlKeepGtorzAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.typeManger.PlKeepGtorzAction" scope="prototype"/>
+<!-- end:  Generated for PlKeepGtorz From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlKeepProtype From Template: app-action.xml.beansvm  -->
+ <bean id="PlKeepProtypeAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.typeManger.PlKeepProtypeAction" scope="prototype"/>
+<!-- end:  Generated for PlKeepProtype From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlPersionDirProKeep From Template: app-action.xml.beansvm  -->
+ <bean id="PlPersionDirProKeepAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.persion.PlPersionDirProKeepAction" scope="prototype"/>
+<!-- end:  Generated for PlPersionDirProKeep From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for OaNewsMessage From Template: app-action.xml.beansvm  -->
+ <bean id="OaNewsMessageAction" class="com.zhiwei.credit.action.p2p.OaNewsMessageAction" scope="prototype"/>
+<!-- end:  Generated for OaNewsMessage From Template: app-action.xml.beansvm  -->
+<!-- 互联网金融end -->
+
+<!-- start:  Generated for BpCustRelation From Template: app-action.xml.beansvm  -->
+ <bean id="BpCustRelationAction" class="com.zhiwei.credit.action.customer.BpCustRelationAction" scope="prototype"/>
+<!-- end:  Generated for BpCustRelation From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpBidLoan From Template: app-action.xml.beansvm  -->
+ <bean id="BpBidLoanAction" class="com.zhiwei.credit.action.pay.BpBidLoanAction" scope="prototype"/>
+<!-- end:  Generated for BpBidLoan From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlManageMoneyType From Template: app-action.xml.beansvm  -->
+ <bean id="PlManageMoneyTypeAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlManageMoneyTypeAction" scope="prototype"/>
+<!-- end:  Generated for PlManageMoneyType From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlManageMoneyPlan From Template: app-action.xml.beansvm  -->
+ <bean id="PlManageMoneyPlanAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlManageMoneyPlanAction" scope="prototype"/>
+<!-- end:  Generated for PlManageMoneyPlan From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlManageMoneyPlanBuyinfo From Template: app-action.xml.beansvm  -->
+ <bean id="PlManageMoneyPlanBuyinfoAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlManageMoneyPlanBuyinfoAction" scope="prototype"/>
+<!-- end:  Generated for PlManageMoneyPlanBuyinfo From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlMmObligatoryRightChildren From Template: app-action.xml.beansvm  -->
+ <bean id="PlMmObligatoryRightChildrenAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlMmObligatoryRightChildrenAction" scope="prototype"/>
+<!-- end:  Generated for PlMmObligatoryRightChildren From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlMmOrderChildrenOr From Template: app-action.xml.beansvm  -->
+ <bean id="PlMmOrderChildrenOrAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlMmOrderChildrenOrAction" scope="prototype"/>
+<!-- end:  Generated for PlMmOrderChildrenOr From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for BpThirdpayCity From Template: app-action.xml.beansvm  -->
+ <bean id="BpThirdpayCityAction" class="com.zhiwei.credit.action.thirdPay.BpThirdpayCityAction" scope="prototype"/>
+<!-- end:  Generated for BpThirdpayCity From Template: app-action.xml.beansvm  -->
+<bean id="PlMmOrderAssignInterestAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlMmOrderAssignInterestAction" scope="prototype"/>
+ <bean id="PlMmOrderChildrenorTestAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlMmOrderChildrenorTestAction" scope="prototype"/>
+<!-- start:  Generated for PlThirdInterfaceLog From Template: app-action.xml.beansvm  -->
+ <bean id="PlThirdInterfaceLogAction" class="com.zhiwei.credit.action.thirdInterface.PlThirdInterfaceLogAction" scope="prototype"/>
+<!-- end:  Generated for PlThirdInterfaceLog From Template: app-action.xml.beansvm  -->
+<bean id="AspectAction" class="com.zhiwei.credit.action.system.AspectAction"></bean>
+<!-- start:  Generated for WebTemplateMessage From Template: app-action.xml.beansvm  -->
+ <bean id="WebTemplateMessageAction" class="com.zhiwei.credit.action.web.WebTemplateMessageAction" scope="prototype"/>
+<!-- end:  Generated for WebTemplateMessage From Template: app-action.xml.beansvm  -->
+<bean id="SlUrgeRecordAction" class="com.zhiwei.credit.action.creditFlow.smallLoan.finance.SlUrgeRecordAction" scope="prototype"></bean>
+
+<!-- start:  Generated for WebBankCode From Template: app-action.xml.beansvm  -->
+ <bean id="WebBankCodeAction" class="com.zhiwei.credit.action.thirdInterface.WebBankCodeAction" scope="prototype"/>
+<!-- end:  Generated for WebBankCode From Template: app-action.xml.beansvm  -->
+
+<!-- start:  Generated for BpFinanceApply From Template: app-action.xml.beansvm  -->
+ <bean id="BpFinanceApplyAction" class="com.zhiwei.credit.action.p2p.BpFinanceApplyAction" scope="prototype"/>
+<!-- end:  Generated for BpFinanceApply From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpFinanceApplyUser From Template: app-action.xml.beansvm  -->
+ <bean id="BpFinanceApplyUserAction" class="com.zhiwei.credit.action.p2p.BpFinanceApplyUserAction" scope="prototype"/>
+<!-- end:  Generated for BpFinanceApplyUser From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for WebFinanceApplyUploads From Template: app-action.xml.beansvm  -->
+ <bean id="WebFinanceApplyUploadsAction" class="com.zhiwei.credit.action.p2p.WebFinanceApplyUploadsAction" scope="prototype"/>
+<!-- end:  Generated for WebFinanceApplyUploads From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpCustRedEnvelope From Template: app-action.xml.beansvm  -->
+ <bean id="BpCustRedEnvelopeAction" class="com.zhiwei.credit.action.p2p.redMoney.BpCustRedEnvelopeAction" scope="prototype"/>
+<!-- end:  Generated for BpCustRedEnvelope From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpCustRedMember From Template: app-action.xml.beansvm  -->
+ <bean id="BpCustRedMemberAction" class="com.zhiwei.credit.action.p2p.redMoney.BpCustRedMemberAction" scope="prototype"/>
+<!-- end:  Generated for BpCustRedMember From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlBidAuto From Template: app-action.xml.beansvm  -->
+ <bean id="PlBidAutoAction" class="com.zhiwei.credit.action.creditFlow.auto.PlBidAutoAction" scope="prototype"/>
+<!-- end:  Generated for PlBidAuto From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlEarlyRedemption From Template: app-action.xml.beansvm  -->
+ <bean id="PlEarlyRedemptionAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlEarlyRedemptionAction" scope="prototype"/>
+<!-- end:  Generated for PlEarlyRedemption From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for UploadLog From Template: app-action.xml.beansvm  -->
+ <bean id="UploadLogAction" class="com.zhiwei.credit.action.system.UploadLogAction" scope="prototype"/>
+<!-- end:  Generated for UploadLog From Template: app-action.xml.beansvm  -->
+<bean id="projectCommentsHistoryAction" class="com.zhiwei.credit.action.creditFlow.common.ProjectCommentsHistoryAction"  scope="prototype"/>
+<!-- start:  Generated for P2pBannerlink From Template: app-action.xml.beansvm  -->
+ <bean id="P2pBannerlinkAction" class="com.zhiwei.credit.action.p2p.P2pBannerlinkAction" scope="prototype"/>
+<!-- end:  Generated for P2pBannerlink From Template: app-action.xml.beansvm  -->
+<bean id="PlBidSaleAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.PlBidSaleAction" scope="prototype"/>
+<bean id="BpPageSettingAction" class="com.zhiwei.credit.action.creditFlow.common.BpPageSettingAction" scope="prototype"/>
+<!-- start:  Generated for CsCooperationEnterprise From Template: app-action.xml.beansvm  -->
+ <bean id="CsCooperationEnterpriseAction" class="com.zhiwei.credit.action.creditFlow.customer.cooperation.CsCooperationEnterpriseAction" scope="prototype"/>
+<!-- end:  Generated for CsCooperationEnterprise From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for CsCooperationPerson From Template: app-action.xml.beansvm  -->
+ <bean id="CsCooperationPersonAction" class="com.zhiwei.credit.action.creditFlow.customer.cooperation.CsCooperationPersonAction" scope="prototype"/>
+<!-- end:  Generated for CsCooperationPerson From Template: app-action.xml.beansvm  -->
+  <bean id="PlMmOrderInfoAction" class="com.zhiwei.credit.action.creditFlow.financingAgency.manageMoney.PlMmOrderInfoAction" scope="prototype"/>
+
+	<!--优惠券使用的action配置文件 -->
+ 	<import resource="classpath:com/zhiwei/credit/action/coupon/xmls/action-coupon.xml"/>
+
+
+<!-- start:  Generated for BpActivityManage From Template: app-action.xml.beansvm  -->
+ <bean id="BpActivityManageAction" class="com.zhiwei.credit.action.activity.BpActivityManageAction" scope="prototype"/>
+<!-- end:  Generated for BpActivityManage From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for OaNewsMessagerinfo From Template: app-action.xml.beansvm  -->
+ <bean id="OaNewsMessagerinfoAction" class="com.zhiwei.credit.action.p2p.OaNewsMessagerinfoAction" scope="prototype"/>
+<!-- end:  Generated for OaNewsMessagerinfo From Template: app-action.xml.beansvm  -->
+
+<bean id="SystemServiceUpdateAction" class="com.zhiwei.credit.action.system.update.SystemServiceUpdateAction" scope="prototype"/>
+
+<!-- 线下推荐明细表 action配置文件-->
+<bean id="OfflineRecommendAction" class="com.report.OfflineRecommendReoprt.OfflineRecommendAction" scope="prototype"/>
+
+<!--贷款端报表使用的action配置文件 -->
+<bean id="LoanReportAction" class="com.report.LoanReport.LoanReportAction" scope="prototype"/>
+
+<!--财富端报表使用的action配置文件 -->
+<bean id="WealthReportAction" class="com.report.WealthReport.WealthReportAction" scope="prototype"/>
+
+<!--互联网金融报表使用的action配置文件 -->
+<bean id="InternetReportAction" class="com.report.InternetReport.InternetReportAction" scope="prototype"/>
+<!-- start:  Generated for BpLoneExternal From Template: app-action.xml.beansvm  -->
+ <bean id="BpLoneExternalAction" class="com.zhiwei.credit.action.creditFlow.riskControl.creditInvestigation.BpLoneExternalAction" scope="prototype"/>
+<!-- end:  Generated for BpLoneExternal From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BpBadCredit From Template: app-action.xml.beansvm  -->
+ <bean id="BpBadCreditAction" class="com.zhiwei.credit.action.creditFlow.riskControl.creditInvestigation.BpBadCreditAction" scope="prototype"/>
+<!-- end:  Generated for BpBadCredit From Template: app-action.xml.beansvm  -->
+<import resource="classpath:com/zhiwei/credit/action/financeProduct/xmls/action-financeProduct.xml"/>
+<import resource="classpath:com/zhiwei/credit/action/creditFlow/finance/compensatory/xmls/appcompensatory-action.xml"/>
+
+<!-- start:  Generated for P2pLoanProduct From Template: app-action.xml.beansvm  -->
+ <bean id="P2pLoanProductAction" class="com.zhiwei.credit.action.p2p.loan.P2pLoanProductAction" scope="prototype"/>
+<!-- end:  Generated for P2pLoanProduct From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanConditionOrMaterial From Template: app-action.xml.beansvm  -->
+ <bean id="P2pLoanConditionOrMaterialAction" class="com.zhiwei.credit.action.p2p.loan.P2pLoanConditionOrMaterialAction" scope="prototype"/>
+<!-- end:  Generated for P2pLoanConditionOrMaterial From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanRate From Template: app-action.xml.beansvm  -->
+ <bean id="P2pLoanRateAction" class="com.zhiwei.credit.action.p2p.loan.P2pLoanRateAction" scope="prototype"/>
+<!-- end:  Generated for P2pLoanRate From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanApplyStep From Template: app-action.xml.beansvm  -->
+ <bean id="P2pLoanApplyStepAction" class="com.zhiwei.credit.action.p2p.loan.P2pLoanApplyStepAction" scope="prototype"/>
+<!-- end:  Generated for P2pLoanApplyStep From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanBasisMaterial From Template: app-action.xml.beansvm  -->
+ <bean id="P2pLoanBasisMaterialAction" class="com.zhiwei.credit.action.p2p.loan.P2pLoanBasisMaterialAction" scope="prototype"/>
+<!-- end:  Generated for P2pLoanBasisMaterial From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for CoreParameterConfig From Template: app-action.xml.beansvm  -->
+ <bean id="CoreParameterConfigAction" class="com.zhiwei.credit.action.p2p.CoreParameterConfigAction" scope="prototype"/>
+<!-- end:  Generated for CoreParameterConfig From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for BusPayAccount From Template: app-action.xml.beansvm  -->
+ <bean id="BusPayAccountAction" class="com.zhiwei.credit.action.p2p.BusPayAccountAction" scope="prototype"/>
+<!-- end:  Generated for BusPayAccount From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for ThirdPayRecord From Template: app-action.xml.beansvm  -->
+ <bean id="ThirdPayRecordAction" class="com.thirdPayInterface.ThirdPayLog.action.ThirdPayRecordAction" scope="prototype"/>
+<!-- end:  Generated for ThirdPayRecord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for ThirdPayRecord From Template: app-action.xml.beansvm  -->
+ <bean id="ThirdPayLogAction" class="com.thirdPayInterface.ThirdPayLog.action.ThirdPayLogAction" scope="prototype"/>
+<!-- end:  Generated for ThirdPayRecord From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for PlatDataPublish From Template: app-action.xml.beansvm  -->
+ <bean id="PlatDataPublishAction" class="com.zhiwei.credit.action.p2p.PlatDataPublishAction" scope="prototype"/>
+<!-- end:  Generated for PlatDataPublish From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for TaskProxy From Template: app-action.xml.beansvm  -->
+ <bean id="TaskProxyAction" class="com.zhiwei.credit.action.flow.TaskProxyAction" scope="prototype"/>
+<!-- end:  Generated for TaskProxy From Template: app-action.xml.beansvm  -->
+ <bean id="SystemPropertiesAction" class="com.zhiwei.credit.action.system.SystemPropertiesAction" scope="prototype"/>
+<import resource="classpath:com/highchart/xml/action-highchart.xml"/>
+<import resource="classpath:com/messageAlert/xml/action-messageAlert.xml"/>
+
+<import resource="classpath:com/zhiwei/credit/action/htmobile/xmls/app-action.xml"/>
+<!-- start:  Generated for SettlementReviewerPay From Template: app-action.xml.beansvm  -->
+ <bean id="SettlementReviewerPayAction" class="com.zhiwei.credit.action.creditFlow.fund.project.SettlementReviewerPayAction" scope="prototype"/>
+<!-- end:  Generated for SettlementReviewerPay From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for SettlementInfo From Template: app-action.xml.beansvm  -->
+ <bean id="SettlementInfoAction" class="com.zhiwei.credit.action.creditFlow.fund.project.SettlementInfoAction" scope="prototype"/>
+<!-- end:  Generated for SettlementInfo From Template: app-action.xml.beansvm  -->
+<!-- start:  Generated for OaHolidayMessage From Template: app-action.xml.beansvm  -->
+ <bean id="OaHolidayMessageAction" class="com.zhiwei.credit.action.p2p.OaHolidayMessageAction" scope="prototype"/>
+<!-- end:  Generated for OaHolidayMessage From Template: app-action.xml.beansvm  -->
+</beans>

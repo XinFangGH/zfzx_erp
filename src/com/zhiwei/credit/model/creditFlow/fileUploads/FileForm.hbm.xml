@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.zhiwei.credit.model.creditFlow.fileUploads.FileForm" table="cs_file" >
+        <id name="fileid" type="java.lang.Integer">
+            <column name="fileid" />
+            <generator class="identity" />
+        </id>
+         <property name="mark" type="java.lang.String">
+            <column name="mark" length="100">
+               
+            </column>
+        </property>
+        <property name="setname" type="java.lang.String">
+            <column name="setname" length="225">
+               
+            </column>
+        </property>
+        <property name="filename" type="java.lang.String">
+            <column name="filename" length="225" />
+        </property>
+        <property name="filepath" type="java.lang.String">
+            <column name="filepath" length="225">
+              
+            </column>
+        </property>
+        <property name="extendname" type="java.lang.String">
+            <column name="extendname" length="10">
+               
+            </column>
+        </property>
+        <property name="filesize" type="java.lang.Integer">
+            <column name="filesize" >
+               
+            </column>
+        </property>
+        <property name="creatorid" type="java.lang.Integer">
+            <column name="creatorid">
+               
+            </column>
+        </property>
+        <property name="sort" type="java.lang.Integer">
+            <column name="sort"  default="0"  >
+
+            </column>
+        </property>
+        <property name="createtime" type="java.util.Date">
+            <column name="createtime" length="19">
+               
+            </column>
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" length="300">
+               
+            </column>
+        </property>
+        <property name="contentType" type="java.lang.String">
+            <column name="contentType" >
+               
+            </column>
+        </property>
+        <property name="webPath" type="java.lang.String">
+            <column name="webPath" >
+               
+            </column>
+        </property>
+         <property name="minCompressionFilePath" type="java.lang.String">
+            <column name="fileCompressPath" >
+               
+            </column>
+        </property>
+         <property name="compressionFilePath" type="java.lang.String">
+            <column name="compressPath" >
+               
+            </column>
+        </property>
+        <property name="projId" type="java.lang.String">
+            <column name="projId">
+                <comment>项目id</comment>
+            </column>
+        </property>
+        <property name="businessType" type="java.lang.String">
+            <column name="businessType">
+                <comment>业务品种</comment>
+            </column>
+        </property>
+        <property name="isArchiveConfirm" type="java.lang.Boolean">
+            <column name="isArchiveConfirm" >
+            </column>
+        </property>
+        <property name="archiveConfirmRemark" type="java.lang.String">
+            <column name="archiveConfirmRemark" >
+            </column>
+        </property>
+          <property name="isSubmit" type="java.lang.Boolean">
+            <column name="isSubmit" >
+            </column>
+        </property>
+        <property name="archiveConfirmDate" type="java.util.Date">
+            <column name="archiveConfirmDate" >
+            </column>
+        </property>
+          <property name="submitDate" type="java.util.Date">
+            <column name="submitDate" >
+            </column>
+        </property>
+        <property name="submitRemarks" type="java.lang.String">
+            <column name="submitRemarks" >
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

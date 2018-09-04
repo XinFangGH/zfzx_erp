@@ -1,0 +1,307 @@
+.addIcon {
+		background: url(../images/add.png) no-repeat left 0px !important;
+}
+.deleteIcon {
+		background: url(../images/btn-del.png) no-repeat left 0px !important;
+		/*background: url(../images/icon_table.gif) no-repeat left -62px !important;*/
+}
+.updateIcon {
+	    background: url(../images/btn-look.png) no-repeat left 1px !important;
+}
+.returnIcon {
+	    background: url(../images/icon_table.gif) no-repeat left -242px !important;
+}
+.seeIcon {
+		background: url(../images/expand.png) no-repeat left 0px !important;
+}
+.nextIcon {
+		background: url(../images/key.gif) no-repeat left -62px !important;
+}
+.preIcon {
+		background: url(../images/key.gif) no-repeat left -62px !important;
+}
+.selectIcon {
+		background: url(../images/check.gif) no-repeat left -2px !important;
+}
+.searchIcon {
+		background: url(../images/search.png) no-repeat left 0px !important;
+}
+.saveIcon {
+		background: url(../images/icon_table.gif) no-repeat left -202px !important;
+}
+.submitIcon {
+		background: url(../images/btn/info/resave.png) no-repeat left 0px !important;
+		/*background: url(../images/upload-start.gif) no-repeat left -2px !important;*/
+}
+/*用于 task节点上的提交 按钮	jiang*/
+.taskSubmitIcon {
+		background: url(../images/icon_table.gif) no-repeat left -162px !important;
+}
+/*上传、新增等 submit		jiang*/
+.uploadIcon{
+		background: url(../images/upload-start.png) no-repeat left -2px !important;
+}
+
+.cancelIcon {
+		/*background: url(../images/cancel.png) no-repeat left -2px !important;*/
+		/*background: url(../images/icon_table.gif) no-repeat left -262px !important;*/
+		background: url(../images/icon_table.gif) no-repeat left -62px !important;
+}
+.closeIcon {
+		/*background: url(../images/cancel.png) no-repeat left -2px !important;*/
+		/*background: url(../images/icon_table.gif) no-repeat left -262px !important;*/
+		background: url(../images/stop.png) no-repeat left 0px !important;
+}
+.resumerecord {
+		background: url(../images/icon_table.gif) no-repeat left -180px !important;
+}
+.seeresume {
+		background: url(../images/icon_table.gif) no-repeat left 0px !important;
+}
+.addhotnews {
+		background: url(../images/icon_feed.gif) no-repeat left -20px !important;
+}
+
+.removehotnews {
+		background: url(../images/icon_feed.gif) no-repeat left -60px !important;
+}
+.selectUserIcon {
+		background: url(../images/user.gif) no-repeat left -2px !important;
+}
+.selectEnterpriseIcon {
+		background: url(../images/check.gif) no-repeat left 0px !important;
+}
+.wid25{
+	width:25%;
+	}
+.user{
+	 background:url(../images/user.gif) no-repeat 1px 2px ; 
+}
+.enterprise {
+	 background:url(../images/user.gif) no-repeat 1px 2px ; 
+}
+.person {
+	 background:url(../images/user.gif) no-repeat 1px 2px ; 
+}
+.bank {
+	background:url(../images/user.gif) no-repeat 1px 2px ; 
+}
+.area {
+	background:url(../images/user.gif) no-repeat 1px 2px ; 
+}
+
+.x-portlet .x-panel-body {
+    background:white;
+}
+.p17{ padding-left:17px; padding-margin:17px}
+
+/**############################################		jiang		#################################*/
+/**管理icon	jiang*/
+.manageIcon{
+	background: url(../images/icon_table.gif) no-repeat left -102px !important;
+}
+/**管理icon	jiang*/
+.menu_manageIcon{
+	background:url(../images/manage.png) no-repeat 0px 0px !important; 
+}
+
+/**生成Icon	jiang*/
+.createIcon{
+	background: url(../images/icon_table.gif) no-repeat left -122px !important;
+}
+/*对号 ok		jiang*/
+.okIcon{
+	background: url(../images/ok.gif) no-repeat left -2px !important;
+}
+/**禁止上传	jiang*/
+.unUploadIcon{
+	background: url(../images/UNupload.gif) no-repeat left -2px !important;
+}
+/**邮件-收件箱	jiang */
+.getMessageBoxIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -22px !important;
+}
+/**邮件-未读邮件	jiang */
+.getNewMessageIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -2px !important;
+}
+/**邮件-发件箱	jiang */
+.getSendMessageBoxIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -162px !important;
+}
+/**邮件-回收站	jiang */
+.recycleBinIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -62px !important;
+}
+/**邮件-即时通信	jiang */
+.chatIcon{
+	background:url(../images/user.gif) no-repeat 1px 2px !important; 
+}
+/**邮件-写消息	jiang */
+.newMsgIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -42px !important;
+}
+/**邮件-查找	jiang */
+.findMsgIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -82px !important;
+}
+/**活动状态	jiang*/
+.show_activeIcon{
+	background:url(../images/icon-show-active.gif) no-repeat 0px 2px !important; 
+}
+.activeIcon{
+	background:url(../images/icon-active.gif) no-repeat 0px 2px !important; 
+}
+/**完成状态	jiang*/
+.show_completedIcon{
+	background:url(../images/icon-show-complete.gif) no-repeat 0px 2px !important; 
+}
+.completedIcon{
+	background:url(../images/icon-complete.gif) no-repeat 0px 2px !important; 
+}
+/**未选择邮件	jiang*/
+.myMailIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -2px !important;
+}
+/**已选择邮件	jiang*/
+.seletedMailIcon{
+	background: url(../images/icon_mail.gif) no-repeat left -42px !important;
+}
+/**未选择短信	jiang*/
+.mySMSIcon{
+	background:url(../images/icon-sms.png) no-repeat 0px 1px !important; 
+}
+/**已选择短信	jiang*/
+.seletedSMSIcon{
+	background:url(../images/icon-selected-sms.png) no-repeat 0px 1px !important; 
+}
+/**未选择站内	jiang*/
+.myStationIcon{
+	background:url(../images/icon-station.png) no-repeat 0px 1px !important; 
+}
+/**已选择站内	jiang*/
+.seletedStationIcon{
+	background:url(../images/icon-selected-station.png) no-repeat 0px 1px !important; 
+}
+
+/**新建	jiang*/
+.newIcon{
+	background:url(../images/icon-new.gif) no-repeat 0px 3px !important; 
+}
+.upIcon{
+	background:url(../images/icon-selected-station.png) no-repeat 0px 3px !important; 
+}
+.lookIcon{
+	background:url(../images/icon-look.png) no-repeat 0px 3px !important; 
+}
+/**重置 jiang*/
+.resetIcon{
+	background:url(../images/icon-reset.png) no-repeat 0px 1px !important; 
+}
+/**参照选择 jiang 用于新建项目【按钮】*/
+.referenceIcon1{
+	background:url(../images/file-add.gif) no-repeat 0px 1px !important; 
+}
+/**参照选择 jiang 用于写新消息【焦点】*/
+.referenceIcon {
+	background: url(../images/icon_table.gif) no-repeat 0px 0px;
+	background-color: #FFFFFF;
+	padding-left: 20px;
+}
+/**一字红杠【终止】  jiang*/
+.terminationIcon{
+	background:url(../images/delete.gif) no-repeat 0px 2px !important; 
+}
+/**红叉【结束】jiang*/
+.cutoutIcon{
+	background:url(../images/reset.gif) no-repeat 0px 2px !important; 
+}
+
+/**ext 第三方 查找输入框*/
+.x-form-field-wrap .x-form-search-trigger {
+    background-image: url(../ext/resources/images/default/form/search.png);
+     border-bottom-color:#b5b8c8;
+    border-left: none;
+}
+.x-form-field-wrap .x-form-shengcheng-trigger {
+	background-image: url(../ext/resources/images/default/form/shengcheng-trigger.gif) ;
+}
+/*******************************************/
+/**计算的按钮  feng*/
+
+.x-form-field-wrap .x-form-calculation-trigger {
+	background-image: url(../images/icon_calculator.png);
+}
+
+/**计算 jiang*/
+.calculateIcon{
+	background:url(../images/icon_calculator.png) no-repeat 0px 2px !important; 
+}
+
+/**编辑发票信息 lu*/
+.editorIcon{
+	background: url(../images/folder_wrench.png) no-repeat 0px 3px !important;
+}
+
+/**项目详细信息页面 节点信息按钮 ICon jiang*/
+.tabGreenIcon{
+	background:url(../images/icon_tag_green.png) no-repeat 0px 1px !important; 
+}
+.tabOrangeIcon{
+	background:url(../images/icon_tag_orange.png) no-repeat 0px 1px !important; 
+}
+.tabPinkIcon{
+	background:url(../images/icon_tag_pink.png) no-repeat 0px 1px !important; 
+}
+.tabPurpleIcon{
+	background:url(../images/icon_tag_purple.png) no-repeat 0px 1px !important; 
+}
+.tabRedIcon{
+	background:url(../images/icon_tag_red.png) no-repeat 0px 1px !important; 
+}
+.tabYellowIcon{
+	background:url(../images/icon_tag_yellow.png) no-repeat 0px 1px !important; 
+}
+/**小贷新加*/
+
+.slupIcon{
+	background:url(../images/upload-start.png) no-repeat 0px 1px !important; 
+}
+.sldownIcon{
+	background:url(../images/download-start.png) no-repeat 0px 1px !important; 
+}
+.slhelpIcon{
+	background:url(../images/Help.png) no-repeat 0px 1px !important;
+}
+.ZWwriteIcon{
+	background:url(../images/btn/mail/mail_reply.png) no-repeat 0px 1px !important;
+}
+.btn-customer{
+	background-image: url('../images/menus/customer1.png') !important;
+}
+.btn-apply-add{
+	background-image: url('../images/btn/admin/apply_add.png') !important;
+}
+.btn-meeting-minutes {
+	background-image: url('../images/btn/info/tips.jpg') !important;
+}
+.bigOrange{
+	color :#FF7400;
+	font-size :14px;
+	font-weight: bold;
+}
+tr{
+	padding-bottom: 3px;
+	border : 1px dotted #FF7400;
+	padding-top: 3px;
+}
+.oncurrenttd
+{
+	background-color: #FF7400;
+}
+.bgGray
+{
+	padding-top: 10px;
+	padding-bottom: 20px;
+
+}

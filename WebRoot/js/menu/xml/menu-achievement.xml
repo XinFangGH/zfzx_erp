@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_achievement" text="业绩管理" iconCls="mod-achievement"> 
+   <Items id="SLachievement" text="小贷贷款" iconCls="menu-smallloan-info" >
+		
+	</Items>
+	  <Items id="GTachievement" text="金融担保" iconCls="menu-guarantee-info" >
+		
+	</Items>
+	 <Items id="FCachievement" text="资金融资" iconCls="menu-financing-info" >
+		
+	</Items>
+	 <Items id="PWachievement" text="金融典当" iconCls="menu-pawn-info" >
+		
+	</Items>
+	 <Items id="ITachievement" text="风险投资" iconCls="menu-investments-info" >
+		
+	</Items>
+</Menus>

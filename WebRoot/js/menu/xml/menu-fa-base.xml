@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa_base" text="基础功能" iconCls="mod-org">
+	<Items id="OffLineApplyUser" iconCls="mod-obligationSourceQuery" text="非注册用户借款申请">
+	   <Item id="BpPerApplyNotAccepted" iconCls="btn-tree-obliga" text="未受理申请"></Item>
+	   <Item id="BpPerApplyAccepted" iconCls="btn-tree-obliga" text="已受理申请"></Item>
+	   <Item id="BpPerApplyUserOfficialUser" iconCls="btn-tree-obliga" text="已转为正式用户"></Item>
+	   <Item id="BpPerApplyUserRejected" iconCls="btn-tree-obliga" text="已拒绝申请"></Item>
+	</Items>
+	<Items id="GuaranteeCooperationManage" text="担保机构管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+	    <Item id="CsCooperationEnterpriseView?type=guarantee" iconCls="btn-tree-obliga77" text="担保机构档案管理"></Item>
+		<Item id="CsCooperationEnterpriseAccount?type=guarantee" iconCls="btn-tree-obliga77" text="担保机构账户管理"></Item>
+	</Items>
+	<Items id="experienceStandard" text="体验标管理" iconCls="mod-obligationProductmanage" isPublic="false">
+		<Item id="ExperienceStandardPlanTab" iconCls="btn-tree-obliga77" text="体验标制定"></Item>
+		<Item id="ExperienceStandardView" iconCls="btn-tree-obliga77" text="体验标派息查询"></Item>
+		<Item id="ExperienceStandardInfo" iconCls="btn-tree-obliga77" text="体验标投资记录"></Item>
+	</Items><!--
+	<Items id="bidPlanView" text="综合查询" iconCls="mod-obligationProductmanage" isPublic="false">
+		<Item id="AllBidPlanView" iconCls="btn-tree-obliga77"  text="招标综合查询"></Item>
+	</Items>
+--></Menus>

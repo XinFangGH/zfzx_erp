@@ -1,0 +1,192 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	runId : '$!runId',
+	projectId : '$!projectId',
+	businessType : '$!businessType',
+	oppositeType : '$!oppositeType',
+	investPersonId : '$!investPersonId',
+	mmplanId : '$!mmplanId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInfoPanel.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInvestPersonInfo.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmPlanPanel.js',
+				__ctxPath+'/js/customer/selectInvestPersonList.js',
+				__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsViewProduct_FinanceProduct.js',//贷款材料清单
+    			__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsForm.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//投资基本信息
+		this.PlMmOrderInfoPanel = new PlMmOrderInfoPanel({
+			isReadOnly: true,
+			projectId : this.projectId
+		});
+		
+		//投资人信息
+		this.PlMmOrderInvestPersonInfo = new PlMmOrderInvestPersonInfo({
+			isRead: true,
+			investPersonId : this.investPersonId
+		});
+		
+		//理财产品信息
+		this.PlMmPlanPanel = new PlMmPlanPanel({
+			mmplanId : this.mmplanId
+		});
+		
+		//理财产品购买信息
+		this.PlMmPlanBuyPanel = new PlMmPlanBuyPanel({
+			isReadOnly: true,
+			projectId : this.projectId,
+			hiddenInterest : false
+		});
+		
+		/*this.ourProcreditMaterialsView=new OurProcreditMaterialsViewProduct_FinanceProduct({
+			isProduct:false,
+			projectId:this.projectId,
+			isReadOnly:true,
+			isAllReadOnly:true,
+			isTurnover:true,
+			hiddenAdd:true,
+			hiddenedit:true,
+			hiddenDel:true,
+			isHidden_materials:true,
+			customerType:"('investPerson')"
+		});*/
+		
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'plMmOrderInfoService.investFlowNext'
+			},{
+				xtype : 'fieldset',
+				title : '理财产品信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanPanel]
+			},{
+				xtype : 'fieldset',
+				title : '投资人信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInvestPersonInfo]
+			},{
+				xtype : 'fieldset',
+				title : '销售信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInfoPanel]
+			},{
+				xtype : 'fieldset',
+				title : '购买信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanBuyPanel]
+			}/*,{
+				xtype : 'fieldset',
+				title : '材料清单',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.ourProcreditMaterialsView]
+			}*/]
+		})
+	
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		/*	formPanel.getForm().submit({
+			    clientValidation: false, 
+				url : __ctxPath + '/creditFlow/financingAgency/savaByFlowPlMmOrderInfo.do?id=' + this.projectId,
+				params : {
+					'comments':formPanel.comments
+				},
+				method : 'post',
+				waitMsg : '数据正在提交，请稍后...',
+				scope: this,
+				success : function(fp, action) {
+					var object = Ext.util.JSON.decode(action.response.responseText)
+					Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				},
+				failure : function(fp, action) {
+					Ext.MessageBox.show({
+						title : '操作信息',
+						msg : '信息保存出错，请联系管理员！',
+						buttons : Ext.MessageBox.OK,
+						icon : 'ext-mb-error'
+					});
+				}
+			});*/
+	},
+	validate : function(outpanel) {
+		return true;
+	}
+})
+
+
+

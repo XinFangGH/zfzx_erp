@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.Diary" table="diary" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="diaryId" column="diaryId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="dayTime" type="java.util.Date" update="true" insert="true" access="property" column="dayTime" length="10" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="65535" not-null="true" unique="false"/>  
+    <property name="diaryType" type="java.lang.Short" update="true" insert="true" access="property" column="diaryType" length="5" not-null="true" unique="false"/>  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.JobChange" table="job_change" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="changeId" column="changeId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="profileId" type="java.lang.Long" update="true" insert="true" access="property" column="profileId" length="19" not-null="true" unique="false"/>  
+    <property name="profileNo" type="java.lang.String" update="true" insert="true" access="property" column="profileNo" length="64" not-null="true" unique="false"/>  
+    <property name="userName" type="java.lang.String" update="true" insert="true" access="property" column="userName" length="64" not-null="false" unique="false"/>  
+    <property name="orgJobId" type="java.lang.Long" update="true" insert="true" access="property" column="orgJobId" length="19" not-null="true" unique="false"/>  
+    <property name="orgStandardId" type="java.lang.Long" update="true" insert="true" access="property" column="orgStandardId" length="19" not-null="false" unique="false"/>  
+    <property name="newStandardId" type="java.lang.Long" update="true" insert="true" access="property" column="newStandardId" length="19" not-null="false" unique="false"/>  
+    <property name="orgJobName" type="java.lang.String" update="true" insert="true" access="property" column="orgJobName" length="64" not-null="true" unique="false"/>  
+    <property name="newJobId" type="java.lang.Long" update="true" insert="true" access="property" column="newJobId" length="19" not-null="true" unique="false"/>  
+    <property name="newJobName" type="java.lang.String" update="true" insert="true" access="property" column="newJobName" length="64" not-null="true" unique="false"/>  
+    <property name="orgStandardNo" type="java.lang.String" update="true" insert="true" access="property" column="orgStandardNo" length="64" not-null="false" unique="false"/>  
+    <property name="orgStandardName" type="java.lang.String" update="true" insert="true" access="property" column="orgStandardName" length="64" not-null="false" unique="false"/>  
+    <property name="orgDepId" type="java.lang.Long" update="true" insert="true" access="property" column="orgDepId" length="19" not-null="false" unique="false"/>  
+    <property name="orgDepName" type="java.lang.String" update="true" insert="true" access="property" column="orgDepName" length="128" not-null="false" unique="false"/>  
+    <property name="orgTotalMoney" type="java.math.BigDecimal" update="true" insert="true" access="property" column="orgTotalMoney" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="newStandardNo" type="java.lang.String" update="true" insert="true" access="property" column="newStandardNo" length="64" not-null="false" unique="false"/>  
+    <property name="newStandardName" type="java.lang.String" update="true" insert="true" access="property" column="newStandardName" length="64" not-null="false" unique="false"/>  
+    <property name="newDepId" type="java.lang.Long" update="true" insert="true" access="property" column="newDepId" length="19" not-null="false" unique="false"/>  
+    <property name="newDepName" type="java.lang.String" update="true" insert="true" access="property" column="newDepName" length="128" not-null="false" unique="false"/>  
+    <property name="newTotalMoney" type="java.math.BigDecimal" update="true" insert="true" access="property" column="newTotalMoney" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="changeReason" type="java.lang.String" update="true" insert="true" access="property" column="changeReason" length="1024" not-null="false" unique="false"/>  
+    <property name="regName" type="java.lang.String" update="true" insert="true" access="property" column="regName" length="64" not-null="false" unique="false"/>  
+    <property name="regTime" type="java.util.Date" update="true" insert="true" access="property" column="regTime" length="19" not-null="false" unique="false"/>  
+    <property name="checkName" type="java.lang.String" update="true" insert="true" access="property" column="checkName" length="64" not-null="false" unique="false"/>  
+    <property name="checkTime" type="java.util.Date" update="true" insert="true" access="property" column="checkTime" length="19" not-null="false" unique="false"/>  
+    <property name="checkOpinion" type="java.lang.String" update="true" insert="true" access="property" column="checkOpinion" length="512" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="false" unique="false"/>  
+    <property name="memo" type="java.lang.String" update="true" insert="true" access="property" column="memo" length="1024" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

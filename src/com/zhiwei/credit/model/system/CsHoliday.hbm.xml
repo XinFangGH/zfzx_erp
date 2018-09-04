@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.system.CsHoliday"
+        table="cs_holiday"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id  name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"  >
+        <generator class="native"/>
+        </id>
+         <property
+            name="dateStr"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="dateStr"
+            length="19"
+            not-null="false"
+            unique="false" />
+        <property
+            name="yearStr"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="yearStr"
+            length="50"
+            not-null="false"
+            unique="false" />
+        <property
+            name="dicId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="dicId"
+            length="19"
+            not-null="false"
+            unique="false" />
+     </class>
+</hibernate-mapping>

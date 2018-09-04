@@ -1,0 +1,136 @@
+## This is a velocity template
+## to generate a Spring controller class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+#set ($classService    = "${class}Service")
+#set ($classVarService = "${classVar}Service")
+package ${packagePrefix}.credit.action.${packageModot};
+/*
+ *  北京互融时代软件有限公司   -- http://www.zhiweitime.com
+ *	Copyright @ 2004 - 2010 Yuseen.com all rights reserved.京ICP备 05007290 号
+*/
+import java.util.List;
+import javax.annotation.Resource;
+
+import java.lang.reflect.Type;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.zhiwei.core.util.BeanUtil;
+
+import ${packagePrefix}.core.command.QueryFilter;
+import ${packagePrefix}.core.web.action.BaseAction;
+
+
+import ${packagePrefix}.credit.model.${packageModot}.${class};
+import ${packagePrefix}.credit.service.${packageModot}.${class}Service;
+/**
+ * 
+ * @author 
+ *
+ */
+public class ${class}Action extends BaseAction{
+	@Resource
+	private ${classService} ${classVarService};
+	private ${class} ${classVar};
+	
+	private Long $keyVar;
+
+	public Long get${keyVarUC}() {
+		return ${keyVar};
+	}
+
+	public void set${keyVarUC}(Long ${keyVar}) {
+		this.${keyVar} = ${keyVar};
+	}
+
+	public ${class} get${class}() {
+		return ${classVar};
+	}
+
+	public void set${class}($class $classVar) {
+		this.${classVar} = ${classVar};
+	}
+
+	/**
+	 * 显示列表
+	 */
+	public String list(){
+		
+		QueryFilter filter=new QueryFilter(getRequest());
+		List<${class}> list= ${classVarService}.getAll(filter);
+		
+		Type type=new TypeToken<List<${class}>>(){}.getType();
+		StringBuffer buff = new StringBuffer("{success:true,'totalCounts':")
+		.append(filter.getPagingBean().getTotalItems()).append(",result:");
+		
+		Gson gson=new Gson();
+		buff.append(gson.toJson(list, type));
+		buff.append("}");
+		
+		jsonString=buff.toString();
+		
+		return SUCCESS;
+	}
+	/**
+	 * 批量删除
+	 * @return
+	 */
+	public String multiDel(){
+		
+		String[]ids=getRequest().getParameterValues("ids");
+		if(ids!=null){
+			for(String id:ids){
+				${classVarService}.remove(new Long(id));
+			}
+		}
+		
+		jsonString="{success:true}";
+		
+		return SUCCESS;
+	}
+	
+	/**
+	 * 显示详细信息
+	 * @return
+	 */
+	public String get(){
+		${class} ${classVar}=${classVarService}.get(${keyVar});
+		
+		Gson gson=new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		//将数据转成JSON格式
+		StringBuffer sb = new StringBuffer("{success:true,data:");
+		sb.append(gson.toJson(${classVar}));
+		sb.append("}");
+		setJsonString(sb.toString());
+		
+		return SUCCESS;
+	}
+	/**
+	 * 添加及保存操作
+	 */
+	public String save(){
+		if(${classVar}.get${keyVarUC}()==null){
+			${classVarService}.save(${classVar});
+		}else{
+			${class} org${class}=${classVarService}.get(${classVar}.get${keyVarUC}());
+			try{
+				BeanUtil.copyNotNullProperties(org${class}, ${classVar});
+				${classVarService}.save(org${class});
+			}catch(Exception ex){
+				logger.error(ex.getMessage());
+			}
+		}
+		setJsonString("{success:true}");
+		return SUCCESS;
+		
+	}
+}

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_org" text="机构管理" iconCls="mod-org"> 
+
+
+<!--<Items id="CompanyControl" text="分公司管理" iconCls="menu-finance" isShow="false" isGroup="true">
+	       <Item id="BranchOfficeView" iconCls="btn-tree-team25" text="分公司管理" />
+	       <Item id="Company_OrganizationStructureView" iconCls="btn-tree-team25" text="分公司组织架构管理" />
+	       <Item id="Company_ControlRoleManager" iconCls="btn-tree-team25" text="分公司管控角色管理" >
+	       		<Function id="Company_add_control" text="增加" iconCls="btn-edit"/>
+			   	<Function id="Company_remove_control" text="删除" iconCls="btn-edit"/>
+			   	<Function id="Company_resource_control" text="授权" iconCls="btn-edit"/>
+			   	<Function id="Company_save_control" text="保存" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="Company_BusinessRoleManager" iconCls="btn-tree-team25" text="分公司业务角色管理" >
+	       		<Function id="Company_add_business" text="增加" iconCls="btn-edit"/>
+			   	<Function id="Company_remove_business" text="删除" iconCls="btn-edit"/>
+			   	<Function id="Company_resource_business" text="授权" iconCls="btn-edit"/>
+			   	<Function id="Company_edit_business" text="编辑" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="Company_NormalFlowMnagerView" text="标准业务流程管理" iconCls="btn-tree-team25">
+	        <Function id="Company_FlowDesign2" text="在线流程设计" iconCls="btn-flow-design"/>
+	        <Function id="Company_FlowCreateUpdateType2" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="Company_FlowUpdateBranchCompany" text="更新分公司流程" iconCls="btn-edit"/>
+			<Function id="Company_FlowQuery2" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="Company_ProTypeManage2" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="Company_FlowEdit2" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="Company_FlowDel2" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="Company_FlowCheck2" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="Company_FlowSetting2" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	     
+	     
+	       <Item id="Company_AssignFlowView" text="分公司业务品种管理" iconCls="btn-tree-team25">
+	        <Function id="Company_FlowCreateBussinessFlow1" text="创建业务流程" iconCls="btn-add"/>
+	        <Function id="Company_FlowDesign1" text="在线流程设计" iconCls="btn-flow-design"/>
+			<Function id="Company_FlowQuery1" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="Company_ProTypeManage1" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="Company_FlowEdit1" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="Company_FlowDel1" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="Company_FlowCheck1" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="Company_FlowSetting1" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	</Items>
+
+	<Items id="GroupControl" text="加盟商管控" iconCls="menu-finance" isShow="false" isGroup="true">
+	       <Item id="BranchOfficeView" iconCls="btn-tree-team25" text="加盟商管理" />
+	       <Item id="OrganizationStructureView" iconCls="btn-tree-team25" text="加盟商组织架构管理" />
+	       <Item id="ControlRoleManager" iconCls="btn-tree-team25" text="加盟商管控角色管理" >
+	       		<Function id="_add_control" text="增加" iconCls="btn-edit"/>
+			   	<Function id="_remove_control" text="删除" iconCls="btn-edit"/>
+			   	<Function id="_resource_control" text="授权" iconCls="btn-edit"/>
+			   	<Function id="_save_control" text="保存" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="BusinessRoleManager" iconCls="btn-tree-team25" text="加盟商业务角色管理" >
+	       		<Function id="_add_business" text="增加" iconCls="btn-edit"/>
+			   	<Function id="_remove_business" text="删除" iconCls="btn-edit"/>
+			   	<Function id="_resource_business" text="授权" iconCls="btn-edit"/>
+			   	<Function id="_edit_business" text="编辑" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="NormalFlowMnagerView" text="标准业务流程管理" iconCls="btn-tree-team25">
+	        <Function id="_FlowDesign2" text="在线流程设计" iconCls="btn-flow-design"/>
+	        <Function id="_FlowCreateUpdateType2" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="_FlowUpdateBranchCompany" text="更新分公司流程" iconCls="btn-edit"/>
+			<Function id="_FlowQuery2" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage2" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit2" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel2" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck2" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting2" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	     
+	     
+	       <Item id="AssignFlowView" text="加盟商业务品种管理" iconCls="btn-tree-team25">
+	        <Function id="_FlowCreateBussinessFlow1" text="创建业务流程" iconCls="btn-add"/>
+	        <Function id="_FlowDesign1" text="在线流程设计" iconCls="btn-flow-design"/>
+			<Function id="_FlowCreateUpdateType1" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="_FlowQuery1" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage1" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit1" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel1" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck1" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting1" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	</Items>
+
+	<Items id="outletManger" text="门店管理" iconCls="mod-customer" isPublic="false" >
+		
+	</Items>
+	
+	--><Items id="companySetting" text="公司人员管理" iconCls="mod-customer" isPublic="false" >
+		
+		<Item id="ProfileForm" text="修改个人资料" iconCls="menu-customer" />
+		<Item id="CompanyOfUesrView" text="部门人员管理" iconCls="menu-OrgSetting"  />
+		<!-- <Item id="PositionUserView" text="岗位人员管理" iconCls="menu-position" />
+-->
+		<Item id="AppRoleView" iconCls="menu-role" text="角色设置">
+			<Function id="_AppRoleList" text="查看角色" iconCls="menu-list">
+				<url>/system/listAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleAdd" text="添加角色" iconCls="menu-add">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleEdit" text="编辑角色" iconCls="btn-edit">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleDel" text="删除角色" iconCls="menu-del">
+				<url>/system/listAppRole.do</url>
+				<url>/system/mulDelAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleGrant" text="授权角色" iconCls="btn-grant">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleExit" text="导出权限" iconCls="menu-del"/>
+			<Function id="_AppRoleImport" text="导入权限" iconCls="menu-del"/>
+		</Item>
+		<!--<Item id="OrgSettingView" text="组织架构设置" iconCls="menu-OrgSetting" />
+		<Item id="PositionUserView" text="岗位人员管理" iconCls="menu-position" />
+		<Item id="DepUserView" text="部门人员管理" iconCls="menu-department" />
+	-->
+	</Items>
+</Menus>

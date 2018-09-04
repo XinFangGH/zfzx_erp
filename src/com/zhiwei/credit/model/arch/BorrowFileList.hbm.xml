@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.arch.BorrowFileList" table="borrow_file_list" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="listId" column="listId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="listType" type="java.lang.String" update="true" insert="true" access="property" column="listType" length="64" not-null="false" unique="false"/>  
+    <property name="afNo" type="java.lang.String" update="true" insert="true" access="property" column="afNo" length="64" not-null="false" unique="false"/>  
+    <property name="afName" type="java.lang.String" update="true" insert="true" access="property" column="afName" length="128" not-null="false" unique="false"/>  
+    <property name="rollNo" type="java.lang.String" update="true" insert="true" access="property" column="rollNo" length="64" not-null="false" unique="false"/>  
+    <property name="rolllName" type="java.lang.String" update="true" insert="true" access="property" column="rolllName" length="128" not-null="false" unique="false"/>  
+    <property name="fileNo" type="java.lang.String" update="true" insert="true" access="property" column="fileNo" length="64" not-null="false" unique="false"/>  
+    <property name="fileName" type="java.lang.String" update="true" insert="true" access="property" column="fileName" length="128" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to RollFile -->  
+    <many-to-one name="rollFile" class="com.zhiwei.credit.model.arch.RollFile" not-null="false" fetch="select"> 
+      <column name="rollFileId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to ArchRoll -->  
+    <many-to-one name="archRoll" class="com.zhiwei.credit.model.arch.ArchRoll" not-null="false" fetch="select"> 
+      <column name="rollId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to ArchFond -->  
+    <many-to-one name="archFond" class="com.zhiwei.credit.model.arch.ArchFond" not-null="false" fetch="select"> 
+      <column name="archFondId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to BorrowRecord -->  
+    <many-to-one name="borrowRecord" class="com.zhiwei.credit.model.arch.BorrowRecord" not-null="false" fetch="select"> 
+      <column name="recordId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

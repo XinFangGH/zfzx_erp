@@ -1,0 +1,257 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	personId:'$personId',
+	businessType : '$!businessType',
+	productId:'$!productId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+			    __ctxPath + '/js/creditFlow/customer/person/workcompany/workCompanyForm1.js',//个人所在公司信息
+			    __ctxPath + '/js/creditFlow/personrelation/phonecheck/BpPersonPhonecheckInfoView.js'//电核信息
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//项目基本信息
+		this.projectInfo = new ExtUD.Ext.PerCreditLoanProjectInfoPanel({});
+		
+		//个人客户信息
+		this.perMain = new ExtUD.Ext.CustomerInfoFastPanel({
+			isEditPerson : false,
+			isAllReadOnly:true,
+			isRead:true,
+			isHidden:true,
+			isSpouseReadOnly: true,
+			isNameReadOnly:true,
+			isHiddenCustomerDetailBtn:false
+		});
+		
+		//个人所在公司信息
+		this.workCompany = new 	workCompanyForm1({
+			isAllReadOnly : true,
+			isReadOnly:true
+		});
+		
+		//电核信息(配偶或直系亲属)
+		this.relationPersonInfo0 = new BpPersonPhonecheckInfoView({
+			projectId:this.projectId,
+			personId:this.personId,
+			personType:575,
+			btnTitleText:'家庭联系人'
+		});
+		this.relationPersonInfo1 = new BpPersonPhonecheckInfoView({
+			projectId:this.projectId,
+			personId:this.personId,
+			personType:577,
+			btnTitleText:'工作证明人'
+		});
+		this.relationPersonInfo2 = new BpPersonPhonecheckInfoView({
+			projectId:this.projectId,
+			personId:this.personId,
+			personType:576,
+			btnTitleText:'紧急联系人'
+		});
+		
+		this.productStore = new Ext.data.JsonStore( {
+			url : __ctxPath+ "/system/listBpProductParameter.do",
+			totalProperty : 'totalCounts',
+			root : 'result',
+			fields : [{
+				name : 'id'
+			},{
+				name : 'productName'
+			}]
+		});
+		this.productStore.load();
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+//				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSmallloanProjectService.phoneCheckTaskNextStep'
+			},{
+				xtype:'hidden',
+				name:'phoneCheckData1'
+			},{
+				xtype:'hidden',
+				name:'phoneCheckData2'
+			},{
+				xtype:'hidden',
+				name:'phoneCheckData3'
+			},{
+				xtype:'hidden',
+				name:'productId',
+				value:this.productId
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目基本信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			},{
+				xtype : 'fieldset',
+				title :'个人客户信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.perMain]
+			},{
+				xtype : 'fieldset',
+				title :'【公司信息】个人所在公司信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.workCompany]
+			},{
+				xtype : 'fieldset',
+				title :'电核信息-家庭联系人',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.relationPersonInfo0]
+			},{
+				xtype : 'fieldset',
+				title :'电核信息-工作证明人',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.relationPersonInfo1]
+			},{
+				xtype : 'fieldset',
+				title :'电核信息-紧急联系人',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.relationPersonInfo2]
+			}]
+		})
+		this.loadData({
+			url : __ctxPath + '/project/getCreditLoanProjectInfoSlSmallloanProject.do?slProjectId='+this.projectId+'&slTaskId='+this.taskId,
+			method : "POST",
+			preName : ['person', 'slSmallloanProject','bpProductParameter'],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(alarm_fields.data.comments){
+				    this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);
+				}
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		var relationPersonInfo1=getPhoneCheckInfoData(this.relationPersonInfo0);//电审信息1
+		formPanel.getCmpByName('phoneCheckData1').setValue(relationPersonInfo1);
+		
+		var relationPersonInfo2=getPhoneCheckInfoData(this.relationPersonInfo1);//电审信息2
+		formPanel.getCmpByName('phoneCheckData2').setValue(relationPersonInfo2);
+		
+		var relationPersonInfo3=getPhoneCheckInfoData(this.relationPersonInfo2);//电审信息3
+		formPanel.getCmpByName('phoneCheckData3').setValue(relationPersonInfo3);
+		
+		var g1=this.relationPersonInfo0;
+		var g2=this.relationPersonInfo1;
+		var g3=this.relationPersonInfo2;
+		
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+//			url : __ctxPath + '/project/saveCommentsSlSmallloanProject.do',
+			url : __ctxPath + '/project/savePhoneCheckInfoSlSmallloanProject.do',
+			params : {
+				'comments':formPanel.comments
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope: this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText)
+				g1.gridPanel.store.reload();
+				g2.gridPanel.store.reload();
+				g3.gridPanel.store.reload();
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	nextStep:function(rootObj,formPanel){
+		var relationPersonInfo1=getPhoneCheckInfoData(this.relationPersonInfo1);//电审信息1
+		formPanel.getCmpByName('phoneCheckData1').setValue(relationPersonInfo1);
+		var relationPersonInfo2=getPhoneCheckInfoData(this.relationPersonInfo2);//电审信息2
+		formPanel.getCmpByName('phoneCheckData2').setValue(relationPersonInfo2);
+		var relationPersonInfo3=getPhoneCheckInfoData(this.relationPersonInfo3);//电审信息3
+		formPanel.getCmpByName('phoneCheckData3').setValue(relationPersonInfo3);
+		return true;
+	},
+	validate : function(outpanel) {
+	    return this.nextStep(this,outpanel);
+	}
+})

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+ 	<bean id="csInvestmentpersonService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.customer.impl.CsInvestmentpersonServiceImpl">
+   	 	<constructor-arg index="0" ref="csInvestmentpersonDao"/>
+   	 </bean>
+
+	 <bean id="obObligationInvestInfoService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObObligationInvestInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="obObligationInvestInfoDao"/>
+   	 </bean>
+
+   	  <bean id="obObligationProjectService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.project.impl.ObObligationProjectServiceImpl">
+   	 	<constructor-arg index="0" ref="obObligationProjectDao"/>
+   	 </bean>
+   	 <bean id="vObligationInvestInfoService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.project.impl.VObligationInvestInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="vObligationInvestInfoDao"/>
+   	 </bean>
+   	  <bean id="obShopintentStatisticService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObShopintentStatisticServiceImpl">
+   	 	<constructor-arg index="0" ref="obShopintentStatisticDao"/>
+   	 </bean>
+	 <bean id="obSystemaccountSettingService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObSystemaccountSettingServiceImpl">
+   	 	<constructor-arg index="0" ref="obSystemaccountSettingDao"/>
+   	 </bean>
+   	 <bean id="obSystemAccountService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObSystemAccountServiceImpl">
+   	 	<constructor-arg index="0" ref="obSystemAccountDao"/>
+   	 </bean>
+   	 
+   	 <bean id="obAccountDealInfoService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObAccountDealInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="obAccountDealInfoDao"/>
+   	 </bean>
+   	 </beans>

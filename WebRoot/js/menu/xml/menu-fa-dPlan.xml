@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa_dplan" text="P2A理财业务" iconCls="mod-org">
+  	<Items id="MmplanAdd" iconCls="btn-tree-team30" text="D计划管理">
+		<Item id="UPlanTypeView?keystr=mmplan" iconCls="btn-tree-team30" text="计划类型配置"></Item>
+		<Item id="UPlanView?keystr=mmplan" iconCls="btn-tree-team30" text="计划招标制定"></Item>
+		<Item id="UPlanBidPublish?state=0&amp;keystr=mmplan&amp;buttonType=0" iconCls="btn-tree-team30" text="计划招标预览"></Item>
+		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=1" iconCls="btn-tree-team30" text="计划招标发布"></Item>
+  	</Items>
+  	<Items id="MmplanPreSale" iconCls="btn-tree-team30" text="D计划预售">
+  		<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=dys" iconCls="btn-tree-team30" text="待预售计划"></Item>
+  		<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=ysz" iconCls="btn-tree-team30" text="预售中计划"></Item>
+  	</Items>
+  	<Items id="MmplanBidding" iconCls="btn-tree-team30" text="招投标管理">
+  		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=2" iconCls="btn-tree-team30" text="理财计划关闭"></Item>
+  		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=3" iconCls="btn-tree-team30" text="手动起息办理"></Item>
+  	</Items>
+  	<Items id="MmplanEarlyOutList" iconCls="btn-tree-team30" text="提前赎回管理">
+		<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=0&amp;buttonType=0" iconCls="btn-tree-team30" text="待审核申请"></Item>
+		<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=0&amp;buttonType=1" iconCls="btn-tree-team30" text="审核通过返款"></Item>
+		<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=1&amp;buttonType=2" iconCls="btn-tree-team30" text="已通过申请"></Item>
+		<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=3&amp;buttonType=3" iconCls="btn-tree-team30" text="已驳回申请"></Item>
+	</Items>
+	<Items id="MmplanRepayment" iconCls="btn-tree-team30" text="派息还款管理">
+		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=4" iconCls="btn-tree-team30" text="派息还款授权"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=mmplan&amp;buttonType=5" iconCls="btn-tree-team30" text="理财还款派息"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=mmplan&amp;buttonType=7" iconCls="btn-tree-team30" text="理财派息返款"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=mmplan&amp;buttonType=6" iconCls="btn-tree-team30" text="逾期派息提醒"></Item>
+		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=7" iconCls="btn-tree-team30" text="理财结清管理"></Item>
+	</Items>
+	<Items id="MmplanSelect" iconCls="btn-tree-team30" text="理财计划查询">
+		<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=8" iconCls="btn-tree-team30" text="全部理财计划查询"></Item>
+		<Item id="UPlanInfo?keystr=mmplan" iconCls="btn-tree-team30" text="投标记录查询"></Item>	
+	</Items>
+	<Items id="MmplanState" iconCls="btn-tree-team30" text="理财计划台账" >
+		<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=zbz" iconCls="btn-tree-team30" text="招标中计划台账"></Item>
+		<Item id="UPlanBidPublish?state=2&amp;keystr=mmplan" iconCls="btn-tree-team30" text="已满标计划台账"></Item>
+		<Item id="UPlanBidPublish?state=4&amp;keystr=mmplan" iconCls="btn-tree-team30" text="已到期计划台账"></Item>
+		<Item id="UPlanBidPublish?state=7&amp;keystr=mmplan" iconCls="btn-tree-team30" text="还款中计划台账"></Item>
+		<Item id="UPlanBidPublish?state=10&amp;keystr=mmplan" iconCls="btn-tree-team30" text="已完成计划台账"></Item>
+		<Item id="UPlanBidPublish?state=-1&amp;keystr=mmplan" iconCls="btn-tree-team30" text="已关闭计划台账"></Item>
+	</Items>
+ 	<Items id="OnlineInvestmentMatch" text="理财投向管理" iconCls="btn-tree-team30">
+		<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=mmplanOr&amp;type=0" text="企业债权补录 " iconCls="btn-tree-team30" isControl="false" />
+		<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=mmplanOr&amp;type=0" text="个人债权补录 " iconCls="btn-tree-team30" isControl="false" />
+		<Item id="PlBusinessOrPlanView?status=20" iconCls="btn-tree-team30" text="企业债权项目"></Item>
+		<Item id="PlPersionOrPlanView?status=20" iconCls="btn-tree-team30"  text="个人债权项目"></Item>
+		<Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-team30" text="企业公示信息包装">
+			<Function id="businessOrProKeep_or_20" text="公示信息维护" iconCls="btn-detail" />
+		</Item>
+		<Item id="PlPersionProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-team30" text="个人公示信息包装">
+			<Function id="persionOrProKeep_or_20" text="公示信息维护" iconCls="btn-detail" />
+		</Item>
+		<Item id="PlBusinessOrPlanSuperviseView?status=20" iconCls="btn-tree-team30"  text="企业展期债权项目"></Item>
+		<Item id="PlPersionOrPlanSuperviseView?status=20" iconCls="btn-tree-team30"  text="个人展期债权项目"></Item>
+		<Item id="PlMmChildrenObligatoryView?type=0&amp;childType=mmplanOr" iconCls="btn-tree-team30" text="D计划债权库"></Item>
+		<Item id="plMmOrderView?keystr=mmplan&amp;childType=mmplanOr" iconCls="btn-tree-team30" text="投资债权匹配"></Item>
+		<Item id="ObligatoryrightBalance?keystr=mmplanOr" iconCls="btn-tree-team30" text="债权余额查询"></Item>
+	</Items>
+</Menus>

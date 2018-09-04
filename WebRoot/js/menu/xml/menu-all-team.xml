@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Modules>
+	<!-- 项目事项处理  -->
+	<module name="team" file="menu-team.xml"/>
+	
+	<!--
+	<module name="myflow" file="menu-myflow.xml"/>
+	<module name="arch" file="menu-arch.xml"/>
+	<module name="archives" file="menu-archives.xml"/>
+	
+	<module name="knowledge" file="menu-knowledge.xml"/>
+		<module name="setting" file="menu-setting.xml"/>
+	<module name="hr" file="menu-hr.xml"/>
+	-->
+
+	
+	
+	
+	
+</Modules>

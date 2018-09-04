@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<request platformNo="10040011137">
+	<requestNo>95620140905114918</requestNo>
+	<notifyUrl>http://localhost:8080/erp_trunck/yeePay/webBackValueYeePayBack.do
+	</notifyUrl>
+	<orderNo>notMM-264</orderNo>
+	<fee>1000.00</fee>
+	<transfers>
+		<transfer>
+			<requestNo>76820140819173452</requestNo>
+			<sourcePlatformUserNo>71620140815174008-178</sourcePlatformUserNo>
+			<sourceUserType>MEMBER</sourceUserType>
+			<targetPlatformUserNo>14920140818173430-183</targetPlatformUserNo>
+			<targetUserType>MEMBER</targetUserType>
+			<transferAmount>150000.00</transferAmount>
+		</transfer>
+	</transfers>
+</request>

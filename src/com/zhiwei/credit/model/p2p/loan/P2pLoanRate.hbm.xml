@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.p2p.loan.P2pLoanRate"
+        table="p2p_loan_rate"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="rateId"
+            column="rateId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="productId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="productId"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="loanTime"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="loanTime"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="yearAccrualRate"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="yearAccrualRate"
+            length="10"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="yearManagementConsultingOfRate"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="yearManagementConsultingOfRate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="yearFinanceServiceOfRate"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="yearFinanceServiceOfRate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

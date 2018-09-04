@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <package name="morservice"  extends="struts-default" namespace="/credit/mortgage">
+    	
+    	<!-- 担保信息列表 -->
+		<action name="queryMortgage" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="queryMortgage">
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- 节点26反担保措施修改页面显示数据的action -->
+		<action name="ajaxMortgageManageSee" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="ajaxMortgageManageSeeNode26"></action>
+		
+		<!-- 节点26反担保措施修改 -->
+		<action name="ajaxUpdateMortgageManage" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="ajaxUpdateMortgageManageNode26"></action>
+		<!-- 小额贷款抵质押物归档确认更新 -->
+		<action name="ajaxArchiveConfirm" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="ajaxArchiveConfirm"></action>
+			<!--删除信息 -->
+		<action name="deleteMortgage"
+			class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="deleteAllObjectDatas">
+			<result name="success" type="redirect">/credit/mortgage/mortgage/cs_procredit_mortgage.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--融资抵质押物假删除 -->
+		<action name="deleteMortgageFalse" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="deleteMortgageFalse">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="ajaxGetMortgageAllDataByProjectId" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="ajaxGetMortgageAllDataByProjectId">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="updateMortgage" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="updateMortgage">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="updateMortgage1" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="updateMortgage1">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortgageFinance" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageFinance">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortgageList" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageList">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="getMortgageInfo" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageInfo">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMorByPersonType" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMorByPersonType">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortgageOfDY" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageOfDY">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortageStore" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortageStore">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="addMortgageOfDY" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="addMortgageOfDY">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortgageByType" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageByType">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getMortgageOfBZ" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageOfBZ">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="addMortgageOfBZ" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="addMortgageOfBZ">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="getMortgageFinanceList" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getMortgageFinanceList">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="getAssuremoney" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="getAssuremoney">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="deleteByMortgageIds" class="com.credit.proj.mortgage.morservice.action.MortgageAction" method="deleteByMortgageIds">
+			<result>${successResultValue}</result>
+		</action>
+    	</package>
+    	<include file="/com/credit/proj/mortgage/vehicle/xmls/struts-vehicle.xml" />
+		<include file="/com/credit/proj/mortgage/stockownership/xmls/struts-stockownership.xml" />
+		<include file="/com/credit/proj/mortgage/education/xmls/struts-education.xml" />
+		<include file="/com/credit/proj/mortgage/product/xmls/struts-product.xml" />
+		<include file="/com/credit/proj/mortgage/dutyperson/xmls/struts-dutyperson.xml" />
+		<include file="/com/credit/proj/mortgage/machineinfo/xmls/struts-machineinfo.xml" />
+		<include file="/com/credit/proj/mortgage/house/xmls/struts-house.xml" />
+		<include file="/com/credit/proj/mortgage/houseground/xmls/struts-houseground.xml" />
+		<include file="/com/credit/proj/mortgage/industry/xmls/struts-industry.xml" />
+		<include file="/com/credit/proj/mortgage/business/xmls/struts-business.xml" />
+		<include file="/com/credit/proj/mortgage/businessandlive/xmls/struts-businessandlive.xml" />
+		<include file="/com/credit/proj/mortgage/company/xmls/struts-company.xml" />
+		<include file="/com/credit/proj/mortgage/droit/xmls/struts-droit.xml" />
+		<include file="/com/credit/proj/mortgage/officebuilding/xmls/struts-officebuilding.xml" />
+		<include file="/com/credit/proj/mortgage/receivables/xmls/struts-receivables.xml" />
+</struts>  

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.Job" table="position" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="jobId" column="pos_id" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="jobName" type="java.lang.String" update="true" insert="true" access="property" column="POS_NAME" length="128" not-null="true" unique="false"/>  
+    <property name="memo" type="java.lang.String" update="true" insert="true" access="property" column="POS_DESC" length="512" not-null="false" unique="false"/>  
+    <!-- 
+    <property name="delFlag" type="java.lang.Short" update="true" insert="true" access="property" column="delFlag" length="5" not-null="false" unique="false"/>  
+     -->  
+    <property name="parentId" type="java.lang.Long" update="true" insert="true" access="property" column="pos_sup_id" length="20" not-null="false" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="128" not-null="false" unique="false"/>  
+    <property name="depth" type="java.lang.Long" update="true" insert="true" access="property" column="depth" length="11" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

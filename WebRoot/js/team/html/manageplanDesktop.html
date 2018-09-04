@@ -1,0 +1,165 @@
+<div class="container-all">
+    <div class="content">
+        <div class="row">
+            <div class="info-box w-20">
+                <span class="info-box-icon bg-color-1">
+                    <i class="top-arrow" id="useruserhb"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-one"><em id="adduser">0</em>人</span>
+                    <span class="info-box-number">新增注册</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sb">
+                <span class="info-box-icon bg-color-2">
+                    <i  class="down-arrow" id="isCheckCardhb"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-two"><em id="isCheckCard">0</em>人</span>
+                    <span class="info-box-number">实名认证</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sby">
+                <span class="info-box-icon bg-color-3">
+                    <i  class="down-arrow" id="investPercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-three"><em id="investMoney">0万</em></span>
+                    <span class="info-box-number">新增投资</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sb">
+                <span class="info-box-icon bg-color-4">
+                    <i  class="down-arrow" id="rechargePercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-four"><em id="rechargeMoney">0万</em></span>
+                    <span class="info-box-number">新增充值</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0">
+                <span class="info-box-icon bg-color-5">
+                    <i class="top-arrow" id="withdrawPercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-five"><em id="withdrawMoney">0万</em></span>
+                    <span class="info-box-number">新增提现</span>
+            </div>
+        </div>
+    </div>
+	
+        <div class="clearfix"></div>
+    <div class="data-left-all">
+        <!--start:data-left-->
+    	<div class="data-left">
+            <div class="data-list01">
+                <h2>批量债权转让状态统计图
+                	<p class="select-box">
+                        <select onchange="changePlanAssignment(this.options[this.options.selectedIndex].value)">
+                        	<option value="">请选择时间</option>
+                            <option value="year">按年显示</option>
+                            <option value="quarter">按季显示</option>
+                            <option value="month">按月显示</option>
+                            <option value="yearweek">按周显示</option>
+                        </select>
+                    </p>
+                </h2>
+              	<div class="dynamic-graph txt-alg" id="planAssignment"><img src="highchart/images/deskImages/11.png"/></div>
+				</div>
+				
+				
+            <div class="data-list01 data-list02">
+                <h2>资金债权分析图
+                    <!--<p class="select-box">
+                        <select  onchange="changePlanFundAnalyze(this.options[this.options.selectedIndex].value)">
+                            <option value="">请选择时间</option>
+                            <option value="year">按年显示</option>
+                            <option value="quarter">按季显示</option>
+                            <option value="month">按月显示</option>
+                            <option value="day">按天显示</option>
+                        </select>
+                    </p>
+                --></h2>
+                <div class="dynamic-graph txt-alg" id="planFundAnalyze"><img src="highchart/images/deskImages/22.png"/></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="data-list01">
+                <h2>批量债权转让类型占比图
+                    <p class="select-box"> 
+                        <select onchange="changePlanProportion(this.options[this.options.selectedIndex].value)">
+                           <option value="">请选择时间</option>
+                            <option value="year">按年显示</option>
+                            <option value="quarter">按季显示</option>
+                            <option value="month">按月显示</option>
+                            <option value="yearweek">按周显示</option>
+                        </select>
+                    </p>
+                </h2>
+                <div class="dynamic-graph txt-alg" id="planProportion"><img src="highchart/images/deskImages/33.png"/></div>
+            </div>
+
+            <div class="data-list01 data-list02">
+                <h2>批量债权转让销售统计图
+                    <p class="select-box">
+                        <select onchange="changePlanMarket(this.options[this.options.selectedIndex].value)">
+                           <option value="day">请选择时间</option>
+                            <option value="year">按年显示</option>
+                            <option value="quarter">按季显示</option>
+                            <option value="month">按月显示</option>
+                            <option value="day">按天显示</option>
+                        </select>
+                    </p>
+                </h2>
+                <div class="dynamic-graph txt-alg" id="planMarket"><img src="highchart/images/deskImages/44.png"/></div>
+            </div>
+        </div>
+        <!--end:data-left-->
+        <!--start:data-right-->
+		
+		
+        <div class="data-right">
+    	    <div class="best-seller">
+        	    <h2>提前赎回项目</h2>
+                <div class="best-list">
+                    <div class="dl-list">
+                        <dl>
+                            <dt><img src="highchart/images/deskImages/clock-icon.png"/></dt>
+                            <dd>
+                                <h5>办理中</h5>
+                                <p><span>总计：<em id="blzNum"></em></span><span class="pdr-0">金额：<em id="blzMoney"> </em>元</span></p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><img src="highchart/images/deskImages/clock-icon1.png"/></dt>
+                            <dd>
+                                <h5>已通过</h5>
+                                <p><span>总计：<em id="ytgNum"></em></span><span class="pdr-0">金额：<em id="ytgMoney"> </em>元</span></p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><img src="highchart/images/deskImages/clock-icon2.png"/></dt>
+                            <dd>
+                                <h5>已驳回</h5>
+                                <p><span>总计：<em id="ybhNum"> </em></span><span class="pdr-0">金额：<em id="ybhMoney"> </em>元</span></p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            <div class="best-list">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr id="plearlyredemption">
+                	    <th align="center" valign="middle">项目名称</th>
+                        <th align="center" valign="middle">提前赎回时间</th>
+              	    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	 <package name="assignmentCustomer" extends="struts-default" namespace="/creditFlow/creditAssignment/customer">
+		<action name="*CsInvestmentperson" class="CsInvestmentpersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	 <package name="assignmentBank" extends="struts-default" namespace="/creditFlow/creditAssignment/bank">
+		<action name="*ObSystemAccount" class="ObSystemAccountAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="isExceptionAccountList">/pages/indexpages/isExceptionAccountListPage.jsp</result>
+		</action>
+		<action name="*ObObligationInvestInfo" class="ObObligationInvestInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ObAccountDealInfo" class="ObAccountDealInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="p_productProfitH">/jsp/productProfitH.jsp</result>
+		</action>
+		<action name="*ObShopintentStatistic" class="ObShopintentStatisticAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="assignmentProject" extends="struts-default" namespace="/creditFlow/creditAssignment/project">
+		<action name="*ObObligationProject" class="ObObligationProjectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="accountSetting" extends="struts-default" namespace="/creditFlow/creditAssignment/accountSetting">
+		<action name="*ObSystemaccountSetting" class="ObSystemaccountSettingAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.ReportTemplate" table="report_template" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="reportId" column="reportId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="title" type="java.lang.String" update="true" insert="true" access="property" column="title" length="128" not-null="true" unique="false"/>  
+    <property name="descp" type="java.lang.String" update="true" insert="true" access="property" column="descp" length="500" not-null="true" unique="false"/>  
+    <property name="reportLocation" type="java.lang.String" update="true" insert="true" access="property" column="reportLocation" length="128" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="updatetime" length="19" not-null="true" unique="false"/>  
+    <property name="isDefaultIn" column="isDefaultIn" type="java.lang.Short" not-null="false"/>  
+    <property name="reportKey" type="java.lang.String" update="true" insert="true" access="property" column="reportKey" length="128" not-null="false" unique="true"/> 
+  </class> 
+</hibernate-mapping>

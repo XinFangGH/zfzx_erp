@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准end" language="groovy" pageWidth="940" pageHeight="1500" whenNoDataType="AllSectionsNoDetail" columnWidth="860" leftMargin="40" rightMargin="40" topMargin="60" bottomMargin="60" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="26"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="daxiebuyMoney" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="xiaoxiebuyMoney" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="investPersonName" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cardnumber" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endDate" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="xiaoxiepromisIncomesum" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="daxiepromisIncomesum" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="postaddress" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mmName" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sqlcondition" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qingdingDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="postCode" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="loadNumber" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="buyDatetime" class="java.lang.String"/>
+	<parameter name="buyMoney" class="java.math.BigDecimal"/>
+	<parameter name="totalIncomeMoney" class="java.math.BigDecimal"/>
+	<parameter name="bankOutletsName" class="java.lang.String"/>
+	<parameter name="bankNum" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+		CASE c.proType
+WHEN "P_Or" THEN
+	(
+		SELECT
+			case proj.oppositeType
+			when "person_customer"
+			THEN (
+				select person.name from cs_person person
+				where person.id = proj.oppositeID
+			)
+			WHEN "company_customer"
+			THEN(
+				select enter.enterprisename  from cs_enterprise enter
+				where enter.id = proj.oppositeID
+			)
+			END
+		FROM
+			bp_persion_or_pro bpop,
+			sl_smallloan_project proj
+		WHERE
+			bpop.proId = proj.projectId
+		AND bpop.pOrProId = c.pOrProId
+	)
+WHEN "B_Or" THEN
+	(
+		SELECT
+				case proj.oppositeType
+			when "person_customer"
+			THEN (
+				select person.name from cs_person person
+				where person.id = proj.oppositeID
+			)
+			WHEN "company_customer"
+			THEN(
+				select enter.enterprisename  from cs_enterprise enter
+				where enter.id = proj.oppositeID
+			)
+			END
+		FROM
+			bp_business_or_pro bbop,
+			sl_smallloan_project proj
+		WHERE
+			bbop.proId = proj.projectId
+			AND bbop.borProId = c.pOrProId
+	)
+END AS creditName,
+	CASE c.proType
+WHEN "P_Or" THEN
+	(
+		SELECT
+			person.cardnumber
+		FROM
+			bp_persion_or_pro bpop,
+			sl_smallloan_project proj,
+			cs_person person
+		WHERE
+			bpop.proId = proj.projectId
+		AND proj.oppositeType = "person_customer"
+		AND person.id = proj.oppositeID
+		AND bpop.pOrProId = c.pOrProId
+	)
+WHEN "B_Or" THEN
+	(
+		SELECT
+			person.cardnumber
+		FROM
+			bp_business_or_pro bbop,
+			sl_smallloan_project proj,
+			cs_person person
+		WHERE
+			bbop.proId = proj.projectId
+		AND proj.oppositeType = "person_customer"
+		AND person.id = proj.oppositeID
+	)
+END AS cardnumber,
+ childrenOr.matchingMoney,
+ childrenOr.matchingStartDate,
+ (
+	SELECT
+		pmoa.intentDate
+	FROM
+		pl_mm_order_assignInterest pmoa
+	WHERE
+		pmoa.orderId = childrenOr.orderId
+		and pmoa.fundType = "principalRepayment"
+	ORDER BY
+		pmoa.intentDate desc
+	LIMIT 1
+) AS intentData,
+ info.promisYearRate as yeaRate
+
+FROM
+	pl_mm_order_childrenOr childrenOr
+LEFT JOIN pl_mm_obligatoryRight_children b ON b.childrenorId = childrenOr.childrenorId
+left join pl_managemoneyplan_buyinfo info on info.orderId and childrenOr.orderId
+left JOIN pl_bid_plan c ON c.bidId = b.parentOrBidId
+LEFT JOIN pl_manageMoney_plan pmp ON pmp.mmplanId = childrenOr.mmplanId
+where 1=1 $P!{sqlcondition}
+group by childrenOr.matchId]]>
+	</queryString>
+	<field name="creditName" class="java.lang.String"/>
+	<field name="cardnumber" class="java.lang.String"/>
+	<field name="matchingMoney" class="java.math.BigDecimal"/>
+	<field name="matchingStartDate" class="java.sql.Date"/>
+	<field name="intentData" class="java.sql.Date"/>
+	<field name="yeaRate" class="java.math.BigDecimal"/>
+	<variable name="subject_COUNT" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{subject_COUNT}!=null?new Integer($V{subject_COUNT}.intValue()+1):new Integer(0)]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="variable1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{matchingMoney}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="310" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="860" height="54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[出借人债权转让协议]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="204" width="860" height="36"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[1、经债权转让人和债权受让人的协商，债权转让人自愿将参考北京互融时代有限公司竭诚为您服务推荐而进行出借的个人债权转让给债权]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="240" width="860" height="36"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[受让人，转让债权基本信息如下：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="522" y="100" width="338" height="36"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["债权受让人：解宇舟"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="136" width="338" height="31"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["证件号码："]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="522" height="36"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["债权转让人："+$P{investPersonName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="136" width="522" height="31"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["证件号码："+$P{cardnumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="115" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[出借编号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="69" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[初始出借日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="0" width="62" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[初始出借金额]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="0" width="83" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[资金出借及回收方式]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="0" width="90" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让编号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="0" width="73" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="0" width="99" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让债权价值]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="576" y="0" width="99" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让对价]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="675" y="0" width="99" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权转让服务费]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="774" y="0" width="86" height="62"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[账户管理费]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="169" y="62" width="62" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{buyMoney}==null?0.00:$P{buyMoney}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="62" width="83" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{mmName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy年MM月dd日" isBlankWhenNull="true">
+				<reportElement x="404" y="62" width="73" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{intentData}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="477" y="62" width="99" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{totalIncomeMoney}==null?0.00:$P{totalIncomeMoney}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="675" y="62" width="99" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[0.00]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="774" y="62" width="86" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[0.00]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement x="314" y="62" width="90" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{loadNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="576" y="62" width="99" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{totalIncomeMoney}==null?0.00:$P{totalIncomeMoney}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="62" width="69" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{buyDatetime}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement x="0" y="62" width="100" height="53"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(null==$P{loadNumber} || ""==$P{loadNumber})?".":$P{loadNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="402" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="55" width="860" height="7"/>
+				<subreportParameter name="sqlcondition">
+					<subreportParameterExpression><![CDATA[$P{sqlcondition}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="investPersonName">
+					<subreportParameterExpression><![CDATA[$P{investPersonName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="intentData">
+					<subreportParameterExpression><![CDATA[$F{intentData}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cardnumber">
+					<subreportParameterExpression><![CDATA[$P{cardnumber}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "债权转让标准end_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="49" width="100" height="1"/>
+			</break>
+			<subreport>
+				<reportElement x="0" y="38" width="860" height="11"/>
+				<subreportParameter name="xiaoxiebuyMoney">
+					<subreportParameterExpression><![CDATA[$P{xiaoxiebuyMoney}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bankNum">
+					<subreportParameterExpression><![CDATA[$P{bankNum}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="investPersonName">
+					<subreportParameterExpression><![CDATA[$P{investPersonName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qingdingDate">
+					<subreportParameterExpression><![CDATA[$P{qingdingDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="daxiebuyMoney">
+					<subreportParameterExpression><![CDATA[$P{daxiebuyMoney}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="intentData">
+					<subreportParameterExpression><![CDATA[$F{intentData}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="bankOutletsName">
+					<subreportParameterExpression><![CDATA[$P{bankOutletsName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "债权转让标准end_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="0" width="576" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[债权受让人应支付金额（扣除服务费及账户管理费后）]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="576" y="0" width="284" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{totalIncomeMoney}==null?0.00:$P{totalIncomeMoney}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

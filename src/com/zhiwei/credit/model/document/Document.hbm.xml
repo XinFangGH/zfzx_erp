@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.document.Document" table="document" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="docId" column="docId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="docName" type="java.lang.String" update="true" insert="true" access="property" column="docName" length="100" not-null="true" unique="false"/>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="32" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="65535" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="updatetime" length="19" not-null="false" unique="false"/>  
+    <property name="haveAttach" type="java.lang.Short" update="true" insert="true" access="property" column="haveAttach" length="5" not-null="false" unique="false"/>  
+    <property name="sharedUserIds" type="java.lang.String" update="true" insert="true" access="property" column="sharedUserIds" length="1000" not-null="false" unique="false"/>  
+    <property name="sharedUserNames" type="java.lang.String" update="true" insert="true" access="property" column="sharedUserNames" length="1000" not-null="false" unique="false"/>  
+    <property name="sharedDepIds" type="java.lang.String" update="true" insert="true" access="property" column="sharedDepIds" length="1000" not-null="false" unique="false"/>  
+    <property name="sharedDepNames" type="java.lang.String" update="true" insert="true" access="property" column="sharedDepNames" length="1000" not-null="false" unique="false"/>  
+    <property name="sharedRoleIds" type="java.lang.String" update="true" insert="true" access="property" column="sharedRoleIds" length="1000" not-null="false" unique="false"/>  
+    <property name="sharedRoleNames" type="java.lang.String" update="true" insert="true" access="property" column="sharedRoleNames" length="1000" not-null="false" unique="false"/>  
+    <property name="isShared" type="java.lang.Short" update="true" insert="true" access="property" column="isShared" length="5" not-null="true" unique="false"/>  
+    <property name="author" type="java.lang.String" update="true" insert="true" access="property" column="author" length="64" not-null="false" unique="false"/>  
+    <property name="keywords" type="java.lang.String" update="true" insert="true" access="property" column="keywords" length="256" not-null="false" unique="false"/>  
+    <property name="docType" type="java.lang.String" update="true" insert="true" access="property" column="docType" length="64" not-null="false" unique="false"/>  
+    <property name="swfPath" type="java.lang.String" update="true" insert="true" access="property" column="swfPath" length="256" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to DocFolder -->  
+    <many-to-one name="docFolder" class="com.zhiwei.credit.model.document.DocFolder" not-null="false" fetch="select" lazy="false"> 
+      <column name="folderId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select" lazy="false"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <set name="attachFiles" table="doc_file" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="docId"/>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.FileAttach" column="fileId"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_internetfinance" text="互联网金融" iconCls="mod-internetfinance">
+	<Items id="dirSingeManger" text="直投标管理" iconCls="mod-obligationProductmanage"
+		isPublic="false">
+		<Items id="businessDirSingeManger" text="企业直投标"
+			iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="BpBusinessDirProView" iconCls="btn-tree-obliga77"
+				text="借款项目管理">
+			</Item>
+			<Item id="PlBusinessProKeepTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="项目公示信息编辑">
+			</Item>
+			<Item id="PlBusinessProPlanTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="招标计划制定">
+			</Item>
+			<Item id="PlBusinessBidPublishTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="招标信息发布">
+			</Item>
+			
+		</Items>
+		<Items id="persionDirSingeManger" text="个人直投标"
+			iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="BpPersionDirProView" iconCls="btn-tree-obliga77"
+				text="借款项目管理">
+			</Item>
+			<Item id="PlPersionProKeepTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="项目公示信息编辑">
+			</Item>
+			<Item id="PlPersionProPlanTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="招标计划制定">
+			</Item>
+			<Item id="PlPersionBidPublishTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="招标信息发布">
+			</Item>
+		
+		</Items>
+	</Items>
+
+
+	<!--  --><Items id="orSingeManger" text="债权标管理" iconCls="mod-obligationProductmanage"
+		isPublic="false">
+
+		<Items id="businessOrSingeManger" text="企业债权标管理"
+			iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="BpBusinessOrProView" iconCls="btn-tree-obliga77"
+				text="借款项目管理">
+			</Item>
+			<Item id="PlBusinessProKeepTab?openType=or" iconCls="btn-tree-obliga77"
+				text="项目公示信息编辑">
+			</Item>
+			<Item id="PlBusinessProPlanTab?openType=or" iconCls="btn-tree-obliga77"
+				text="招标计划制定">
+			</Item>
+			<Item id="PlBusinessBidPublishTab?openType=or" iconCls="btn-tree-obliga77"
+				text="招标信息发布">
+			</Item>
+			
+		</Items>
+		<Items id="persionOrSingeManger" text="个人债权标管理"
+			iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="BpPersionOrProView" iconCls="btn-tree-obliga77"
+				text="借款项目管理">
+			</Item>
+			<Item id="PlPersionProKeepTab?openType=or" iconCls="btn-tree-obliga77"
+				text="项目公示信息编辑">
+			</Item>
+			<Item id="PlPersionProPlanTab?openType=or" iconCls="btn-tree-obliga77"
+				text="招标计划制定">
+			</Item>
+			<Item id="PlPersionBidPublishTab?openType=or" iconCls="btn-tree-obliga77"
+				text="招标信息发布">
+			</Item>
+			
+		</Items>
+
+	</Items>
+		<Items id="bidInfoManger" text="已投标管理" iconCls="mod-obligationSourceQuery"
+		isPublic="false">
+		<Item id="PlBidInfoView" iconCls="btn-tree-obliga77"
+			text="投标信息">
+		</Item>
+		
+	</Items>
+	<Items id="typeManger" text="类型管理" iconCls="mod-obligationSourceQuery"
+		isPublic="false">
+		<Item id="PlKeepCreditlevelView" iconCls="btn-tree-obliga77"
+			text="信用等级管理">
+		</Item>
+		<Item id="PlKeepProtypeView" iconCls="btn-tree-obliga77" text="借款项目类型管理">
+		</Item>
+		<Item id="PlKeepGtorzView" iconCls="btn-tree-obliga77" text="担保机构管理">
+		</Item>
+		<Item id="PlBiddingTypeView" iconCls="btn-tree-obliga77" text="招标类型管理">
+		</Item>
+	</Items>
+	
+
+</Menus>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.BoardRoo" table="boardRoo" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="roomId" column="roomId" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="roomName" column="roomName" type="java.lang.String" update="true" insert="true" access="property" length="128" not-null="true"/>  
+    <property name="roomDesc" column="roomDesc" type="java.lang.String" access="property" length="4000" not-null="false" unique="false" insert="true" update="true"/>  
+    <property name="containNum" column="containNum" type="java.lang.Long" access="property" length="128" not-null="true" insert="true" update="true"/> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpstreamContract"
+        table="bp_cust_ent_upstream_contract"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="upContractId"
+            column="upContractId"
+            type="java.lang.Integer"
+            length="10"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="mainBuyer"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="mainBuyer"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+          <property
+            name="buyerContractMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="buyerContractMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="buyerContractDuration"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="buyerContractDuration"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+   <property
+            name="contractPolicy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="contractPolicy"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+       
+        <many-to-one name="bpCustEntUpanddowncontract" class="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpanddowncontract" > 
+        <column name="upAndDownContractId"/> 
+        </many-to-one>
+     </class>
+</hibernate-mapping>

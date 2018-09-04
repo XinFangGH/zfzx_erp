@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_flowtasks" text="项目事项处理" iconCls="mod-flowtasks"   >
+<Items id="flowtasks" text="项目事项处理" iconCls="btn-tree-team4" >
+		<Item id="newProjectForm" text="启动新项目" iconCls="menu-flow-start" />
+		<!--<Item id="MyTaskView" text="待办任务" iconCls="menu-flowWait" />
+		-->
+		<Item id="ActivityTaskView" text="待办任务" iconCls="btn-tree-team2"  >
+		 <Function id="_detailPro" text="处理任务" iconCls="menu-flowWait">
+			<!--
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			-->
+			</Function>
+			<Function id="_flowRecords" text="查看任务流转记录" iconCls="btn-detail">
+			</Function>
+			<Function id="_showFlowImg" text="流程示意图" iconCls="btn-flow-chart">
+			</Function>
+		</Item>
+		
+		<!--<Item id="MyRunningTaskView_p" text="项目事项追回" iconCls="menu-back">
+			<Function id="_rollbackTask" text="追回" iconCls="btn-back">
+			</Function>
+		</Item>
+		
+		<Item id="MyProcessRunView_p" text="我参与的项目" iconCls="menu-flowPr" />
+		<Item id="ProcessRunView_p" text="我发起的项目" iconCls="menu-flowMine" />-->
+		
+		<Item id="CompleteTaskView" text="已办结任务" iconCls="btn-tree-team6" >
+			<Function id="_comFlowRecords" text="查看任务流转记录" iconCls="btn-detail">
+			</Function>
+			<Function id="_comShowFlowImg" text="流程示意图" iconCls="btn-flow-chart">
+			</Function>
+		</Item>
+		
+		
+	</Items>
+</Menus>

@@ -1,0 +1,41 @@
+/* line 7, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view div.event-bar {
+  background-color: #7991b3;
+  border: 1px solid #485e7e;
+  color: white;
+  font-size: 7px;
+  font-weight: bold;
+  height: 15px;
+  overflow: hidden;
+  padding: 0px 4px;
+  position: absolute;
+  -webkit-border-radius: 4px;
+  z-index: 100;
+  letter-spacing: 0.2em;
+  text-shadow: none;
+}
+/* line 23, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view div.event-bar.event-bar-selected {
+  background-color: #1a222d;
+}
+/* line 28, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view div.event-bar.wrap-end {
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+}
+/* line 34, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view div.event-bar.wrap-start {
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+}
+/* line 41, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view td {
+  vertical-align: top;
+  text-align: right;
+  font-size: 0.7em;
+}
+/* line 47, ../scss/Ext.ux.TouchCalendarEvents.scss */
+.touch-calendar-view td.day.date-cell-hover {
+  background-color: #dcdbdf;
+  background-image: none;
+}

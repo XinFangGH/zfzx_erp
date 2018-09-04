@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_customer" text="客户中心" iconCls="mod-org"> 
+	
+	<Items id="EnterpriseCustomer" text="企业借款客户管理" iconCls="btn-tree-team23" isPublic="false">
+		<Item id="EnterpriseView" iconCls="btn-tree-team23" text="客户档案管理">
+				<Function id="_seeAll_qykh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_detail_qykh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_qykh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh" text="编辑" iconCls="btn-edit"/>
+				<Function id="_remove_qykh" text="删除" iconCls="btn-delete"/>
+				<Function id="_enterprise_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_qykh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_qykh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_qykh" text="编辑客户级别" iconCls="btn-edit"/>
+				<Function id="_add_p2p_business_user" text="开通p2p账户" iconCls="btn-edit"/>
+		</Item>
+		<Item id="CustomerGrantManagement?singleType=enterprise" iconCls="btn-tree-team23" text="客户资源分配"></Item>
+		<Item id="EnterPriseP2PView" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+		<Item id="enterpriseFianceAccount" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+	</Items>
+	<Items id="PersonCustomer" text="个人借款客户管理" iconCls="btn-tree-team23" isPublic="false">
+		<Item id="PersonView" iconCls="btn-tree-team23" text="客户档案管理">
+				<Function id="_detail_sygrkh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_See_grkh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_grkh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_grkh" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_editBelongeder_grkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				<Function id="_remove_grkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_detail_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_grkh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_grkh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_grkh" text="编辑客户级别" iconCls="btn-edit"/>
+				<Function id="_add_p2p_persion_user" text="开通p2p账户" iconCls="btn-edit"/>
+		</Item>
+		<Item id="CustomerGrantManagement?singleType=person" iconCls="btn-tree-team23" text="客户资源分配"></Item>
+		<Item id="PersonP2PView?singleType=person&amp;open=1&amp;bind=1" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+		<Item id="PersonFianceAccount" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+	</Items>
+	
+		<Items id="LendersCooperationManage" text="企业债权客户管理" iconCls="btn-tree-team23" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=lenders" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount?type=lenders" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationEnterpriseFianceAccount?type=lenders" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+		</Items>
+		<Items id="PersonCooperationManage" text="个人债权客户管理" iconCls="btn-tree-team23" isPublic="false">
+			<Item id="CsCooperationPersonView?type=lenders" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationPersonAccount?type=lenders" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationPersonFianceAccount?type=lenders" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+		</Items>
+		
+		<Items id="GuaranteeCooperationManage" text="担保机构客户管理" iconCls="btn-tree-team23" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=guarantee" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount?type=guarantee" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationEnterpriseFianceAccount?type=guarantee" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+	    </Items>
+	    
+	    <!--<Items id="FinancialPlanCooperationManage" text="个人理财顾问管理" iconCls="btn-tree-team23" isPublic="false">
+		    <Item id="CsCooperationPersonView?type=financial" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationPersonAccount?type=financial" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationPersonFianceAccount?type=financial" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+	    </Items>-->
+</Menus>

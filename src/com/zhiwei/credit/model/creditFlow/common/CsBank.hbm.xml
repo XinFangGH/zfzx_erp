@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.common.CsBank"
+        table="cs_bank"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="bankid"
+            column="bankid"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="bankname"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bankname"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        
+        <property
+            name="typeKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="typeKey"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        
+         <property
+            name="bankCodeId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bankCodeId"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

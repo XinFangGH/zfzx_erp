@@ -1,0 +1,260 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	safeLevel : 1,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+		var jsArr = [
+			__ctxPath + '/js/commonFlow/ExtUD.Ext.js',
+			__ctxPath + '/js/selector/UserDialog.js',
+			__ctxPath + '/js/creditFlow/finance/Financing_FundIntent_formulate_editGrid.js',
+			__ctxPath + '/js/creditFlow/finance/detailView.js',
+			__ctxPath + '/js/creditFlow/finance/CashQlideAndCheckForm.js',
+			__ctxPath + '/js/creditFlow/finance/SlFundIntentForm.js',
+			__ctxPath+'/js/creditFlow/finance/selectAccountlForm.js',
+			__ctxPath + '/js/creditFlow/finance/FinanceCalculateFundIntent.js',
+			__ctxPath + '/js/creditFlow/finance/FinanceCalulateFinancePanel.js',
+			__ctxPath + '/js/creditFlow/finance/FinanceCaluateIntentGrid.js',
+			__ctxPath + '/js/creditFlow/finance/FinanceCalulateloadDataCommon.js',
+			__ctxPath + '/js/creditFlow/financeProject/project/loadDataCommon.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		this.projectInfoFinance = new ExtUD.Ext.FinanceInfoPanel({
+//			isAllReadOnly : true,
+			projectId : this.projectId,
+			idDefinition : "finance" + this.taskId
+		})
+		this.gridPanel = new Financing_FundIntent_formulate_editGrid({
+			projId : this.projectId,
+			object : this.projectInfoFinance,
+			titleText : '偿还计划',
+			isHidden : false,
+			businessType : "Financing",
+			calcutype : 1// 融资
+		});
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'flFinancingProjectService.financingNoApprovalBusiness'
+			}, {
+				name : 'fundIntentJsonData',
+				xtype : 'hidden'
+			}, {
+				xtype : 'fieldset',
+				title : '项目基本信息 ',
+				name : 'projectInfo',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [new ExtUD.Ext.TypeSelectInfoThreeGradesReadOnlyPanel({isAllReadOnly:true}),
+							new ExtUD.Ext.TypeSelectInfoMineType({isAllReadOnly:true})]
+				//items : [new ExtUD.Ext.ProjectBaseInfo({isReadOnly : true})]
+			}, {
+				xtype : 'fieldset',
+				title : '投资人资料',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [new ExtUD.Ext.PersonInfo({isAllReadOnly : true})]
+			}, {
+				xtype : 'fieldset',
+				title : '收息账号信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [new ExtUD.Ext.PersonAccountInfo({isAllReadOnly : true})]
+			}, {
+				xtype : 'fieldset',
+				title : '资金款项信息',
+				collapsible : true,
+				autoHeight : true,
+				items : [this.projectInfoFinance,this.gridPanel]
+			}, {
+				xtype : 'hidden',
+				name : 'safeLevel',
+				value : 1
+			}, {
+				xtype : 'hidden',
+				name : 'task_id',
+				value : this.taskId
+			}, {
+				xtype : 'hidden',
+				name : 'isDeleteAllFundIntent',
+				value : 1
+			}, {
+				xtype : 'hidden',
+				name : 'flProjectId',
+				value : this.projectId
+			}]
+		})
+		this.loadData({
+			url : __ctxPath + "/flFinancing/getInfoFlFinancingProject.do?flProjectId="+this.projectId+"&flTaskId="+this.taskId,
+			method : "POST",
+			preName : ['investPerson', 'flFinancingProject',"enterpriseBank"],
+			root : 'data',
+			scope: this,
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+				var next = this.ownerCt.ownerCt.getCmpByName("taskSubmit");
+//				next.setValue("结束1");
+				next.setValue("完成");
+				this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flFinancingProject.projectMoney,'0,000.00'))
+				var appUsers = alarm_fields.data.flFinancingProject.appUsers;
+				var appUserId = alarm_fields.data.flFinancingProject.appUserId;
+				if ("" != appUserId && null != appUserId) {
+					this.getCmpByName('degree').setValue(appUserId);
+					this.getCmpByName('degree').setRawValue(appUsers);
+					this.getCmpByName('degree').nextSibling().setValue(appUserId);
+				}
+				var areaperName = alarm_fields.data.investPerson.areaText;
+				var areaperId = alarm_fields.data.investPerson.areaId;
+				if(null !=areaperId && areaperId !='undefined'){
+					this.getCmpByName('investPerson.areaId').setValue(areaperId);
+					this.getCmpByName('areaName').setValue(areaperName);
+				}
+				if(alarm_fields.data.enterpriseBank != null && typeof(alarm_fields.data.enterpriseBank) != 'undefined') {
+					var openTypeValue = alarm_fields.data.enterpriseBank.openType;
+					var accountTypeValue = alarm_fields.data.enterpriseBank.accountType;
+					var accountType = this.getCmpByName('enterpriseBank.accountType');
+					var arrStore = null;
+				    if(openTypeValue == 0) {
+						arrStore = new Ext.data.SimpleStore({
+							fields : ["name", "id"],
+							data : [["个人储蓄户", "0"]]
+						});
+					}else if(openTypeValue == 1) {
+						arrStore = new Ext.data.SimpleStore({
+							fields : ["name", "id"],
+							data : [["基本户", "1"], ["一般户", "2"]]
+						});
+					}
+					accountType.clearValue();
+					accountType.store = arrStore;
+					accountType.setValue(accountTypeValue);
+					if(accountTypeValue == 0) {
+						accountType.setRawValue("个人储蓄户");
+					}else if(accountTypeValue == 1) {
+						accountType.setRawValue("基本户");
+					}else {
+						accountType.setRawValue("一般户");
+					}
+					var areaName = alarm_fields.data.enterpriseBank.areaName;
+					var areaId = alarm_fields.data.enterpriseBank.areaId;
+					this.getCmpByName('enterpriseBank.areaName').setValue(areaName);
+					this.getCmpByName('enterpriseBank.areaName').setRawValue(areaName);
+					this.getCmpByName('enterpriseBank.areaId').setValue(areaId);
+					this.getCmpByName('enterpriseBank.id').setValue(alarm_fields.data.enterpriseBank.id);
+				}
+				
+				fillData(this,alarm_fields,"finance" + this.taskId);
+				var nextForm = this.ownerCt.ownerCt;
+				var jumpBack = nextForm.getTopToolbar().get(3);
+				jumpBack.hide();
+			}
+		});
+
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this, this.taskId));
+	},
+	onGetTaskInfo : function(taskId) {
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope : this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if (obj.success == true) {
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'
+							+ createTime + '&nbsp;&nbsp;任务完成时限：' + dueTime
+							+ '&nbsp;&nbsp;当前处理人：' + creator + '】');
+				} else {
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response, request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId : '$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel, fun) {
+		var fundIntentJsonData=this.gridPanel.getGridDate();
+		var obj =this.gridPanel;
+		formPanel.getForm().submit({
+			clientValidation : false,
+			url : __ctxPath + '/flFinancing/updateNoApprovalFlFinancingProject.do',
+//			url : __ctxPath + '/creditFlow/finance/saveFundIntentSlFundIntent.do',
+			params : {
+				'comments' : formPanel.comments,
+				'fundIntentJson' : fundIntentJsonData,
+				'isDeleteAllFundIntent' : 1
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope : this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText)
+				var params1={'flag1':1}
+				var gridstore = obj.gridPanel.getStore();
+				gridstore.on('beforeload', function(gridstore, o) {
+					Ext.apply(o.params, params1);
+				});
+				gridstore.reload()
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(formPanel) {
+		formPanel.getCmpByName('fundIntentJsonData').setValue(this.gridPanel.getGridDate());
+		return true;
+	}
+})

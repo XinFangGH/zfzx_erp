@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">   
+     <bean id="CsPersonCarAction" class="com.zhiwei.credit.action.creditFlow.customer.person.CsPersonCarAction" scope="prototype"/>
+	<bean id="CsPersonHouseAction" class="com.zhiwei.credit.action.creditFlow.customer.person.CsPersonHouseAction" scope="prototype"/>
+	<bean id="EnterpriseAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseAction" scope="prototype"/>
+	<bean id="PersonAction" class="com.zhiwei.credit.action.creditFlow.customer.person.PersonAction" scope="prototype"/>
+	<bean id="EnterpriseFinanceAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseFinanceAction" scope="prototype"/>
+	<bean id="EnterpriseBankAction" class="com.zhiwei.credit.action.creditFlow.customer.common.EnterpriseBankAction" scope="prototype"/>
+	<bean id="EnterpriseEmployeeStructureAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseEmployeeStructureAction" scope="prototype"/>
+	<bean id="EnterpriseRelationPersonAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseRelationPersonAction" scope="prototype"/>
+	<bean id="EnterpriseLeadteamAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseLeadteamAction" scope="prototype"/>
+	<bean id="EnterpriseDebtAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseDebtAction" scope="prototype"/>
+	<bean id="EnterpriseCreditorAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseCreditorAction" scope="prototype"/>
+	<bean id="EnterpriseOutassureAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseOutassureAction" scope="prototype"/>
+	<bean id="EnterpriseOutinvestAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterpriseOutinvestAction" scope="prototype"/>
+	<bean id="EnterprisePrizeAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.EnterprisePrizeAction" scope="prototype"/>
+	<bean id="PersonThereunderAction" class="com.zhiwei.credit.action.creditFlow.customer.person.PersonThereunderAction" scope="prototype"/>
+	<bean id="ProcessPersonCarReditregistriesAction" class="com.zhiwei.credit.action.creditFlow.customer.person.ProcessPersonCarReditregistriesAction" scope="prototype"/>
+	<bean id="PersonRelationAction" class="com.zhiwei.credit.action.creditFlow.customer.person.PersonRelationAction" scope="prototype"/>
+	<bean id="SpouseAction" class="com.zhiwei.credit.action.creditFlow.customer.person.SpouseAction" scope="prototype"/>
+	<bean id="CustomerBankRelationPersonAction" class="com.zhiwei.credit.action.creditFlow.customer.bankRelationPerson.CustomerBankRelationPersonAction" scope="prototype"/>
+	<bean id="AjaxValidatorAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.AjaxValidatorAction" scope="prototype"/>
+	<bean id="BatchImportDatabaseAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BatchImportDatabaseAction" scope="prototype"/>
+	<bean id="PersonAjaxValidatorAction" class="com.zhiwei.credit.action.creditFlow.customer.person.PersonAjaxValidatorAction" scope="prototype"/>
+	  <bean id="BpCustEntUpanddownstreamAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BpCustEntUpanddownstreamAction" scope="prototype"/>
+	 <bean id="BpCustEntLawsuitAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BpCustEntLawsuitAction" scope="prototype"/>
+	<bean id="BpCustEntCashflowAndSaleIncomeAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BpCustEntCashflowAndSaleIncomeAction" scope="prototype"/>
+	<bean id="BpCustEntUpanddowncontractAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BpCustEntUpanddowncontractAction" scope="prototype"/>
+	<bean id="BpCustEntPaytaxAction" class="com.zhiwei.credit.action.creditFlow.customer.enterprise.BpCustEntPaytaxAction" scope="prototype"/>
+	 <bean id="BpCustPersonEducationAction" class="com.zhiwei.credit.action.creditFlow.customer.person.BpCustPersonEducationAction" scope="prototype"/>
+	 <bean id="BpCustPersonNegativeSurveyAction" class="com.zhiwei.credit.action.creditFlow.customer.person.BpCustPersonNegativeSurveyAction" scope="prototype"/>
+	 <bean id="BpCustPersonPublicActivityAction" class="com.zhiwei.credit.action.creditFlow.customer.person.BpCustPersonPublicActivityAction" scope="prototype"/>
+	 <bean id="BpCustPersonWorkExperienceAction" class="com.zhiwei.credit.action.creditFlow.customer.person.BpCustPersonWorkExperienceAction" scope="prototype"/>
+	 <bean id="PersonCreditLoanHistoryAction" class="com.zhiwei.credit.action.creditFlow.customer.person.PersonCreditLoanHistoryAction" scope="prototype"/>
+	 <!--<bean id="BpChannelInfoAction" class="com.zhiwei.credit.action.creditFlow.customer.channel.BpChannelInfoAction" scope="prototype"/>-->
+	 <bean id="BpCustProspectiveFollowupAction" class="com.zhiwei.credit.action.creditFlow.customer.prosperctive.BpCustProspectiveFollowupAction" scope="prototype"/>
+	<bean id="BpCustProsperctiveAction" class="com.zhiwei.credit.action.creditFlow.customer.prosperctive.BpCustProsperctiveAction" scope="prototype"/>
+	<bean id="BpCustProspectiveRelationAction" class="com.zhiwei.credit.action.creditFlow.customer.prosperctive.BpCustProspectiveRelationAction" scope="prototype"/>
+	<bean id="CsSalesRecordAction" class="com.zhiwei.credit.action.creditFlow.customer.salesRecord.CsSalesRecordAction" scope="prototype"/>
+</beans>

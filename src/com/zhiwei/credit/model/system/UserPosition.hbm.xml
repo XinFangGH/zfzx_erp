@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.UserPosition" table="USER_POSITION" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="userPosId" column="USER_POS_ID" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="isPrimary" type="java.lang.Long" update="true" insert="true" access="property" column="ISPRIMARY" length="22" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="USERID"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to Position -->  
+    <many-to-one name="position" class="com.zhiwei.credit.model.system.Position" not-null="false" fetch="select"> 
+      <column name="POS_ID"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

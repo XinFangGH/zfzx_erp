@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.ReportParam" table="report_param" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="paramId" column="paramId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="paramName" type="java.lang.String" update="true" insert="true" access="property" column="paramName" length="64" not-null="true" unique="false"/>  
+    <property name="paramKey" type="java.lang.String" update="true" insert="true" access="property" column="paramKey" length="64" not-null="true" unique="false"/>  
+    <property name="defaultVal" type="java.lang.String" update="true" insert="true" access="property" column="defaultVal" length="128" not-null="false" unique="false"/>  
+    <property name="paramType" type="java.lang.String" update="true" insert="true" access="property" column="paramType" length="32" not-null="true" unique="false"/>  
+    <property name="sn" type="java.lang.Integer" update="true" insert="true" access="property" column="sn" length="10" not-null="true" unique="false"/>  
+    <property name="paramTypeStr" type="java.lang.String" update="true" insert="true" access="property" column="paramTypeStr" length="1024" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ReportTemplate -->  
+    <many-to-one name="reportTemplate" class="com.zhiwei.credit.model.system.ReportTemplate" not-null="false" fetch="select"> 
+      <column name="reportId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

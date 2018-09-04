@@ -1,0 +1,11 @@
+<html>
+	<title>系统待办任务提示</title>
+	<body>
+		<p>${appUser.fullname}您好:</p>
+		<p>系统中办公系统于${curDateStr}产生了一项待办事项<${signalName}>,</p>
+		<p>项目名称：${projectName},</p>
+		<p>项目编号：${projectNumber},</p>
+		<p>请您于${dueDateStr}前登录系统进行处理。</p>
+		<p>注：本邮件由<业务系统>系统平台自动产生，请勿回复。</p>
+	</body>
+</html>

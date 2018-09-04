@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProHandleComp" table="PRO_HANDLE_COMP" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="handleId" column="handleId" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="deployId" type="java.lang.String" update="true" insert="true" access="property" column="deployId" length="128" not-null="true" unique="false"/>  
+    <property name="activityName" type="java.lang.String" update="true" insert="true" access="property" column="activityName" length="128" not-null="false" unique="false"/>  
+    <property name="tranName" type="java.lang.String" update="true" insert="true" access="property" column="tranName" length="128" not-null="false" unique="false"/>  
+    <property name="eventName" type="java.lang.String" update="true" insert="true" access="property" column="eventName" length="128" not-null="false" unique="false"/>  
+    <property name="eventLevel" type="java.lang.Short" update="true" insert="true" access="property" column="eventLevel" length="9" not-null="false" unique="false"/>  
+    <property name="exeCode" type="java.lang.String" update="true" insert="true" access="property" column="exeCode" length="4000" not-null="false" unique="false"/>  
+    <property name="handleType" type="java.lang.Short" update="true" insert="true" access="property" column="handleType" length="9" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

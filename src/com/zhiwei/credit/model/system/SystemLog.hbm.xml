@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.SystemLog" table="system_log" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="logId" column="logId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="username" type="java.lang.String" update="true" insert="true" access="property" column="username" length="128" not-null="true" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="exeOperation" type="java.lang.String" update="true" insert="true" access="property" column="exeOperation" length="512" not-null="true" unique="false"/> 
+ 
+     <property name="className" type="java.lang.String" update="true" insert="true" access="property" column="className" length="512" not-null="true" unique="false"/> 
+     <property name="methodName" type="java.lang.String" update="true" insert="true" access="property" column="methodName" length="100" not-null="true" unique="false"/>  
+     <property name="params" type="java.lang.String" update="true" insert="true" access="property" column="params" length="512" not-null="true" unique="false"/>  
+     <property name="modelName" type="java.lang.String" update="true" insert="true" access="property" column="modelName" length="100" not-null="true" unique="false"/>  
+     <property name="ip" type="java.lang.String" update="true" insert="true" access="property" column="ip" length="100" not-null="true" unique="false"/>   
+ 
+ <property name="err" type="java.lang.String" update="true" insert="true" access="property" column="err" length="512" not-null="true" unique="false"/>  
+     <property name="flag" type="java.lang.String" update="true" insert="true" access="property" column="flag" length="10" not-null="true" unique="false"/>  
+     <property name="orgid" type="java.lang.Long" update="true" insert="true" access="property" column="orgid" length="20" not-null="true" unique="false"/>   
+ 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,375 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',//展期流程中展期表的Id ：SlSuperviseRecord展期表中的Id
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',//展期流程中展期表的项目类型 ：SlSuperviseRecord展期表中的businessType
+	operationType : '$!operationType',
+	smallProjectId : '$!smallProjectId',//贷款项目的ID：SlsmallProject项目表的id
+	smallbusinessType:'$!smallbusinessType',//贷款项目的类型：SlsmallProject项目表的businessType
+	projectMoney : '$!projectMoney',
+	payProjectMoney : '$!payProjectMoney',
+	intentDate : '$!intentDate',
+	runId : '$!runId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFinancePanel.js',//贷款试算按钮需要
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFundIntent.js',//贷款试算按钮需要
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseIntentGrid.js',//贷款试算按钮需要
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseLoadDataCommon.js',//贷款试算按钮需要			
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentViewVM.js',// 款项信息,
+				__ctxPath + '/js/creditFlow/smallLoan/finance/FinanceExtensionlPanel.js',//展期
+				__ctxPath + '/js/creditFlow/smallLoan/finance/loadDataExtension.js',
+				//__ctxPath + '/js/creditFlow/guarantee/contract/LetterAndBookView.js',
+				//__ctxPath + '/js/creditFlow/smallLoan/contract/SlContractView.js',// 合同确认
+				__ctxPath + '/js/creditFlow/finance/superviseSlFundIntentVM.js',// 款项信息,
+				__ctxPath + '/js/creditFlow/mortgage/AddDzyMortgageWin.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//客户信息
+		this.customerInfoPanel=new ExtUD.Ext.CustomerInfoPanel({isAllReadOnly:true,isHidden : true,isEditPerson:false,isNameReadOnly:true,isNameEdit:true})
+		//项目信息
+		this.projectInfo = new ExtUD.Ext.McroLoanProjectInfoPanel({
+			isAllReadOnly : true 
+		});
+		//展期文书
+/*	   this.uploads = new uploads({
+			projectId : this.projectId,//展期表Id
+			isHidden : false,
+			tableName : 'sl_supervise_record',
+			typeisfile : 'sl_supervise_record.'+this.projectId,
+			businessType : this.businessType,
+			uploadsSize : 15
+		})*/
+		//历史财务信息		
+		this.gridPanel=new SlFundIntentViewVM({
+			isHiddenOperation : false,
+			projectId : this.smallProjectId,//使用贷款项目的Id
+			businessType : this.smallbusinessType,
+			isHiddenTitle:true,
+			isHiddenAddBtn : true,
+			isHiddenDelBtn : true,
+			isHiddenCanBtn : true,
+			isHiddenResBtn : true,
+			isHiddenautocreateBtn:true,
+			isHiddenResBtn1:true,
+			isFinbtn:true,
+			isHidden1:true,		
+			slSuperviseRecordId :this.projectId ,
+			isUnLoadData :false,
+			isThisSuperviseRecord :'no'
+		})
+						
+ 		//展期登记信息
+	 	this.DeferApplyInfoPanel =new FinanceExtensionlPanel({
+	 		continuationMoney:(this.projectMoney - this.payProjectMoney),
+	 		isAllReadOnly:true,
+			 projectId :this.projectId,//使用展期表的Id
+			 intentDate:intentDate,
+			 idDefinition:'mircextenstion'+this.taskId
+		})
+		
+		this.superviseSlFundIntentInfo =new superviseSlFundIntentVM({
+			object :this.DeferApplyInfoPanel,
+			isHiddenOperation : false,
+			projectId : this.smallProjectId,//使用贷款项目的Id
+			businessType : this.smallbusinessType,
+			isHiddenAdd : true,
+			isHiddenDel : true,	
+			slSuperviseRecordId :this.projectId ,
+			isUnLoadData :false,
+			titleText:"放款收息表",
+			isThisSuperviseRecord :'yes'
+		
+		})
+/*		//展期终审意见通知书
+		this.slSuperviseRecordNote = new LetterAndBookView({
+		    	projectId : this.projectId,
+		    	businessType : this.businessType,
+		    	LBTemplate : 'superviseRecordNote',
+		    	isHidden : false,
+		    	isRecordHidden : false,
+		    	isRecordHidden:true,
+		    	isGdEdit : this.isGdEdit_seb
+		    
+		})
+		
+		//展期审批表
+		this.slSuperviseRecordVerification = new LetterAndBookView({
+		    	projectId : this.projectId,
+		    	businessType :this.businessType,
+		    	LBTemplate : 'superviseRecordVerification',
+		    	isHidden : false,
+		    	isRecordHidden : false,
+		    	isRecordHidden:true,
+		    	isGdEdit : this.isGdEdit_seb
+		    
+		})*/
+		//展期合同
+/*			this.slSuperviseRecordContract =new SlContractView({
+					projectId : this.projectId,
+			    	businessType : this.businessType,
+			    	htType : 'extenstionContract',
+			    	HTLX : 'XEDZZQ',
+			    	isHiddenAddBtn : true,
+					isHiddenEdiBtn : true,
+					isHiddenDelBtn : true,
+					isHidden:true
+				})*/
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSuperviseRecordService.updateMcroLoanExtensionConfirmationFlowProject'
+			}, {
+				xtype : 'hidden',
+				name : 'businessType_flow',
+				value:this.businessType
+			}, {
+				xtype : 'hidden',
+				name : 'projectId_flow',
+				value:this.projectId
+			}, {
+				xtype : 'hidden',
+				name : 'smallProjectId',
+				value:this.smallProjectId
+			},{
+				name : 'fundIntentJsonData',
+				xtype : 'hidden'
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目控制信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			},{       
+			    xtype : 'fieldset',
+				title : '客户信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.customerInfoPanel]
+			},{
+				xtype : 'fieldset',
+				title : '配偶信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name : 'spousePanel',
+				autoHeight : true,
+				items : [new SpousePanel({isReadOnly:true,spouseHidden:true})]
+			},{       
+			    xtype : 'fieldset',
+				title : '当前资金款项信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'financeInfoFieldset',
+				autoHeight : true,
+				items : [
+					this.gridPanel
+					
+				]
+			}, {       
+			    xtype : 'fieldset',
+				title : '展期登记信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [
+						this.DeferApplyInfoPanel,
+						this.superviseSlFundIntentInfo
+				]
+			},{
+				xtype : 'fieldset',
+				title : '担保措施',
+				collapsible : true,
+				autoHeight : true,
+				items : [
+					new DZYMortgageView({
+						projectId : this.smallProjectId,
+						titleText : '抵质押担保',
+						businessType : '$!smallbusinessType',
+						isHiddenAddBtn:true,
+						isHiddenDelBtn:true,
+						isHiddenEdiBtn:true,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isblHidden:true,
+						isgdHidden:true,
+						isRecieveHidden:true,
+						isfwEdit:false,
+						isSeeContractHidden:false,
+						formPanel:this.DeferApplyInfoPanel
+					}),
+					new BaozMortgageView({
+						projectId : this.smallProjectId,
+						titleText : '保证担保',
+						businessType : '$!smallbusinessType',
+						isHiddenAddBtn:true,
+						isHiddenDelBtn:true,
+						isHiddenEdiBtn:true,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isblHidden:true,
+						isgdHidden:true,
+						isfwEdit:false,
+						isSeeContractHidden:false,
+						isRecieveHidden:true
+					})
+					]
+			}, {
+				xtype : 'hidden',
+        		name : 'safeLevel',
+        		value : 1
+			},{
+			     xtype:'hidden',
+			     name:'task_id',
+			     value:this.taskId
+	        }]
+		})
+
+		this.loadData({
+			url : __ctxPath + '/supervise/getMiroFinanceExtensionlInfoSlSuperviseRecord.do?taskId='+this.smallProjectId+'&type='+this.businessType+'&task_id='+this.taskId+'&loanedTypeId='+this.projectId,			
+			method : "POST",
+			preName : ['enterprise', 'person', 'slSmallloanProject',"businessType","spouse","enterpriseBank",'slSuperviseRecord'],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+				this.infosourceId=alarm_fields.data.slSmallloanProject.infosourceId
+				var st = this.getCmpByName('infosourceName').getStore();
+				st.on("load", function() {
+					this.getCmpByName('infosourceName').setValue(this.infosourceId)
+					
+				},this)
+				this.getCmpByName('payintentPeriod').setValue(alarm_fields.data.slSuperviseRecord.payintentPeriod)
+				this.getCmpByName('projectMoney1').setValue(alarm_fields.data.slSuperviseRecord.continuationMoney)
+				fillDataExtension(this.DeferApplyInfoPanel,alarm_fields,'mircextenstion'+this.taskId)
+				
+				var appUsers= alarm_fields.data.slSmallloanProject.appUsers;
+				var appUserId= alarm_fields.data.slSmallloanProject.appUserId;
+				if(""!=appUserId &&  null!=appUserId){
+				   this.getCmpByName('degree').setValue(appUserId);
+				   this.getCmpByName('degree').setRawValue(appUsers);
+				   this.getCmpByName('degree').nextSibling().setValue(appUserId);
+				}
+				if(alarm_fields.data.person.marry==317){
+					this.getCmpByName('spousePanel').show()
+				}else{
+					this.getCmpByName('spousePanel').hide()
+				}
+			var  nextForm=this.ownerCt.ownerCt;
+					var jumpBack=nextForm.getTopToolbar().get(3);
+  					jumpBack.hide();
+			}
+			
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){/*
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	*/},
+	saveBusDatas : function(formPanel,fun) {
+		var fundIntentJsonData=this.superviseSlFundIntentInfo.getGridDate();
+		var superviseSlFundIntentInfo =this.superviseSlFundIntentInfo;
+		formPanel.getForm().submit({				    
+		    clientValidation: false, 
+			url : __ctxPath + '/supervise/updateMiroSuperviseRecordIntentaffirmSlSuperviseRecord.do',
+			params : {
+				'projectId':this.smallProjectId,
+				"fundIntentJsonData":fundIntentJsonData,
+				'comments':formPanel.comments
+			},
+			method : 'post',
+			scope: this,
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText)
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				superviseSlFundIntentInfo.save();
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	 },
+	validate : function(outpanel) {
+		outpanel.getCmpByName('fundIntentJsonData').setValue(this.superviseSlFundIntentInfo.getGridDate());
+		var continuationMoney=this.getCmpByName('slSuperviseRecord.continuationMoney').getValue()
+		if(eval(continuationMoney)>eval(this.projectMoney)){
+			Ext.Msg.alert('操作信息','展期金额不能大于项目金额');
+			return false
+		}
+		  return true;
+	}
+})

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.common.AreaManagement"
+        table="area_management"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="parentId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="parentId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="text"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="text"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="leaf"
+            type="java.lang.Boolean"
+            update="true"
+            insert="true"
+            access="property"
+            column="leaf"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks1"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks1"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

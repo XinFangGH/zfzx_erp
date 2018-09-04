@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="droit" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addDroit" class="droitAction" method="addDroit">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<!-- 查看信息从视图查询 -->
+		<action name="seeDroit" class="droitAction" method="seeDroit"></action>
+		
+		<!-- 查看信息从无形权利表查询显示在更新页面 -->
+		<action name="seeDroitForUpdate" class="droitAction" method="seeDroitForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateDroit" class="droitAction" method="updateDroit"></action>
+		
+	</package>
+</struts>  

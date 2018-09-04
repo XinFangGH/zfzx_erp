@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.p2p.WebFinanceApplyUploads"
+        table="web_finance_apply_uploads"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="userID"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="userID"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="materialstype"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="materialstype"
+            length="20"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="files"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="files"
+            length="1000"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="status"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="status"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="lastuploadtime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="lastuploadtime"
+            length="23"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="rejectReason"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="rejectReason"
+            length="65535"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

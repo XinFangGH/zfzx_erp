@@ -1,0 +1,426 @@
+RiskManagerCheckForm = Ext.extend(Ext.Panel, {
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType:'$!operationType',
+	runId : '$!runId',
+	safeLevel:1,
+	constructor : function(_cfg) {
+	    
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		RiskManagerCheckForm.superclass.constructor.call(this, {
+			 iconCls : 'menu-profile-create',
+			 border : false
+		});
+	},
+	initComponents : function() {
+	      		var jsArr = [__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',//股东信息
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/enterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/extEnterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',//实际收费项目
+				__ctxPath + '/js/creditFlow/finance/SlActualToChargePremium.js',//保费列表
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterpriseProcreditMaterialsForm.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterPriseProcreditMaterialsView.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/report/SlRiskReportView.js',// 风险综合分析报告
+				__ctxPath + '/js/creditFlow/customer/bankrelationperson/bankDaRelationPersonList.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SeeThirdContractWindow.js',// 查看担保措施合同详情
+				__ctxPath + '/js/creditFlow/smallLoan/contract/OperateThirdContractWindow.js',// 编辑反担保措施合同
+				__ctxPath + '/js/creditFlow/assuretenet/SlProcreditAssuretenetForm.js',// 贷款准入原则
+				__ctxPath + '/js/creditFlow/smallLoan/meeting/MeetingSummaryForm.js',// 会议纪要上传
+				__ctxPath + '/js/creditFlow/smallLoan/meeting/MeetingSummaryUpload.js',// 会议纪要文件上传
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/EnterpriseEvaluation.js', //企业评估报告
+				__ctxPath + '/js/creditFlow/guarantee/contract/LetterAndBookView.js'// 担保意向书、对外担保承诺函
+		
+		        ];
+		        $ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+	        this.projectInfo = new extEnterpriseBusinessProjectInfoPanel({
+			   isDiligenceReadOnly : true,
+			   isAllReadOnly:true
+		    });
+		    this.SlProcreditAssuretenetForm = new SlProcreditAssuretenetForm({
+			   projectId : this.projectId,
+			   headTitle:'企业融资担保准入原则',
+			   businessType:this.businessType,
+			   isReadOnly:true
+		    });
+		    this.SlProcreditMaterialsView = new SlEnterPriseProcreditMaterialsView({
+			     projectId : this.projectId,
+			     isHidden_materials:false,
+			     businessType:this.businessType,
+			     isHiddenArchive : true,
+			     isHidden_materials : true,
+			     operationType:this.operationType
+		    });
+		    this.projectInfoFinance=new ProjectInfoGuaranteeFinancePanel({isAllReadOnly:true});
+		    this.GlActualToChargePanel=new SlActualToCharge({
+		    projId : this.projectId,
+			businessType :'Guarantee',
+			isHidden : true
+		    });
+		   this.slActualToChargePremium=new SlActualToChargePremium({
+			    projId : this.projectId,
+			    object : this.projectInfoFinance,
+			    isHidden : true,
+				businessType :'Guarantee'      
+		    });
+		    this.SlRiskReportView = new SlRiskReportView({
+				projectId : this.projectId,
+				businessType : this.businessType,
+				isHidden_riskReport : true
+		    });//风险综合分析报告
+			
+		
+		  
+		    this.bankInfo=new ExtUD.Ext.BankInfoPanel({isAllReadOnly:true});
+	        var title="企业客户信息";
+	        this.perMain = "";
+		    if(this.oppositeType =="person_customer") 
+		    {
+			    this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+			    	isEditPerson : true,
+			    	isHidden:true
+			    });
+			    title="个人客户信息";
+		    } 
+		    else if(this.oppositeType =="company_customer")
+		    {
+			    this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				projectId : this.projectId,
+			    bussinessType:this.businessType,
+			    isHidden:true,
+				isEnterpriseShortNameReadonly : true,
+				isEditEnterprise : false,
+				isGudongDiseditable : true
+			    });
+		    };
+		    this.SlReportView = new SlReportView({
+		    	projectId : this.projectId,
+		    	businessType : this.businessType,
+		    	isHiddenColumn : false,
+		    	isShowBorder : true,
+		    	isHidden : false,
+		    	isHidden_report:true,
+		    	isHiddenAffrim : true
+		    });
+
+		       //资信评估
+		    this.EnterpriseEvaluation=new EnterpriseEvaluationGuarantee({
+		        projectId : this.projectId,
+			isHidden : true
+		    });
+
+		    this.sbhMeetting=new ExtUD.Ext.ExecutiveOpinion({//线上
+			runId : this.runId,
+			projectId : this.projectId,
+			businessType : this.businessType
+		      });
+		    //评审会意见
+		    this.shenpipanel = new Ext.Panel({
+			title : '评审会意见',
+			header : false,
+			name : 'hyjyqk',
+				bodyStyle : 'padding-left:5px',	
+				items : []
+			});
+		//上传会议纪要
+		 this.MeetingSummaryForm = new MeetingSummaryForm({
+			projectId : this.projectId,
+			businessType : this.businessType,
+			isReadOnly : true,
+			isHidden : false
+		});
+
+		   
+		    this.outPanel = new Ext.Panel({
+		        modal : true,
+				labelWidth : 100,
+				buttonAlign : 'center',
+				layout : 'form',
+				border : false,
+				defaults : {
+					anchor : '100%',
+					xtype : 'fieldset',
+					columnWidth : 1,
+					labelAlign : 'right',
+					collapsible : true,
+					autoHeight : true
+			    },
+			    labelAlign : "right",
+			    items : [{  xtype : 'hidden',
+					    name : 'preHandler',
+					    value : 'gLGuaranteeloanProjectService.gCollectJudgemenNextStep'
+			},{
+				     xtype : 'hidden',
+				     name : 'fundIntentJsonData1'
+		        }, {
+				     xtype : 'hidden',
+				     name : 'slActualToChargeJsonData1'
+		        }, {xtype:'hidden',name :'safeLevel',value:1},{
+						xtype : 'fieldset',
+						title : '项目控制信息',
+						name:'projectInfo',
+						collapsible : true,
+						autoHeight : true,
+						labelAlign : 'right',
+						items : [this.projectInfo]
+				}, {
+				        title :title,
+				        items : [this.perMain]
+			    }, {
+					xtype : 'fieldset',
+					title : '银行信息',
+					collapsible : true,
+					autoHeight : true,
+					items : [this.bankInfo]
+				}, {       
+			    xtype : 'fieldset',
+				title : '资金款项信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [
+					 this.projectInfoFinance,
+					 this.slActualToChargePremium,
+					 this.GlActualToChargePanel
+				]
+			},{
+					xtype : 'fieldset',
+					title : '担保准入原则',
+					collapsible : true,
+					autoHeight : true,
+					items : [this.SlProcreditAssuretenetForm]
+	
+				}, {
+					xtype : 'fieldset',
+					title : '担保材料清单',
+					collapsible : true,
+					autoHeight : true,
+					items : [this.SlProcreditMaterialsView]
+			    },{
+				xtype : 'fieldset',
+				title : '反担保措施',
+				collapsible : true,
+				autoHeight : true,
+				items : [
+					new DZYMortgageView({
+						projectId : this.projectId,
+						titleText : '抵质押担保',
+						businessType : '$!businessType',
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isHiddenEdiBtn : true,//hide edit btn
+						isHiddenAddBtn : true,//hide add btn
+						isHiddenDelBtn : true,//hide delete btn
+						isRecieveHidden:true,
+						isblHidden:true,
+						isgdHidden:true
+					}),
+					new BaozMortgageView({
+						projectId : this.projectId,
+						titleText : '保证担保',
+						businessType : '$!businessType',
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isHiddenEdiBtn : true,//hide edit btn
+						isHiddenAddBtn : true,//hide add btn
+						isHiddenDelBtn : true,//hide delete btn
+						isblHidden:true,
+						isgdHidden:true,
+						isRecieveHidden:true
+					})
+					]
+			},{
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '客户资信评估',
+					items : [this.EnterpriseEvaluation]
+			},{
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '尽职调查报告',
+					items : [this.SlReportView]
+				},{
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '风险分析报告',
+					items : [this.SlRiskReportView]
+				},{       
+			    xtype : 'fieldset',
+				title : '评审会意见',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.shenpipanel]
+			},{
+				     xtype:'hidden',
+				     name:'task_id',
+				     value:this.taskId
+		        }]
+		    })
+    this.loadData({
+            
+			//url : __ctxPath + '/creditFlow/getInfoCreditProject.do?taskId='+this.projectId+'&type='+this.businessType+'&task_id='+this.taskId,
+    	 	url : __ctxPath + '/creditFlow/guarantee/EnterpriseBusiness/getInfoGLGuaranteeloanProject.do?glProjectId='+this.projectId+'&glTaskId='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'gLGuaranteeloanProject','customerBankRelationPerson','enterpriseBank',"businessType"],
+			root : 'data',
+			success : function(response, options) {
+		              var respText = response.responseText;  
+				      var alarm_fields = Ext.util.JSON.decode(respText); 
+				      var businessType=alarm_fields.data.gLGuaranteeloanProject.businessType;
+				      this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.gLGuaranteeloanProject.projectMoney,'0,000.00'));
+//				      this.getCmpByName('earnestmoney1').setValue(Ext.util.Format.number(alarm_fields.data.gLGuaranteeloanProject.earnestmoney,'0,000.00'));
+				      /*if(null!=alarm_fields.data.gLGuaranteeloanProject.earnestmoney && ""!=alarm_fields.data.gLGuaranteeloanProject.earnestmoney)
+				      {
+				        this.getCmpByName('earnestmoney1').setValue(Ext.util.Format.number(alarm_fields.data.gLGuaranteeloanProject.earnestmoney,'0,000.00'))
+				      }*/
+				      if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+				      //初始化币种 ,贷款用途开始
+				      var currencyType=alarm_fields.data.gLGuaranteeloanProject.currencyType;
+				      var purposeType=alarm_fields.data.gLGuaranteeloanProject.purposeType;
+				      if(purposeType==null || purposeType==""){
+				               var purposeTypeObj=this.getCmpByName('gLGuaranteeloanProject.purposeType');
+				               if(null!=purposeTypeObj){
+			                      var st1=purposeTypeObj.getStore();
+						          st1.load({"callback":function(){
+						          	    if(st.getCount()>0){
+						                        var record = st1.getAt(0);
+								                var v = record.data.itemId;
+								                purposeTypeObj.setValue(v);
+						                 }
+						          }});
+			          			}
+				      }
+				      if(currencyType==null || currencyType==""){
+				               var currencyTypeObj=this.getCmpByName('gLGuaranteeloanProject.currencyType');
+				               if(null!=currencyTypeObj){
+			                      var st=currencyTypeObj.getStore();
+						          st.load({"callback":function(){
+						          	    if(st.getCount()>0){
+						                        var record = st.getAt(0);
+								                var v = record.data.itemId;
+								                currencyTypeObj.setValue(v);
+						                 }
+						          }});
+			          			}
+				      }
+				      // 初始化币种 ,贷款用途结束  
+				      
+				      this.getCmpByName('appUsersOfA').clearInvalid();
+				      this.getCmpByName('projectMoney1').clearInvalid();
+			          this.getCmpByName('customerBankRelationPerson.blmtelephone').clearInvalid();
+			          this.getCmpByName('customerBankRelationPerson.duty').clearInvalid();
+
+				 //评审会决议
+				var sdhResult = 0;
+				Ext.Ajax.request({
+				   url: __ctxPath + '/creditFlow/getGLMeetingTypeCreditProject.do?projectId='+this.projectId+'&businessType='+this.businessType+'&runId='+this.runId,
+				   async:false,
+				   success: function(response, options){
+				   		var respText1 = response.responseText;
+						var types = Ext.util.JSON.decode(respText1);
+						sdhResult = types.type;
+						
+				   }
+				});
+				      	var  nextForm=this.ownerCt.ownerCt;
+						    var emailNext=nextForm.commentsPanel.getCmpByName("emailcheck");;
+						    emailNext.setValue(true);
+					if(sdhResult==1){//线上评审会决议
+						this.shenpipanel.add(this.sbhMeetting);
+					}else if(sdhResult==2){//汇总评审会决议及纪要
+						this.shenpipanel.add(this.MeetingSummaryForm);
+					}else if(sdhResult==3){
+						this.shenpipanel.add(this.sbhMeetting);
+						this.shenpipanel.add(this.MeetingSummaryForm);
+					}else{//两者都没有
+						this.getCmpByName('hyjyqk').hide();
+						this.getCmpByName('hyjyqk').setDisabled(true);
+					}
+					this.shenpipanel.doLayout();
+
+			          
+			           //设置发送邮件默认选中 开始
+				       	var  nextForm=this.ownerCt.ownerCt;
+					    var emailNext=nextForm.commentsPanel.getCmpByName("emailcheck");;
+					    emailNext.setValue(true);
+				      
+			}
+		    });
+	        this.add(this.outPanel);
+		    this.doLayout(); 
+		    this.outPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+			Ext.Ajax.request({
+				url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+				method : 'POST',
+				scope:this,
+				success : function(response, request) {
+					obj = Ext.util.JSON.decode(response.responseText);
+					var projectName = obj.data.projectName;
+					var createTime = obj.data.createTime;
+					var dueTime = obj.data.dueTime;
+					var creator = obj.data.creator;
+					if(obj.success==true){
+						this.getCmpByName('projectInfo').setTitle('项目基本信息[ '+'    任务分配时间：'+createTime+'   任务完成时限：'+dueTime+'   当前处理人：'+creator+' ]');
+					}else{
+						Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+					}
+				},
+				failure : function(response,request) {
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				},
+				params : {
+					taskId : taskId,
+					businessType : '$!businessType',
+					projectId:'$!projectId'
+				}
+			});
+	},
+	saveBusDatas : function(formPanel) {
+	    formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/creditFlow/saveCommentsCreditProject.do',
+			params : {
+				comments : formPanel.comments
+			},
+		    method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			    Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+	  })
+	},
+	validate : function(outpanel) {
+	outpanel.getCmpByName('slActualToChargeJsonData1').setValue(this.GlActualToChargePanel.getGridDate());
+		return true;
+	}
+})					  

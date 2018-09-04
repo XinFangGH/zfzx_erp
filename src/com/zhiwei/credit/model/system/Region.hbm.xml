@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.Region" table="region" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="regionId" column="regionId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="regionName" type="java.lang.String" update="true" insert="true" access="property" column="regionName" length="128" not-null="true" unique="false"/>  
+    <property name="regionType" type="java.lang.Short" update="true" insert="true" access="property" column="regionType" length="5" not-null="true" unique="false"/>  
+    <property name="parentId" type="java.lang.Long" update="true" insert="true" access="property" column="parentId" length="19" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

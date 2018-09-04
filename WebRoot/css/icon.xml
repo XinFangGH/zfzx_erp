@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus>
+	<Items id="used" text="常用">
+		<icon text="btn-ok" url="btn/ok.png"/>
+		<icon text="btn-cancel" url="btn/cancel.png"/>
+		<icon text="btn-close" url="btn/cancel.png"/>
+		<icon text="btn-search" url="btn/search.png"/>
+		<icon text="btn-select" url="btn/select.png"/>
+		<icon text="btn-save" url="btn/btn-save.png"/>
+		<icon text="btn-clear" url="btn/clear.png"/>
+		<icon text="btn-expand" url="btn/expand.png"/>
+		<icon text="btn-collapse" url="btn/collapse.png"/>
+		<icon text="btn-refresh" url="btn/refresh.png"/>
+		<icon text="btn-print" url="btn/print.png"/>
+		<icon text="btn-del" url="btn/remove.png"/>
+		<icon text="btn-setting" url="btn/setting.png"/>
+		<icon text="btn-next" url="btn/next.gif"/>
+		<icon text="btn-top" url="btn/top.gif"/>
+		<icon text="btn-up" url="btn/up.gif"/>
+		<icon text="btn-down" url="btn/down.gif"/>
+		<icon text="refresh" url="btn/ref_16.gif"/>
+		<icon text="menu-del" url="menus/del.png"/>
+		<icon text="menu-list" url="menus/list.png"/>
+		<icon text="add" url="btn/query.gif"/>
+		<icon text="menu-file" url="menus/file.png"/>
+		<icon text="menu-add" url="menus/add.png"/>
+		<icon text="menu-administrator" url="menus/administrator.png"/>
+		<icon text="dep-user" url="menus/selectors/dep-user.gif"/>
+		<icon text="online-user" url="menus/selectors/user_16.gif"/>
+		<icon text="role-user" url="menus/selectors/group_16.gif"/>
+		<icon text="btn-reseted" url="btn/reset.png"/>
+		<icon text="btn-reset" url="btn/reset.png"/>
+		<icon text="btn-dynamic-pwd" url="login/dynamic.png"/>
+		<icon text="btn-dynamic-bind" url="login/bind.png"/>
+		<icon text="btn-dynamic-unbind" url="login/unbind.png"/>
+		<icon text="btn-company" url="btn/company.png"/>
+		<icon text="btn-stores" url="btn/stores.png"/>
+		<icon text="btn-department" url="btn/department.png"/>
+		<icon text="btn-people" url="btn/people.png"/>
+		<icon text="btn-bind" url="images/icon_padlock.png"/>
+		<icon text="btn-forbid" url="images/delete.gif"/>
+	</Items>
+	<Items id="zalei" text="未分类">
+		<icon text="btn-clock" url="btn/clock.png"/>
+		<icon text="btn-showDetail" url="btn/showDetail.png"/>
+		<icon text="btn-relax" url="btn/relax.png"/>
+		<icon text="btn-user-sel" url="btn/user-sel.png"/>
+		<icon text="btn-users-sel" url="btn/users-sel.png"/>
+		<icon text="btn-last" url="btn/last.gif"/>
+		<icon text="btn-logout" url="btn/logout.png"/>
+		<icon text="btn-onlineUser" url="btn/eyes.png"/>
+		<icon text="btn-readdocument" url="btn/read_document.png"/>
+		<icon text="btn-detail" url="btn/read_document.png"/>
+		<icon text="menu-m" url="menus/menu/menu.png"/>
+		<icon text="menu-url" url="menus/menu/url.png"/>
+		<icon text="menu-manage" url="menus/manage.png"/>
+		<icon text="btn-query" url="btn/query.gif"/>
+		<icon text="btn-users" url="btn/users.png"/>
+		<icon text="btn-password" url="btn/password.gif"/>
+		<icon text="menu-destop" url="menus/destop.gif"/>
+		<icon text="menu-system" url="menus/setting.png"/>
+		<icon text="menu-attachment" url="flag/attachment.png"/>
+		<icon text="menu-phonebook" url="menus/book_user.png"/>
+		<icon text="menu-phonebook-shared" url="menus/phone_book.png"/>
+		<icon text="menu-personal-phoneBook" url="menus/book_key.png"/>
+		<icon text="menu-mail_send" url="menus/mail/mail_new.png"/>
+		<icon text="menu-mail_inbox" url="menus/mail/mail_inbox.png"/>
+		<icon text="menu-receiveMessage" url="newpm.gif"/>
+		<icon text="menu-subuser" url="menus/desktop/user_go.png"/>
+		<icon text="menu-navigation" url="menus/navigation.png"/>
+		<icon text="menu-conference_daikai" url="menus/admin/conference_daikai.png"/>
+		<icon text="menu-archRollReport" url="menus/arch/archRollReport.png"/>
+		<icon text="menu-zhong" url="zhong.gif"/>
+		<icon text="menu-newBorrowRecord" url="menus/arch/newBorrowRecord.png"/>
+		<icon text="menu-contract_config" url="menus/customer/contract_config.png"/>
+		<icon text="menu-biaodan" url="menus/system/biaodan.png"/>
+		<icon text="menu-add_salay" url="menus/hrm/add_salay.gif"/>
+		
+	</Items>
+	<Items id="archive" text="公文管理" iconCls="menu-archive">
+		<icon text="menu-archive" url="menus/archive/archives.png"/>
+		<icon text="menu-archive-setting" url="menus/archive/archives_setting.png"/>
+		<icon text="menu-archive-template" url="menus/archive/arch_template.png"/>
+		<icon text="menu-archive-handout" url="menus/archive/hand_paper.png"/>
+		<icon text="menu-archive-issue" url="menus/archive/archives_issue.png"/>
+		<icon text="menu-archive-draft" url="menus/archive/archives_draft.png"/>
+		<icon text="menu-archive-receive" url="menus/archive/archives_receive.png"/>
+		<icon text="menu-archive-sign" url="menus/archive/archives_sign.png"/>
+		<icon text="menu-archive-monitor" url="menus/archive/webcam.png"/>
+		<icon text="menu-archive-draft-manage" url="menus/archive/draft_manage.png"/>
+		<icon text="menu-archive-history" url="menus/archive/archives_history.png"/>
+		<icon text="menu-archive-search" url="menus/archive/archives_search.png"/>
+		<icon text="menu-archive-proof" url="menus/archive/archives_proof.png"/>
+		<icon text="menu-archive-charge" url="menus/archive/archives_charge.png"/>
+		<icon text="menu-archive-lead" url="menus/archive/archives_lead.png"/>
+		<icon text="menu-archive-department" url="menus/archive/archives_department.png"/>
+		<icon text="menu-archive-issue-manage" url="menus/archive/archives_manage.png"/>
+		<icon text="btn-edit-online" url="btn/archive/edit_online.png"/>
+		<icon text="btn-archive-draft" url="menus/archive/archives_draft.png"/>
+		<icon text="btn-beready-save" url="btn/archive/archives_save.png"/>
+		<icon text="btn-archives-remind" url="btn/archive/archives_remind.png"/>
+		<icon text="btn-archives-finish" url="flag/task/finish.png" />
+		<icon text="menu-archives-remind" url="btn/archive/archives_remind.png"/>
+		<icon text="btn-archives-detail" url="btn/archive/archives_detail.png"/>
+		<icon text="btn-archive-sign" url="menus/archive/archives_sign.png"/>
+		<icon text="btn-archive-attachment" url="flag/attachment.png"/>
+		<icon text="btn-archive-save-trace" url="btn/archive/save_trace.png"/>  
+		<icon text="btn-archive-cancel-trace" url="btn/archive/cancel_trace.png"/> 
+		<icon text="btn-archive-eraser" url="btn/archive/eraser.png"/>
+		<icon text="btn-archive-history" url="menus/archive/archives_history.png"/> 
+		<icon text="btn-archive-copy" url="btn/archive/doc_copy.png"/>
+        <icon text="btn-archive-white-word" url="btn/archive/white_word.png"/>
+        <icon text="menu-arch-rec-type" url="menus/archive/arch_rec_type.png"/>
+		<icon text="menu-arch-reader" url="menus/archive/arch_reader.png"/>
+		<icon text="menu-arch-reg" url="menus/archive/arch_rec.png"/>
+		<icon text="menu-arch-handler" url="menus/archive/arch_handler.png"/>
+		<icon text="menu-arch-leader" url="menus/archive/user_leader.png"/>
+		<icon text="menu-arch-dispatch" url="menus/archive/arch_dispatch.png"/>
+		<icon text="menu-arch-undertake" url="menus/archive/arch_undertake.png"/>
+ 		<icon text="menu-arch-controll" url="menus/archive/arch_controll.png"/>
+		<icon text="menu-arch-detail" url="menus/archive/arch_detail.png"/>
+	</Items>
+	<Items id="system" text="系统设置" iconCls="menu-system">
+		<icon text="add-user" url="system/adduser.gif"/>
+		<icon text="btn-super" url="btn/system/super.gif"/>
+		<icon text="btn-superior" url="btn/system/superior.png"/>
+		<icon text="btn-subordinate" url="btn/system/subordinate.png"/>
+		<icon text="btn-sibling" url="btn/system/sibling.png"/>
+		<icon text="btn-relativeJob" url="btn/system/relativeJob.png"/>
+		<icon text="btn-preview" url="system/preview.png"/>
+		<icon text="btn-edit" url="system/edit.png"/>
+		<icon text="btn-department-sel" url="menus/system/department_menu.png"/>
+		<icon text="btn-addCusLinkman" url="system/adduser.gif"/>
+		<icon text="menu-relativeJob" url="menus/system/relativeJob.png"/>
+		<icon text="btn-add" url="system/add_16.png"/>
+		<icon text="btn-delete" url="system/delete.gif"/>
+		<icon text="btn-shared" url="system/shared.gif"/>
+		<icon text="menu-role" url="menus/system/role_menu.png"/>
+		<icon text="menu-department" url="menus/system/department_menu.png"/>
+		<icon text="menu-company" url="menus/system/company_menu.png"/>
+		<icon text="menu-report" url="menus/system/report_menu.png"/>
+		<icon text="menu-dictionary" url="menus/system/dictionary.png"/>
+		<icon text="menu-appuser" url="menus/system/user_menu.png"/>
+		<icon text="menu-subDiary" url="menus/system/subDiary.png"/>
+		<icon text="btn-copyrole" url="btn/system/role_copy.png"/>
+		<icon text="btn-ie" url="btn/system/ie.png"/>
+		<icon text="btn-pdf" url="btn/system/pdf.png"/>
+		<icon text="btn-xls" url="btn/system/xls.png"/>
+		<icon text="add-all" url="btn/system/add-all.gif"/>
+		<icon text="rem-all" url="btn/system/rem-all.gif"/>
+		<icon text="btn-left" url="btn/system/left.png"/>
+		<icon text="btn-right" url="btn/system/right.png"/>
+	</Items>
+	<Items id="info" text="信息管理" iconCls="menu-info">
+		<icon text="btn-sendM" url="btn/info/write.png"/>
+		<icon text="btn-receiveMessage" url="btn/info/receive.gif"/>
+		<icon text="btn-sendMessage" url="btn/info/send.gif"/>
+		<icon text="btn-update" url="btn/info/update.png"/>
+		<icon text="search" url="btn/info/search.png"/>
+		<icon text="reset" url="btn/info/reset.png"/>
+		<icon text="menu-info" url="menus/info/comment.png"/>
+		<icon text="menu-news" url="menus/info/news_menu.png"/>
+		<icon text="menu-news_type" url="menus/info/newsType_menu.png"/>
+		<icon text="menu-notice" url="menus/info/notice_menu.png"/>
+		<icon text="menu-mobile" url="menus/info/mobile_phone.png"/>
+		<icon text="menu-suggestbox" url="menus/info/suggest_box.png"/>
+		<icon text="btn-suggest-scan" url="btn/info/scan.png"/>
+		<icon text="btn-suggest-reply" url="btn/info/suggest_reply.png"/>
+		<icon text="btn-upload" url="btn/info/upload.png"/>
+		<icon text="btn-save" url="btn/info/save.png"/>
+		<icon text="btn-previous-message" url="btn/info/previous.png"/>
+		<icon text="btn-next-message" url="btn/info/next.png"/>
+		<icon text="menu-message" url="menus/info/mobilephone_menu.png"/>
+		<icon text="btn-replyM" url="btn/info/reply.png"/>
+		<icon text="btn-empProfile-notpass" url="btn/info/reset.png"/>
+		<icon text="btn-salaryPayoff-notpass" url="btn/info/reset.png"/>
+		<icon text="tipsTile" url="btn/info/tips.jpg"/>
+	</Items>
+	<Items id="communication" text="通讯管理" iconCls="menu-communicate">
+		<icon text="btn-suggest-box" url="menus/mail/mail_inbox.png"/>
+		<icon text="btn-mail_resend" url="btn/mail/mail_resend.png"/>
+		<icon text="btn-mail_receive" url="btn/mail/mail_receive.png"/>
+		<icon text="btn-mail_remove" url="btn/mail/mail_remove.png"/>
+		<icon text="btn-mail_send" url="btn/mail/mail_send.png"/>
+		<icon text="btn-mail_save" url="btn/mail/mail_save.png"/>
+		<icon text="btn-mail_move" url="btn/mail/mail_move.png"/>
+		<icon text="btn-mail_reply" url="btn/mail/mail_reply.png"/>
+		<icon text="btn-mail_refresh" url="btn/mail/mail_refresh.gif"/>
+		<icon text="btn-mail_recipient" url="btn/mail/mail_recipient.png"/>
+		<icon text="btn-mail_copy" url="btn/mail/mail_copy.png"/>
+		<icon text="btn-delete_copy" url="btn/mail/delete_copy.png"/>
+		<icon text="btn-mail_edit" url="btn/mail/mail_edit.png"/>
+		<icon text="btn-mail_back" url="btn/mail/mail_back.png"/>
+		<icon text="menu-communicate" url="communicate/communicate.png"/>
+		<icon text="menu-mail" url="menus/mail/mail_menu.png"/>
+		<icon text="menu-mail_outbox" url="menus/mail/mail_outbox.png"/>
+		<icon text="menu-mail_drafts" url="menus/mail/mail_drafts.png"/>
+		<icon text="menu-mail_trash" url="menus/mail/mail_trash.gif"/>
+		<icon text="menu-mail_folder" url="menus/mail/mail_folder.png"/>
+	</Items>
+	<Items id="document" text="文档管理" iconCls="menu-document">
+		<icon text="menu-new-document" url="menus/document/new_document.png"/>
+		<icon text="menu-personal-doc" url="menus/document/personal_doc.png"/>
+		<icon text="menu-find-doc" url="menus/document/search_doc.png"/>
+		<icon text="menu-public-fol" url="menus/document/public_folder.png"/>
+		<icon text="menu-folder" url="menus/document/folder_manage.png"/>
+		<icon text="menu-folder-go" url="menus/document/folder_go.png"/>
+		<icon text="menu-folder-shared" url="menus/document/folder_shared.png"/>
+		<icon text="menu-onlinedoc" url="menus/document/online_doc.png"/>
+		<icon text="menu-template" url="menus/document/template_edit.png"/>
+		<icon text="menu-seal" url="menus/document/seal.png"/>
+	</Items>
+	<Items id="task" text="任务管理" iconCls="menu-task">
+		<icon text="btn-task" url="btn/task/task.gif"/>
+		<icon text="btn-myAssign" url="btn/task/myAssign.png"/>
+		<icon text="menu-appointment" url="menus/task/appointment.png"/>
+		<icon text="menu-cal-plan" url="menus/task/calendar_plan.png"/>
+		<icon text="menu-cal-plan-view" url="menus/task/calendar_plan_view.png"/>
+		<icon text="menu-diary" url="menus/task/diary.png"/>
+		<icon text="menu-plantype" url="menus/task/plantype.png"/>
+		<icon text="menu-planmanage" url="menus/task/planmanage.png"/>
+		<icon text="menu-newplan" url="menus/task/plan_add.png"/>
+		<icon text="menu-myplan" url="menus/task/myplan.png"/>
+		<icon text="menu-depplan" url="menus/task/depplan.png"/>
+	</Items>
+	<Items id="flow" text="流程管理" iconCls="menu-flow">
+		<icon text="btn-newFlow" url="btn/flow/newFlow.gif"/>
+		<icon text="btn-lockTask" url="btn/flow/lockTask.png"/>
+		<icon text="btn-unlockTask" url="btn/flow/unlockTask.png"/>
+		<icon text="btn-approvalTask" url="btn/flow/approvalTask.png"/>
+		<icon text="btn-changeTask" url="btn/flow/changeTask.png"/>
+		<icon text="btn-flowView" url="btn/flow/view.png"/>
+		<icon text="btn-transition" url="btn/flow/transition.png"/>
+		<icon text="btn-back" url="btn/flow/back.gif"/>
+		<icon text="btn-form-design" url="btn/flow/form.png"/>
+		<icon text="btn-form-tag" url="btn/flow/form-tag.png"/>
+		<icon text="menu-taskSign" url="menus/flow/tasksign.png"/>
+		<icon text="menu-flow" url="menus/flow.gif"/>
+		<icon text="menu-form" url="menus/flow/menu-form.png"/>
+		<icon text="menu-flowManager" url="menus/flow/flowManager.png"/>
+		<icon text="menu-flowNew" url="menus/flow/flowNew.png"/>
+		<icon text="menu-flowWait" url="menus/flow/flowWait.png"/>
+		<icon text="menu-flowEnd" url="menus/flow/flowEnd.png"/>
+		<icon text="menu-flowPr" url="menus/flow/flowPr.png"/>
+		<icon text="menu-flowMine" url="menus/flow/flowMine.png"/>
+		<icon text="btn-flow-start" url="btn/flow/flow_start.png"/>
+		<icon text="btn-flow-design" url="btn/flow/flow_design.png"/>
+		<icon text="btn-flow-chart" url="btn/flow/flow_chart.png"/>
+		<icon text="menu-instance" url="menus/flow/instance.png"/>
+		<icon text="menu-form" url="menus/flow/form.png"/>
+		<icon text="menu-task-manage" url="menus/flow/manage-task.png"/>
+	</Items>
+	<Items id="customer" text="客户管理" iconCls="menu-customer">
+		<icon text="btn-editCusLinkman" url="btn/customer/group.png"/>
+		<icon text="btn-system-setting" url="btn/customer/system-setting.png"/>
+		<icon text="menu-customer" url="menus/customer.png"/>
+		<icon text="menu-customerView" url="menus/customer/customer_menu.png"/>
+		<icon text="menu-cusLinkman" url="menus/customer/cuslinkman_menu.png"/>
+		<icon text="menu-connection" url="menus/customer/note.png"/>
+		<icon text="menu-project" url="menus/customer/briefcase.png"/>
+		<icon text="menu-contract" url="menus/customer/contract.png"/>
+		<icon text="menu-product" url="menus/customer/product.png"/>
+		<icon text="menu-provider" url="menus/customer/provider.png"/>
+		<icon text="menu-system-setting" url="btn/customer/system-setting.png"/>
+	</Items>
+	<Items id="admin" text="行政管理" iconCls="menu-administrator">
+		<icon text="menu-goods" url="menus/admin/office-tackle.png"/>
+		<icon text="menu-instock" url="menus/admin/tackle-db.png"/>
+		<icon text="menu-goods-apply" url="menus/admin/tackle-apply.png"/>
+		<icon text="menu-car" url="menus/admin/car.png"/>
+		<icon text="menu-car_repair" url="menus/admin/car_repair.png"/>
+		<icon text="menu-car_apply" url="menus/admin/car_apply.png"/>
+		<icon text="btn-car_add" url="btn/admin/car_add.png"/>
+		<icon text="btn-car_del" url="btn/admin/car_delete.png"/>
+		<icon text="btn-car" url="btn/admin/car.png"/>
+		<icon text="btn-carapply-add" url="btn/admin/apply_add.png"/>
+		<icon text="btn-carapply-del" url="btn/admin/apply_delete.png"/>
+		<icon text="btn-dep-sel" url="btn/admin/dep-sel.png"/>
+		<icon text="menu-depre-type" url="menus/admin/bricks.png"/>
+		<icon text="menu-book" url="menus/admin/book_menu.png"/>
+		<icon text="menu-book-type" url="menus/admin/books.png"/>
+		<icon text="menu-book-manage" url="menus/admin/book_manage.png"/>
+		<icon text="menu-book-borrow" url="menus/admin/book_go.png"/>
+		<icon text="menu-book-return" url="menus/admin/book_link.png"/>
+		<icon text="btn-pred" url="btn/admin/calculator.png"/>
+		<icon text="menu-depRecord" url="menus/admin/disk_m.png"/>
+		<icon text="menu-regulation" url="menus/admin/regulation.png"/>
+		<icon text="assets-type" url="btn/admin/assets_type.png"/>
+		<icon text="goods-type" url="btn/admin/goods_type.png"/>
+		<icon text="btn-salary-apply" url="menus/admin/tackle-apply.png"/>
+		<icon text="btn-empProfile-check" url="menus/admin/tackle-apply.png"/>
+		<icon text="btn-salary-pay" url="menus/admin/tackle-apply.png"/>
+		<icon text="btn-check" url="menus/admin/tackle-apply.png"/>
+	</Items>
+	<Items id="Personal" text="人事管理" iconCls="menu-personal">
+		<icon text="btn-signIn" url="btn/personal/signIn.gif"/>
+		<icon text="btn-signOff" url="btn/personal/signOff.gif"/>
+		<icon text="menu-personal" url="menus/personal/personal.png"/>
+		<icon text="menu-person" url="menus/personal/person.gif"/>
+		<icon text="menu-signInOff" url="menus/personal/signInOff.png"/>
+		<icon text="menu-holiday" url="menus/personal/holiday.png"/>
+		<icon text="menu-errands" url="menus/personal/errands.png"/>
+		<icon text="menu-duty" url="menus/personal/duty.png"/>
+		<icon text="menu-dutySetting" url="menus/personal/dutySetting.png"/>
+		<icon text="menu-holidayRecord" url="menus/personal/holidayRecord.png"/>
+		<icon text="menu-dutySection" url="menus/personal/dutySection.png"/>
+		<icon text="menu-dutySystem" url="menus/personal/dutySystem.png"/>
+		<icon text="menu-dutyStats" url="menus/personal/dutyStats.png"/>
+		<icon text="menu-dutyRegister" url="menus/personal/dutyRegister.gif"/>
+		
+	</Items>
+	<Items id="hrm" text="人力资源管理" iconCls="menu-hrm-briefcase">
+		<icon text="btn-job-sel" url="menus/hrm/job.png"/>
+		<icon text="menu-resume" url="menus/hrm/resume.gif"/>
+		<icon text="menu-hireIssue" url="menus/hrm/hireIssue.jpg"/>
+		<icon text="menu-hrm" url="menus/hrm/hrm.png"/>
+		<icon text="menu-hrm-briefcase" url="menus/hrm/hrm-briefcase.png"/>
+		<icon text="menu-salary" url="menus/hrm/salary.png"/>
+		<icon text="menu-development" url="menus/hrm/development.png"/>
+		<icon text="menu-job" url="menus/hrm/job.png"/>
+		<icon text="menu-profile-create" url="menus/hrm/profile-create.png"/>
+		<icon text="menu-profile" url="menus/hrm/profile-menu.png"/>
+		<icon text="btn-operation" url="btn/hrm/operation.png"/>
+		<icon text="btn-empProfile-recovery" url="btn/hrm/profile-recovery.png"/>
+		<icon text="btn-empProfile-pass" url="menus/hrm/check_salay.gif"/>
+		<icon text="btn-salaryPayoff-pass" url="menus/hrm/check_salay.gif"/>
+		<icon text="menu-jobchange" url="menus/hrm/job_change.gif"/>
+		<icon text="menu-job-reg" url="menus/hrm/job_reg.gif"/> 
+		<icon text="menu-job-check" url="menus/hrm/job_check.png"/> 
+		<icon text="menu-add-salay" url="menus/hrm/add_salay.gif"/> 
+		<icon text="menu-check-salay" url="menus/hrm/check_salay.gif"/>
+	</Items>
+	<Items id="setting" text="系统管理" iconCls="menu-setting">
+		<icon text="menu-dictionarymanagement-info" url="menus/book_key.png"/>
+		<icon text="menu-bank" url="menus/admin/conference.png"/>
+		<icon text="menu-area" url="menus/admin/boardRoom.png"/>
+		<icon text="menu-dictionary" url="menus/administrator.png"/>
+		<icon text="menu-dictionarylist" url="menus/phone_book.png"/>
+		<icon text="menu-wordview" url="menus/flow.gif"/>
+	</Items>
+	<Items id="finance" text="财务信息库" iconCls="menu-finance">
+		<icon text="menu-finance-qlideo" url="menus/personal/holiday.png"/>
+		<icon text="menu-baozhengjin" url="album_share.gif"/>
+		<icon text="menu-personal-salary" url="menus/personal/personal-salary.png"/>
+		<icon text="menu-grade_one" url="flag/customer/grade_one.png"/>
+		<icon text="menu-assets" url="flag/customer/rmb.png"/>
+		<icon text="menu-archSat" url="menus/arch/archSat.png"/>
+		<icon text="menu-boardRoom" url="menus/admin/boardRoom.png"/>
+		<icon text="mod-report" url="menus/system/nav-report.png"/>
+		<icon text="menu-accountbankmanage" url="menus/hrm/hrm-briefcase.png"/>
+		<icon text="menu-accountbankmanageproj" url="menus/info/notice_menu.png"/>
+		<icon text="menu-archive-history" url="menus/task/planmanage.png"/>
+		
+		
+	</Items>
+	<Items id="flowTasks" text="项目事项处理" iconCls="menu-flowTasks">
+		<icon text="menu-flowTask" url="menus/index/myflow.gif"/>
+	</Items>
+	<Items id="project" text="项目信息库" iconCls="menu-projects">
+		<!--<icon text="menu-projects" url="menus/index/hand_paper.gif"/>
+		--><icon text="menu-guarantee-info" url="menus/index/hand_paper.gif"/>
+		<icon text="menu-smallloan-info" url="menus/index/hr.gif"/>
+		<icon text="menu-financing-info" url="menus/flag/customer/rmb.png"/>
+		<icon text="menu-investments-info" url="menus/index/kownledge.gif"/>
+		<icon text="menu-pawn-info" url="menus/index/archives.gif"/>
+		<icon text="menu-companyBusiness-info" url="menus/index/and_paper.gif"/>
+		<icon text="menu-personalConsumeBusiness-info" url="menus/index/and_paper.gif"/>
+		<icon text="menu-extend" url="btn/clock.png"/>
+		<icon text="menu-flowCenter" url="flow/task.png"/>
+		<icon text="menu-flowfinsh" url="flow/flowEnd.png"/>
+		
+	</Items>
+	<Items id="achievement" text="运营管理" iconCls="menu-achievement">
+	<icon text="menu-achievement" url="menus/archive/user_leader.png"/>
+	<icon text="menu-property" url="btn/admin/goods_type.png"/>
+	<icon text="menu-indicator" url="menus/document/personal_doc.png"/>
+	<icon text="menu-templatemanagement" url="menus/file.png"/>
+	<icon text="menu-creditrating" url="btn/admin/assets_type.png"/>
+		
+	</Items>
+</Menus>

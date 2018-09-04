@@ -1,0 +1,1120 @@
+<diagram xmlns:bg="bpm.graphic" xmlns:ciied="com.ibm.ilog.elixir.diagram" xmlns:fg="flash.geom">
+  <bg:StartEvent id="startEvent1" height="51" width="36" x="370" y="40">
+    <label>开始</label>
+    <ports>
+      <ciied:Port id="port1" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port2" y="1"/>
+      <ciied:Port id="port3" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port4" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port5" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port6" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port7" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port8" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port9" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port10" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port11" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port12" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port13" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port14" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port15" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port16" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:StartEvent>
+  <bg:Task id="task1" height="50" width="90" x="339" y="110">
+    <expression></expression>
+    <label>客服录件</label>
+    <ports>
+      <ciied:Port id="port17" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port18" y="0"/>
+      <ciied:Port id="port19" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port20" y="1"/>
+      <ciied:Port id="port21" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port22" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port23" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port24" verticalOffset="-5" x="0"/>
+      <ciied:Port id="port25" verticalOffset="5" x="0"/>
+      <ciied:Port id="port26" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port27" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port28" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port29" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port30" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port31" y="1"/>
+      <ciied:Port id="port32" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port33" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port34" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port35" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port36" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:SequenceFlow id="sequenceFlow1" endPort="port18" startPort="port2">
+    <fallbackEndPoint>
+      <fg:Point id="point1" x="384" y="110"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point2"/>
+    </fallbackStartPoint>
+    <label>to 客服录件</label>
+  </bg:SequenceFlow>
+  <bg:Task id="task2" height="50" width="90" x="339" y="240">
+    <expression></expression>
+    <label>信审初审</label>
+    <ports>
+      <ciied:Port id="port37" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port38" y="0"/>
+      <ciied:Port id="port39" y="1"/>
+      <ciied:Port id="port40" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port41" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port42" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port43" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port44" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port45" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port46" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port47" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port48" y="0"/>
+      <ciied:Port id="port49" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port50" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port51" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port52" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port53" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway1" height="50" width="50" x="360" y="320">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策1</label>
+    <ports>
+      <ciied:Port id="port54" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port55" y="0"/>
+      <ciied:Port id="port56" y="1"/>
+      <ciied:Port id="port57" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port58" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port59" x="1"/>
+      <ciied:Port id="port60" verticalOffset="5" x="0"/>
+      <ciied:Port id="port61" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port62" x="0"/>
+      <ciied:Port id="port63" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port64" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port65" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port66" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port67" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port68" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port69" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port70" verticalOffset="5" x="1"/>
+      <ciied:Port id="port71" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port72" verticalOffset="-5" x="1"/>
+      <ciied:Port id="port73" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port74" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task3" height="50" width="90" x="339" y="520">
+    <expression></expression>
+    <label>信审复审</label>
+    <ports>
+      <ciied:Port id="port75" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port76" y="0"/>
+      <ciied:Port id="port77" y="1"/>
+      <ciied:Port id="port78" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port79" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port80" verticalOffset="-5" x="1"/>
+      <ciied:Port id="port81" x="0"/>
+      <ciied:Port id="port82" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port83" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port84" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port85" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port86" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port87" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port88" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port89" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port90" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port91" verticalOffset="5" x="1"/>
+      <ciied:Port id="port92" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port93" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task4" height="50" width="90" x="570" y="310">
+    <expression></expression>
+    <label>初审未通过</label>
+    <ports>
+      <ciied:Port id="port94" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port95" x="1"/>
+      <ciied:Port id="port96" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port97" y="1"/>
+      <ciied:Port id="port98" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port99" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port100" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port101" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port102" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port103" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port104" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port105" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port106" x="0"/>
+      <ciied:Port id="port107" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port108" y="1"/>
+      <ciied:Port id="port109" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port110" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task5" height="50" width="90" x="429" y="440">
+    <expression></expression>
+    <label>实地核查</label>
+    <ports>
+      <ciied:Port id="port111" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port112" x="0"/>
+      <ciied:Port id="port113" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port114" y="1"/>
+      <ciied:Port id="port115" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port116" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port117" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port118" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port119" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port120" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port121" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port122" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port123" y="0"/>
+      <ciied:Port id="port124" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port125" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port126" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway2" height="50" width="50" x="590" y="370">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策2</label>
+    <ports>
+      <ciied:Port id="port127" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port128" y="0"/>
+      <ciied:Port id="port129" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port130" y="1"/>
+      <ciied:Port id="port131" x="0"/>
+      <ciied:Port id="port132" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port133" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port134" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port135" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port136" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port137" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port138" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port139" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port140" y="0"/>
+      <ciied:Port id="port141" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port142" y="1"/>
+      <ciied:Port id="port143" x="1"/>
+      <ciied:Port id="port144" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port145" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task6" height="50" width="90" x="570" y="440">
+    <expression></expression>
+    <label>初审复议</label>
+    <ports>
+      <ciied:Port id="port146" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port147" y="0"/>
+      <ciied:Port id="port148" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port149" x="1"/>
+      <ciied:Port id="port150" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port151" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port152" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port153" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port154" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port155" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port156" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port157" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port158" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port159" y="0"/>
+      <ciied:Port id="port160" y="1"/>
+      <ciied:Port id="port161" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port162" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway3" height="50" width="50" x="590" y="520">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策3</label>
+    <ports>
+      <ciied:Port id="port163" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port164" x="0"/>
+      <ciied:Port id="port165" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port166" x="1"/>
+      <ciied:Port id="port167" y="1"/>
+      <ciied:Port id="port168" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port169" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port170" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port171" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port172" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port173" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port174" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port175" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port176" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port177" y="0"/>
+      <ciied:Port id="port178" x="0"/>
+      <ciied:Port id="port179" x="1"/>
+      <ciied:Port id="port180" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port181" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Gateway id="gateway4" height="50" width="50" x="360" y="650">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策4</label>
+    <ports>
+      <ciied:Port id="port182" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port183" y="0"/>
+      <ciied:Port id="port184" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port185" y="1"/>
+      <ciied:Port id="port186" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port187" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port188" x="1"/>
+      <ciied:Port id="port189" x="0"/>
+      <ciied:Port id="port190" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port191" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port192" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port193" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port194" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port195" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port196" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port197" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port198" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port199" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task7" height="50" width="90" x="589" y="650">
+    <expression></expression>
+    <label>复审未通过</label>
+    <ports>
+      <ciied:Port id="port200" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port201" x="0"/>
+      <ciied:Port id="port202" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port203" y="1"/>
+      <ciied:Port id="port204" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port205" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port206" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port207" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port208" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port209" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port210" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port211" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port212" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port213" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway5" height="50" width="50" x="610" y="720">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策5</label>
+    <ports>
+      <ciied:Port id="port214" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port215" y="0"/>
+      <ciied:Port id="port216" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port217" y="1"/>
+      <ciied:Port id="port218" x="1"/>
+      <ciied:Port id="port219" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port220" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port221" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port222" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port223" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port224" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port225" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port226" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port227" x="1"/>
+      <ciied:Port id="port228" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port229" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task8" height="50" width="90" x="339" y="850">
+    <expression></expression>
+    <label>信审终审</label>
+    <ports>
+      <ciied:Port id="port230" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port231" y="0"/>
+      <ciied:Port id="port232" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port233" y="1"/>
+      <ciied:Port id="port234" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port235" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port236" x="1"/>
+      <ciied:Port id="port237" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port238" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port239" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port240" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port241" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port242" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port243" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port244" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port245" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port246" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task9" height="50" width="90" x="590" y="780">
+    <expression></expression>
+    <label>复审复议</label>
+    <ports>
+      <ciied:Port id="port247" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port248" y="0"/>
+      <ciied:Port id="port249" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port250" x="0"/>
+      <ciied:Port id="port251" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port252" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port253" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port254" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port255" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port256" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port257" y="1"/>
+      <ciied:Port id="port258" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port259" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port260" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port261" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway6" height="50" width="50" x="610" y="850">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策6</label>
+    <ports>
+      <ciied:Port id="port262" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port263" x="1"/>
+      <ciied:Port id="port264" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port265" x="0"/>
+      <ciied:Port id="port266" y="1"/>
+      <ciied:Port id="port267" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port268" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port269" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port270" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port271" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port272" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port273" y="0"/>
+      <ciied:Port id="port274" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port275" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port276" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port277" x="1"/>
+      <ciied:Port id="port278" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task10" height="50" width="90" x="339" y="970">
+    <expression></expression>
+    <label>合同制作</label>
+    <ports>
+      <ciied:Port id="port279" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port280" y="0"/>
+      <ciied:Port id="port281" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port282" y="1"/>
+      <ciied:Port id="port283" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port284" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port285" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port286" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port287" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port288" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port289" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port290" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port291" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port292" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port293" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port294" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway7" height="50" width="50" x="360" y="910">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策7</label>
+    <ports>
+      <ciied:Port id="port295" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port296" y="0"/>
+      <ciied:Port id="port297" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port298" y="1"/>
+      <ciied:Port id="port299" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port300" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port301" x="1"/>
+      <ciied:Port id="port302" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port303" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port304" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port305" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port306" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port307" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port308" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port309" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port310" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port311" x="1"/>
+      <ciied:Port id="port312" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task11" height="50" width="90" x="339" y="1040">
+    <expression></expression>
+    <label>客户面审</label>
+    <ports>
+      <ciied:Port id="port313" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port314" y="0"/>
+      <ciied:Port id="port315" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port316" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port317" y="1"/>
+      <ciied:Port id="port318" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port319" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port320" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port321" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port322" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port323" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port324" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port325" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port326" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port327" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port328" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway8" height="50" width="50" x="360" y="1100">
+    <handler>com.zhiwei.credit.workflow.handler.DecisionHandlerImpl</handler>
+    <label>决策8</label>
+    <ports>
+      <ciied:Port id="port329" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port330" y="0"/>
+      <ciied:Port id="port331" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port332" y="1"/>
+      <ciied:Port id="port333" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port334" x="1"/>
+      <ciied:Port id="port335" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port336" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port337" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port338" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port339" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port340" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port341" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port342" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port343" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port344" x="1"/>
+      <ciied:Port id="port345" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task12" height="50" width="90" x="339" y="1170">
+    <expression></expression>
+    <label>合同签署</label>
+    <ports>
+      <ciied:Port id="port346" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port347" y="0"/>
+      <ciied:Port id="port348" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port349" y="1"/>
+      <ciied:Port id="port350" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port351" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port352" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port353" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port354" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port355" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port356" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port357" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port358" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port359" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port360" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task13" height="50" width="90" x="339" y="1230">
+    <expression></expression>
+    <label>财务放款确认</label>
+    <ports>
+      <ciied:Port id="port361" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port362" y="0"/>
+      <ciied:Port id="port363" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port364" y="1"/>
+      <ciied:Port id="port365" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port366" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port367" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port368" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port369" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port370" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port371" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port372" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port373" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port374" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port375" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task14" height="50" width="90" x="339" y="1290">
+    <expression></expression>
+    <label>放款回访确认</label>
+    <ports>
+      <ciied:Port id="port376" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port377" y="0"/>
+      <ciied:Port id="port378" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port379" y="1"/>
+      <ciied:Port id="port380" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port381" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port382" y="1"/>
+      <ciied:Port id="port383" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port384" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port385" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port386" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port387" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port388" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port389" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port390" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port391" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:EndEvent id="endEvent1" height="51" width="36" x="370" y="1520">
+    <label>完成</label>
+    <ports>
+      <ciied:Port id="port392" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port393" y="0"/>
+      <ciied:Port id="port394" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port395" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port396" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port397" y="0"/>
+      <ciied:Port id="port398" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port399" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port400" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port401" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port402" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port403" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port404" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port405" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port406" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow2" endPort="port55" startPort="port39">
+    <fallbackEndPoint>
+      <fg:Point id="point3" x="386" y="253"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point4"/>
+    </fallbackStartPoint>
+    <label>to 决策1</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow3" endPort="port76" startPort="port56">
+    <fallbackEndPoint>
+      <fg:Point id="point5" x="387" y="383"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point6"/>
+    </fallbackStartPoint>
+    <label>to 信审复审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow4" endPort="port183" startPort="port77">
+    <fallbackEndPoint>
+      <fg:Point id="point7" x="387" y="449"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point8"/>
+    </fallbackStartPoint>
+    <label>to 决策4</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow5" endPort="port231" startPort="port185">
+    <fallbackEndPoint>
+      <fg:Point id="point9" x="381" y="528"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point10"/>
+    </fallbackStartPoint>
+    <label>to 信审终审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow6" endPort="port296" startPort="port233">
+    <fallbackEndPoint>
+      <fg:Point id="point11" x="385" y="598"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point12"/>
+    </fallbackStartPoint>
+    <label>to 决策7</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow7" endPort="port280" startPort="port298">
+    <fallbackEndPoint>
+      <fg:Point id="point13" x="386" y="666"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point14"/>
+    </fallbackStartPoint>
+    <label>to 合同制作</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow8" endPort="port314" startPort="port282">
+    <fallbackEndPoint>
+      <fg:Point id="point15" x="385" y="731"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point16"/>
+    </fallbackStartPoint>
+    <label>to 客户面审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow9" endPort="port330" startPort="port317">
+    <fallbackEndPoint>
+      <fg:Point id="point17" x="386" y="798"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point18"/>
+    </fallbackStartPoint>
+    <label>to 决策8</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow10" endPort="port347" startPort="port332">
+    <fallbackEndPoint>
+      <fg:Point id="point19" x="387" y="866"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point20"/>
+    </fallbackStartPoint>
+    <label>to 合同签署</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow11" endPort="port362" startPort="port349">
+    <fallbackEndPoint>
+      <fg:Point id="point21" x="384" y="940"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point22"/>
+    </fallbackStartPoint>
+    <label>to 财务放款确认</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow12" endPort="port377" startPort="port364">
+    <fallbackEndPoint>
+      <fg:Point id="point23" x="385" y="1000"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point24"/>
+    </fallbackStartPoint>
+    <label>to 放款回访确认</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow13" endPort="port80" startPort="port114">
+    <fallbackEndPoint>
+      <fg:Point id="point25" x="426" y="397"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point26"/>
+    </fallbackStartPoint>
+    <label>to 信审复审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow14" endPort="port201" startPort="port188">
+    <fallbackEndPoint>
+      <fg:Point id="point27" x="565" y="402"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point28"/>
+    </fallbackStartPoint>
+    <label>to 复审未通过</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow15" endPort="port215" startPort="port203">
+    <fallbackEndPoint>
+      <fg:Point id="point29" x="603" y="451"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point30"/>
+    </fallbackStartPoint>
+    <label>to 决策5</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow16" endPort="port248" startPort="port217">
+    <fallbackEndPoint>
+      <fg:Point id="point31" x="605" y="522"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point32"/>
+    </fallbackStartPoint>
+    <label>to 复审复议</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow17" endPort="port236" startPort="port265">
+    <fallbackEndPoint>
+      <fg:Point id="point33" x="424" y="537"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point34"/>
+    </fallbackStartPoint>
+    <label>to 信审终审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow18" endPort="port24" startPort="port62">
+    <fallbackEndPoint>
+      <fg:Point id="point35" x="354" y="126"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point36"/>
+    </fallbackStartPoint>
+    <label>to 客服录件</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow19" endPort="port25" startPort="port189">
+    <fallbackEndPoint>
+      <fg:Point id="point37" x="346" y="129"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point38"/>
+    </fallbackStartPoint>
+    <label>to 客服录件</label>
+  </bg:SequenceFlow>
+  <bg:Gateway id="gateway9" height="50" width="50" x="360" y="1360">
+    <gatewayType>OR</gatewayType>
+    <label>同步1</label>
+    <ports>
+      <ciied:Port id="port407" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port408" y="0"/>
+      <ciied:Port id="port409" x="0"/>
+      <ciied:Port id="port410" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port411" x="1"/>
+      <ciied:Port id="port412" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port413" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port414" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port415" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port416" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port417" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port418" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port419" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:Task id="task15" height="50" width="90" x="259" y="1410">
+    <expression></expression>
+    <label>项目归档</label>
+    <ports>
+      <ciied:Port id="port420" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port421" y="0"/>
+      <ciied:Port id="port422" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port423" y="1"/>
+      <ciied:Port id="port424" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port425" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port426" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port427" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port428" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port429" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port430" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port431" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task16" height="50" width="90" x="419" y="1410">
+    <expression></expression>
+    <label>发布产品</label>
+    <ports>
+      <ciied:Port id="port432" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port433" y="0"/>
+      <ciied:Port id="port434" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port435" y="1"/>
+      <ciied:Port id="port436" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port437" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port438" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port439" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port440" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port441" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port442" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port443" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Gateway id="gateway10" height="50" width="50" x="360" y="1450">
+    <gatewayType>AND</gatewayType>
+    <label>合并1</label>
+    <ports>
+      <ciied:Port id="port444" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port445" x="0"/>
+      <ciied:Port id="port446" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port447" x="1"/>
+      <ciied:Port id="port448" y="1"/>
+      <ciied:Port id="port449" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port450" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port451" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port452" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port453" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port454" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port455" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port456" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Gateway>
+  <bg:SequenceFlow id="sequenceFlow20" endPort="port408" startPort="port382">
+    <fallbackEndPoint>
+      <fg:Point id="point39" x="384" y="1070"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point40"/>
+    </fallbackStartPoint>
+    <label>to 同步1</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow21" endPort="port421" startPort="port409">
+    <fallbackEndPoint>
+      <fg:Point id="point41" x="313" y="1134"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point42"/>
+    </fallbackStartPoint>
+    <label>to 项目归档</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow22" endPort="port433" startPort="port411">
+    <fallbackEndPoint>
+      <fg:Point id="point43" x="481" y="1141"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point44"/>
+    </fallbackStartPoint>
+    <label>to 发布产品</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow23" endPort="port445" startPort="port423">
+    <fallbackEndPoint>
+      <fg:Point id="point45" x="369" y="1231"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point46"/>
+    </fallbackStartPoint>
+    <label>to 合并1</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow24" endPort="port447" startPort="port435">
+    <fallbackEndPoint>
+      <fg:Point id="point47" x="402" y="1230"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point48"/>
+    </fallbackStartPoint>
+    <label>to 合并1</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow25" endPort="port397" startPort="port448">
+    <fallbackEndPoint>
+      <fg:Point id="point49" x="378" y="1281"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point50"/>
+    </fallbackStartPoint>
+    <label>to 完成</label>
+  </bg:SequenceFlow>
+  <bg:Task id="task17" height="50" width="90" x="339" y="180">
+    <expression></expression>
+    <label>上传客户资料</label>
+    <ports>
+      <ciied:Port id="port457" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port458" y="0"/>
+      <ciied:Port id="port459" y="1"/>
+      <ciied:Port id="port460" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port461" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port462" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port463" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port464" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:SequenceFlow id="sequenceFlow26" endPort="port458" startPort="port31">
+    <fallbackEndPoint>
+      <fg:Point id="point51" x="384" y="163"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point52"/>
+    </fallbackStartPoint>
+    <label>to 上传客户资料</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow27" endPort="port48" startPort="port459">
+    <fallbackEndPoint>
+      <fg:Point id="point53" x="383" y="239"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point54"/>
+    </fallbackStartPoint>
+    <label>to 信审初审</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow28" endPort="port273" startPort="port257">
+    <fallbackEndPoint>
+      <fg:Point id="point55" x="638" y="857"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point56"/>
+    </fallbackStartPoint>
+    <label>to 决策6</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow29" endPort="port123" startPort="port70">
+    <fallbackEndPoint>
+      <fg:Point id="point57" x="503" y="448"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point58"/>
+    </fallbackStartPoint>
+    <label>to 实地核查</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow30" endPort="port106" startPort="port72">
+    <fallbackEndPoint>
+      <fg:Point id="point59" x="627" y="336"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point60"/>
+    </fallbackStartPoint>
+    <label>to 初审未通过</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow31" endPort="port140" startPort="port108">
+    <fallbackEndPoint>
+      <fg:Point id="point61" x="657" y="388"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point62"/>
+    </fallbackStartPoint>
+    <label>to 决策2</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow32" endPort="port159" startPort="port142">
+    <fallbackEndPoint>
+      <fg:Point id="point63" x="656" y="456"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point64"/>
+    </fallbackStartPoint>
+    <label>to 初审复议</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow33" endPort="port177" startPort="port160">
+    <fallbackEndPoint>
+      <fg:Point id="point65" x="648" y="568"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point66"/>
+    </fallbackStartPoint>
+    <label>to 决策3</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow34" endPort="port91" startPort="port178">
+    <fallbackEndPoint>
+      <fg:Point id="point67" x="413" y="605"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point68"/>
+    </fallbackStartPoint>
+    <label>to 信审复审</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent2" height="51" width="36" x="720" y="380">
+    <label>结束2</label>
+    <ports>
+      <ciied:Port id="port465" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port466" x="0"/>
+      <ciied:Port id="port467" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port468" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow35" endPort="port466" startPort="port143">
+    <fallbackEndPoint>
+      <fg:Point id="point69" x="732" y="402"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point70"/>
+    </fallbackStartPoint>
+    <label>to 结束2</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent3" height="51" width="36" x="720" y="520">
+    <label>结束3</label>
+    <ports>
+      <ciied:Port id="port469" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port470" x="0"/>
+      <ciied:Port id="port471" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port472" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow36" endPort="port470" startPort="port179">
+    <fallbackEndPoint>
+      <fg:Point id="point71" x="730" y="541"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point72"/>
+    </fallbackStartPoint>
+    <label>to 结束3</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent4" height="51" width="36" x="710" y="730">
+    <label>结束4</label>
+    <ports>
+      <ciied:Port id="port473" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port474" x="0"/>
+      <ciied:Port id="port475" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port476" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow37" endPort="port474" startPort="port227">
+    <fallbackEndPoint>
+      <fg:Point id="point73" x="717" y="749"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point74"/>
+    </fallbackStartPoint>
+    <label>to 结束4</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent5" height="51" width="36" x="700" y="850">
+    <label>结束5</label>
+    <ports>
+      <ciied:Port id="port477" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port478" x="0"/>
+      <ciied:Port id="port479" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port480" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow38" endPort="port478" startPort="port277">
+    <fallbackEndPoint>
+      <fg:Point id="point75" x="714" y="867"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point76"/>
+    </fallbackStartPoint>
+    <label>to 结束5</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent6" height="51" width="36" x="510" y="920">
+    <label>结束6</label>
+    <ports>
+      <ciied:Port id="port481" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port482" x="0"/>
+      <ciied:Port id="port483" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow39" endPort="port482" startPort="port311">
+    <fallbackEndPoint>
+      <fg:Point id="point77" x="519" y="936"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point78"/>
+    </fallbackStartPoint>
+    <label>to 结束6</label>
+  </bg:SequenceFlow>
+  <bg:EndEvent id="endEvent7" height="51" width="36" x="520" y="1110">
+    <label>结束7</label>
+    <ports>
+      <ciied:Port id="port484" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port485" x="0"/>
+      <ciied:Port id="port486" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow40" endPort="port485" startPort="port344">
+    <fallbackEndPoint>
+      <fg:Point id="point79" x="529" y="1132"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point80"/>
+    </fallbackStartPoint>
+    <label>to 结束7</label>
+  </bg:SequenceFlow>
+</diagram>

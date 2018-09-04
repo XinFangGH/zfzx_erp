@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.DepreType" table="depre_type" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="depreTypeId" column="depreTypeId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="64" not-null="true" unique="false"/>  
+    <property name="deprePeriod" type="java.lang.Integer" update="true" insert="true" access="property" column="deprePeriod" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="typeDesc" type="java.lang.String" update="true" insert="true" access="property" column="typeDesc" length="500" not-null="false" unique="false"/>  
+    <property name="calMethod" type="java.lang.Short" update="true" insert="true" access="property" column="calMethod" length="5" not-null="true" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to FixedAssets 
+	<set name="fixedAssetss"
+	     table="fixed_assets"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="depreTypeId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.admin.FixedAssets"
+		/>
+	</set>     --> 
+  </class> 
+</hibernate-mapping>

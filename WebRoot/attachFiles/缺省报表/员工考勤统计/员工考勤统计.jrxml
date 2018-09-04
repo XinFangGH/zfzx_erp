@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="员工考勤统计" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="367"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="BarDataset">
+		<parameter name="Q_registerDate_S" class="java.sql.Time">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_registerDate_E" class="java.sql.Time">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_username" class="java.lang.String">
+			<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     count(1) as COUNT,
+     APP_USER."FULLNAME" AS APP_USER_FULLNAME,
+     case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+     "APP_USER" APP_USER
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+GROUP BY APP_USER."FULLNAME",DUTY_REGISTER."REGFLAG"]]>
+		</queryString>
+		<field name="COUNT" class="java.math.BigDecimal"/>
+		<field name="APP_USER_FULLNAME" class="java.lang.String"/>
+		<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PieDataset">
+		<parameter name="Q_registerDate_S" class="java.sql.Time">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_registerDate_E" class="java.sql.Time">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_username" class="java.lang.String">
+			<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     count(1) as COUNT,
+     case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+     "APP_USER" APP_USER
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+GROUP BY DUTY_REGISTER."REGFLAG"]]>
+		</queryString>
+		<field name="COUNT" class="java.math.BigDecimal"/>
+		<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="Q_registerDate_S" class="java.sql.Time">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Q_registerDate_E" class="java.sql.Time">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Q_username" class="java.lang.String">
+		<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     APP_USER."FULLNAME" AS APP_USER_FULLNAME,
+     case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+     "APP_USER" APP_USER
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+where
+1 = 1
+ and APP_USER."FULLNAME"  like $P{Q_username}
+ AND DUTY_REGISTER."REGISTERDATE" >=  $P{Q_registerDate_S}
+ AND DUTY_REGISTER."REGISTERDATE" <=  $P{Q_registerDate_E}]]>
+	</queryString>
+	<field name="APP_USER_FULLNAME" class="java.lang.String"/>
+	<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[员工考勤统计]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<crosstab>
+				<reportElement x="0" y="541" width="555" height="108"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="99" height="30"/>
+							<textElement>
+								<font size="14"/>
+							</textElement>
+							<text><![CDATA[员工/标识]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="APP_USER_FULLNAME" width="105" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{APP_USER_FULLNAME}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="99" height="25"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{APP_USER_FULLNAME}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="99" height="25"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14"/>
+								</textElement>
+								<text><![CDATA[合计]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="DUTY_REGISTER_REGFLAG" height="30">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="69" height="30"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{DUTY_REGISTER_REGFLAG}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="DUTY_REGISTER_REGFLAGMeasure" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></measureExpression>
+				</measure>
+				<crosstabCell width="75" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="69" height="25"/>
+							<textElement>
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="75" height="25" rowTotalGroup="APP_USER_FULLNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="69" height="25"/>
+							<textElement>
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="DUTY_REGISTER_REGFLAG">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="APP_USER_FULLNAME" columnTotalGroup="DUTY_REGISTER_REGFLAG">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="250"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<bar3DChart>
+					<chart>
+						<reportElement x="0" y="0" width="555" height="250"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<dataset>
+							<datasetRun subDataset="BarDataset"/>
+						</dataset>
+						<categorySeries>
+							<seriesExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{APP_USER_FULLNAME}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{COUNT}]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<bar3DPlot>
+						<plot/>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+						<categoryAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</valueAxisFormat>
+					</bar3DPlot>
+				</bar3DChart>
+			</frame>
+			<frame>
+				<reportElement x="0" y="270" width="555" height="250"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<pie3DChart>
+					<chart>
+						<reportElement x="0" y="0" width="555" height="250"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<pieDataset>
+						<dataset>
+							<datasetRun subDataset="PieDataset"/>
+						</dataset>
+						<keyExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></keyExpression>
+						<valueExpression><![CDATA[$F{COUNT}]]></valueExpression>
+					</pieDataset>
+					<pie3DPlot>
+						<plot/>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</pie3DPlot>
+				</pie3DChart>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

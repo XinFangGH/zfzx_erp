@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="houseground" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addHouseground" class="housegroundAction" method="addHouseground">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<!-- 查看信息从视图 -->
+		<action name="seeHouseground" class="housegroundAction" method="seeHouseground"></action>
+		
+		<!-- 查看信息从住宅用地表查询数据显示在更新页面 -->
+		<action name="seeHousegroundForUpdate" class="housegroundAction" method="seeHousegroundForUpdate"></action>
+
+		<!-- 更新信息 -->
+		<action name="updateHouseground" class="housegroundAction" method="updateHouseground" ></action>
+		
+	</package>
+</struts> 

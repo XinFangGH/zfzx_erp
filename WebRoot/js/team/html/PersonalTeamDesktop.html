@@ -1,0 +1,121 @@
+<div class="container-all">
+				  	   <div class="content">
+				  	   		<div class="row">
+				  	   		  <div class="info-box w-15">
+				  	   		      <span class="info-box-icon bg-color-1" id="yxkh2" >
+				  	   		          <i class="top-arrow"></i>10%
+				  	   		           <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-one">
+				  	   		          	<em id="yxkh1" >200</em>人
+				  	   		          </span>
+				  	   		          <span class="info-box-number">新增意向</span>
+				  	   		      </div>
+				  	   		    </div>
+				  	   		    <div class="info-box w-15 mr-0-yw">
+				  	   		      <span class="info-box-icon bg-color-2" id="zskh2" >
+				  	   		          <i  class="down-arrow"></i>10%
+				  	   		          <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-two" ><em id="zskh1" >198</em>人</span>
+				  	   		          <span class="info-box-number">新增正式</span>
+				  	   		       </div>
+				  	   		    </div>
+				  	   		    <div class="info-box w-15 mr-0-yew">
+				  	   		      <span class="info-box-icon bg-color-3" id="xzje2">
+				  	   		          <i  class="down-arrow"></i>10%
+				  	   		          <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-three" ><em id="xzje1">200</em></span>
+				  	   		          <span class="info-box-number">新增贷款</span>
+				  	   		       </div>
+				  	   		    </div>
+				  	   		    <div class="info-box w-15 mr-0-yw">
+				  	   		      <span class="info-box-icon bg-color-4" id="bhje2">
+				  	   		          <i  class="down-arrow"></i>10%
+				  	   		          <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-four" ><em id="bhje1">200</em></span>
+				  	   		          <span class="info-box-number">驳回金额</span>
+				  	   		       </div>
+				  	   		    </div>
+				  	   		    <div class="info-box w-15">
+				  	   		      <span class="info-box-icon bg-color-5" id="xzbs2" >
+				  	   		          <i  class="down-arrow"></i>10%
+				  	   		          <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-five" ><em id="xzbs1">200</em>笔</span>
+				  	   		          <span class="info-box-number">新增贷款</span>
+				  	   		       </div>
+				  	   		    </div>
+				  	   		    <div class="info-box w-15 mr-0">
+				  	   		      <span class="info-box-icon bg-color-4" id="bhbs2">
+				  	   		          <i  class="down-arrow"></i>10%
+				  	   		          <em>环比</em>
+				  	   		      </span>
+				  	   		      <div class="info-box-content">
+				  	   		          <span class="info-box-text colr-six" ><em id="bhbs1">200</em>笔</span>
+				  	   		          <span class="info-box-number">驳回笔数</span>
+				  	   		       </div>
+				  	   		    </div>
+				  	   		 </div>
+				  	   		 <div class="clearfix"></div>
+				  	   		    <div class="data-left-all">
+				  	   		        <div class="data-left">
+				  	   		            <div class="data-list01">
+				  	   		                <h2>客户逾期统计</h2>
+				  	   		                <div class="dynamic-graph txt-alg" id="CustomerOverdueTrends"><img src="highchart/images/deskImages/yw-pic1.png"/></div>
+				  	   		            </div>
+				  	   		             <div class="data-list01 data-list02">
+				  	   		                <h2>业务统计图</h2>
+				  	   		                      <p class="select-box">
+				                        	      <select id="yearLoanData1" onchange="changeDate(this.options[this.options.selectedIndex].value)">
+					                         	  <option>2016</option>
+					                              </select>
+				                                  </p>
+				  	   		                <div class="dynamic-graph txt-alg" id="LoanMoneyYearTrends1"><img src="highchart/images/deskImages/pic1.png"/></div>
+				  	   		            </div>
+				  	   		            <div class="clearfix"></div>
+				  	   		            <div class="data-list01">
+				  	   		                <h2>逾期款项提醒</h2>
+				  	   		                <div class="best-list">
+				  	   		                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="yqtx">
+				  	   		                     </table>
+				  	   		                   </div>
+				  	   		              </div>
+				  	   		              <div class="data-list01 data-list02">
+				  	   		                 <h2>项目放款通知</h2>
+				  	   		                <div class="best-list">
+				  	   		                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="fktz">
+				  	   		                     </table>
+				  	   		                   </div>
+				  	   		              </div>
+				  	   		          </div>
+				  	   		          <div class="data-right">
+				  	   		              <div class="best-seller">
+				  	   		                  <h2>我的排名</h2>
+				  	   		                  <div class="Ranking-all" id="grpm">
+				  	   		                       <dl class="king-list">
+				  	   		                             <dt>15名</dt>
+				  	   		                             <dd>月度排名</dd>
+				  	   		                       </dl>
+				  	   		                       <dl class="king-list">
+				  	   		                             <dt>20名</dt>
+				  	   		                             <dd>年度排名</dd>
+				  	   		                       </dl>
+				  	   		                  </div>
+				  	   		                  <h2>月度总业务排名</h2>
+				  	   		                  <div class="best-list">
+				  	   		                       <table width="100%" border="0" cellspacing="0" cellpadding="0" id="ydpm">
+				  	   		                        </table>
+				  	   		                   </div>
+				  	   		               </div>
+				  	   		          </div>
+				  	   		   </div>
+				  	   </div>
+		          </div>

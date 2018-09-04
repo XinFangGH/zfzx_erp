@@ -1,0 +1,286 @@
+LoanInSuperviseForm = Ext.extend(Ext.Panel, {
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	superviseManageId : '$!superviseManageId', 
+	constructor : function(_cfg) {
+		Ext.applyIf(this, _cfg);
+		this.initUIComponents();
+		LoanInSuperviseForm.superclass.constructor.call(this, {
+			border : false,
+			items : []
+		});
+
+	},
+	initUIComponents : function() {
+
+		var jsArr = [
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/enterpriseBusiness/EnterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',//股东信息
+				/*财务js start*/
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseFinanceInfoPanel.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseFundIntentView.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseLoadFinanceData.js',
+				/*财务js end*/
+				
+				__ctxPath + '/js/creditFlow/smallLoan/project/loadDataCommon.js',// 加载数据JS
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',
+				__ctxPath + '/js/creditFlow/smallLoan/materials/SlProcreditMaterialsView.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/report/SlRiskReportView.js',// 风险部综合分析报告
+				__ctxPath + '/js/creditFlow/assuretenet/SlProcreditAssuretenetedForm.js',// 贷款准入原则
+				__ctxPath + '/js/creditFlow/finance/FundIntent_formulate_editGrid.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentViewVM.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToChargeVM.js',
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentForm.js',
+				__ctxPath + '/js/creditFlow/finance/detailView.js',
+				__ctxPath + '/js/creditFlow/finance/chargeDetailView.js',
+				__ctxPath + '/js/creditFlow/finance/superviseSlFundIntent.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/OperateContractWindow.js',// 操作编辑合同
+				__ctxPath + '/js/creditFlow/smallLoan/contract/CreditContractView.js',// 贷款合同
+				__ctxPath + '/js/creditFlow/repaymentSource/RepaymentSource.js', // 第一还款来源
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SeeThirdContractWindow.js',// 查看担保措施合同详情
+				__ctxPath + '/js/creditFlow/common/GlobalSupervisionRecord.js'// 监管信息
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		// 客户基本信息 开始
+        var title="企业客户信息";
+        this.perMain = "";
+	    if(this.oppositeType =="person_customer") 
+	    {
+		    this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+		    	isEditPerson : true,
+		    	isHidden:true
+		    });
+		    title="个人客户信息";
+	    } 
+	    else if(this.oppositeType =="company_customer")
+	    {
+		    this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+			projectId : this.projectId,
+		    bussinessType:this.businessType,
+		    isHidden:true,
+		    isAllReadOnly:false,
+			isEnterpriseShortNameReadonly : true,
+			isEditEnterprise : true,
+			isGudongDiseditable : true
+		    });
+	    };
+		// 客户基本信息结束
+		this.slActualToChargeZhan = new SlActualToCharge({
+			isHidden : true,
+			isHiddenOperation : false,
+			projId : this.projectId,
+			isUnLoadData : true,
+			businessType : this.businessType,
+			isUnLoadData : false
+		})
+
+		// 项目信息
+		this.projectInfo = new EnterpriseBusinessProjectInfoPanel({
+			   isDiligenceReadOnly : true,
+			   isMineNameEditable:true
+		    });
+		// 财务表单
+		 this.projectInfoFinance= new LeaseFinanceInfoPanel({
+			isAllReadOnly:true,
+			projectId : this.projectId,
+			isStartDateReadOnly:true,
+			idDefinition : 'leaseFinanceliucheng'+this.taskId ,
+			isHiddencalculateBtn :true,
+			isHiddenbackBtn : true ,
+			isHiddenParams : true
+		});
+		this.leaseFundIntentView=new LeaseFundIntentView({
+			projectId : this.projectId,
+			object : this.projectInfoFinance,
+			projectInfoObject : this.projectInfo,
+			businessType : this.businessType,
+			isHiddenAddBtn:true,
+			isHiddenResBtn1:true,//手动对账
+			isHiddenseeqlideBtn:false,//查看单项流水记录
+			isHiddenseesumqlideBtn:false,//项目总流水记录
+			isHiddenExcel:false,//到处excel
+			isHiddenDelBtn:true,
+			isHiddenOverdue:true,
+			isHiddenautocreateBtn :true
+		})
+		this.slActualToCharge = new SlActualToCharge({
+			projId : this.projectId,
+			isHiddenPayMoney:true,
+			isHidden:true,
+			businessType :this.businessType      //小贷
+			
+		});
+		this.globalSupervisionRecord = new GlobalSupervisionRecord({
+			projectId : this.projectId,
+			businessType:this.businessType,
+			superviseManageId : this.superviseManageId
+		});
+		this.outPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				columnWidth : 1,
+				labelAlign : 'right',
+				collapsible : true,
+				autoHeight : true,
+				autoWidth : true
+			},
+			labelAlign : "right",
+			items : [{
+				xtype : 'hidden',
+				name : 'safeLevel',
+				value : 1
+			}, {
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'flLeaseFinanceProjectService.changeStatusCreditFlowProject'
+			}, {
+				xtype : 'hidden',
+				name : 'projectId_flow',
+				value : this.projectId
+			}, {
+				xtype : 'hidden',
+				name : 'businessType_flow',
+				value : '$!businessType'
+			}, {
+				title : '项目信息',
+				bodyStyle : 'padding-left:8px',
+				name : 'projectInfo',
+				items : [this.projectInfo]
+			}, {
+				title : title,
+				items : [this.perMain]
+			}, {       
+			    xtype : 'fieldset',
+				title : '贷款基本信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'financeInfoFieldset',
+				autoHeight : true,
+				items : [
+					this.projectInfoFinance,
+					this.leaseFundIntentView,
+					this.slActualToCharge
+				]
+			}, {
+				xtype : 'fieldset',
+				title : '监管信息录入',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.globalSupervisionRecord]
+			}, {
+				xtype : 'hidden',
+				name : 'task_id',
+				value : this.taskId
+			}, {
+				xtype : 'hidden',
+				name : 'superviseManageId',
+				value : this.superviseManageId
+			}/*, {
+				xtype : 'hidden',
+				name : 'slSupervisemanage'
+			}*/]
+
+		})
+		this.loadData({
+			url : __ctxPath + '/creditFlow/leaseFinance/project/getInfoFlLeaseFinanceProject.do?flProjectId='
+					+ this.projectId + '&type=' + this.businessType
+					+ '&flTaskId=' + this.taskId
+					+ '&superviseManageId=' + this.superviseManageId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'flLeaseFinanceProject',
+					"businessType","globalSupervisemanage"],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				this.getCmpByName('flLeaseFinanceProject.mineName').setValue(alarm_fields.data.mineName);
+			   //回填款项信息数据 start
+				this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.projectMoney,'0,000.00'));
+				this.getCmpByName('leaseDepositMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.leaseDepositMoney,'0,000.00'));
+				this.getCmpByName('allMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.allMoney,'0,000.00'));
+				this.getCmpByName('leaseRetentionFeeMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.leaseRetentionFeeMoney,'0,000.00'));
+				this.getCmpByName('rentalFeeMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.rentalFeeMoney,'0,000.00'));
+				this.getCmpByName('rentalMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.rentalMoney,'0,000.00'));
+			    //回填款项信息数据 end
+		    // 初始化币种 ,贷款用途结束  
+			    this.getCmpByName('appUsersOfA').clearInvalid();
+			    fillLeaseData(this, alarm_fields, 'leaseFinanceliucheng'+this.taskId)
+//				fillData(this, alarm_fields);
+			}
+
+		})
+		this.add(this.outPanel);
+		this.doLayout();
+		this.outPanel.on('render', this.onGetTaskInfo.call(this, this.taskId));
+
+	},
+	saveBusDatas : function(formPanel) {
+		formPanel.getForm().submit({
+			clientValidation: false,
+			url : __ctxPath + '/project/saveSupervisonInfoSlSmallloanProject.do',
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		})
+
+	},
+	validate : function(outpanel) {
+		return true;
+	},
+	onGetTaskInfo : function(taskId) {
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope : this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if (obj.success == true) {
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'
+							+ createTime + '&nbsp;&nbsp;任务完成时限：' + dueTime
+							+ '&nbsp;&nbsp;当前处理人：' + creator + '】');
+				} else {
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response, request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId : '$!projectId'
+			}
+		});
+	}
+})

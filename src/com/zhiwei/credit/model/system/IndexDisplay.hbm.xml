@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.IndexDisplay" table="index_display" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="indexId" column="indexId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="portalId" type="java.lang.String" update="true" insert="true" access="property" column="portalId" length="64" not-null="true" unique="false"/>  
+    <property name="colNum" type="java.lang.Integer" update="true" insert="true" access="property" column="colNum" length="10" not-null="true" unique="false"/>  
+    <property name="rowNum" type="java.lang.Integer" update="true" insert="true" access="property" column="rowNo" length="10" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

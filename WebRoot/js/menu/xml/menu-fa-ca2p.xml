@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa_ca2p" text="CA2P中介业务" iconCls="mod-org">
+   <Items id="ca2pContract" text="合同模板管理" iconCls="btn-tree-team30" >
+		<Item id="CreditDocumentManagerZW?businessType=ca2p" text="合同模板制作" iconCls="btn-tree-team30" isShow="false" />
+   </Items>
+   <Items id="CA2PBusinessLoanRecord" text="借贷项目登记" iconCls="btn-tree-team30" isPublic="false">
+   		<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=or" text="借款需求申请 " iconCls="btn-tree-team30"/>
+	    <Item id="TaskManager?flowType=EntCreditOrFastFlow&amp;taskSequence=10_collectionInformation&amp;flag=4&amp;type=company_customer" text="登记详细借款 " iconCls="btn-tree-team30"/>
+	    <Item id="TaskManager?flowType=EntCreditOrFastFlow&amp;taskSequence=20_postCredit&amp;flag=5&amp;type=company_customer" text="登记实际债权人 " iconCls="btn-tree-team30"/>
+	    <Item id="BpBusinessOrProView?type=ca2p&amp;buttonType=1" iconCls="btn-tree-team30" text="借款项目管理"></Item>
+	    <Item id="BpBusinessOrProView?type=ca2p&amp;buttonType=2" iconCls="btn-tree-team30" text="贷后信息披露"></Item>
+   </Items>
+   <Items id="zhaobiaofanganc" text="招标方案管理" iconCls="btn-tree-team30" isPublic="false">
+	    <Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=1" iconCls="btn-tree-team30" text="公示信息包装">
+			<Function id="businessOrProKeep_or_1" text="公示信息维护" iconCls="btn-detail" />
+		</Item>
+		<Item id="PlBusinessOrPlanView?status=1" iconCls="btn-tree-team30" text="拆标方案制定"></Item>
+	    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Or&amp;buttonType=1" iconCls="btn-tree-team30" text="招标页面预览">
+		</Item>
+	    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Or&amp;buttonType=2" iconCls="btn-tree-team30" text="正式对外发布">
+		</Item>
+	</Items>
+	<Items id="Yushouc" text="招标预售清单" iconCls="btn-tree-team30" isPublic="false">
+	    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="等待预售清单">
+		</Item>
+	    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="正在预售清单">
+		</Item>
+	</Items>
+   	<Items id="CA2PBusinessPlanInvest" text="标的投标管理" iconCls="btn-tree-team30" isPublic="false">
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Or&amp;isAutoTender=1&amp;buttonType=4" iconCls="btn-tree-team30" text="自动投标管理">
+		</Item>
+		<Item id="PlPersionDirBidPlanView?state=12&amp;proType=B_Or&amp;buttonType=3" iconCls="btn-tree-team30" text="标的流标处理">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Or&amp;buttonType=6" iconCls="btn-tree-team30" text="招标关闭处理">
+		</Item>
+	</Items>
+	<!-- 转让标齐标起息办理流程(个人) -->
+	<Items id="C2ABusinessPlanConfimLoan_Person_ZR" text="标的放款办理" iconCls="btn-tree-team30" isPublic="false">
+		<Item id="PlPersionDirBidPlanView?state=13&amp;proType=B_Or&amp;buttonType=5" iconCls="btn-tree-team30" text="满标放款申请">
+		</Item>
+		<Item id="TaskManager?busType=or&amp;flowType=transferMatchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanOr&amp;flag=1&amp;type=company_customer" text="收费方案制定" iconCls="btn-tree-team30">
+		</Item>
+		<Item id="TaskManager?busType=or&amp;flowType=transferMatchingfundsflow&amp;taskSequence=20_makeLoanContractOr&amp;flag=2&amp;type=company_customer" iconCls="btn-tree-team30" text="制作法律文书">
+		</Item>
+		<Item id="TaskManager?busType=or&amp;flowType=transferMatchingfundsflow&amp;taskSequence=30_LengdingFinalContractOr&amp;flag=3&amp;type=company_customer" iconCls="btn-tree-team30" text="合同放款确认">
+		</Item>
+	</Items>
+    <Items id="cdaihouguanli" text="标的贷后管理" iconCls="btn-tree-team30" isPublic="false">
+	    <Item id="SlFundIntentPeriodView?mark=B_O1&amp;proType=B_Or&amp;authorizationStatus=1" iconCls="btn-tree-team30" text="授权还款管理">
+		</Item>
+		<Item id="SlFundIntentPeriodView?mark=B_O2&amp;proType=B_Or" iconCls="btn-tree-team30" text="还款情况查询">
+		</Item>
+		<Item id="compensatoryManager?mark=B_O3&amp;proType=B_Or" iconCls="btn-tree-team30" text="逾期还款提醒">
+		</Item>
+	    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Or&amp;buttonType=7" iconCls="btn-tree-team30" text="贷款结清管理">
+		</Item>
+	</Items>
+	<!--<Items id="cdaichangguanli" text="标的代偿管理" iconCls="btn-tree-team30" isPublic="false">
+	    <Item id="compensatoryManager?mark=P_4&amp;proType=B_Or" iconCls="btn-tree-team30" text="逾期代偿办理">
+		</Item>
+		<Item id="compensatoryFiance?planType=B_Or&amp;backFlow=true&amp;backFlowRecord=true" iconCls="btn-tree-team30" text="代偿追偿提醒">
+		</Item>
+		<Item id="compensatoryFiance?planType=B_Or&amp;backFlow=true" iconCls="btn-tree-team30" text="代偿回收登记">
+		</Item>
+		<Item id="compensatoryFiance?planType=B_Or&amp;backFlowRecord=true" iconCls="btn-tree-team30" text="代偿回收查询">
+		</Item>
+		<Item id="backCompencsatoryFiance?planType=B_Or" iconCls="btn-tree-team30" text="成功追偿查询">
+		</Item>
+	</Items>
+	
+    --><Items id="CA2PPersonBusinessProject" text="标的台账查询" iconCls="btn-tree-team30" isPublic="false">
+        <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="招标中标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="已满标标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="已到期标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="起息中标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="还款中标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="已完成标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="已流标标的台账">
+		</Item>
+		<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-team30" text="已关闭标的台账">
+		</Item>
+	</Items>
+	
+	<Items id="BidStatusSearchCA2P" iconCls="btn-tree-team30" text="标的状态查询">
+	    <Item id="PlPersionDirBidPlanView?state=11&amp;proType=B_Or" iconCls="btn-tree-team30" text="标的状态查询">
+		</Item>
+	</Items>
+	<Items id="BidPrePaySearchCA2P" iconCls="btn-tree-team30" text="提前还款查询">
+		<Item id="BidPrepaymentListView?proType=B_Or" text="提前还款查询" iconCls="btn-tree-team30"/>
+	</Items>
+</Menus>

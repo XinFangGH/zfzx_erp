@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.ArchHasten" table="arch_hasten" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="recordId" column="recordId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="1024" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="false" unique="false"/>  
+    <property name="hastenFullname" type="java.lang.String" update="true" insert="true" access="property" column="hastenFullname" length="64" not-null="false" unique="false"/>  
+    <property name="handlerFullname" type="java.lang.String" update="true" insert="true" access="property" column="handlerFullname" length="64" not-null="false" unique="false"/>  
+    <property name="handlerUserId" type="java.lang.Long" update="true" insert="true" access="property" column="handlerUserId" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Archives -->  
+    <many-to-one name="archives" class="com.zhiwei.credit.model.archive.Archives" not-null="false" fetch="select"> 
+      <column name="archivesId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

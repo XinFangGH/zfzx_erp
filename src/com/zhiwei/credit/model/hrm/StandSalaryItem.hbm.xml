@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.StandSalaryItem" table="stand_salary_item" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="itemId" column="itemId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="itemName" type="java.lang.String" update="true" insert="true" access="property" column="itemName" length="64" not-null="true" unique="false"/>  
+    <property name="amount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="amount" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="salaryItemId" type="java.lang.Long" update="true" insert="true" access="property" column="salaryItemId" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to StandSalary -->  
+    <many-to-one name="standSalary" class="com.zhiwei.credit.model.hrm.StandSalary" not-null="false" fetch="select"> 
+      <column name="standardId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

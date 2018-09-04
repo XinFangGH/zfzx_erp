@@ -1,0 +1,18 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bonusSystem" extends="struts-default" namespace="/bonusSystem">
+        <!--	会员等级设置	-->
+		<action name="*MemberGradeSet" class="MemberGradeSetAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	
+		<action name="*WebBonusSetting" class="WebBonusSettingAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*WebBonusRecord" class="WebBonusRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+</struts>

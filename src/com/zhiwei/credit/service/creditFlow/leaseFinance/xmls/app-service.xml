@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+	<bean id="flLeaseFinanceProjectService" class="com.zhiwei.credit.service.creditFlow.leaseFinance.project.impl.FlLeaseFinanceProjectServiceImpl">
+   		<constructor-arg index="0" ref="flLeaseFinanceProjectDao"/>
+   	</bean>
+	<bean id="flObjectSuppliorService"
+		class="com.zhiwei.credit.service.creditFlow.leaseFinance.supplior.impl.FlObjectSuppliorServiceImpl">
+		<constructor-arg index="0" ref="flObjectSuppliorDao" />
+	</bean>
+	<bean id="flLeaseobjectInfoService"
+		class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.FlLeaseobjectInfoServiceImpl">
+		<constructor-arg index="0" ref="flLeaseobjectInfoDao" />
+	</bean>
+	<bean id="flLeaseFinanceInsuranceInfoService"
+		class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.FlLeaseFinanceInsuranceInfoServiceImpl">
+		<constructor-arg index="0"
+			ref="flLeaseFinanceInsuranceInfoDao" />
+	</bean>
+	<bean id="vLeaseFinanceObjectInfoService"
+		class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.VLeaseFinanceObjectInfoServiceImpl">
+		<constructor-arg index="0" ref="vLeaseFinanceObjectInfoDao" />
+	</bean>
+	<bean id="vLeaseFinanceProjectService"
+		class="com.zhiwei.credit.service.creditFlow.leaseFinance.project.impl.VLeaseFinanceProjectServiceImpl">
+		<constructor-arg index="0" ref="vLeaseFinanceProjectDao" />
+	</bean>
+	<!-- 租赁物管理service -->
+	 <bean id="flLeaseObjectManagePlaceService" class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.FlLeaseObjectManagePlaceServiceImpl">
+   	 	<constructor-arg index="0" ref="flLeaseObjectManagePlaceDao"/>
+   	 </bean>
+	 <bean id="flLeaseFinanceInsurancePayService" class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.FlLeaseFinanceInsurancePayServiceImpl">
+   	 	<constructor-arg index="0" ref="flLeaseFinanceInsurancePayDao"/>
+   	 </bean>
+	 <bean id="flLeaseObjectManageOwnerService" class="com.zhiwei.credit.service.creditFlow.leaseFinance.leaseobject.impl.FlLeaseObjectManageOwnerServiceImpl">
+   	 	<constructor-arg index="0" ref="flLeaseObjectManageOwnerDao"/>
+   	 </bean>
+   	 <!-- 租赁物管理service -->
+</beans>

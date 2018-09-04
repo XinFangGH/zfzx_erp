@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntCashflowAndSaleIncome"
+        table="bp_cust_ent_cashflowAndSaleIncome"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="cashflowAndSaleIncomeId"
+            column="cashflowAndSaleIncomeId"
+            type="java.lang.Integer"
+            length="11"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="month"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="month"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+ 
+              <property
+            name="mainBusinessIncomeMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="mainBusinessIncomeMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+    <property
+            name="cashflowincomeMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="cashflowincomeMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+    <property
+            name="payGoodsMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="payGoodsMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+          <property
+            name="cashflowpayMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="cashflowpayMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+         <many-to-one name="enterprise" class="com.zhiwei.credit.model.creditFlow.customer.enterprise.Enterprise" > 
+        <column name="enterpriseId"/> 
+        </many-to-one> 
+     </class>
+</hibernate-mapping>

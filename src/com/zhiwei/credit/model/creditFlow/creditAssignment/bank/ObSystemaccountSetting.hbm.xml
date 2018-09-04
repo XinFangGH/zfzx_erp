@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.creditAssignment.bank.ObSystemaccountSetting"
+        table="ob_systemaccount_setting"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="typeName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="typeName"
+            length="255"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="typeKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="typeKey"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="mark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="mark"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="usedRemark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="usedRemark"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        
+     </class>
+</hibernate-mapping>

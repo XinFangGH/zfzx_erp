@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="plateFormFinance" extends="struts-default" namespace="/plateForm">
+		<action name="*PlateFormFinance" class="PlateFormFinanceAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlRiskguaranteemoneyRepayment" class="SlRiskguaranteemoneyRepaymentAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlRiskGuaranteeMoneyBackRecord" class="SlRiskGuaranteeMoneyBackRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+</struts>

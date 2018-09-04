@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Modules>
+	    <!-- 借贷中心  -->
+        <!--<module name="team" file="menu-team.xml" isHaveDesktop="true" businessName="借贷业务">
+         desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+        	<deskType  name="PersonalTeamDesktop" isUsed="true" deskName="业务专用桌面"></deskType>
+        	<deskType  name="PersonalCommonDesktop" isUsed="true" deskName="通用桌面"></deskType>
+        	<deskType  name="PersonalFinancialDesktop" isUsed="true" deskName="财务专用桌面"></deskType>
+        </module>
+        
+   		--><!-- 财富中心  -->
+   		<module name="investcstmanger" file="menu-investcstmanger.xml" isHaveDesktop="true" businessName="财富业务">
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			<deskType  name="PersonalDeskNew" isUsed="true" deskName="财富业务桌面"></deskType>
+   		</module>
+   		
+   		<!-- 互联网金融 -->
+   		<!-- <module name="fa" file="menu-fa.xml"/> -->
+   		<!-- (左侧菜单初始化)后台方法是根据Mod_和 module的name拼接而成-->
+   		<!--<module name="fa_online" file="menu-fa-online.xml" isHaveDesktop="true" businessName="信用借款业务">
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		--><module name="fa_p2p" file="menu-fa-p2p.xml" isHaveDesktop="true" businessName="P2P中介业务">
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		
+   		<module name="fa_p2c" file="menu-fa-p2c.xml" isHaveDesktop="true" businessName="C2P中介业务">
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		
+   		<!--<module name="fa_pa2p" file="menu-fa-pa2p.xml" isHaveDesktop="true" businessName="PA2P中介业务">
+   		  desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		--> 
+   		<!--<module name="fa_ca2p" file="menu-fa-ca2p.xml" isHaveDesktop="true" businessName="CA2P中介业务">
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		
+   		--><module name="fa_secondtransaction" file="menu-fa-secondTransaction.xml" isHaveDesktop="false" businessName="债权交易业务">
+   		    <!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		<!--<module name="fa_dplan" file="menu-fa-dPlan.xml" isHaveDesktop="true" businessName="D债权转让业务"> 
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   			<deskType  name="ManageplanDesktop" isUsed="true" deskName="理财业务桌面"></deskType>
+   		</module>
+   		<module name="fa_uplan" file="menu-fa-uPlan.xml" isHaveDesktop="true" businessName="U债权转让业务"> 
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   		    <deskType  name="ManageplanDesktop" isUsed="true" deskName="理财业务桌面"></deskType>
+   		</module>
+   		<module name="fa_bao" file="menu-fa-bao.xml" isHaveDesktop="true" businessName="活期理财业务">
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   		 	<deskType  name="BidPlanDeskTop" isUsed="true" deskName="散标投资桌面"></deskType>
+   		</module>
+   		
+   		--><!-- 网站运营 -->
+        <module name="p2p" file="menu-p2p.xml" isHaveDesktop="true" businessName="网站运营">
+        <!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+        	
+        </module>
+        
+   		<!-- 风控中心 -->
+   		<!--<module name="control" file="menu-control.xml" isHaveDesktop="false" businessName="分控中心">
+   		 desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 
+   		 	<deskType  name="4" isUsed="true" deskName="财富桌面"></deskType>
+   		</module>
+   		
+   		--><!-- 报表中心 -->
+   		<module name="report" file="menu-report.xml" isHaveDesktop="false" businessName="报表中心">
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   		 	<deskType  name="4" isUsed="true" deskName="财富桌面"></deskType>
+   		</module>
+   		
+        <!-- 系统管理 -->
+       <module name="erp" file="menu-erp.xml" isHaveDesktop="false" businessName="系统管理">
+       <!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+        	<deskType  name="4" isUsed="true" deskName="财富桌面"></deskType>
+       </module>
+        
+   		<!-- 组织机构  -->
+   		<!-- <module name="org" file="menu-org.xml"/>-->
+   		
+   		<!-- 客户中心  -->
+   		<module name="customer" file="menu-customer.xml" isHaveDesktop="false" businessName="客户中心">
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			 <!--<deskType  name="4" isUsed="true" deskName="财富桌面"></deskType>
+   		--></module>
+   		
+   		<!-- 营销中心  -->
+   		<!--<module name="marketing" file="menu-marketing.xml" isHaveDesktop="false" businessName="营销中心"> -->
+   		<!-- desktype中name表示桌面对应的js表Id    isUsed   表示是否启用      deskName  表示桌面的名称 -->
+   			 <!--<deskType  name="4" isUsed="true" deskName="财富桌面"></deskType>
+   		-->
+   		<!--</module> -->
+</Modules>

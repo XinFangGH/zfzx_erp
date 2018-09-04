@@ -1,0 +1,11 @@
+## This is a velocity template
+## to generate additional properties from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar    = $utility.makeFirstLetterLowerCase($class))
+#set ($classVarUC    = $utility.makeFirstLetterUpperCase($class))
+#set ($packagePrefix = $prop.getProperty("packagePrefix"))
+#set ($packageModot = $prop.getProperty("packageModot"))
+	 <bean id="${classVar}Service" class="${packagePrefix}.credit.service${packageModot}.impl.${class}ServiceImpl">
+   	 	<constructor-arg index="0" ref="${classVar}Dao"/>
+   	 </bean>

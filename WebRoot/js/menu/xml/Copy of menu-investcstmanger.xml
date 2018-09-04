@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_investcstmanger" text="投资客户管理" iconCls="mod-investCstManger">
+	<Items id="InvestElectricMarketManageme" text="意向客户管理" iconCls="menu-finance" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=1" iconCls="btn-tree-team22" text="我的意向客户">
+	 			<Function id="_Prospective_cust_see_All_2_1" text="查看所有" iconCls="btn-add"/>
+				<Function id="_Prospective_cust_add_2_1" text="增加" iconCls="btn-add"/>
+				<Function id="_Prospective_cust_see_2_1" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_edit_2_1" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_Prospective_cust_dele_2_1" text="删除" iconCls="btn-delete"/>
+				<Function id="_Prospective_cust_changeType_2_1" text="客户转化" iconCls="btn-detail"/><!--
+				<Function id="_Prospective_cust_relationPerson_2_1" text="联系人" iconCls="btn-detail"/>
+				--><Function id="_Prospective_cust_followUp_2_1" text="跟进" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_setNextTime_2_1" text="设置下次联系时间" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_cust_outToExcel_2_1" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		
+		<Item id="CsProspectivePersonDistributionView?personType=1" iconCls="btn-tree-team22" text="意向资源分配">
+				<Function id="_Prospective_distribution_All_1" text="查看所有意向资源" iconCls="btn-detail"/>
+				<Function id="_Prospective_distribution_add_1" text="增加" iconCls="btn-add"/>
+				<Function id="_Prospective_distribution_see_1" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_distribution_edit_1" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_Prospective_distribution_dele_1" text="删除" iconCls="btn-delete"/>
+				<Function id="_Prospective_distribution_grant_1" text="意向分配" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_distribution_seniorGrant_1" text="高级意向分配" iconCls="btn-detail"/>
+				--><!--<Function id="_Prospective_distribution_outToExcel_1" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		
+		<Item id="CsProspectivePersonFollowUpManager?personType=1" iconCls="btn-tree-team22" text="跟进记录管理">
+				<Function id="_Prospective_followUp_All_1" text="查看所有跟进记录" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_info_1" text="跟进详情" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_commonent__1" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=1" iconCls="btn-tree-team22" text="已转化为正式客户">
+				<Function id="_Prospective_cust_see_All_1_1" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_1_1" text="查看" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_cust_outToExcel_1_1" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=1" iconCls="btn-tree-team23" text="已排除意向客户">
+				<Function id="_Prospective_cust_see_All_3_1" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_3_1" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_recovering_3_1" text="撤销" iconCls="btn-reset"/>
+				<!--<Function id="_Prospective_cust_outToExcel_3_1" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item><!--
+		<Item id="CsSalesRecordView?personType=1" iconCls="btn-tree-team22" text="电销工作记录">
+				<Function id="_see_CsSalesRecord_All_1" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_see_CsSalesRecord_1" text="查看" iconCls="btn-detail"/>
+				<Function id="_add_CsSalesRecord_1" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_CsSalesRecord_1" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_delete_CsSalesRecord_1" text="删除" iconCls="btn-delete"/>
+		</Item>
+	--></Items>
+	<!-- 线下投资客户管理 -->
+	<Items id="underLineCustManger" text="线下投资客户管理" iconCls="menu-finance">
+		
+		<Item id="investmentPersonView" iconCls="btn-tree-invest63" text="投资客户信息管理">
+			<Function id="_create_investP" text="增加" iconCls="btn-add" />
+			<Function id="_See_investP" text="查看" iconCls="btn-detail" />
+			<Function id="_edit_investP" text="编辑" iconCls="btn-edit" />
+			<Function id="_remove_investP" text="删除" iconCls="btn-delete" />
+			<Function id="_apply_contract" text="申请合同制作" iconCls="btn-edit" />
+			<Function id="_apply_changeCard " text="申请换卡" iconCls="btn-edit" />
+			<Function id="_see_contract" text="查看合同详情" iconCls="btn-detail" />
+			<Function id="_export_investP" text="导出到Excel" iconCls="btn-xls" />
+		</Item>
+		<Item id="investmentPersonP2PView" iconCls="btn-tree-invest" text="个人投资客户信息管理">
+		</Item>
+		<!--<Item id="InvestIntentionView" text="投资意向" iconCls="btn-tree-team22"
+			isPublic="false"></Item>
+		--><Item id="InvestPersonCareView" iconCls="btn-tree-team22" text="投资人关怀管理">
+			<Function id="_see_tzghkh" text="查看" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghkh" text="增加" iconCls="btn-add"
+				isControl="false"></Function>
+			<Function id="_edit_tzghkh" text="编辑" iconCls="btn-add"
+				isControl="false"></Function>
+		</Item>
+		<!--<Item id="InvestEnterpriseCareView" iconCls="btn-tree-team22"
+			text="企业客户关怀管理">
+			<Function id="_see_tzghqykh_invest" text="查看客户关怀记录" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghqykh_invest" text="增加客户关怀记录"
+				iconCls="btn-add" isControl="false"></Function>
+			<Function id="_edit_tzghqykh_invest" text="编辑客户关怀记录"
+				iconCls="btn-add" isControl="false"></Function>
+		</Item>-->
+
+		<Item id="CustomerGrantManager_InvestPersonView" iconCls="menu-customer-manager"
+			text="投资人授权管理">
+			<Function id="_see_person_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_person_skgxr_invest" text="授权共享人" iconCls="btn-add"
+				isControl="false"></Function>
+		</Item>
+	</Items>
+	<!-- 线上投资客户管理 -->
+
+	<!-- 投资客户账户资金管理 -->
+	<Items id="CustMoneyManger" text="资金账户管理" iconCls="menu-finance">
+		<Item id="investmentAccountView?accountType=accountSee&amp;type=1" iconCls="btn-tree-invest64" text="线下资金账户查询">
+		</Item>
+		<Item id="investmentAccountView?accountType=accountSee&amp;type=0" iconCls="btn-tree-invest64" text="线上资金账户查询">
+		</Item>
+		<Item id="PersonAccountDealInfoListQuery" iconCls="btn-tree-invest65" text="资金账户收支查询">
+			<Function id="_see_accountInOut" text="账户收支查询" iconCls="btn-detail" />
+			<Function id="_see_accountDetail" text="账户明细查询" iconCls="btn-detail" />
+		</Item>
+		<Item id="investmentMmView" iconCls="btn-tree-invest66"
+			text="投资人理财查询">
+		</Item>
+		<Item id="matchingDetailPrintOfinvest" iconCls="btn-tree-obliga77" text="投资客户债权清单">
+		</Item>
+	</Items>
+	<Items id="investmentIntentleger" text="投资款项台账" iconCls="menu-finance">
+	  <Item id="InvestFundIntentView" iconCls="btn-tree-team29" text="散标款项台账" ></Item>
+	   <Item id="investmentMmAssignInterestView?keystr=mmproduce" iconCls="btn-tree-invest64" text="理财产品款项台账">
+		</Item>
+		<Item id="investmentMmAssignInterestView?keystr=mmplan" iconCls="btn-tree-invest64" text="理财计划款项台账">
+		</Item>
+	</Items>
+	<!-- 线下投资客户充值取现 -->
+	<Items id="UnderLineCustRecharge" text="资金账户操作" iconCls="menu-finance">
+		<Item id="investmentAccountView?accountType=account&amp;type=1" iconCls="btn-tree-invest64" text="线下资金账户管理">
+			<Function id="_apply_recharge21" text="充值" iconCls="btn-edit" />
+			<Function id="_apply_getMoney21" text="取现" iconCls="btn-edit" />
+		</Item>
+		<Item id="investmentAccountView?accountType=account&amp;type=0" iconCls="btn-tree-invest64" text="线上资金账户管理">
+			<Function id="_apply_recharge20" text="充值" iconCls="btn-edit" />
+			<Function id="_apply_getMoney20" text="取现" iconCls="btn-edit" />
+		</Item>
+		<Item id="confirmRechargeView?dealRecordStatus=1" iconCls="btn-tree-recharge79"  text="线下投资客户充值一次审核">
+			<Function id="_see_investPDetail_1" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="confirmRechargeView?rechargeConfirmStatus=1&amp;dealRecordStatus=2" iconCls="btn-tree-recharge81"  text="充值记录查询">
+			<Function id="_see_investPDetail_12" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=1&amp;recordStatus=7" iconCls="btn-tree-recharge81"  text="取现一次审核">
+			<Function id="_see_investPDetail_17" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=4&amp;recordStatus=7" iconCls="btn-tree-recharge81"  text="取现复审">
+			<Function id="_see_investPDetail_47" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=5&amp;recordStatus=7" iconCls="btn-tree-recharge81"  text="取现办理">
+			<Function id="_see_investPDetail_57" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?recordStatus=2" iconCls="btn-tree-recharge81"  text="取现记录查询">
+			<Function id="_see_investPDetail_2" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+	</Items>
+
+	<Items id="bidInfoManger" text="投资人投资管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		<Items id="onLineCustomerInvestManger" text="线上投资管理" iconCls="btn-tree-obliga77" isPublic="false">
+			<Item id="PlBidInfoView?userType=0" iconCls="btn-tree-obliga77" text="线上投资信息"></Item>
+		</Items>
+		<Items id="odownLineCustomerInvestManger" text="线下投资管理" iconCls="btn-tree-obliga77" isPublic="false">
+			<Item id="PlBidInfoView?userType=1" iconCls="btn-tree-obliga77" text="线下投资信息"></Item>
+		</Items>
+	</Items>
+	
+	<Items id="IntegralManager" text="积分管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+	    <Item id="MemberGradeSet" iconCls="btn-tree-obliga77" text="会员等级设置"></Item>
+		<Item id="SystemBonusRule" iconCls="btn-tree-obliga77" text="积分规则"></Item>
+		<Item id="SystemBonusRecord" iconCls="btn-tree-obliga77" text="积分奖励记录"></Item>
+		<Item id="TabRedMoney" iconCls="btn-tree-obliga77" text="红包派发记录"></Item>
+	</Items>
+	<Items id="YeePaySingleQueryManager" text="易宝单笔交易查询" iconCls="mod-obligationSourceQuery" isPublic="false">
+	    <Item id="YeePaySingleQueryView?modeType=1" iconCls="btn-tree-obliga77" text="充值记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=2" iconCls="btn-tree-obliga77" text="放款记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=3" iconCls="btn-tree-obliga77" text="还款记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=4" iconCls="btn-tree-obliga77" text="取现记录查询"></Item>
+		<Item id="YeePayQueryView" iconCls="btn-tree-obliga77" text="对账查询"></Item>
+	</Items>
+	
+	<Items id="OnlinecooperationManage" text="线上合作会员 管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+    	<Items id="CooperationManage" text="合作机构管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView" iconCls="btn-tree-obliga77" text="合作企业档案管理"></Item>
+			<Item id="CsCooperationPersonView" iconCls="btn-tree-obliga77" text="合作个人档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount" iconCls="btn-tree-obliga77" text="企业网站账户管理"></Item>
+			<Item id="CsCooperationPersonAccount" iconCls="btn-tree-obliga77" text="个人网站账户管理"></Item>
+			<Item id="CsCooperationAccountManage" iconCls="btn-tree-obliga77" text="合作资金账户管理"></Item>
+			<Item id="CsCooperationAccountDetail" iconCls="btn-tree-obliga77" text="合作资金账户收支查询"></Item>
+		</Items>
+	</Items>
+	
+	</Menus>

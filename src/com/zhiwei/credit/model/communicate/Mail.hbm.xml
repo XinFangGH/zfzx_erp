@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.Mail" table="mail" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="mailId" column="mailId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="sender" type="java.lang.String" update="true" insert="true" access="property" column="sender" length="32" not-null="true" unique="false"/>  
+    <property name="importantFlag" type="java.lang.Short" update="true" insert="true" access="property" column="importantFlag" length="5" not-null="true" unique="false"/>  
+    <property name="sendTime" type="java.util.Date" update="true" insert="true" access="property" column="sendTime" length="19" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="5000" not-null="true" unique="false"/>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="copyToNames" type="java.lang.String" update="true" insert="true" access="property" column="copyToNames" length="2000" not-null="false" unique="false"/>  
+    <property name="copyToIDs" type="java.lang.String" update="true" insert="true" access="property" column="copyToIDs" length="2000" not-null="false" unique="false"/>  
+    <property name="recipientNames" type="java.lang.String" update="true" insert="true" access="property" column="recipientNames" length="2000" not-null="false" unique="false"/>  
+    <property name="recipientIDs" type="java.lang.String" update="true" insert="true" access="property" column="recipientIDs" length="2000" not-null="false" unique="false"/>  
+    <property name="mailStatus" type="java.lang.Short" update="true" insert="true" access="property" column="mailStatus" length="5" not-null="true" unique="false"/>  
+    <property name="fileIds" type="java.lang.String" update="true" insert="true" access="property" column="fileIds" length="500" not-null="false" unique="false"/>  
+    <property name="filenames" type="java.lang.String" update="true" insert="true" access="property" column="filenames" length="500" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appSender" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="senderId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to MailAttach -->  
+    <set name="mailAttachs" table="mail_attach" lazy="true" cascade="save-update"> 
+      <key> 
+        <column name="mailId"/> 
+      </key>  
+      <many-to-many class="com.zhiwei.credit.model.system.FileAttach" column="fileId" fetch="join"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to MailBox -->  
+    <set name="mailBoxs" table="mail_box" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="mailId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.communicate.MailBox"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

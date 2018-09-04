@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.Regulation" table="regulation" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="regId" column="regId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="issueDate" type="java.util.Date" update="true" insert="true" access="property" column="issueDate" length="19" not-null="false" unique="false"/>  
+    <property name="issueUserId" type="java.lang.Long" update="true" insert="true" access="property" column="issueUserId" length="19" not-null="false" unique="false"/>  
+    <property name="issueFullname" type="java.lang.String" update="true" insert="true" access="property" column="issueFullname" length="64" not-null="false" unique="false"/>  
+    <property name="issueDepId" type="java.lang.Long" update="true" insert="true" access="property" column="issueDepId" length="19" not-null="false" unique="false"/>  
+    <property name="issueDep" type="java.lang.String" update="true" insert="true" access="property" column="issueDep" length="64" not-null="false" unique="false"/>  
+    <property name="recDeps" type="java.lang.String" update="true" insert="true" access="property" column="recDeps" length="1024" not-null="false" unique="false"/>  
+    <property name="recDepIds" type="java.lang.String" update="true" insert="true" access="property" column="recDepIds" length="1024" not-null="false" unique="false"/>  
+    <property name="recUsers" type="java.lang.String" update="true" insert="true" access="property" column="recUsers" length="1024" not-null="false" unique="false"/>  
+    <property name="recUserIds" type="java.lang.String" update="true" insert="true" access="property" column="recUserIds" length="1024" not-null="false" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" not-null="false" unique="false"/>  
+    <property name="keywords" type="java.lang.String" update="true" insert="true" access="property" column="keywords" length="256" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to GlobalType -->  
+    <many-to-one name="globalType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to RegAttach -->  
+    <set name="regAttachs" table="reg_attach" lazy="true" inverse="false" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="regId"/> 
+      </key>  
+      <many-to-many class="com.zhiwei.credit.model.system.FileAttach" column="fileId" fetch="join"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

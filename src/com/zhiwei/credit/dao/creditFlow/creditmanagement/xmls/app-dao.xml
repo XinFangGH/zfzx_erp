@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+           
+    <bean id="indicatorDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.IndicatorDaoImpl" parent="baseDao"/>
+	 <bean id="indicatorStoreDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.IndicatorStoreDaoImpl" parent="baseDao"/>
+	  <bean id="optionDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.OptionDaoImpl" parent="baseDao"/>
+	  <bean id="scoreGradeOfClassDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.ScoreGradeOfClassDaoImpl" parent="baseDao"/>
+	  <bean id="classTypeDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.ClassTypeDaoImpl" parent="baseDao"/>
+	  <bean id="ratingTemplateDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.RatingTemplateDaoImpl" parent="baseDao"/>
+	   <bean id="creditRatingDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.CreditRatingDaoImpl" parent="baseDao"/>
+	   	   <bean id="templateOptionDao" class="com.zhiwei.credit.dao.creditFlow.creditmanagement.impl.TemplateOptionDaoImpl" parent="baseDao"/>
+</beans>

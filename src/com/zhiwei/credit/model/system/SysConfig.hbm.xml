@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.SysConfig" table="sys_config" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="configId" column="configId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="configKey" type="java.lang.String" update="true" insert="true" access="property" column="configKey" length="64" not-null="true" unique="false"/>  
+    <property name="configName" type="java.lang.String" update="true" insert="true" access="property" column="configName" length="64" not-null="true" unique="false"/>  
+    <property name="configDesc" type="java.lang.String" update="true" insert="true" access="property" column="configDesc" length="256" not-null="false" unique="false"/>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="32" not-null="true" unique="false"/>  
+    <property name="dataType" type="java.lang.Short" update="true" insert="true" access="property" column="dataType" length="5" not-null="true" unique="false"/>  
+    <property name="dataValue" type="java.lang.String" update="true" insert="true" access="property" column="dataValue" length="500" not-null="false" unique="false"/>  
+    <property name="typeKey" type="java.lang.String" update="true" insert="true" access="property" column="typeKey" length="64" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

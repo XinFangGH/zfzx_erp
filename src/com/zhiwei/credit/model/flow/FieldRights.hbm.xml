@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.FieldRights" table="field_rights" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="rightId" column="rightId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="taskName" type="java.lang.String" update="true" insert="true" access="property" column="taskName" length="128" not-null="true" unique="false"/>  
+    <property name="readWrite" type="java.lang.Short" update="true" insert="true" access="property" column="readWrite" length="5" not-null="true" unique="false"/>  
+    <!-- <property
+            name="fieldId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="fieldId"
+            length="19"
+            not-null="true"
+            unique="false"
+        />-->  
+    <property name="mappingId" type="java.lang.Long" update="true" insert="true" access="property" column="mappingId" length="19" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FormField-->  
+    <many-to-one name="formField" class="com.zhiwei.credit.model.flow.FormField" not-null="false" fetch="select"> 
+      <column name="fieldId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to FormDefMapping 
+		<many-to-one
+			name="formDefMapping"
+			class="com.zhiwei.credit.model.flow.FormDefMapping"
+            not-null="false"
+			fetch="select"
+		>	
+			<column name="mappingId" />
+		</many-to-one>--> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntDownstreamContract"
+        table="bp_cust_ent_downstream_contract"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="downContractId"
+            column="downContractId"
+            type="java.lang.Integer"
+            length="10"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="dateMode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="dateMode"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="count"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="count"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+          <property
+            name="contractMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="contractMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+       <property
+            name="saleIncomeyMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="saleIncomeyMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="noContractSaleMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="noContractSaleMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+ 
+      <many-to-one name="bpCustEntUpanddowncontract" class="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpanddowncontract" > 
+        <column name="upAndDownContractId"/> 
+        </many-to-one>
+     </class>
+</hibernate-mapping>

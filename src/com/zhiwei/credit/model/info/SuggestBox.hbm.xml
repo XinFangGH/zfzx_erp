@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.info.SuggestBox" table="suggest_box" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="boxId" column="boxId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="4000" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="false" unique="false"/>  
+    <property name="recUid" type="java.lang.Long" update="true" insert="true" access="property" column="recUid" length="19" not-null="false" unique="false"/>  
+    <property name="recFullname" type="java.lang.String" update="true" insert="true" access="property" column="recFullname" length="32" not-null="false" unique="false"/>  
+    <property name="senderId" type="java.lang.Long" update="true" insert="true" access="property" column="senderId" length="19" not-null="false" unique="false"/>  
+    <property name="senderFullname" type="java.lang.String" update="true" insert="true" access="property" column="senderFullname" length="32" not-null="false" unique="false"/>  
+    <property name="senderIp" type="java.lang.String" update="true" insert="true" access="property" column="senderIp" length="64" not-null="false" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="64" not-null="false" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="100" not-null="false" unique="false"/>  
+    <property name="isOpen" type="java.lang.Short" update="true" insert="true" access="property" column="isOpen" length="5" not-null="false" unique="false"/>  
+    <property name="replyContent" type="java.lang.String" update="true" insert="true" access="property" column="replyContent" length="4000" not-null="false" unique="false"/>  
+    <property name="replyTime" type="java.util.Date" update="true" insert="true" access="property" column="replyTime" length="19" not-null="false" unique="false"/>  
+    <property name="replyId" type="java.lang.Long" update="true" insert="true" access="property" column="replyId" length="19" not-null="false" unique="false"/>  
+    <property name="replyFullname" type="java.lang.String" update="true" insert="true" access="property" column="replyFullname" length="32" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="false" unique="false"/>  
+    <property name="queryPwd" type="java.lang.String" update="true" insert="true" access="property" column="queryPwd" length="128" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

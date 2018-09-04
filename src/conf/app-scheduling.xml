@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="true">
+	<bean id="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		lazy-init="false">
+		<property name="triggers">
+			<list>
+				<!--<ref local="sendMessageTrigger"/>
+				<ref local="smsMobileTrigger"/>
+				--> 
+				<ref local="globalSupervisemanageTrigger"/>
+				<ref local="sendTransactMortgage"/>
+				<ref local="sendUnchainMortgage"/>
+				<!-- 传统项目罚息计算 -->
+				<ref local="slcreatePunishByTiming"/>
+				<!-- 每日提成计算 -->
+				<ref local="settlementReviewerPayByTiming"/>
+				<!--p2p项目的罚息计算 -->
+				<ref local="bpcreatePunishByTiming"/>
+				<ref local="ftpUp"></ref> 
+				<!--定时全部自动匹配 -->
+				<ref local="geteveryschedulerMatching"></ref> 
+				<ref local="urgeFlowTrigger"/>
+				
+				<!-- 把谁名下的挂牌的债权定时到债权库 -->
+				<ref local="schedulingToRightChildren"/>
+				
+				<!--匹配收益大于预期收益，生成补充台账-->
+				<!--<ref local="schedulingCalculateAssignInterest"/>-->
+				
+				<!-- 自有资金款项生成罚息 -->
+				<ref local="calculatePenaltyTrigger"/>
+				
+				<!--定时器定时3点钟系统账户和第三方账户对账文件更新操作 -->
+				<ref local="thirdPayAccountCheckFileTrigger"/>
+				<!--站岗资金定时派息  -->
+				<ref local="finaceProductAutoCreateIntentRecordTrigger"/>
+				<!--优惠券到期提醒  -->
+				<ref local="sendCouponsOaNewsMessage"/>
+				<!-- U计划生成到债权库 -->
+				<ref local="uPlanToRightChildren"/>
+				<!-- 理财计划生成奖励 -->
+				<ref local="createReward"/>
+				<!-- 理财计划派发奖励 -->
+				<ref local="payReward"/>
+				<!-- 代偿款项的罚息计算   定时在每日零点-->
+				<ref local="calculateOverDueDays"/>
+				<!-- 自动刷新系统用户第三方资金账户 -->
+				<ref local="refreshThirdAccount"/>
+				<!-- 自动刷新借款项目预期到期 -->
+				<ref local="refreshOverdue"/>
+				<!-- 自动查询充值处理中的款项 -->
+				<!--<ref local="refreshRecharge"/>-->
+				<!-- 自动查询募集期利润没有发放完毕的客户详情 -->
+				<ref local="raiseinterestNotMoney" />
+				<ref local="autoSendMessage"/>
+				<ref local="autoSendBirthday"/>
+			</list>
+
+		</property>
+	</bean>
+
+	<!-- Detial -->
+    <bean id="sendMessageDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="officeGoodsService"></property>
+        <property name="targetMethod" value="sendWarmMessage"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="sendMessageTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		    <value>0 0 2 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="sendMessageDetial"/>
+	</bean>
+	
+	<!-- Detial -->
+    <bean id="smsMobileDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="smsMobileService"></property>
+        <property name="targetMethod" value="sendSms"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    <!-- Trigger -->
+	<bean id="sendTransactMortgage" class="org.springframework.scheduling.quartz.CronTriggerBean"><!--
+		 早上二点钟开始调用SENDWARMMESSAGE方法
+		--><property name="cronExpression">
+
+             <value>0 0 2 * * ?</value> 
+		   <!--<value>0 0/2 * * * ?</value> -->
+
+		</property> 
+	   <property name="jobDetail" ref="sendTransactMortgageDetial"/>
+	</bean><!--
+	
+	 Detial 
+    --><bean id="sendTransactMortgageDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="procreditMortgageService"></property>
+        <property name="targetMethod" value="getTransactMortgage"></property>
+        <property name="concurrent" value="false"></property>
+    </bean><!--
+      Trigger 
+	--><bean id="sendUnchainMortgage" class="org.springframework.scheduling.quartz.CronTriggerBean"><!--
+		 早上二点钟开始调用SENDWARMMESSAGE方法
+		--><property name="cronExpression">
+
+		      <value>0 0 2 * * ?</value>
+		    <!--<value>0 0/2 * * * ?</value>  -->
+
+		</property> 
+	   <property name="jobDetail" ref="sendUnchainMortgageDetial"/>
+	</bean><!--
+	
+	 Detial 
+    --><bean id="sendUnchainMortgageDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="procreditMortgageService"></property>
+        <property name="targetMethod" value="getUnchainMortgage"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+<!--传统项目的罚息计算 -->
+	<bean id="slcreatePunishByTiming" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		      <value>0 0 2 * * ?</value> 
+		       <!--<value>0 0/2 * * * ?</value>  -->
+		</property> 
+	   <property name="jobDetail" ref="slcreatePunishByTimingDetial"/>
+	</bean>
+    <bean id="slcreatePunishByTimingDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="slFundIntentService"></property>
+        <property name="targetMethod" value="createPunishByTiming"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+<!--每日保有量计算 -->
+	<bean id="settlementReviewerPayByTiming" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		      <value>0 0 1 * * ?</value> 
+		       <!--<value>0 0/2 * * * ?</value>  -->
+		</property> 
+	   <property name="jobDetail" ref="settlementReviewerPayByTimingDetial"/>
+	</bean>
+    <bean id="settlementReviewerPayByTimingDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="settlementReviewerPayService"></property>
+        <property name="targetMethod" value="createSettleInfo"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+  <!--p2p项目的罚息计算 -->
+    <bean id="bpcreatePunishByTiming" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		      <value>0 0 2 * * ?</value>
+		       <!--<value>0 0/2 * * * ?</value>  -->
+		</property> 
+	   <property name="jobDetail" ref="bpcreatePunishByTimingDetial"/>
+	</bean>
+    <bean id="bpcreatePunishByTimingDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="bpFundIntentService"></property>
+        <property name="targetMethod" value="createPunishByTiming"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+    
+    	<bean id="geteveryschedulerMatching" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		    <value>0 0 10 * * ?</value>
+		</property>
+		<!-- 
+		<property name="cronExpression">
+		    <value>0 0/2 * * * ?</value>
+		</property>
+	   --><property name="jobDetail" ref="everyschedulerMatchingDetail"/>
+	</bean>
+	
+	
+    <bean id="everyschedulerMatchingDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plMmOrderChildrenOrService"></property>
+        <property name="targetMethod" value="everyschedulerMatching"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    <!-- ftp 定时上传  -->
+	<bean id="ftpUp" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		    <value>0 0 3 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="ftpUpDetial"/>
+	</bean>
+	
+	
+    <bean id="ftpUpDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="ftpService"></property>
+        <property name="targetMethod" value="FtpUp"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="smsMobileTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 每两分钟检查要发送的短信-->
+		<property name="cronExpression">
+		    <value>0 0 4 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="smsMobileDetail"/>
+	</bean>
+	
+	<!-- 工作计划Detial -->
+    <bean id="workPlanDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="workPlanService"></property>
+        <property name="targetMethod" value="sendWorkPlanTime"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="workPlanTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 每两分钟检查要发送的短信-->
+		<property name="cronExpression">
+		    <value>0 0 3 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="workPlanDetail"/>
+	</bean>
+	
+	<!-- 监管计划Detail--><!--
+	<bean id="slSupervisemanageDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="slSupervisemanageService"></property>
+        <property name="targetMethod" value="supervisemanagePlanPush"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	 Trigger 
+	<bean id="slSupervisemanageTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		 每两分钟检查要推送的监管计划
+		<property name="cronExpression">
+		    <value>0 0/2 * * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="slSupervisemanageDetail"/>
+	</bean>
+	--><!--
+		 租赁监管计划Detail
+	-->
+	<bean id="globalSupervisemanageDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="globalSupervisemanageService"></property>
+        <property name="targetMethod" value="supervisemanagePlanPush"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    <!--	 Trigger 	-->
+	<bean id="globalSupervisemanageTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<!--		 每两分钟检查要推送的监管计划		-->
+		<property name="cronExpression">
+		    <value>0 0/2 * * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="globalSupervisemanageDetail"/>
+	</bean>
+	
+	<!-- 
+		还款催收流程
+		每天凌晨扫描数据库查找还款即将到期的款项信息
+		且没有启动该流程的
+		启动还款催收流
+	 -->
+	 <!-- 代理方法 -->
+	<bean id="urgeFlowStart" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="slFundIntentService"/>
+		<property name="targetMethod" value="startUrgeFlow"/>
+		<property name="concurrent" value="false"/>
+	</bean>
+	<!--  -->
+	<bean id="urgeFlowTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+		    <value>0 0 3 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="urgeFlowStart"/>
+	</bean>
+	
+	 <!--p2p生成到债权库 -->
+    <bean id="schedulingToRightChildren" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		   <!--   <value>0 0 2 * * ?</value>-->
+		       <value>0 0 2 * * ?</value>  
+		</property> 
+	   <property name="jobDetail" ref="schedulingToRightChildrenDetial"/>
+	</bean>
+    <bean id="schedulingToRightChildrenDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plBidSaleService"></property>
+        <property name="targetMethod" value="schedulingToRightChildren"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    <!--定时扫描理财订单表，到期的订单要给它结算派息(当匹配收益大于预期收益，会生成补充新的台账) -->
+    <bean id="schedulingCalculateAssignInterest" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上二点钟开始调用SENDWARMMESSAGE方法-->
+		<property name="cronExpression">
+		   <!--   <value>0 0 2 * * ?</value>-->
+		       <value>0 0 1 * * ?</value>  
+		</property> 
+	   <property name="jobDetail" ref="schedulingCalculateAssignInterestDetial"/>
+	</bean>
+    <bean id="schedulingCalculateAssignInterestDetial" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plMmOrderAssignInterestService"></property>
+        <property name="targetMethod" value="schedulingCalculateAssign"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+    
+	<!-- 自有资金款项生成罚息 -->
+    <bean id="calculatePenaltyDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="slFundIntentService"></property>
+        <property name="targetMethod" value="calculatePenalty"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="calculatePenaltyTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 早上一点钟开始调用determineWhetherMember方法-->
+		<property name="cronExpression">
+		    <value>0 0 1 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="calculatePenaltyDetail"/>
+	</bean>
+	
+	<!--定时器定时3点钟系统账户和第三方账户对账文件更新操作 -->
+    <bean id="thirdPayAccountCheckFileDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="obSystemAccountService"></property>
+        <property name="targetMethod" value="mutiplyTreadRefreshThirdPayAccount"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="thirdPayAccountCheckFileTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时3点钟开始调用obSystemAccountService.mutiplyTreadRefreshThirdPayAccount方法-->
+		<property name="cronExpression">
+		    <value>0 0 3 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="thirdPayAccountCheckFileDetail"/>
+	</bean>
+		<!--定时器定时0点钟派发站岗资金派息操作 -->
+    <bean id="finaceProductAutoCreateIntentRecordDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plFinanceProductUserAccountInfoService"></property>
+        <property name="targetMethod" value="creatYestDayIntent"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="finaceProductAutoCreateIntentRecordTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时0点钟开始调用obSystemAccountService.mutiplyTreadRefreshThirdPayAccount方法-->
+		<property name="cronExpression">
+		    <value>0 0 0 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="finaceProductAutoCreateIntentRecordDetail"/>
+	</bean>
+	
+	<!--优惠券过期提醒，每天6点发短信 -->
+    <bean id="sendCouponsOaNewsMessageDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="bpCouponsService"></property>
+        <property name="targetMethod" value="sendExpirationRemind"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="sendCouponsOaNewsMessage" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时6点钟开始调用obSystemAccountService.mutiplyTreadRefreshThirdPayAccount方法-->
+		<property name="cronExpression">
+		     <value>0 0 7 * * ?</value>
+<!--		      <value>0 0/2 * * * ?</value>-->
+		</property> 
+	   <property name="jobDetail" ref="sendCouponsOaNewsMessageDetail"/>
+	</bean>
+	<!--自动刷新系统账户第三方资金信息，每天凌晨1点开始 -->
+    <bean id="refreshThirdAccountDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="obSystemAccountService"></property>
+        <property name="targetMethod" value="refreshAllobSystemAccount"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="refreshThirdAccount" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+		     <value>0 0 1 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="refreshThirdAccountDetail"/>
+	</bean>
+	
+	<!--自动刷新银行处理中的交易记录 每五分钟刷新一次 -->
+    <bean id="refreshRechargeDeal" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="obSystemAccountService"></property>
+        <property name="targetMethod" value="refreshRechargeDeal"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="refreshRecharge" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+		     <value>0 1/1 * * * ? </value>
+		</property> 
+	   <property name="jobDetail" ref="refreshRechargeDeal"/>
+	</bean>
+	
+	<!-- 刷新到期，预期项目提醒 -->
+	 <bean id="refreshOverdueFundIntent" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="bpFundIntentService"></property>
+        <property name="targetMethod" value="getOverdueFundIntent"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="refreshOverdue" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+		     <value>0 0 7 * * ?</value>
+<!--		      <value>0 0/2 * * * ?</value>-->
+		</property> 
+	   <property name="jobDetail" ref="refreshOverdueFundIntent"/>
+	</bean>
+	
+	<!--U计划生成债权到债权库 -->
+    <bean id="uPlanToRightChildrenDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plManageMoneyPlanService"></property>
+        <property name="targetMethod" value="uPlanToRightChildren"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="uPlanToRightChildren" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时2点钟开始调用plManageMoneyPlanService.uPlanToRightChildren方法-->
+		<property name="cronExpression">
+		     <value>0 0 2 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="uPlanToRightChildrenDetail"/>
+	</bean>
+	
+	<!--理财计划生成奖励 -->
+    <bean id="createRewardDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plManageMoneyPlanService"></property>
+        <property name="targetMethod" value="createReward"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="createReward" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时1点钟开始调用plManageMoneyPlanService.createReward方法-->
+		<property name="cronExpression">
+		    <value>0 0 1 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="createRewardDetail"/>
+	</bean>
+	
+	<!--理财计划派发奖励 -->
+    <bean id="payRewardDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plManageMoneyPlanService"></property>
+        <property name="targetMethod" value="payReward"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="payReward" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时2点钟开始调用plManageMoneyPlanService.createReward方法-->
+		<property name="cronExpression">
+		   	<value>0 0 2 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="payRewardDetail"/>
+	</bean>
+	
+	
+		<!--定时器定时0点钟计算代偿款项罚息操作 -->
+    <bean id="calculateOverDueDaysDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="plBidCompensatoryService"></property>
+        <property name="targetMethod" value="calculateOverDueDays"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+	<!-- Trigger -->
+	<bean id="calculateOverDueDays" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时0点钟开始调用plBidCompensatoryService.calculateOverDueDays方法-->
+		<property name="cronExpression">
+		    <value>0 0 0 * * ?</value>
+		</property> 
+	   <property name="jobDetail" ref="calculateOverDueDaysDetail"/>
+	</bean>
+
+	<!--定时器定时3点钟查询募集期利润 -->
+	<bean id="raiseinterestNotMoneyDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="obAccountDealInfoService"></property>
+		<property name="targetMethod" value="raiseinterestNotMoney"></property>
+		<property name="concurrent" value="false"></property>
+	</bean>
+	<!-- Trigger -->
+	<bean id="raiseinterestNotMoney" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!-- 定时器定时3点钟开始调用plBidCompensatoryService.calculateOverDueDays方法-->
+		<property name="cronExpression">
+			<value>0 0 3 * * ? </value>
+		</property>
+		<property name="jobDetail" ref="raiseinterestNotMoneyDetail"/>
+	</bean>
+	<bean id="autoSendMessageDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" >
+		<property name="targetObject" ref="oaHolidayMessageService"/>
+		<property name="targetMethod" value="messageSending"/>
+		<property name="concurrent" value="false"></property>
+	</bean>
+
+	<bean id="autoSendMessage" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+			<value>0 30 10 * * ? </value>
+		</property>
+		<property name="jobDetail" ref="autoSendMessageDetail"/>
+	</bean>
+	<bean id="autoSendBirthdayDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" >
+		<property name="targetObject" ref="oaHolidayMessageService"/>
+		<property name="targetMethod" value="birthdayMessageSending"/>
+		<property name="concurrent" value="false"></property>
+	</bean>
+
+	<bean id="autoSendBirthday" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="cronExpression">
+			<value>0 0 10 * * ? </value>
+		</property>
+		<property name="jobDetail" ref="autoSendBirthdayDetail"/>
+	</bean>
+</beans>

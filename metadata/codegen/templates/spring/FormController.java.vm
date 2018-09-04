@@ -1,0 +1,87 @@
+## This is a velocity template
+## to generate a Spring controller class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot"))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+#set ($skipManager = $prop.isExcludedProperty("Manager"))
+#if  ($skipManager)
+#set ($classManager    = "Manager")
+#set ($classVarManager = "manager")
+#else
+#set ($classManager    = "${class}Manager")
+#set ($classVarManager = "${classVar}Manager")
+#end
+package ${packagePrefix}${packageModot}.controller;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.validation.BindException;
+import org.springframework.web.servlet.ModelAndView;
+
+import ${packagePrefix}.core.controller.BaseFormController;
+import ${packagePrefix}.model${packageModot}.${class};
+import ${packagePrefix}${packageModot}.service.${classManager};
+
+/**
+ * 
+ * @Author author name
+ * Create Time:
+ * <p>Class Description Here [TODO]</p>
+ */
+public class ${class}FormController extends BaseFormController {
+	private ${classManager} ${classVarManager}=null;
+	
+	public void set${classManager}(${classManager} ${classVarManager}) {
+		this.${classVarManager} = ${classVarManager};
+	}
+
+	public ${class}FormController() {
+		 setCommandName("${classVar}");
+	     setCommandClass(${class}.class);
+	}
+	
+	@Override
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
+			throws Exception {
+		
+		${class} ${classVar}=(${class})command;
+		String msg=null;
+		//validate the logic business data here [TODO]
+		if(${classVar}.get${keyVarUC}()==null){
+			msg=getText("${classVar}.added",${classVar}.get${keyVarUC}());
+		}else{
+			msg=getText("${classVar}.updated",${classVar}.get${keyVarUC}());
+		}
+		
+		${classVarManager}.save(${classVar});
+		
+		saveMessage(request,msg);
+		
+		return new ModelAndView(getSuccessView());
+	}
+	
+	@Override
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
+		${class} ${classVar}=null;
+		String ${keyVar}=request.getParameter("${keyVar}");
+		if(StringUtils.isNotEmpty(${keyVar})){
+			${classVar}=${classVarManager}.get(new Long(${keyVar}));
+		}else{
+			${classVar}=new ${class}();
+		}
+		return ${classVar};
+	}
+	
+}

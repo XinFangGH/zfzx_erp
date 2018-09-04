@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="project" extends="struts-default" namespace="/project">
+		<action name="*SlSmallloanProject" class="SlSmallloanProjectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="*SlConferenceRecord" class="SlConferenceRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+        <action name="*SlRepaymentSource" class="SlRepaymentSourceAction" method="{1}">
+		   <result>${successResultValue}</result>
+	    </action>
+	    	<action name="*ProjectPropertyClassification" class="ProjectPropertyClassificationAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+	<package name="quickenLoan" extends="struts-default" namespace="/quickenLoan">
+		<action name="*CsPersonHouse" class="CsPersonHouseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+     <package name="supervise" extends="struts-default" namespace="/supervise">
+	  
+	   <action name="*SlSuperviseRecord" class="SlSuperviseRecordAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+	  
+	    <action name="*GlobalSupervisemanage" class="globalSupervisemanageAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+	</package>
+	<package name="smallLoanfinance" extends="struts-default" namespace="/smallLoan/finance">
+	   	<action name="*SlEarlyRepaymentRecord" class="SlEarlyRepaymentRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	   <action name="*SlAlterAccrualRecord" class="SlAlterAccrualRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+</struts>

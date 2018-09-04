@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.document.DocFolder" table="doc_folder" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="folderId" column="folderId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="folderName" type="java.lang.String" update="true" insert="true" access="property" column="folderName" length="128" not-null="true" unique="false"/>  
+    <property name="parentId" type="java.lang.Long" update="true" insert="true" access="property" column="parentId" length="19" not-null="false" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="128" not-null="false" unique="false"/>  
+    <property name="isShared" type="java.lang.Short" update="true" insert="true" access="property" column="isShared" length="5" not-null="true" unique="false"/>  
+    <property name="descp" type="java.lang.String" update="true" insert="true" access="property" column="descp" length="256" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

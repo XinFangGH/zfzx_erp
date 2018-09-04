@@ -1,0 +1,143 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html {background:#2b94d6;}
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,big,cite,code,del,dfn,em,ins,kbd,q,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-family:inherit;font-style:inherit;font-weight:inherit;margin:0;outline:0;padding:0;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+body,button,input,select,textarea{color:#999;font:14px/1.5"幼圆","Hiragino Sans GB",Tahoma,Arial,Microsoft YaHei,"微软雅黑","Helvetica Neue",sans-serif;*font-family:"Hiragino Sans GB",Microsoft YaHei,"微软雅黑",Tahoma,Arial,"Helvetica Neue",sans-serif;}
+ol,ul,li{list-style:none;vertical-align:middle;}
+img{border:none;vertical-align:middle;}
+input,select,textarea{vertical-align:middle;outline:none;}
+table{border-collapse:collapse;border-spacing:0;empty-cells:show;}
+.loginform {
+	width:842px;
+	height:500px;
+	position:absolute;
+    top:50%;
+    left:50%;
+    margin:-250px 0 0 -408px;
+
+}
+.loginform .logindiv{
+	height:398px;
+	background:#fff;
+	padding:15px 13px;	
+	border-radius:8px;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px rgba(250, 250, 250, 0.5);
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.loginform .loginleft{
+	width:399px;
+	height:400px;
+	float:left;
+	margin-right:15px;
+	}
+.loginform .loginleft h2{
+	color:#2a2a2a; 
+	font-size:24px;
+	text-align:center;
+	padding-top:10px;
+	 font-family:"幼圆";
+}
+.loginform .loginleft .login_c_d{
+	padding:17px 0 0 20px; 
+	overflow:hidden;
+}
+.loginform .loginleft .login_c_d p{
+	margin-bottom:13px;
+	position:relative;
+	height:70px;
+	overflow:hidden;
+	 }
+.loginform .loginleft .login_c_d p .input_text{
+	width:306px;
+	padding:13px 10px;
+	border-radius:5px;
+	margin-right: 10px;
+	border: 1px solid #e5e5e5;
+	font-size:16px;
+	color:#a9a9a9;
+
+	}
+.loginform .loginleft .login_c_d p .input-icon{padding-left:45px;}
+.loginform .loginleft .login_c_d p em{
+	display:inline-block;
+	 background-image:url(../images/login/login_icon.png);
+	 background-repeat:no-repeat;
+	 position:absolute; 
+	 left:10px;
+	 top:9px; 
+	}
+.loginform .loginleft .login_c_d p .one{ 
+	width:27px;
+	height:35px;
+	background-position:0 0;
+}
+.loginform .loginleft .login_c_d p .two{ 
+	width:27px;
+	height:33px;
+	background-position:-38px 0;
+	top:10px;
+}
+.loginform .loginleft .login_c_d p .three{ 
+	width:29px;
+	height:26px;
+	background-position:-75px 0;
+	top:14px;
+}
+.loginform .loginleft .login_c_d p .none{display:none; font-size:14px; line-height:22px;}
+.loginform .loginleft .login_c_d p .login_yzm{
+	width:199px; 
+	margin-right:0;
+	}
+.loginform .loginleft .login_c_d .login_btn .btn_one{
+	height:46px; 
+	line-height:46px;
+	 width:256px; 
+	 border:1px solid #1d77a9;
+	 border-radius:5px;
+	 background:#3092cf;
+	 color:#fff;
+	 font-size:18px;
+	 cursor:pointer;
+}
+.loginform .loginleft .login_c_d .login_btn .btn_two{
+	height:46px; 
+	line-height:46px;
+	width:99px; 
+	border:1px solid #6c6c6c;
+	border-radius:5px;
+	background:#9f9f9f;
+	color:#fff;
+	 font-size:18px;
+	 cursor:pointer;
+}
+.loginform .loginleft .login_c_d .login_btn_none{height:55px;}
+.loginform .loginleft .login_c_d .reg_c_e {
+font-size: 12px;
+font-family:"宋体";
+
+}
+.loginform .loginright{
+	width:399px;
+	height:400px;
+	float:left;
+	background:url(../images/login/login_pic.png) no-repeat;
+	}
+
+.cf:before,
+.cf:after {
+    content: ""; 
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+:focus {
+	outline: 0;
+}
+.loginform .text{height:70px; line-height:70px; overflow:hidden; text-align:center; color:#fff; font-size:12px;font-family:"微软雅黑";}
+

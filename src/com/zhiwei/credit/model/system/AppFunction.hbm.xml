@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.AppFunction" table="app_function" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="functionId" column="functionId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="funKey" type="java.lang.String" update="true" insert="true" access="property" column="funKey" length="64" not-null="true" unique="false"/>  
+    <property name="funName" type="java.lang.String" update="true" insert="true" access="property" column="funName" length="128" not-null="true" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to FunUrl -->  
+    <set name="funUrls" table="fun_url" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="functionId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.system.FunUrl"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to RoleFun 
+	
+	<set name="roleFuns"
+	     table="role_fun"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="functionId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.system.RoleFun"
+		/>
+	</set>  
+	--> 
+  </class> 
+</hibernate-mapping>

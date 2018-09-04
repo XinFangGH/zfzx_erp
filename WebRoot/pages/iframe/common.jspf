@@ -1,0 +1,24 @@
+<%@page import="com.zhiwei.core.util.AppUtil"%>
+<script type="text/javascript" src="${ctxPath}/ext3/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript">
+			var __ctxPath="<%=request.getContextPath() %>";
+			var __companyName="<%=AppUtil.getCompanyName()%>";
+			var __loginImage=__ctxPath+"<%=AppUtil.getCompanyLogo()%>";
+		</script>
+		
+		<!-- Ext core js -->
+		<script type="text/javascript" src="${ctxPath}/ext3/ext-all.js"></script>
+		<script type="text/javascript" src="${ctxPath}/ext3/ext-basex.js"></script>
+		<script type="text/javascript" src="${ctxPath}/ext3/ext-lang-zh_CN.js"></script>
+		<link rel="stylesheet" type="text/css" href="${ctxPath}/css/admin.css"/>
+		<link rel="stylesheet" type="text/css" href="${ctxPath}/ext3/resources/css/ext-all.css" />
+
+		<!-- core tools JS -->
+		<script type="text/javascript" src="${ctxPath}/js/core/ux/HTExt.js"></script>
+		<script type="text/javascript" src="${ctxPath}/js/core/ScriptMgr.js"></script>
+		<script type="text/javascript" src="${ctxPath}/js/core/AppUtil.js"></script>
+<!--
+	<script type="text/javascript" src="${ctxPath}/js/IndexPage.js"></script>
+	<script type="text/javascript" src="${ctxPath}/ext3/ux/TabCloseMenu.js"></script>
+-->
+

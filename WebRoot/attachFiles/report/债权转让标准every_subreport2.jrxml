@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准_subreport1" language="groovy" pageWidth="940" pageHeight="1500" columnWidth="860" leftMargin="40" rightMargin="40" topMargin="60" bottomMargin="60">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="262"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     activemq_lock.`ID` AS activemq_lock_ID,
+     activemq_lock.`TIME` AS activemq_lock_TIME,
+     activemq_lock.`BROKER_NAME` AS activemq_lock_BROKER_NAME
+FROM
+     `activemq_lock` activemq_lock]]>
+	</queryString>
+	<field name="activemq_lock_ID" class="java.lang.Long"/>
+	<field name="activemq_lock_TIME" class="java.lang.Long"/>
+	<field name="activemq_lock_BROKER_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="443" splitType="Stretch">
+			<staticText>
+				<reportElement x="456" y="320" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[证明人：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="128" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="224" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[他未拒绝的债权，将按时支付对价。请天储投资管理（北京）有限公司知悉并见证。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="352" width="229" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[签章：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="384" width="229" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[如果受让人对上述债权全部或部分不人可，请填写本回执，标明所拒绝的债权序号，在                                       前将回执交给大连天储投资]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权转让拒绝回执]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="64" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[并自己保留一份取得大连天储投资盖章的回执，由大连天储投资协调进行其他债权的推荐。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="288" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[本人特此签章证明：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="352" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[盖章：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="192" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[本人拒绝转让让人                     上述欲转让给本人的第（                    ）号（依次填写序号）债权，本人将不予支付该债权的对价；对于其]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="256" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="320" width="229" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让人：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="725" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[天储投资提示：]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

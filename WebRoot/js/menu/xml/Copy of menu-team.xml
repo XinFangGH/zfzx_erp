@@ -1,0 +1,1614 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_team" text="贷款管理" iconCls="mod-team"> 
+	<Items id="financeApply" text="借款申请管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<!--<Item id="BpFinanceApplyView" iconCls="btn-tree-obliga77" text="融资申请"></Item>
+			<Item id="BpComFinanceApplyView" iconCls="btn-tree-obliga" text="非注册企业申请审核"></Item>-->
+			<Item id="BpPerFinanceApplyView" iconCls="btn-tree-obliga" text="非注册用户申请处理"></Item>
+			
+			<Item id="BpFinanceApplyUserView" iconCls="btn-tree-obliga" text="注册用户申请处理"></Item>
+			<Item id="WebFinanceApplyUploadsView" iconCls="btn-tree-obliga" text="客户资料审核"></Item>
+	</Items>
+	<Items id="slDealManger" text="贷款办理" iconCls="menu-finance" >
+		 <Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness" text="个人贷款申请 " iconCls="btn-tree-team1" isControl="false" />
+		 <Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness" text="企业贷款申请 " iconCls="btn-tree-team1" isControl="false" />
+		 <!--如果是标准贷款业务系统项目申请入口gengjj-->
+		 <!--<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=personSmall" text="标准小贷申请 " iconCls="btn-tree-team1" isControl="false" />
+		 <Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=personHistory" text="标准小贷历史补录 " iconCls="btn-tree-team1" isControl="false" />-->
+	</Items>
+		<!-- 原通用功能  -->
+	<Items id="flowtasks" text="任务处理 " iconCls="btn-tree-team4" >
+		<!--<Item id="MyTaskView" text="待办任务" iconCls="menu-flowWait" />-->
+		<Item id="ActivityTaskView" text="待办任务" iconCls="btn-tree-team2"  >
+		<!-- <Function id="_detailPro" text="处理任务" iconCls="menu-flowWait">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>-->
+			<Function id="_flowRecords" text="查看任务流转记录" iconCls="btn-detail"></Function>
+			<Function id="_showFlowImg" text="流程示意图" iconCls="btn-flow-chart"></Function>
+		</Item>
+		<!--<Item id="MyRunningTaskView_p" text="任务追回" iconCls="btn-tree-team3">
+			<Function id="_rollbackTask" text="追回" iconCls="btn-back">
+			</Function>
+		</Item>
+		<Item id="ProcessRunView_p" text="我发起的项目 " iconCls="btn-tree-team5" />-->
+		<Item id="CompleteTaskView" text="办结任务 " iconCls="btn-tree-team6" >
+			<Function id="_comFlowRecords" text="查看任务流转记录" iconCls="btn-detail"></Function>
+			<Function id="_comShowFlowImg" text="流程示意图" iconCls="btn-flow-chart"></Function>
+		</Item>
+		<Item id="MyProcessRunView_p" text="我参与的项目" iconCls="btn-tree-team4" ></Item>
+	</Items>
+	<Items id="ElectricMarketManageme" text="客户营销管理" iconCls="mod-customer" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=0" iconCls="btn-tree-team22" text="我的意向客户">
+				<Function id="_Prospective_cust_see_All_2_0" text="查看所有" iconCls="btn-add"/>
+				<Function id="_Prospective_cust_add_2_0" text="增加" iconCls="btn-add"/>
+				<Function id="_Prospective_cust_see_2_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_edit_2_0" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_Prospective_cust_dele_2_0" text="删除" iconCls="btn-delete"/>
+				<Function id="_Prospective_cust_changeType_2_0" text="客户转化" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_cust_relationPerson_2_0" text="联系人" iconCls="btn-detail"/>
+				--><Function id="_Prospective_cust_followUp_2_0" text="跟进" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_setNextTime_2_0" text="设置下次联系时间" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_cust_outToExcel_2_0" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		
+		<Item id="CsProspectivePersonDistributionView?personType=0" iconCls="btn-tree-team22" text="意向资源分配">
+				<Function id="_Prospective_distribution_All_0" text="查看所有意向资源" iconCls="btn-detail"/>
+				<Function id="_Prospective_distribution_add_0" text="增加" iconCls="btn-add"/>
+				<Function id="_Prospective_distribution_see_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_distribution_edit_0" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_Prospective_distribution_dele_0" text="删除" iconCls="btn-delete"/>
+				<Function id="_Prospective_distribution_grant_0" text="意向分配" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_distribution_seniorGrant_0" text="高级意向分配" iconCls="btn-detail"/>
+				--><!--<Function id="_Prospective_distribution_outToExcel_0" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		
+		<Item id="CsProspectivePersonFollowUpManager?personType=0" iconCls="btn-tree-team22" text="跟进记录管理">
+				<Function id="_Prospective_followUp_All_0" text="查看所有跟进记录" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_info_0" text="跟进详情" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_commonent_0" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=0" iconCls="btn-tree-team22" text="已转化为正式客户">
+				<Function id="_Prospective_cust_see_All_1_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_1_0" text="查看" iconCls="btn-detail"/>
+				<!--<Function id="_Prospective_cust_outToExcel_1_0" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=0" iconCls="btn-tree-team22" text="已排除意向客户">
+				<Function id="_Prospective_cust_see_All_3_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_3_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_recovering_3_0" text="撤销" iconCls="btn-reset"/>
+				<!--<Function id="_Prospective_cust_outToExcel_3_0" text="导出到Excel" iconCls="btn-detail"/>
+		--></Item><!--
+		<Item id="CsSalesRecordView?personType=0" iconCls="btn-tree-team22" text="放款端电销工作记录">
+				<Function id="_see_CsSalesRecord_All_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_see_CsSalesRecord_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_add_CsSalesRecord_0" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_CsSalesRecord_0" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_delete_CsSalesRecord_0" text="删除" iconCls="btn-delete"/>
+		</Item>
+	--></Items>
+	
+	<Items id="Customer" text="客户档案管理" iconCls="mod-customer" isPublic="false">
+		<Item id="EnterpriseView" iconCls="btn-tree-team22" text="企业客户档案管理">
+				<Function id="_seeAll_qykh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_detail_qykh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_qykh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh" text="编辑" iconCls="btn-edit"/>
+				<Function id="_editBelongeder_qykh" text="编辑客户所有人" iconCls="btn-edit"/>
+				<Function id="_remove_qykh" text="删除" iconCls="btn-delete"/>
+				<Function id="_enterprise_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_qykh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_qykh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_qykh" text="编辑客户级别" iconCls="btn-edit"/>
+				<Function id="_add_p2p_business_user" text="开通p2p账户" iconCls="btn-edit"/>
+		</Item>
+		<Item id="PersonView" iconCls="btn-tree-team23" text="个人客户档案管理">
+				<Function id="_detail_sygrkh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_See_grkh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_grkh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_grkh" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_editBelongeder_grkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				<Function id="_remove_grkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_detail_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_grkh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_grkh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_grkh" text="编辑客户级别" iconCls="btn-edit"/>
+				<Function id="_add_p2p_persion_user" text="开通p2p账户" iconCls="btn-edit"/>
+		</Item><!--
+		<Item id="BankRelationPersonView" iconCls="menu-bank" text="银行客户">
+				<Function id="_detail_syyhkh" text="查看所有客户" iconCls="btn-detail"/>
+			 	<Function id="_detail_yhkh" text="查看" iconCls="btn-detail"/>
+			 	<Function id="_create_yhkh" text="添加" iconCls="btn-add"/>
+				<Functions id="_edit_yhkh" text="编辑" iconCls="btn-edit">
+					<Function id="_editBelongeder_yhkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				</Functions>
+				<Function id="_remove_yhkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_export_yhkh" text="导出到excel" iconCls="btn-xls"/>
+		</Item>
+		<Item id="LfOfferView" iconCls="btn-tree-team23" text="供货方客户">
+			<Function id="_detail_offerView" text="查看所有客户" iconCls="btn-detail">
+			</Function>
+			<Function id="_see_offerView" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_create_offerView" text="增加" iconCls="btn-add"
+				isControl="false">
+			</Function>
+			<Function id="_edit_offerView" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_offerView" text="删除" iconCls="btn-delete">
+			</Function>
+			<Function id="_export_offerView" text="导出到Excel" iconCls="btn-xls">
+			</Function>
+		</Item>
+		-->
+		<Item id="CustomerGrantManagement" iconCls="menu-customer-manager" text="客户资源分配管理"></Item>
+		<Item id="PersonP2PView" iconCls="btn-tree-team" text="客户网站账号管理">
+		</Item>
+		<Item id="BlackList" iconCls="btn-tree-team62" text="黑名单管理">
+		      <Function id="_black_see_customer" text="查看所有列表" iconCls="btn-edit"/>
+		      <Function id="_seeCustomerInfo" text="查看客户详细信息" iconCls="btn-edit"/>
+			  <Function id="_revocateBlack" text="撤销黑名单" iconCls="btn-edit"/>
+		</Item>	
+		
+	</Items>
+
+	<Items id="ApproveProjectFrontQuery" text="贷前业务查询 " iconCls="btn-tree-team57">
+		<Item id="ApproveProjectManager?projectStatus=0" text="待审核项目查询" iconCls="btn-tree-team17" >
+			<Function id="ApproveProject_seeAll_0" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="ApproveProject_see_0" text="查看项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_edit_0" text="编辑项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeAgreements_0" text="意见与说明记录" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeshowFlowImg_0" text="流程示意图" iconCls="btn-detail" />
+		</Item>
+		<Item id="ApproveProjectManager?projectStatus=2" text="已过审项目查询" iconCls="btn-tree-team18" >
+			<Function id="ApproveProject_seeAll_2" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="ApproveProject_see_2" text="查看项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_edit_2" text="编辑项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeAgreements_2" text="意见与说明记录" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeshowFlowImg_2" text="流程示意图" iconCls="btn-detail" />
+		</Item>
+		<Item id="ApproveProjectManager?projectStatus=3" text="已否决项目查询" iconCls="btn-tree-team60" >
+			<Function id="ApproveProject_seeAll_3" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="ApproveProject_see_3" text="查看项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_edit_3" text="编辑项目" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeAgreements_3" text="意见与说明记录" iconCls="btn-detail" />
+			<Function id="ApproveProject_seeshowFlowImg_3" text="流程示意图" iconCls="btn-detail" />
+		</Item>
+	</Items>
+	
+	<Items id="SlSmallLoanProjectMiddleQuery" text="贷中项目查询 " iconCls="btn-tree-team57">
+		
+		<Item id="SmallLoanProjectManager?projectStatus=0" text="办理中项目查询" iconCls="btn-tree-team17" >
+			<Function id="_seeAllPro_p0" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p0" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_0" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_0" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_0" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_0" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_0" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_0" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_0" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p0" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_0" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_0" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_0" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_0" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_0" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_0" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_0" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_0" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_0" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_0" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_0" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_0" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_0" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_0" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_0" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_0" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p0" text="流程控制" iconCls="">
+					<Function id="seeAgreements_0" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p0" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p0" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p0" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p0" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p0" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p0" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_businessInfo_0" text="业务信息" iconCls="">
+				<Function id="ediSlProjectInfo_0" text="项目控制信息" iconCls=""/>
+				<Function id="editLendForm_0" text="借款需求" iconCls=""/>
+				<Function id="editslCustomerInfo_0" text="客户信息" iconCls=""/>
+				<Functions id="editslFinanceInfo_0" text="资金款项信息" iconCls="mod-finance">
+					<Functions id="editslFundInentInfo_0" text="放款收息表" iconCls="mod-finance">
+						<Function id="addFundIntentView_0" text="增加" iconCls=""/>
+						<Function id="delFundIntentView__0" text="删除" iconCls=""/>
+						<Function id="autoFundIntentView_0" text="生成" iconCls=""/>
+						
+					</Functions>
+					<Functions id="editslActualToCharge_0" text="手续费用收取清单" iconCls="mod-finance">
+						<Function id="editSlActualToCharge_0" text="编辑" iconCls=""/>
+						
+					</Functions>
+				</Functions>
+					
+				</Functions>
+				<Functions id="_RiskControl_p0" text="风险控制" iconCls="">
+				<Function id="editAssuretenet_0" text="贷款必备条件" iconCls="">
+					</Function>
+				<Functions id="editCreditMaterials_0" text="贷款资料清单" iconCls="btn-attachment">
+						<Function id="editProcreditMaterials_0" text="是否可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Function id="editrepaymentSource_0" text="第一还款来源" iconCls="menu-archive-issue">
+						<Function id="editRepaymentSource_0" text="可编辑" iconCls="btn-document-doc"/>
+					</Function>
+					<Functions id="editmortgageView_0" text="担保措施管理 " iconCls="btn-setting">
+						<Function id="addMortgage_0" text="增加担保措施" iconCls="btn-document-doc"/>
+						<Function id="delMortgage_0" text="删除担保措施" iconCls="btn-document-doc"/>
+						<Function id="editMortgage_0" text="编辑担保措施" iconCls="btn-document-doc"/>
+						<Function id="editblMortgage_0" text="办理担保措施" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editborrowerInfo_0" text="共同借款人信息" iconCls="btn-document-doc">
+						<Function id="addBorrowerInfo_0" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delBorrowerInfo_0" text="删除" iconCls="btn-document-doc"/>
+						<Function id="editBorrowerInfo_0" text="可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					
+					<Function id="voteSign_0" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_0" text="线下审贷会情况" iconCls=""/>
+					<Function id="SuperviseIn_0" text="贷后监管" iconCls="btn-edit"/>
+					<Functions id="records_0" text="展期记录 " iconCls="btn-edit">
+						<Functions id="allRecords_0" text="编辑以及删除" iconCls="btn-edit">
+							<Function id="_hiddenZQSaveTbar_0" text="保存" iconCls="btn-detail"/>
+							<Function id="_hiddenZQdzybzBtn_0" text="增加/删除/编辑抵质押(保证)担保" iconCls="btn-detail"/>
+							<Functions id="_zqws_0" text="展期文书" iconCls="">
+								<Functions id="_applyForPostponed_0" text="展期审批书" iconCls="btn-edit">
+									<Function id="_hiddenZQsqsTbar_0" text="上传" iconCls="btn-edit"/>
+								</Functions>
+								<Functions id="_postponedContract_0" text="展期协议书" iconCls="btn-edit">
+									<Function id="_hiddenZQxysTbar_0" text="添加/删除/编辑" iconCls="btn-edit"/>
+								</Functions>
+							</Functions>
+							<Functions id="_zqfxkz_0" text="风险控制" iconCls="">
+								<Function id="_zqsdhjtjy_0" text="展期审贷会集体决议" iconCls="btn-detail"/>
+							</Functions>
+							<Functions id="_zqlckz_0" text="流程控制" iconCls="">
+								<Function id="_showZQFlowImg_0" text="展期流程示意图" iconCls="btn-detail"/>
+								<Function id="_zqRecords_0" text="展期意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_zqTaskChange_0" text="展期任务换人" iconCls="btn-detail"/>
+								<Function id="_zqTaskJump_0" text="展期流程跳转" iconCls="btn-detail"/>
+								<Function id="_zqTaskStop_0" text="展期项目终止" iconCls="btn-detail"/>
+							</Functions>
+						</Functions>
+					</Functions>
+					<Function id="FilingRecord_0" text="项目归档记录" iconCls="btn-detail"/>
+					<Functions id="earlyrepaymentRecord_0" text="提前还款记录" iconCls="btn-detail">
+						<Functions id="_tqhkbgEdit_0" text="提前还款记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenTQHKSaveTbar_0" text="保存" iconCls="btn-detail"/>
+							<Function id="_tqhkOpraFksxb_0" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_tqhkUpload_0" text="上传(提前还款申请表)" iconCls="mod-finance"/>
+							<Function id="_tqhkCreate_0" text="生成(提前还款审批表)" iconCls="mod-finance"/>
+							<Function id="_showTqhkFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_txhkRecords_0" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskChange_0" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskJump_0" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskStop_0" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Functions id="aflterAccrualRecord_0" text="利率变更记录" iconCls="btn-detail">
+						<Functions id="_lilvbgEdit_0" text="利率变更记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenLilvSaveTbar_0" text="保存" iconCls="btn-detail"/>
+							<Function id="_lilvOpraFksxb_0" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_lilvSpbsc_0" text="生成(利率变更审批表)" iconCls="mod-finance"/>
+							<Function id="_showLilvFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_lilvRecords_0" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_lilvTaskChange_0" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_lilvTaskJump_0" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_lilvTaskStop_0" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Function id="no_promise_handle_0" text="违约处理详情" iconCls="btn-detail"/>
+				</Functions>
+				<Functions id="_contractBook_0" text="合同文书" iconCls="">
+					
+					<Functions id="slLoanContract_0" text="借款合同" iconCls="menu-archive-issue">
+						<Function id="addLoanContract_0" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delLoanContract_0" text="删除" iconCls="btn-document-doc"/>
+						<Function id="ediLoanContract_0" text="编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editReport_0" text="调查报告" iconCls="menu-archive-issue">
+						<Function id="editReportView_0" text="下载模板以及上传" iconCls="menu-archive-issue"/>
+					</Functions>
+				</Functions>
+				<Functions id="_processControl_p0" text="流程控制" iconCls="">
+					<Function id="Agreements_0" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="showFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+					<!--					
+					<Function id="applyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					-->
+					<Function id="taskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="pathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="stopPro_0" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+				</Functions>
+		</Item>
+		
+		<Item id="SmallLoanProjectManager?projectStatus=7" text="放款后项目查询" iconCls="btn-tree-team16" >
+			<Function id="_seeAllPro_p7" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="_yjysm_p7" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_showFlowImg_p7" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_exportPro_p7" text="导出项目" iconCls="menu-zmexport"/>
+			<Function id="_detailPro_p7" text="编辑项目" iconCls="btn-edit" />
+			<Function id="_seePro_p7" text="查看项目" iconCls="btn-detail"/>
+		</Item>
+		
+	</Items>
+	<Items id="SlSmallLoanProjectLaterQuery" text="贷后业务查询 " iconCls="btn-tree-team57">
+		<Item id="SmallLoanProjectManager?projectStatus=1" text="还款中项目查询" iconCls="btn-tree-team18" >
+			<Function id="_seeAllPro_p1" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p1" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_1" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_1" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_1" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_1" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_1" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_1" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_1" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p1" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_1" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_1" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_1" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_1" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_1" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_1" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_1" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_1" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_1" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_1" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_1" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_1" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_1" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_1" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_1" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_1" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p1" text="流程控制" iconCls="">
+					<Function id="seeAgreements_1" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p1" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p1" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p1" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p1" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p1" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p1" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_businessInfo_1" text="业务信息" iconCls="">
+				<Function id="ediSlProjectInfo_1" text="项目控制信息" iconCls=""/>
+				<Function id="editLendForm_1" text="借款需求" iconCls=""/>
+				<Function id="editslCustomerInfo_1" text="客户信息" iconCls=""/>
+				<Functions id="editslFinanceInfo_1" text="资金款项信息" iconCls="mod-finance">
+					<Functions id="editslFundInentInfo_1" text="放款收息表" iconCls="mod-finance">
+						<Function id="addFundIntentView_1" text="增加" iconCls=""/>
+						<Function id="delFundIntentView__1" text="删除" iconCls=""/>
+						<Function id="autoFundIntentView_1" text="生成" iconCls=""/>
+						
+					</Functions>
+					<Functions id="editslActualToCharge_1" text="手续费用收取清单" iconCls="mod-finance">
+						<Function id="editSlActualToCharge_1" text="编辑" iconCls=""/>
+						
+					</Functions>
+				</Functions>
+					
+				</Functions>
+				<Functions id="_RiskControl_p1" text="风险控制" iconCls="">
+				<Function id="editAssuretenet_1" text="贷款必备条件" iconCls="">
+					</Function>
+				<Functions id="editCreditMaterials_1" text="贷款资料清单" iconCls="btn-attachment">
+						<Function id="editProcreditMaterials_1" text="是否可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Function id="editrepaymentSource_1" text="第一还款来源" iconCls="menu-archive-issue">
+						<Function id="editRepaymentSource_1" text="可编辑" iconCls="btn-document-doc"/>
+					</Function>
+					<Functions id="editmortgageView_1" text="担保措施管理 " iconCls="btn-setting">
+						<Function id="addMortgage_1" text="增加担保措施" iconCls="btn-document-doc"/>
+						<Function id="delMortgage_1" text="删除担保措施" iconCls="btn-document-doc"/>
+						<Function id="editMortgage_1" text="编辑担保措施" iconCls="btn-document-doc"/>
+						<Function id="editblMortgage_1" text="办理担保措施" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editborrowerInfo_1" text="共同借款人信息" iconCls="btn-document-doc">
+						<Function id="addBorrowerInfo_1" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delBorrowerInfo_1" text="删除" iconCls="btn-document-doc"/>
+						<Function id="editBorrowerInfo_1" text="可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					
+					<Function id="voteSign_1" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_1" text="线下审贷会情况" iconCls=""/>
+					<Function id="SuperviseIn_1" text="贷后监管" iconCls="btn-edit"/>
+					<Functions id="records_1" text="展期记录 " iconCls="btn-edit">
+						<Functions id="allRecords_1" text="编辑以及删除" iconCls="btn-edit">
+							<Function id="_hiddenZQSaveTbar_1" text="保存" iconCls="btn-detail"/>
+							<Function id="_hiddenZQdzybzBtn_1" text="增加/删除/编辑抵质押(保证)担保" iconCls="btn-detail"/>
+							<Functions id="_zqws_1" text="展期文书" iconCls="">
+								<Functions id="_applyForPostponed_1" text="展期审批书" iconCls="btn-edit">
+									<Function id="_hiddenZQsqsTbar_1" text="上传" iconCls="btn-edit"/>
+								</Functions>
+								<Functions id="_postponedContract_1" text="展期协议书" iconCls="btn-edit">
+									<Function id="_hiddenZQxysTbar_1" text="添加/删除/编辑" iconCls="btn-edit"/>
+								</Functions>
+							</Functions>
+							<Functions id="_zqfxkz_1" text="风险控制" iconCls="">
+								<Function id="_zqsdhjtjy_1" text="展期审贷会集体决议" iconCls="btn-detail"/>
+							</Functions>
+							<Functions id="_zqlckz_1" text="流程控制" iconCls="">
+								<Function id="_showZQFlowImg_1" text="展期流程示意图" iconCls="btn-detail"/>
+								<Function id="_zqRecords_1" text="展期意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_zqTaskChange_1" text="展期任务换人" iconCls="btn-detail"/>
+								<Function id="_zqTaskJump_1" text="展期流程跳转" iconCls="btn-detail"/>
+								<Function id="_zqTaskStop_1" text="展期项目终止" iconCls="btn-detail"/>
+							</Functions>
+						</Functions>
+					</Functions>
+					<Function id="FilingRecord_1" text="项目归档记录" iconCls="btn-detail"/>
+					<Functions id="earlyrepaymentRecord_1" text="提前还款记录" iconCls="btn-detail">
+						<Functions id="_tqhkbgEdit_1" text="提前还款记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenTQHKSaveTbar_1" text="保存" iconCls="btn-detail"/>
+							<Function id="_tqhkOpraFksxb_1" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_tqhkUpload_1" text="上传(提前还款申请表)" iconCls="mod-finance"/>
+							<Function id="_tqhkCreate_1" text="生成(提前还款审批表)" iconCls="mod-finance"/>
+							<Function id="_showTqhkFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_txhkRecords_1" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskChange_1" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskJump_1" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskStop_1" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Functions id="aflterAccrualRecord_1" text="利率变更记录" iconCls="btn-detail">
+						<Functions id="_lilvbgEdit_1" text="利率变更记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenLilvSaveTbar_1" text="保存" iconCls="btn-detail"/>
+							<Function id="_lilvOpraFksxb_1" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_lilvSpbsc_1" text="生成(利率变更审批表)" iconCls="mod-finance"/>
+							<Function id="_showLilvFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_lilvRecords_1" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_lilvTaskChange_1" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_lilvTaskJump_1" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_lilvTaskStop_1" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Function id="no_promise_handle_1" text="违约处理详情" iconCls="btn-detail"/>
+				</Functions>
+				<Functions id="_contractBook_1" text="合同文书" iconCls="">
+					
+					<Functions id="slLoanContract_1" text="借款合同" iconCls="menu-archive-issue">
+						<Function id="addLoanContract_1" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delLoanContract_1" text="删除" iconCls="btn-document-doc"/>
+						<Function id="ediLoanContract_1" text="编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editReport_1" text="调查报告" iconCls="menu-archive-issue">
+						<Function id="editReportView_1" text="下载模板以及上传" iconCls="menu-archive-issue"/>
+					</Functions>
+				</Functions>
+				<Functions id="_processControl_p1" text="流程控制" iconCls="">
+					<Function id="Agreements_1" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="showFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+					<!--					
+					<Function id="applyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					-->
+					<Function id="taskHandler_1" text="任务换人" iconCls="btn-detail"/>
+					<Function id="pathChange_1" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="stopPro_1" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+				</Functions>
+		</Item>
+		<Item id="SmallLoanProjectManager?projectStatus=4" text="已展期项目查询" iconCls="btn-tree-team60" >
+		<Function id="_seeAllPro_p5" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p5" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_5" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_5" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_5" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_5" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_5" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_5" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_5" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p5" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_5" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_5" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_5" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_5" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_5" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_5" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_5" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_5" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_5" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_5" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_5" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_5" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_5" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_5" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_5" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_5" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p5" text="流程控制" iconCls="">
+					<Function id="seeAgreements_5" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_5" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p5" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p5" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p5" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p5" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p5" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p5" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_businessInfo_5" text="业务信息" iconCls="">
+				<Function id="ediSlProjectInfo_5" text="项目控制信息" iconCls=""/>
+				<Function id="editLendForm_5" text="借款需求" iconCls=""/>
+				<Function id="editslCustomerInfo_5" text="客户信息" iconCls=""/>
+				<Functions id="editslFinanceInfo_5" text="资金款项信息" iconCls="mod-finance">
+					<Functions id="editslFundInentInfo_5" text="放款收息表" iconCls="mod-finance">
+						<Function id="addFundIntentView_5" text="增加" iconCls=""/>
+						<Function id="delFundIntentView_5" text="删除" iconCls=""/>
+						<Function id="autoFundIntentView_5" text="生成" iconCls=""/>
+						
+					</Functions>
+					<Functions id="editslActualToCharge_5" text="手续费用收取清单" iconCls="mod-finance">
+						<Function id="editSlActualToCharge_5" text="编辑" iconCls=""/>
+						
+					</Functions>
+				</Functions>
+					
+				</Functions>
+				<Functions id="_RiskControl_p5" text="风险控制" iconCls="">
+				<Function id="editAssuretenet_5" text="贷款必备条件" iconCls="">
+					</Function>
+				<Functions id="editCreditMaterials_5" text="贷款资料清单" iconCls="btn-attachment">
+						<Function id="editProcreditMaterials_5" text="是否可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Function id="editrepaymentSource_5" text="第一还款来源" iconCls="menu-archive-issue">
+						<Function id="editRepaymentSource_5" text="可编辑" iconCls="btn-document-doc"/>
+					</Function>
+					<Functions id="editmortgageView_5" text="担保措施管理 " iconCls="btn-setting">
+						<Function id="addMortgage_5" text="增加担保措施" iconCls="btn-document-doc"/>
+						<Function id="delMortgage_5" text="删除担保措施" iconCls="btn-document-doc"/>
+						<Function id="editMortgage_5" text="编辑担保措施" iconCls="btn-document-doc"/>
+						<Function id="editblMortgage_5" text="办理担保措施" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editborrowerInfo_5" text="共同借款人信息" iconCls="btn-document-doc">
+						<Function id="addBorrowerInfo_5" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delBorrowerInfo_5" text="删除" iconCls="btn-document-doc"/>
+						<Function id="editBorrowerInfo_5" text="可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					
+					<Function id="voteSign_5" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_5" text="线下审贷会情况" iconCls=""/>
+					<Function id="SuperviseIn_5" text="贷后监管" iconCls="btn-edit"/>
+					<Functions id="records_5" text="展期记录 " iconCls="btn-edit">
+						<Functions id="allRecords_5" text="编辑以及删除" iconCls="btn-edit">
+							<Function id="_hiddenZQSaveTbar_5" text="保存" iconCls="btn-detail"/>
+							<Function id="_hiddenZQdzybzBtn_5" text="增加/删除/编辑抵质押(保证)担保" iconCls="btn-detail"/>
+							<Functions id="_zqws_5" text="展期文书" iconCls="">
+								<Functions id="_applyForPostponed_5" text="展期审批书" iconCls="btn-edit">
+									<Function id="_hiddenZQsqsTbar_5" text="上传" iconCls="btn-edit"/>
+								</Functions>
+								<Functions id="_postponedContract_5" text="展期协议书" iconCls="btn-edit">
+									<Function id="_hiddenZQxysTbar_5" text="添加/删除/编辑" iconCls="btn-edit"/>
+								</Functions>
+							</Functions>
+							<Functions id="_zqfxkz_5" text="风险控制" iconCls="">
+								<Function id="_zqsdhjtjy_5" text="展期审贷会集体决议" iconCls="btn-detail"/>
+							</Functions>
+							<Functions id="_zqlckz_5" text="流程控制" iconCls="">
+								<Function id="_showZQFlowImg_5" text="展期流程示意图" iconCls="btn-detail"/>
+								<Function id="_zqRecords_5" text="展期意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_zqTaskChange_5" text="展期任务换人" iconCls="btn-detail"/>
+								<Function id="_zqTaskJump_5" text="展期流程跳转" iconCls="btn-detail"/>
+								<Function id="_zqTaskStop_5" text="展期项目终止" iconCls="btn-detail"/>
+							</Functions>
+						</Functions>
+					</Functions>
+					<Function id="FilingRecord_5" text="项目归档记录" iconCls="btn-detail"/>
+					<Functions id="earlyrepaymentRecord_5" text="提前还款记录" iconCls="btn-detail">
+						<Functions id="_tqhkbgEdit_5" text="提前还款记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenTQHKSaveTbar_5" text="保存" iconCls="btn-detail"/>
+							<Function id="_tqhkOpraFksxb_5" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_tqhkUpload_5" text="上传(提前还款申请表)" iconCls="mod-finance"/>
+							<Function id="_tqhkCreate_5" text="生成(提前还款审批表)" iconCls="mod-finance"/>
+							<Function id="_showTqhkFlowImg_5" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_txhkRecords_5" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskChange_5" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskJump_5" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskStop_5" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Functions id="aflterAccrualRecord_5" text="利率变更记录" iconCls="btn-detail">
+						<Functions id="_lilvbgEdit_5" text="利率变更记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenLilvSaveTbar_5" text="保存" iconCls="btn-detail"/>
+							<Function id="_lilvOpraFksxb_5" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_lilvSpbsc_5" text="生成(利率变更审批表)" iconCls="mod-finance"/>
+							<Function id="_showLilvFlowImg_5" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_lilvRecords_5" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_lilvTaskChange_5" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_lilvTaskJump_5" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_lilvTaskStop_5" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Function id="no_promise_handle_5" text="违约处理详情" iconCls="btn-detail"/>
+				</Functions>
+				<Functions id="_contractBook_5" text="合同文书" iconCls="">
+					
+					<Functions id="slLoanContract_5" text="借款合同" iconCls="menu-archive-issue">
+						<Function id="addLoanContract_5" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delLoanContract_5" text="删除" iconCls="btn-document-doc"/>
+						<Function id="ediLoanContract_5" text="编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editReport_5" text="调查报告" iconCls="menu-archive-issue">
+						<Function id="editReportView_5" text="下载模板以及上传" iconCls="menu-archive-issue"/>
+					</Functions>
+				</Functions>
+				<Functions id="_processControl_p5" text="流程控制" iconCls="">
+					<Function id="Agreements_5" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="showFlowImg_5" text="流程示意图" iconCls="btn-detail"/>
+					<!--					
+					<Function id="applyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					-->
+					<Function id="taskHandler_5" text="任务换人" iconCls="btn-detail"/>
+					<Function id="pathChange_5" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="stopPro_5" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+				</Functions>
+		</Item>
+		<Item id="SmallLoanProjectManager?projectStatus=8" text="已违约项目查询" iconCls="btn-tree-team61" >
+			<Function id="_seeAllPro_p8" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p8" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_8" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_8" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_8" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_8" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_8" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_8" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_8" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p8" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_8" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_8" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_8" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_8" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_8" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_8" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_8" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_8" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_8" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_8" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_8" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_8" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_8" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_8" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_8" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_8" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p8" text="流程控制" iconCls="">
+					<Function id="seeAgreements_8" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_8" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p8" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p8" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p8" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p8" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p8" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p8" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_businessInfo_8" text="业务信息" iconCls="">
+				<Function id="ediSlProjectInfo_8" text="项目控制信息" iconCls=""/>
+				<Function id="editLendForm_8" text="借款需求" iconCls=""/>
+				<Function id="editslCustomerInfo_8" text="客户信息" iconCls=""/>
+				<Functions id="editslFinanceInfo_8" text="资金款项信息" iconCls="mod-finance">
+					<Functions id="editslFundInentInfo_8" text="放款收息表" iconCls="mod-finance">
+						<Function id="addFundIntentView_8" text="增加" iconCls=""/>
+						<Function id="delFundIntentView_8" text="删除" iconCls=""/>
+						<Function id="autoFundIntentView_8" text="生成" iconCls=""/>
+						
+					</Functions>
+					<Functions id="editslActualToCharge_8" text="手续费用收取清单" iconCls="mod-finance">
+						<Function id="editSlActualToCharge_8" text="编辑" iconCls=""/>
+						
+					</Functions>
+				</Functions>
+					
+				</Functions>
+				<Functions id="_RiskControl_p8" text="风险控制" iconCls="">
+				<Function id="editAssuretenet_8" text="贷款必备条件" iconCls="">
+					</Function>
+				<Functions id="editCreditMaterials_8" text="贷款资料清单" iconCls="btn-attachment">
+						<Function id="editProcreditMaterials_8" text="是否可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Function id="editrepaymentSource_8" text="第一还款来源" iconCls="menu-archive-issue">
+						<Function id="editRepaymentSource_8" text="可编辑" iconCls="btn-document-doc"/>
+					</Function>
+					<Functions id="editmortgageView_8" text="担保措施管理 " iconCls="btn-setting">
+						<Function id="addMortgage_8" text="增加担保措施" iconCls="btn-document-doc"/>
+						<Function id="delMortgage_8" text="删除担保措施" iconCls="btn-document-doc"/>
+						<Function id="editMortgage_8" text="编辑担保措施" iconCls="btn-document-doc"/>
+						<Function id="editblMortgage_8" text="办理担保措施" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editborrowerInfo_8" text="共同借款人信息" iconCls="btn-document-doc">
+						<Function id="addBorrowerInfo_8" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delBorrowerInfo_8" text="删除" iconCls="btn-document-doc"/>
+						<Function id="editBorrowerInfo_8" text="可编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					
+					<Function id="voteSign_8" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_8" text="线下审贷会情况" iconCls=""/>
+					<Function id="SuperviseIn_8" text="贷后监管" iconCls="btn-edit"/>
+					<Functions id="records_8" text="展期记录 " iconCls="btn-edit">
+						<Functions id="allRecords_8" text="编辑以及删除" iconCls="btn-edit">
+							<Function id="_hiddenZQSaveTbar_8" text="保存" iconCls="btn-detail"/>
+							<Function id="_hiddenZQdzybzBtn_8" text="增加/删除/编辑抵质押(保证)担保" iconCls="btn-detail"/>
+							<Functions id="_zqws_8" text="展期文书" iconCls="">
+								<Functions id="_applyForPostponed_8" text="展期审批书" iconCls="btn-edit">
+									<Function id="_hiddenZQsqsTbar_8" text="上传" iconCls="btn-edit"/>
+								</Functions>
+								<Functions id="_postponedContract_8" text="展期协议书" iconCls="btn-edit">
+									<Function id="_hiddenZQxysTbar_8" text="添加/删除/编辑" iconCls="btn-edit"/>
+								</Functions>
+							</Functions>
+							<Functions id="_zqfxkz_8" text="风险控制" iconCls="">
+								<Function id="_zqsdhjtjy_8" text="展期审贷会集体决议" iconCls="btn-detail"/>
+							</Functions>
+							<Functions id="_zqlckz_8" text="流程控制" iconCls="">
+								<Function id="_showZQFlowImg_8" text="展期流程示意图" iconCls="btn-detail"/>
+								<Function id="_zqRecords_8" text="展期意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_zqTaskChange_8" text="展期任务换人" iconCls="btn-detail"/>
+								<Function id="_zqTaskJump_8" text="展期流程跳转" iconCls="btn-detail"/>
+								<Function id="_zqTaskStop_8" text="展期项目终止" iconCls="btn-detail"/>
+							</Functions>
+						</Functions>
+					</Functions>
+					<Function id="FilingRecord_8" text="项目归档记录" iconCls="btn-detail"/>
+					<Functions id="earlyrepaymentRecord_8" text="提前还款记录" iconCls="btn-detail">
+						<Functions id="_tqhkbgEdit_8" text="提前还款记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenTQHKSaveTbar_8" text="保存" iconCls="btn-detail"/>
+							<Function id="_tqhkOpraFksxb_8" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_tqhkUpload_8" text="上传(提前还款申请表)" iconCls="mod-finance"/>
+							<Function id="_tqhkCreate_8" text="生成(提前还款审批表)" iconCls="mod-finance"/>
+							<Function id="_showTqhkFlowImg_8" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_txhkRecords_8" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskChange_8" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskJump_8" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_tqhkTaskStop_8" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Functions id="aflterAccrualRecord_8" text="利率变更记录" iconCls="btn-detail">
+						<Functions id="_lilvbgEdit_8" text="利率变更记录编辑" iconCls="btn-edit" >
+							<Function id="_hiddenLilvSaveTbar_8" text="保存" iconCls="btn-detail"/>
+							<Function id="_lilvOpraFksxb_8" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+							<Function id="_lilvSpbsc_8" text="生成(利率变更审批表)" iconCls="mod-finance"/>
+							<Function id="_showLilvFlowImg_8" text="流程示意图" iconCls="btn-detail"/>
+							<Function id="_lilvRecords_8" text="意见与说明记录" iconCls="btn-detail"/>
+							<Function id="_lilvTaskChange_8" text="任务换人" iconCls="btn-detail"/>
+							<Function id="_lilvTaskJump_8" text="流程跳转" iconCls="btn-detail"/>
+							<Function id="_lilvTaskStop_8" text="项目终止" iconCls="btn-detail"/>
+						</Functions>
+					</Functions>
+					<Function id="no_promise_handle_8" text="违约处理详情" iconCls="btn-detail"/>
+				</Functions>
+				<Functions id="_contractBook_8" text="合同文书" iconCls="">
+					
+					<Functions id="slLoanContract_8" text="借款合同" iconCls="menu-archive-issue">
+						<Function id="addLoanContract_8" text="增加" iconCls="btn-document-doc"/>
+						<Function id="delLoanContract_8" text="删除" iconCls="btn-document-doc"/>
+						<Function id="ediLoanContract_8" text="编辑" iconCls="btn-document-doc"/>
+					</Functions>
+					<Functions id="editReport_8" text="调查报告" iconCls="menu-archive-issue">
+						<Function id="editReportView_8" text="下载模板以及上传" iconCls="menu-archive-issue"/>
+					</Functions>
+				</Functions>
+				<Functions id="_processControl_p8" text="流程控制" iconCls="">
+					<Function id="Agreements_8" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="showFlowImg_8" text="流程示意图" iconCls="btn-detail"/>
+					<!--					
+					<Function id="applyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					-->
+					<Function id="taskHandler_8" text="任务换人" iconCls="btn-detail"/>
+					<Function id="pathChange_8" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="stopPro_8" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+				</Functions>
+		</Item>
+		<Item id="SmallLoanProjectManager?projectStatus=2" text="已完成项目查询" iconCls="btn-tree-team19" >
+		<Function id="_seeAllPro_p2" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p2" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_2" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_2" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_2" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_2" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_2" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_2" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_2" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p2" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_2" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_2" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_2" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_2" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_2" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_2" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_2" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_2" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_2" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_2" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_2" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_2" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_2" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_2" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_2" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_2" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p2" text="流程控制" iconCls="">
+					<Function id="seeAgreements_2" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_2" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p2" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p2" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p2" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p2" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p2" text="导出项目" iconCls="menu-zmexport"/>
+		</Item>
+		<Item id="SmallLoanProjectManager?projectStatus=3" text="已终止项目查询" iconCls="btn-tree-team20" >
+			<Function id="_seeAllPro_p3" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Functions id="_seePro_p3" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seebusinessInfo_3" text="业务信息" iconCls="">
+					<Function id="seeSlProjectInfo_3" text="项目控制信息" iconCls=""/>
+					<Function id="seeLendForm_3" text="借款需求" iconCls=""/>
+					<Function id="seeslCustomerInfo_3" text="客户信息" iconCls=""/>
+					<Functions id="seeslFinanceInfo_3" text="资金款项信息" iconCls="mod-finance">
+						<!--<Function id="slFinanceBaseInfo_0" text="资金款项基本信息" iconCls="btn-edit"/>
+						--><Function id="seeslFundInentInfo_3" text="放款收息表" iconCls="mod-finance"/>
+						<Function id="seeslActualToCharge_3" text="手续收支清单" iconCls="mod-finance"/>
+					</Functions>
+					
+				</Functions>
+				<Functions id="_seeRiskControl_p3" text="风险控制" iconCls="">
+					<Function id="seeAssuretenet_3" text="贷款必备条件" iconCls="">
+					</Function>
+					<Function id="seeCreditMaterials_3" text="贷款材料清单" iconCls="btn-attachment"/>
+					<Function id="seerepaymentSource_3" text="第一还款来源" iconCls="menu-archive-issue">
+					</Function>
+					<Function id="seemortgageView_3" text="担保措施管理 " iconCls="btn-setting"/>
+					
+					<Function id="seeborrowerInfo_3" text="共同借款人信息" iconCls="btn-document-doc"/>
+					
+					<Function id="seeSuperviseIn_3" text="贷后监管" iconCls="btn-edit"/>
+					<Function id="SeeRecords_3" text="展期记录 " iconCls="btn-edit"/>
+					<Function id="seeFilingRecord_3" text="项目归档记录" iconCls="btn-detail"/>
+					<Function id="seeearlyrepaymentRecord_3" text="提前还款记录" iconCls="btn-detail"/>
+					<Function id="seeaflterAccrualRecord_3" text="利率变更记录" iconCls="btn-detail"/>
+					<Function id="seeno_promise_handle_3" text="违约处理详情" iconCls="btn-detail"/>
+					<Function id="seevoteSign_3" text="线上审贷会情况" iconCls=""/>
+					<Function id="uploadMeetingSummary_3" text="线下审贷会情况" iconCls=""/>
+				</Functions>
+				<Functions id="_seecontractBook_3" text="合同文书" iconCls="">
+					<!--<Function id="slContract_0" text="贷款合同" iconCls="menu-archive-issue">  
+					</Function>
+					<Function id="mortgageView_0" text="担保合同" iconCls="menu-archive-issue"/>
+					-->
+					<Function id="seeslLoanContract_3" text="借款合同" iconCls="menu-archive-issue"/>
+					<Function id="seeReport_3" text="尽职调查报告" iconCls="btn-document-doc">
+					</Function>
+				</Functions>
+				<Functions id="_seeprocessControl_p3" text="流程控制" iconCls="">
+					<Function id="seeAgreements_3" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seeshowFlowImg_3" text="流程示意图" iconCls="btn-detail"/>
+				<!--					
+					<Function id="seeapplyForExtension_0" text="申请展期" iconCls="btn-detail"/>
+					<Function id="seetaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="seepathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="seestopPro_0" text="终止项目" iconCls="btn-close"/>
+				-->
+				</Functions>
+			</Functions>
+			<Function id="_stopPro_p3" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePro_p3" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showFlowImg_p3" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_yjysm_p3" text="意见与说明" iconCls="btn-detail"/>
+			<Function id="_exportPro_p3" text="导出项目" iconCls="menu-zmexport"/>
+		</Item>
+		
+	</Items>
+	
+	<Items id="SlSmallLoanProjectAfter" text="贷后业务办理 " iconCls="btn-tree-team56">
+	
+		 <Item id="SlFundintentUrgTab?businessType=SmallLoan" text="还款催收" iconCls="btn-tree-team13" ></Item> 
+		<Item id="FundLoanedProjectManager?managerType=1" text="贷后监管" iconCls="btn-tree-team12" >
+			<Function id="addSuperviseRecord" text="增加监管记录" iconCls="btn-add"/>
+		</Item>
+		<Item id="FundLoanedProjectManager?managerType=2" text="贷款展期" iconCls="btn-tree-team14" >
+			<Function id="handleExtension" text="展期办理" iconCls=""/>
+		</Item>
+		<Item id="FundLoanedProjectManager?managerType=3" text="提前还款" iconCls="btn-tree-team15" >
+			<Function id="handleFundAdvanceRepayment" text="提前还款办理" iconCls=""/>
+		</Item>
+		<Item id="FundLoanedProjectManager?managerType=13" text="利率变更" iconCls="btn-tree-team58" >
+			<Function id="InterestRateChanges" text="利率变更" iconCls=""/>
+		</Item>
+		<Item id="FundLoanedProjectManager?managerType=5" text="贷款结项" iconCls="" >
+		<Function id="smallLoanProjectFinished" text="办理结项" iconCls=""/>
+		</Item>
+		
+		<!--<Item id="FundLoanedProjectManager?projectStatus=15" text="挪用处理" iconCls="btn-tree-team18" ></Item>
+		--><Item id="FundLoanedProjectManager?managerType=4" text="违约处理" iconCls="btn-tree-team59" >
+			<Function id="startBreach" text="违约处理办理" iconCls=""/>
+		</Item>
+		
+	</Items>
+	
+	<Items id="Finance" text="财务资金管理" iconCls="menu-finance">
+		<Item id="SlBankAccountView" iconCls="btn-tree-team25" text="银行账户管理" >
+		    <Function id="_createAccount_b" text="添加账户" iconCls="btn-add" isControl="false" />
+			<Function id="_remove_b" text="删除账户" iconCls="btn-del"/>
+			<Function id="_see_b" text="查看账户" iconCls="btn-edetail"/>
+			<Function id="_edit_b" text="编辑账户" iconCls="btn-edit"/>
+			<Function id="_zhlsdetail_b" text="账户流水明细" iconCls="btn-del"/>
+			<Function id="_uploadyhzh_b" text="上传银行账户" iconCls="btn-edit"/>
+		</Item>
+
+		<Item id="SlFundQlideView2" iconCls="btn-tree-team26" text="银行流水录入 " >
+		    <Function id="_creatednls_q" text="添加对内流水" iconCls="btn-add" isControl="false"/>
+			<Function id="_createdwls_q" text="添加对外流水" iconCls="btn-del" isControl="false"/>
+			<Function id="_createalldwls_q" text="批量添加对外流水" iconCls="sldownIcon" isControl="false"/>
+			<Function id="_seels_q" text="查看" iconCls="btn-detail"/>
+		    <Function id="_editls_q" text="编辑" iconCls="btn-edit"/>
+			<Function id="_removels_q" text="删除" iconCls="btn-del"/>
+			<Function id="_loadlsmb_q" text="下载流水模板" iconCls="sldownIcon"/>
+			<Function id="_uploadzjls_q" text="上传资金流水" iconCls="slupIcon"/>
+			<Function id="_importBank_q" text="手动导入银行流水" iconCls="slupIcon"/>
+		</Item>
+		<Item id="CashQlideView" iconCls="btn-tree-team27" text="现金流水录入" >
+		   <Function id="_createall_b" text="批量添加" iconCls="btn-add" isControl="false"/>
+             <Function id="_createxjls_b" text="添加" iconCls="btn-add" isControl="false"/>
+			<Function id="_removexjls_b" text="删除" iconCls="btn-del"/>
+			<Function id="_seexjls_b" text="查看" iconCls="btn-detail"/>
+			<Function id="_editxjls_b" text="编辑" iconCls="btn-edit"/>
+		</Item>
+        	<Item id="SlBankAccountQlideView" iconCls="btn-tree-team28" text="银行账户明细" />
+        	<!--<Item id="AccountBankManage" iconCls="menu-accountbankmanage" text="银行保证金账户管理">
+		   <Function id="_addzhbzj_q" text="添加总行保证金" iconCls="btn-add"/>
+			<Function id="_addzhbzjzh_q" text="添加支行保证金账户" iconCls="btn-del"/>
+			<Function id="_editzhbzjzh_q" text="编辑" iconCls="sldownIcon"/>
+		    <Function id="_removezhbzjzh_q" text="删除" iconCls="btn-add"/>
+			<Function id="_seezhbzjzh_q" text="查看" iconCls="btn-del"/>
+			<Function id="_addbzjzhjl_q" text="增加保证金账户记录" iconCls="sldownIcon"/>
+			<Function id="_editbzjzhjl_q" text="编辑保证金账户记录" iconCls="sldownIcon"/>
+		    <Function id="_removebzjzhjl_q" text="删除保证金账户记录" iconCls="btn-add"/>
+			<Function id="_seebzjzhjl_q" text="查看保证金账户记录" iconCls="btn-del"/>
+		</Item>
+	<Item id="AccountBankManageProj" iconCls="menu-accountbankmanageproj" text="保证金账户项目记录管理">
+		    <Function id="_adddjxmjl_q" text="添加冻结项目记录" iconCls="btn-del"/>
+			<Function id="_editdjxmjl_q" text="编辑冻结项目记录" iconCls="sldownIcon"/>
+			<Function id="_removexmxgjl_q" text="删除项目相关记录" iconCls="sldownIcon"/>
+		    <Function id="_seexmxgjl_q" text="查看项目相关记录" iconCls="btn-add"/>
+			<Function id="_jdbzj_q" text="解冻保证金" iconCls="btn-del"/>
+		</Item>
+        	
+        	
+			--><!--<Item id="AreaDicView?treeId=89" text="银行数据字典" iconCls="btn-tree-team52" isShow="false">
+			    <Function id="_addzdx" text="添加字典项" iconCls="btn-add"/>
+			    <Function id="_seezdx" text="查看字典项" iconCls="btn-detail"/>
+				<Function id="_editzdx" text="修改字典项" iconCls="btn-edit"/>
+				<Function id="_removezdx" text="删除字典项" iconCls="btn-del"/>
+			</Item>
+			-->
+			<Item id="AreaManagement" text="地区管理" iconCls="btn-tree-team53" isShow="false">
+			    <Function id="_addArea" text="添加字典项" iconCls="btn-add"/>
+			    <Function id="_seeArea" text="查看字典项" iconCls="btn-detail"/>
+				<Function id="_editArea" text="修改字典项" iconCls="btn-edit"/>
+				<Function id="_removeArea" text="删除字典项" iconCls="btn-del"/>
+			</Item>
+        	<!--<Item id="SlBankAccountQlideView" iconCls="btn-tree-team28" text="银行账户明细" >
+        	
+		</Item>
+		-->
+
+		
+	</Items>
+	
+	<Items id="contactFinance" text="财务款项台账" iconCls="menu-finance-qlide" >
+		<Item id="TabSlFundIntentPrincipalPay?businessType=SmallLoan" iconCls="btn-tree-team29" text="本金放款台账" >
+			<Function id="_liushui_f_principalPay_SmallLoan" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalPay_SmallLoan" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalPay_SmallLoan" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalPay_SmallLoan" text="核销" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalPay_SmallLoan" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalPay_SmallLoan" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentprincipalIncome?businessType=SmallLoan" iconCls="btn-tree-team29" text="本金收款台账" >
+		    <Function id="_liushui_f_principalIncome_SmallLoan" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalIncome_SmallLoan" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalIncome_SmallLoan" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalIncome_SmallLoan" text="核销" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalIncome_SmallLoan" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalIncome_SmallLoan" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentInterestIncome?businessType=SmallLoan" iconCls="btn-tree-team29" text="利息收款台账" >
+		    <Function id="_liushui_f_interestIncome_SmallLoan" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_interestIncome_SmallLoan" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_interestIncome_SmallLoan" text="查看对账明细" iconCls="btn-detail"/>
+			<Function id="_ping_f_interestIncome_SmallLoan" text="核销" iconCls="btn-ok"/>
+			<Function id="_fa_f_interestIncome_SmallLoan" text="罚息对账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_interestIncome_SmallLoan" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_interestIncome_SmallLoan" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentOtherPay?businessType=SmallLoan" iconCls="btn-tree-team29" text="退费支出台账" >
+			 <Function id="_liushui_f_OtherPay_SmallLoan" text="流水对账" iconCls="btn-user-sel">
+			</Function>    
+			<Function id="_cash_f_OtherPay_SmallLoan" text="现金对账" iconCls="btn-details">
+			</Function>
+			<Function id="_liushuisee_f_OtherPay_SmallLoan" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_OtherPay_SmallLoan" text="核销" iconCls="btn-ok">
+			</Function>
+			<Function id="_uploaddownpz_f_OtherPay_SmallLoan" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_OtherPay_SmallLoan" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+		<Item id="SlActualToChargeIncomeView?businessType=SmallLoan" iconCls="btn-tree-team30" text="费用收取台账" >
+		    <Function id="_liushui_a_SmallLoan" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_a_SmallLoan" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_a_SmallLoan" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_a_SmallLoan" text="核销" iconCls="btn-ok"/>
+			<Function id="_sOverdue_a_SmallLoan" text="逾期状态" iconCls="btn-setting"/>
+		</Item>
+
+		<Item id="VFundDetail?businessType=SmallLoan" iconCls="menu-archive-history" text="本息收支对账日志" >
+		    <Function id="_cxdz_f_SmallLoan" text="撤销对账" iconCls="btn-setting"/>
+		</Item>
+		<Item id="VChargeDetail?businessType=SmallLoan" iconCls="menu-archive-history" text="费用收支对账日志" >
+		 	<Function id="_cxfydzlsjl_f_SmallLoan" text="撤销对账" iconCls="btn-setting"/>
+		</Item>
+        <!--<Item id="PrincipalDivert?businessType=all" iconCls="btn-tree-team29" text="本金挪用台账" />-->
+	</Items>
+	
+	<Items id="DocumentManagerSmallLoan" text="贷款合同管理" iconCls="mod-analysis" >
+		<Item id="CreditDocumentManager?businessType=SmallLoan" text="合同模板制作" iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm_SmallLoan" text="新增模板类型" iconCls="btn-add"/>
+			<Function id="_edit_cdm_SmallLoan" text="修改模板类型信息" iconCls="btn-edit"/>
+			<Function id="_remove_cdm_SmallLoan" text="删除模板类型" iconCls="btn-del"/>
+			<Function id="_read_cdm_SmallLoan" text="查看系统要素" iconCls="btn-readdocument"/>
+			<Function id="_output_cdm_SmallLoan" text="导出系统要素" iconCls="btn-xls"/>
+		</Item>
+		
+		<Item id="ContractManager?businessType=SmallLoan" text="合同管理" iconCls="btn-tree-team31" />
+		<Item id="ContractQuery" text="合同查询" iconCls="btn-tree-team31" />
+		<Item id="CsElementCategoryView" text="合同要素" iconCls="btn-tree-team31" />
+	
+	</Items>
+	
+	<Items id="propertyView?businessType=SmallLoan" text="抵质押物管理" iconCls="menu-property">
+		<Item id="MortgageManagementQuery?businessType=SmallLoan" text="押品管理" iconCls="menu-property"/>
+		<Item id="MortgageManagement?businessType=SmallLoan" text="押品手续办理" iconCls="btn-tree-team32">
+			<Function id="_seeMortgageInfo_SmallLoan" text="查看抵质押物详情" iconCls="btn-readdocument"/>
+			<Function id="_seeThirdContract_SmallLoan" text="查看合同详情" iconCls="btn-readdocument"/>
+			<Function id="_seeProjectInfo_SmallLoan" text="查看项目详情"
+				iconCls="btn-readdocument">
+				<url>/creditFlow/getProjectViewObjectCreditProject.do</url>
+			</Function>
+			<Function id="_banliMortgage_SmallLoan" text="押品手续办理"
+				iconCls="btn-flow-design">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+			<Function id="_relieveMortgage_SmallLoan" text="解除抵质押物 "
+				iconCls="deleteIcon">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+		</Item>
+	</Items>
+
+	
+	<Items id="PlArchivesViewMenu?businessType=SmallLoan" text="贷款档案管理" iconCls="btn-tree-team33" >
+		 <Item id="PlProjectArchivesView?businessType=SmallLoan" text="项目归档管理" iconCls="btn-tree-team33">
+		    <Function id="_Archives_add_SmallLoan" text="办理归档" iconCls="btn-see">
+			</Function>
+			<Function id="_Archivesproj_see_SmallLoan" text="查看项目详情" iconCls="btn-see">
+			</Function>
+		</Item>
+	</Items>
+	
+	 	<Items id="newEnterpriseEvaluation" text="资信评估管理" iconCls="menu-enterpriseevaluation"
+			isShow="false">
+			<Item id="IndicatorManagement1" text="定量指标管理" iconCls="btn-tree-team34">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			
+			
+			<Item id="IndicatorManagement2" text="定性指标管理" iconCls="btn-tree-team34">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon"> 
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			<Item id="ClassTypeView" text="信用等级管理" iconCls="btn-tree-team35">
+				<Function id="_ct_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/classTypeList.do</url>
+				</Function>
+				<Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+				</Function>
+				<Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+					<url>/credit/creditmanagement/deleteClassType.do</url>
+				</Function>
+				<Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+			</Item>
+
+			<Item id="TemplateManagement" text="评估模板管理" iconCls="btn-tree-team36">
+				<Function id="_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/ratingTemplateList.do</url>
+					<url>/credit/creditmanagement/templateContentList.do</url>
+				</Function>
+				<Function id="_Template_add" text="增加模板" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/updateRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				</Function>
+				<Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/updateTemplateIndicator.do</url>
+				</Function>
+			</Item>
+
+			<Item id="CreditRatingManage?type=all" text="客户资信评估" iconCls="btn-tree-team37">
+				<Function id="_zx_see_all" text="查看所有列表" iconCls="updateIcon">
+					<url>/credit/creditmanagement/creditRatingList.do</url>
+				</Function>
+				<Function id="_creditRating_add_all" text="新建资信评估" iconCls="addIcon">
+					<url>/credit/creditmanagement/addCreditRatingSub.do</url>
+					<url>/credit/creditmanagement/addCreditRatingJson.do</url>
+					<url>/credit/creditmanagement/getScoreGrade.do</url>
+				</Function>
+				<Function id="_creditRating_delete_all" text="删除资信评估"
+					iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteCreditRating.do</url>
+				</Function>
+				<Function id="_creditRating_see_all" text="查看资信评估" iconCls="updateIcon">
+					<url>/credit/creditmanagement/CreditRatingResult.do</url>
+				</Function>
+			</Item>
+		</Items>
+		 
+	
+	<Items id="productConfigManager" text="贷款产品配置" iconCls="mod-customer" isPublic="false" >
+		 <Items id="basicMaterials" text="基础材料配置" iconCls="mod-customer" >
+				 <Item id="OurSmallloanMaterialsView?businessType=SmallLoan" text="基础贷款材料管理" iconCls="menu-materials">
+					<Function id="_create_dc" text="添加贷款材料" iconCls="btn-add"/>
+					<Function id="_edit_dc" text="编辑贷款材料" iconCls="btn-edit"/>
+					<Function id="_remove_dc" text="删除贷款材料" iconCls="btn-del"/>
+					<Function id="_create_dcx" text="添加贷款材料项" iconCls="btn-add"/>
+					<Function id="_edit_dcx" text="编辑贷款材料项" iconCls="btn-edit"/>
+					<Function id="_remove_dcx" text="删除贷款材料项" iconCls="btn-del"/>
+				</Item>
+				<Item id="OurProcreditAssuretenetGuaranteeView?businessType=SmallLoan" text="基础贷款条件管理" iconCls="menu-seal">
+					<Function id="_create_zr_SmallLoan" text="添加准入原则" iconCls="btn-add"/>
+					<Function id="_remove_zr_SmallLoan" text="删除准入原则" iconCls="btn-del"/>
+					<Function id="_edit_zr_SmallLoan" text="编辑准入原则" iconCls="btn-edit"/>
+				</Item>
+				
+				<Item id="OurArchivesMaterialsView?businessType=SmallLoan" text="基础贷款归档材料管理" iconCls="menu-materials" isShow="false">
+					<Function id="_create_archives_SmallLoan" text="添加归档材料" iconCls="btn-add"/>
+					<Function id="_remove_archives_SmallLoan" text="删除归档材料" iconCls="btn-del"/>
+					<Function id="_edit_archives_SmallLoan" text="编辑归档材料" iconCls="btn-edit"/>
+				</Item>
+				<Item id="SlPlansToChargeView?businessType=SmallLoan" iconCls="menu-archive-draft-manage" text="基础收费类型">
+					<Function id="_create_zxpz_SmallLoan" text="添加" iconCls="btn-add"/>
+					<Function id="_remove_zxpz_SmallLoan" text="删除" iconCls="btn-del"/>
+					<Function id="_save_zxpz_SmallLoan" text="保存" iconCls="btn-save"/>
+				</Item>
+				<Item id="DownLoadDocumentManager?businessType=SmallLoan" text="文档模板管理" iconCls="btn-tree-team48" isShow="false" >
+					<Function id="_create_ddm_SmallLoan" text="新增模板文档项" iconCls="btn-add"/>
+					<Function id="_edit_ddm_SmallLoan" text="修改模板文档项" iconCls="btn-edit"/>
+					<Function id="_remove_ddm_SmallLoan" text="删除模板文档项" iconCls="btn-del"/>
+				</Item>
+		</Items>  
+		  <Item id="BpProductParameterView" text="贷款产品设计" iconCls="menu-customer" >
+		    <Function id="_bpProductParameter_add" text="新增产品" iconCls="btn-add"/>
+			<Function id="_bpProductParameter_edit" text="配置产品" iconCls="btn-edit"/>
+			<Function id="_bpProductParameter_del" text="删除产品" iconCls="btn-del"/>
+			<Function id="_bpProductParameter_see" text="查看产品" iconCls="btn-detail"/>
+		 </Item>
+		 
+	</Items>  
+		
+	<!--
+	
+    <Items id="reportFinance" text="贷款报表" iconCls="menu-finance-report" >
+		<Item id="ReportMenuSmallloanprojectdetail?reportKey=projectdetail" iconCls="btn-tree-team38" text="贷款信息明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectintentdetail" iconCls="btn-tree-team39" text="贷款本金利息明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectchargedetail" iconCls="btn-tree-team40" text="贷款手续收支明细表" />
+		<Item id="ReportMenuLoanTerm?reportKey=loanTerm" iconCls="btn-tree-team40" text="贷款期限表" />	
+		<Item id="ReportMenuLoanTerm?reportKey=mortgageMode" iconCls="btn-tree-team40" text="担保方式分析表" />	
+		<Item id="ReportMenuCommon?reportKey=loandetail" iconCls="btn-tree-team40" text="贷款业务明细表" />
+		<Item id="ReportMenuLoanTerm?reportKey=balanceDetail" iconCls="btn-tree-team40" text="贷款余额明细表" />	
+		<Item id="ReportMenuMortgageMode?reportKey=customerScaleChange" iconCls="btn-tree-team40" text="客户规模变动表" />
+		<Item id="ReportMenuMortgageMode?reportKey=customerChannel" iconCls="btn-tree-team40" text="客户渠道分析表" />
+		<Item id="ReportMenuLoanLimitInterval?reportKey=loanLimitInterval" iconCls="btn-tree-team40" text="贷款额度区间分析表" />	
+		<Item id="ReportMenuAverageDailyBalance?reportKey=averageDailyBalance" iconCls="btn-tree-team40" text="经营机构日均余额表" />	
+		<Item id="ReportMenuLoanTerm?reportKey=balance" iconCls="btn-tree-team40" text="经营机构余额表" />	
+		<Item id="ReportMenuLoanTerm?reportKey=productStructure" iconCls="btn-tree-team40" text="产品结构分析表" />
+		<Item id="ReportMenuTenCustomer?reportKey=tenCustomer" iconCls="btn-tree-team40" text="十大客户统计表" />
+		<Item id="ReportMenuCustomerDailyBalance?reportKey=customerDailyBalance" iconCls="btn-tree-team40" text="客户经理日均余额表" />	
+		<Item id="ReportMenuLoanTerm?reportKey=assetQuality" iconCls="btn-tree-team40" text="资产质量统计表" />	
+		<Item id="ReportMenuLoanSummary?reportKey=loanSummary" iconCls="btn-tree-team40" text="贷款情况汇总表" />
+		<Item id="ReportMenuProfitRate?reportKey=profitRate" iconCls="btn-tree-team40" text="利率情况分析表" />			
+	
+	    <Item id="ReportMenuLoanLimitInterval?reportKey=loanLimitInterval" iconCls="btn-tree-team40" text="贷款额度区间分析表" />	
+	    <Item id="ReportMenuCommon?reportKey=loandetail" iconCls="btn-tree-team40" text="贷款业务明细表" />
+	    <Item id="ReportMenuLoanTerm?reportKey=balanceDetail" iconCls="btn-tree-team40" text="贷款余额明细表" />	
+	    <Item id="ReportMenuCustomerDailyBalance?reportKey=customerDailyBalance" iconCls="btn-tree-team40" text="客户经理日均余额表" />
+	    <Item id="ReportMenuTenCustomer?reportKey=tenCustomer" iconCls="btn-tree-team40" text="十大客户统计表" />
+	    <Item id="ReportMenuProfitRate?reportKey=profitRate" iconCls="btn-tree-team40" text="利率情况分析表" />
+		<Item id="ReportMenuSmallloanprojectdetail?reportKey=projectdetail" iconCls="btn-tree-team38" text="贷款信息明细表" />
+		<Item id="ReportMenuSmallloanprojectdetail?reportKey=FinancialOffice" iconCls="btn-tree-team38" text="金融办月数据报表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectintentdetail" iconCls="btn-tree-team39" text="贷款本金利息明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectchargedetail" iconCls="btn-tree-team40" text="贷款手续收支明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=smallloan_project" iconCls="btn-tree-team40" text="贷款业务汇总表" />	
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=RepaymentPlan" iconCls="btn-tree-team40" text="还款计划表" />	
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=loan_ledge" iconCls="btn-tree-team40" text="应收本金、利息、管理费台账" />	
+		<Item id="ReportMenuLoanInfoSummary?reportKey=monthLoanSummary" iconCls="btn-tree-team40" text="小额贷款公司贷款情况汇总表(月报)" />
+		<Item id="ReportMenuLoanInfoSummary?reportKey=seasonLoanSummary" iconCls="btn-tree-team40" text="小额贷款公司贷款情况汇总表(季报)" />
+		<Item id="ReportMenuLoanInfoSummary?reportKey=yearLoanSummary" iconCls="btn-tree-team40" text="小额贷款公司贷款情况汇总表(年报)" />
+		<Item id="ReportMenuLoanCommon?reportKey=personContrant" iconCls="btn-tree-team40" text="小额贷款合同登记薄(个人)" />
+		<Item id="ReportMenuLoanCommon?reportKey=companyContrant" iconCls="btn-tree-team40" text="小额贷款合同登记薄(企业)" />
+		<Item id="ReportMenuLoanCommon?reportKey=loanMonth" iconCls="btn-tree-team40" text="小额贷款月报报表" />
+		<Item id="ReportMenuIncome?reportKey=loanIncome" iconCls="btn-tree-team40" text="收入统计表1" />
+		<Item id="ReportMenuIncome?reportKey=newLoanIncome" iconCls="btn-tree-team40" text="收入统计表2" />
+	</Items>
+	
+	
+	<Items id="title_analysis_SmallLoan" text="贷款统计分析" iconCls="mod-analysis" >
+		<Item id="ReportTemplateMenuCapital?reportKey=CapitalFlow" text="资金流预测分析" iconCls="btn-tree-team41" isShow="false"/>
+			<Item id="ReportMenuCommon?reportKey=projectNum" text="贷款数量统计分析图" iconCls="btn-tree-team42"/>
+		<Item id="ReportMenuCommon?reportKey=projectMoney" text="贷款金额统计分析图" iconCls="btn-tree-team43"/>
+		<Item id="ReportMenuCommon?reportKey=projectAccrual" text="贷款利息统计分析图" iconCls="btn-tree-team44"/>
+				<Item id="ReportTemplateMenu1?reportKey=accralRates" text="贷款平均利润率分析" iconCls="btn-tree-team45"/>
+		<Item id="ReportMenuCommon?reportKey=newProfit" text="贷款平均年化净利率分析" iconCls="btn-tree-team46"/>
+		<Item id="ReportMenuLoanCustomerCount?reportKey=loanCustomerCount" iconCls="btn-tree-team40" text="借款客户区县分布数量统计图" />
+		<Item id="ReportMenuLoanCustomerCount?reportKey=mortgageCustomerCount" iconCls="btn-tree-team40" text="担保客户区县分布数量统计图" />
+	</Items>
+	--><!--
+	
+	<Items id="SlDataMenu" text="同步数据管理" iconCls="btn-tree-team33" >
+		<Item id="SlDataListView?type=tz" text="台账同步数据" iconCls="btn-tree-team33"/>
+		 <Item id="SlDataListView?type=jt" text="计提同步数据" iconCls="btn-tree-team33"/>
+		<Item id="SlLoanAccountErrorLogView" text="放款账户错误日志" iconCls="btn-tree-team33"/>
+	</Items>
+	
+	-->
+	
+
+	 
+		
+	
+	
+	
+	<!--<Items id="EnterpriseEvaluation" text="资信评估管理" iconCls="menu-enterpriseevaluation" isShow="false" >
+			<Item id="IndicatorManagement" text="指标体系管理" iconCls="btn-tree-team34" >
+			    <Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/indicatorList.do</url>
+			         <url>/credit/creditmanagement/indicatorStoreList.do</url>
+			     </Function>
+			     <Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+				     <url>/credit/creditmanagement/addIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_ic_add" text="增加" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_update" text="修改" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			         <url>/credit/creditmanagement/updateIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_see" text="查看" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			     </Function>
+			</Item>
+			<Item id="ClassTypeView" text="信用等级管理" iconCls="btn-tree-team35">
+				<Function id="_ct_see" text="查看" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/classTypeList.do</url>
+			     </Function>
+			     <Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+				     <url>/credit/creditmanagement/saveClassAndGrand.do</url>				     
+			     </Function>
+			     <Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+			          <url>/credit/creditmanagement/saveClassAndGrand.do</url>
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			     <Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/deleteClassType.do</url>
+			     </Function>
+			     <Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			     <Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/saveClassAndGrand.do</url>
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			</Item>
+			
+			<Item id="TemplateManagement" text="评估模板管理" iconCls="btn-tree-team36" >
+			     <Function id="_see" text="查看" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/ratingTemplateList.do</url>
+			         <url>/credit/creditmanagement/templateContentList.do</url>
+			     </Function>
+			     <Function id="_Template_add" text="增加模板" iconCls="addIcon">
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/addRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/updateRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+			     </Function>
+			     <Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/addTemplateIndicator.do</url> 
+			     </Function>
+			     <Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteTemplateIndicator.do</url>
+			     </Function>
+			     <Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/updateTemplateIndicator.do</url>
+			     </Function>
+			</Item>
+			
+			<Item id="CreditRatingManage?type=all" text="客户资信评估" iconCls="btn-tree-team37">
+			     <Function id="_zx_see_all" text="查看所有列表" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/creditRatingList.do</url>
+			     </Function>
+			     <Function id="_creditRating_add_all" text="新建资信评估" iconCls="addIcon">
+				     <url>/credit/creditmanagement/addCreditRatingSub.do</url>
+				     <url>/credit/creditmanagement/addCreditRatingJson.do</url>
+				     <url>/credit/creditmanagement/getScoreGrade.do</url>				     
+			     </Function>
+			     <Function id="_creditRating_delete_all" text="删除资信评估" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteCreditRating.do</url>
+			     </Function>
+			     <Function id="_creditRating_see_all" text="查看资信评估" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/CreditRatingResult.do</url>
+			     </Function>
+			</Item>
+		</Items>
+	
+    -->
+
+		
+</Menus>

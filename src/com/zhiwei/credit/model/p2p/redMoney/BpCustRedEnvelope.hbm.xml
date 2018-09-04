@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.p2p.redMoney.BpCustRedEnvelope"
+        table="bp_cust_red_envelope"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="redId"
+            column="redId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+                    name="distributemoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="distributemoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+      
+        />
+        <property
+             name="eddistributemoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="eddistributemoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+
+        />
+        <property
+            name="distributestatus"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="distributestatus"
+            length="5"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="distributecount"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="distributecount"
+            length="8"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="distributeTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="distributeTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="createTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="createTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.FormTable" table="form_table" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="tableId" column="tableId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="tableName" type="java.lang.String" update="true" insert="true" access="property" column="tableName" length="128" not-null="true" unique="false"/>  
+    <property name="tableKey" type="java.lang.String" update="true" insert="true" access="property" column="tableKey" length="128" not-null="true" unique="false"/>  
+    <property name="isMain" type="java.lang.Short" update="true" insert="true" access="property" column="isMain" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FormDef -->  
+    <many-to-one name="formDef" class="com.zhiwei.credit.model.flow.FormDef" not-null="false" fetch="select"> 
+      <column name="formDefId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to FormField -->  
+    <set name="formFields" table="form_field" lazy="true" inverse="false" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="tableId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.flow.FormField"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

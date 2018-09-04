@@ -1,0 +1,169 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	orderId:'$!orderId',
+	businessType:'$!businessType',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/PlManageMoneyProductInfoForm.js',
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/PlManageMoneyBuyInfoForm.js',
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/PlEarlyRedemptionForm.js',
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/ManageMoneyBuyMatchingDetail.js',
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/ManageMoneyProductInterestView.js',
+				__ctxPath + '/js/creditFlow/creditAssignment/customer/public.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		
+		this.plManageMoneyProductInfoForm=new PlManageMoneyProductInfoForm({})
+		this.plManageMoneyBuyInfoForm=new PlManageMoneyBuyInfoForm({})
+		this.plEarlyRedemptionForm=new PlEarlyRedemptionForm({})
+		this.manageMoneyBuyMatchingDetail=new ManageMoneyBuyMatchingDetail({orderId:this.orderId})
+		this.manageMoneyProductInterestView=new ManageMoneyProductInterestView({
+			orderId:this.orderId,
+			earlyRedemptionId:this.projectId,
+			object:this.plEarlyRedemptionForm
+		})
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+//				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'plEarlyRedemptionService.updateRedemptionInfoNextStep'
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '理财产品信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.plManageMoneyProductInfoForm]
+			},{
+				xtype : 'fieldset',
+				title : '认购信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.plManageMoneyBuyInfoForm]
+			},{
+				xtype : 'fieldset',
+				title : '提前赎回信息',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.plEarlyRedemptionForm,this.manageMoneyProductInterestView]
+			},{
+				xtype : 'fieldset',
+				title : '债权清单',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.manageMoneyBuyMatchingDetail]
+			},{
+				xtype : 'hidden',
+				name : 'fundsJson'
+			}]
+		})
+		this.loadData({
+			url : __ctxPath + '/creditFlow/financingAgency/getPlEarlyRedemption.do?earlyRedemptionId='+this.projectId+'&slTaskId='+this.taskId,
+			method : "POST",
+			preName : ["plEarlyRedemption","plManageMoneyPlanBuyinfo","plManageMoneyPlan"],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(alarm_fields.data.comments){
+				    this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);
+				}
+				this.getCmpByName('earlyMoney1').setValue(Ext.util.Format.number(alarm_fields.data.plManageMoneyPlanBuyinfo.buyMoney, '0,000.00'))
+				this.getCmpByName('earlyMoney1').hiddenField.value=alarm_fields.data.plManageMoneyPlanBuyinfo.buyMoney
+				this.getCmpByName('dayRate').setValue(alarm_fields.data.plManageMoneyPlan.yeaRate/36000)
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		this.getCmpByName('fundsJson').setValue(this.manageMoneyProductInterestView.getGridData());
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/creditFlow/financingAgency/updateRedemptionInfoPlEarlyRedemption.do',
+			params : {
+				'comments':formPanel.comments
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope: this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText)
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				this.manageMoneyProductInterestView.savereload();
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(outpanel) {
+		this.getCmpByName('fundsJson').setValue(this.manageMoneyProductInterestView.getGridData());
+	    return true;
+	}
+})

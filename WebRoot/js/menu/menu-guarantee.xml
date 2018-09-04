@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_guarantee" text="担保业务软件" iconCls="mod_guarantee"> 
+	<Items id="Customerguarantee" text="客户管理" iconCls="menu-customer"
+		isPublic="false">
+		
+		<Item id="BankRelationPersonView" iconCls="menu-bank" text="银行客户">
+				<Function id="_detail_syyhkh" text="查看所有客户" iconCls="btn-detail"/>
+			 	<Function id="_detail_yhkh" text="查看" iconCls="btn-detail"/>
+			 	<Function id="_create_yhkh" text="添加" iconCls="btn-add"/>
+				<Functions id="_edit_yhkh" text="编辑" iconCls="btn-edit">
+					<Function id="_editBelongeder_yhkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				</Functions>
+				<Function id="_remove_yhkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_export_yhkh" text="导出到excel" iconCls="btn-xls"/>
+		</Item>
+	</Items>
+	<Items id="GTFinanceProject" text="担保项目信息库" iconCls="menu-guarantee-info">
+		
+		<Items id="BeforeGuaranteeProjectManager" iconCls="menu-flowNew" text="保前项目管理">
+			<Item id="GuaranteeProjectManager?projectStatus=0&amp;bmStatus=0" iconCls="menu-flowNew" text="进行中项目管理">
+				<Function id="_seeAllPro_gt00" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_gt00" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt00" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt00" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt00" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt00" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt00" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt00" text="资金款项信息" iconCls=""/>
+							<Functions id="gtActualToCharge_gt00" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="seeBankMargin_gt00" text="保证金支付情况" iconCls="">
+						</Function>
+						<Function id="customerRepayment_gt00" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt00" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt00" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt00" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt00" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt00" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt00" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt00" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt00" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt00" text="审保会决议情况" iconCls=""/>
+						<Function id="_seeSomeSbh_gt00" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt00" text="项目归档记录" iconCls=""/>
+					</Functions>
+					<Functions id="_seeContractBook_gt00" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt00" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt00" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt00" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt00" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt00" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt00" text="担保责任解除函" iconCls=""/>
+						<Function id="seeSqbfpz_gt" text="收取保费凭证" iconCls="" />
+						<Function id="editSqbfpz_gt" text="编辑收取保费凭证" iconCls="" />
+						<Function id="seeSqkhbzjpz_gt" text="收取客户保证金凭证" iconCls="" />
+						<Function id="editSqkhbzjpz_gt" text="编辑收取客户保证金凭证" iconCls="" />
+						<Function id="seeSqdjbzjpz_gt" text="银行冻结保证金凭证" iconCls="" />
+						<Function id="editSqdjbzjpz_gt" text="编辑银行冻结保证金凭证" iconCls="" />
+						<Function id="seeKxpz_gt" text="款项凭证" iconCls="" />
+						<Function id="editKxpz_gt" text="编辑款项凭证" iconCls="" />
+						<Function id="seeTzd_gt" text="放款通知单扫描件" iconCls="" />
+						<Function id="editTzd_gt" text="编辑放款通知单扫描件" iconCls="" />
+					</Functions>
+					<Functions id="_seeProcessControl_gt00" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt00" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_stopPro_gt00" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePro_gt00" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showFlowImg_gt00" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt00" text="导出项目" iconCls="menu-zmexport"/>
+				<Functions id="_detailPro_gt00" text="编辑项目" iconCls="btn-edit" >
+					<Functions id="_businessInfo_edit_gt00" text="业务信息" iconCls="">
+						<Function id="ediGtProjectInfo_gt00" text="项目控制信息" iconCls=""/>
+						<Function id="ediGtCustomerInfo_gt00" text="客户信息" iconCls=""/>
+						<Function id="ediGtBankInfo_gt00" text="银行对接信息" iconCls=""/>
+						<Functions id="operationGtFinanceInfo_gt00" text="资金款项信息" iconCls="mod-finance">
+							<Function id="ediGtFinanceInfo_gt00" text="资金款项信息" iconCls=""/>
+							<Functions id="operationGtActualToCharge_gt00" text="手续收支清单 " iconCls="">
+								<Function id="addGtActualToCharge_gt00" text="增加" iconCls="btn-add"/>
+								<Function id="delGtActualToCharge_gt00" text="删除" iconCls="btn-del"/>
+								<Function id="ediGtActualToCharge_gt00" text="编辑" iconCls="btn-edit"/>
+							</Functions>
+						</Functions>
+						<Functions id="BankMargin_gt00" text="保证金支付情况" iconCls="">
+							<Function id="editFrozenBankMargin_gt00" text="冻结保证金" iconCls="btn-edi"/>
+							<Function id="editReleaseBankMargin_gt00" text="解冻保证金" iconCls="btn-edi"/>
+						</Functions>
+						<Function id="ediCustomerRepayment_gt00" text="银行放款收息表" iconCls="btn-edi"/>
+					</Functions>
+					<Functions id="_riskControl_edit_gt00" text="风险控制" iconCls="">
+						<Functions id="assuretenet_gt00" text="担保准入原则" iconCls="">
+							<Function id="businessManagerAgreement_gt00" text="业务经理意见" iconCls="selectIcon"/>
+							<Function id="riskManagerAgreement_gt00" text="风险经理意见" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="creditMaterials_gt00" text="担保材料清单" iconCls="">
+							<Function id="businessManagerOperation_gt00" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_gt00" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Function id="ediEnterpriseEvaluation_gt00" text="客户资信评估" iconCls=""/>
+						<Functions id="OperationMortgageView_gt00" text="反担保措施管理 " iconCls="">
+							<Function id="addMortgage_gt00" text="添加担保措施" iconCls="btn-add"/>
+							<Function id="delMortgage_gt00" text="删除担保措施" iconCls="btn-del"/>
+							<Function id="ediMortgage_gt00" text="编辑担保措施" iconCls="btn-edi"/>
+							<Function id="mortgageIsTransact_gt00" text="办理" iconCls="selectIcon"/>
+							<Function id="mortgageArchiveConfirm_gt00" text="归档" iconCls="selectIcon"/>
+							<Function id="mortgageUnchain_gt00" text="解除" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="report_gt00" text="尽职调查报告 " iconCls="">
+							<Function id="businessManagerOperation_report_gt00" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_report_gt00" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="riskReport_gt00" text="风险分析报告 " iconCls="">
+							<Function id="riskManagerOperation_gt00" text="风险经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_riskReport_gt00" text="风险归档操作" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_ContractBook_edit_gt00" text="合同文书" iconCls="">
+						<Functions id="_ndbBook_gt00" text="拟担保意向书" iconCls="">
+							<Function id="LetterAndBook_gt00" text="普通操作拟担保意向书" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles_gt00" text="归档拟担保意向书" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="_dwdbcnBook_gt00" text="对外担保承诺函" iconCls="">
+							<Function id="LetterAndBook1_gt00" text="普通操作对外担保承诺函" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles1_gt00" text="归档对外担保承诺函" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="wtdbContract_gt00" text="项目合同" iconCls="">
+							<Function id="editDbContract_gt00" text="普通操作项目合同" iconCls="btn-edi"/>
+							<Function id="recordDbContract_gt00" text="归档项目合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="operationGtContract_gt00" text="银行担保合同" iconCls="">
+							<Function id="addGtContract_gt00" text="增加" iconCls="btn-add"/>
+							<Function id="delGtContract_gt00" text="删除" iconCls="btn-del"/>
+							<Function id="ediGtContract_gt00" text="编辑" iconCls="btn-edit"/>
+							<Function id="legalCheckGt_gt00" text="法务确认" iconCls="selectIcon"/>
+							<Function id="issignGt_gt00" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="isRecordGt_gt00" text="归档" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="khjkContract_gt00" text="客户借款合同" iconCls="">
+							<Function id="editFiles_gt00" text="普通操作客户借款合同" iconCls="btn-edi"/>
+							<Function id="upload_archive1_gt00" text="归档客户借款合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="dbzrjcBook_gt00" text="担保责任解除函" iconCls="">
+							<Function id="upload_edit_gt00" text="普通操作担保责任解除函" iconCls="btn-edi"/>
+							<Function id="upload_archive_gt00" text="归档担保责任解除函" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_processControl_edit_egt00" text="流程控制" iconCls="">
+						<Function id="taskHandler_gt00" text="任务换人" iconCls="btn-users-sel"/>
+						<Function id="projectChangeAssign_gt00" text="项目换人" iconCls="btn-users-sel"/>
+						<Function id="pathChange_gt00" text="流程跳转" iconCls="btn-changeTask"/>
+						<Function id="stopPro_gt00" text="终止项目" iconCls="btn-close"/>
+					</Functions>
+					</Functions>
+			</Item>
+			<Item id="GuaranteeProjectManager?projectStatus=0&amp;bmStatus=10" iconCls="menu-suspended" text="已挂起项目管理">
+				<Function id="_seeAllPro_gt010" text="列表查询（查看所有列表记录）" iconCls="">
+				</Function>
+				<Functions id="_seePro_gt010" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt010" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt010" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt010" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt010" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt010" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt010" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt010" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt010" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt010" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt010" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt010" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt010" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt010" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt010" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt010" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt010" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt010" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt010" text="审保会决议情况" iconCls="btn-detail"/>
+						<Function id="_seeSomeSbh_gt010" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt010" text="项目归档记录" iconCls="btn-detail"/>
+					</Functions>
+					<Functions id="_seeContractBook_gt010" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt010" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt010" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt010" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt010" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt010" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt010" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt010" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt010" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_recoverPro_gt010" text="恢复项目" iconCls="btn-recover"/>
+				<Function id="_showFlowImg_gt010" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt010" text="导出项目" iconCls="menu-zmexport"/>
+			</Item>
+			<Item id="GuaranteeProjectManager?projectStatus=0&amp;bmStatus=3" iconCls="menu-del" text="已终止项目管理">
+				<Function id="_seeAllPro_gt03" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_gt03" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt03" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt03" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt03" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt03" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt03" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt03" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt03" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt03" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt03" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt03" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt03" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt03" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt03" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt03" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt03" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt03" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt03" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt03" text="审保会决议情况" iconCls=""/>
+						<Function id="_seeSomeSbh_gt03" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt03" text="项目归档记录" iconCls=""/>
+					</Functions>
+					<Functions id="_seeContractBook_gt03" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt03" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt03" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt03" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt03" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt03" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt03" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt03" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt03" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_showFlowImg_gt03" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt03" text="导出项目" iconCls="menu-zmexport"/>
+				<Functions id="_detailPro_gt03" text="编辑项目" iconCls="btn-edit" >
+					<Functions id="_businessInfo_edit_gt03" text="业务信息" iconCls="">
+						<Function id="ediGtProjectInfo_gt03" text="项目控制信息" iconCls=""/>
+						<Function id="ediGtCustomerInfo_gt03" text="客户信息" iconCls=""/>
+						<Function id="ediGtBankInfo_gt03" text="银行对接信息" iconCls=""/>
+						<Functions id="operationGtFinanceInfo_gt03" text="资金款项信息" iconCls="mod-finance">
+							<Function id="ediGtFinanceInfo_gt03" text="资金款项信息" iconCls=""/>
+							<Functions id="operationGtActualToCharge_gt03" text="经办费用清单" iconCls="">
+								<Function id="addGtActualToCharge_gt03" text="增加" iconCls="btn-add"/>
+								<Function id="delGtActualToCharge_gt03" text="删除" iconCls="btn-del"/>
+								<Function id="ediGtActualToCharge_gt03" text="编辑" iconCls="btn-edit"/>
+							</Functions>
+						</Functions>
+						<Functions id="BankMargin_gt03" text="保证金支付情况" iconCls="">
+							<Function id="editFrozenBankMargin_gt03" text="冻结保证金" iconCls="btn-edi"/>
+							<Function id="editReleaseBankMargin_gt03" text="解冻保证金" iconCls="btn-edi"/>
+						</Functions>
+						<Function id="ediCustomerRepayment_gt03" text="银行放款收息表" iconCls="btn-edi"/>
+					</Functions>
+					<Functions id="_riskControl_edit_gt03" text="风险控制" iconCls="">
+						<Functions id="assuretenet_gt03" text="担保准入原则" iconCls="">
+							<Function id="businessManagerAgreement_gt03" text="业务经理意见" iconCls="selectIcon"/>
+							<Function id="riskManagerAgreement_gt03" text="风险经理意见" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="creditMaterials_gt03" text="担保材料清单" iconCls="">
+							<Function id="businessManagerOperation_gt03" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_gt03" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Function id="ediEnterpriseEvaluation_gt03" text="客户资信评估" iconCls=""/>
+						<Functions id="OperationMortgageView_gt03" text="反担保措施管理 " iconCls="">
+							<Function id="addMortgage_gt03" text="添加担保措施" iconCls="btn-add"/>
+							<Function id="delMortgage_gt03" text="删除担保措施" iconCls="btn-del"/>
+							<Function id="ediMortgage_gt03" text="编辑担保措施" iconCls="btn-edi"/>
+							<Function id="mortgageIsTransact_gt03" text="办理" iconCls="selectIcon"/>
+							<Function id="mortgageArchiveConfirm_gt03" text="归档" iconCls="selectIcon"/>
+							<Function id="mortgageUnchain_gt03" text="解除" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="report_gt03" text="尽职调查报告 " iconCls="">
+							<Function id="businessManagerOperation_report_gt03" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_report_gt03" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="riskReport_gt03" text="风险分析报告 " iconCls="">
+							<Function id="riskManagerOperation_gt03" text="风险经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_riskReport_gt03" text="风险归档操作" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_ContractBook_edit_gt03" text="合同文书" iconCls="">
+						<Functions id="_ndbBook_gt03" text="拟担保意向书" iconCls="">
+							<Function id="LetterAndBook_gt03" text="普通操作拟担保意向书" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles_gt03" text="归档拟担保意向书" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="_dwdbcnBook_gt03" text="对外担保承诺函" iconCls="">
+							<Function id="LetterAndBook1_gt03" text="普通操作对外担保承诺函" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles1_gt03" text="归档对外担保承诺函" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="wtdbContract_gt03" text="项目合同" iconCls="">
+							<Function id="editDbContract_gt03" text="普通操作项目合同" iconCls="btn-edi"/>
+							<Function id="recordDbContract_gt03" text="归档项目合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="operationGtContract_gt03" text="银行担保合同" iconCls="">
+							<Function id="addGtContract_gt03" text="增加" iconCls="btn-add"/>
+							<Function id="delGtContract_gt03" text="删除" iconCls="btn-del"/>
+							<Function id="ediGtContract_gt03" text="编辑" iconCls="btn-edit"/>
+							<Function id="legalCheckGt_gt03" text="法务确认" iconCls="selectIcon"/>
+							<Function id="issignGt_gt03" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="isRecordGt_gt03" text="归档" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="khjkContract_gt03" text="客户借款合同" iconCls="">
+							<Function id="editFiles_gt03" text="普通操作客户借款合同" iconCls="btn-edi"/>
+							<Function id="upload_archive1_gt03" text="归档客户借款合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="dbzrjcBook_gt03" text="担保责任解除函" iconCls="">
+							<Function id="upload_edit_gt03" text="普通操作担保责任解除函" iconCls="btn-edi"/>
+							<Function id="upload_archive_gt03" text="归档担保责任解除函" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_processControl_edit_egt03" text="流程控制" iconCls="">
+						<Function id="taskHandler_gt03" text="任务换人" iconCls="btn-users-sel"/>
+						<Function id="pathChange_gt03" text="流程跳转" iconCls="btn-changeTask"/>
+						<Function id="stopPro_gt03" text="终止项目" iconCls="btn-close"/>
+					</Functions>
+					</Functions>
+			</Item>
+		</Items>
+		<Items id="MiddleGuaranteeProjectManager" iconCls="menu-flowMine" text="保后项目管理">
+			<Item id="GuaranteeProjectManager?projectStatus=1&amp;bmStatus=0" iconCls="menu-flowNew" text="进行中项目管理">
+				<Function id="_seeAllPro_gt10" text="列表查询（查看所有列表记录）" iconCls="">
+				</Function>
+				<Functions id="_seePro_gt10" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt10" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt10" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt10" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt10" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt10" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt10" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt10" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt10" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt10" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt10" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt10" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt10" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt10" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt10" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt10" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt10" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt10" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt10" text="审保会决议情况" iconCls=""/>
+						<Function id="_seeSomeSbh_gt10" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt10" text="项目归档记录" iconCls=""/>
+					</Functions>
+					<Functions id="_seeContractBook_gt10" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt10" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt10" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt10" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt10" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt10" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt10" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt10" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt10" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_stopPro_gt10" text="终止项目" iconCls="btn-close"/>
+				<Function id="_showFlowImg_gt10" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt10" text="导出项目" iconCls="menu-zmexport"/>
+				<Functions id="_detailPro_gt10" text="编辑项目" iconCls="btn-edit" >
+					<Functions id="_businessInfo_edit_gt10" text="业务信息" iconCls="">
+						<Function id="ediGtProjectInfo_gt10" text="项目控制信息" iconCls=""/>
+						<Function id="ediGtCustomerInfo_gt10" text="客户信息" iconCls=""/>
+						<Function id="ediGtBankInfo_gt10" text="银行对接信息" iconCls=""/>
+						<Functions id="operationGtFinanceInfo_gt10" text="资金款项信息" iconCls="mod-finance">
+							<Function id="ediGtFinanceInfo_gt10" text="资金款项信息" iconCls=""/>
+							<Functions id="operationGtActualToCharge_gt10" text="经办费用清单" iconCls="">
+								<Function id="addGtActualToCharge_gt10" text="增加" iconCls="btn-add"/>
+								<Function id="delGtActualToCharge_gt10" text="删除" iconCls="btn-del"/>
+								<Function id="ediGtActualToCharge_gt10" text="编辑" iconCls="btn-edit"/>
+							</Functions>
+						</Functions>
+						<Functions id="BankMargin_gt10" text="保证金支付情况" iconCls="">
+							<Function id="editFrozenBankMargin_gt10" text="冻结保证金" iconCls="btn-edi"/>
+							<Function id="editReleaseBankMargin_gt10" text="解冻保证金" iconCls="btn-edi"/>
+						</Functions>
+						<Function id="ediCustomerRepayment_gt10" text="银行放款收息表" iconCls="btn-edi"/>
+					</Functions>
+					<Functions id="_riskControl_edit_gt10" text="风险控制" iconCls="">
+						<Functions id="assuretenet_gt10" text="担保准入原则" iconCls="">
+							<Function id="businessManagerAgreement_gt10" text="业务经理意见" iconCls="selectIcon"/>
+							<Function id="riskManagerAgreement_gt10" text="风险经理意见" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="creditMaterials_gt10" text="担保材料清单" iconCls="">
+							<Function id="businessManagerOperation_gt10" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_gt10" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Function id="ediEnterpriseEvaluation_gt10" text="客户资信评估" iconCls=""/>
+						<Functions id="OperationMortgageView_gt10" text="反担保措施管理 " iconCls="">
+							<Function id="addMortgage_gt10" text="添加担保措施" iconCls="btn-add"/>
+							<Function id="delMortgage_gt10" text="删除担保措施" iconCls="btn-del"/>
+							<Function id="ediMortgage_gt10" text="编辑担保措施" iconCls="btn-edi"/>
+							<Function id="mortgageIsTransact_gt10" text="办理" iconCls="selectIcon"/>
+							<Function id="mortgageArchiveConfirm_gt10" text="归档" iconCls="selectIcon"/>
+							<Function id="mortgageUnchain_gt10" text="解除" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="report_gt10" text="尽职调查报告 " iconCls="">
+							<Function id="businessManagerOperation_report_gt10" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_report_gt10" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="riskReport_gt10" text="风险分析报告 " iconCls="">
+							<Function id="riskManagerOperation_gt10" text="风险经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_riskReport_gt10" text="风险归档操作" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_ContractBook_edit_gt10" text="合同文书" iconCls="">
+						<Functions id="_ndbBook_gt10" text="拟担保意向书" iconCls="">
+							<Function id="LetterAndBook_gt10" text="普通操作拟担保意向书" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles_gt10" text="归档拟担保意向书" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="_dwdbcnBook_gt10" text="对外担保承诺函" iconCls="">
+							<Function id="LetterAndBook1_gt10" text="普通操作对外担保承诺函" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles1_gt10" text="归档对外担保承诺函" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="wtdbContract_gt10" text="项目合同" iconCls="">
+							<Function id="editDbContract_gt10" text="普通操作项目合同" iconCls="btn-edi"/>
+							<Function id="recordDbContract_gt10" text="归档项目合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="operationGtContract_gt10" text="银行担保合同" iconCls="">
+							<Function id="addGtContract_gt10" text="增加" iconCls="btn-add"/>
+							<Function id="delGtContract_gt10" text="删除" iconCls="btn-del"/>
+							<Function id="ediGtContract_gt10" text="编辑" iconCls="btn-edit"/>
+							<Function id="legalCheckGt_gt10" text="法务确认" iconCls="selectIcon"/>
+							<Function id="issignGt_gt10" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="isRecordGt_gt10" text="归档" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="khjkContract_gt10" text="客户借款合同" iconCls="">
+							<Function id="editFiles_gt10" text="普通操作客户借款合同" iconCls="btn-edi"/>
+							<Function id="upload_archive1_gt10" text="归档客户借款合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="dbzrjcBook_gt10" text="担保责任解除函" iconCls="">
+							<Function id="upload_edit_gt10" text="普通操作担保责任解除函" iconCls="btn-edi"/>
+							<Function id="upload_archive_gt10" text="归档担保责任解除函" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_processControl_edit_egtG10" text="流程控制" iconCls="">
+						<Function id="taskHandler_gt10" text="任务换人" iconCls="btn-users-sel"/>
+						<Function id="pathChange_gt10" text="流程跳转" iconCls="btn-changeTask"/>
+						<Function id="stopPro_gt10" text="终止项目" iconCls="btn-close"/>
+					</Functions>
+					</Functions>
+			</Item>
+			<Item id="GuaranteeProjectManager?projectStatus=1&amp;bmStatus=1" iconCls="menu-infringement" text="违约处理项目管理">
+				<Function id="_seeAllPro_gt11" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_gt11" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt11" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt11" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt11" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt11" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt11" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt11" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt11" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt11" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt11" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt11" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt11" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt11" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt11" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt11" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt11" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt11" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt11" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt11" text="审保会决议情况" iconCls="btn-detail"/>
+						<Function id="_seeSomeSbh_gt11" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt11" text="项目归档记录" iconCls=""/>
+					</Functions>
+					<Functions id="_seeContractBook_gt11" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt11" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt11" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt11" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt11" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt11" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt11" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt11" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt11" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_showFlowImg_gt11" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt11" text="导出项目" iconCls="menu-zmexport"/>
+				<Functions id="_detailPro_gt11" text="编辑项目" iconCls="btn-edit" >
+					<Functions id="_businessInfo_edit_gt11" text="业务信息" iconCls="">
+						<Function id="ediGtProjectInfo_gt11" text="项目控制信息" iconCls=""/>
+						<Function id="ediGtCustomerInfo_gt11" text="客户信息" iconCls=""/>
+						<Function id="ediGtBankInfo_gt11" text="银行对接信息" iconCls=""/>
+						<Functions id="operationGtFinanceInfo_gt11" text="资金款项信息" iconCls="mod-finance">
+							<Function id="ediGtFinanceInfo_gt11" text="资金款项信息" iconCls=""/>
+							<Functions id="operationGtActualToCharge_gt11" text="经办费用清单" iconCls="">
+								<Function id="addGtActualToCharge_gt11" text="增加" iconCls="btn-add"/>
+								<Function id="delGtActualToCharge_gt11" text="删除" iconCls="btn-del"/>
+								<Function id="ediGtActualToCharge_gt11" text="编辑" iconCls="btn-edit"/>
+							</Functions>
+						</Functions>
+						<Functions id="BankMargin_gt11" text="保证金支付情况" iconCls="">
+							<Function id="editFrozenBankMargin_gt11" text="冻结保证金" iconCls="btn-edi"/>
+							<Function id="editReleaseBankMargin_gt11" text="解冻保证金" iconCls="btn-edi"/>
+						</Functions>
+						<Function id="ediCustomerRepayment_gt11" text="银行放款收息表" iconCls="btn-edi"/>
+					</Functions>
+					<Functions id="_riskControl_edit_gt11" text="风险控制" iconCls="">
+						<Functions id="assuretenet_gt11" text="担保准入原则" iconCls="">
+							<Function id="businessManagerAgreement_gt11" text="业务经理意见" iconCls="selectIcon"/>
+							<Function id="riskManagerAgreement_gt11" text="风险经理意见" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="creditMaterials_gt11" text="担保材料清单" iconCls="">
+							<Function id="businessManagerOperation_gt11" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_gt11" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Function id="ediEnterpriseEvaluation_gt11" text="客户资信评估" iconCls=""/>
+						<Functions id="OperationMortgageView_gt11" text="反担保措施管理 " iconCls="">
+							<Function id="addMortgage_gt11" text="添加担保措施" iconCls="btn-add"/>
+							<Function id="delMortgage_gt11" text="删除担保措施" iconCls="btn-del"/>
+							<Function id="ediMortgage_gt11" text="编辑担保措施" iconCls="btn-edi"/>
+							<Function id="mortgageIsTransact_gt11" text="办理" iconCls="selectIcon"/>
+							<Function id="mortgageIssign_gt11" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="mortgageArchiveConfirm_gt11" text="归档" iconCls="selectIcon"/>
+							<Function id="mortgageUnchain_gt11" text="解除" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="report_gt11" text="尽职调查报告 " iconCls="">
+							<Function id="businessManagerOperation_report_gt11" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_report_gt11" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="riskReport_gt11" text="风险分析报告 " iconCls="">
+							<Function id="riskManagerOperation_gt11" text="风险经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_riskReport_gt11" text="风险归档操作" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_ContractBook_edit_gt11" text="合同文书" iconCls="">
+						<Functions id="_ndbBook_gt11" text="拟担保意向书" iconCls="">
+							<Function id="LetterAndBook_gt11" text="普通操作拟担保意向书" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles_gt11" text="归档拟担保意向书" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="_dwdbcnBook_gt11" text="对外担保承诺函" iconCls="">
+							<Function id="LetterAndBook1_gt11" text="普通操作对外担保承诺函" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles1_gt11" text="归档对外担保承诺函" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="wtdbContract_gt11" text="项目合同" iconCls="">
+							<Function id="editDbContract_gt11" text="普通操作项目合同" iconCls="btn-edi"/>
+							<Function id="recordDbContract_gt11" text="归档项目合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="operationGtContract_gt11" text="银行担保合同" iconCls="">
+							<Function id="addGtContract_gt11" text="增加" iconCls="btn-add"/>
+							<Function id="delGtContract_gt11" text="删除" iconCls="btn-del"/>
+							<Function id="ediGtContract_gt11" text="编辑" iconCls="btn-edit"/>
+							<Function id="legalCheckGt_gt11" text="法务确认" iconCls="selectIcon"/>
+							<Function id="issignGt_gt11" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="isRecordGt_gt11" text="归档" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="khjkContract_gt11" text="客户借款合同" iconCls="">
+							<Function id="editFiles_gt11" text="普通操作客户借款合同" iconCls="btn-edi"/>
+							<Function id="upload_archive1_gt11" text="归档客户借款合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="dbzrjcBook_gt11" text="担保责任解除函" iconCls="">
+							<Function id="upload_edit_gt11" text="普通操作担保责任解除函" iconCls="btn-edi"/>
+							<Function id="upload_archive_gt11" text="归档担保责任解除函" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_processControl_edit_egt11" text="流程控制" iconCls="">
+						<Function id="taskHandler_gt11" text="任务换人" iconCls="btn-users-sel"/>
+						<Function id="pathChange_gt11" text="流程跳转" iconCls="btn-changeTask"/>
+						<Function id="stopPro_gt11" text="终止项目" iconCls="btn-close"/>
+					</Functions>
+					</Functions>
+			</Item>
+			<Item id="GuaranteeProjectManager?projectStatus=1&amp;bmStatus=2" iconCls="menu-flowEnd" text="已完成项目管理">
+				<Function id="_seeAllPro_gt12" text="列表查询（查看所有列表记录）" iconCls="">
+				</Function>
+				<Functions id="_seePro_gt12" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt12" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt12" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt12" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt12" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt12" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt12" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt12" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt12" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt12" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt12" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt12" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt12" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt12" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt12" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt12" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt12" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt12" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt12" text="审保会决议情况" iconCls=""/>
+						<Function id="_seeSomeSbh_gt12" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt12" text="项目归档记录" iconCls=""/>
+					</Functions>
+					<Functions id="_seeContractBook_gt12" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt12" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt12" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt12" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt12" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt12" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt12" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt12" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt12" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_showFlowImg_gt12" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt12" text="导出项目" iconCls="menu-zmexport"/>
+				<Functions id="_detailPro_gt12" text="编辑项目" iconCls="btn-edit" >
+					<Functions id="_businessInfo_edit_gt12" text="业务信息" iconCls="">
+						<Function id="ediGtProjectInfo_gt12" text="项目控制信息" iconCls=""/>
+						<Function id="ediGtCustomerInfo_gt12" text="客户信息" iconCls=""/>
+						<Function id="ediGtBankInfo_gt12" text="银行对接信息" iconCls=""/>
+						<Functions id="operationGtFinanceInfo_gt12" text="资金款项信息" iconCls="mod-finance">
+							<Function id="ediGtFinanceInfo_gt12" text="资金款项信息" iconCls=""/>
+							<Functions id="operationGtActualToCharge_gt12" text="经办费用清单" iconCls="">
+								<Function id="addGtActualToCharge_gt12" text="增加" iconCls="btn-add"/>
+								<Function id="delGtActualToCharge_gt12" text="删除" iconCls="btn-del"/>
+								<Function id="ediGtActualToCharge_gt12" text="编辑" iconCls="btn-edit"/>
+							</Functions>
+						</Functions>
+						<Functions id="BankMargin_gt12" text="保证金支付情况" iconCls="">
+							<Function id="editFrozenBankMargin_gt12" text="冻结保证金" iconCls="btn-edi"/>
+							<Function id="editReleaseBankMargin_gt12" text="解冻保证金" iconCls="btn-edi"/>
+						</Functions>
+						<Function id="ediCustomerRepayment_gt12" text="银行放款收息表" iconCls="btn-edi"/>
+					</Functions>
+					<Functions id="_riskControl_edit_gt12" text="风险控制" iconCls="">
+						<Functions id="assuretenet_gt12" text="担保准入原则" iconCls="">
+							<Function id="businessManagerAgreement_gt12" text="业务经理意见" iconCls="selectIcon"/>
+							<Function id="riskManagerAgreement_gt12" text="风险经理意见" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="creditMaterials_gt12" text="担保材料清单" iconCls="">
+							<Function id="businessManagerOperation_gt12" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_gt12" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Function id="ediEnterpriseEvaluation_gt12" text="客户资信评估" iconCls=""/>
+						<Functions id="OperationMortgageView_gt12" text="反担保措施管理 " iconCls="">
+							<Function id="addMortgage_gt12" text="添加担保措施" iconCls="btn-add"/>
+							<Function id="delMortgage_gt12" text="删除担保措施" iconCls="btn-del"/>
+							<Function id="ediMortgage_gt12" text="编辑担保措施" iconCls="btn-edi"/>
+							<Function id="mortgageIsTransact_gt12" text="办理" iconCls="selectIcon"/>
+							<Function id="mortgageArchiveConfirm_gt12" text="归档" iconCls="selectIcon"/>
+							<Function id="mortgageUnchain_gt12" text="解除" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="report_gt12" text="尽职调查报告 " iconCls="">
+							<Function id="businessManagerOperation_report_gt12" text="业务经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_report_gt12" text="归档操作" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="riskReport_gt12" text="风险分析报告 " iconCls="">
+							<Function id="riskManagerOperation_gt12" text="风险经理职能操作" iconCls=""/>
+							<Function id="archiveConfirmOperation_riskReport_gt12" text="风险归档操作" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_ContractBook_edit_gt12" text="合同文书" iconCls="">
+						<Functions id="_ndbBook_gt12" text="拟担保意向书" iconCls="">
+							<Function id="LetterAndBook_gt12" text="普通操作拟担保意向书" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles_gt12" text="归档拟担保意向书" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="_dwdbcnBook_gt12" text="对外担保承诺函" iconCls="">
+							<Function id="LetterAndBook1_gt12" text="普通操作对外担保承诺函" iconCls="btn-edi"/>
+							<Function id="ArchiveFiles1_gt12" text="归档对外担保承诺函" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="wtdbContract_gt12" text="项目合同" iconCls="">
+							<Function id="editDbContract_gt12" text="普通操作项目合同" iconCls="btn-edi"/>
+							<Function id="recordDbContract_gt12" text="归档项目合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="operationGtContract_gt12" text="银行担保合同" iconCls="">
+							<Function id="addGtContract_gt12" text="增加" iconCls="btn-add"/>
+							<Function id="delGtContract_gt12" text="删除" iconCls="btn-del"/>
+							<Function id="ediGtContract_gt12" text="编辑" iconCls="btn-edit"/>
+							<Function id="legalCheckGt_gt12" text="法务确认" iconCls="selectIcon"/>
+							<Function id="issignGt_gt12" text="签署并检验合格" iconCls="selectIcon"/>
+							<Function id="isRecordGt_gt12" text="归档" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="khjkContract_gt12" text="客户借款合同" iconCls="">
+							<Function id="editFiles_gt12" text="普通操作客户借款合同" iconCls="btn-edi"/>
+							<Function id="upload_archive1_gt12" text="归档客户借款合同" iconCls="selectIcon"/>
+						</Functions>
+						<Functions id="dbzrjcBook_gt12" text="担保责任解除函" iconCls="">
+							<Function id="upload_edit_gt12" text="普通操作担保责任解除函" iconCls="btn-edi"/>
+							<Function id="upload_archive_gt12" text="归档担保责任解除函" iconCls="selectIcon"/>
+						</Functions>
+					</Functions>
+					<Functions id="_processControl_edit_egt10" text="流程控制" iconCls="">
+						<Function id="taskHandler_gt12" text="任务换人" iconCls="btn-users-sel"/>
+						<Function id="pathChange_gt12" text="流程跳转" iconCls="btn-changeTask"/>
+						<Function id="stopPro_gt12" text="终止项目" iconCls="btn-close"/>
+					</Functions>
+					</Functions>
+			</Item>
+			<Item id="GuaranteeProjectManager?projectStatus=1&amp;bmStatus=3" iconCls="menu-del" text="已终止项目管理">
+				<Function id="_seeAllPro_gt13" text="列表查询（查看所有列表记录）" iconCls="">
+				</Function>
+				<Functions id="_seePro_gt13" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_gt13" text="业务信息" iconCls="">
+						<Function id="gtProjectInfo_gt13" text="项目控制信息" iconCls=""/>
+						<Function id="gtCustomerInfo_gt13" text="客户信息" iconCls=""/>
+						<Function id="gtBankInfo_gt13" text="银行对接信息" iconCls=""/>
+						<Functions id="gtFinanceInfo_gt13" text="资金款项信息" iconCls="">
+							<Function id="gtFinanceBaseInfo_gt13" text="资金款项信息" iconCls=""/>
+							<Function id="gtActualToCharge_gt13" text="经办费用清单" iconCls=""/>
+						</Functions>
+						<Function id="seeBankMargin_gt13" text="保证金支付情况" iconCls=""/>
+						<Function id="customerRepayment_gt13" text="银行放款收息表" iconCls=""/>
+					</Functions>
+					<Functions id="_seeRiskControl_gt13" text="风险控制" iconCls="">
+						<Function id="seeAssuretenet_gt13" text="担保准入原则" iconCls=""/>
+						<Function id="seeCreditMaterials_gt13" text="担保材料清单" iconCls=""/>
+						<Function id="enterpriseEvaluation_gt13" text="客户资信评估" iconCls=""/>
+						<Function id="mortgageView_gt13" text="反担保措施管理 " iconCls=""/>
+						<Function id="seeReport_gt13" text="尽职调查报告 " iconCls=""/>
+						<Function id="seeRiskReport_gt13" text="风险分析报告 " iconCls=""/>
+						<Function id="_middleSupervision_gt13" text="保中监管记录" iconCls=""/>
+						<Function id="_seeSbh_gt13" text="审保会决议情况" iconCls="btn-detail"/>
+						<Function id="_seeSomeSbh_gt13" text="审保会决议情况(不能查看记录中的人员、职务信息)" iconCls=""/>
+						<Function id="seeFilingRecord_gt13" text="项目归档记录" iconCls="btn-detail"/>
+					</Functions>
+					<Functions id="_seeContractBook_gt13" text="合同文书" iconCls="">
+						<Function id="seeNdbBook_gt13" text="拟担保意向书" iconCls=""/>
+						<Function id="seeDwdbcnBook_gt13" text="对外担保承诺函" iconCls=""/>
+						<Function id="seeDtdbContract_gt13" text="项目合同" iconCls=""/>
+						<Function id="gtContract_gt13" text="银行担保合同" iconCls=""/>
+						<Function id="seeKhjkContract_gt13" text="客户借款合同" iconCls=""/>
+						<Function id="seeDbzrjcBook_gt13" text="担保责任解除函" iconCls=""/>
+					</Functions>
+					<Functions id="_processControl_gt13" text="流程控制" iconCls="">
+						<Function id="seeAgreements_gt13" text="意见与说明记录" iconCls="btn-detail"/>
+					</Functions>
+				</Functions>
+				<Function id="_showFlowImg_gt13" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_exportPro_gt13" text="导出项目" iconCls="menu-zmexport"/>
+			</Item>
+		</Items>
+		<Items id="GuaranteedProjectSuperviseManager" iconCls="menu-flowMine" text="保后项目处理">
+		<Item id="GuaranteeLoanedProjectManager?managerType=1" iconCls="btn-tree-team12" text="保后监管">
+			<Function id="superviseManage" text="保后监管" iconCls="btn-tree-team12"/>
+		</Item>
+		<Item id="GuaranteeLoanedProjectManager?managerType=2" iconCls="btn-tree-team59" text="违约处理">
+			<Function id="startBreachG" text="违约处理" iconCls="btn-tree-team59"/>
+		</Item>
+		<Item id="GuaranteeLoanedProjectManager?managerType=3" iconCls="btn-ok" text="项目结项">
+			<Function id="finishedProject" text="项目结项" iconCls="btn-ok"/>
+		</Item>
+	</Items>
+	</Items>
+	<Items id="FCFinance" text="资金管理" iconCls="menu-finance">
+			<Item id="AccountBankManage" iconCls="menu-accountbankmanage" text="银行保证金账户管理">
+		   <Function id="_addzhbzj_q" text="添加总行保证金" iconCls="btn-add"/>
+			<Function id="_addzhbzjzh_q" text="添加支行保证金账户" iconCls="btn-del"/>
+			<Function id="_editzhbzjzh_q" text="编辑" iconCls="sldownIcon"/>
+		    <Function id="_removezhbzjzh_q" text="删除" iconCls="btn-add"/>
+			<Function id="_seezhbzjzh_q" text="查看" iconCls="btn-del"/>
+			<Function id="_addbzjzhjl_q" text="增加保证金账户记录" iconCls="sldownIcon"/>
+			<Function id="_editbzjzhjl_q" text="编辑保证金账户记录" iconCls="sldownIcon"/>
+		    <Function id="_removebzjzhjl_q" text="删除保证金账户记录" iconCls="btn-add"/>
+			<Function id="_seebzjzhjl_q" text="查看保证金账户记录" iconCls="btn-del"/>
+		</Item>
+	<Item id="AccountBankManageProj" iconCls="menu-accountbankmanageproj" text="保证金账户项目记录管理">
+		    <Function id="_adddjxmjl_q" text="添加冻结项目记录" iconCls="btn-del"/>
+			<Function id="_editdjxmjl_q" text="编辑冻结项目记录" iconCls="sldownIcon"/>
+			<Function id="_removexmxgjl_q" text="删除项目相关记录" iconCls="sldownIcon"/>
+		    <Function id="_seexmxgjl_q" text="查看项目相关记录" iconCls="btn-add"/>
+			<Function id="_jdbzj_q" text="解冻保证金" iconCls="btn-del"/>
+		</Item>
+	</Items>
+	<Items id="GTcontactFinance" text="担保款项台账" iconCls="menu-finance-qlide" >
+			<Item id="SlActualToChargeIncomeView?businessType=Guarantee" iconCls="btn-tree-team30" text="手续收入台账" >
+		    <Function id="_liushui_a_Guarantee" text="流水核销" iconCls="btn-user-sel"/>
+			<Function id="_cash_a_Guarantee" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_a_Guarantee" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_a_Guarantee" text="核销" iconCls="btn-ok"/>
+			<Function id="_sOverdue_a_Guarantee" text="逾期状态" iconCls="btn-setting"/>
+		</Item>
+
+		<Item id="VChargeDetail?businessType=Guarantee" iconCls="menu-archive-history" text="手续收入台账日志" >
+		 	<Function id="_cxfydzlsjl_f" text="撤销对账" iconCls="btn-setting"/>
+		</Item>
+		
+
+	</Items>
+	<Items id="DocumentManagerGuarantee" text="合同管理" iconCls="btn-tree-team31" >
+	<Item id="CreditDocumentManager?businessType=Guarantee" text="合同模板制作"
+			iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm" text="新增模板类型" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_cdm" text="修改模板类型信息" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_cdm" text="删除模板类型" iconCls="btn-del">
+			</Function>
+			<Function id="_read_cdm" text="查看系统要素" iconCls="btn-readdocument">
+			</Function>
+			<Function id="_output_cdm" text="导出系统要素" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="ContractManager?businessType=Guarantee" text="合同管理" iconCls="btn-tree-team31" >
+		</Item>
+	</Items>
+<Items id="propertyView?businessType=Guarantee" text="抵质押物管理" iconCls="menu-property">
+		<Item id="MortgageManagementQuery?businessType=Guarantee" text="抵质押物查询" iconCls="menu-property"/>
+		<Item id="MortgageManagement?businessType=Guarantee" text="抵质押物管理" iconCls="btn-tree-team32">
+			<Function id="_seeMortgage" text="查看" iconCls="menu-dictionary">
+				<url>/credit/mortgage/getMortgageList.do</url>
+			</Function>
+			<Function id="_seeMortgageInfo" text="查看抵质押物详情" iconCls="btn-readdocument"/>
+			<Function id="_seeThirdContract" text="查看合同详情" iconCls="btn-readdocument"/>
+			<Function id="_seeProjectInfo" text="查看项目详情"
+				iconCls="btn-readdocument">
+				<url>/creditFlow/getProjectViewObjectCreditProject.do</url>
+			</Function>
+			<Function id="_banliMortgage" text="办理抵质押物"
+				iconCls="btn-flow-design">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+			<Function id="_relieveMortgage" text="解除抵质押物 "
+				iconCls="deleteIcon">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+		</Item>
+	</Items>
+		<Items id="PlArchivesViewMenu?businessType=Guarantee" text="归档管理" iconCls="btn-tree-team33" >
+		 <Item id="PlProjectArchivesView?businessType=Guarantee" text="归档管理" iconCls="btn-tree-team33">
+		    <Function id="_Archives_add" text="办理归档" iconCls="btn-see">
+			</Function>
+			<Function id="_Archivesproj_see" text="查看项目详情" iconCls="btn-see">
+			</Function>
+		</Item>
+	</Items>
+	<Items id="GTSetting" text="业务配置管理" iconCls="menu-smallloan-info" expanded="false">
+		<Item id="OurProcreditMaterialsEnterpriseView" text="担保材料清单管理" iconCls="menu-materials">
+			<Function id="_create_dbdc" text="添加担保材料" iconCls="btn-add"/>
+			<Function id="_edit_dbdc" text="编辑担保材料" iconCls="btn-edit"/>
+			<Function id="_remove_dbdc" text="删除担保材料" iconCls="btn-del"/>
+			<Function id="_create_dbdcx" text="添加担保材料项" iconCls="btn-add"/>
+			<Function id="_edit_dbdcx" text="编辑担保材料项" iconCls="btn-edit"/>
+			<Function id="_remove_dbdcx" text="删除担保材料项" iconCls="btn-del"/>
+		</Item>
+		
+		<Item id="OurProcreditAssuretenetGuaranteeView?businessType=Guarantee" text="担保准入原则管理" iconCls="menu-seal">
+			<Function id="_create_dbzr" text="添加准入原则" iconCls="btn-add"/>
+			<Function id="_remove_dbzr" text="删除准入原则" iconCls="btn-del"/>
+			<Function id="_edit_dbzr" text="编辑准入原则" iconCls="btn-edit"/>
+		</Item>
+		
+		<Item id="OurArchivesMaterialsView?businessType=Guarantee" text="担保归档材料清单管理" iconCls="menu-materials" isShow="false">
+			<Function id="_create_dbarchives" text="添加归档材料" iconCls="btn-add"/>
+			<Function id="_remove_dbarchives" text="删除归档材料" iconCls="btn-del"/>
+			<Function id="_edit_dbarchives" text="编辑归档材料" iconCls="btn-edit"/>
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=Guarantee" text="文档模板管理" iconCls="btn-tree-team48" isShow="false" >
+			<Function id="_create_ddm" text="新增模板文档项" iconCls="btn-add"/>
+			<Function id="_edit_ddm" text="修改模板文档项" iconCls="btn-edit"/>
+			<Function id="_remove_ddm" text="删除模板文档项" iconCls="btn-del"/>
+		</Item>
+		<Item id="SlPlansToChargeView?businessType=Guarantee" iconCls="menu-archive-draft-manage" text="手续费用配置管理">
+			<Function id="_create_zxpz_Guarantee" text="添加" iconCls="btn-add"/>
+			<Function id="_remove_zxpz_Guarantee" text="删除" iconCls="btn-del"/>
+			<Function id="_save_zxpz_Guarantee" text="保存" iconCls="btn-save"/>
+		</Item>
+		
+			
+		
+	</Items>
+		 <Items id="FCreportFinance" text="担保报表" iconCls="menu-finance-report" >
+		<Items id="GTreportFinance" text="金融担保" iconCls="menu-guarantee-info" >
+		
+	    <Item id="ReportMenuGuaranteeprojectdetail?reportKey=guaranteeprojectdetail" iconCls="btn-tree-team38" text="担保明细表" />
+	    <Item id="ReportMenuGuaranteeprojectintentdetail?reportKey=guaranteeprojectintentdetail" iconCls="btn-tree-team39" text="担保款项明细表" />
+	    
+	</Items>
+	<Item id="ReportMenuCommon?reportKey=guaranteeFinancialDetail" iconCls="btn-tree-team38" text="担保财务明细表" />
+	<Item id="ReportMenuCommon?reportKey=guaranteeLoanDetail" iconCls="btn-tree-team38" text="贷款明细表" />	
+	<Item id="ReportMenuCommon?reportKey=securedLoanClassification" iconCls="btn-tree-team38" text="担保贷款分类表" />	
+		</Items>
+		
+	
+</Menus>

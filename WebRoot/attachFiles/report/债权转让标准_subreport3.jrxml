@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准_subreport1" language="groovy" pageWidth="860" pageHeight="802" columnWidth="860" leftMargin="0" rightMargin="0" topMargin="60" bottomMargin="60" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="72"/>
+	<property name="ireport.y" value="240"/>
+	<parameter name="qingdingDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="daxiebuyMoney" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="investPersonName" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     activemq_lock.`ID` AS activemq_lock_ID,
+     activemq_lock.`TIME` AS activemq_lock_TIME,
+     activemq_lock.`BROKER_NAME` AS activemq_lock_BROKER_NAME
+FROM
+     `activemq_lock` activemq_lock]]>
+	</queryString>
+	<field name="activemq_lock_ID" class="java.lang.Long"/>
+	<field name="activemq_lock_TIME" class="java.lang.Long"/>
+	<field name="activemq_lock_BROKER_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="71" width="860" height="44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权转让款到账确认书]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="546" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="71" width="54" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["尊敬的"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="103" width="101" height="43"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["您与我本人于"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="277" width="587" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[确认人（债权转让人）：解宇舟]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="347" width="587" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[签字：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="347" width="273" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[盖章：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="277" width="273" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[见证人：北京互融时代有限公司]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="439" width="59" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[时间：]]></text>
+			</staticText>
+			<textField pattern="yyyy年MM月dd日">
+				<reportElement x="646" y="439" width="117" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{qingdingDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="146" width="597" height="43"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["人民币我已经。收到自本日起，您即享有该债权的全部债权人权益。特此确认。"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="146" width="128" height="43"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{daxiebuyMoney}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="103" width="454" height="43"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["签订的《债权转让及受让协议》项下的债权转让款共计 "]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy   年MM  月dd   日" isBlankWhenNull="true">
+				<reportElement x="236" y="103" width="170" height="43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{qingdingDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="71" width="58" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isUnderline="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{investPersonName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="71" width="333" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["女士/先生："]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

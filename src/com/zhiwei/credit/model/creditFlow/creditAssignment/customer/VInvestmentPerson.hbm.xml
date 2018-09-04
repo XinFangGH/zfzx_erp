@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+    <class name="com.zhiwei.credit.model.creditFlow.creditAssignment.customer.VInvestmentPerson" table="v_investment_person" >
+             <id name="investId" type="java.lang.Long">
+                <column name="investId" />
+            </id>
+           <property name="investName" type="java.lang.String">
+                <column name="investName" length="255" />
+            </property>
+            <property name="sex" type="java.lang.Integer">
+                <column name="sex" />
+            </property>
+            <property name="cardtype" type="java.lang.Integer">
+                <column name="cardtype" />
+            </property>
+             <property name="cardtypevalue" type="java.lang.String">
+                <column name="cardtypevalue" length="110" />
+            </property>
+            <property name="sexvalue" type="java.lang.String">
+                <column name="sexvalue" length="110" />
+            </property>
+            <property name="postaddress" type="java.lang.String">
+                <column name="postaddress" length="255" />
+            </property>
+            <property name="postcode" type="java.lang.String">
+                <column name="postcode" length="50" />
+            </property>
+            <property name="cellphone" type="java.lang.String">
+                <column name="cellphone" length="50" />
+            </property>
+            <property name="cardnumber" type="java.lang.String">
+                <column name="cardnumber" length="100" />
+            </property>
+            <property name="selfemail" type="java.lang.String">
+                <column name="selfemail" length="100" />
+            </property>
+            <property name="createdate" type="java.util.Date">
+                <column name="createdate" length="19" />
+            </property>
+            <property name="creater" type="java.lang.String">
+                <column name="creater" length="100" />
+            </property>
+        <property name="belongedId" type="java.lang.String">
+            <column name="belongedId" length="255" />
+        </property>
+        <property name="createrId" type="java.lang.Long">
+            <column name="createrId" length="20" />
+        </property> 
+        <property name="companyId" type="java.lang.Long">
+            <column name="companyId" length="20" />
+        </property>
+             <property name="orgName" type="java.lang.String">
+            <column name="orgName" length="100" />
+        </property>
+         <property name="shopId" type="java.lang.Long">
+            <column name="shopId" length="20" />
+        </property>
+             <property name="shopName" type="java.lang.String">
+            <column name="shopName" length="100" />
+        </property>
+        <property name="contractStatus" type="java.lang.Integer">
+                <column name="contractStatus" />
+            </property>
+             <property name="changeCardStatus" type="java.lang.Integer">
+                <column name="changeCardStatus" />
+            </property>
+        <property name="birthDay" type="java.lang.String">
+            <column name="birthDay" />
+        </property>
+ </class>
+</hibernate-mapping>

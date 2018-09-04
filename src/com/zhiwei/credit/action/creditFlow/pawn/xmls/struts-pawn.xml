@@ -1,0 +1,36 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="pawnProject" extends="struts-default" namespace="/creditFlow/pawn/project">
+		<action name="*PlPawnProject" class="PlPawnProjectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PawnContinuedManagment" class="PawnContinuedManagmentAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+			<action name="*PawnRedeemManagement" class="PawnRedeemManagementAction" method="{1}">
+		<result>${successResultValue}</result>
+		</action>
+		<action name="*PawnVastMaragement" class="PawnVastMaragementAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PawnTicketLossRecord" class="PawnTicketLossRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PawnTicketReissueRecord" class="PawnTicketReissueRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	 <package name="pawnItems" extends="struts-default" namespace="/creditFlow/pawn/pawnItems">
+		<action name="*PawnItemsList" class="PawnItemsListAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PawnCrkRecord" class="PawnCrkRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PawnInspectionRecord" class="PawnInspectionRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+</struts>

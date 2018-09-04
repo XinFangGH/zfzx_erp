@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax27="http://bankmd.md.services.webServices.com/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax25="http://zwmd.md.services.webServices.com/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://impl.IZwServices.services.webServices.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://impl.IZwServices.services.webServices.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bankmd.md.services.webServices.com/xsd">
+            <xs:complexType name="ZwBankStrmMd">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="account" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="accountname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bankname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="curr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="getamount" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="oppaccount" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="oppbank" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="oppname" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="payamount" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tradedate" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tradeno" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tradetime" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://zwmd.md.services.webServices.com/xsd">
+            <xs:complexType name="ZwMd">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="appcode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="num" type="xs:int"/>
+                    <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax28="http://bankmd.md.services.webServices.com/xsd" xmlns:ax26="http://zwmd.md.services.webServices.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.IZwServices.services.webServices.com">
+            <xs:import namespace="http://zwmd.md.services.webServices.com/xsd"/>
+            <xs:import namespace="http://bankmd.md.services.webServices.com/xsd"/>
+            <xs:element name="bankStrm">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="zwMd" nillable="true" type="ax26:ZwMd"/>
+                        <xs:element minOccurs="0" name="bankSMdArr" nillable="true" type="ax28:ZwBankStrmMd"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="bankStrmResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="bankStrmRequest">
+        <wsdl:part name="parameters" element="xsd:bankStrm"/>
+    </wsdl:message>
+    <wsdl:message name="bankStrmResponse">
+        <wsdl:part name="parameters" element="xsd:bankStrmResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IBankStmServicesImplPortType">
+        <wsdl:operation name="bankStrm">
+            <wsdl:input message="xsd:bankStrmRequest" wsaw:Action="urn:bankStrm"/>
+            <wsdl:output message="xsd:bankStrmResponse" wsaw:Action="urn:bankStrmResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="IBankStmServicesImplSoap11Binding" type="xsd:IBankStmServicesImplPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="bankStrm">
+            <soap:operation soapAction="urn:bankStrm" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="IBankStmServicesImplSoap12Binding" type="xsd:IBankStmServicesImplPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="bankStrm">
+            <soap12:operation soapAction="urn:bankStrm" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="IBankStmServicesImplHttpBinding" type="xsd:IBankStmServicesImplPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="bankStrm">
+            <http:operation location="IBankStmServicesImpl/bankStrm"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="bankStrm"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="bankStrm"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="IBankStmServicesImpl">
+        <wsdl:port name="IBankStmServicesImplHttpSoap11Endpoint" binding="xsd:IBankStmServicesImplSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/IBankStmServicesImpl"/>
+        </wsdl:port>
+        <wsdl:port name="IBankStmServicesImplHttpSoap12Endpoint" binding="xsd:IBankStmServicesImplSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/IBankStmServicesImpl"/>
+        </wsdl:port>
+        <wsdl:port name="IBankStmServicesImplHttpEndpoint" binding="xsd:IBankStmServicesImplHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/IBankStmServicesImpl"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

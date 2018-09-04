@@ -1,0 +1,289 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	slEarlyRepaymentId:'$!slEarlyRepaymentId',
+	surplusnotMoney:'$!surplusnotMoney',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+		
+	},
+	initComponents : function() {
+			var jsArr = [__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息,
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentViewVM.js',// 款项信息,
+				__ctxPath + '/js/creditFlow/smallLoan/finance/EarlyRepaymentSlFundIntent.js',// 利率变更款项
+				__ctxPath + '/js/creditFlow/smallLoan/finance/FinanceEarlyRepaymentPanel.js',// 利率变更panel
+				__ctxPath + '/js/creditFlow/guarantee/contract/LetterAndBookView.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/enterpriseBusiness/EnterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/finance/detailView.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		
+		this.perMain = "";
+		this.projectInfo = new EnterpriseBusinessProjectInfoPanel({
+			   isDiligenceReadOnly : true,
+			   isMineNameEditable:false,
+			   isAllReadOnly:true
+		});
+	
+		var title="企业客户信息";
+		if (this.oppositeType =="person_customer") {
+			this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+				isEditPerson : false,
+				isReadOnly:true,
+				isSpouseReadOnly: true,
+				isNameReadOnly:true,
+				isHideGudongInfo:true
+			});
+			title="个人客户信息";
+		} else if(this.oppositeType =="company_customer"){
+			
+			     this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				 projectId : this.projectId,
+				 bussinessType:this.businessType,
+				 isEditEnterprise : false,
+				 isReadOnly:true,
+				 isNameReadOnly:true
+			});
+		}
+
+		this.gridPanel=new SlFundIntentViewVM({
+			isHiddenOperation : false,
+			projectId :  this.projectId,
+			businessType :  this.businessType,
+			isHiddenAddBtn : true,
+			isHiddenDelBtn : true,
+			isHiddenCanBtn : true,
+			isHiddenResBtn : true,
+			isHiddenautocreateBtn:true,
+			isHiddenResBtn1:true,
+			isFinbtn:true,
+			isHidden1 : true,
+			isThisEarlyPaymentRecordId : this.slEarlyRepaymentId,
+			isUnLoadData : false,
+			isThisEarlyPaymentRecord : 'no'
+	    })
+
+		this.DeferApplyInfoPanel = new FinanceEarlyRepaymentPanel({
+			surplusnotMoney : this.surplusnotMoney,
+			payintentPeriod : this.payintentPeriod,
+			idDefinition:'earlyRepayment'+this.taskId,
+			projectId : this.projectId,
+			slAlterAccrualRecorddata : null,
+			isDiligenceReadOnly : true,
+			isAllReadOnly:true
+		})
+		 this.earlyRepaymentSlFundIntent = new EarlyRepaymentSlFundIntent({
+			object : this.DeferApplyInfoPanel,
+	//		preaccrualtype : accrualtype,
+			projId : this.projectId,
+			titleText : '放款收息表',
+			businessType : this.businessType,
+			isThisEarlyPaymentRecordId : this.slEarlyRepaymentId,
+			isUnLoadData : false,
+			isThisEarlyPaymentRecord : 'yes',
+			isHidden : true
+		})
+		this.uploads = new uploads({
+			projectId : this.projectId,
+			isHidden : true,
+			tableName : 'sl_earlyrepayment_record',
+			typeisfile : 'sl_earlyrepayment_record.'+this.slEarlyRepaymentId,
+			businessType : this.businessType,
+			uploadsSize : 15
+		})
+		//提前还款审批表
+		this.slEarlyrepaymentRecordVerification = new LetterAndBookView({
+			projectId : this.projectId,
+			businessType : this.businessType,
+			LBTemplate : 'slEarlyrepaymentRecordVerification',
+			isHidden : true,
+		    isRecordHidden : true,
+			isGdEdit : true
+		})
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'flLeaseFinanceProjectService.updateIsFlowOverNextStep'
+			}, {
+				xtype : 'hidden',
+				name : 'projectId_flow',
+				value:this.projectId
+			},{
+				xtype : 'hidden',
+				name : 'slEarlyRepaymentId_flow',
+				value : this.slEarlyRepaymentId
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目基本信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			}, {
+				xtype : 'fieldset',
+				title :title,
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.perMain]
+			}
+			, {       
+			    xtype : 'fieldset',
+				title : '当前款项资金信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'historyfinance',
+				autoHeight : true,
+				items : [
+					this.gridPanel
+				]
+			}
+			,{
+				xtype : 'fieldset',
+				title : '提前还款登记信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [
+				    this.DeferApplyInfoPanel,
+					this.earlyRepaymentSlFundIntent
+				]
+			} ,{
+				xtype : 'fieldset',
+				collapsible : true,
+				autoHeight : true,
+				title : '提前还款申请表',
+				items : [this.uploads]
+			},{
+				xtype : 'fieldset',
+				collapsible : true,
+				autoHeight : true,
+				title : '提前还款审批表',
+				items : this.slEarlyrepaymentRecordVerification
+			},{
+				xtype : 'hidden',
+        		name : 'safeLevel',
+        		value : 1
+			},{
+			     xtype:'hidden',
+			     name:'task_id',
+			     value:this.taskId
+	        }]
+		})
+
+		this.loadData({
+			url : __ctxPath + '/supervise/getInfoAheadRefundSlSuperviseRecord.do?projectId='+this.projectId+'&type='+this.businessType+'&task_id='+this.taskId+'&loanedTypeId='+this.slEarlyRepaymentId+'&loanedTypeKey=earlyReyment',
+			method : "POST",
+			preName : ['flLeaseFinanceProject','slEarlyRepaymentRecord','enterprise', 'person',"enterpriseBank","spouse",'payintentPeriod'],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+			    if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}				
+				if(typeof(alarm_fields.data.enterpriseBank) != 'undefined') {
+					this.getCmpByName('enterpriseBank.areaName').setValue(alarm_fields.data.enterpriseBank.areaName);
+				}
+				this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.slEarlyRepaymentRecord.earlyProjectMoney,'0,000.00'));
+				var payintentPeriod=alarm_fields.data.payintentPeriod
+				if(null!=payintentPeriod){
+					this.getCmpByName('prepayintentPeriod1').setValue(payintentPeriod+'.'+alarm_fields.data.slEarlyRepaymentRecord.prepayintentPeriod)
+					if(payintentPeriod==0){
+						this.getCmpByName('prepayintentPeriod1').setRawValue('第'+alarm_fields.data.slEarlyRepaymentRecord.prepayintentPeriod+'期')
+					}else{
+						this.getCmpByName('prepayintentPeriod1').setRawValue('展期第'+alarm_fields.data.slEarlyRepaymentRecord.prepayintentPeriod+'期')
+					}
+				}
+			}
+		});
+
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+			formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/project/saveCommentsSlSmallloanProject.do',
+			params : {
+				comments : formPanel.comments
+			},
+		    method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			    Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	
+	validate : function(outpanel) {
+	     return true;
+	}
+})

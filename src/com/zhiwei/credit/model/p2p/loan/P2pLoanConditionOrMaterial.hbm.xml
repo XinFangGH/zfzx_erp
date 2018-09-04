@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.p2p.loan.P2pLoanConditionOrMaterial"
+        table="p2p_loan_conditionOrMaterial"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="conditionId"
+            column="conditionId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="productId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="productId"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="conditionContent"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="conditionContent"
+            length="255"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="conditionState"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="conditionState"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="conditionType"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="conditionType"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+         <property
+            name="remark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remark"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="projectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="projectId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

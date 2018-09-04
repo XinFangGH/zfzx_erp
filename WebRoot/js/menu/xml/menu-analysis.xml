@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_analysis" text="统计分析库" iconCls="mod-analysis"> 
+<Items id="title_analysis" text="统计分析库" iconCls="mod-analysis"
+		isPublic="false">
+    <Items id="SLanalysis" text="小贷贷款" iconCls="menu-smallloan-info" >
+		<Item id="ReportTemplateMenuCapital?reportKey=CapitalFlow" text="资金流预测分析" iconCls="menu-personal-salary"/>
+			<Item id="ReportTemplateMenu1?reportKey=projectNum" text="贷款数量统计分析图" iconCls="menu-archSat"/>
+		<Item id="ReportTemplateMenu1?reportKey=projectMoney" text="贷款金额统计分析图" iconCls="menu-boardRoom"/>
+		<Item id="ReportTemplateMenu1?reportKey=projectAccrual" text="贷款利息统计分析图" iconCls="mod-report"/>
+				<Item id="ReportTemplateMenu1?reportKey=accralRates" text="贷款平均利润率分析" iconCls="menu-assets"/>
+		<Item id="ReportTemplateMenu1?reportKey=newProfit" text="贷款平均年化净利率分析" iconCls="menu-grade_one"/>
+
+		
+	
+		
+	</Items>
+	  <Items id="GTanalysis" text="金融担保" iconCls="menu-guarantee-info" >
+		<Item id="ReportTemplateMenu1?reportKey=projectNumOfGuarantee" text="担保数量统计分析图" iconCls="menu-archSat"/>
+		<Item id="ReportTemplateMenu1?reportKey=projectMoneyOfGuarantee" text="担保金额统计分析图" iconCls="menu-boardRoom"/>
+		<Item id="ReportTemplateMenu1?reportKey=baofei" text="保费统计分析图" iconCls="mod-report"/>
+	</Items>
+	 <Items id="FCanalysis" text="资金融资" iconCls="menu-financing-info" >
+		<Item id="ReportTemplateMenu1?reportKey=newProfitOfFinance" text="平均年化净利率分析" iconCls="menu-grade_one"/>
+		<Item id="ReportTemplateMenu1?reportKey=accralRatesOfFinance" text="融资平均利润率分析" iconCls="menu-assets"/>
+		
+		<Item id="ReportTemplateMenu1?reportKey=projectNumOfFinance" text="融资数量统计分析图" iconCls="menu-archSat"/>
+		<Item id="ReportTemplateMenu1?reportKey=projectMoneyOfFinance" text="融资金额统计分析图" iconCls="menu-boardRoom"/>
+		<Item id="ReportTemplateMenu1?reportKey=projectAccrualOfFinance" text="融资利息统计分析图" iconCls="mod-report"/>
+	</Items>
+	 <Items id="PWanalysis" text="金融典当" iconCls="menu-pawn-info" >
+		
+	</Items>
+	 <Items id="ITanalysis" text="风险投资" iconCls="menu-investments-info" >
+		
+	</Items>
+	</Items>
+</Menus>

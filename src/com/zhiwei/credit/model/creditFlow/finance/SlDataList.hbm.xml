@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.finance.SlDataList"
+        table="sl_data_list"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="dataId"
+            column="dataId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="dayDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="dayDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="sendTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="sendTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="sendPersonId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="sendPersonId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="sendStatus"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="sendStatus"
+            length="5"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="type"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="type"
+            length="30"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="companyId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="companyId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

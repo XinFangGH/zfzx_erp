@@ -1,0 +1,24 @@
+## This is a velocity template
+## to generate a action servlet template file from an sql table input
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($skipManager = $prop.isExcludedProperty("Manager"))
+#if  ($skipManager)
+#set ($classManager    = "Manager")
+#set ($classVarManager = "manager")
+#else
+#set ($classManager    = "${class}Manager")
+#set ($classVarManager = "${classVar}Manager")
+#end
+	<bean id="${classVar}Controller" class="${packagePrefix}.${packageModot}.controller.${class}Controller" parent="baseListController" autowire="byName">
+		<property name="successView" value="redirect:${classVar}s.do"/>
+	</bean>
+	<bean id="${classVar}FormController" class="${packagePrefix}.${packageModot}.controller.${class}FormController" autowire="byName">
+        <property name="formView" value="admin/${packageModot}/${classVar}Form"/>
+        <property name="successView" value="redirect:${classVar}s.do"/>
+        <property name="cancelView" value="redirect:index.do"/>
+        <property name="validator" ref="beanValidator"/>
+    </bean>

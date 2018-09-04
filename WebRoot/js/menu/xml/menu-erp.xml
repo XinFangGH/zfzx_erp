@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_erp" text="系统管理" iconCls="mod-org">
+	<Items id="companySetting" text="后台账户管理" iconCls="menu-flowManager" isPublic="false" >
+		<Item id="ProfileForm" text="修改个人资料" iconCls="menu-flowManager" />
+		<Item id="CompanyOfUesrView" text="部门人员管理" iconCls="menu-flowManager"  />
+		<Item id="AppRoleView" iconCls="menu-flowManager" text="角色权限设置">
+			<Function id="_AppRoleList" text="查看角色" iconCls="menu-list">
+				<url>/system/listAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleAdd" text="添加角色" iconCls="menu-add">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleEdit" text="编辑角色" iconCls="btn-edit">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleDel" text="删除角色" iconCls="menu-del">
+				<url>/system/listAppRole.do</url>
+				<url>/system/mulDelAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleGrant" text="授权角色" iconCls="btn-grant">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleExit" text="导出权限" iconCls="menu-del"/>
+			<Function id="_AppRoleImport" text="导入权限" iconCls="menu-del"/>
+		</Item>
+		<Item id="DeskTopForm" text="桌面设置" iconCls="menu-flowManager" />
+	</Items>
+	
+	<Items id="SubjectManagement" text="法律主体管理" iconCls="menu-flowManager" >
+			<Item id="SlCompanyMainView" text="企业主体管理" iconCls="menu-flowManager" >
+				<Function id="_create_cm" text="添加企业主体" iconCls="btn-add"/>
+				<Function id="_remove_cm" text="删除企业主体" iconCls="btn-del"/>
+				<Function id="_edit_cm" text="编辑企业主体" iconCls="btn-edit"/>
+			</Item>
+			<Item id="SlPersonMainView" text="个人主体管理" iconCls="menu-flowManager">
+				<Function id="_create_pm" text="添加个人主体" iconCls="btn-add"/>
+				<Function id="_remove_pm" text="删除个人主体" iconCls="btn-del"/>
+				<Function id="_edit_pm" text="编辑个人主体" iconCls="btn-edit"/>
+			</Item>
+	</Items>
+	<Items id="CommonConfiguration" text="通用参数配置" iconCls="menu-flowManager" >
+			<Item id="AreaDicView?treeId=1" text="地区数据字典" iconCls="menu-flowManager" isShow="false"/>
+			<Item id="CsBankView" iconCls="menu-flowManager" text="银行名称管理" /><!--
+			<Item id="WebBankCodeView" iconCls="btn-tree-team28" text="p2p银行管理" />
+			<Item id="CsBankTab" iconCls="btn-tree-team28" text="第三方银行管理" />
+			--><Item id="DicManager" iconCls="menu-flowManager" text="单级数据字典">
+				<Function id="_DictionaryQuery" text="查看字典" iconCls="menu-dictionary">
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAdd" text="添加" iconCls="menu-add">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryEdit" text="编辑" iconCls="btn-edit">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+					<url>/system/getDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryDel" text="删除" iconCls="menu-del">
+					<url>/system/listDictionary.do</url>
+					<url>/system/multiDelDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryChange" text="转移类型" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/typeChangeDictionary.do</url>
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAddType" text="新建分类" iconCls="btn-edit">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+				</Function>
+				<Function id="_DictionaryDelType" text="删除分类" iconCls="menu-del">
+					<url>/system/deleteGlobalType.do</url>
+					<url>/system/treeGlobalType.do</url>
+				</Function>
+				<Function id="_DictionaryEditType" text="编辑分类" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+					<url>/system/getGlobalType.do</url>
+				</Function>
+			</Item>
+		<Item id="AreaDicView?treeId=10092" text="行业类别字典" iconCls="menu-flowManager" isShow="false"/>
+		<Item id="ProfitRateMaintenanceView" text="基准利率管理" iconCls="menu-flowManager"/>
+		<Item id="CsHolidayView" text="公休节日管理" iconCls="menu-flowManager"/>
+		<Item id="SlPlansToChargeView?businessType=InvestSettle" iconCls="btn-tree-team2" text="提成收费类型">
+					<Function id="_create_zxpz_SmallLoan" text="添加" iconCls="btn-add"/>
+					<Function id="_remove_zxpz_SmallLoan" text="删除" iconCls="btn-del"/>
+					<Function id="_save_zxpz_SmallLoan" text="保存" iconCls="btn-save"/>
+				</Item>
+	</Items>
+	<Items id="flow_setting" text="流程引擎管理" iconCls="menu-flowManager" >
+		<Item id="TaskManager" text="流程任务总览" iconCls="menu-flowManager">
+	    	<Function id="_szdqsj" text="设置到期时间" iconCls="menu-list"/>
+			<Function id="_ggdbr" text="更改代办人" iconCls="menu-add"/>
+			<Function id="_ggzxlj" text="更改执行路径" iconCls="btn-edit"/>
+			<Function id="_rwdb" text="任务代办" iconCls="menu-del"/>
+		</Item>
+		<Item id="FlowManagerViewForCustomer" text="流程配置管理" iconCls="menu-flowManager"/>
+		<Item id="TaskProxyView" text="流程任务代理" iconCls="menu-flowManager">
+			<Function id="_task_proxy_add" text="增加" iconCls="btn-add" isControl="false"/>
+			<Function id="_task_proxy_modify" text="修改" iconCls="btn-edit" isControl="false"/>
+			<Function id="_task_proxy_delete" text="删除" iconCls="btn-delete" isControl="false"/>
+			<Function id="_task_proxy_export" text="导出Excel" iconCls="btn-delete" isControl="false"/>
+			<Function id="_task_proxy_see" text="查看" iconCls="btn-delete" isControl="false"/>
+		</Item>
+	</Items>
+
+	<Items id="SystemConfiguration" text="系统底层配置" iconCls="menu-flowManager" >
+		<Item id="SystemConfigViewForCustomer" iconCls="menu-flowManager" text="系统资金配置" isShow="false"></Item>
+		<Item id="SystemAccountSettingInfoView" iconCls="menu-flowManager" text="系统账户配置"></Item>
+		<Item id="PageSettingView" text="表单配置管理" iconCls="menu-flowManager" />
+		<Item id="BranchFlowMnagerView" text="流程定义管理" iconCls="menu-flowManager">
+			<Function id="_FlowDesign3" text="在线流程设计" iconCls="btn-flow-design"/>
+			<Function id="_FlowCreateUpdateType3" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="_FlowQuery3" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage3" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit3" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel3" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck3" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting3" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	    <Item id="SystemConfigView" iconCls="menu-flowManager" text="系统配置管理" isShow="false"></Item>
+		<Item id="DicIndepManager" iconCls="menu-flowManager" text="独立数据字典" isShow="false" >
+                <Function id="_addsjzd" text="添加数据字典" iconCls="menu-list"/>
+				<Function id="_savesjzd" text="保存" iconCls="menu-add"/>
+				<Function id="_removesjzd" text="删除" iconCls="menu-add"/>
+				<Function id="_changetype" text="转移类型" iconCls="menu-list"/>
+				<Function id="_editsjzdx" text="编辑数据字典项" iconCls="menu-add"/>
+    	</Item>
+    	<Item id="ReportTemplateView" iconCls="menu-flowManager" text="报表模板管理" isShow="false" >
+			<Function id="_ReportTemplateQuery" text="查看报表" iconCls="menu-list">
+				<url>/system/listReportTemplate.do</url>
+				<url>report/report.jsp</url>
+			</Function>
+			<Function id="_ReportTemplateAdd" text="添加报表" iconCls="menu-add">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/saveReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportTemplateEdit" text="编辑报表" iconCls="btn-edit">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/getReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportParamSetting" text="参数设置" iconCls="btn-setting">
+				<url>/system/loadReportTemplate.do</url>
+				<url>/system/submitReportTemplate.do</url>
+				<url>/system/listReportParam.do</url>
+				<url>/system/multiDelReportParam.do</url>
+				<url>/system/saveReportTemplate.do</url>
+				<url>/system/saveReportParam.do</url>
+				<url>/system/getReportParam.do</url>
+			</Function>
+			<Function id="_ReportTemplateDel" text="删除报表" iconCls="menu-del">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/multiDelReportTemplate.do</url>
+			</Function>
+		</Item>
+        <Item id="ThirdPayConfigView" iconCls="menu-flowManager" text="三方支付配置" isShow="false"></Item>
+       <!-- <Item id="SystemServiceUpdateView" iconCls="btn-setting" text="系统更新(功能开发中)" isShow="false"></Item> --> 
+	</Items>
+    <Items id='SecurityManagement' text="系统安全管理" iconCls="menu-flowManager"
+		isPublic="false">
+		<Item id="SysLogView" iconCls="menu-flowManager" text="用户登录日志"></Item>
+		<Item id="SystemLogView" iconCls="menu-flowManager" text="系统操作日志" isShow="false"></Item>
+		<Item id="PlThirdInterfaceLogView" iconCls="menu-flowManager" text="接口操作记录" isShow="false"></Item>
+		<Item id="UploadLogView" iconCls="menu-flowManager" text="合同上传日志" isShow="false"></Item>
+		
+	
+	 <!--  <Item id="SmsMobileView" iconCls="menu-mobile" text="手机短信"/>   -->
+	    <Item id="SysDatabaseBRView" iconCls="menu-flowManager" text="数据备份日志" isShow="false">
+	    	<Function id="SysDatabaseBRView_backup" text="手动备份数据库" iconCls="btn-copyrole">
+	    	     <url>/system/saveSysDatabaseBR.do</url>
+			</Function>
+			<!--<Function id="SysDatabaseBRView_restore" text="还原已备份数据库" iconCls="btn-reseted">
+			     <url>/system/restoreSysDatabaseBR.do</url>
+			</Function>
+			--><Function id="SysDatabaseBRView_del" text="删除备份数据库" iconCls="btn-del">
+			    <url>/system/multiDelSysDatabaseBR.do</url>
+			</Function>
+			<Function id="SysDatabaseBRView_download" text="下载备份数据库" iconCls="btn-subordinate">
+			    <url>/system/downloadSysDatabaseBR.do</url>
+			</Function>
+	    </Item>
+	    <Item id="BatchRunRecordView" iconCls="menu-flowManager" text="跑批处理日志" isShow="false"></Item>
+	</Items>
+	
+	<Items id="XTIndexShowView" text="网站底层配置" iconCls="menu-flowManager" isPublic="false">
+		<Item id="YgIndexShowView?type=1" text="p2p网站参数设置" iconCls="menu-flowManager"></Item>
+		<Item id="YgIndexShowView?type=2" text="众筹网站参数设置" iconCls="menu-flowManager"></Item>
+		<Item id="YgIndexShowView?type=3" text="云购网站参数设置" iconCls="menu-flowManager"></Item>
+
+		<Item id="CoreParameterConfigForm?typeId=1" text="云购核心参数设置" iconCls="menu-flowManager"></Item>
+
+		<Item id="BusPayAccountView" text="云购支付账户管理" iconCls="menu-flowManager"></Item>
+	</Items>
+	<Items id="ERPParameterSET" text="ERP参数配置" iconCls="menu-flowManager" isPublic="false">
+		<Item id="SystemEvementView" text="系统环境参数" iconCls="menu-flowManager"></Item>
+		<Item id="SystemBaseParaView" text="基础配置参数" iconCls="menu-flowManager"></Item>
+		 <Item id="MessageAccountView" text="短信账号配置" iconCls="menu-flowManager"></Item> 
+		<Item id="SystemSmsTemplateView" text="短信模板管理" iconCls="menu-flowManager"></Item>
+	</Items>
+	<Items id="P2PParameterSET" text="P2P参数配置" iconCls="menu-flowManager" isPublic="false">
+		<Item id="P2PSystemBaseParaView" text="基础配置参数" iconCls="menu-flowManager"></Item>
+		 <Item id="MessageAccountViewP2P" text="短信账号配置" iconCls="menu-flowManager"></Item> 
+		<Item id="SystemP2PSmsTemplateView" text="短信模板管理" iconCls="menu-flowManager"></Item>
+	</Items>
+</Menus>

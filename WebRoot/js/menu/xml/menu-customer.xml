@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_customer" text="客户中心" iconCls="mod-org"> 
+		<Items id="ElectricMarketManageme" text="借款意向客户" iconCls="btn-tree-team23" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=0" iconCls="btn-tree-team23" text="我的意向客户">
+			<Function id="_Prospective_cust_see_All_2_0" text="查看所有" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_add_2_0" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_see_2_0" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_edit_2_0" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_cust_changeType_2_0" text="客户转化" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_followUp_2_0" text="跟进" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_setNextTime_2_0" text="设置下次联系时间" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonDistributionView?personType=0" iconCls="btn-tree-team23" text="意向资源分配">
+			<Function id="_Prospective_distribution_All_0" text="查看所有意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_add_0" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_distribution_see_0" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_edit_0" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_distribution_dele_0" text="删除" iconCls="btn-delete"/>
+			<Function id="_Prospective_distribution_grant_0" text="意向分配" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonFollowUpManager?personType=0" iconCls="btn-tree-team23" text="跟进记录管理">
+				<Function id="_Prospective_followUp_All_0" text="查看所有跟进记录" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_info_0" text="跟进详情" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_commonent_0" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=0" iconCls="btn-tree-team23" text="已转化为正式客户">
+				<Function id="_Prospective_cust_see_All_1_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_1_0" text="查看" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=0" iconCls="btn-tree-team23" text="已排除意向客户">
+				<Function id="_Prospective_cust_see_All_3_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_3_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_recovering_3_0" text="撤销" iconCls="btn-reset"/>
+		</Item>
+	</Items>
+	
+	<Items id="InvestElectricMarketManageme" text="投资意向客户" iconCls="btn-tree-team23" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=1" iconCls="btn-tree-team23" text="我的意向客户">
+ 			<Function id="_Prospective_cust_see_All_2_1" text="查看所有" iconCls="btn-detail"/>
+ 			<Function id="_Prospective_cust_see_shop_2_1" text="门店分离" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_add_2_1" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_see_2_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_edit_2_1" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_cust_changeType_2_1" text="客户转化" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_followUp_2_1" text="跟进" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_setNextTime_2_1" text="设置下次联系时间" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonDistributionView?personType=1" iconCls="btn-tree-team23" text="意向资源分配">
+			<Function id="_Prospective_distribution_All_1" text="查看所有意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_shop_1" text="门店分离意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_add_1" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_distribution_see_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_edit_1" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_distribution_dele_1" text="删除" iconCls="btn-delete"/>
+			<Function id="_Prospective_distribution_grant_1" text="意向分配" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonFollowUpManager?personType=1" iconCls="btn-tree-team23" text="跟进记录管理">
+			<Function id="_Prospective_followUp_All_1" text="查看所有跟进记录" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_shop__1" text="门店分离跟进记录" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_info_1" text="跟进详情" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_commonent__1" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=1" iconCls="btn-tree-team23" text="已转化为正式客户">
+			<Function id="_Prospective_cust_see_All_1_1" text="查看所有" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_shop_1_1" text="门店分离已转化为正式客户" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_1_1" text="查看" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=1" iconCls="btn-tree-team23" text="已排除意向客户">
+			<Function id="_Prospective_cust_see_All_3_1" text="查看所有" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_shop_3_1" text="门店分离已排除意向客户" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_3_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_recovering_3_1" text="撤销" iconCls="btn-reset"/>
+		</Item>
+	</Items>
+	
+	<Items id="EnterpriseCustomer" text="企业借款客户管理" iconCls="btn-tree-team23" isPublic="false">
+		<Item id="EnterpriseView" iconCls="btn-tree-team23" text="客户档案管理">
+				<Function id="_seeAll_qykh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_detail_qykh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_qykh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh" text="编辑" iconCls="btn-edit"/>
+				<Function id="_remove_qykh" text="删除" iconCls="btn-delete"/>
+				<Function id="_enterprise_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_qykh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_qykh" text="加入黑名单" iconCls="btn-xls"/>
+		</Item>
+		<Item id="CustomerGrantManagement?singleType=enterprise" iconCls="btn-tree-team23" text="客户资源分配"></Item>
+		<Item id="EnterPriseP2PView" iconCls="btn-tree-team23" text="网站账号管理">
+		       <Function id="_seeAll_qykh_p2pzh" text="查看所有客户" iconCls="btn-detail"/>
+		</Item>
+		<Item id="enterpriseFianceAccount" iconCls="btn-tree-team23" text="资金账户管理">
+		       <Function id="_seeAll_qykh_zjzh" text="查看所有客户" iconCls="btn-detail"/>
+		</Item>
+	</Items>
+	<Items id="PersonCustomer" text="个人借款客户管理" iconCls="btn-tree-team23" isPublic="false">
+		<Item id="PersonView" iconCls="btn-tree-team23" text="客户档案管理">
+				<Function id="_detail_sygrkh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_See_grkh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_grkh" text="建档" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_grkh" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_remove_grkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_detail_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_grkh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_grkh" text="加入黑名单" iconCls="btn-xls"/>
+		</Item>
+		<Item id="CustomerGrantManagement?singleType=person" iconCls="btn-tree-team23" text="客户资源分配"></Item>
+		<Item id="PersonP2PView?singleType=person&amp;open=1&amp;bind=1" iconCls="btn-tree-team23" text="网站账号管理">
+		     <Function id="_detail_sygrkh_p2pzh" text="查看所有客户" iconCls="btn-detail"/>
+		</Item>
+		<Item id="PersonFianceAccount" iconCls="btn-tree-team23" text="资金账户管理">
+		     <Function id="_detail_sygrkh_zjzh" text="查看所有客户" iconCls="btn-detail"/>
+		</Item>
+	</Items>
+	
+		<!--<Items id="LendersCooperationManage" text="企业债权客户管理" iconCls="btn-tree-team23" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=lenders" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount?type=lenders" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationEnterpriseFianceAccount?type=lenders" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+		</Items>
+		<Items id="PersonCooperationManage" text="个人债权客户管理" iconCls="btn-tree-team23" isPublic="false">
+			<Item id="CsCooperationPersonView?type=lenders" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationPersonAccount?type=lenders" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationPersonFianceAccount?type=lenders" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+		</Items>
+		
+		<Items id="GuaranteeCooperationManage" text="担保机构客户管理" iconCls="btn-tree-team23" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=guarantee" iconCls="btn-tree-team23" text="客户档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount?type=guarantee" iconCls="btn-tree-team23" text="网站账号管理"></Item>
+			<Item id="CsCooperationEnterpriseFianceAccount?type=guarantee" iconCls="btn-tree-team23" text="资金账户管理"></Item>
+	    </Items>
+	    -->
+	<!-- 线下投资客户管理 -->
+	<!--<Items id="underLineCustManger" text="线下投资客户管理" iconCls="btn-tree-team23">
+		
+		<Item id="investmentPersonView" iconCls="btn-tree-team23" text='投资客户档案管理'>
+		    <Function id="_investmentPerson_see_All" text="查看所有投资客户" iconCls="btn-detail" />
+		    <Function id="_investmentPerson_see_shop" text="门店分离投资客户" iconCls="btn-detail" />
+			<Function id="_create_investP" text="增加" iconCls="btn-add" />
+			<Function id="_See_investP" text="查看" iconCls="btn-detail" />
+			<Function id="_edit_investP" text="编辑" iconCls="btn-edit" />
+			<Function id="_remove_investP" text="删除" iconCls="btn-delete" />
+			<Function id="_apply_contract" text="申请合同制作" iconCls="btn-edit" />
+			<Function id="_apply_changeCard " text="申请换卡" iconCls="btn-edit" />
+			<Function id="_see_contract" text="查看合同详情" iconCls="btn-detail" />
+			<Function id="_export_investP" text="导出到Excel" iconCls="btn-xls" />
+		</Item>
+		
+		<Item id="InvestPersonCareView" iconCls="btn-tree-team23" text="投资客户关系维护">
+		    <Function id="_careView_see_All" text="查看所有客户" iconCls="btn-detail"></Function>
+		    <Function id="_careView_see_shop" text="门店分离客户" iconCls="btn-detail" />
+			<Function id="_see_tzghkh" text="查看" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghkh" text="增加" iconCls="btn-add"
+				isControl="false"></Function>
+			<Function id="_edit_tzghkh" text="编辑" iconCls="btn-add"
+				isControl="false"></Function>
+		</Item>
+		
+		
+
+		<Item id="CustomerGrantManager_InvestPersonView" iconCls="btn-tree-team23" text="客户资源分配管理">
+			<Function id="_customerGrantManage_see_All" text="查看所有客户资源" iconCls="btn-detail"></Function>
+		    <Function id="_customerGrantManage_see_shop" text="门店分离客户资源" iconCls="btn-detail" />
+			<Function id="_see_person_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_person_skgxr_invest" text="授权共享人" iconCls="btn-add"
+				isControl="false"></Function>
+		</Item>
+		<Item id="investmentPersonP2PView" iconCls="btn-tree-team23" text="客户网站账号管理">
+			<Function id="_investmentPersonP2PView_see_All" text="查看所有客户网站账号" iconCls="btn-detail"></Function>
+		    <Function id="_investmentPersonP2PView_see_shop" text="门店分离客户网站账号" iconCls="btn-detail" />
+		</Item>
+	</Items>
+
+	 投资客户账户资金管理 
+	<Items id="CustMoneyManger" text="资金账户管理" iconCls="btn-tree-team23">
+		<Item id="investmentAccountView?accountType=accountSee&amp;type=1" iconCls="btn-tree-team23" text="资金账户查询">
+			<Function id="_investmentAccountView_accountSee_see_All" text="查看所有资金账户" iconCls="btn-detail" />
+			<Function id="_investmentAccountView_accountSee_see_shop" text="门店分离所有资金账户" iconCls="btn-detail" />
+		</Item>
+		<Item id="PersonAccountDealInfoListQuery?Type=1" iconCls="btn-tree-team23" text="账户收支查询">
+			<Function id="_investmentAccountDealInfoView_see_All" text="查看所有账户收支" iconCls="btn-detail" />
+			<Function id="_investmentAccountDealInfoView_see_shop" text="门店分离账户收支" iconCls="btn-detail" />
+		</Item>
+		 线下投资客户充值取现 
+		<Item id="investmentAccountView?accountType=account&amp;type=1" iconCls="btn-tree-team23" text="资金账户管理">
+		    <Function id="_investmentAccountView_account_see_All" text="查看所有资金账户" iconCls="btn-detail" />
+			<Function id="_investmentAccountView_account_see_shop" text="门店分离所有资金账户" iconCls="btn-detail" />
+			<Function id="_apply_recharge21" text="充值" iconCls="btn-edit" />
+			<Function id="_apply_getMoney21" text="取现" iconCls="btn-edit" />
+		</Item>
+		<Item id="confirmRechargeView?dealRecordStatus=1" iconCls="btn-tree-team23"  text="充值一次审核">
+			<Function id="_see_investPDetail_1" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="confirmRechargeView?rechargeConfirmStatus=1&amp;dealRecordStatus=23" iconCls="btn-tree-team23"  text="充值记录查询">
+			<Function id="_see_investPDetail_12" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=1&amp;recordStatus=7" iconCls="btn-tree-team23"  text="取现一次审核">
+			<Function id="_see_investPDetail_17" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=4&amp;recordStatus=7" iconCls="btn-tree-team23"  text="取现二次复审">
+			<Function id="_see_investPDetail_47" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?rechargeConfirmStatus=5&amp;recordStatus=7" iconCls="btn-tree-team23"  text="取现手续办理">
+			<Function id="_see_investPDetail_57" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="EnchashmentRecordInfoView?recordStatus=2" iconCls="btn-tree-team23"  text="取现记录查询">
+			<Function id="_see_investPDetail_2" text="查看投资人信息" iconCls="btn-detail" />
+		</Item>
+		
+	</Items>
+--></Menus>

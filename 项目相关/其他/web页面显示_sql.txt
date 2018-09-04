@@ -1,0 +1,8 @@
+﻿alter TABLE index_show MODIFY index_show.description text;
+INSERT INTO `global_type` VALUES ('1223', ' web页面显示', '0.1076.1223.', '2', '1076', 'index_show', 'DIC', '7', '1', null, '0');
+INSERT INTO `dictionary` VALUES ('936', '1223', ' web页面显示', 'subject', 'subject', '1', 'subject', '0');
+INSERT INTO `dictionary` VALUES ('937', '1223', ' web页面显示', 'description', 'description', '1', 'description', '0');
+INSERT INTO `dictionary` VALUES ('938', '1223', ' web页面显示', 'keywords', 'keywords', '1', 'keywords', '0');
+INSERT INTO `dictionary` VALUES ('939', '1223', ' web页面显示', 'robots', 'robots', '1', 'robots', '0');
+INSERT INTO `dictionary` VALUES ('940', '1223', ' web页面显示', 'metaname', 'metaname', '1', 'metaname', '0');
+INSERT INTO `dictionary` VALUES ('941', '1223', ' web页面显示', '注册协议', 'regDeal', '1', 'regDeal', '0');

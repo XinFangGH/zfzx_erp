@@ -1,0 +1,528 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	bidPlanId:'$!bidPlanId',
+	personId:'$personId',
+	businessType : '$!businessType',
+	productId:'$!productId',
+	oppositeType:'$!oppositeType',
+	proType:'$!proType',
+	fundProjectId:'$!fundProjectId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/ah_ext/factory/ahinput.js',//客户信息 项目基本信息
+			    __ctxPath + '/js/creditFlow/smallLoan/quickenLoan/LendForm.js',//借款需求
+		    	__ctxPath + '/js/creditFlow/fund/project/ownFund.js',
+		    	__ctxPath + '/js/creditFlow/fund/project/platFormFund.js',
+		    	__ctxPath + '/js/creditFlow/finance/BpFundIntentFapView.js',
+		    	__ctxPath + '/js/creditFlow/finance/CusterFundIntentView.js',
+		    	__ctxPath + '/js/customer/InvestPersonWindowObjList.js',
+		    	__ctxPath + '/js/customer/InvestEnterpriseView.js',
+		    	__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+		    	__ctxPath + '/js/customer/InvestEnterpriseForm.js',
+		    	__ctxPath + '/js/customer/InvestPersonInfoPanelView.js',
+		    	__ctxPath + '/js/creditFlow/fund/project/ownFund.js',
+		    	__ctxPath + '/js/creditFlow/smallLoan/contract/SlContractView.js',//合同
+		    	__ctxPath + '/js/creditFlow/smallLoan/project/loadDataCommonCredit.js',// 加载数据JS
+		    	__ctxPath + '/js/customer/CustomeLinkmanGridPanel.js',
+		    	__ctxPath + '/js/creditFlow/finance/ptp/InverstPersonBpFundIntent.js',
+		    	__ctxPath + '/js/creditFlow/financingAgency/PlBidPlanBaseInfoForm.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() { 
+		 
+
+		this.perMain = "";
+		var title="企业客户信息";
+		
+		if (this.oppositeType =="person_customer") {
+			this.projectInfo = new ExtUD.Ext.CreditLoanProjectInfoPanel({readOnly:true,product:true,isCPLX:true});
+			this.perMain =new ExtUD.Ext.CustomerInfoFastPanel({
+				isEditPerson : false,
+				isAllReadOnly:true,
+				isRead:true,
+				isHidden:true,
+				isSpouseReadOnly: true,
+				isNameReadOnly:true,
+				isHiddenCustomerDetailBtn:false
+			});		
+			title="个人客户信息";
+		} else if(this.oppositeType =="company_customer"){
+				this.projectInfo = new ExtUD.Ext.McroLoanProjectInfoPanel({
+			isDiligenceReadOnly : true,
+			isAllReadOnly:true
+		});
+			     this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				 projectId : this.projectId,
+				 bussinessType:this.businessType,
+				 isAllReadOnly : true,
+				 isReadOnly:true,
+				 isNameReadOnly:true,
+				 isHidden : false,
+				 isEditEnterprise : false
+			});
+		}
+		this.plBidPlanBaseInfoForm=new PlBidPlanBaseInfoForm();
+
+		if(this.proType=='P_Dir' || this.proType=='B_Dir'){
+			//平台资金款项
+			this.projectInfoFinance= new platFormFund({
+				isAllReadOnly:true,
+				isReadOnly:true,
+				isHiddencalculateBtn:true,
+				isStartDateReadOnly:true,
+			 	projectId:this.projectId,
+				idDefinition:'tongyongliucheng2'+this.taskId
+			});
+		}else{
+			this.projectInfoFinance= new ownFund({
+				isAllReadOnly:true,
+				isReadOnly:true,
+				isHiddencalculateBtn:true,
+				isStartDateReadOnly:true,
+			 	projectId:this.projectId,
+				idDefinition:'tongyongliucheng1'+this.taskId
+			});
+		}
+		
+     //投资人信息
+		this.investPersonInfoPanelView = new InvestPersonInfoPanelView({
+			 fundProjectId:this.fundProjectId,
+			 projectId : this.projectId,
+			bidPlanId:this.bidPlanId,
+			isHidden : true,
+			isHiddenHT : false,
+			bussinessType : this.businessType,
+			object:this.projectInfoFinance,
+			isFlow:false
+		});
+	//合同
+	this.slContractView=new SlContractView({
+		  projectId:this.fundProjectId,
+		    bidPlanId:this.bidPlanId,
+		    isHiddenAddBtn : false,
+		    isHiddenDelBtn : false,
+		    isHiddenEdiBtn : false,
+		    isHiddenBZ:true,
+		    isHiddenDZY:true,
+		    isSignHidden:true,
+		    isHiddenAffrim:true,
+		    isHidden:true,
+	    	htType : 'loanContract',
+	    	HTLX : 'loanContract',
+		    businessType : this.businessType,
+		   // investPeronId:this.investmentId,
+		    isqsEdit:false,
+		    isHiddenTbar:false
+		 });
+		
+		//财务服务费
+		this.actualToChange = new SlActualToCharge({
+				projId : this.projectId,
+				bidPlanId:this.bidPlanId,
+				productId:this.productId,
+				businessType : 'SmallLoan',// 小贷
+				editor:false,
+				serviceHidden:true,
+				isHidden : true
+		});
+		this.BidPlanFinanceInfo=new ExtUD.Ext.BidPlanFinanceInfo({
+			objectInfo : this.projectInfoFinance,
+			proType:this.proType,
+			readOnly : true
+		})
+		//放款收息表，平台
+		/*this.gridPanel2 = new BpFundIntentFapView({
+			projectId : this.projectId,
+			object : this.projectInfoFinance,
+			bidPlanFinanceInfo:this.BidPlanFinanceInfo,
+			isHidden : true,
+			isHiddenAdd:true,
+			isHiddenDel:true,
+			isHiddenAutoCreate:true,
+			calcutype : 1 ,    
+			isHiddenExcel:true,//贷款
+			isHiddenseeqlideBtn:true,
+			inverstPersonId:null,
+			isHiddenTitle:true,
+			isOwnBpFundProject:((this.proType=='P_Dir' || this.proType=='B_Dir')?false:true),
+			businessType : this.businessType,
+			preceptId:this.fundProjectId,
+			bidPlanId:this.bidPlanId,
+			fundResource:1,
+			isFlow:false
+		});*/
+				this.SlFundIntentViewVM = new CusterFundIntentView({
+			projectId :this.projectId,
+			bidPlanId:this.bidPlanId,
+			object : this.projectInfoFinance,
+			bidPlanFinanceInfo:this.BidPlanFinanceInfo,
+			businessType : this.businessType,
+			isHiddenautocreateBtn:true,
+			isHiddenExcel:true,
+			isHaveLending:'yes',
+			isHiddenAddBtn : true,// 生成
+			isHiddenDelBtn : true,// 删除
+			isHiddenCanBtn : true,// 取消
+			isHiddenResBtn : true,// 还原
+			isHiddenResBtn1 : true,// 手动对账
+			isHiddenseeqlideBtn : true,// 查看流水单项订单
+			isHiddenseesumqlideBtn : true,
+			isHidden1:true
+		});
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+//				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSmallloanProjectService.updateBpFundInfoNextStep'
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目基本信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			},{
+				xtype : 'fieldset',
+				title : '招标基本信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.plBidPlanBaseInfoForm]
+			}, {
+				xtype : 'fieldset',
+				title :'个人客户信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.perMain]
+			}, {
+				xtype : 'fieldset',
+				title :'资金款项信息',
+				name:((this.proType=='B_Dir' || this.proType=='P_Dir')?'platFormfinanceInfoFieldset':'ownFinanceInfoFieldset'),
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.projectInfoFinance]
+			},{
+				xtype : 'fieldset',
+				title :'本次招标信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.BidPlanFinanceInfo,this.investPersonInfoPanelView,this.actualToChange/*,this.gridPanel2*/,this.SlFundIntentViewVM]
+			}, {
+				xtype : 'fieldset',
+				collapsible : true,
+				autoHeight : true,
+				title : '贷款合同',
+				items : [this.slContractView]
+			},{
+				xtype:'fieldset',
+				bodyStyle : 'padding-left:0px',
+				collapsible : false,
+				labelAlign : 'right',
+				autoHeight : true,
+				layout : 'column',
+				items:[{
+					columnWidth : .5,
+					layout : 'form',
+					items : [{
+						xtype:'button',
+						text:'放款确认',
+						id:'query3'+this.taskId,
+						style : 'margin-left:400px',
+						iconCls : 'btn-readdocument',
+						scope : this,
+						/*handler:function(){
+							var bidPlanId = this.bidPlanId;
+							var projectId=this.fundProjectId;
+							var taskId=this.taskId
+							window.open(
+								__ctxPath + '/project/confirmLoanSlSmallloanProject.do?bidType=bid&bidId=' + bidPlanId+'&projectId='+projectId,
+								'付款审核',
+								'top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no',
+								'_blank');
+							
+						}*/
+						handler : this.confirmLoan
+					}]
+					
+				},{
+						columnWidth : .5,
+						layout : 'form',
+						items : [{
+							xtype : 'button',
+							text : '投资人合同批量上传',
+							iconCls : 'slupIcon',
+							scope : this,
+							handler : function() {
+							var bidPlanId = this.bidPlanId;
+							Ext.MessageBox.confirm('确认', '确定上传吗', function(btn) {
+								if (btn == 'yes') {
+						        var myMask = new Ext.LoadMask(Ext.getBody(), {
+					                         msg: '正在上传......',
+					                        removeMask: true //完成后移除
+					                       });
+								       myMask.show();
+									   Ext.Ajax.request( {
+						   	          	waitMsg : '正在上传',
+											url : __ctxPath+'/contract/uploadToFtpProduceHelper.do',
+											method : 'POST',
+											success : function(response, request) {
+												  myMask.hide();
+												Ext.Msg.alert('状态', '上传成功');
+											},
+											failure : function(response) {
+												  myMask.hide();
+												Ext.Msg.alert('状态', '操作失败，请重试！');
+												
+											},
+											params : {
+												bidPlanId : bidPlanId
+											}
+											
+											})
+								}});
+						
+							}
+						}]
+					}]
+			},{
+				xtype:'hidden',
+				name:'smallProjectId',
+				value:this.projectId
+			},{
+				xtype:'hidden',
+				name:'bidPlanId',
+				value:this.bidPlanId
+			},{
+				xtype : 'hidden',
+				name : 'isCheck',
+				value :0
+			},{
+				xtype:"hidden",
+				name:'bidPlanStatus',
+				value:'7'
+			}]
+		})
+		this.loadData({
+			url : __ctxPath + '/project/getCreditLoanProjectInfoSlSmallloanProject.do?slProjectId='+this.projectId+'&slTaskId='+this.taskId+'&bidPlanId='+this.bidPlanId,
+			method : "POST",
+			preName : ['person', 'slSmallloanProject','bpProductParameter','platFormBpFundProject','ownBpFundProject','slAlterAccrualRecord','enterprise', "enterpriseBank","spouse","payintentPeriod","plBidPlan"],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(alarm_fields.data.comments){
+				    this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);
+				}
+			
+			
+			if(alarm_fields.data.platFormBpFundProject){
+					if(this.getCmpByName('platFormBpFundProjectMoney')){
+						this.getCmpByName('platFormBpFundProjectMoney').setValue(Ext.util.Format.number(alarm_fields.data.platFormBpFundProject.platFormJointMoney,'0,000.00'));
+						fillFundData(this,alarm_fields,'tongyongliucheng2'+this.taskId);
+					}
+				}
+				if(alarm_fields.data.ownBpFundProject){
+					if(this.getCmpByName('ownBpFundProjectMoney')){
+						this.getCmpByName('ownBpFundProjectMoney').setValue(Ext.util.Format.number(alarm_fields.data.ownBpFundProject.platFormJointMoney,'0,000.00'));
+						fillFundData(this,alarm_fields,'tongyongliucheng1'+this.taskId);
+					}
+				}
+
+				if(typeof(alarm_fields.data.enterpriseBank)!="undefined"&&alarm_fields.data.enterpriseBank.areaName!=null){
+					this.getCmpByName('enterpriseBank.areaName').setValue(alarm_fields.data.enterpriseBank.areaName)
+				}
+				
+			if(this.bidPlanId!=null&&""!=this.bidPlanId&&typeof(this.bidPlanId)!="undefined"){
+					this.investPersonInfoPanelView.grid_sharteequity.getStore().load({
+						params :{Q_bidPlanId_L_EQ:this.bidPlanId}
+					});
+				}else{
+					this.investPersonInfoPanelView.grid_sharteequity.getStore().load({
+						params :{Q_moneyPlanId_L_EQ:alarm_fields.data.platFormBpFundProject.id}
+					});
+				}
+				if(alarm_fields.data.plBidPlan.isLoan==1){
+					var btn1 = Ext.getCmp('query3'+this.taskId);
+					btn1.setText('已完成放款');
+					btn1.setDisabled(true);
+				}
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+	
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/project/updateBpFundInfoSlSmallloanProject.do',
+			params : {
+				'comments':formPanel.comments
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope: this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText)
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	//放款按钮放款方法
+		confirmLoan:function(){
+						var bidId = this.bidPlanId; //标ID
+						var smallProjectId=this.projectId; //项目 id
+						var gridPanel = this.gridPanel2;
+						var bidPlanId = this.bidPlanId;
+						var thirdPayConfig=null;
+						//主要从后台获取第三方类型：来决定用弹新页面的方式还是用传统异步请求方式
+						Ext.Ajax.request({
+							url: __ctxPath + '/project/getThirdPayConfigSlSmallloanProject.do',
+							mothed:'POST',
+							async : false,
+							scope : this,
+							waitMsg : '数据正在提交，请稍后...',
+							success:function(response){
+								var res = Ext.util.JSON
+									.decode(response.responseText);
+								thirdPayConfig=res.thirdPayConfig;
+								
+							},
+							failure:function(response){
+							},
+							params:{
+							}
+						});
+						//目前托管账户中钱多多需要打开页面输入密码，所以采用新打开浏览器页面方法：
+						if(thirdPayConfig!=null&&thirdPayConfig=="moneyMoreMoreConfig"){
+									// 必须用弹出页面的形式来输验证码的第三方支付
+									window.open(
+										__ctxPath + '/project/confirmLoanSlSmallloanProject.do?bidType=bid&bidId=' + bidId+'&projectId='+smallProjectId,
+										'付款审核',
+										'top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no',
+										'_blank');
+						}else{
+									//非托管账户 用异步加载的方式
+										Ext.Ajax.request({
+											url: __ctxPath + '/project/confirmLoanSlSmallloanProject.do',
+											mothed:'POST',
+											waitMsg : '数据正在提交，请稍后...',
+											success:function(response){
+												var res = Ext.util.JSON.decode(response.responseText);
+												var btn1 = Ext.getCmp('query3');
+												Ext.ux.Toast.msg('操作信息', res.msg);
+												btn1.setText('已完成放款');
+												btn1.setDisabled(true);
+												var btn2 = Ext.getCmp('btn3');
+												btn2.setDisabled(false);
+											},
+											failure:function(response){
+											},
+											params:{
+												bidId:bidPlanId,
+												projectId:smallProjectId,
+												bidType:'bid'
+											}
+										});
+						}
+					},
+	validate : function(outpanel) {
+		var flag=true;
+		Ext.Ajax.request({
+			url: __ctxPath + '/creditFlow/financingAgency/bidPlanVerificationPlBidPlan.do',
+			mothed:'POST',
+			async:false,
+			waitMsg : '数据正在提交，请稍后...',
+			success:function(response){
+				var obj = Ext.util.JSON.decode(response.responseText);
+				if(typeof(obj.isLoan)!='undefined' && null!=obj.isLoan && obj.isLoan==false){
+					Ext.Msg.alert('操作信息','该标尚未放款，请先放款再提交任务')
+					flag=false;
+				}
+				if(typeof(obj.isUpload)!='undefined' && null!=obj.isUpload && obj.isUpload==false){
+					Ext.Msg.alert('操作信息','该标有合同尚未上传，请先上传合同再提交任务')
+					flag=false;
+				}
+			},
+			failure:function(response){
+			},
+			params:{
+				bidId:this.bidPlanId
+			}
+		});
+		
+		return flag;
+	}
+})

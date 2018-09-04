@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.task.Appointment" table="appointment" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="appointId" column="appointId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="128" not-null="true" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="5000" not-null="true" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="1000" not-null="false" unique="false"/>  
+    <property name="location" type="java.lang.String" update="true" insert="true" access="property" column="location" length="150" not-null="true" unique="false"/>  
+    <property name="inviteEmails" type="java.lang.String" update="true" insert="true" access="property" column="inviteEmails" length="1000" not-null="false" unique="false"/>  
+    <property name="sendMessage" type="java.lang.Short" update="true" insert="true" access="property" column="sendMessage" not-null="false" unique="false"/>  
+    <property name="sendMail" type="java.lang.Short" update="true" insert="true" access="property" column="sendMail" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

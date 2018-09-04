@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_Marketing" text="营销中心" iconCls="mod-org"> 
+	<Items id="ElectricMarketManageme" text="借款意向客户" iconCls="btn-tree-team23" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=0" iconCls="btn-tree-team23" text="我的意向客户">
+			<Function id="_Prospective_cust_see_All_2_0" text="查看所有" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_add_2_0" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_see_2_0" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_edit_2_0" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_cust_changeType_2_0" text="客户转化" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_followUp_2_0" text="跟进" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_setNextTime_2_0" text="设置下次联系时间" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonDistributionView?personType=0" iconCls="btn-tree-team23" text="意向资源分配">
+			<Function id="_Prospective_distribution_All_0" text="查看所有意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_add_0" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_distribution_see_0" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_edit_0" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_distribution_dele_0" text="删除" iconCls="btn-delete"/>
+			<Function id="_Prospective_distribution_grant_0" text="意向分配" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonFollowUpManager?personType=0" iconCls="btn-tree-team23" text="跟进记录管理">
+				<Function id="_Prospective_followUp_All_0" text="查看所有跟进记录" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_info_0" text="跟进详情" iconCls="btn-detail"/>
+				<Function id="_Prospective_followUp_commonent_0" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=0" iconCls="btn-tree-team23" text="已转化为正式客户">
+				<Function id="_Prospective_cust_see_All_1_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_1_0" text="查看" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=0" iconCls="btn-tree-team23" text="已排除意向客户">
+				<Function id="_Prospective_cust_see_All_3_0" text="查看所有" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_see_3_0" text="查看" iconCls="btn-detail"/>
+				<Function id="_Prospective_cust_recovering_3_0" text="撤销" iconCls="btn-reset"/>
+		</Item>
+	</Items>
+	
+	<Items id="InvestElectricMarketManageme" text="投资意向客户" iconCls="btn-tree-team23" isPublic="false">
+	 	<Item id="CsProspectivePersonTab?ProsperctiveType=2&amp;personType=1" iconCls="btn-tree-team23" text="我的意向客户">
+ 			<Function id="_Prospective_cust_see_All_2_1" text="查看所有" iconCls="btn-detail"/>
+ 			<Function id="_Prospective_cust_see_shop_2_1" text="门店分离" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_add_2_1" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_cust_see_2_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_edit_2_1" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_cust_changeType_2_1" text="客户转化" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_followUp_2_1" text="跟进" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_setNextTime_2_1" text="设置下次联系时间" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonDistributionView?personType=1" iconCls="btn-tree-team23" text="意向资源分配">
+			<Function id="_Prospective_distribution_All_1" text="查看所有意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_shop_1" text="门店分离意向资源" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_add_1" text="增加" iconCls="btn-add"/>
+			<Function id="_Prospective_distribution_see_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_distribution_edit_1" text="编辑" iconCls="btn-edit"/>			
+			<Function id="_Prospective_distribution_dele_1" text="删除" iconCls="btn-delete"/>
+			<Function id="_Prospective_distribution_grant_1" text="意向分配" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonFollowUpManager?personType=1" iconCls="btn-tree-team23" text="跟进记录管理">
+			<Function id="_Prospective_followUp_All_1" text="查看所有跟进记录" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_shop__1" text="门店分离跟进记录" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_info_1" text="跟进详情" iconCls="btn-detail"/>
+			<Function id="_Prospective_followUp_commonent__1" text="跟进点评" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=1&amp;personType=1" iconCls="btn-tree-team23" text="已转化为正式客户">
+			<Function id="_Prospective_cust_see_All_1_1" text="查看所有" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_shop_1_1" text="门店分离已转化为正式客户" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_1_1" text="查看" iconCls="btn-detail"/>
+		</Item>
+		<Item id="CsProspectivePersonView?ProsperctiveType=3&amp;personType=1" iconCls="btn-tree-team23" text="已排除意向客户">
+			<Function id="_Prospective_cust_see_All_3_1" text="查看所有" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_shop_3_1" text="门店分离已排除意向客户" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_see_3_1" text="查看" iconCls="btn-detail"/>
+			<Function id="_Prospective_cust_recovering_3_1" text="撤销" iconCls="btn-reset"/>
+		</Item>
+	</Items>
+</Menus>

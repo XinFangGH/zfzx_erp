@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准_subreport1" language="groovy" pageWidth="940" pageHeight="1500" columnWidth="940" leftMargin="0" rightMargin="0" topMargin="30" bottomMargin="60" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="37"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="daxiebuyMoney" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="xiaoxiebuyMoney" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qingdingDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     activemq_lock.`ID` AS activemq_lock_ID,
+     activemq_lock.`TIME` AS activemq_lock_TIME,
+     activemq_lock.`BROKER_NAME` AS activemq_lock_BROKER_NAME
+FROM
+     `activemq_lock` activemq_lock]]>
+	</queryString>
+	<field name="activemq_lock_ID" class="java.lang.Long"/>
+	<field name="activemq_lock_TIME" class="java.lang.Long"/>
+	<field name="activemq_lock_BROKER_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="183" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="860" height="48"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[二、现甲方同意以上债权转让给乙方，乙方同意受让。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="48" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[三、债权转让价款及支付方式]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="144" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[      付的债权转让价款，由北京互融时代有限公司按时支付给债权转让人。]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="337" y="80" width="98" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{daxiebuyMoney}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="112" width="221" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["      3.2 支付方式：本协议签署后 "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="337" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["      3.1 转让价款：乙方向甲方支付人民币（大写）"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="80" width="425" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" （人民币小写¥ "+$P{xiaoxiebuyMoney}+"）元作为上述债权转让的对价。"]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd">
+				<reportElement x="221" y="112" width="116" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" isItalic="false" isUnderline="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{qingdingDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="112" width="523" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" 日内北京互融时代有限公司通过银行划扣系统代为收取乙方应向债权转让人支"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

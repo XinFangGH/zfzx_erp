@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.zhiwei.credit.model.p2p.article.Articlecategory"
+		table="p2p_articlecategory" select-before-update="false"
+		dynamic-update="false" dynamic-insert="false" optimistic-lock="version">
+		<id name="id" column="id" type="java.lang.Long" length="19">
+			<generator class="native" />
+		</id>
+		<property name="createDate" type="java.util.Date" update="true"
+			insert="true" access="property" column="createDate" length="19"
+			not-null="false" unique="false" />
+		<property name="modifyDate" type="java.util.Date" update="true"
+			insert="true" access="property" column="modifyDate" length="19"
+			not-null="false" unique="false" />
+		<property name="metaDescription" type="java.lang.String"
+			update="true" insert="true" access="property" column="metaDescription"
+			length="65535" not-null="false" unique="false" />
+		<property name="metaKeywords" type="java.lang.String" update="true"
+			insert="true" access="property" column="metaKeywords" length="65535"
+			not-null="false" unique="false" />
+		<property name="name" type="java.lang.String" update="true"
+			insert="true" access="property" column="name" length="255" not-null="true"
+			unique="false" />
+		<property name="parentId" type="java.lang.Long" update="true"
+			insert="true" access="property" column="parent_id" length="19"
+			not-null="false" unique="false" />
+
+		<property name="orderList" type="java.lang.Integer" update="true"
+			insert="true" access="property" column="orderList" length="10"
+			not-null="true" unique="false" />
+		<property name="path" type="java.lang.String" update="true"
+			insert="true" access="property" column="path" length="65535"
+			not-null="false" unique="false" />
+		<property name="depth" type="java.lang.Integer" update="true" insert="true" access="property" column="depth" length="10" not-null="true" unique="false"/>  
+   <property name="type" type="java.lang.Integer" update="true" insert="true" access="property" column="type" length="10" not-null="true" unique="false"/>  
+      <property name="webKey" type="java.lang.String" update="true"
+			insert="true" access="property" column="webKey" length="255" not-null="true"
+			unique="false" />
+			<property name="isShow" type="java.lang.String" update="true"
+			insert="true" access="property" column="isShow" length="255" not-null="false"
+			unique="false" />
+			<property name="cateKey" type="java.lang.String" update="true"
+			insert="true" access="property" column="cateKey" length="255" not-null="true"
+			unique="false" />
+			
+			<property name="parentName" type="java.lang.String" update="true"
+			insert="true" access="property" column="parentName" length="255" not-null="false"
+			unique="false" />
+				<property name="parentKey" type="java.lang.String" update="true"
+			insert="true" access="property" column="parentKey" length="255" not-null="false"
+			unique="false" />
+		<!-- exported bi-directional one-to-many association to Article -->
+		<set name="articles" table="article" lazy="true" inverse="true"
+			cascade="save-update" sort="unsorted">
+			<key>
+				<column name="articleCategory_id" />
+			</key>
+			<one-to-many class="com.zhiwei.credit.model.p2p.article.Article" />
+		</set>
+		
+		
+	</class>
+</hibernate-mapping>

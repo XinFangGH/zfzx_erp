@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.flow.TaskProxy"
+        table="task_proxy"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="principalId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="principalId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="agentId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="agentId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="startDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="startDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="endDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="endDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="createId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="createId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="createDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="createDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.guarantee.EnterpriseBusiness.GLSuperviseRecord"
+        table="gl_supervise_record"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="reason"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="reason"
+            length="1000"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="startDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="startDate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="endDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="endDate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="projectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="projectId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remark"
+            length="200"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="continuationRate"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="continuationRate"
+            precision="10"
+            scale="2"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

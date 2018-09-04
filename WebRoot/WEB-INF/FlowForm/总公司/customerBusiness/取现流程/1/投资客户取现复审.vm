@@ -1,0 +1,155 @@
+/** 申请取现流程--申请取现 */
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	investmentId : '$!investmentId',// 投资人的id
+	projectId : '$!projectId',// 虚拟账户的id
+	obAccountDealInfoId : '$!obAccountDealInfoId',// 取现记录的id
+	customerType:'$!customerType',//投资客户的类型
+	// 构造
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+
+		Ext.applyIf(this, _cfg);
+
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+					iconCls : 'menu-profile-create',
+					border : false
+				});
+		// 上传
+	},
+	initComponents : function() {
+		var jsArr = [
+				__ctxPath + '/js/creditFlow/creditAssignment/customer/EnchashmentApplyForm.js',
+ 				__ctxPath + '/js/creditFlow/creditAssignment/customer/PersonalInfoPanel.js'
+				];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		Ext.QuickTips.init();
+		this.title="线下投资客户基本信息";
+		if(eval(this.customerType)==eval(0)){
+			this.persoormPanel = new BpCustPersonInfoPanel({
+				isReadOnly:true
+			})
+			this.EnchashmentbankForm=new OnlineEnchashmentBankForm({
+				isReadOnly:true,
+				isAllReadOnly:true,
+				investPersonId:this.investPersonId
+			})
+			this.title="线上投资客户基本信息";
+		}else{
+			this.persoormPanel = new PersonalInfoPanel({
+				isReadOnly:true
+			})
+			this.EnchashmentbankForm=new EnchashmentBankForm({
+				isReadOnly:true,
+				isAllReadOnly:true,
+				investPersonId:this.investPersonId
+			})
+		}
+		
+		
+		this.EnchashmentApplyForm=new EnchashmentApplyForm({
+			isReadOnly:true,
+			isAllReadOnly:true,
+			investPersonId:this.investPersonId
+		})
+		this.formPanel = new Ext.Panel({
+					modal : true,
+					labelWidth : 100,
+					buttonAlign : 'center',
+					layout : 'form',
+					border : false,
+					items : [ {
+								xtype : 'hidden',
+								name : 'preHandler',
+								value : 'creditProjectService.ApprovalTaskFlow'
+							},{
+								xtype : 'fieldset',
+								collapsible : true,
+								autoHeight : true,
+								title : this.title,
+								items : [this.persoormPanel]
+							}, {
+								xtype : 'fieldset',
+								collapsible : true,
+								autoHeight : true,
+								title : '取现银行卡信息',
+								items : [this.EnchashmentbankForm]
+							},  {
+								xtype : 'fieldset',
+								collapsible : true,
+								autoHeight : true,
+								title : '取现信息',
+								items : [this.EnchashmentApplyForm]
+							}, {
+								xtype : 'hidden',
+								name : 'safeLevel',
+								value : 1
+							}, {
+								xtype : 'hidden',
+								name : 'task_id',
+								value : this.taskId
+							}, {
+								xtype : 'hidden',
+								name : 'project_id',
+								value : this.obAccountDealInfoId
+							}]
+		}), this.loadData({
+					url : __ctxPath+ '/creditFlow/creditAssignment/bank/getInfoObAccountDealInfo.do?taskId='+this.taskId+'&customerType='+this.customerType,
+					method : 'POST',
+					scope : this,
+					params : {
+						investId : this.investmentId,
+						obAccountDealInfoId:this.obAccountDealInfoId
+						
+					},
+					preName : ['comments','enterpriseBank', 'blance','csInvestmentperson','obSystemAccount','obAccountDealInfo','webBankcard'],
+					success : function(response, request) {
+						var alarm_fields = Ext.util.JSON.decode(response.responseText);
+						if (null != alarm_fields.data.obSystemAccount.availableInvestMoney) {
+							this.getCmpByName('availableInvestMoney1').setValue(alarm_fields.data.obSystemAccount.availableInvestMoney);
+						}if (null != alarm_fields.data.obAccountDealInfo.payMoney) {
+							this.getCmpByName('payMoney1').setValue(alarm_fields.data.obAccountDealInfo.payMoney);
+						}
+							if (typeof(alarm_fields.data.comments) != "undefined") {
+						    	this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);
+							}
+				  },failure : function(response) {
+						Ext.ux.Toast.msg('状态', '操作失败，请重试');
+					}
+			});
+		this.add(this.formPanel);
+		this.doLayout();
+	},
+	saveBusDatas : function(formPanel) {// 保存按钮
+		formPanel.getForm().submit({
+			clientValidation : false,
+			url : __ctxPath
+					+ __ctxPath + "/creditFlow/saveCommentsCreditProject.do",
+			method : 'POST',
+			params : {
+				comments : formPanel.comments
+			},
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+							title : '操作信息',
+							msg : '信息保存出错，请联系管理员！',
+							buttons : Ext.MessageBox.OK,
+							icon : 'ext-mb-error'
+						});
+			}
+		})
+	},
+	validate : function(outpanel) {
+		return true;
+	}
+})

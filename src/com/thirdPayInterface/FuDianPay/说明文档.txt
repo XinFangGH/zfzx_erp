@@ -1,0 +1,2 @@
+证书加载路径在app-thirdPartyService.xml中配置
+回调地址，请求路径也可以在此文件中配置

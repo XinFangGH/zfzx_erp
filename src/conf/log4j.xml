@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[JOFFICE] %-d{yyyy-MM-dd HH:mm:ss} %p [%t] %c{1}.%M(%L) | %m%n"/>
+        </layout>
+    </appender>
+     
+   <!-- 每天输出日志到文件  文件大小到达指定尺寸的时候产生一个新的文件 -->  
+    <appender name="APPLOGFILE" class="com.zhiwei.credit.util.MyDailyRollingFileAppender">
+        <param name="encoding" value="UTF-8" />
+	    <param name="File" value="${webapp.root}/WEB-INF/logs/hurong.log" />
+	   <param name="ImmediateFlush" value="true"/>  
+        <param name="Threshold" value="info"></param>  
+        <param name="Append" value="true"></param>  
+        <!-- 超过5M重新生成日志文件 -->
+        <param name="MaxFileSize" value="5120KB"></param>  
+        <param name="MaxBackupIndex" value="200"></param>  
+	    <layout class="org.apache.log4j.PatternLayout">
+	      <param name="ConversionPattern" value="[Hurong] %-d{yyyy-MM-dd HH:mm:ss} %-5p %-15c{1}: %m%n"/>
+	    </layout>
+   </appender>
+ 
+    <logger name="net.sf.ehcache">
+        <level value="ERROR"/>
+    </logger>
+
+    <logger name="org.apache">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.apache.velocity.runtime.log">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.hibernate">
+        <level value="WARN"/>
+    </logger>
+   
+    <logger name=" org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <level value="WARN"/>
+    </logger>
+    
+    <logger name="org.springframework.security">
+        <level value="WARN"/>
+    </logger>
+    
+     <logger name="org.springframework">
+        <level value="WARN"/>
+    </logger>
+    <logger name="com.zhiwei.core.web.filter">
+    	<level value="INFO"/>
+    </logger>
+    <logger name="com.zhiwei">
+        <level value="DEBUG"/>
+    </logger>
+
+    <logger name="org.apache.struts2">
+        <level value="ERROR"/>
+    </logger>
+    
+    <logger name="com.opensymphony.xwork2">
+    	<level value="ERROR"/>
+    </logger>
+	
+    <logger name="org.springframework.ui.velocity">
+        <level value="WARN"/>
+    </logger>
+	 
+	<logger name="org.apache.catalina">
+		<level value="WARN"/>
+	</logger>
+	
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APPLOGFILE"/>
+    </root>
+
+</log4j:configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.personal.ErrandsRegister" table="errands_register" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="dateId" column="dateId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="approvalId" type="java.lang.Long" update="true" insert="true" access="property" column="approvalId" length="19" not-null="false" unique="false"/>  
+    <property name="descp" type="java.lang.String" update="true" insert="true" access="property" column="descp" length="500" not-null="true" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="approvalOption" type="java.lang.String" update="true" insert="true" access="property" column="approvalOption" not-null="false" unique="false"/>  
+    <property name="approvalName" type="java.lang.String" update="true" insert="true" access="property" column="approvalName" length="128" not-null="false" unique="false"/>  
+    <property name="flag" type="java.lang.Short" update="true" insert="true" access="property" column="flag" length="5" not-null="false" unique="false"/>  
+    <property name="runId" type="java.lang.Long" update="true" insert="true" access="property" column="runId" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

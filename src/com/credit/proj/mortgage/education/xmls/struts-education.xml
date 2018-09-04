@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="educationsssss" extends="struts-default" namespace="/credit/mortgage/education">
+		<!-- 添加信息 -->
+		<!--<action name="addEducation" class="educationAction" method="addEducation">
+		<action name="*Education" class="com.credit.proj.mortgage.education.action.EducationAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>-->
+		<action name="addEducation" class="educationAction" method="addEducation"/>
+		<!-- 查看信息从视图 -->
+		<action name="seeEducation" class="educationAction" method="seeEducation"></action>
+		
+		<!-- 查看信息从教育用地表查询数据显示在更新页面 -->
+		<action name="seeEducationForUpdate" class="educationAction" method="seeEducationForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateEducation" class="educationAction" method="updateEducation"></action>
+		
+	</package>
+</struts> 

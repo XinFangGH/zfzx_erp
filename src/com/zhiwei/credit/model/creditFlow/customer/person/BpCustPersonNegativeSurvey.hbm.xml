@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.person.BpCustPersonNegativeSurvey"
+        table="bp_cust_person_negative_survey"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="negativeId"
+            column="negativeId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id><!--
+         <property
+            name="personId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="personId"
+            length="10"
+            not-null="true"
+            unique="false"
+        />
+        --><property
+            name="negativeTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="negativeTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="negativeExplain"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="negativeExplain"
+            length="500"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="userId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="userId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="negativeOperator"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="negativeOperator"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="negativeEnteringTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="negativeEnteringTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <many-to-one name="person" 
+        		     class="com.zhiwei.credit.model.creditFlow.customer.person.Person"
+        		     not-null="false"
+        		     fetch="select"
+        		     >
+        	<column name="personId"></column>
+        </many-to-one>
+     </class>
+</hibernate-mapping>

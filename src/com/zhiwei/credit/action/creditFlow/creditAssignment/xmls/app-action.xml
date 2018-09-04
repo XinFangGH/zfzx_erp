@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">   
+   <bean id="CsInvestmentpersonAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.customer.CsInvestmentpersonAction" scope="prototype"/>
+   <bean id="ObSystemAccountAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.bank.ObSystemAccountAction" scope="prototype"/>
+   <bean id="ObObligationInvestInfoAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.bank.ObObligationInvestInfoAction" scope="prototype"/>
+   <bean id="ObAccountDealInfoAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.bank.ObAccountDealInfoAction" scope="prototype"/>
+   <bean id="ObObligationProjectAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.project.ObObligationProjectAction" scope="prototype"/>
+   <bean id="ObShopintentStatisticAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.bank.ObShopintentStatisticAction" scope="prototype"/>
+   <bean id="ObSystemaccountSettingAction" class="com.zhiwei.credit.action.creditFlow.creditAssignment.bank.ObSystemaccountSettingAction" scope="prototype"/>
+</beans>

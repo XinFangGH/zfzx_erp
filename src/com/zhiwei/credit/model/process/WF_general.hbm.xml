@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-cascade="none" default-access="property" default-lazy="true" auto-import="true"> 
+  <class table="WF_general" entity-name="WF_general" mutable="true" polymorphism="implicit" dynamic-update="false" dynamic-insert="false" select-before-update="false" optimistic-lock="version"> 
+    <id name="entityId" column="entityId" type="java.lang.Long"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="createtime" column="createtime" type="java.util.Date" unique="false" optimistic-lock="true" lazy="false" generated="never"/>  
+    <property name="itemDescp" column="itemDescp" type="java.lang.String" length="65535" unique="false" optimistic-lock="true" lazy="false" generated="never"/>  
+    <property name="itemSubject" column="itemSubject" type="java.lang.String" length="256" unique="false" optimistic-lock="true" lazy="false" generated="never"/>  
+    <property name="runId" column="runId" type="java.lang.Long" unique="false" optimistic-lock="true" lazy="false" generated="never"/> 
+  </class> 
+</hibernate-mapping>

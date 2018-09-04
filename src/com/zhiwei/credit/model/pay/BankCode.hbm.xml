@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.pay.BankCode"
+        table="bankCode"
+        select-before-update="false"
+        dynamic-update="true"
+        dynamic-insert="true"
+        optimistic-lock="all"
+    >
+		<id
+            name="code"
+            column="code"
+            type="java.lang.String"
+            length="255"
+        >
+            <generator class="assigned"/>
+        </id>
+         <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="parentCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="parentCode"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="thirdPayConfig"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="thirdPayConfig"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

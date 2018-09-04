@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">   
+    <bean id="ProcreditContractAction" class="com.zhiwei.credit.action.creditFlow.contract.ProcreditContractAction" scope="prototype"/>
+   <bean id="ProduceHelperAction" class="com.zhiwei.credit.action.creditFlow.contract.ProduceHelperAction" scope="prototype"/>
+   <bean id="DocumentTempletAction" class="com.zhiwei.credit.action.creditFlow.contract.DocumentTempletAction" scope="prototype"/>
+   <bean id="CsElementCategoryAction" class="com.zhiwei.credit.action.creditFlow.contract.CsElementCategoryAction" scope="prototype"/>
+   <!-- @HT_version3.0 合同改造新增 -->
+   <bean id="ContractHelperAction" class="com.contract.ContractHelperAction" scope="prototype"/>
+</beans>

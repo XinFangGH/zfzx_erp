@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.BookSn" table="book_sn" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="bookSnId" column="bookSnId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="bookSN" type="java.lang.String" update="true" insert="true" access="property" column="bookSN" length="128" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Book -->  
+    <many-to-one name="book" class="com.zhiwei.credit.model.admin.Book" not-null="false" fetch="select"> 
+      <column name="bookId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to BookBorRet -->  
+    <set name="bookBorRets" table="book_bor_ret" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="bookSnId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.BookBorRet"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

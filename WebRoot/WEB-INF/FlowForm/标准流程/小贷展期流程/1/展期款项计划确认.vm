@@ -1,0 +1,288 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType:'$!operationType',
+	slSuperviseRecordId:'$!slSuperviseRecordId',
+	projectMoney : '$!projectMoney',
+	payProjectMoney : '$!payProjectMoney',
+	smallbusinessType:'$!smallbusinessType',
+	smallProjectId:'$!smallProjectId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+		
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFinancePanel.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFundIntent.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseIntentGrid.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseLoadDataCommon.js',
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentViewVM.js',
+				__ctxPath + '/js/creditFlow/finance/superviseSlFundIntentVM.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToChargeVM.js',// 经办费用清单
+				__ctxPath + '/js/creditFlow/finance/detailView.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/FinanceExtensionlPanel.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/loadDataExtension.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SlContractView.js'// 合同确认
+			];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		this.perMain = "";
+		this.projectInfo = new ExtUD.Ext.McroLoanProjectInfoPanel({
+			isAllReadOnly : true ,
+			isDiligenceReadOnly:true
+		});
+	
+		var title="企业客户信息";
+		if (this.oppositeType =="person_customer") {
+			this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+				isEditPerson : false,
+				isReadOnly:true,
+				isSpouseReadOnly: true,
+				isNameReadOnly:true,
+				isHideGudongInfo:true
+			});
+			title="个人客户信息";
+		} else if(this.oppositeType =="company_customer"){
+			
+			     this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				 projectId : this.smallProjectId,
+				 bussinessType:this.smallbusinessType,
+				 isEditEnterprise : false,
+				 isReadOnly:true,
+				 isNameReadOnly:true
+			});
+		}
+		var DeferApplyInfoPanel =new FinanceExtensionlPanel({
+	      	continuationMoney:(this.projectMoney-this.payProjectMoney),
+	      	projectId : this.slSuperviseRecordId,
+	      	businessType:this.businessType,
+	      	dateName:'展期开始日期',
+	      	isAllReadOnly:false,
+	      	idDefinition:'extenstion'+this.taskId
+	    })
+     	
+		this.superviseSlFundIntentVM=new superviseSlFundIntentVM({
+			object :DeferApplyInfoPanel,
+			projId : this.smallProjectId,
+			isHidden : false,
+			titleText:'还款收息表',
+			businessType : this.smallbusinessType,
+		    slSuperviseRecordId : this.slSuperviseRecordId,
+			isUnLoadData :false,
+			isThisSuperviseRecord :'yes',
+			isHiddenAdd:false,
+			isHiddenDel:false
+	  	})
+	  	this.slActualToCharge = new SlActualToChargeVM({
+			projId : this.smallProjectId,
+			isThisSuperviseRecord : "yes",
+			slSuperviseRecordId : this.slSuperviseRecordId,
+			isHiddenAddBtn : false,
+			isHiddenDelBtn : false,
+			businessType :'SmallLoan'      //小贷
+		});
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSuperviseRecordService.confirmThePlanOfFundNextStep'
+			},{
+				xtype : 'hidden',
+				name : 'slFundIentJsonData'
+			}, {
+				name : 'slActualToChargeJson',
+				xtype : 'hidden'
+			},{
+				xtype : 'hidden',
+				name : 'slSuperviseRecordId',
+				value : this.slSuperviseRecordId
+			},{
+				xtype : 'hidden',
+				name : 'projectId',
+				value : this.smallProjectId
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目基本信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			}, {
+				xtype : 'fieldset',
+				title :title,
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.perMain]
+			},{
+				xtype : 'fieldset',
+				title : '当前资金款项信息 ',
+				collapsible : true,
+				autoHeight : true,
+				items : [new SlFundIntentViewVM({
+				        	isHiddenOperation : false,
+							projectId : this.smallProjectId,
+							businessType : this.smallbusinessType,
+							isHiddenAddBtn : true,
+						    isHiddenDelBtn : true,
+						    isHiddenCanBtn : true,
+						    isHiddenResBtn : true,
+						    isHiddenautocreateBtn:true,
+							isHiddenResBtn1:true,
+							isFinbtn:true,
+							isHidden1:true,
+						    slSuperviseRecordId : this.projectId,
+						    isUnLoadData :false,
+							isThisSuperviseRecord :'no'
+						})]
+			}, {       
+			    xtype : 'fieldset',
+				title : '展期登记信息',
+				collapsible : true,
+				autoHeight : true,
+				items : [DeferApplyInfoPanel,this.superviseSlFundIntentVM,this.slActualToCharge]
+			}, {
+				xtype : 'hidden',
+        		name : 'safeLevel',
+        		value : 1
+			},{
+			     xtype:'hidden',
+			     name:'task_id',
+			     value:this.taskId
+	        }]
+		})
+		this.loadData({
+			url : __ctxPath + '/supervise/getInfoSlSuperviseRecord.do?projectId='+this.smallProjectId+'&slSuperviseRecordId='+this.slSuperviseRecordId+'&task_id='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'slSmallloanProject',"slSuperviseRecord",'comments'],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(null!=alarm_fields.data.slSuperviseRecord.dateMode){
+					var dateModelCom=this.getCmpByName('slSuperviseRecord.dateMode');
+					var st=dateModelCom.getStore();
+					st.on('load',function(){
+						dateModelCom.setValue(alarm_fields.data.slSuperviseRecord.dateMode)
+					})
+				}
+				if(null!=alarm_fields.data.slSuperviseRecord.continuationMoney){
+					this.getCmpByName('projectMoney1').setValue(alarm_fields.data.slSuperviseRecord.continuationMoney)
+				}else{
+					this.getCmpByName('projectMoney1').setValue(this.projectMoney-this.payProjectMoney)
+				}
+			    if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+			    if(typeof(alarm_fields.data.enterpriseBank) != 'undefined') {
+					this.getCmpByName('enterpriseBank.areaName').setValue(alarm_fields.data.enterpriseBank.areaName);
+				}
+				var appUsers= alarm_fields.data.slSmallloanProject.appUserName;
+				var appUserId= alarm_fields.data.slSmallloanProject.appUserId;
+				if(""!=appUserId &&  null!=appUserId){
+				   this.getCmpByName('degree').setValue(appUserId);
+				   this.getCmpByName('degree').setRawValue(appUsers);
+				   this.getCmpByName('degree').nextSibling().setValue(appUserId);
+				}
+				fillDataExtension(DeferApplyInfoPanel,alarm_fields,'extenstion'+this.taskId)
+			}
+		});
+
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		var superviseSlFundIntentVM=this.superviseSlFundIntentVM
+		var superviseData=superviseSlFundIntentVM.getGridDate();
+		var slActualToChargeJsonData=this.slActualToCharge.getGridDate();
+		var slActualToCharge=this.slActualToCharge;
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/supervise/saveSlFundIntentJsonSlSuperviseRecord.do',
+			params : {
+				comments : formPanel.comments,
+				slFundIentJson:superviseData,
+				"slActualToChargeJsonData":slActualToChargeJsonData,
+				'slSuperviseRecordId':this.slSuperviseRecordId,
+				'projectId':this.smallProjectId
+			},
+		    method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			    Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			    superviseSlFundIntentVM.save();
+			    slActualToCharge.savereload();
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(outpanel) {
+		this.formPanel.getCmpByName('slFundIentJsonData').setValue(this.superviseSlFundIntentVM.getGridDate());
+		this.formPanel.getCmpByName('slActualToChargeJson').setValue(this.slActualToCharge.getGridDate());
+	    return true;
+	}
+})

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="ArchiveIssueFlow" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="162,17,48,48" name="拟文套红">
+      <transition g="-56,-8" name="提交科室1" to="科室主管审核"/>
+   </start>
+   <task g="129,122,113,66" name="科室主管审核">
+      <transition g="-73,-4" name="提交办公室" to="办公室核稿"/>
+      <transition g="-27,-17" name="回退1" to="发文修改"/>
+   </task>
+   <task g="131,219,114,60" name="办公室核稿">
+      <transition g="-91,-6" name="提交办公室主任" to="办公室主任核稿"/>
+      <transition g="-31,-17" name="回退2" to="发文修改"/>
+   </task>
+   <task g="132,301,117,62" name="办公室主任核稿">
+      <transition g="344,323:-45,-20" name="提交领导" to="领导审核"/>
+      <transition g="-61,-11" name="办公室下派" to="编文号盖章"/>
+      <transition g="-32,-10" name="回退3" to="发文修改"/>
+   </task>
+   <task g="453,293,132,63" name="领导审核">
+      <transition g="363,390:3,3" name="领导下派" to="编文号盖章"/>
+      <transition g="-31,0" name="回退4" to="发文修改"/>
+   </task>
+   <task g="140,500,104,63" name="打印">
+      <transition g="-32,5" name="申请归档2" to="申请归档"/>
+   </task>
+   <task g="136,394,109,64" name="编文号盖章">
+      <transition g="-74,-6" name="打印纸质文件" to="打印"/>
+      <transition g="-15,-18" name="申请归档1" to="申请归档"/>
+   </task>
+   <task g="377,430,103,58" name="申请归档">
+      <transition g="-49,-23" name="电子文件(简报)" to="各科室收文"/>
+      <transition g="-47,-17" name="归档结束" to="结束归档"/>
+   </task>
+   <task g="574,388,102,62" name="各科室收文">
+      <transition g="-63,-15" name="科室办理" to="科室办理"/>
+   </task>
+   <task g="573,506,104,54" name="科室办理">
+      <transition g="-22,5" name="反馈" to="申请归档"/>
+   </task>
+   <task g="456,130,123,69" name="发文修改">
+      <transition g="336,106:-24,-15" name="提交科室2" to="科室主管审核"/>
+   </task>
+   <end g="404,571,48,48" name="结束归档"/>
+</process>

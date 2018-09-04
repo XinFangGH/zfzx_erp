@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_p2p" text="运营中心" iconCls="mod-org"> 
+	<Items id="OffLineApplyUser" iconCls="menu-finance" text="借款申请管理">
+		   <Item id="BpPerApplyNotAccepted" iconCls="menu-finance" text="未受理申请管理"></Item>
+		   <Item id="BpPerApplyAccepted" iconCls="menu-finance" text="已受理申请管理"></Item>
+		   <Item id="BpPerApplyUserOfficialUser" iconCls="menu-finance" text="已建档客户清单"></Item>
+		   <Item id="BpPerApplyUserRejected" iconCls="menu-finance" text="已拒绝申请清单"></Item>
+	</Items>
+	<Items id="productConfigManager" text="贷款产品配置" iconCls="btn-tree-team2" isPublic="false" >
+		  <Item id="BpProductParameterView" text="贷款产品设计" iconCls="btn-tree-team2" >
+		    <Function id="_bpProductParameter_add" text="新增产品" iconCls="btn-add"/>
+			<Function id="_bpProductParameter_edit" text="配置产品" iconCls="btn-edit"/>
+			<Function id="_bpProductParameter_del" text="删除产品" iconCls="btn-del"/>
+			<Function id="_bpProductParameter_see" text="查看产品" iconCls="btn-detail"/>
+		 </Item>
+		 <Items id="basicMaterials" text="基础材料配置" iconCls="btn-tree-team2" >
+				 <Item id="OurSmallloanMaterialsView?businessType=SmallLoan" text="基础贷款材料管理" iconCls="btn-tree-team2">
+					<Function id="_create_dc" text="添加贷款材料" iconCls="btn-add"/>
+					<Function id="_edit_dc" text="编辑贷款材料" iconCls="btn-edit"/>
+					<Function id="_remove_dc" text="删除贷款材料" iconCls="btn-del"/>
+					<Function id="_create_dcx" text="添加贷款材料项" iconCls="btn-add"/>
+					<Function id="_edit_dcx" text="编辑贷款材料项" iconCls="btn-edit"/>
+					<Function id="_remove_dcx" text="删除贷款材料项" iconCls="btn-del"/>
+				</Item>
+			<!--<Item id="OurFinanceProductMaterialsView?businessType=FinanceProduct" text="基础融资材料管理" iconCls="btn-tree-team2">
+					<Function id="_create_fp" text="添加融资材料" iconCls="btn-add"/>
+					<Function id="_edit_fp" text="编辑融资材料" iconCls="btn-edit"/>
+					<Function id="_remove_fp" text="删除融资材料" iconCls="btn-del"/>
+					<Function id="_create_fp" text="添加融资材料项" iconCls="btn-add"/>
+					<Function id="_edit_fp" text="编辑融资材料项" iconCls="btn-edit"/>
+					<Function id="_remove_fp" text="删除融资材料项" iconCls="btn-del"/>
+				</Item>-->
+				<Item id="OurProcreditAssuretenetGuaranteeView?businessType=SmallLoan" text="基础贷款条件管理" iconCls="btn-tree-team2">
+					<Function id="_create_zr_SmallLoan" text="添加准入原则" iconCls="btn-add"/>
+					<Function id="_remove_zr_SmallLoan" text="删除准入原则" iconCls="btn-del"/>
+					<Function id="_edit_zr_SmallLoan" text="编辑准入原则" iconCls="btn-edit"/>
+				</Item>
+				
+				<Item id="OurArchivesMaterialsView?businessType=SmallLoan" text="基础贷款归档材料管理" iconCls="btn-tree-team2" isShow="false">
+					<Function id="_create_archives_SmallLoan" text="添加归档材料" iconCls="btn-add"/>
+					<Function id="_remove_archives_SmallLoan" text="删除归档材料" iconCls="btn-del"/>
+					<Function id="_edit_archives_SmallLoan" text="编辑归档材料" iconCls="btn-edit"/>
+				</Item>
+				<Item id="SlPlansToChargeView?businessType=SmallLoan" iconCls="btn-tree-team2" text="基础收费类型">
+					<Function id="_create_zxpz_SmallLoan" text="添加" iconCls="btn-add"/>
+					<Function id="_remove_zxpz_SmallLoan" text="删除" iconCls="btn-del"/>
+					<Function id="_save_zxpz_SmallLoan" text="保存" iconCls="btn-save"/>
+				</Item>
+				<Item id="DownLoadDocumentManager?businessType=SmallLoan" text="文档模板管理" iconCls="btn-tree-team2" isShow="false" >
+					<Function id="_create_ddm_SmallLoan" text="新增模板文档项" iconCls="btn-add"/>
+					<Function id="_edit_ddm_SmallLoan" text="修改模板文档项" iconCls="btn-edit"/>
+					<Function id="_remove_ddm_SmallLoan" text="删除模板文档项" iconCls="btn-del"/>
+				</Item>
+		</Items>  
+		 
+		 
+	</Items>  
+	<Items id="experienceStandard" text="体验标子业务" iconCls="menu-finance" isPublic="false">
+			<Item id="ExperienceStandardPlanTab" iconCls="menu-finance" text="体验标招标管理"></Item>
+			<Item id="ExperienceStandardView" iconCls="menu-finance" text="体验标派息管理"></Item>
+			<Item id="ExperienceStandardInfo" iconCls="menu-finance" text="体验标投标记录"></Item>
+	</Items>
+	
+   <Items id="BiddingParameters" text="招标参数配置" iconCls="menu-finance" >
+	    <Item id="PlKeepCreditlevelView" iconCls="menu-finance" text="信用等级管理"></Item>
+		<Item id="PlKeepProtypeView" iconCls="menu-finance" text="项目类型管理"></Item>
+		<!--  <Item id="PlKeepGtorzView" iconCls="menu-finance" text="担保机构管理"></Item>-->
+		<Item id="PlBiddingTypeView" iconCls="menu-finance" text="招标类型管理"></Item>
+			
+	</Items>
+	
+	<Items id="UpLineCustManger" text="注册用户管理 " iconCls="menu-finance">
+		<Item id="BpCustMemberView?isForBidType=0" text="用户账号管理" iconCls="menu-finance">
+		</Item>
+		<Item id="BpCustMemberView?isForBidType=1" text="禁用用户管理" iconCls="menu-finance">
+		</Item>
+		<Item id="BpCustLoginlogView" text="用户登录日志" iconCls="menu-finance">
+		</Item>
+		
+		<Item id="InvitesRecommandQueryView" text="邀请推荐查询" iconCls="menu-finance">
+		</Item>
+		<Item id="PlBidInfoView?userType=0" iconCls="menu-finance" text="会员投资查询"></Item>
+		<Item id="BpCustMemberBorrow?userType=0" iconCls="menu-finance" text="会员借款查询"></Item>
+		<Item id="PlBidAutoView" iconCls="menu-finance" text="自动投标管理"></Item>
+		<Item id="CouponsIncome" iconCls="menu-finance" text="散标优惠券收益查询"></Item>
+		<Item id="CouponsAssignIncome" iconCls="menu-finance" text="理财优惠券收益查询"></Item>
+	</Items>
+	
+	<Items id="CustMoneyManger_p2p" text="资金账户管理" iconCls="menu-finance">
+		<Item id="investmentAccountView?accountType=accountSee&amp;type=0" iconCls="menu-finance" text="线上资金账户查询"></Item>
+		<Item id="PersonAccountDealInfoListQuery?Type=0" iconCls="menu-finance" text="资金账户收支查询"></Item>
+		<!-- <Item id="withdrawCheck?Type=0" iconCls="menu-finance" text="线上提现申请审核"></Item>
+		<Item id="withdrawChecking?Type=0" iconCls="menu-finance" text="线上提现审核中"></Item>
+		<Item id="withdrawPass?Type=0" iconCls="menu-finance" text="线上提现审核成功"></Item>
+		<Item id="withdrawCancel?Type=0" iconCls="menu-finance" text="线上提现审核失败"></Item> -->
+	</Items>
+	
+	<Items id="InternalMessageManger" text="站内通信管理 " iconCls="menu-finance">
+		<Item id="OaNewsMessageFormView" text="新增站内信" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessageView?messageType=1" text="站内信草稿箱" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessageView?messageType=2" text="已发送信件箱" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessageView?messageType=3" text="已删除信件箱" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessagerinfoView?messageInfoType=1" text="系统收件箱" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessagerinfoView?messageInfoType=2" text="用户收件箱" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessagerinfoView?messageInfoType=3" text="已删除系统信件" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessagerinfoView?messageInfoType=4" text="已删除用户信件" iconCls="menu-finance"></Item>
+		<Item id="OaNewsMessageType?nodeKey=webletter" text="站内信类型管理" iconCls="menu-finance"></Item>
+		<Item id="BlessingMessageManage" text="节日短信管理" iconCls="menu-finance"></Item>
+	</Items>
+	<Items id="IntegralManager" text="用户积分系统" iconCls="menu-finance" isPublic="false">
+		    <Item id="MemberGradeSet" iconCls="menu-finance" text="用户积分等级设置"></Item>
+			<Item id="SystemBonusRule" iconCls="menu-finance" text="默认积分规则设置"></Item>
+			<Item id="BpActivityManageView?type=integral"  iconCls="menu-finance"  text="自主积分规则设置"/>
+			<Item id="BpActivityManageView?type=integralExchange" iconCls="menu-finance"  text="积分兑优惠券设置" />
+			<Item id="SystemBonusRecord" iconCls="menu-finance" text="用户积分变动明细"></Item>
+	</Items>
+	<Items id="DiscountCouponManager" text="优惠券子系统" iconCls="menu-finance" isPublic="false">
+			<Item id="BpCouponSettingView?couponState=-1" iconCls="menu-finance" text="优惠券生成管理"></Item>
+			<Item id="BpCouponSettingCheckView" iconCls="menu-finance" text="优惠券审核管理"></Item>
+			<Item id="BpCouponsView" iconCls="menu-finance" text="优惠券单个派发"></Item>
+			<Item id="BpCouponsAllView" iconCls="menu-finance" text="优惠券批量派发"></Item>
+			<Item id="BpActivityManageView?type=coupon" iconCls="menu-finance"  text="优惠券活动设置" />
+			<Item id="DiscountCouponQuery" iconCls="menu-finance" text="优惠券派发明细"></Item>
+			<Item id="DiscountUseCouponQuery" iconCls="menu-finance" text="优惠券使用明细"></Item>
+	</Items>
+	<Items id="RedManager" text="现金红包管理" iconCls="menu-finance" isPublic="false">
+			<Item id="TabRedMoney" iconCls="menu-finance" text="手动派发红包管理"></Item>
+			<Item id="BpActivityManageView?type=redPacket" iconCls="menu-finance"  text="自动派发红包管理" />
+			<Item id="BpCustRedMemberView" iconCls="menu-finance" text="用户红包获取日志"></Item>
+		</Items>
+	<!--<Items id="ActivityCenter" text="活动中心" iconCls="mod-obligationSourceQuery" isPublic="false">
+		 </Items>-->
+	<Items id="CompanyControl" text="网站内容管理" iconCls="menu-finance">
+		<Item id="TopArticlecategoryView" text="顶级分类管理" iconCls="menu-finance" >
+		</Item>
+		<Item id="ArticlecategoryView" text="二级分类管理" iconCls="menu-finance" >
+		</Item>
+		<Item id="ArticleView" iconCls="menu-finance" text="文章分类管理">
+		</Item>
+	<!--
+			<Items id="ArticlecategoryView?type=25" text="新闻中心栏目管理"
+			iconCls="menu-finance" isPublic="false">
+			<Item id="ArticleView?type=30&amp;single=1&amp;title=网站公告" iconCls="menu-finance"
+				text="网站公告">
+			</Item>
+			<Item id="ArticleView?type=31&amp;single=1&amp;title=还款公告" iconCls="menu-finance"
+				text="还款公告">
+			</Item>
+			<Item id="ArticleView?type=32&amp;single=1&amp;title=法律法规" iconCls="menu-finance"
+				text="法律法规">
+			</Item>
+			<Item id="ArticleView?type=33&amp;single=1&amp;title=最新动态" iconCls="menu-finance"
+				text="最新动态">
+			</Item>
+			<Item id="ArticleView?type=34&amp;single=1&amp;title=媒体报道" iconCls="menu-finance"
+				text="媒体报道">
+			</Item>
+
+		</Items>
+		<Items id="ArticlecategoryView?type=27" text="帮助中心栏目管理"
+			iconCls="menu-finance" isPublic="false">
+			<Item id="ArticleView?type=35&amp;single=1&amp;title=新手指引" iconCls="menu-finance" text="新手指引">
+			</Item>
+			<Item id="ArticleView?type=36&amp;single=1&amp;title=会员须知" iconCls="menu-finance" text="会员须知">
+			</Item>
+			<Item id="ArticleView?type=37&amp;single=1&amp;title=我要理财" iconCls="menu-finance" text="我要理财">
+			</Item>
+			<Item id="ArticleView?type=38&amp;single=1&amp;title=我要借款" iconCls="menu-finance" text="我要借款">
+			</Item>
+			<Item id="ArticleView?type=39&amp;single=1&amp;title=常见问题" iconCls="menu-finance" text="常见问题">
+			</Item>
+			<Item id="ArticleView?type=40&amp;single=1&amp;title=如何借款" iconCls="btn-tree-obliga77" text="如何借款">
+			</Item> 
+		</Items>
+		
+		<Items id="ArticlecategoryView?type=28" text="安全保障栏目管理"
+			iconCls="menu-finance" isPublic="false">
+			<Item id="ArticleView?type=41&amp;single=1&amp;title=风险基金" iconCls="menu-finance" text="风险基金">
+			</Item>
+			<Item id="ArticleView?type=42&amp;single=1&amp;title=交易安全" iconCls="menu-finance" text="交易安全">
+			</Item>
+			<Item id="ArticleView?type=43&amp;single=1&amp;title=信用审核" iconCls="menu-finance" text="信用审核">
+			</Item>
+			<Item id="ArticleView?type=44&amp;single=1&amp;title=风险控制" iconCls="menu-finance" text="风险控制">
+			</Item>
+		</Items>
+		<Items id="ArticlecategoryView?type=26" text="关于我们栏目管理"
+			iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="ArticleView?type=45&amp;single=1&amp;title=公司简介" iconCls="menu-finance" text="公司简介">
+			</Item>
+			<Item id="ArticleView?type=46&amp;single=1&amp;title=公司资质" iconCls="menu-finance" text="公司资质">
+			</Item>
+			<Item id="ArticleView?type=47&amp;single=1&amp;title=加入我们" iconCls="menu-finance" text="加入我们">
+			</Item>
+			<Item id="ArticleView?type=48&amp;single=1&amp;title=联系我们" iconCls="menu-finance" text="联系我们">
+			</Item>
+		</Items>
+--><!--	      	<Item id="ArticlecategoryView" text="新闻中心栏目管理" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticlecategoryhelpView" text="帮助中心栏目管理" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=25&amp;single=1&amp;title=行业新闻" text="行业新闻" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=29&amp;single=1&amp;title=站内公告" text="站内公告" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=30&amp;single=1&amp;title=还款公告" text="还款公告" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=31&amp;single=1&amp;title=媒体报道" text="媒体报道" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=32&amp;single=1&amp;title=法律法规" text="法律法规" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--				-->
+<!--			<Item id="ArticleView?type=26&amp;single=0&amp;title=关于我们" text="关于我们" iconCls="menu-task-manage">-->
+<!--			</Item>-->
+<!--			-->
+<!--		    <Item id="ArticleView?type=27&amp;single=0&amp;title=帮助中心" text="帮助中心" iconCls="menu-task-manage">-->
+<!--                     -->
+<!--			</Item>-->
+<!--			<Item id="ArticleView?type=30&amp;single=0&amp;title=新手指南" text="新手指南" iconCls="menu-task-manage">-->
+<!--                     -->
+<!--			</Item>-->
+<!--			-->
+<!--		<Item id="ArticleView?type=28&amp;single=0&amp;title=常见问题" text="常见问题" iconCls="menu-task-manage">-->
+<!--		</Item>-->
+			
+			
+			<Item id="P2pFriendlinkView" text="友情链接" iconCls="menu-finance">
+			</Item>
+			<Item id="P2pBannerlinkView" text="banner管理" iconCls="menu-finance">
+			</Item>
+			<Item id="IndexShowView" text="页面显示信息管理" iconCls="menu-finance">
+			</Item>
+				       
+	</Items>
+	
+	<!--<Items id="MessageControl" text="通知信息模板管理" iconCls="menu-finance">
+		<Item id="WebTemplateMessageView?type=1" text="邮件模板" iconCls="menu-task-manage">
+		</Item>
+		<Item id="WebTemplateMessageView?type=2" text="短信模板" iconCls="menu-task-manage">
+		</Item>
+		<Item id="WebTemplateMessageView?type=3" text="站内信模板" iconCls="menu-task-manage">
+		</Item>
+	</Items>
+	-->
+	
+	<!--<Items id="DocumentManagerSmallLoan" text="贷款合同管理" iconCls="menu-finance" >
+		<Item id="CreditDocumentManager?businessType=SmallLoan&amp;plat=p2p" text="合同模板制作" iconCls="menu-finance" isShow="false" >
+			<Function id="_create_cdm_SmallLoan_p2p" text="新增模板类型" iconCls="btn-add"/>
+			<Function id="_edit_cdm_SmallLoan_p2p" text="修改模板类型信息" iconCls="btn-edit"/>
+			<Function id="_remove_cdm_SmallLoan_p2p" text="删除模板类型" iconCls="btn-del"/>
+			<Function id="_read_cdm_SmallLoan_p2p" text="查看系统要素" iconCls="btn-readdocument"/>
+			<Function id="_output_cdm_SmallLoan_p2p" text="导出系统要素" iconCls="btn-xls"/>
+		</Item>
+		
+		<Item id="ContractManager?businessType=SmallLoan&amp;plat=p2p" text="合同管理" iconCls="menu-finance" />
+		<Item id="ContractQuery&amp;plat=p2p" text="合同查询" iconCls="menu-finance" />
+		<Item id="CsElementCategoryView&amp;plat=p2p" text="合同要素" iconCls="menu-finance" />
+	
+	</Items>
+	
+	--><!-- 线下业绩 -->
+	<Items id="offlinePerformance" text="员工推荐管理" iconCls="menu-finance" isPublic="false" >
+		<Item id="RecommendCodeCreateView" iconCls="menu-finance" text="员工推荐码生成">
+			<Function id="_seeAll_erp" text="查看所有Erp账号" iconCls="btn-detail"/>
+			<Function id="_openingP2PAccount" text="开通P2P账号" iconCls="menu-add"/>
+			<Function id="_bindingP2PAccount" text="绑定P2P账号" iconCls="menu-add"/>
+			<Function id="_closeP2PAccount" text="禁用P2P账号" iconCls="menu-add"/>
+			<Function id="_openP2PAccount" text="开启P2P账号" iconCls="menu-add"/>
+			<Function id="_exportP2PAccount" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="RecommendCountsView" iconCls="menu-finance" text="推荐个数查询">
+			<Function id="_exportRecommendCount" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="RecommendPerformanceView" iconCls="menu-finance" text="推荐业绩查询">
+			<Function id="_exportPerformance" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="OffLinePerformanceDetail?type=one" iconCls="menu-finance" text="一级员工业绩查询">
+			<Function id="_exportPerformance_one" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="OffLinePerformanceDetail?type=two" iconCls="menu-finance" text="二级员工业绩查询">
+			<Function id="_exportPerformance_two" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="InvitesRecommandActivityView" iconCls="menu-finance" text="活动推荐查询" >
+		</Item>
+	</Items>
+	<!-- 贷款产品配置 --><!--
+		<Items id="productConfigManager_p2p" text="贷款产品配置" iconCls="menu-finance" isPublic="false" >
+		  <Item id="BpProductParameterView?plat=p2p" text="贷款产品设计" iconCls="menu-finance" >
+		    <Function id="_bpProductParameter_add_p2p" text="新增产品" iconCls="btn-add"/>
+			<Function id="_bpProductParameter_edit_p2p" text="配置产品" iconCls="btn-edit"/>
+			<Function id="_bpProductParameter_del_p2p" text="删除产品" iconCls="btn-del"/>
+			<Function id="_bpProductParameter_see_p2p" text="查看产品" iconCls="btn-detail"/>
+		 </Item>
+		 <Items id="basicMaterials" text="基础材料配置" iconCls="menu-finance" >
+				 <Item id="OurSmallloanMaterialsView?businessType=SmallLoan&amp;plat=p2p" text="基础贷款材料管理" iconCls="menu-finance">
+					<Function id="_create_dc_p2p" text="添加贷款材料" iconCls="btn-add"/>
+					<Function id="_edit_dc_p2p" text="编辑贷款材料" iconCls="btn-edit"/>
+					<Function id="_remove_dc_p2p" text="删除贷款材料" iconCls="btn-del"/>
+					<Function id="_create_dcx_p2p" text="添加贷款材料项" iconCls="btn-add"/>
+					<Function id="_edit_dcx_p2p" text="编辑贷款材料项" iconCls="btn-edit"/>
+					<Function id="_remove_dcx_p2p" text="删除贷款材料项" iconCls="btn-del"/>
+				</Item>
+			<Item id="OurFinanceProductMaterialsView?businessType=FinanceProduct" text="基础融资材料管理" iconCls="btn-tree-team2">
+					<Function id="_create_fp" text="添加融资材料" iconCls="btn-add"/>
+					<Function id="_edit_fp" text="编辑融资材料" iconCls="btn-edit"/>
+					<Function id="_remove_fp" text="删除融资材料" iconCls="btn-del"/>
+					<Function id="_create_fp" text="添加融资材料项" iconCls="btn-add"/>
+					<Function id="_edit_fp" text="编辑融资材料项" iconCls="btn-edit"/>
+					<Function id="_remove_fp" text="删除融资材料项" iconCls="btn-del"/>
+				</Item>
+				<Item id="OurProcreditAssuretenetGuaranteeView?businessType=SmallLoan&amp;plat=p2p" text="基础贷款条件管理" iconCls="menu-finance">
+					<Function id="_create_zr_SmallLoan_p2p" text="添加准入原则" iconCls="btn-add"/>
+					<Function id="_remove_zr_SmallLoan_p2p" text="删除准入原则" iconCls="btn-del"/>
+					<Function id="_edit_zr_SmallLoan_p2p" text="编辑准入原则" iconCls="btn-edit"/>
+				</Item>
+				
+				<Item id="OurArchivesMaterialsView?businessType=SmallLoan&amp;plat=p2p" text="基础贷款归档材料管理" iconCls="menu-finance" isShow="false">
+					<Function id="_create_archives_SmallLoan_p2p" text="添加归档材料" iconCls="btn-add"/>
+					<Function id="_remove_archives_SmallLoan_p2p" text="删除归档材料" iconCls="btn-del"/>
+					<Function id="_edit_archives_SmallLoan_p2p" text="编辑归档材料" iconCls="btn-edit"/>
+				</Item>
+				<Item id="SlPlansToChargeView?businessType=SmallLoan&amp;plat=p2p" iconCls="menu-finance" text="基础收费类型">
+					<Function id="_create_zxpz_SmallLoan_p2p" text="添加" iconCls="btn-add"/>
+					<Function id="_remove_zxpz_SmallLoan_p2p" text="删除" iconCls="btn-del"/>
+					<Function id="_save_zxpz_SmallLoan_p2p" text="保存" iconCls="btn-save"/>
+				</Item>
+				<Item id="DownLoadDocumentManager?businessType=SmallLoan&amp;plat=p2p" text="文档模板管理" iconCls="menu-finance" isShow="false" >
+					<Function id="_create_ddm_SmallLoan_p2p" text="新增模板文档项" iconCls="btn-add"/>
+					<Function id="_edit_ddm_SmallLoan_p2p" text="修改模板文档项" iconCls="btn-edit"/>
+					<Function id="_remove_ddm_SmallLoan_p2p" text="删除模板文档项" iconCls="btn-del"/>
+				</Item>
+		</Items>  
+	</Items> 
+	<Items id="platformMerchant" text="平台商户管理" iconCls="menu-finance">
+		<Item id="platformMerchantRecharge" text="商户充值" iconCls="menu-finance">
+		</Item>
+	</Items>
+	-->
+	<Items id="PlatDataManager" text="平台数据管理" iconCls="menu-finance" isPublic="false">
+			<Item id="PlatDataPublishInfo?typeId=1" text="平台数据详情" iconCls="menu-finance"></Item>
+			<Item id="ThirdPayRecoad" text="三方请求查询" iconCls="menu-finance"></Item>
+			<Item id="PlatDataPublishForm?typeId=1" text="平台数据披露" iconCls="menu-finance"></Item>
+			<Item id="ThirdPayLogView" text="三方请求日志管理" iconCls="menu-finance"></Item>
+	</Items>
+	<Items id="PlatInvestment" text="平台结算中心" iconCls="menu-finance" isPublic="false">
+			<Item id="PlatInvestmentCore?type=1" text="平台投资端结算中心" iconCls="menu-finance"></Item>
+			<Item id="PlatInvestmentCore?type=2" text="平台融资端结算中心" iconCls="menu-finance"></Item>
+	</Items>
+	<Items id="StaffOnly" text="员工业绩管理" iconCls="menu-finance" isPublic="false">
+		<Item id="staffOnlyAll" iconCls="menu-finance" text="分级员工管理">
+			<Function id="_seeAll_erp" text="查看所有Erp账号" iconCls="btn-detail"/>
+			<Function id="_openingP2PAccount" text="开通P2P账号" iconCls="menu-add"/>
+			<Function id="_bindingP2PAccount" text="绑定P2P账号" iconCls="menu-add"/>
+			<!--<Function id="_closeP2PAccount" text="禁用P2P账号" iconCls="menu-add"/>-->
+			<!--<Function id="_openP2PAccount" text="开启P2P账号" iconCls="menu-add"/>-->
+			<Function id="_exportP2PAccount" text="导出列表" iconCls="btn-detail"/>
+		</Item>
+		<Item id="InvitesPersons" iconCls="menu-finance" text="推荐详情查询">
+
+		</Item>
+	</Items>
+</Menus>

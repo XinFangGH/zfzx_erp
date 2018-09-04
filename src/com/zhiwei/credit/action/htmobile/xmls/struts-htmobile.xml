@@ -1,0 +1,32 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="htmobile" extends="struts-default" namespace="/htmobile">
+    
+     <action name="loginMobile" class="MobileLoginAction" method="loginMobile">
+			<result>${successResultValue}</result>
+		</action>
+    
+      
+	   <action name="*DelFileAttach" class="DelFileAttachAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+	 
+	   <action name="*MyAppUser" class="MyAppUserAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+
+	    <action name="*Task" class="MyTaskAction" method="{1}">
+		  <result>${successResultValue}</result>
+		  <result name="formExtmobile">/pages/flow/formExtmobile.jsp</result>
+	   </action>
+	    <action name="*VmInfo" class="VmInfoAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+	  <action name="*Mobile" class="MobileAction" method="{1}">
+		  <result>${successResultValue}</result>
+	   </action>
+	</package>
+	
+</struts>

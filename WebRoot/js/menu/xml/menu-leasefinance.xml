@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_leasefinance" text="融资租赁业务软件" iconCls="mod_leasefinance">
+
+	<Items id="LFSmallLoanProjectAfter" text="租后管理 " iconCls="btn-tree-team56">
+		<Item id="SlFundintentUrgTab?businessType=LeaseFinance" text="租金催收" iconCls="btn-tree-team13" ></Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=1" text="租后监管" iconCls="btn-tree-team12" >
+			<Function id="addLeaseFinanceSuperviseRecord" text="增加监管记录" iconCls="btn-add"/>
+		</Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=2" text="租赁展期" iconCls="btn-tree-team14" >
+			<Function id="LeaseFinancehandleExtension" text="展期办理" iconCls=""/>
+		</Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=3" text="提前还款" iconCls="btn-tree-team15" >
+			<Function id="LeaseFinancehandleAdvanceRepayment" text="提前还款办理" iconCls=""/>
+		</Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=13" text="利率变更" iconCls="btn-tree-team58" >
+			<Function id="LeaseFinanceInterestRateChanges" text="利率变更" iconCls=""/>
+		</Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=5" text="项目结项" iconCls="" >
+		<Function id="LeaseFinanceProjectFinished" text="办理结项" iconCls=""/>
+		</Item>
+		<Item id="LeaseFinanceProjectManagerAfter?managerType=4" text="违约处理" iconCls="btn-tree-team59" >
+			<Function id="flstartBreach" text="违约处理办理" iconCls=""/>
+		</Item>
+		
+	</Items>
+	<!-- 租赁项目管理start  -->
+	<Items id="ManageLeaseFinanceProject" text="租赁业务管理" iconCls="menu-guarantee-info">
+			<Item id="LeaseFinanceProjectManager?projectStatus=100&amp;bmStatus=0" iconCls="menu-flowNew" text="全部租赁项目">
+				<Function id="_seeAllPro_fl1000" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl1000" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl1000" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl1000" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl1000" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl1000" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl1000" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl1000" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl1000" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl1000" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl1000" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl1000" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl1000" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl1000" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl1000" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl1000" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl1000" text="监管记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl1000" text="展期记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl1000" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl1000" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl1000" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl1000" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl1000" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl1000" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl1000" text="展期项目终止"></Function>
+						</Functions>
+						<Function id="_seeEarlyrepaymentRecord_fl1000" text="提前还款记录" iconCls=""/>
+						<Function id="_seeAflterAccrualRecord_fl1000" text="利率变更记录" iconCls=""/>
+					</Functions>
+				</Functions>
+					<Function id="_removePro_fl1000" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl1000" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl1000" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl1000" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl1000" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl1000" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl1000" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl1000" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl1000" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl1000" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl1000" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl1000" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl1000" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl1000" text="编辑租赁标的信息"/>
+						</Functions>
+						<Functions id="_editflFinanceBase_fl1000" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl1000" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl1000" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl1000" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl1000" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl1000" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl1000" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl1000" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl1000" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl1000" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl1000" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl1000" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editContractInfo_fl1000" text="合同信息" iconCls="">
+							<Function id="_editContract_fl1000" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl1000" text="增加合同"/>
+							<Function id="_editContract_del_fl1000" text="删除合同"/>
+							<Function id="_editContract_edit_fl1000" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl1000" text="批署合同"/>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl1000" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl1000" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl1000" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl1000" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl1000" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl1000" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl1000" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl1000" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterialsArchive_fl1000" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editManageFiles_fl1000" text="办理文件信息" iconCls="">
+							<Function id="_editManageFilesSubmit_fl1000" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl1000" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl1000" text="调查报告信息" iconCls="">
+							<Function id="_editReportAffrim_fl1000" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl1000" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl1000" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl1000" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl1000" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl1000" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl1000" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl1000" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl1000" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl1000" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl1000" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl1000" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl1000" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl1000" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl1000" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl1000" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl1000" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl1000" text="展期项目终止"></Function>
+						</Functions>
+						<Functions id="_editEarlyrepaymentRecord_fl1000" text="提前还款记录" iconCls="">
+							<Functions id="_tqhkbgEdit_1000" text="提前还款记录编辑" iconCls="btn-edit" >
+								<Function id="_hiddenTQHKSaveTbar_fl1000" text="保存" iconCls="btn-detail"/>
+								<Function id="_tqhkOpraFksxb_fl1000" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+								<Function id="_tqhkUpload_fl1000" text="上传(提前还款申请表)" iconCls="mod-finance"/>
+								<Function id="_tqhkCreate_fl1000" text="生成(提前还款审批表)" iconCls="mod-finance"/>
+								<Function id="_showTqhkFlowImg_fl1000" text="流程示意图" iconCls="btn-detail"/>
+								<Function id="_txhkRecords_fl1000" text="意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_tqhkTaskChange_fl1000" text="任务换人" iconCls="btn-detail"/>
+								<Function id="_tqhkTaskJump_fl1000" text="流程跳转" iconCls="btn-detail"/>
+								<Function id="_tqhkTaskStop_fl1000" text="项目终止" iconCls="btn-detail"/>
+							</Functions>
+						</Functions>
+						<Functions id="_editAflterAccrualRecord_fl1000" text="利率变更记录" iconCls="btn-detail">
+							<Functions id="_lilvbgEdit_fl1000" text="利率变更记录编辑" iconCls="btn-edit" >
+								<Function id="_hiddenLilvSaveTbar_fl1000" text="保存" iconCls="btn-detail"/>
+								<Function id="_lilvOpraFksxb_fl1000" text="添加/删除/生成(放款收息表)" iconCls="mod-finance"/>
+								<Function id="_lilvSpbsc_fl1000" text="生成(利率变更审批表)" iconCls="mod-finance"/>
+								<Function id="_showLilvFlowImg_fl1000" text="流程示意图" iconCls="btn-detail"/>
+								<Function id="_lilvRecords_fl1000" text="意见与说明记录" iconCls="btn-detail"/>
+								<Function id="_lilvTaskChange_fl1000" text="任务换人" iconCls="btn-detail"/>
+								<Function id="_lilvTaskJump_fl1000" text="流程跳转" iconCls="btn-detail"/>
+								<Function id="_lilvTaskStop_fl1000" text="项目终止" iconCls="btn-detail"/>
+							</Functions>
+					</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+		<Item id="LeaseFinanceProjectManager?projectStatus=0&amp;bmStatus=0" iconCls="menu-flowNew" text="办理中租赁项目">
+				<Function id="_seeAllPro_fl00" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl00" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl00" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl00" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl00" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl00" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl00" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl00" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl00" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl00" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl00" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl00" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl00" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl00" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl00" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl00" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl00" text="监管记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl00" text="展期记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl00" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl00" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl00" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl00" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl00" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl00" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl00" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+					<Function id="_removePro_fl00" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl00" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl00" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl00" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl00" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl00" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl00" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl00" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl00" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl00" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl00" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl00" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl00" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl00" text="编辑租赁标的信息"/>
+						</Functions>
+							<Functions id="_editflFinanceBase_fl00" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl00" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl00" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl00" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl00" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl00" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl00" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl00" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl00" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl00" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl00" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl00" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl00" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl00" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl00" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl00" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl00" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl00" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl00" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl00" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterials_fl00" text="编辑业务材料"></Function>
+							<Function id="_editBusinessMaterialsArchive_fl00" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editContractInfo_fl00" text="合同信息" iconCls="">
+							<Function id="_editContract_fl00" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl00" text="增加合同"/>
+							<Function id="_editContract_del_fl00" text="删除合同"/>
+							<Function id="_editContract_edit_fl00" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl00" text="批署合同"/>
+						</Functions>
+						<Functions id="_editManageFiles_fl00" text="办理文件信息" iconCls="">
+							<Function id="_editManageFiles_fl00" text="上传编辑办理文件"></Function>
+							<Function id="_editManageFilesSubmit_fl00" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl00" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl00" text="调查报告信息" iconCls="">
+							<Function id="_editReport_fl00" text="编辑调查报告"></Function>
+							<Function id="_editReportAffrim_fl00" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl00" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl00" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl00" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl00" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl00" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl00" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl00" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl00" text="监管记录" iconCls="">
+							<Function id="_editSuperviseRecord_editBtn_fl00" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl00" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl00" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl00" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl00" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl00" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl00" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl00" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl00" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl00" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl00" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+		<Item id="LeaseFinanceProjectManager?projectStatus=1&amp;bmStatus=0" iconCls="menu-flowNew" text="还款中租赁项目">
+				<Function id="_seeAllPro_fl10" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl10" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl10" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl10" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl10" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl10" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl10" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl10" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl10" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl10" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl10" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl10" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl10" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl10" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl10" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl10" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl10" text="监管记录" iconCls=""/>
+						<Function id="_seeSuperviseRecord_fl10" text="展期记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl10" text="监管记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl10" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl10" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl10" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl10" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl10" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl10" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl10" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+				<Function id="_removePro_fl10" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl10" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl10" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl10" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl10" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl10" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl10" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl10" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl10" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl10" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl10" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl10" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl10" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl10" text="编辑租赁标的信息"/>
+						</Functions>
+							<Functions id="_editflFinanceBase_fl10" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl10" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl10" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl10" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl10" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl10" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl10" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl10" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl10" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl10" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl10" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl10" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl10" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl10" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl10" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl10" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl10" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl10" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl10" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl00" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterials_fl00" text="编辑业务材料"></Function>
+							<Function id="_editBusinessMaterialsArchive_fl00" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editContractInfo_fl00" text="合同信息" iconCls="">
+							<Function id="_editContract_fl10" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl10" text="增加合同"/>
+							<Function id="_editContract_del_fl10" text="删除合同"/>
+							<Function id="_editContract_edit_fl10" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl10" text="批署合同"/>
+						</Functions>
+						<Functions id="_editManageFiles_fl10" text="办理文件信息" iconCls="">
+							<Function id="_editManageFiles_fl10" text="上传编辑办理文件"></Function>
+							<Function id="_editManageFilesSubmit_fl10" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl10" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl10" text="调查报告信息" iconCls="">
+							<Function id="_editReport_fl10" text="编辑调查报告"></Function>
+							<Function id="_editReportAffrim_fl10" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl10" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl10" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl10" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl10" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl10" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl10" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl10" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl10" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl10" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl10" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl10" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl10" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl10" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl10" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl10" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl10" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl10" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+		<Item id="LeaseFinanceProjectManager?projectStatus=2&amp;bmStatus=0" iconCls="menu-flowNew" text="已完成租赁项目">
+				<Function id="_seeAllPro_fl20" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl20" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl20" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl20" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl20" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl20" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl20" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl20" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl20" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl20" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl20" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl20" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl20" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl20" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl20" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl20" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl20" text="监管记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl20" text="展期记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl20" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl20" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl20" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl20" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl20" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl20" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl20" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+					<Function id="_removePro_fl20" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl20" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl20" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl20" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl20" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl20" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl20" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl20" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl20" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl20" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl20" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl20" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl20" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl20" text="编辑租赁标的信息"/>
+						</Functions>
+						<Functions id="_editflFinanceBase_fl20" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl20" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl20" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl20" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl20" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl20" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl20" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl20" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl20" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl20" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl20" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl20" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl20" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl20" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl20" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl20" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl20" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl20" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl20" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl20" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterials_fl20" text="编辑业务材料"></Function>
+							<Function id="_editBusinessMaterialsArchive_fl20" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editContractInfo_fl20" text="合同信息" iconCls="">
+							<Function id="_editContract_fl20" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl20" text="增加合同"/>
+							<Function id="_editContract_del_fl20" text="删除合同"/>
+							<Function id="_editContract_edit_fl20" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl20" text="批署合同"/>
+						</Functions>
+						<Functions id="_editManageFiles_fl20" text="办理文件信息" iconCls="">
+							<Function id="_editManageFiles_fl20" text="上传编辑办理文件"></Function>
+							<Function id="_editManageFilesSubmit_fl20" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl20" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl20" text="调查报告信息" iconCls="">
+							<Function id="_editReport_fl20" text="编辑调查报告"></Function>
+							<Function id="_editReportAffrim_fl20" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl20" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl20" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl20" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl20" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl20" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl20" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl20" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl20" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl20" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl20" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl20" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl20" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl20" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl20" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl20" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl20" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl20" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+		<Item id="LeaseFinanceProjectManager?projectStatus=8&amp;bmStatus=0" iconCls="menu-flowNew" text="违约处置租赁项目">
+				<Function id="_seeAllPro_fl80" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl80" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl80" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl80" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl80" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl80" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl80" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl80" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl80" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl80" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl80" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl80" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl80" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl80" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl80" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl80" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl80" text="监管记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl80" text="展期记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl80" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl80" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl80" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl80" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl80" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl80" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl80" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+					<Function id="_removePro_fl80" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl80" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl80" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl80" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl80" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl80" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl80" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl80" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl80" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl80" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl80" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl80" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl80" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl80" text="编辑租赁标的信息"/>
+						</Functions>
+							<Functions id="_editflFinanceBase_fl80" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl80" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl80" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl80" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl80" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl80" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl80" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl80" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl80" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl80" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl80" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl80" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl80" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl80" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl80" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl80" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl80" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl80" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl80" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl80" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterials_fl80" text="编辑业务材料"></Function>
+							<Function id="_editBusinessMaterialsArchive_fl80" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editContractInfo_fl80" text="合同信息" iconCls="">
+							<Function id="_editContract_fl80" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl80" text="增加合同"/>
+							<Function id="_editContract_del_fl80" text="删除合同"/>
+							<Function id="_editContract_edit_fl80" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl80" text="批署合同"/>
+						</Functions>
+						<Functions id="_editManageFiles_fl80" text="办理文件信息" iconCls="">
+							<Function id="_editManageFiles_fl80" text="上传编辑办理文件"></Function>
+							<Function id="_editManageFilesSubmit_fl80" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl80" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl80" text="调查报告信息" iconCls="">
+							<Function id="_editReport_fl80" text="编辑调查报告"></Function>
+							<Function id="_editReportAffrim_fl80" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl80" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl80" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl80" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl80" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl80" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl80" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl80" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl80" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl80" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl80" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl80" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl80" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl80" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl80" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl80" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl80" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl80" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+		<Item id="LeaseFinanceProjectManager?projectStatus=3&amp;bmStatus=0" iconCls="menu-flowNew" text="已否决租赁项目">
+				<Function id="_seeAllPro_fl30" text="列表查询（查看所有列表记录）" iconCls=""/>
+				<Functions id="_seePro_fl30" text="查看项目" iconCls="btn-detail">
+					<Functions id="_seeBusinessInfo_fl30" text="业务信息" iconCls="">
+						<Function id="_seeflProjectInfo_fl30" text="项目控制信息" iconCls=""/>
+						<Function id="_seeflCustomerInfo_fl30" text="客户信息" iconCls=""/>
+						<Function id="_seeflLeaseObject_fl30" text="租赁标的物信息" iconCls=""/>
+						<Functions id="flFinanceBase_fl30" text="资金款项信息" iconCls="">
+							<Function id="_seeflFinanceBaseInfo_fl30" text="资金款项信息" iconCls=""/>
+							<Functions id="_seeflActualToCharge_fl30" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Function id="_seeCreditMaterials_fl30" text="担保措施管理信息" iconCls=""/>
+						<Function id="_seeBusinessMaterials_fl30" text="业务材料信息" iconCls=""/>
+						<Function id="_seeContract_fl30" text="合同列表信息" iconCls=""/>
+						<Function id="_seeManageFiles_fl30" text="办理文件信息" iconCls=""/>
+						<Function id="_seeReport_fl30" text="调查报告信息" iconCls=""/>
+						<Function id="_seeRiskReport_fl30" text="风险分析报告" iconCls=""/>
+						<Function id="_seeArchivesMaterials_fl30" text="归档材料清单" iconCls=""/>
+						<Function id="_seeSuperVisionManagement_fl30" text="监管记录" iconCls=""/>
+						<Functions id="_seeSuperviseRecord_fl30" text="展期记录" iconCls="">
+							<Function id="_seeapplyForPostponed_fl30" text="展期审批书"></Function>
+							<Function id="_seepostponedContract_fl30" text="展期协议书"></Function>
+							<Function id="_seezqsdhjtjy_fl30" text="展期审贷会集体决议"></Function>
+							<Function id="_seeshowZQFlowImg_fl30" text="展期流程示意图"></Function>
+							<Function id="_seezqRecords_fl30" text="展期意见与说明记录"></Function>
+							<Function id="_seezqTaskJump_fl30" text="展期任务换人"></Function>
+							<Function id="_seezqTaskStop_fl30" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+					<Function id="_removePro_fl30" text="删除项目" iconCls="btn-del"/>
+				<Functions id="_hangPro_fl30" text="挂起项目" iconCls="btn-close"/>
+				<Functions id="_stopPro_fl30" text="终止项目" iconCls="btn-detail"/>
+				<Functions id="_exportPro_fl30" text="导出项目" iconCls="btn-detail"/>
+				<Functions id="_showFlowImg_fl30" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_seeLeaseFinanceAgreements_fl30" text="意见与说明" iconCls="btn-detail"/>
+				<Functions id="_editPro_fl30" text="编辑项目" iconCls="btn-edit">
+					<Functions id="_detailBusinessInfo_fl30" text="业务信息" iconCls="">
+						<Function id="_editflProjectInfo_fl30" text="项目控制信息" iconCls=""/>
+						<Functions id="_editflCustomerInfo_fl30" text="客户信息" iconCls="">
+							<Function id="_editflCustomerInfo1_fl30" text="编辑客户信息"></Function>
+							<Function id="_editflGudongInfo_fl30" text="编辑客户信息"></Function>
+						</Functions>
+						<Functions id="_editflLeaseObject_fl30" text="租赁标的物信息" iconCls="">
+							<Function id="_editflLeaseObjectInfo_fl30" text="编辑租赁标的信息"/>
+						</Functions>
+							<Functions id="_editflFinanceBase_fl30" text="资金款项信息" iconCls="">
+							<Functions id="_editflFinanceBaseInfo_fl30" text="资金款项信息" iconCls="">
+								<Function id="_editflFinanceData_fl30" text="编辑款项信息表数据"></Function>
+								<Function id="_editflFinanceStartDate_fl30" text="编辑款项信息表起始日"></Function>
+								<Function id="_editflFinance_addRecord_fl30" text="增加款项记录"></Function>
+								<Function id="_editflFinance_delRecord_fl30" text="删除款项记录"></Function>
+								<Function id="_editflFinanceManualReset_fl30" text="手动对账"></Function>
+								<Function id="_editflFinanceAutoCreate_fl30" text="自动生成款项信息"></Function>
+								<Function id="_editflFinanceSeeFlow_fl30" text="查看单项流水记录"></Function>
+								<Function id="_editflFinanceSeeAllFlow_fl30" text="查看项目总流水记录"></Function>
+								<Function id="_editflFinanceExtractExcel_fl30" text="导出excel"></Function>
+							</Functions>
+							<Functions id="_editflActualToCharge_fl30" text="手续收支清单" iconCls="">
+							</Functions>
+						</Functions>
+						<Functions id="_editCreditMaterials_fl30" text="担保措施管理信息" iconCls="">
+							<Function id="_editCreditMaterials_add_fl30" text="增加保证担保"></Function>
+							<Function id="_editCreditMaterials_del_fl30" text="删除保证担保"></Function>
+							<Function id="_editCreditMaterials_edit_fl30" text="编辑保证担保"></Function>
+							<Function id="_editDZYCreditMaterials_add_fl30" text="增加抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_del_fl30" text="删除抵质押物担保"></Function>
+							<Function id="_editDZYCreditMaterials_edit_fl30" text="编辑抵质押物担保"></Function>
+						</Functions>
+						<Functions id="_editBusinessMaterials_fl30" text="业务材料信息" iconCls="">
+							<Function id="_editBusinessMaterials_fl30" text="编辑业务材料"></Function>
+							<Function id="_editBusinessMaterialsArchive_fl30" text="编辑业务材料归档"></Function>
+						</Functions>
+						<Functions id="_editContractInfo_fl30" text="合同信息" iconCls="">
+							<Function id="_editContract_fl30" text="合同列表信息" iconCls=""/>
+							<Function id="_editContract_add_fl30" text="增加合同"/>
+							<Function id="_editContract_del_fl30" text="删除合同"/>
+							<Function id="_editContract_edit_fl30" text="编辑合同"/>
+							<Function id="_editContract_isqs_fl30" text="批署合同"/>
+						</Functions>
+						<Functions id="_editManageFiles_fl30" text="办理文件信息" iconCls="">
+							<Function id="_editManageFiles_fl30" text="上传编辑办理文件"></Function>
+							<Function id="_editManageFilesSubmit_fl30" text="编辑办理文件提交时间"></Function>
+							<Function id="_editManageFilesReceive_fl30" text="编辑办理文件收到时间"></Function>
+						</Functions>
+						<Functions id="_editReport_fl30" text="调查报告信息" iconCls="">
+							<Function id="_editReport_fl30" text="编辑调查报告"></Function>
+							<Function id="_editReportAffrim_fl30" text="编辑调查归档"></Function>
+						</Functions>
+						<Functions id="_editRiskReport_fl30" text="风险分析报告" iconCls="">
+							<Function id="_editRiskReportBtns_fl30" text="编辑风险分析报告材料"></Function>
+						</Functions>
+						<Functions id="_editArchivesMaterials_fl30" text="归档材料清单" iconCls="">
+							<Function id="_editArchivesMaterials_affrim_fl30" text="编辑归档材料确认"></Function>
+							<Function id="_editArchivesMaterials_recive_fl30" text="编辑归档材料提交"></Function>
+						</Functions>
+						<Functions id="_editSuperVisionManagement_fl30" text="监管记录" iconCls="">
+							<Function id="_editSuperVisionManagement_editBtn_fl30" text="编辑监管记录"></Function>
+						</Functions>
+						<Functions id="_editSuperviseRecord_fl30" text="展期记录" iconCls="">
+							<Function id="_applyForPostponed_fl30" text="编辑展期审批书"></Function>
+							<Function id="_postponedContract_fl30" text="编辑展期协议书"></Function>
+							<Function id="_hiddenZQsqsTbar_fl30" text="编辑展期申请书"></Function>
+							<Function id="_zqsdhjtjy_fl30" text="编辑展期审贷会集体决议"></Function>
+							<Function id="_showZQFlowImg_fl30" text="展期流程示意图"></Function>
+							<Function id="_zqRecords_fl30" text="展期意见与说明记录"></Function>
+							<Function id="_zqTaskChange_fl30" text="展期任务换人"></Function>
+							<Function id="_zqTaskJump_fl30" text="展期流程跳转"></Function>
+							<Function id="_zqTaskStop_fl30" text="展期项目终止"></Function>
+						</Functions>
+					</Functions>
+				</Functions>
+		</Item>
+	</Items>
+	<!-- 租赁项目管理end -->
+	
+	<!-- 租赁物管理start -->
+	<Items id="LeaseObjectView" text="租赁物管理" iconCls="menu-property">
+		<Item id="LeaseObjectManagement?isManaged=false&amp;hiddenChangePlace=true&amp;hiddenInsurancePay=true&amp;hiddenOwnerChange=true&amp;hiddenManageObject=true&amp;extCpmId=1" text="办理中租赁物管理" iconCls="menu-property">
+			<Function id="_seeLeaseObjectInfo_fl1" text="查看租赁物详情" iconCls="btn-readdocument"/>
+		</Item>
+		<Item id="LeaseObjectManagement?isManaged=true&amp;extCpmId=2" text="在租物管理" iconCls="menu-property">
+			<Function id="_seeLeaseObjectInfo_fl2" text="查看租赁物详情" iconCls="btn-readdocument"/>
+			<Functions id="_seeLeaseObjectInfo_fl2" text="租赁物转移记录" iconCls="">
+				<Function id="_editLeaseObjectInfo_fl2" text="查看转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectInsuranceInfo_fl2" text="保险理赔记录" iconCls="">
+				<Function id="_editLeaseObjectInsuranceInfo_fl2" text="编辑保险理赔记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectChOwnerInfo_fl2" text="所有权转移记录" iconCls="">
+				<Function id="_editLeaseObjectChOwnerInfo_fl2" text="编辑所有权转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectHandleInfo_fl2" text="查看租赁物处置" iconCls="">
+				<Function id="_editLeaseObjectHandleInfo_fl2" text="编辑租赁物处置" iconCls="btn-readdocument"/>
+			</Functions>
+		</Item>
+		<Item id="LeaseObjectManagement?isManaged=true&amp;isBuyBack=true&amp;extCpmId=3" text="已回购租赁物管理" iconCls="menu-property">
+			<Function id="_seeLeaseObjectInfo_fl3" text="查看租赁物详情" iconCls="btn-readdocument"/>
+			<Functions id="_seeLeaseObjectInfo_fl3" text="租赁物转移记录" iconCls="">
+				<Function id="_editLeaseObjectInfo_fl3" text="查看转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectInsuranceInfo_fl3" text="保险理赔记录" iconCls="">
+				<Function id="_editLeaseObjectInsuranceInfo_fl3" text="编辑保险理赔记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectChOwnerInfo_fl3" text="所有权转移记录" iconCls="">
+				<Function id="_editLeaseObjectChOwnerInfo_fl3" text="编辑所有权转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectHandleInfo_fl3" text="查看租赁物处置" iconCls="">
+				<Function id="_editLeaseObjectHandleInfo_fl3" text="编辑租赁物处置" iconCls="btn-readdocument"/>
+			</Functions>
+		</Item>
+		<Item id="LeaseObjectManagement?isManaged=true&amp;isHandled=true&amp;extCpmId=4" text="已处置租赁物管理" iconCls="menu-property">
+			<Function id="_seeLeaseObjectInfo_fl4" text="查看租赁物详情" iconCls="btn-readdocument"/>
+			<Functions id="_seeLeaseObjectInfo_fl4" text="租赁物转移记录" iconCls="">
+				<Function id="_editLeaseObjectInfo_fl4" text="查看转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectInsuranceInfo_fl4" text="保险理赔记录" iconCls="">
+				<Function id="_editLeaseObjectInsuranceInfo_fl4" text="编辑保险理赔记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectChOwnerInfo_fl4" text="所有权转移记录" iconCls="">
+				<Function id="_editLeaseObjectChOwnerInfo_fl4" text="编辑所有权转移记录" iconCls="btn-readdocument"/>
+			</Functions>
+			<Functions id="_seeLeaseObjectHandleInfo_fl4" text="查看租赁物处置" iconCls="">
+				<Function id="_editLeaseObjectHandleInfo_fl4" text="编辑租赁物处置" iconCls="btn-readdocument"/>
+			</Functions>
+			</Item>
+	</Items>
+	<!-- 租赁物管理end -->
+	<Items id="contactFinanceLeaseFinance" text="款项台账" iconCls="menu-finance-qlide" >
+		<Item id="TabLeaseFundIntentPrincipalPay?businessType=LeaseFinance&amp;type=rentalCostsPaid" iconCls="btn-tree-team29" text="本金放款台账" >
+			<Function id="_liushui_f_principalPay_LeaseFinance_rentalCostsPaid" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalPay_LeaseFinance_rentalCostsPaid" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalPay_LeaseFinance_rentalCostsPaid" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalPay_LeaseFinance_rentalCostsPaid" text="核销" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalPay_LeaseFinance_rentalCostsPaid" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalPay_LeaseFinance_rentalCostsPaid" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabLeaseFundIntentIncome?businessType=LeaseFinance&amp;type=rental" iconCls="btn-tree-team29" text="租金收取台账" >
+		    <Function id="_liushui_f_interestIncome_LeaseFinance_rental" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_interestIncome_LeaseFinance_rental" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_interestIncome_LeaseFinance_rental" text="查看对账明细" iconCls="btn-detail"/>
+			<Function id="_ping_f_interestIncome_LeaseFinance_rental" text="核销" iconCls="btn-ok"/>
+			<Function id="_fa_f_interestIncome_LeaseFinance_rental" text="罚息对账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_interestIncome_LeaseFinance_rental" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_interestIncome_LeaseFinance_rental" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabLeaseFundIntentIncome?businessType=LeaseFinance&amp;type=marginCollection" iconCls="btn-tree-team29" text="保证金收取台账" >
+		    <Function id="_liushui_f_interestIncome_LeaseFinance_marginCollection" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_interestIncome_LeaseFinance_marginCollection" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_interestIncome_LeaseFinance_marginCollection" text="查看对账明细" iconCls="btn-detail"/>
+			<Function id="_ping_f_interestIncome_LeaseFinance_marginCollection" text="核销" iconCls="btn-ok"/>
+			<Function id="_fa_f_interestIncome_LeaseFinance_marginCollection" text="罚息对账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_interestIncome_LeaseFinance_marginCollection" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_interestIncome_LeaseFinance_marginCollection" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabLeaseFundIntentPrincipalPay?businessType=LeaseFinance&amp;type=marginRefund" iconCls="btn-tree-team29" text="保证金退回台账" >
+			<Function id="_liushui_f_principalPay_LeaseFinance_marginRefund" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalPay_LeaseFinance_marginRefund" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalPay_LeaseFinance_marginRefund" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalPay_LeaseFinance_marginRefund" text="核销" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalPay_LeaseFinance_marginRefund" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalPay_LeaseFinance_marginRefund" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabLeaseFundIntentIncome?businessType=LeaseFinance&amp;type=retentionFee" iconCls="btn-tree-team29" text="留购费收取台账" >
+		    <Function id="_liushui_f_interestIncome_LeaseFinance_retentionFee" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_interestIncome_LeaseFinance_retentionFee" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_interestIncome_LeaseFinance_RetentionFee" text="查看对账明细" iconCls="btn-detail"/>
+			<Function id="_ping_f_interestIncome_LeaseFinance_retentionFee" text="核销" iconCls="btn-ok"/>
+			<Function id="_fa_f_interestIncome_LeaseFinance_retentionFee" text="罚息对账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_interestIncome_LeaseFinance_retentionFee" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_interestIncome_LeaseFinance_retentionFee" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="SlActualToChargeIncomeView?businessType=LeaseFinance" iconCls="btn-tree-team30" text="手续收入台账" >
+		    <Function id="_liushui_a_LeaseFinance" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_a_LeaseFinance" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_a_LeaseFinance" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_a_LeaseFinance" text="核销" iconCls="btn-ok"/>
+			<Function id="_sOverdue_a_LeaseFinance" text="逾期状态" iconCls="btn-setting"/>
+		</Item>
+
+		<Item id="VFundDetail?businessType=LeaseFinance" iconCls="menu-archive-history" text="本金利息台账日志" >
+		    <Function id="_cxdz_f_LeaseFinance" text="撤销对账" iconCls="btn-setting"/>
+		</Item>
+		<Item id="VChargeDetail?businessType=LeaseFinance" iconCls="menu-archive-history" text="手续收入台账日志" >
+		 	<Function id="_cxfydzlsjl_f_LeaseFinance" text="撤销对账" iconCls="btn-setting"/>
+		</Item>
+	</Items>
+	<Items id="propertyView?businessType=LeaseFinance" text="抵质押物管理" iconCls="menu-property">
+		<Item id="MortgageManagementQuery?businessType=LeaseFinance" text="抵质押物查询" iconCls="menu-property"/>
+		<Item id="MortgageManagement?businessType=LeaseFinance" text="抵质押物办理" iconCls="btn-tree-team32">
+			<Function id="_seeMortgageInfo_LeaseFinance" text="查看抵质押物详情" iconCls="btn-readdocument"/>
+			<Function id="_seeThirdContract_LeaseFinance" text="查看合同详情" iconCls="btn-readdocument"/>
+			<Function id="_seeProjectInfo_LeaseFinance" text="查看项目详情"
+				iconCls="btn-readdocument">
+				<url>/creditFlow/getProjectViewObjectCreditProject.do</url>
+			</Function>
+			<Function id="_banliMortgage_LeaseFinance" text="办理抵质押物"
+				iconCls="btn-flow-design">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+			<Function id="_relieveMortgage_LeaseFinance" text="解除抵质押物 "
+				iconCls="deleteIcon">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+		</Item>
+	</Items>
+	
+<!-- add by gao -->
+	<Items id="DocumentManagerPawn" text="合同管理" iconCls="mod-analysis" >
+		<Item id="CreditDocumentManager?businessType=LeaseFinance" text="合同模板制作" iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm_LeaseFinance" text="新增模板类型" iconCls="btn-add"/>
+			<Function id="_edit_cdm_LeaseFinance" text="修改模板类型信息" iconCls="btn-edit"/>
+			<Function id="_remove_cdm_LeaseFinance" text="删除模板类型" iconCls="btn-del"/>
+			<Function id="_read_cdm_LeaseFinance" text="查看系统要素" iconCls="btn-readdocument"/>
+			<Function id="_output_cdm_LeaseFinance" text="导出系统要素" iconCls="btn-xls"/>
+		</Item>
+		<Item id="flContractManager?businessType=LeaseFinance" text="合同管理" iconCls="btn-tree-team31" />
+		<Item id="CsElementCategoryView?businessType=LeaseFinance" text="合同要素" iconCls="btn-tree-team31" />
+	</Items>
+	<Items id="PlArchivesViewMenu?businessType=LeaseFinance" text="归档管理" iconCls="btn-tree-team33" >
+		 <Item id="PlProjectArchivesView?businessType=LeaseFinance" text="归档管理" iconCls="btn-tree-team33">
+		    <Function id="_Archives_add_LeaseFinance" text="办理归档" iconCls="btn-see">
+			</Function>
+			<Function id="_Archivesproj_see_LeaseFinance" text="查看项目详情" iconCls="btn-see">
+			</Function>
+		</Item>
+	</Items>
+	<Items id="LeaseFinanceReport" text="融资租赁报表" iconCls="menu-smallloan-info" expanded="false">
+		<Item id="ReportMenuLeaseFinanceDetail?reportKey=leaseFinanceDetail" iconCls="btn-tree-team40" text="租赁项目明细表" />	
+	</Items>
+	<Items id="FLSetting" text="业务配置管理" iconCls="menu-smallloan-info" expanded="false">
+		<!--<Item id="OurLeaseFinanceMaterialsView?businessType=LeaseFinance" text="抵质押物清单配置" iconCls="menu-materials">
+			<Function id="_create_dbdc_leaseFinance" text="添加租赁材料" iconCls="btn-add"/>
+			<Function id="_edit_dbdc_leaseFinance" text="编辑租赁材料" iconCls="btn-edit"/>
+			<Function id="_remove_dbdc_leaseFinance" text="删除租赁材料" iconCls="btn-del"/>
+			<Function id="_create_dbdcx_leaseFinance" text="添加租赁材料项" iconCls="btn-add"/>
+			<Function id="_edit_dbdcx_leaseFinance" text="编辑租赁材料项" iconCls="btn-edit"/>
+			<Function id="_remove_dbdcx_leaseFinance" text="删除租赁材料项" iconCls="btn-del"/>
+		</Item>
+			-->
+		<Item id="OurLeaseFinanceMaterialsView?businessType=LeaseFinance" text="租赁材料清单管理" iconCls="menu-materials">
+			<Function id="_create_leaseFinance_materials" text="添加租赁材料" iconCls="btn-add"/>
+			<Function id="_edit_leaseFinance_materials" text="编辑租赁材料" iconCls="btn-edit"/>
+			<Function id="_remove_leaseFinance_materials" text="删除租赁材料" iconCls="btn-del"/>
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=LeaseFinance" text="文档模板管理" iconCls="btn-tree-team48" isShow="false" >
+			<Function id="_create_ddm_leaseFinance" text="新增模板文档项" iconCls="btn-add"/>
+			<Function id="_edit_ddm_leaseFinance" text="修改模板文档项" iconCls="btn-edit"/>
+			<Function id="_remove_ddm_leaseFinance" text="删除模板文档项" iconCls="btn-del"/>
+		</Item>
+		<Item id="OurLeaseFinanceMortgageView?businessType=LeaseFinance" text="租赁抵质押物材料清单管理" iconCls="menu-materials">
+			<Function id="_create_leaseFinance_dbdc" text="添加租赁抵质押物材料" iconCls="btn-add"/>
+			<Function id="_edit_leaseFinance_dbdc" text="编辑租赁抵质押物材料" iconCls="btn-edit"/>
+			<Function id="_remove_leaseFinance_dbdc" text="删除租赁抵质押物材料" iconCls="btn-del"/>
+		</Item>
+		<Item id="OurArchivesMaterialsView?businessType=LeaseFinance" text="租赁归档材料清单管理" iconCls="menu-materials" isShow="false">
+			<Function id="_create_archives_LeaseFinance" text="添加归档材料" iconCls="btn-add"/>
+			<Function id="_remove_archives_LeaseFinance" text="删除归档材料" iconCls="btn-del"/>
+			<Function id="_edit_archives_LeaseFinance" text="编辑归档材料" iconCls="btn-edit"/>
+		</Item>
+		<Item id="SlPlansToChargeView?businessType=LeaseFinance" iconCls="menu-archive-draft-manage" text="手续费用配置管理">
+			<Function id="_create_zxpz_LeaseFinance" text="添加" iconCls="btn-add"/>
+			<Function id="_remove_zxpz_LeaseFinance" text="删除" iconCls="btn-del"/>
+			<Function id="_save_zxpz_LeaseFinance" text="保存" iconCls="btn-save"/>
+		</Item>
+		
+	</Items>
+	
+</Menus>

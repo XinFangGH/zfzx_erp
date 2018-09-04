@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_guarantee" text="融资担保" iconCls="mod-guarantee"
+	isPublic="true">
+	<Items id="EnterpriseBusiness" text="企业贷常规流程" iconCls="menu-flows">
+	<Item id="EBDiligenceForm" text="业务经理尽职调查" iconCls="menu-diligence"></Item>
+	<Item id="Resolution" text="审保会决议"/>
+	<Item id="BusinessRegistration" text="业务经理登记"/>
+	<Item id="EnterpriseEvaluation" text="企业资信评估"/>
+	<Item id="Contract" text="生成合同/法务确认"/>
+	<Item id="GuaranteeCommitment" text="出具对外担保承诺函"/>
+	<Item id="Financial" text="财务部登记"/>
+
+	<Item id="ContractDownload" text="合同下载"/>
+
+	<Item id="ReturnGuaranteeMoney" text="退还保证金"/>
+	<Item id="RemoveAntiguarantStep" text="解除反担保措施"/>
+	<Item id="ArchiveConfirm" text="结案归档"/>
+
+	</Items>
+	<Items id="Flow" text="任务管理" iconCls="mod-myflow">
+		<Item id="newProjectForm" text="新建项目" iconCls="menu-flowNew" />
+		<Item id="MyTaskView" text="待办任务" iconCls="menu-flowWait" />
+		<Item id="MyRunningTaskView" text="任务追回" iconCls="menu-flowPr" />
+		<Item id="MyProcessRunView" text="我参与的任务" iconCls="menu-flowPr" />
+		<Item id="ProcessRunView" text="我发起的任务" iconCls="menu-flowMine" />
+		<Item id="ProcessRunFinishView" text="已办结任务" iconCls="menu-flowEnd" />
+		<Item id="SmallLoanActivityTaskView" text="待处理任务" iconCls="menu-section-manage"></Item>
+		<Item id="SmallLoanCompleteTaskView" text="已完成任务" iconCls="menu-flowEnd"></Item>
+	</Items>
+	<Items id="Customer" text="客户管理" iconCls="menu-customer"
+		isPublic="false">
+		<Item id="EnterpriseView" iconCls="menu-appuser" text="企业客户"
+			url="/credit/customer/enterprise/enterpriseList.jsp" />
+		<Item id="PersonView" iconCls="menu-person" text="个人客户"
+			url="/credit/customer/person/personList.jsp" />
+		<Item id="BankRelationPersonView" iconCls="menu-bankrelationperson" text="银行联系人"
+			url="/credit/customer/bankrelationperson/bankRelationPersonList.jsp" />
+	</Items>
+	<Items id="RFinanceProject" text="项目信息管理" iconCls="menu-finance-info"
+		isPublic="true">
+		<Item id="BeforeGlProjectInfoView" iconCls="menu-flowNew"
+			text="贷前项目管理" />
+		<Item id="MiddleGlProjectInfoView" iconCls="menu=flowMine"
+			text="贷中项目管理" />
+		<Item id="DoneGlProjectInfoView" iconCls="menu-flowEnd"
+			text="已完成项目管理" />
+		<Item id="StopGlProjectInfoView" iconCls="menu-del"
+			text="提前终止项目管理" />
+	</Items>
+	<Items id="Finance" text="财务管理" iconCls="menu-administrator2"
+		isPublic="false">
+		<Item id="" iconCls="menu-conference" text="应收费用明细" />
+		<Item id="" iconCls="menu-conference" text="预收费用明细" />
+		<Item id="" iconCls="menu-conference" text="实收费用明细" />
+		<Item id="" iconCls="menu-conference"
+			text="实支费用明细" />
+		<Item id="" iconCls="menu-conference"
+			text="退回费用明细" />
+		<Items id="ProjAccounting" iconCls="menu-conference"	text="项目台账">
+			<Item id="GlIntentChargeConfig" iconCls="menu-conference"
+			text="款项计划费用收取配置" />
+		 </Items>
+	</Items>
+	<Items id="DocTemplate" text="文档模板管理" iconCls="menu-task2"
+		isPublic="true">
+		<Item id="guaranteeDocment" iconCls="menu-guaranteedocument"
+			text="企业贷模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=1&amp;businessType=1672" />
+		<Item id="guaranteeReportDocment" iconCls="menu-guaranteereportdocument" text="报告模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=11&amp;businessType=1758" />
+		<Item id="guaranteeOtherDocment" iconCls="menu-guaranteeotherDocument" text="其他模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=12&amp;businessType=1759" />
+	</Items>
+	<Items id="guaranteeSale" text="业绩管理" iconCls="menu-document2" isPublic="false">
+		<Item id="Achievement1" iconCls="menu-personal-doc" text="业绩明细" />
+		<Item id="Achievement2" iconCls="menu-personal-doc" text="业绩报表" />
+		<Item id="Achievement3" iconCls="menu-personal-doc" text="绩效考核" />
+	</Items>
+	<Items id="guaranteeSale1" text="test" iconCls="menu-document2" isPublic="false">
+		<Item id="GuaranteeMoney" iconCls="menu-personal-doc" text="保费" />
+		<Item id="CustomerGuaranteeMoney" iconCls="menu-personal-doc" text="客户保证金" />
+		<Item id="BankGuaranteeMoney" iconCls="menu-personal-doc" text="银行保证金" />
+		<Item id="CreditlineReleaseForm" iconCls="menu-personal-doc" text="确认授信额度" />
+		<Item id="ReturnGuaranteeMoney" iconCls="menu-personal-doc" text="退还保证金" />
+		<Item id="ArchiveFile" iconCls="menu-personal-doc" text="归档文件" />
+	</Items>
+</Menus>

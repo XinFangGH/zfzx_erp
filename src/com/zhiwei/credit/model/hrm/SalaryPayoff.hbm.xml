@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.SalaryPayoff" table="salary_payoff" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="recordId" column="recordId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="64" not-null="true" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="true" unique="false"/>  
+    <property name="profileNo" type="java.lang.String" update="true" insert="true" access="property" column="profileNo" length="128" not-null="false" unique="false"/>  
+    <property name="idNo" type="java.lang.String" update="true" insert="true" access="property" column="idNo" length="128" not-null="false" unique="false"/>  
+    <property name="standAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="standAmount" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="encourageAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="encourageAmount" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="deductAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="deductAmount" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="achieveAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="achieveAmount" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="encourageDesc" type="java.lang.String" update="true" insert="true" access="property" column="encourageDesc" length="512" not-null="false" unique="false"/>  
+    <property name="deductDesc" type="java.lang.String" update="true" insert="true" access="property" column="deductDesc" length="512" not-null="false" unique="false"/>  
+    <property name="memo" type="java.lang.String" update="true" insert="true" access="property" column="memo" length="512" not-null="false" unique="false"/>  
+    <property name="acutalAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="acutalAmount" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="regTime" type="java.util.Date" update="true" insert="true" access="property" column="regTime" length="19" not-null="true" unique="false"/>  
+    <property name="register" type="java.lang.String" update="true" insert="true" access="property" column="register" length="64" not-null="false" unique="false"/>  
+    <property name="checkName" type="java.lang.String" update="true" insert="true" access="property" column="checkName" length="64" not-null="false" unique="false"/>  
+    <property name="checkTime" type="java.util.Date" update="true" insert="true" access="property" column="checkTime" length="19" not-null="false" unique="false"/>  
+    <property name="checkStatus" type="java.lang.Short" update="true" insert="true" access="property" column="checkStatus" length="5" not-null="false" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="true" unique="false"/>  
+    <property name="checkOpinion" type="java.lang.String" update="true" insert="true" access="property" column="checkOpinion" length="1024" not-null="false" unique="false"/>  
+    <property name="standardId" type="java.lang.Long" update="true" insert="true" access="property" column="standardId" length="19" not-null="true" unique="false"/> 
+  </class> 
+</hibernate-mapping>

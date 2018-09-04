@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.OutMailUserSeting" table="out_mail_user_seting" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="id" column="id" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="userName" type="java.lang.String" update="true" insert="true" access="property" column="userName" length="128" not-null="false" unique="false"/>  
+    <property name="mailAddress" type="java.lang.String" update="true" insert="true" access="property" column="mailAddress" length="128" not-null="true" unique="false"/>  
+    <property name="mailPass" type="java.lang.String" update="true" insert="true" access="property" column="mailPass" length="128" not-null="true" unique="false"/>  
+    <property name="smtpHost" type="java.lang.String" update="true" insert="true" access="property" column="smtpHost" length="128" not-null="true" unique="false"/>  
+    <property name="smtpPort" type="java.lang.String" update="true" insert="true" access="property" column="smtpPort" length="64" not-null="true" unique="false"/>  
+    <property name="popHost" type="java.lang.String" update="true" insert="true" access="property" column="popHost" length="128" not-null="true" unique="false"/>  
+    <property name="popPort" type="java.lang.String" update="true" insert="true" access="property" column="popPort" length="64" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to OutMail -->  
+    <set name="outMails" table="out_mail" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="userId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.communicate.OutMail"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

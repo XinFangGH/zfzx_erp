@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa" text="网贷中心" iconCls="mod-org">
+
+	<Items id="financeApply" text="在线信贷业务" iconCls="mod-obligationProductmanage" isPublic="false">
+	   <Item id="BpFinanceApplyUserTypeView?type=0" iconCls="btn-tree-obliga" text="注册用户借款未提交申请"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=1" iconCls="btn-tree-obliga" text="注册用户借款已提交申请"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=2" iconCls="btn-tree-obliga" text="注册用户借款申请初步受理"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=3" iconCls="btn-tree-obliga" text="注册用户借款申请打回 补充"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=4" iconCls="btn-tree-obliga" text="注册用户借款申请通过审核"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=5" iconCls="btn-tree-obliga" text="注册用户借款申请发标中"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=6" iconCls="btn-tree-obliga" text="注册用户借款申请已发标"></Item>
+	   <Item id="BpFinanceApplyUserTypeView?type=7" iconCls="btn-tree-obliga" text="注册用户借款申请未通过终止"></Item>
+	   <Item id="WebFinanceApplyUploadsView" iconCls="btn-tree-obliga" text="客户资料审核"></Item>
+	   <Item id="BpCustMemberToPersonView" text="建立借款客户档案" iconCls="menu-task-manage"></Item>	
+	   <Item id="P2pLoanProductView" text="贷款产品管理" iconCls="menu-customer" ></Item>
+	   <Item id="P2pLoanBasisMaterialView" text="基础材料配置" iconCls="menu-materials"></Item>
+	</Items >
+	
+	<Items id="IntegratedPlatform" text="基础功能管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		<Items id="OffLineApplyUser" iconCls="mod-obligationSourceQuery" text="非注册用户借款申请">
+			   <Item id="BpPerApplyNotAccepted" iconCls="btn-tree-obliga" text="未受理申请"></Item>
+			   <Item id="BpPerApplyAccepted" iconCls="btn-tree-obliga" text="已受理申请"></Item>
+			   <Item id="BpPerApplyUserOfficialUser" iconCls="btn-tree-obliga" text="已转为正式用户"></Item>
+			   <Item id="BpPerApplyUserRejected" iconCls="btn-tree-obliga" text="已拒绝申请"></Item>
+		</Items>
+		
+		<Items id="GuaranteeCooperationManage" text="担保机构管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=guarantee" iconCls="btn-tree-obliga77" text="担保机构档案管理"></Item>
+			<!--  <Item id="CsCooperationPersonView?type=guarantee" iconCls="btn-tree-obliga77" text="个人担保机构档案管理"></Item>-->
+			<Item id="CsCooperationEnterpriseAccount?type=guarantee" iconCls="btn-tree-obliga77" text="担保机构账户管理"></Item>
+			<!--  <Item id="CsCooperationPersonAccount?type=guarantee" iconCls="btn-tree-obliga77" text="个人担保机构账户管理"></Item>-->
+		</Items>
+
+		<Items id="experienceStandard" text="体验标管理" iconCls="mod-obligationProductmanage" isPublic="false">
+			<Item id="ExperienceStandardPlanTab" iconCls="btn-tree-obliga77" text="体验标制定"></Item>
+			<Item id="ExperienceStandardView" iconCls="btn-tree-obliga77" text="体验标派息查询"></Item>
+			<Item id="ExperienceStandardInfo" iconCls="btn-tree-obliga77" text="体验标投资记录"></Item>
+		</Items>
+		<Items id="bidPlanView" text="综合查询" iconCls="mod-obligationProductmanage" isPublic="false">
+			<Item id="AllBidPlanView" iconCls="btn-tree-obliga77"  text="招标综合查询"></Item>
+		</Items>
+
+	</Items>
+	<Items id="P2PBusiness" text="P2P业务管理" iconCls="mod-obligationProductmanage" isPublic="false">
+		<Items id="P2PBusinessQuery" text="借款人管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PersonView?singleType=person" iconCls="btn-tree-obliga77" text="借款人登记"></Item>
+      		<Item id="CustomerGrantManagement?singleType=person" iconCls="btn-tree-obliga77" text="借款人授权"></Item>
+      		<Item id="PersonP2PView?singleType=person&amp;open=1&amp;bind=0" iconCls="btn-tree-obliga77" text="一键开通网贷账号"></Item>
+      		<Item id="PersonP2PView?singleType=person&amp;bind=1&amp;open=0" iconCls="btn-tree-obliga77" text="已有网贷账号绑定"></Item>
+		</Items>
+		<Items id="P2PBusinessUpLineRecord" text="招标方案管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=dir" text="借款需求登记 " iconCls="btn-tree-team1"/>		
+			<Item id="TaskManager?flowType=PersonCreditDirFastFlow&amp;taskSequence=10_collectionInformation&amp;flag=4&amp;type=person_customer" text="登记详细借款 " iconCls="btn-tree-obliga77"/>		
+			<Item id="BpPersionDirProView" iconCls="btn-tree-obliga77" text="借款项目管理"></Item>
+			<Item id="PlPersionProKeepTab?openType=dir" iconCls="btn-tree-obliga77" text="公示信息包装">
+				<Function id="persionDirProKeep" text="公示信息包装" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlPersionDirPlanView" iconCls="btn-tree-obliga77" text="拆标方案制定"></Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=1" iconCls="btn-tree-obliga77" text="招标页面预览">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=2" iconCls="btn-tree-obliga77" text="正式对外发布">
+			</Item>
+		</Items>
+		
+		<Items id="P2PBusinessPreviousPlan" text="招标预售" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="待预售">
+			</Item>
+			<!--<Item id="PlBusinessBidPublishTab?openType=dir" iconCls="btn-tree-obliga77"
+				text="招标信息发布">
+
+			--><Item id="PlPersionDirBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="预售中">
+			</Item>
+		</Items>
+		
+		<Items id="P2PBusinessPlanInvest" text="招投标管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=P_Dir&amp;isAutoTender=1&amp;buttonType=4" iconCls="btn-tree-obliga77" text="自动投标管理">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=12&amp;proType=P_Dir&amp;buttonType=3" iconCls="btn-tree-obliga77" text="标的流标">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=6" iconCls="btn-tree-obliga77" text="招标关闭">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=13&amp;proType=P_Dir&amp;buttonType=5" iconCls="btn-tree-obliga77" text="满标放款办理">
+			</Item>
+		</Items>
+		
+		<!-- 直投标齐标起息办理流程(个人) -->
+		<Items id="P2PBusinessPlanConfimLoan_Person_ZT" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanDir&amp;flag=1&amp;type=person_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+			</Item>
+			<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=20_makeLoanContractDir&amp;flag=2&amp;type=person_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+			</Item>
+			<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=30_LengdingFinalContractDir&amp;flag=3&amp;type=person_customer" iconCls="btn-tree-obliga77" text="放款终审">
+			</Item>
+		</Items>
+		
+		<Items id="P2PBusinessPlanAfterLoan" text="贷后管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="SlFundIntentPeriodView?mark=P_1&amp;proType=P_Dir&amp;authorizationStatus=1" iconCls="btn-tree-obliga77" text="授权还款管理">
+			</Item>
+			<Item id="SlFundIntentPeriodView?mark=P_2&amp;proType=P_Dir" iconCls="btn-tree-obliga77" text="还款情况查询">
+			</Item>
+			<Item id="compensatoryManager?mark=P_3&amp;proType=P_Dir" iconCls="btn-tree-obliga77" text="逾期还款提醒">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=7" iconCls="btn-tree-obliga77" text="贷款结清管理">
+			</Item>s
+		</Items>
+		
+		<Items id="P2PBusinessPlanOverDueLoan" text="代偿管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="compensatoryManager?mark=P_4&amp;proType=P_Dir" iconCls="btn-tree-obliga77" text="逾期代偿办理">
+				</Item>
+				<Item id="compensatoryFiance?planType=P_Dir&amp;backFlow=true&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿追偿提醒">
+				</Item>
+				<Item id="compensatoryFiance?planType=P_Dir&amp;backFlow=true" iconCls="btn-tree-obliga77" text="线下代偿回收登记">
+				</Item>
+				<Item id="compensatoryFiance?planType=P_Dir&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿回收流水查询">
+				</Item>
+				<Item id="backCompencsatoryFiance?planType=P_Dir" iconCls="btn-tree-obliga77" text="成功追偿业务查询">
+				</Item>
+			</Items>
+			<Item id="PlPersionDirBidPlanView?state=11&amp;proType=P_Dir" iconCls="btn-tree-obliga77" text="标的状态查询">
+			</Item>
+			<Item id="BidPrepaymentListView?proType=P_Dir" text="提前还款标的查询" iconCls="btn-tree-team39"/>
+		  <Items id="P2PBusinessPlan" text="标的台账" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="招标中标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已满标标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已到期标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="起息中标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="还款中标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已完成标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已流标标的台账">
+			</Item>
+			<Item id="PlPersionDirBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=P_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已关闭标的台账">
+			</Item>
+		</Items>
+	</Items>
+
+    <Items id="businessDirSingeMangerP2B" text="P2C业务管理" iconCls="mod-obligationProductmanage" isPublic="false">
+		<Items id="P2BBusinessQuery" text="借款人管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="EnterpriseView?singleType=enterprise" iconCls="btn-tree-obliga77" text="借款人登记"></Item>
+      		<Item id="CustomerGrantManagement?singleType=enterprise" iconCls="btn-tree-obliga77" text="借款人授权"></Item>
+      		<!--  <Item id="PersonP2PView?singleType=person&amp;open=false&amp;bind=true" iconCls="btn-tree-obliga77" text="一键开通网贷账号"></Item>
+      		<Item id="PersonP2PView?singleType=person&amp;bind=false&amp;open=true" iconCls="btn-tree-obliga77" text="已有网贷账号绑定"></Item>-->
+		</Items>
+		<Items id="BusinessDirBidPlan" iconCls="btn-tree-obliga77" text="招标方案管理">
+		    	 <Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=dir" text="借款需求登记  " iconCls="btn-tree-team1" isControl="false" />
+				 <Item id="TaskManager?flowType=EntCreditDirFastFlow&amp;taskSequence=10_collectionInformation&amp;flag=4&amp;type=company_customer" text="登记详细借款 " iconCls="btn-tree-obliga77"/>		
+				 <Item id="BpBusinessDirProView" iconCls="btn-tree-obliga77" text="借款项目管理"></Item>
+				 <Item id="BpBusinessDirProStat0View?State=0&amp;managerType=bulkProduct" iconCls="btn-tree-obliga77" text="公示信息包装"></Item>
+			     <Item id="PlBusinessDirProKeepView?type=B_Dir&amp;managerType=successProduct" iconCls="btn-tree-obliga77" text="公示信息已维护">  </Item>
+			     <Item id="PlBusinessDirPlanView" iconCls="btn-tree-obliga77" text="拆标方案制定"> </Item>
+			     <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=1" iconCls="btn-tree-obliga77" text="招标页面预览">
+		         </Item>
+		         <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=2" iconCls="btn-tree-obliga77" text="正式对外发布">
+		         </Item>
+		</Items>
+			
+		<Items id="P2PBusinessPreviousPlan" text="招标预售" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="PlBusinessDirBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="待预售">
+		        </Item>
+		        <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="预售中">
+		        </Item>
+		</Items>
+			
+
+		<Items id="P2CBusinessPlanInvest" text="招投标管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlBusinessDirBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Dir&amp;isAutoTender=1&amp;buttonType=4" iconCls="btn-tree-obliga77" text="自动投标管理">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=12&amp;proType=B_Dir&amp;buttonType=3" iconCls="btn-tree-obliga77" text="标的流标">
+			</Item>
+			<Item id="PlBusinessDirBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=6" iconCls="btn-tree-obliga77" text="招标关闭">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=13&amp;proType=B_Dir&amp;buttonType=5" iconCls="btn-tree-obliga77" text="满标放款办理">
+			</Item>
+		</Items>
+
+			<!-- 直投标齐标起息办理流程(企业) -->
+			<Items id="P2CBusinessPlanConfimLoan_Enterprise_ZT" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanDir&amp;flag=1&amp;type=company_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+				</Item>
+				<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=20_makeLoanContractDir&amp;flag=2&amp;type=company_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+				</Item>
+				<Item id="TaskManager?flowType=matchingfundsflow&amp;taskSequence=30_LengdingFinalContractDir&amp;flag=3&amp;type=company_customer" iconCls="btn-tree-obliga77" text="放款终审">
+				</Item>
+			</Items>
+		
+			<Items id="P2PBusinessPlanAfterLoan" text="贷后管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="SlFundIntentPeriodView?mark=C_1&amp;proType=B_Dir&amp;authorizationStatus=1" iconCls="btn-tree-obliga77" text="授权还款管理"></Item>
+				<Item id="SlFundIntentPeriodView?mark=C_2&amp;proType=B_Dir" iconCls="btn-tree-obliga77" text="还款情况查询"></Item>
+				<Item id="compensatoryManager?mark=C_3&amp;proType=B_Dir" iconCls="btn-tree-obliga77" text="逾期还款提醒"></Item>
+				<Item id="PlBusinessDirBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=7" iconCls="btn-tree-obliga77" text="贷款结清管理">
+			    </Item>
+			</Items>
+			
+			<Items id="P2CBusinessPlanOverDueLoan" text="代偿管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="compensatoryManager?mark=C_4&amp;proType=B_Dir" iconCls="btn-tree-obliga77" text="逾期代偿办理">
+				</Item>
+				<Item id="compensatoryFiance?planType=B_Dir&amp;backFlow=true&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿追偿提醒">
+				</Item>
+				<Item id="compensatoryFiance?planType=B_Dir&amp;backFlow=true" iconCls="btn-tree-obliga77" text="线下代偿回收登记">
+				</Item>
+				<Item id="compensatoryFiance?planType=B_Dir&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿回收流水查询">
+				</Item>
+				<Item id="backCompencsatoryFiance?planType=B_Dir" iconCls="btn-tree-obliga77" text="成功追偿业务查询">
+				</Item>
+			</Items>
+            <Item id="PlPersionDirBidPlanView?state=11&amp;proType=B_Dir" iconCls="btn-tree-obliga77" text="标的状态查询">
+			</Item>
+			<Item id="BidPrepaymentListView?proType=B_Dir" text="提前还款标的查询" iconCls="btn-tree-team39"/>
+			<Items id="BusinessBidPlanPublish" iconCls="btn-tree-obliga77" text="标的管理">
+		           
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="招标中标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已满标标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已到期标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="起息中标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="还款中标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已流标标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已关闭标的台账">
+		           </Item>
+		           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=B_Dir&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已完成标的台账">
+		           </Item>
+			</Items>
+		</Items>
+
+	<Items id="PA2PBusiness" text="PA2P业务" iconCls="mod-obligationProductmanage" isPublic="false">
+       	<Items id="zhaobiaofangan" text="招标方案管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+       		<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=or" text="借款需求申请 " iconCls="btn-tree-team1" isControl="false" />
+		    <Item id="TaskManager?flowType=PersonCreditOrFastFlow&amp;taskSequence=10_collectionInformation&amp;flag=4&amp;type=person_customer" text="登记详细借款 " iconCls="btn-tree-obliga77"/>
+		    <Item id="TaskManager?flowType=PersonCreditOrFastFlow&amp;taskSequence=20_postCredit&amp;flag=5&amp;type=person_customer" text="发布债权 " iconCls="btn-tree-obliga77"/>
+		    <Item id="PlPersionProKeepTab?openType=or&amp;orginalType=1" iconCls="btn-tree-obliga77" text="公示信息包装">
+				<Function id="persionOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlPersionOrPlanView?status=1" iconCls="btn-tree-obliga77" text="拆标方案制定"></Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Or&amp;buttonType=1" iconCls="btn-tree-obliga77" text="招标页面预览">
+			</Item>
+		    <Item id="PlPersionOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Or&amp;buttonType=2" iconCls="btn-tree-obliga77" text="正式对外发布">
+			</Item>
+		</Items>
+		<Items id="Yushou" text="招标预售" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="PlPersionOrBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="待预售标的">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="预售中标的">
+			</Item>
+		</Items>
+    	<Items id="PA2PBusinessPlanInvest" text="招投标管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=P_Or&amp;isAutoTender=1&amp;buttonType=4" iconCls="btn-tree-obliga77" text="自动投标管理">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=12&amp;proType=P_Or&amp;buttonType=3" iconCls="btn-tree-obliga77" text="标的流标">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=P_Or&amp;buttonType=6" iconCls="btn-tree-obliga77" text="招标关闭">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=13&amp;proType=P_Or&amp;buttonType=5" iconCls="btn-tree-obliga77" text="满标放款办理">
+			</Item>
+		</Items>
+				<!-- 转让标齐标起息办理流程(个人) -->
+		<Items id="P2ABusinessPlanConfimLoan_Person_ZR" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanOr&amp;flag=1&amp;type=person_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=20_makeLoanContractOr&amp;flag=2&amp;type=person_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=30_LengdingFinalContractOr&amp;flag=3&amp;type=person_customer" iconCls="btn-tree-obliga77" text="放款终审">
+				</Item>
+		</Items>
+	    <Items id="daihouguanli" text="贷后管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+	    	<Item id="SlFundIntentPeriodView?mark=P_O1&amp;proType=P_Or&amp;authorizationStatus=1" iconCls="btn-tree-obliga77" text="授权还款管理">
+			</Item>
+			<Item id="SlFundIntentPeriodView?mark=P_O2&amp;proType=P_Or" iconCls="btn-tree-obliga77" text="还款情况查询">
+			</Item>
+			<Item id="compensatoryManager?mark=P_O3&amp;proType=P_Or" iconCls="btn-tree-obliga77" text="逾期还款提醒">
+			</Item>
+		    <Item id="PlPersionOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=P_Or&amp;buttonType=7" iconCls="btn-tree-obliga77" text="贷款结清管理">
+			</Item>
+		</Items>
+		<Items id="daichangguanli" text="代偿管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="compensatoryManager?mark=P_3&amp;proType=P_Or" iconCls="btn-tree-obliga77" text="逾期代偿办理">
+			</Item>
+			<Item id="compensatoryFiance?planType=P_Or&amp;backFlow=true&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿追偿提醒">
+			</Item>
+			<Item id="compensatoryFiance?planType=P_Or&amp;backFlow=true" iconCls="btn-tree-obliga77" text="线下代偿回收登记">
+			</Item>
+			<Item id="compensatoryFiance?planType=P_Or&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿回收流水查询">
+			</Item>
+			<Item id="backCompencsatoryFiance?planType=P_Or" iconCls="btn-tree-obliga77" text="成功追偿业务查询">
+			</Item>
+		</Items>
+		    <Item id="PlPersionDirBidPlanView?state=11&amp;proType=P_Or" iconCls="btn-tree-obliga77" text="标的状态查询">
+			</Item>
+			<Item id="BidPrepaymentListView?proType=P_Or" text="提前还款标的查询" iconCls="btn-tree-team39"/>
+	  <Items id="P2APersonBusinessProject" text="标的台账" iconCls="mod-obligationSourceQuery" isPublic="false">
+	        <Item id="PlPersionOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="招标中标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已满标标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已到期标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="起息中标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="还款中标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已完成标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已流标标的台账">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=P_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已关闭标的台账">
+			</Item>
+		</Items>
+	</Items>
+	<Items id="CA2PBusiness" text="CA2P业务" iconCls="mod-obligationProductmanage" isPublic="false">
+       	<Items id="zhaobiaofanganc" text="招标方案管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=or" text="借款需求申请 " iconCls="btn-tree-team1"/>
+		    <Item id="TaskManager?flowType=EntCreditOrFastFlow&amp;taskSequence=10_collectionInformation&amp;flag=4&amp;type=company_customer" text="登记详细借款 " iconCls="btn-tree-obliga77"/>
+		    <Item id="TaskManager?flowType=EntCreditOrFastFlow&amp;taskSequence=20_postCredit&amp;flag=5&amp;type=company_customer" text="发布债权 " iconCls="btn-tree-obliga77"/>
+		    <Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=1" iconCls="btn-tree-obliga77" text="公示信息包装">
+				<Function id="businessOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlBusinessOrPlanView?status=1" iconCls="btn-tree-obliga77" text="拆标方案制定"></Item>
+		    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Or&amp;buttonType=1" iconCls="btn-tree-obliga77" text="招标页面预览">
+			</Item>
+		    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Or&amp;buttonType=2" iconCls="btn-tree-obliga77" text="正式对外发布">
+			</Item>
+		</Items>
+		<Items id="Yushouc" text="招标预售" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="待预售标的">
+			</Item>
+		    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="预售中标的">
+			</Item>
+		</Items>
+    	<Items id="CA2PBusinessPlanInvest" text="招投标管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Or&amp;isAutoTender=1&amp;buttonType=4" iconCls="btn-tree-obliga77" text="自动投标管理">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=12&amp;proType=B_Or&amp;buttonType=3" iconCls="btn-tree-obliga77" text="标的流标">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Or&amp;buttonType=6" iconCls="btn-tree-obliga77" text="招标关闭">
+			</Item>
+			<Item id="PlPersionDirBidPlanView?state=13&amp;proType=B_Or&amp;buttonType=5" iconCls="btn-tree-obliga77" text="满标放款办理">
+			</Item>
+		</Items>
+		<!-- 转让标齐标起息办理流程(个人) -->
+		<Items id="C2ABusinessPlanConfimLoan_Person_ZR" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanOr&amp;flag=1&amp;type=company_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+			</Item>
+			<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=20_makeLoanContractOr&amp;flag=2&amp;type=company_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+			</Item>
+			<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=30_LengdingFinalContractOr&amp;flag=3&amp;type=company_customer" iconCls="btn-tree-obliga77" text="放款终审">
+			</Item>
+		</Items>
+	    <Items id="cdaihouguanli" text="贷后管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="SlFundIntentPeriodView?mark=B_O1&amp;proType=B_Or&amp;authorizationStatus=1" iconCls="btn-tree-obliga77" text="授权还款管理">
+			</Item>
+			<Item id="SlFundIntentPeriodView?mark=B_O2&amp;proType=B_Or" iconCls="btn-tree-obliga77" text="还款情况查询">
+			</Item>
+			<Item id="compensatoryManager?mark=B_O3&amp;proType=B_Or" iconCls="btn-tree-obliga77" text="逾期还款提醒">
+			</Item>
+		    <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Or&amp;buttonType=7" iconCls="btn-tree-obliga77" text="贷款结清管理">
+			</Item>
+		</Items>
+		<Items id="cdaichangguanli" text="代偿管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="compensatoryManager?mark=P_4&amp;proType=B_Or" iconCls="btn-tree-obliga77" text="逾期代偿办理">
+			</Item>
+			<Item id="compensatoryFiance?planType=B_Or&amp;backFlow=true&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿追偿提醒">
+			</Item>
+			<Item id="compensatoryFiance?planType=B_Or&amp;backFlow=true" iconCls="btn-tree-obliga77" text="线下代偿回收登记">
+			</Item>
+			<Item id="compensatoryFiance?planType=B_Or&amp;backFlowRecord=true" iconCls="btn-tree-obliga77" text="代偿回收流水查询">
+			</Item>
+			<Item id="backCompencsatoryFiance?planType=B_Or" iconCls="btn-tree-obliga77" text="成功追偿业务查询">
+			</Item>
+		</Items>
+		<Item id="PlPersionDirBidPlanView?state=11&amp;proType=B_Or" iconCls="btn-tree-obliga77" text="标的状态查询">
+		</Item>
+		<Item id="BidPrepaymentListView?proType=B_Or" text="提前还款标的查询" iconCls="btn-tree-team39"/>
+	    <Items id="P2APersonBusinessProject" text="标的台账" iconCls="mod-obligationSourceQuery" isPublic="false">
+	        <Item id="PlBusinessOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="招标中标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已满标标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已到期标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="起息中标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="还款中标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已完成标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已流标标的台账">
+			</Item>
+			<Item id="PlBusinessOrBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=B_Or&amp;buttonType=0" iconCls="btn-tree-obliga77" text="已关闭标的台账">
+			</Item>
+		</Items>
+	</Items><!--
+	<Items id="P2ABusiness" text="P2A业务" iconCls="mod-obligationProductmanage" isPublic="false">
+		  <Items id="P2ABusinessQuery" text="综合招标" iconCls="mod-obligationSourceQuery" isPublic="false">
+			
+		</Items>
+		
+		<Items id="P2ABusinessUpLineRecord" text="线下项目录入" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=or" text="企业债权标补录 " iconCls="btn-tree-team1" isControl="false" />
+		<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=or" text="个人债权标补录 " iconCls="btn-tree-team1" isControl="false" />		
+		</Items>
+		<Items id="P2APersonBusinessProject" text="个人项目" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="BpPersionOrProView" iconCls="btn-tree-obliga77" text="借款项目管理"></Item>
+			<Item id="PlPersionProKeepTab?openType=or&amp;orginalType=1" iconCls="btn-tree-obliga77" text="公示信息维护">
+				<Function id="persionOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlPersionOrPlanView?status=1" iconCls="btn-tree-obliga77" text="招标计划制定"></Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="未发布">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="待预售">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="预售中">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="招标中">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已齐标">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已过期">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="起息中">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="还款中">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已完成">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已流标">
+			</Item>
+			<Item id="PlPersionOrBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已关闭">
+			</Item>
+			 <Item id="PlPersionOrBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=P_Or" iconCls="btn-tree-obliga77" text="已提前还款">
+			</Item> 
+		</Items>
+		
+		<Items id="P2AEnterpriseBusinessProject" text="企业项目" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="BpBusinessOrProView" iconCls="btn-tree-obliga77" text="借款项目管理"></Item>
+			<Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=1" iconCls="btn-tree-obliga77" text="公示信息维护">
+				<Function id="businessOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlBusinessOrPlanView?status=1" iconCls="btn-tree-obliga77" text="招标计划制定"></Item>
+			   <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=0&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="待发布">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=21&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="待预售">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=22&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="预售中">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=23&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="招标中">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=2&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="已齐标">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=4&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="已过期">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=3&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="已流标">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=-1&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="已关闭">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=6&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="起息办理中">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=7&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="还款中">
+	           </Item>
+	           <Item id="PlBusinessDirBidPublish?Q_state_N_EQ=10&amp;Q_proType_S_EQ=B_Dir" iconCls="btn-tree-obliga77" text="已完成">
+	           </Item>
+		</Items>
+		<Items id="LendersCooperationManage" text="专业放款人" iconCls="mod-obligationSourceQuery" isPublic="false">
+		    <Item id="CsCooperationEnterpriseView?type=guarantee" iconCls="btn-tree-obliga77" text="企业放款人档案管理"></Item>
+			<Item id="CsCooperationPersonView?type=guarantee" iconCls="btn-tree-obliga77" text="个人放款人档案管理"></Item>
+			<Item id="CsCooperationEnterpriseAccount?type=guarantee" iconCls="btn-tree-obliga77" text="企业放款人账户管理"></Item>
+			<Item id="CsCooperationPersonAccount?type=guarantee" iconCls="btn-tree-obliga77" text="个人放款人账户管理"></Item>
+		</Items>
+		
+		 转让标齐标起息办理流程(个人) 
+		
+			<Items id="P2ABusinessPlanConfimLoan_Person_ZR" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanOr&amp;flag=1&amp;type=person_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=20_makeLoanContractOr&amp;flag=2&amp;type=person_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=30_LengdingFinalContractOr&amp;flag=3&amp;type=person_customer" iconCls="btn-tree-obliga77" text="放款终审">
+				</Item>
+			</Items>
+		
+		 转让标齐标起息办理流程(企业) 
+		
+			<Items id="P2ABusinessPlanConfimLoan_Enterprise_ZR" text="放款办理" iconCls="mod-obligationSourceQuery" isPublic="false">
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=10_mekeRrpaymentPlanOr&amp;flag=1&amp;type=company_customer" text="平台收费方案制定" iconCls="btn-tree-obliga77">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=20_makeLoanContractOr&amp;flag=2&amp;type=company_customer" iconCls="btn-tree-obliga77" text="制作法律文书">
+				</Item>
+				<Item id="TaskManager?flowType=transferMatchingfundsflow&amp;taskSequence=30_LengdingFinalContractOr&amp;flag=3&amp;type=company_customer" iconCls="btn-tree-obliga77" text="放款终审">
+				</Item>
+			</Items>
+		
+	</Items>
+	
+	--><Items id="PlBidSaleTabManager" text="二级交易市场管理" iconCls="mod-obligationSourceQuery" isPublic="false">
+    	<!--<Item id="PlBidSaleTab" iconCls="btn-tree-obliga77" text="债权交易查询"></Item>-->
+		<Item id="PlBidSaleSelect" text="债权交易查询" iconCls="btn-tree-obliga77">
+			<Item id="allPlBidSaleList" iconCls="btn-tree-obliga77" text="全部债权查询"></Item>
+			<Item id="transferingList?mark=sale_1" iconCls="btn-tree-obliga77" text="交易中债权查询"></Item>
+			<Item id="closeedList" iconCls="btn-tree-obliga77" text="已关闭债权查询"></Item>
+			<Item id="ingTransferList" iconCls="btn-tree-obliga77" text="正在交易债权查询"></Item>
+			<Item id="transferedList?mark=sale_2" iconCls="btn-tree-obliga77" text="交易成功债权查询"></Item>
+			<Item id="transfereToOrList?mark=sale_3" iconCls="btn-tree-obliga77" text="已转到债权库查询"></Item>
+		</Item>
+		
+		<Items id="PlBidSaleSelect" text="债权交易管理" iconCls="btn-tree-obliga77">
+      		<Item id="transferingList?mark=sale_4" iconCls="btn-tree-obliga77" text="取消挂牌交易"></Item>
+      		<Item id="transferedList?mark=sale_5" iconCls="btn-tree-obliga77" text="确认实收手续费"></Item>
+      		<Item id="transfereToOrList?mark=sale_6" iconCls="btn-tree-obliga77" text="已转到债权库手续费管理"></Item>
+      	</Items>	
+      	<Item id="transferedList?keystr=transferFee&amp;mark=sale_7" iconCls="btn-tree-obliga77" text="交易服务费记录"></Item>
+	</Items>
+	
+
+    <Items id="MmplanAdministration" text="D理财业务管理" iconCls="mod-obligationSourceQuery">
+    		<Items id="MmplanAdd" iconCls="btn-tree-obliga77" text="D理财计划管理">
+				<Item id="UPlanTypeView?keystr=mmplan" iconCls="btn-tree-obliga77" text="计划类型配置"></Item>
+				<Item id="UPlanView?keystr=mmplan" iconCls="btn-tree-obliga77" text="计划招标制定"></Item>
+				<Item id="UPlanBidPublish?state=0&amp;keystr=mmplan&amp;buttonType=0" iconCls="btn-tree-obliga77" text="计划招标预览"></Item>
+				<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=1" iconCls="btn-tree-obliga77" text="计划招标发布"></Item>
+    		</Items>
+    		<Items id="MmplanPreSale" iconCls="btn-tree-obliga77" text="D理财预售">
+    			<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=dys" iconCls="btn-tree-obliga77" text="待预售计划"></Item>
+    			<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=ysz" iconCls="btn-tree-obliga77" text="预售中计划"></Item>
+    		</Items>
+    		<Items id="MmplanBidding" iconCls="btn-tree-obliga77" text="D招投标管理">
+    			<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=2" iconCls="btn-tree-obliga77" text="理财计划关闭"></Item>
+    			<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=3" iconCls="btn-tree-obliga77" text="手动起息办理"></Item>
+    		</Items>
+    		<Items id="MmplanEarlyOutList" iconCls="btn-tree-obliga77" text="提前赎回管理">
+				<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=0" iconCls="btn-tree-obliga77" text="待审核申请"></Item>
+				<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=1" iconCls="btn-tree-obliga77" text="已通过申请"></Item>
+				<Item id="EarlyOutList?keystr=mmplan&amp;Q_checkStatus_SN_EQ=3" iconCls="btn-tree-obliga77" text="已驳回申请"></Item>
+			</Items>
+			<Items id="MmplanRepayment" iconCls="btn-tree-obliga77" text="还款管理">
+				<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=4" iconCls="btn-tree-obliga77" text="派息还款授权"></Item>
+				<Item id="investmentMmAssignInterestView?keystr=mmplan&amp;buttonType=5" iconCls="btn-tree-invest64" text="理财还款派息"></Item>
+				<Item id="investmentMmAssignInterestView?keystr=mmplan&amp;buttonType=6" iconCls="btn-tree-obliga77" text="逾期派息提醒"></Item>
+				<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=7" iconCls="btn-tree-obliga77" text="理财结清管理"></Item>
+			</Items>
+			<Items id="MmplanSelect" iconCls="btn-tree-obliga77" text="理财计划查询">
+				<Item id="UPlanBidPublishManage?keystr=mmplan&amp;buttonType=8" iconCls="btn-tree-obliga77" text="全部理财计划查询"></Item>
+				<Item id="UPlanInfo?keystr=mmplan" iconCls="btn-tree-obliga77" text="投标记录查询"></Item>	
+			</Items>
+			<Items id="MmplanState" iconCls="btn-tree-obliga77" text="理财计划台账" >
+				<Item id="UPlanBidPublish?state=1&amp;keystr=mmplan&amp;isPresale=zbz" iconCls="btn-tree-obliga77" text="招标中计划台账"></Item>
+				<Item id="UPlanBidPublish?state=2&amp;keystr=mmplan" iconCls="btn-tree-obliga77" text="已满标计划台账"></Item>
+				<Item id="UPlanBidPublish?state=4&amp;keystr=mmplan" iconCls="btn-tree-obliga77" text="已到期计划台账"></Item>
+				<Item id="UPlanBidPublish?state=7&amp;keystr=mmplan" iconCls="btn-tree-obliga77" text="还款中计划台账"></Item>
+				<Item id="UPlanBidPublish?state=10&amp;keystr=mmplan" iconCls="btn-tree-obliga77" text="已完成计划台账"></Item>
+				<Item id="UPlanBidPublish?state=-1&amp;keystr=mmplan" iconCls="btn-tree-obliga77" text="已关闭计划台账"></Item>
+			</Items>
+		 <Items id="OnlineInvestmentMatch" text="D计划债权投向管理" iconCls="mod-obligationSourceQuery">
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=mmplanOr&amp;type=0" text="企业债权补录 " iconCls="btn-tree-team1" isControl="false" />
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=mmplanOr&amp;type=0" text="个人债权补录 " iconCls="btn-tree-team1" isControl="false" />
+			<Item id="PlBusinessOrPlanView?status=20" iconCls="btn-tree-obliga77" text="企业债权项目"></Item>
+			<Item id="PlPersionOrPlanView?status=20" iconCls="btn-tree-obliga77"  text="个人债权项目"></Item>
+			<Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-obliga77" text="企业公示信息维护">
+				<Function id="businessOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlPersionProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-obliga77" text="个人公示信息维护">
+				<Function id="persionOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlBusinessOrPlanSuperviseView?status=20" iconCls="btn-tree-obliga77"  text="企业展期债权项目"></Item>
+			<Item id="PlPersionOrPlanSuperviseView?status=20" iconCls="btn-tree-obliga77"  text="个人展期债权项目"></Item>
+			<Item id="PlMmChildrenObligatoryView?type=0&amp;childType=mmplanOr" iconCls="btn-tree-obliga77" text="D计划债权库"></Item>
+			<Item id="plMmOrderView?keystr=mmplan&amp;childType=mmplanOr" iconCls="btn-tree-obliga77" text="投资债权匹配"></Item>
+		</Items>
+	</Items>
+	
+	<Items id="UPlanAdministration" text="U理财业务管理" iconCls="mod-obligationSourceQuery">
+    		<Items id="UPlanAdd" iconCls="btn-tree-obliga77" text="U理财计划管理">
+				<Item id="UPlanTypeView?keystr=UPlan" iconCls="btn-tree-obliga77" text="计划类型配置"></Item>
+				<Item id="UPlanView?keystr=UPlan" iconCls="btn-tree-obliga77" text="计划招标制定"></Item>
+				<Item id="UPlanBidPublish?state=0&amp;keystr=UPlan&amp;buttonType=0" iconCls="btn-tree-obliga77" text="计划招标预览"></Item>
+				<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=1" iconCls="btn-tree-obliga77" text="计划招标发布"></Item>
+    		</Items>
+    		<Items id="UPlanPreSale" iconCls="btn-tree-obliga77" text="U理财预售">
+    			<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=dys" iconCls="btn-tree-obliga77" text="待预售计划"></Item>
+    			<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=ysz" iconCls="btn-tree-obliga77" text="预售中计划"></Item>
+    		</Items>
+    		<Items id="UPlanBidding" iconCls="btn-tree-obliga77" text="U招投标管理">
+    			<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=2" iconCls="btn-tree-obliga77" text="理财计划关闭"></Item>
+    			<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=3" iconCls="btn-tree-obliga77" text="手动起息办理"></Item>
+    		</Items>
+    		<Items id="UPlanEarlyOutList" iconCls="btn-tree-obliga77" text="提前赎回管理">
+				<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=0" iconCls="btn-tree-obliga77" text="待审核申请"></Item>
+				<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=1" iconCls="btn-tree-obliga77" text="已通过申请"></Item>
+				<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=3" iconCls="btn-tree-obliga77" text="已驳回申请"></Item>
+			</Items>
+			<Items id="UPlanRepayment" iconCls="btn-tree-obliga77" text="还款管理">
+				<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=4" iconCls="btn-tree-obliga77" text="派息还款授权"></Item>
+				<Item id="investmentMmAssignInterestView?keystr=UPlan&amp;buttonType=5" iconCls="btn-tree-invest64" text="理财还款派息"></Item>
+				<Item id="investmentMmAssignInterestView?keystr=UPlan&amp;buttonType=6" iconCls="btn-tree-obliga77" text="逾期派息提醒"></Item>
+				<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=7" iconCls="btn-tree-obliga77" text="理财结清管理"></Item>
+			</Items>
+			<Items id="UPlanSelect" iconCls="btn-tree-obliga77" text="理财计划查询">
+				<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=8" iconCls="btn-tree-obliga77" text="全部理财计划查询"></Item>
+				<Item id="UPlanInfo?keystr=UPlan" iconCls="btn-tree-obliga77" text="投标记录查询"></Item>	
+			</Items>
+			<Items id="UPlanState" iconCls="btn-tree-obliga77" text="理财计划台账" >
+				<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=zbz" iconCls="btn-tree-obliga77" text="招标中计划台账"></Item>
+				<Item id="UPlanBidPublish?state=2&amp;keystr=UPlan" iconCls="btn-tree-obliga77" text="已满标计划台账"></Item>
+				<Item id="UPlanBidPublish?state=4&amp;keystr=UPlan" iconCls="btn-tree-obliga77" text="已到期计划台账"></Item>
+				<Item id="UPlanBidPublish?state=7&amp;keystr=UPlan" iconCls="btn-tree-obliga77" text="还款中计划台账"></Item>
+				<Item id="UPlanBidPublish?state=10&amp;keystr=UPlan" iconCls="btn-tree-obliga77" text="已完成计划台账"></Item>
+				<Item id="UPlanBidPublish?state=-1&amp;keystr=UPlan" iconCls="btn-tree-obliga77" text="已关闭计划台账"></Item>
+			</Items>
+			<Items id="UPlanInvest" text="U计划投向管理" iconCls="mod-obligationSourceQuery">	
+			    <Item id="PlMmChildrenObligatoryViewUPlan?childType=UPlanOr" iconCls="btn-tree-obliga77" text="U计划债权库"></Item>
+				<Item id="plMmOrderView?keystr=UPlan&amp;childType=UPlanOr" iconCls="btn-tree-obliga77" text="投资债权匹配"></Item>
+		    </Items>
+	</Items>
+	
+    
+	<!--<Items id="mangeMoneyMangeplanDispach" text="理财计划投向管理" iconCls="mod-obligationProductmanage" isPublic="false">
+		<Items id="OnlineInvestmentMatch" text="D计划债权投向管理" iconCls="mod-obligationSourceQuery">
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=mmplanOr&amp;type=0" text="企业债权补录 " iconCls="btn-tree-team1" isControl="false" />
+			<Item id="CreateNewProjectFrom?operationType=SmallLoan_PersonalCreditLoanBusiness&amp;history=mmplanOr&amp;type=0" text="个人债权补录 " iconCls="btn-tree-team1" isControl="false" />
+			<Item id="PlBusinessOrPlanView?status=20" iconCls="btn-tree-obliga77" text="企业债权项目"></Item>
+			<Item id="PlPersionOrPlanView?status=20" iconCls="btn-tree-obliga77"  text="个人债权项目"></Item>
+			<Item id="PlBusinessProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-obliga77" text="企业公示信息维护">
+				<Function id="businessOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlPersionProKeepTab?openType=or&amp;orginalType=20" iconCls="btn-tree-obliga77" text="个人公示信息维护">
+				<Function id="persionOrProKeep" text="已维护项目的公示信息维护按钮" iconCls="btn-detail" />
+			</Item>
+			<Item id="PlBusinessOrPlanSuperviseView?status=20" iconCls="btn-tree-obliga77"  text="企业展期债权项目"></Item>
+			<Item id="PlPersionOrPlanSuperviseView?status=20" iconCls="btn-tree-obliga77"  text="个人展期债权项目"></Item>
+			<Item id="PlMmChildrenObligatoryView?type=0&amp;childType=mmplanOr" iconCls="btn-tree-obliga77" text="D计划债权库"></Item>
+			<Item id="plMmOrderView?keystr=mmplan&amp;childType=mmplanOr" iconCls="btn-tree-obliga77" text="投资债权匹配"></Item>
+		</Items>
+	    <Items id="UPlanInvest" text="U计划投向管理" iconCls="mod-obligationSourceQuery">	
+			    <Item id="PlMmChildrenObligatoryViewUPlan?childType=UPlanOr" iconCls="btn-tree-obliga77" text="U计划债权库"></Item>
+				<Item id="plMmOrderView?keystr=UPlan&amp;childType=UPlanOr" iconCls="btn-tree-obliga77" text="投资债权匹配"></Item>
+	    </Items>
+				
+	</Items>
+	--><Items id="FinanceProductManager" text="宝业务" iconCls="mod-obligationSourceQuery" isPublic="false">
+			<Item id="PlFinanceProductForm?typeId=1" iconCls="btn-tree-team39" text="宝业务设置"></Item>
+			<Item id="PlFinanceProductRate" iconCls="btn-tree-team39" text="收益率设置"></Item>
+			<Item id="PlFinanceProductUserAccount" iconCls="btn-tree-team39" text="宝账户管理"></Item>
+			<Item id="PlFinanceProductUserAccountInfo" iconCls="btn-tree-team39" text="账户交易台账"></Item>
+			<Item id="PlFinanceProductIntentView" iconCls="btn-tree-team39" text="派息记录查询"></Item>
+			<Item id="PlFinanceProductExceptionDealView" iconCls="btn-tree-team39" text="异常交易台账"></Item>
+	</Items>
+		
+</Menus>

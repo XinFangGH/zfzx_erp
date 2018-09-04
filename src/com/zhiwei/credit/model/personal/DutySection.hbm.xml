@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.personal.DutySection" table="duty_section" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="sectionId" column="sectionId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="sectionName" type="java.lang.String" update="true" insert="true" access="property" column="sectionName" length="64" not-null="true" unique="false"/>  
+    <property name="startSignin" type="java.util.Date" update="true" insert="true" access="property" column="startSignin" length="19" not-null="true" unique="false"/>  
+    <property name="dutyStartTime" type="java.util.Date" update="true" insert="true" access="property" column="dutyStartTime" length="19" not-null="true" unique="false"/>  
+    <property name="endSignin" type="java.util.Date" update="true" insert="true" access="property" column="endSignin" length="19" not-null="true" unique="false"/>  
+    <property name="earlyOffTime" type="java.util.Date" update="true" insert="true" access="property" column="earlyOffTime" length="19" not-null="true" unique="false"/>  
+    <property name="dutyEndTime" type="java.util.Date" update="true" insert="true" access="property" column="dutyEndTime" length="19" not-null="true" unique="false"/>  
+    <property name="signOutTime" type="java.util.Date" update="true" insert="true" access="property" column="signOutTime" length="19" not-null="true" unique="false"/> 
+  </class> 
+</hibernate-mapping>

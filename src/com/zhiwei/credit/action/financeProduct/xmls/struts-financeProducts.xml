@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="financeProduct" extends="struts-default" namespace="/financeProduct">
+		<action name="*PlFinanceProduct" class="PlFinanceProductAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PlFinanceProductRate" class="PlFinanceProductRateAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PlFinanceProductUseraccount" class="PlFinanceProductUseraccountAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PlFinanceProductUserAccountInfo" class="PlFinanceProductUserAccountInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+</struts>

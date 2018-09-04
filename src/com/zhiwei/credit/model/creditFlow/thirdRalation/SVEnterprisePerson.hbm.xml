@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.thirdRalation.SVEnterprisePerson"
+        table="s_v_enterprise_person"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="key"
+            column="key"
+            type="java.lang.String"
+            length="30"
+        >
+           
+        </id>
+        <property
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+
+        
+        />
+
+
+         <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="code"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="code"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="tel"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="tel"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="type"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="type"
+            length="30"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

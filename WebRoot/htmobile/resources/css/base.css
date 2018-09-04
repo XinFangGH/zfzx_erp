@@ -1,0 +1,749 @@
+@charset "utf-8";
+/* CSS Document */
+
+/***********登录页***********/
+.login{ background:#fff;}
+.login-logo{padding:20px; text-align:center;}
+.login-logo img{ 
+	width: 240px;
+    height: 200px;
+    display: inline;	
+}
+.login-logo span{font-size: 36px; position:absolute; left:0; top: -10px; color:#e4e4e4; padding: 10px;}
+.m-login-form {
+    background-color: #fff;
+    margin: 15px 10px 0;
+}
+
+.m-login-form .w-form-item {
+    border-bottom: 1px solid #D5D5D5;
+    height: 45px;
+    font-size: 14px;
+    line-height: 45px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.m-login-submit {
+    margin: 15px 10px 10px;
+}
+
+.m-login-submit .w-button {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+
+.m-login-form .w-bar-label {
+    width: 62px;
+    text-align: right;
+    display: none;
+}
+
+.m-login-form .w-bar-control {
+    margin-right: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.m-login-form .login_key{
+    background: url(../images/login_eye1.png) no-repeat center right;
+    position: relative;
+    top: 18px;
+    width: 22px;
+    height: 20px;
+    display: block;
+    float: right;
+    background-size: 22px 12px;
+    margin-right: 10px;
+    display: none;
+}
+.m-login-form .login_key2{
+    background:url(../images/login_eye2.png) no-repeat center right;
+    background-size: 22px 12px;
+    position: relative;
+    top: 18px;
+    width: 22px;
+    height: 20px;
+    display: block;
+    float: right;
+    background-size: 22px 12px;
+    margin-right: -23px;;
+    display: none;
+}
+.m-login-form .login_key.active{
+    background:url(../images/login_eye2.png) no-repeat center right;
+    background-size: 22px 12px;
+}
+.m-login-link{
+    padding-right: 10px;
+}
+/**********************************index*************************************************/
+.contron-link{
+    background-color: #fff;
+    border-top:1px solid #dde1e8;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.contron-link ul{
+    border-bottom: 1px solid #dde1e8;
+}
+
+.contron-link ul li{
+    border-right: 1px solid #dde1e8;
+    padding: 15px 0;
+    position: relative;
+}
+.contron-link ul li.active{
+    color:#fff;
+    z-index: 68;
+    border-color:#5A5A5A;
+}
+
+.contron-link ul li.active p>img{
+    z-index: 999;
+}
+.contron-link ul li:last-child{
+    border-right: 0;
+}
+
+.contron-link ul li a{
+    color: #646464;
+}
+.contron-link ul li p>img{
+    width: 50px;
+    height: 50px;
+}
+
+.backlog{
+    background-color: #fff;
+    padding:0 10px;
+}
+.db_header{
+    height: 40px;
+    line-height: 40px;
+}
+.db_header .ico-clock{
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-top: 6px;
+    margin-right: 2px;
+}
+
+.dialog{
+    position: absolute;
+    display: none;
+    bottom: -82px;
+    z-index: 999;
+    overflow:hidden;
+    background-color: #fff;
+    border-radius: 6px;
+    width: 136px;
+    height: 82px;
+    left: 20%;
+    padding: 0 10px;
+    display: none;
+}
+.contron-link ul li:last-child .dialog{
+    right:0;
+    left: inherit;
+}
+.dialog_bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #000;
+    left: 0;
+    top: 0;
+    z-index: 66;
+    opacity: 0.6;
+    display: none;
+}
+.dialog .proj_content{
+    background: #fff;
+    overflow: hidden;
+}
+
+.dialog .proj_content p{
+    height: 40px;
+    line-height: 40px;
+    border-bottom:1px solid #e3e3e3;
+}
+.dialog .proj_content p a{
+    color:#646464;
+}
+.dialog .proj_content p a.active{
+    color:#46c7f7;
+}
+.dialog .proj_content p img{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-top: 6px;
+}
+/**********************待办事项*********************************/
+.search-title{
+    padding: 10px;
+}
+.search-title .search-input {
+    border: none;
+    background: #fff url(../images/jdsp_dai_so.png) no-repeat 2px center;
+    background-size:23px 23px;
+    padding-left: 30px;
+    border-radius: 6px;
+    border: 1px solid #dddddd;
+    height: 36px;
+    line-height: 36px;
+}
+.search-title .w-button-search{
+    height: 36px;
+    line-height: 36px;
+    padding:0 20px;
+    border:0;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.backlog-con{
+    background-color: #fff;
+}
+.backlog-con .backlog-list{
+    border-top:1px solid #dde1e8;
+}
+
+.backlog-con .backlog-list li{
+    border-bottom: 1px solid #dde1e8;
+    padding: 15px;
+}
+.backlog-con .backlog-list dt a{
+    color: #333;
+}
+.backlog-con .backlog-list dd{
+    font-size: 12px;
+    margin-top: 10px;
+}
+/*******个人中心*******/
+.personal_center{
+    background-color: #fff;
+    border-bottom: 1px solid #D5D5D5;
+    padding: 20px 10px 10px;
+    overflow: hidden;
+}
+.m-bar{}
+.m-bar li{
+    border-bottom: 1px solid #D5D5D5;
+    padding: 10px;
+}
+.m-bar li button,.m-bar li a{
+    border:0;
+    color:#333;
+    background-color: transparent;
+}
+/**********项目管理***************/
+.letterbtn{
+    width: 20px;
+    top: 50px;
+    right: 0;
+    text-align: center;
+    padding-right: 4px;
+}
+.letterbtn li{
+    line-height: 16px;
+}
+.letterbtn li a{
+    display:block;
+}
+.person-item-con{
+    padding: 10px 26px 10px 10px;
+    background-color: #fff;
+
+}
+.person-item-con .letter-title{
+    background-color: #e3e3e3;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    margin: 10px 0 6px;
+}
+.person-item-box{
+    padding: 10px 0;
+    margin-left: 10px;
+}
+.letter-table{
+    width: 100%;
+    border-bottom:1px solid #ddd;
+    margin-bottom: 10px;
+}
+.letter-table td{
+    line-height: 32px;
+}
+/*****************业绩排行榜***********************/
+.w-table-rank{
+    width: 100%;
+}
+.w-table-rank td{
+    vertical-align: middle;
+    line-height: 26px;
+}
+.w-table-rank .winpic{
+    width: 30px;
+    height: 40px;
+    display: inline-block;
+}
+.w-table-rank .winpic img{
+    width: 100%;
+}
+.w-table-rank .txtrank{
+    top:-10px;
+}
+.chart-title{
+    padding: 20px 10px 20px;
+}
+.chart-title .search-time{
+    display: inline-block;
+}
+.perfor-chart .charts{
+    padding: 0 10px;
+}
+
+/*********贷款计算器***********/
+.table-count-box{
+    padding: 10px;
+}
+.w-table-loancount{
+    width: 100%;
+}
+.w-table.w-table-loancount td{
+    padding:0;
+    text-align: center;
+}
+.w-table.w-table-loancount tbody td{
+    padding:10px 0;
+}
+.w-table-loancount td .cptit{
+    background: #e4e4e4;
+    color: #323232;
+    margin: 0 1px;
+    text-align: center;
+    display: block;
+}
+
+/************意见与说明记录****************/
+.tab-heaser ul{
+    border-bottom: 1px solid #e3e3e3;
+    color:#12b7f5;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding:0 10px;
+}
+.tab-heaser li.active{
+    border-bottom: 2px solid #12b7f5;
+}
+.advise-con-list li{
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+    padding:0 10px;
+}
+.advise-con-list li p{
+    float: left;
+    width: 33.3333%;
+    text-align:center;
+    min-height: 30px;
+    padding: 10px 0;
+}
+.advise-con-list li p:first-child{
+    text-align: left;
+}
+.advise-con-list li p:last-child{
+    text-align: right;
+}
+.advise-con-list li .angle-right{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/common/angle-right.png") no-repeat center;
+    -webkit-background-size:8px 13px;
+    background-size:8px 13px;
+    top: 6px;
+}
+.home_title{
+	font-size: 18px;
+    font-weight: normal;
+}
+
+.taskListMain {
+    background-color: white;
+    margin-bottom: 12px;
+    padding-left: 20px;
+}
+
+.taskListTwo {
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+}
+.taskListOne {
+    border-bottom: solid 2px #eeeeee;
+    /* margin-left: 12px; */
+    height: 94px;
+    /* line-height: 77px; */
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.taskListOne span {
+    display: block;
+    /* padding-top: 12px; */
+}
+
+.taskListOne span.taskName {
+   font-size: 15px;
+    font-weight: bold;
+    line-height: 35px;
+    height: 35px;
+    /* font-family: 微软雅黑; */
+    margin-right: 11px;
+}
+
+.taskListTwo span.text {
+    font-size: 15px;
+    /* font-weight: bold; */
+}
+
+.taskListTwo span.activityName {
+    color: #12b7f5;
+}
+
+.taskListOne span.icon {
+    display: block;
+    width: 25px;
+    height: 30px;
+    float: right;
+    background-image: url(../images/task-in.png);
+}
+
+.taskListTwo span.icon {
+    display: block;
+    width: 30px;
+    height: 100%;
+    float: left;
+    background: url(../images/current-icon.png) no-repeat;
+    background-size: 90%;
+    background-position: left;
+}
+
+
+.taskListOne span.projectName {
+   
+}
+.taskListOne span.projectNumber {
+    width: 50%;
+    display: block;
+    float: left;
+    margin-top: 10px;
+}
+.taskListOne span.projectStatus {
+   width: 50%;
+    float: left;
+    display: block;
+    margin-top: 10px;
+}
+
+.taskListTwo span._projectMoney {
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.taskListTwo span._time {
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.posa_t {
+        width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    display: block;
+    float: left;
+    text-align: center;
+    color: #fff;
+    border-radius: 100%;
+    background-color: #12b7f5;
+    left: -16px;
+    top: 50%;
+    margin-right: 5px;
+    margin-top: 11px;
+    z-index: 2;
+}
+
+.submit-button {
+    width: 98%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background: #12b7f5;
+    border-color: #12b7f5;
+    margin-top: 7%;
+    color: white;
+    border-radius: 3px;
+    margin: auto;
+}
+
+.MsgTitle{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.count_label span {
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: center;
+    background-color: #12b7f5;
+    color: white;
+    border-left: solid 1px #dddddd;
+}
+
+.count_label{
+	height:30px;
+	line-height:30px;
+}
+
+div#countResult {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: solid 1px #dddddd;
+}
+
+div#countResult span {
+	font-size: 12px;
+	color: black;
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: center;
+    border-left: solid 1px #dddddd;
+}
+
+.Opinion_title{
+    height: 40px;
+    line-height: 40px;
+}
+
+.Opinion_title span {
+    display: block;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+}
+.projectStatusValue{
+	color:red;
+}
+
+.centrality_bottom span {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: solid 1px #eee;
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: black;
+}
+
+.enterp_item{
+	margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.enterp_item .name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #12b7f5;
+}
+
+.list-column {
+    margin-top: 20px;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    border: solid 1px #d6d2d2;
+    background-color: #12b7f5;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list-column span{
+	width:33%;
+	text-align:center;
+	display:block;
+	float:left;
+}
+
+.list-column-content{
+	/*margin-top: 20px; */
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    /* border: solid 1px #d6d2d2; */
+    /* background-color: #12b7f5; */
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.list-column-content span{
+	width:33%;
+	text-align:center;
+	display:block;
+	float:left;
+}
+
+.panel-title-m{
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #a7573b;
+}
+p.loanCondition-cl {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: solid 1px #ccc;
+}
+p.loanCondition-cl:hover {
+    background-color: #eeeeee;
+}
+.exitBtn{
+	color: black;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.person-line-first span.p-name {
+    font-weight: bold;
+    font-size: 15px;
+    width: 20%;
+    display: block;
+    float: left;
+    text-align: left;
+    margin-left:10px;
+}
+
+.person-line-first span.p-sex {
+    font-size: 13px;
+    width: 7.5%;
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.person-line-first span.p-marry {
+    font-size: 13px;
+    width: 17.5%;
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.person-line-first span.p-add {
+    font-size: 13px;
+    width: 50%;
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.person-line-second span.p-card {
+    display: block;
+    float: left;
+    width: 50%;
+    background: url(../images/person-card.png) no-repeat left;
+    background-size: 20px;
+    padding-left:7%;
+}
+
+.person-line-second span.p-call {
+    display: block;
+    float: left;
+    width: 45%;
+    background: url(../images/person-call.png) no-repeat left;
+    background-size: 20px;
+    margin-left:10px;
+    padding-left:7%;
+}
+.person-line{
+	height:81px;
+}
+.person-line-second {
+    width: 100%;
+    float: left;
+    height: 41px;
+}
+.person-line-first {
+    width: 100%;
+    float: left;
+    height: 41px;
+}
+
+.enterprise-line{
+	height:120px;
+	margin-left: 7px;
+}
+
+.enterprise-line div{
+	height:33%;
+}
+
+.enterprise-line .enterprise-line-first {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.enterprise-line .enterprise-line-second{
+	font-size:13px;
+}
+
+.enterprise-line .enterprise-line-second .ent-name{
+    display: block;
+    float: left;
+    width: 20%;
+    background: url(../images/enterp-name.png) no-repeat left;
+    background-size: 20px;
+    padding-left:7%;
+}
+.enterprise-line .enterprise-line-second .ent-call{
+    display: block;
+    float: left;
+    width: 30%;
+    background: url(../images/enterp-call.png) no-repeat left;
+    background-size: 20px;
+    padding-left:7%;
+}
+.enterprise-line .enterprise-line-second .ent-ass{
+    display: block;
+    float: left;
+    width: 50%;
+    background: url(../images/enterp-money.png) no-repeat left;
+    background-size: 20px;
+    padding-left:7%;
+}
+.enterprise-line-third span{
+    display: block;
+    float: left;
+    width: 95%;
+    background: url(../images/enterp-address.png) no-repeat left;
+    background-size: 20px;
+    padding-left:7%;
+    font-size:13px;
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.person.BpCustPersonEducation"
+        table="bp_cust_person_education"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="educationId"
+            column="educationId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id><!--
+         <property
+            name="personId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="personId"
+            length="10"
+            not-null="true"
+            unique="false"
+        />
+        --><property
+            name="educationStartTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="educationStartTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="educationEndTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="educationEndTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="educationSchool"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="educationSchool"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="degreeAwarded"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="degreeAwarded"
+            length="30"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="awards"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="awards"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks"
+            length="200"
+            not-null="false"
+            unique="false"
+        />
+        <many-to-one name="person" 
+        		     class="com.zhiwei.credit.model.creditFlow.customer.person.Person"
+        		     not-null="false"
+        		     fetch="select"
+        		     >
+        	<column name="personId"></column>
+        </many-to-one>
+
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.TaskSignData" table="task_sign_data" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="dataId" column="dataId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="voteId" type="java.lang.Long" update="true" insert="true" access="property" column="voteId" length="19" not-null="true" unique="false"/>  
+    <property name="voteName" type="java.lang.String" update="true" insert="true" access="property" column="voteName" length="64" not-null="false" unique="false"/>  
+    <property name="voteTime" type="java.util.Date" update="true" insert="true" access="property" column="voteTime" length="19" not-null="true" unique="false"/>  
+    <property name="taskId" type="java.lang.String" update="true" insert="true" access="property" column="taskId" length="64" not-null="true" unique="false"/>  
+    <property name="isAgree" type="java.lang.Short" update="true" insert="true" access="property" column="isAgree" length="5" not-null="true" unique="false"/>
+    <property name="runId" type="java.lang.Long" update="true" insert="true" access="property" column="runId" length="20" not-null="false" unique="false"/>
+    <property name="fromTaskId" type="java.lang.String" update="true" insert="true" access="property" column="fromTaskId" length="64" not-null="false" unique="false"/>
+    <property name="formId" type="java.lang.Long" update="true" insert="true" access="property" column="formId" length="20" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

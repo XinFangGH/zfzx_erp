@@ -1,0 +1,10 @@
+String tranTo="$!defTran";
+/*
+//agree is come from flow vars and is string type
+if("1".equals(agree)){
+   tranTo="to node1";
+}else if("0".equals(agree)){
+	tranTo="to node2";
+}else{
+    tranTo="to node3";
+}*/

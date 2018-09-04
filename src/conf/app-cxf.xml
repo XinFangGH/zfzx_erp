@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" /> 
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<bean id="regService" class="com.zhiwei.credit.service.cxf.impl.RegServiceImpl"/>
+	
+	<jaxws:endpoint id="regServiceWs" implementor="#regService" 
+		address="/regService" />
+		<!-- 投资人 虚拟账户接口 -->
+	<!--   <bean id="obSystemAccountService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObSystemAccountServiceImpl">
+   	 	<constructor-arg index="0" ref="obSystemAccountDao"/>
+   	 </bean>
+  <jaxws:endpoint id="obSystemAccountServiceWs" implementor="#obSystemAccountService" address="/obSystemAccountService" /> -->
+  <!-- 投资人 虚拟账户 交易 明细 -->
+	 <!--  <bean id="obAccountDealInfoService" class="com.zhiwei.credit.service.creditFlow.creditAssignment.bank.impl.ObAccountDealInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="obAccountDealInfoDao"/>
+   	 </bean>
+  <jaxws:endpoint id="obAccountDealInfoServiceWs" implementor="#obAccountDealInfoService" address="/obAccountDealInfoService" /> 
+	-->
+	<bean id="bpFinanceApplyService" class="com.zhiwei.credit.service.p2p.impl.BpFinanceApplyServiceImpl">
+   	 	<constructor-arg index="0" ref="bpFinanceApplyDao"/>
+   	 </bean>
+	
+	<!-- 第三方 支付调用 接口 -->
+	<bean id="thirdpayClientService" class="com.zhiwei.credit.service.thirdPay.impl.ThirdpayClientServiceImpl"/>
+	<jaxws:endpoint id="thirdpayClientServiceWs" implementor="#thirdpayClientService" 
+		address="/thirdpayClientService" />
+</beans>

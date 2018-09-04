@@ -1,0 +1,44 @@
+流程名称：西安创典信贷流程
+key：xacdCreditFlow
+节点：
+
+       客服录件：10_xacdCreditFlow
+     上传客户资料：20_xacdCreditFlow
+      电审：30_xacdCreditFlow
+      家访：40_xacdCreditFlow
+    风审初审：50_xacdCreditFlow
+    风险终审：60_xacdCreditFlow
+    客户确认借款方案：70_xacdCreditFlow
+    制定资金方案：80_xacdCreditFlow
+    合同签署及抵质押物办理：90_xacdCreditFlow
+    发布P2P直投项目：100_xacdCreditFlow
+    放款确认：110_xacdCreditFlow
+    项目归档：120_xacdCreditFlow
+    发布P2P债权转让项目：130_xacdCreditFlow
+    
+决策：
+    决策1：
+       String tranTo="to 同步1";
+
+    if("结束1".equals(OutletFinalJudgmentResult)){
+    tranTo="to 结束1";
+    }
+    决策3：
+    String tranTo="to 风险终审";
+
+if("结束1".equals(OutletFinalJudgmentResult)){
+   tranTo="to 结束1";
+}
+ 决策4：
+   String tranTo="to 客户确认借款方案";
+
+if("结束2".equals(OutletFinalJudgmentResult)){
+   tranTo="to 结束2";
+} 
+决策5：
+   String tranTo="to 合同签署及抵质押物办理";
+
+if("结束2".equals(OutletFinalJudgmentResult)){
+   tranTo="to 结束2";
+}
+    

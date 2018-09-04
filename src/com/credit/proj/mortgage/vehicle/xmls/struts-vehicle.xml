@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="vehicle" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addVehicle" class="vehicleAction" method="addVehicle">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- 查看信息从视图查询 -->
+		<action name="seeVehicle" class="vehicleAction" method="seeVehicle"></action>
+		
+		<!-- 查看信息显示在更新页面 --> 
+		<action name="seeVehicleForUpdate" class="vehicleAction" method="seeVehicleForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateVehicle" class="vehicleAction" method="updateVehicle"></action>
+		
+		<!-- 制造商查询 -->
+		<action name="ajaxQueryCarFactoryForCombo" class="vehicleAction" method="ajaxQueryCarFactoryForCombo"></action>
+		
+		<!-- 根据制造商id查询相应信息 -->
+		<action name="ajaxGetProcessCarData" class="vehicleAction" method="ajaxGetProcessCarData"></action>
+		<action name="redirect" class="redirectAction" method="redirect"></action>
+	</package>
+</struts>

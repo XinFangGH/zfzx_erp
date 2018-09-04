@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   
+	 <package name="multiLevelDic" extends="struts-default" namespace="/creditFlow/multiLevelDic">
+		<action name="*AreaDic" class="AreaDicAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/public/locationselect.jsp</result>
+		</action>
+		
+	</package>
+</struts>

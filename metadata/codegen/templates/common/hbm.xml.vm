@@ -1,0 +1,226 @@
+## This is an the velocity template
+## to generate a model class from an sql table input
+#set ($table = $sqlTable.Table.toLowerCase())
+#set ($class = $utility.makeClassName($sqlTable.Table))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($pojoClass = $utility.makeClassName($sqlTable.EntityName))
+#set ($pojoClassVar = $utility.makeFirstLetterLowerCase($pojoClass))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot"))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($mailId    = $prop.getProperty("mailId"))
+#set ($mailName  = $prop.getProperty("mailName"))
+#set ($keyGenerated = "N")
+#set ($versionGenerated = "N")
+#set ($deletedGenerated = "N")
+#set ($primaryKey = "")
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="${packagePrefix}.credit.model${packageModot}.${pojoClass}"
+        table="$sqlTable.table"
+        select-before-update="false"
+#if ($sqlTable.hasVersion || $prop.isGeneratedKey($sqlTable))
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+#else
+        dynamic-update="true"
+        dynamic-insert="true"
+        optimistic-lock="all"
+#end
+#if ($sqlTable.hasDeleted)
+		where="deleted=0"
+#end
+    >
+#foreach( $column in $sqlTable.sqlColumns)
+#set ($javaType = $column.javaType)
+#set ($colsize  = $column.colsize)
+################################################
+## Now generate keys for the hibernate mapping
+################################################
+#if ($column.isKey())
+#set($keyGenerated = "Y")
+#set($primaryKey = $column.colname)
+		<id
+            name="$column.attName"
+            column="$column.colname"
+            type="$javaType"
+            length="$colsize"
+        >
+#if ($prop.isGeneratedKey($sqlTable))
+            <generator class="native"/>
+#else
+#if ($sqlTable.hasSingleKey)
+            <generator class="assigned"/>
+#end
+#end
+        </id>
+#end
+#end ##end of foreach
+##########################################
+##  Version generation
+##########################################
+#if ($sqlTable.hasVersion && $versionGenerated.equals("N"))
+#set ($versionGenerated = "Y")
+		<version
+            name="version"
+            type="java.lang.Integer"
+            column="version"
+            access="property"
+            unsaved-value="undefined"
+        />
+#end
+##########################################
+##  Regular column attribute generation
+##########################################
+#foreach( $column in $sqlTable.sqlColumns)
+#set ($javaType = $column.javaType)
+#set ($colsize  = $column.colsize)
+#if (!$column.isKey() && !$column.isVersion() && !$sqlTable.getHasImportedKeyParentColumn($column.colname))
+        <property
+            name="$column.attName"
+            type="$javaType"
+            update="true"
+            insert="true"
+            access="property"
+            column="$column.colname"
+#if ($column.digits >0)
+            precision="$colsize"
+            scale="$column.digits"
+#else
+            length="$colsize"
+#end
+            not-null="$column.notNullable"
+            unique="false"
+        />
+##TODO, unique is not solved yet
+#end
+#end ##end of foreach
+##########################################
+##  Foreign Imported Keys generation 
+##########################################
+#foreach ($foreignKey in $sqlTable.importedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to many ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+ <!-- Imported bi-directional one-to-many association to ${fkPojoClass} -->
+	<set name="${fkPojoClassVar}s"
+	     table="${fkTable}"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+#foreach ($fkColumn in $foreignKey.parentColumns.orderedValues)
+			<column name="${fkColumn}"/>
+#end
+		</key>
+		<one-to-many
+			class="${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}"
+		/>
+	</set>     
+#end
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("one"))
+    <!-- imported bi-directional many-to-one association to ${fkPojoClass} -->
+		<many-to-one
+			name="${fkPojoClassVar}"
+			class="${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}"
+            not-null="false"
+#if ($foreignKey.isParentColumnsFromPrimaryKey())
+	        update="false"
+	        insert="false"
+#else
+			fetch="select"
+#end
+		>	
+#foreach ($fkColumn in $foreignKey.parentColumns.orderedValues)
+			<column name="${fkColumn}" />
+#end
+		</many-to-one>
+#end
+#end
+########################################################
+## End Foreign Key Imported Generation
+########################################################
+##########################################
+##  Foreign Exported Keys generation 
+##########################################
+#foreach ($foreignKey in $sqlTable.exportedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to many ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+ <!-- exported bi-directional one-to-many association to ${fkPojoClass} -->
+	<set name="${fkPojoClassVar}s"
+	     table="${fkTable}"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+#foreach ($fkColumn in $foreignKey.columns.orderedValues)
+			<column name="${fkColumn}"/>
+#end
+		</key>
+		<one-to-many
+			class="${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}"
+		/>
+	</set>     
+#end
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("one"))
+    <!-- exported bi-directional many-to-one association to ${fkPojoClass} -->
+		<many-to-one
+			name="${fkPojoClassVar}"
+			class="${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}"
+            not-null="false"
+			fetch="select"
+		>	
+#foreach ($fkColumn in $foreignKey.columns.orderedValues)
+			<column name="${fkColumn}" />
+#end
+		</many-to-one>
+#end
+#end
+########################################################
+## End Foreign Key Exported Generation
+########################################################
+##########################################
+##  Deleted generation
+##########################################
+#if ($sqlTable.hasDeleted && $deletedGenerated.equals("N"))
+#set ($deletedGenerated = "Y")
+		<sql-delete>UPDATE $sqlTable.table SET deleted=1 WHERE $primaryKey=? #if ($sqlTable.hasVersion)and version=?#end</sql-delete>
+#end
+    </class>
+</hibernate-mapping>

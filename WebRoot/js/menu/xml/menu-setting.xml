@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_setting" text="系统管理" iconCls="mod-setting">
+<Items id="title_setting" text="系统管理" iconCls="mod-setting"
+		isPublic="false">
+
+	<Items id="AppUserSetting" text="账户设置" iconCls="menu-appuser"
+		isPublic="false">
+		<Item id="AppUserView" iconCls="menu-appuser" text="账号管理">
+			<Function id="_AppUserQuery" text="查看账号" iconCls="menu-list">
+				<url>/system/listAppUser.do</url>
+			</Function>
+			<Function id="_AppUserAdd" text="添加账号" iconCls="menu-add">
+				<url>/system/listAppUser.do</url>
+				<url>/system/chooseRolesAppUser.do</url>
+				<url>/system/selectedRolesAppUser.do</url>
+				<url>/system/listDepartment.do</url>
+			</Function>
+			<Function id="_AppUserEdit" text="编辑账号" iconCls="btn-edit">
+				<url>/system/listAppUser.do</url>
+				<url>/system/chooseRolesAppUser.do</url>
+				<url>/system/selectedRolesAppUser.do</url>
+				<url>/system/listDepartment.do</url>
+			</Function>
+			<Function id="_AppUserDel" text="删除账号" iconCls="menu-del">
+				<url>/system/listAppUser.do</url>
+				<url>/system/multiDelAppUser.do</url>
+			</Function>
+			<Function id="_AppUserReset" text="重置密码" iconCls="btn-password">
+				<url>/system/listAppUser.do</url>
+				<url>/system/chooseRolesAppUser.do</url>
+				<url>/system/selectedRolesAppUser.do</url>
+				<url>/system/createPasswordAppUser.do</url>
+			</Function>
+		</Item>
+		<Item id="AppRoleView" iconCls="menu-role" text="角色设置">
+			<Function id="_AppRoleList" text="查看角色" iconCls="menu-list">
+				<url>/system/listAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleAdd" text="添加角色" iconCls="menu-add">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleEdit" text="编辑角色" iconCls="btn-edit">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleDel" text="删除角色" iconCls="menu-del">
+				<url>/system/listAppRole.do</url>
+				<url>/system/mulDelAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleGrant" text="授权角色" iconCls="btn-grant">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>
+		</Item>
+	</Items>
+	<Items id="FLowManager" name="Flow" text="流程管理" iconCls="menu-flowManager">
+		<Item id="TaskManager" text="流程任务管理" iconCls="menu-task-manage">
+		    <Function id="_szdqsj" text="设置到期时间" iconCls="menu-list">
+			</Function>
+			<Function id="_ggdbr" text="更改代办人" iconCls="menu-add">
+			</Function>
+			<Function id="_ggzxlj" text="更改执行路径" iconCls="btn-edit">
+			</Function>
+			<Function id="_rwdb" text="任务代办" iconCls="menu-del">
+			</Function>
+		</Item>
+		<Item id="ProInstanceMgr" iconCls="menu-instance" text="流程实例管理" />
+		<Item id="FormDefView" text="流程表单管理" iconCls="menu-form">
+		    <Function id="_addbd" text="添加表单" iconCls="menu-list">
+			</Function>
+			<Function id="_removebd" text="删除表单" iconCls="menu-add">
+			</Function>
+			<Function id="_cjqbst" text="创建全部实体" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="FlowFormProsView" text="流程表单查询" iconCls="menu-biaodan" />
+		<Item id="FlowManagerViewForCustomer" text="流程定义查看" iconCls="menu-flowManager"/>
+		<Item id="FlowManagerView" text="流程定义管理" iconCls="menu-flowManager">
+			<Function id="_FlowQuery" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowAdd" text="发布流程" iconCls="menu-add">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowEdit" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+		<Item id="AssignFlowView" text="分配子公司流程" iconCls="menu-flowManager">
+			<Function id="_FlowQuery1" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage1" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowAdd1" text="发布流程" iconCls="menu-add">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowEdit1" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel1" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck1" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting1" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+		<!--
+			start: Generated for ProcessModule From Template: menu-ent.xml.vm
+		-->
+		<Item id="ProcessModuleView" text="流程模块管理" iconCls="menu-proModule">
+		    <Function id="_addlcmk" text="添加" iconCls="menu-list">
+			</Function>
+			<Function id="_removelcmk" text="删除" iconCls="menu-add">
+			</Function>
+		</Item>
+		<!--
+			end: Generated for ProcessModule From Template: menu-ent.xml.vm
+		-->
+		<Item id="ProcessHistoryView" text="流程历史管理" iconCls="menu-history">
+		    <Function id="_removelcls" text="删除流程历史" iconCls="menu-add">
+			</Function>
+		</Item>
+	</Items>
+	<!--
+		<Items id="PublicDocument" iconCls="menu-folder" text="公共文档"> <Item
+		id="NewPublicDocumentForm" iconCls="menu-new-document" text="新建公共文档">
+		</Item> <Item id="DocFolderSharedView" iconCls="menu-public-fol"
+		text="公共文件夹"> <Function id="_DocFolderSharedManage" text="公共文件夹管理"
+		iconCls="menu-manage"> <url>/document/saveDocFolder.do</url>
+		<url>/document/getDocFolder.do</url>
+		<url>/document/removeDocFolder.do</url> </Function> <Function
+		id="_DocPrivilegeQuery" text="查看权限" iconCls="menu-list">
+		<url>/document/listDocPrivilege.do</url> </Function> <Function
+		id="_DocPrivilegeAdd" text="添加权限" iconCls="menu-add">
+		<url>/document/listDocPrivilege.do</url>
+		<url>/document/addDocPrivilege.do</url> </Function> <Function
+		id="_DocPrivilegeEdit" text="编辑权限" iconCls="btn-edit">
+		<url>/document/listDocPrivilege.do</url>
+		<url>/document/changeDocPrivilege.do</url> </Function> <Function
+		id="_DocPrivilegeDel" text="删除权限" iconCls="menu-del">
+		<url>/document/listDocPrivilege.do</url>
+		<url>/document/multiDelDocPrivilege.do</url> </Function> </Item>
+		</Items>
+	-->
+	<!--
+		<Items id="Task" text="任务管理" iconCls="menu-task"> <Item
+		id="PlanTypeView" text="任务计划类型" iconCls="menu-plantype"> <Function
+		id="_PlanTypeQuery" text="查看类型" iconCls="menu-list">
+		<url>/task/listPlanType.do</url> </Function> <Function
+		id="_PlanTypeAdd" text="添加类型" iconCls="menu-add">
+		<url>/task/listPlanType.do</url> <url>/task/savePlanType.do</url>
+		</Function> <Function id="_PlanTypeEdit" text="编辑类型"
+		iconCls="btn-edit"> <url>/task/listPlanType.do</url>
+		<url>/task/savePlanType.do</url> <url>/task/getPlanType.do</url>
+		</Function> <Function id="_PlanTypeDel" text="删除类型"
+		iconCls="menu-del"> <url>/task/listPlanType.do</url>
+		<url>/task/multiDelPlanType.do</url> </Function> </Item> <Item
+		id="NewWorkPlanForm" text="新建科室任务计划" iconCls="menu-newplan"> <Function
+		id="_NewDepPlan" text="新建科室任务计划" iconCls="menu-add"> </Function>
+		</Item> </Items>
+	-->
+
+	
+	<Items id="BusinessSetting" text="系统业务配置管理" iconCls="menu-business-info">
+		
+		<Items id="DateManagement" text="系统数据字典管理" iconCls="menu-datemanagement-info">
+			<Item id="AreaDicView?treeId=89" text="银行数据字典" iconCls="menu-bank">
+			    <Function id="_addzdx" text="添加字典项" iconCls="menu-list">
+			    </Function>
+				<Function id="_editzdx" text="修改字典项" iconCls="menu-add">
+				</Function>
+				<Function id="_removezdx" text="删除字典项" iconCls="menu-add">
+				</Function>
+			</Item>
+			<Item id="AreaDicView?treeId=1" text="地区数据字典" iconCls="menu-area"/>
+			<Item id="DicManager" iconCls="menu-dictionary" text="单级数据字典">
+
+				<Function id="_DictionaryQuery" text="查看字典" iconCls="menu-dictionary">
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAdd" text="添加" iconCls="menu-add">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryEdit" text="编辑" iconCls="btn-edit">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+					<url>/system/getDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryDel" text="删除" iconCls="menu-del">
+					<url>/system/listDictionary.do</url>
+					<url>/system/multiDelDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryChange" text="转移类型" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/typeChangeDictionary.do</url>
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAddType" text="新建分类" iconCls="btn-edit">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+			
+				</Function>
+				<Function id="_DictionaryDelType" text="删除分类" iconCls="menu-del">
+					<url>/system/deleteGlobalType.do</url>
+					<url>/system/treeGlobalType.do</url>
+				</Function>
+				<Function id="_DictionaryEditType" text="编辑分类" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+					<url>/system/getGlobalType.do</url>
+				</Function>
+			</Item>
+			<Item id="CreditTreeDictionaryView" text="多级数据字典" iconCls="menu-dictionarylist">
+			     <Function id="_addzd" text="添加字典" iconCls="menu-list">
+			    </Function>
+				<Function id="_editzd" text="修改字典" iconCls="menu-add">
+				</Function>
+				<Function id="_removezd" text="删除字典" iconCls="menu-add">
+				</Function>
+				<Function id="_adddjzdx" text="添加字典项" iconCls="menu-list">
+			    </Function>
+				<Function id="_editdjzdx" text="修改字典项" iconCls="menu-add">
+				</Function>
+				<Function id="_removedjzdx" text="删除字典项" iconCls="menu-add">
+				</Function>
+			</Item>
+            <Item id="DicIndepManager" iconCls="menu-dictionary" text="独立数据字典">
+                <Function id="_addsjzd" text="添加数据字典" iconCls="menu-list">
+			    </Function>
+				<Function id="_savesjzd" text="保存" iconCls="menu-add">
+				</Function>
+				<Function id="_removesjzd" text="删除" iconCls="menu-add">
+				</Function>
+				<Function id="_changetype" text="转移类型" iconCls="menu-list">
+			    </Function>
+				<Function id="_editsjzdx" text="编辑数据字典项" iconCls="menu-add">
+				</Function>
+            </Item>
+		</Items>
+		
+		
+
+	</Items>
+<Items id="SystemRecord" text="系统记录管理" iconCls="menu-systemrecord"
+		isPublic="false">
+		<Item id="SysLogView" iconCls="menu-role" text="用户登录记录"></Item>
+		<Item id="SystemLogView" iconCls="menu-role" text="系统操作记录"></Item>
+	    <Item id="SysDatabaseBRView" iconCls="menu-backup" text="数据库备份与还原">
+	    	<Function id="SysDatabaseBRView_backup" text="手动备份数据库" iconCls="btn-copyrole">
+	    	     <url>/system/saveSysDatabaseBR.do</url>
+			</Function>
+			<!--<Function id="SysDatabaseBRView_restore" text="还原已备份数据库" iconCls="btn-reseted">
+			     <url>/system/restoreSysDatabaseBR.do</url>
+			</Function>
+			--><Function id="SysDatabaseBRView_del" text="删除备份数据库" iconCls="btn-del">
+			    <url>/system/multiDelSysDatabaseBR.do</url>
+			</Function>
+			<Function id="SysDatabaseBRView_download" text="下载备份数据库" iconCls="btn-subordinate">
+			    <url>/system/downloadSysDatabaseBR.do</url>
+			</Function>
+	    </Item>
+</Items>
+	<Items id="SystemSetting" text="系统配置" iconCls="menu-system"
+		isPublic="false">
+		<Item id="FileAttachView" iconCls="menu-attachment" text="附件管理">
+			<Function id="_FileAttachQuery" text="查看附件" iconCls="menu-list">
+				<url>/system/listFileAttach.do</url>
+			</Function>
+			<Function id="_FileAttachEdit" text="编辑附件" iconCls="btn-edit">
+				<url>/system/saveFileAttach.do</url>
+				<url>/system/listFileAttach.do</url>
+				<url>/system/getFileAttach.do</url>
+			</Function>
+			<Function id="_FileAttachDel" text="删除附件" iconCls="menu-del">
+				<url>/system/listFileAttach.do</url>
+				<url>/system/multiDelFileAttach.do</url>
+			</Function>
+		</Item>
+		<Item id="SealView" iconCls="menu-seal" text="印章管理">
+	        <Function id="_createyz" text="制作印章" iconCls="menu-list">
+		    </Function>
+			<Function id="_removeyz" text="删除印章" iconCls="menu-add">
+			</Function>
+		</Item>
+		<Item id="GlobalTypeManager" iconCls="menu-globalType" text="系统分类管理">
+		   <Function id="_addlei" text="新建类" iconCls="menu-list">
+		    </Function>
+			<Function id="_addfl" text="新建分类" iconCls="menu-add">
+			</Function>
+			<Function id="_savefl" text="保存" iconCls="menu-add">
+			</Function>
+			<Function id="_removefl" text="删除" iconCls="menu-add">
+			</Function>
+		</Item>
+		<!-- 
+		<Item id="MenuView" iconCls="menu-m" text="菜单管理"/>-->
+		<!--
+			<Item id="SystemLogView" text="系统日志"/>
+			-->
+		<Item id="OutMailSetView" text="外部邮箱管理" iconCls="menu-mail">
+			<Function id="_OutMailSetAdd" text="添加邮件" iconCls="btn-add">
+				<url>/system/listOutMailSet.do</url>
+				<url>/system/saveOutMailSet.do</url>
+			</Function>
+			<Function id="_OutMailSetEdit" text="编辑邮件" iconCls="btn-mail_edit">
+				<url>/system/listOutMailSet.do</url>
+				<url>/system/saveOutMailSet.do</url>
+				<url>/system/getOutMailSet.do</url>
+			</Function>
+			<Function id="_OutMailSetDelete" text="删除邮件" iconCls="btn-del">
+				<url>/system/listOutMailSet.do</url>
+				<url>/system/multiDelOutMailSet.do</url>
+			</Function>
+		</Item>
+		<Item id="ReportTemplateView" iconCls="menu-report" text="报表管理">
+			<Function id="_ReportTemplateQuery" text="查看报表" iconCls="menu-list">
+				<url>/system/listReportTemplate.do</url>
+				<url>report/report.jsp</url>
+			</Function>
+			<Function id="_ReportTemplateAdd" text="添加报表" iconCls="menu-add">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/saveReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportTemplateEdit" text="编辑报表" iconCls="btn-edit">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/getReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportParamSetting" text="参数设置" iconCls="btn-setting">
+				<url>/system/loadReportTemplate.do</url>
+				<url>/system/submitReportTemplate.do</url>
+				<url>/system/listReportParam.do</url>
+				<url>/system/multiDelReportParam.do</url>
+				<url>/system/saveReportTemplate.do</url>
+				<url>/system/saveReportParam.do</url>
+				<url>/system/getReportParam.do</url>
+			</Function>
+			<Function id="_ReportTemplateDel" text="删除报表" iconCls="menu-del">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/multiDelReportTemplate.do</url>
+			</Function>
+		</Item>
+	
+	</Items>
+	</Items>
+	<!--
+		<Items id="Flow" text="我的流程" iconCls="mod-myflow"> <Item
+		id="NewProcess" text="新建流程" iconCls="menu-flowNew" /> <Item
+		id="MyTaskView" text="待办事项" iconCls="menu-flowWait" /> <Item
+		id="MyRunningTaskView" text="任务追回" iconCls="menu-flowPr" /> <Item
+		id="MyProcessRunView" text="我参与的流程" iconCls="menu-flowPr" /> <Item
+		id="ProcessRunView" text="我的申请流程" iconCls="menu-flowMine" /> <Item
+		id="ProcessRunFinishView" text="已办结流程" iconCls="menu-flowEnd" />
+		</Items>
+	-->
+</Menus> 

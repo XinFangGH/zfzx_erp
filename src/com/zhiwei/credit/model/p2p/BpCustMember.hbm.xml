@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.zhiwei.credit.model.p2p.BpCustMember" table="bp_cust_member">
+  <id column="id" length="19" name="id" type="java.lang.Long">
+   <generator class="native"/>
+  </id>
+  <property column="loginname" generated="never" insert="true"
+   lazy="false" length="255" name="loginname" type="java.lang.String" update="true"/>
+  <property column="thirdPayConfig" generated="never" insert="true"
+   lazy="false" length="50" name="thirdPayConfig"
+   type="java.lang.String" update="true"/>
+  <property column="thirdPayFlagId" generated="never" insert="true"
+   lazy="false" length="255" name="thirdPayFlagId"
+   type="java.lang.String" update="true"/>
+  <property column="thirdPayFlag0" generated="never" insert="true"
+   lazy="false" length="100" name="thirdPayFlag0"
+   type="java.lang.String" update="true"/>
+  <property column="MoneymoremoreId" generated="never" insert="true"
+   lazy="false" length="255" name="moneymoremoreId"
+   type="java.lang.String" update="true"/>
+  <property column="truename" generated="never" insert="true"
+   lazy="false" length="255" name="truename" type="java.lang.String" update="true"/>
+  <property column="password" generated="never" insert="true"
+   lazy="false" length="255" name="password" type="java.lang.String" update="true"/>
+  <property column="plainpassword" generated="never" insert="true"
+   lazy="false" length="255" name="plainpassword"
+   type="java.lang.String" update="true"/>
+  <property column="telphone" generated="never" insert="true"
+   lazy="false" length="255" name="telphone" type="java.lang.String" update="true"/>
+   
+   <property column="isCheckEmail" generated="never" insert="true"
+   lazy="false" length="255" name="isCheckEmail" type="java.lang.String" update="true"/>
+   <property column="isCheckPhone" generated="never" insert="true"
+   lazy="false" length="255" name="isCheckPhone" type="java.lang.String" update="true"/>
+   <property column="isCheckCard" generated="never" insert="true"
+   lazy="false" length="255" name="isCheckCard" type="java.lang.String" update="true"/>
+   
+      <property column="recommandPerson" generated="never" insert="true"  
+    lazy="false" length="255" name="recommandPerson" type="java.lang.String" update="true"/> 
+    
+    <property column="recommandNum" generated="never" insert="true" lazy="false"  
+   length="20" name="recommandNum" type="java.lang.Integer" update="true"/> 
+   
+  <property column="email" generated="never" insert="true" lazy="false"
+   length="255" name="email" type="java.lang.String" update="true"/>
+  <property column="type" generated="never" insert="true" lazy="false"
+   length="10" name="type" type="java.lang.Integer" update="true"/>
+  <property column="sex" generated="never" insert="true" lazy="false"
+   length="10" name="sex" type="java.lang.Integer" update="true"/>
+  <property column="cardtype" generated="never" insert="true"
+   lazy="false" length="10" name="cardtype" type="java.lang.Integer" update="true"/>
+  <property column="cardcode" generated="never" insert="true"
+   lazy="false" length="255" name="cardcode" type="java.lang.String" update="true"/>
+  <property column="birthday" generated="never" insert="true"
+   lazy="false" length="19" name="birthday" type="java.util.Date" update="true"/>
+  <property column="headImage" generated="never" insert="true"
+   lazy="false" length="255" name="headImage" type="java.lang.String" update="true"/>
+  
+  <property column="nativePlaceCity" generated="never" insert="true"
+   lazy="false" length="11" name="nativePlaceCity"
+   type="java.lang.Integer" update="true"/>
+  <property column="nation" generated="never" insert="true" lazy="false"
+   length="11" name="nation" type="java.lang.Integer" update="true"/>
+  <property column="homePhone" generated="never" insert="true"
+   lazy="false" length="255" name="homePhone" type="java.lang.String" update="true"/>
+  <property column="relationAddress" generated="never" insert="true"
+   lazy="false" length="255" name="relationAddress"
+   type="java.lang.String" update="true"/>
+  <property column="postCode" generated="never" insert="true"
+   lazy="false" length="255" name="postCode" type="java.lang.String" update="true"/>
+  <property column="QQ" generated="never" insert="true" lazy="false"
+   length="255" name="QQ" type="java.lang.String" update="true"/>
+  
+  <property column="paymentCode" generated="never" insert="true"
+   lazy="false" length="255" name="paymentCode" type="java.lang.String" update="true"/>
+  <property column="securityQuestion" generated="never" insert="true"
+   lazy="false" length="255" name="securityQuestion"
+   type="java.lang.String" update="true"/>
+  <property column="securityAnswer" generated="never" insert="true"
+   lazy="false" length="255" name="securityAnswer"
+   type="java.lang.String" update="true"/>
+  <property column="roleId" generated="never" insert="true" lazy="false"
+   length="10" name="roleId" type="java.lang.Integer" update="true"/>
+  <property column="registrationDate" generated="never" insert="true"
+   lazy="false" length="19" name="registrationDate"
+   type="java.util.Date" update="true"/>
+  
+  <property column="liveCity" generated="never" insert="true"
+   lazy="false" length="11" name="liveCity" type="java.lang.Integer" update="true"/>
+    <property column="liveProvice" generated="never" insert="true"
+   lazy="false" length="11" name="liveProvice" type="java.lang.Integer" update="true"/>
+  <property column="marry" generated="never" insert="true" lazy="false"
+   length="11" name="marry" type="java.lang.Integer" update="true"/>
+  <property column="fax" generated="never" insert="true" lazy="false"
+   length="255" name="fax" type="java.lang.String" update="true"/>
+  
+  <property column="isDelete" generated="never" insert="true"
+   lazy="false" length="10" name="isDelete" type="java.lang.Integer" update="true"/>
+  <property column="isForbidden" generated="never" insert="true"
+   lazy="false" length="10" name="isForbidden" type="java.lang.Integer" update="true"/>
+  <!--会员积分-->
+  <property column="score" generated="never" insert="true" lazy="false"
+   length="20" name="score" type="java.lang.Long" update="true"/>
+  <!--会员类型-->
+  <property column="category" generated="never" insert="true"
+   lazy="false" length="11" name="category" type="java.lang.Long" update="true"/>
+  <!--直接推荐人姓名-->
+  <property column="directReferralsName" generated="never" insert="true"
+   lazy="false" length="255" name="directReferralsName"
+   type="java.lang.String" update="true"/>
+  <!--间接推荐人姓名-->
+  <property column="indirectReferenceName" generated="never"
+   insert="true" lazy="false" length="255" name="indirectReferenceName"
+   type="java.lang.String" update="true"/>
+  <!--直接推荐人主键-->
+  <property column="directReferralsId" generated="never" insert="true"
+   lazy="false" length="20" name="directReferralsId"
+   type="java.lang.Long" update="true"/>
+  <!--间接推荐人主键-->
+  <property column="indirectReferenceId" generated="never" insert="true"
+   lazy="false" length="20" name="indirectReferenceId"
+   type="java.lang.Long" update="true"/>
+	 <!--是否进行过签章注册-->
+  <property column="userCode" generated="never" insert="true"
+   lazy="false" length="255" name="userCode"
+   type="java.lang.String" update="true"/>
+  <!--会员等级-->
+  <property column="memberGrade" generated="never" insert="true"
+   lazy="false" length="11" name="memberGrade" type="java.lang.Integer" update="true"/>
+<!--  会员类别
+  <property column="categoryName" generated="never" insert="true"
+   lazy="false" length="60" name="categoryName" type="java.lang.String" update="true"/>  -->
+   
+   
+    <property
+            name="havechildren"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="havechildren"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        
+        <property
+        	name="collegeDegree"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="collegeDegree"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+            name="collegeYear"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="collegeYear"
+            length="20"
+            not-null="false"
+            unique="false"
+        />
+        
+         <property
+        	name="collegename"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="collegename"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relDirName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_dir_name"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relDirType"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_dir_type"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relDirPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_dir_phone"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relOtherName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_other_name"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relOtherType"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_other_type"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relOtherPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_other_phone"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relFriendName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_friend_name"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relFriendType"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_friend_type"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="relFriendPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="rel_friend_phone"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        /><!--
+        
+        <property
+            name="careerType"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="careerType"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+ 
+        --><property
+        	name="hireCompanyname"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_companyname"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="hirePosition"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_position"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="hireMonthlyincome"
+        	type="java.math.BigDecimal"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_monthlyincome"
+        	length="10"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+        <property
+        	name="hireEmail"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_email"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        
+         <property
+        	name="hireCity"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_city"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="hireAddress"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_address"
+        	length="30"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="hireCompanytype"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_companytype"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="hireCompanycategory"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_companycategory"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+            name="hireCompanysize"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="hire_companysize"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="hireStartyear"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="hire_startyear"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+        	name="hireCompanyphone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="hire_companyphone"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+            name="havehouse"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="havehouse"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="havehouseloan"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="havehouseloan"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="havecar"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="havecar"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="havecarloan"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="havecarloan"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        <property
+        	name="webshopName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_name"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="webshopMonthlyIncome"
+        	type="java.math.BigDecimal"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_monthlyincome"
+        	length="10"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="webshopEmail"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_email"
+        	length="25"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="webshopProvince"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_province"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="webshopCity"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_city"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+           <property
+        	name="webshopAddress"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_address"
+        	length="30"
+        	not-null="false"
+        	unique="false"	
+        /> 
+            <property
+        	name="webshopStartYear"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_startyear"
+        	length="30"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="webshopPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="webshop_phone"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+            <property
+        	name="bossCompanyName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_companyname"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="bossPosition"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_position"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="bossMonthlyIncome"
+        	type="java.math.BigDecimal"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_monthlyincome"
+        	length="10"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="bossEmail"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_email"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+            <property
+        	name="bossCity"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_city"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="bossAddress"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_address"
+        	length="50"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="bossCompanyType"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_companytype"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="bossCompanyCategory"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_companycategory"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="bossCompanySize"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_companysize"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="bossStartYear"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_startyear"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="bossCompanyPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="boss_companyphone"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="teacherCompanyName"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_companyname"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="teacherPosition"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_position"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="teacherMonthlyIncome"
+        	type="java.math.BigDecimal"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_monthlyincome"
+        	length="10"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="teacherEmail"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_email"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="teacherCity"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_city"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="teacherAddress"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_address"
+        	length="30"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="teacherStartYear"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_startyear"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="teacherCompanyPhone"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="teacher_companyphone"
+        	length="15"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="memberDuedate"
+        	type="java.util.Date"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="memberDuedate"
+        	length="19"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="memberDuedate1"
+        	type="java.util.Date"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="memberDuedate1"
+        	length="19"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="recommandPerson1"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="recommandPerson1"
+        	length="50"
+        	not-null="false"
+        	unique="false"	
+        /><!--
+        <property
+        	name="recommandNum1"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="recommandNum1"
+        	length="11"
+        	not-null="false"
+        	unique="false"	
+        />   -->
+        <property column="recommandNum1" generated="never" insert="true" lazy="false"  
+        length="20" name="recommandNum1" type="java.lang.Integer" update="true"/> 
+         <property
+        	name="sinawb"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="sinawb"
+        	length="255"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="isCheckSinaWB"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="isCheckSinaWB"
+        	length="255"
+        	not-null="false"
+        	unique="false"	
+        />
+          <property
+        	name="isCheckQQ"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="isCheckQQ"
+        	length="255"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="isCheckCardTime"
+        	type="java.util.Date"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="isCheckCardTime"
+        	length="19"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="isCheckCardMessage"
+        	type="java.lang.String"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="isCheckCardMessage"
+        	length="255"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+        	name="isSync"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="isSync"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+         <property
+        	name="custType"
+        	type="java.lang.Integer"
+        	update="true"
+        	insert="true"
+        	access="property"
+        	column="custType"
+        	length="20"
+        	not-null="false"
+        	unique="false"	
+        />
+        <property
+            name="customerType"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="customerType"
+            length="11"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="bankLicense"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bankLicense"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="businessLicense"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="businessLicense"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="taxNo"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="taxNo"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="legalPerson"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="legalPerson"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="legalNo"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="legalNo"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="contactPerson"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="contactPerson"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="thirdPayStatus"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="thirdPayStatus"
+            length="6"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="isVip"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="isVip"
+            length="6"
+            not-null="false"
+            unique="false"
+        />
+   		 <property 
+   		    column="secondRecommandNum" 
+   		    generated="never" 
+   		    insert="true" 
+   		    lazy="false"  
+   			length="20" 
+   			name="secondRecommandNum" 
+   			type="java.lang.Integer" 
+   			update="true"/> 
+   		<property
+            name="tender"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="tender"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="refund"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="refund"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="secondAudit"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="secondAudit"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+           <property
+            name="entCompanyType"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="entCompanyType"
+            length="6"
+            not-null="false"
+            unique="false"
+        />	
+        <property
+            name="departmentRecommend"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="departmentRecommend"
+            length="500"
+            not-null="false"
+            unique="false"
+        />
+ </class>
+</hibernate-mapping>

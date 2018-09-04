@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.zhiwei.credit.model.creditFlow.contract.VProcreditContract" table="v_procredit_contract" >
+            <id name="id" type="java.lang.Integer">
+                <column name="id" />
+            </id>
+            <property name="projId" type="java.lang.String">
+		          <column name="projid"></column>
+		       </property>
+		       <property name="contractNumber" type="java.lang.String">
+		           <column name="contractnumber">
+		           </column>
+		       </property>
+		       <property name="contractName" type="java.lang.String">
+		           <column name="contractname">
+		           </column>
+		       </property>
+		       <property name="contractType" type="java.lang.Integer">
+		           <column name="contracttype">
+		           </column>
+		       </property>
+		        <property name="templateId" type="java.lang.Integer">
+		           <column name="templateid">
+		           </column>
+		       </property>
+		       <property name="mortgageId" type="java.lang.Integer">
+		           <column name="mortgageid">
+		           </column>
+		       </property>
+		       
+		       <property name="isDraftp" type="java.lang.Boolean">
+		           <column name="isdraftp">
+		           </column>
+		       </property>
+		       <property name="draftpId" type="java.lang.Integer">
+		           <column name="draftpid">
+		           </column>
+		       </property>
+			<property name="isLegalCheck" type="java.lang.Boolean">
+		           <column name="islegalcheck">
+		           </column>
+		       </property>
+		       <property name="legalCheckpId" type="java.lang.Integer">
+		           <column name="legalcheckpid">
+		           </column>
+		       </property>
+		       <property name="issign" type="java.lang.Boolean">
+		           <column name="issign">
+		           </column>
+		       </property>
+			<property name="issignId" type="java.lang.Integer">
+		           <column name="issignid">
+		           </column>
+		       </property>
+			<property name="signDate" type="java.util.Date">
+		           <column name="signdate">
+		           </column>
+		       </property>
+			<property name="isAgreeLetter" type="java.lang.Boolean">
+		           <column name="isagreeletter">
+		           </column>
+		       </property>
+			<property name="agreeLetterId" type="java.lang.Integer">
+		           <column name="agreeletterid">
+		           </column>
+		       </property>
+		       
+			<property name="isSeal" type="java.lang.Boolean">
+		           <column name="isseal">
+		           </column>
+		       </property>
+			<property name="sealId" type="java.lang.Integer">
+		           <column name="sealid">
+		           </column>
+		       </property>
+		       <property name="supplyClause" type="java.lang.String">
+		           <column name="supplyclause">
+		           </column>
+		       </property>
+		       <property name="isSupplyClause" type="java.lang.Boolean">
+		           <column name="issupplyclause">
+		           </column>
+		       </property>
+		       <property name="url" type="java.lang.String">
+		           <column name="url">
+		           </column>
+		       </property>
+		       <property name="isUpload" type="java.lang.Boolean">
+		           <column name="isupload">
+		           </column>
+		       </property>
+		       
+		       <property name="sealDate" type="java.util.Date">
+		        <column name="sealdate">
+		        </column>
+		    </property>
+		    <property name="agreeLetterDate" type="java.util.Date">
+		        <column name="agreeletterdate">
+		        </column>
+		    </property>
+		    <property name="legalCheckDate" type="java.util.Date">
+		        <column name="legalcheckdate">
+		        </column>
+		    </property>
+		     <property name="draftDate" type="java.util.Date">
+		        <column name="draftpdate">
+		        </column>
+		    </property>
+			<property name="text" type="java.lang.String">
+		           <column name="text">
+		           </column>
+		       </property>
+			<property name="legalCheckName" type="java.lang.String">
+		           <column name="legalcheckname">
+		           </column>
+		       </property>
+		     <property name="signName" type="java.lang.String">
+		           <column name="signname">
+		           </column>
+		       </property>  
+		        <property name="sealName" type="java.lang.String">
+		           <column name="sealname">
+		           </column>
+		       </property>
+		       <property name="agreeLetterName" type="java.lang.String">
+		           <column name="agreelettername">
+		           </column>
+		       </property>  
+		       <property name="draftName" type="java.lang.String">
+		           <column name="draftname">
+		           </column>
+		       </property>
+		       
+		        <property name="sealSubmitPersonId" type="java.lang.Integer">
+            <column name="sealsubmitpersonid">
+            </column>
+        </property>
+         <property name="sealJinbanPersonId" type="java.lang.Integer">
+            <column name="sealjinbanpersonid">
+            </column>
+        </property>
+        <property name="sealDate2" type="java.util.Date">
+	        <column name="sealdate2">
+	        </column>
+	    </property>
+	     <property name="name6" type="java.lang.String">
+		           <column name="name6">
+		           </column>
+		       </property>
+		        <property name="name7" type="java.lang.String">
+		           <column name="name7">
+		           </column>
+		       </property>
+		       <property name="isRecord" type="java.lang.Boolean">
+            <column name="isRecord" length="1">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="recordId" type="java.lang.Integer">
+            <column name="recordId" length="24">
+                <comment>归档人Id</comment>
+            </column>
+        </property>
+        <property name="recordRemark" type="java.lang.String">
+            <column name="recordRemark" length="544">
+            </column>
+        </property>
+        <property name="recordDate" type="java.util.Date">
+	        <column name="recordDate">
+	        </column>
+	    </property>
+	    <property name="fileCount" type="java.lang.String">
+            <column name="fileCount" length="200">
+            </column>
+        </property>
+             <property name="parentId" type="java.lang.Integer">
+            <column name="parentId" />
+        </property>
+        <property name="number" type="java.lang.Integer">
+            <column name="number" />
+        </property>
+        <property name="isOld" type="java.lang.Integer">
+            <column name="isOld" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="remark" />
+        </property>
+        <property name="localParentId" type="java.lang.Integer">
+            <column name="localParentId"/>
+        </property>
+        <property name="contractCategoryText" type="java.lang.String">
+             <column name="contractCategoryText" />
+         </property>
+         <property name="contractCategoryTypeText" type="java.lang.String">
+             <column name="contractCategoryTypeText" />
+         </property>
+         <property name="orderNum" type="java.lang.Integer">
+             <column name="orderNum" />
+         </property>
+         <property name="temptId" type="java.lang.Integer">
+             <column name="temptId" />
+         </property>
+         <property name="businessType" type="java.lang.String">
+             <column name="businessType" />
+         </property>
+         <property name="htType" type="java.lang.String">
+            <column name="htType" length="100" />
+        </property>
+        <property name="isApply" type="java.lang.Boolean">
+            <column name="isApply" />
+        </property>
+        <property name="clauseId" type="java.lang.Long">
+            <column name="clauseId" />
+        </property>
+        <property name="leaseObjectId" type="java.lang.Long">
+            <column name="leaseObjectId" />
+        </property>
+        <property name="dwId" type="java.lang.Long">
+            <column name="dwId" />
+        </property>
+        <property name="bidPlanId" type="java.lang.String">
+          <column name="bidPlanId"></column>
+        </property>
+        <property name="mortgagename" type="java.lang.String">
+          <column name="mortgagename"></column>
+        </property>
+    </class>
+</hibernate-mapping>

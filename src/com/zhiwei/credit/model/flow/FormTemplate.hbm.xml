@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.FormTemplate" table="form_template" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="templateId" column="templateId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="nodeName" type="java.lang.String" update="true" insert="true" access="property" column="nodeName" length="128" not-null="true" unique="false"/>  
+    <property name="tempContent" type="java.lang.String" update="true" insert="true" access="property" column="tempContent" length="65535" not-null="false" unique="false"/>  
+    <property name="extDef" type="java.lang.String" update="true" insert="true" access="property" column="extDef" length="65535" not-null="false" unique="false"/>  
+    <property name="formUrl" type="java.lang.String" update="true" insert="true" access="property" column="formUrl" length="256" not-null="false" unique="false"/>  
+    <property name="tempType" type="java.lang.Short" update="true" insert="true" access="property" column="tempType" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FormDefMapping -->  
+    <many-to-one name="formDefMapping" class="com.zhiwei.credit.model.flow.FormDefMapping" not-null="false" fetch="select"> 
+      <column name="mappingId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

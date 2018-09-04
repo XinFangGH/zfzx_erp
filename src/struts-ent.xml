@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="ent" extends="struts-default" namespace="/ent">
+		
+<!-- start:  Generated for SalesOrder From Template: struts-ent.xml.vm  -->
+	<action name="*SalesOrder" class="SalesOrderAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SalesOrder From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for SalesDetail From Template: struts-ent.xml.vm  -->
+	<action name="*SalesDetail" class="SalesDetailAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SalesDetail From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for InfoType From Template: struts-ent.xml.vm  -->
+	<action name="*InfoType" class="InfoTypeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for InfoType From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for Information From Template: struts-ent.xml.vm  -->
+	<action name="*Information" class="InformationAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for Information From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for SlCompanyMain From Template: struts-ent.xml.vm  -->
+	<action name="*SlCompanyMain" class="SlCompanyMainAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SlCompanyMain From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for SlPersonMain From Template: struts-ent.xml.vm  -->
+	<action name="*SlPersonMain" class="SlPersonMainAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SlPersonMain From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for CsEnterpriseShareequity From Template: struts-ent.xml.vm  -->
+	<action name="*CsEnterpriseShareequity" class="CsEnterpriseShareequityAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for CsEnterpriseShareequity From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for SlSmallloanProject From Template: struts-ent.xml.vm  -->
+	<action name="*SlSmallloanProject" class="SlSmallloanProjectAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SlSmallloanProject From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for CsDicAreaDynam From Template: struts-ent.xml.vm  -->
+	<action name="*CsDicAreaDynam" class="CsDicAreaDynamAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for CsDicAreaDynam From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for SlFundDetail From Template: struts-ent.xml.vm  -->
+	<action name="*SlFundDetail" class="SlFundDetailAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SlFundDetail From Template: struts-ent.xml.vm  -->
+
+
+
+<!-- start:  Generated for OurProcreditAssuretenet From Template: struts-ent.xml.vm  -->
+	<action name="*OurProcreditAssuretenet" class="OurProcreditAssuretenetAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+<!-- start:  Generated for SystemWord From Template: struts-ent.xml.vm  -->
+	<action name="*SystemWord" class="SystemWordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SystemWord From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for OurProcreditMaterialsEnterprise From Template: struts-ent.xml.vm  -->
+	<action name="*OurProcreditMaterialsEnterprise" class="OurProcreditMaterialsEnterpriseAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+
+	<action name="*SlSuperviseRecord" class="SlSuperviseRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SlSuperviseRecord From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for FlObjectSupplior From Template: struts-ent.xml.vm  -->
+	<action name="*FlObjectSupplior" class="FlObjectSuppliorAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for FlObjectSupplior From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for FlLeaseFinanceInsuranceInfo From Template: struts-ent.xml.vm  -->
+	<action name="*FlLeaseFinanceInsuranceInfo" class="FlLeaseFinanceInsuranceInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for FlLeaseFinanceInsuranceInfo From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustEntDownstreamCustom From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustEntDownstreamCustom" class="BpCustEntDownstreamCustomAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustEntDownstreamCustom From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustEntUpstreamCustom From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustEntUpstreamCustom" class="BpCustEntUpstreamCustomAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustEntUpstreamCustom From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustEntUpanddownstream From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustEntUpanddownstream" class="BpCustEntUpanddownstreamAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustEntUpanddownstream From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustEntLawsuit From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustEntLawsuit" class="BpCustEntLawsuitAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustEntLawsuit From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustEntCashflowAndSaleIncome From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustEntCashflowAndSaleIncome" class="BpCustEntCashflowAndSaleIncomeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustEntCashflowAndSaleIncome From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustRelation From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustRelation" class="BpCustRelationAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustRelation From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for PlBidAuto From Template: struts-ent.xml.vm  -->
+	<action name="*PlBidAuto" class="PlBidAutoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+<!-- start:  Generated for SettlementReviewerPay From Template: struts-ent.xml.vm  -->
+	<action name="*SettlementReviewerPay" class="SettlementReviewerPayAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SettlementReviewerPay From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for SettlementInfo From Template: struts-ent.xml.vm  -->
+	<action name="*SettlementInfo" class="SettlementInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for SettlementInfo From Template: struts-ent.xml.vm  -->
+</package>
+</struts>

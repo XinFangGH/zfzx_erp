@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.OutMail" table="out_mail" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="mailId" column="mailId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="uid" type="java.lang.String" update="true" insert="true" access="property" column="uidNo" not-null="false" unique="false"/>  
+    <property name="title" type="java.lang.String" update="true" insert="true" access="property" column="title" length="512" not-null="false" unique="false"/>  
+    <property name="senderAddresses" type="java.lang.String" update="true" insert="true" access="property" column="senderAddresses" length="128" not-null="true" unique="false"/>  
+    <property name="senderName" type="java.lang.String" update="true" insert="true" access="property" column="senderName" length="128" not-null="false" unique="false"/>  
+    <property name="receiverAddresses" type="java.lang.String" update="true" insert="true" access="property" column="receiverAddresses" not-null="true" unique="false"/>  
+    <property name="receiverNames" type="java.lang.String" update="true" insert="true" access="property" column="receiverNames" not-null="false" unique="false"/>  
+    <property name="cCAddresses" type="java.lang.String" update="true" insert="true" access="property" column="cCAddresses" not-null="false" unique="false"/>  
+    <property name="cCNames" type="java.lang.String" update="true" insert="true" access="property" column="cCNames" not-null="false" unique="false"/>  
+    <property name="bCCAddresses" type="java.lang.String" update="true" insert="true" access="property" column="bCCAddresses" not-null="false" unique="false"/>  
+    <property name="bCCAnames" type="java.lang.String" update="true" insert="true" access="property" column="bCCAnames" not-null="false" unique="false"/>  
+    <property name="mailDate" type="java.util.Date" update="true" insert="true" access="property" column="mailDate" length="19" not-null="true" unique="false"/>  
+    <property name="fileIds" type="java.lang.String" update="true" insert="true" access="property" column="fileIds" length="128" not-null="false" unique="false"/>  
+    <property name="fileNames" type="java.lang.String" update="true" insert="true" access="property" column="fileNames" length="128" not-null="false" unique="false"/>  
+    <property name="readFlag" type="java.lang.Short" update="true" insert="true" access="property" column="readFlag" length="5" not-null="true" unique="false"/>  
+    <property name="replyFlag" type="java.lang.Short" update="true" insert="true" access="property" column="replyFlag" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to OutMailFolder -->  
+    <many-to-one name="outMailFolder" class="com.zhiwei.credit.model.communicate.OutMailFolder" not-null="false" fetch="select"> 
+      <column name="folderId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to OutMailFile -->  
+    <set name="outMailFiles" table="out_mail_file" lazy="false" cascade="save-update"> 
+      <key> 
+        <column name="mailId"/> 
+      </key>  
+      <!--
+		<one-to-many
+			class="com.zhiwei.credit.model.communicate.OutMailFile"
+		/>
+		-->  
+      <many-to-many class="com.zhiwei.credit.model.system.FileAttach" column="fileId" fetch="join"/> 
+    </set>  
+    <!-- Imported bi-directional one-to-many association to OutMailUserSeting -->  
+    <!--
+	<set name="outMailUserSetings"
+	     table="out_mail_user_seting"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="userId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.communicate.OutMailUserSeting"
+		/>
+	</set>    
+	-->  
+    <!--
+	<many-to-one
+			name="outMailUserSeting"
+			class="com.zhiwei.credit.model.communicate.OutMailUserSeting"
+            not-null="false"
+	        update="false"
+	        insert="false">			
+			<column name="userId" />
+	</many-to-one>
+	-->  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="false" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.ConfAttend" table="conf_attend" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="attendId" column="attendId" type="java.lang.Integer" length="10"> 
+      <generator class="native"></generator> 
+    </id>  
+    <many-to-one name="confId" class="com.zhiwei.credit.model.admin.Conference"> 
+      <column name="confId"/> 
+    </many-to-one>  
+    <property name="userId" type="java.lang.Integer" update="true" insert="true" access="property" column="userId" length="10" not-null="false" unique="false"/>  
+    <property name="userType" type="java.lang.Short" update="true" insert="true" access="property" column="userType" length="5" not-null="false" unique="false"/>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="50" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

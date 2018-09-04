@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 定义一个工程，默认任务为warFile。 -->
+<project name="hurong_proj_bj_zfzx_erp" default="deploy" basedir=".">
+    
+    <!-- 定义属性，打成war包的名称。2 -->
+    <property name="hurong_proj_bj_zfzx_erp" value="hurong_proj_bj_zfzx_erp.war"></property>
+	<property name="catalina.home" value="E:\Hurong_Proj\hurong_erp\Tomcat6_8324" />
+	<property name="src" location="src"/>
+    <property name="build" location="build"/>
+    
+    <!-- 定义路径，编译java文件时用到的jar包。 -->
+    <path id="project.lib">
+        <fileset dir="${basedir}/WebRoot/WEB-INF/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+		<fileset dir="${catalina.home}/lib">  
+    	            <include name="*.jar" />  
+    	</fileset> 
+    </path>
+    
+    <!-- 定义任务，清空任务：清空原有的class文件，清空原来的attachFiles文件。 -->
+    <target name="clean">
+        <delete dir="${basedir}/build" />
+		<mkdir dir="${basedir}/build" />
+		
+    </target>
+    
+    <!-- 定义任务，编译src文件夹中的java文件，编译后的class文件放到创建的文件夹下。 -->
+    <target name="compile" depends="clean">
+		<echo>用javac编译java文件</echo>
+     <javac destdir="${basedir}/build" debug="yes" verbose="no"
+            encoding="UTF-8" source="1.6" failonerror="true" fork="true"
+            memoryInitialSize="256m" memoryMaximumSize="512m" listfiles="true"> 
+			<src path="${basedir}/src"  />
+			<compilerarg line="-encoding UTF-8 "/> 
+            <classpath refid="project.lib">
+            </classpath>
+	</javac>
+		
+    </target>
+	<!-- 备份项目
+	 <target name="copyC" depends="copyB">
+	 <echo>备份项目</echo>
+		<copy todir="E:/backups/back/" >
+			<fileset dir="${catalina.home}/webapps/" 
+			/>
+		</copy>
+
+	</target>  -->
+	
+	
+	<!--拷贝src下的xml和config等文件  -->
+	<target name="copyA" depends="compile">
+		<echo>拷贝src下的xml和config等文件</echo>
+	   <copy todir="${build}" >
+			<fileset dir="${src}" 
+				excludes="**/*.java" 
+			/>
+		</copy>
+	</target>
+	<!--拷贝attachfile 
+	<target name="copyB" depends="copyA">
+		<echo>拷贝attachfile文件</echo>
+			<copy todir="${basedir}/WebRoot/attachFiles" >
+			<fileset dir="${catalina.home}/webapps/hurong_proj_bj_zfzx_erp/attachFiles" 
+			/>
+		</copy>
+
+	</target> -->
+
+	<!-- 定义默认任务，将class文件集合成jar包。 -->
+    <target name="warFile" depends="copyA">
+		<echo>打war包</echo>
+        <!-- 删除原有war包。 -->
+        <delete dir="${basedir}/${hurong_proj_bj_zfzx_erp}" />
+        <!-- 建立新war包。 -->
+        <war destfile="${basedir}/${hurong_proj_bj_zfzx_erp}" webxml="${basedir}/WebRoot/WEB-INF/web.xml">
+            <!-- 将非jar和非class文件拷贝到war包的对应路径下。 -->
+            <fileset dir="${basedir}/WebRoot">
+                <include name="**/**.*" />
+                <exclude name="**/*.jar"/>
+                <exclude name="**/*.class"/> 
+				<!--<exclude name="attachFiles/**"/>
+				<exclude name="WEB-INF/lib/**"/>-->
+
+            </fileset>
+            <!-- 将jar和class文件拷贝到war包的对应路径下。 -->
+           <lib dir="${basedir}/WebRoot/WEB-INF/lib" />
+            <classes dir="${basedir}/build" />
+			
+        </war>
+    </target>
+	
+ <!--   <target name="delete" depends="warFile">
+		<echo>删除svn信息</echo>
+        <delete dir="${basedir}/.svn" />
+		<delete dir="${basedir}/build" />
+    	<delete dir="${basedir}/metadata" />
+    	<delete dir="${basedir}/src" />
+    	<delete dir="${basedir}/相关说明" />
+		<delete dir="${basedir}/WebRoot" />  
+    	
+    </target> -->
+	<target name="deploy" depends="warFile" description="部署项目">  
+        <echo>部署到Tomcat</echo>  
+        <delete file="${catalina.home}/webapps/${hurong_proj_bj_zfzx_erp}.war" />  
+        <delete dir="${catalina.home}/webapps/hurong_proj_bj_zfzx_erp" /> 
+		<copy file="${basedir}/${hurong_proj_bj_zfzx_erp}" todir="E:\Hurong_Proj\hurong_erp\Tomcat6_8324\webapps" />
+		<delete file="${basedir}/${hurong_proj_bj_zfzx_erp}.war" /> 
+    </target>  
+    
+</project>

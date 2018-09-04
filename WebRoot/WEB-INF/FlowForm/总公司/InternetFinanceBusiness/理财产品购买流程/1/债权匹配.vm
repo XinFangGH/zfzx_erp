@@ -1,0 +1,328 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	runId : '$!runId',
+	projectId : '$!projectId',
+	businessType : '$!businessType',
+	oppositeType : '$!oppositeType',
+	investPersonId : '$!investPersonId',
+	mmplanId : '$!mmplanId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInfoPanel.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInvestPersonInfo.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/plMmOrderViewOrderFlow.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmPlanPanel.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmChildrenObligatoryRightView.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/matchingDetail.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderChildrenOrForm.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderAssignInterestView.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderChildrenorTestView.js',
+		    	__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmChildrenObligatoryRightForm.js',
+				__ctxPath+'/js/customer/selectInvestPersonList.js',
+				__ctxPath+'/js/creditFlow/special/project/PlManageMoneyMatchingDetail.js',
+				__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsViewProduct_FinanceProduct.js',//贷款材料清单
+    			__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsForm.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//投资基本信息
+		this.PlMmOrderInfoPanel = new PlMmOrderInfoPanel({
+			isReadOnly: true,
+			projectId : this.projectId
+		});
+		
+		//投资人信息
+		this.PlMmOrderInvestPersonInfo = new PlMmOrderInvestPersonInfo({
+			isRead: true,
+			investPersonId : this.investPersonId
+		});
+		
+		//理财产品信息
+		this.PlMmPlanPanel = new PlMmPlanPanel({
+			mmplanId : this.mmplanId
+		});
+		
+		//理财产品购买信息
+		this.PlMmPlanBuyPanel = new PlMmPlanBuyPanel({
+			isReadOnly: true,
+			projectId : this.projectId,
+			hiddenInterest : false
+		});
+		
+		//债权匹配
+		/*this.plMmOrderViewOrderFlow = new plMmOrderViewOrderFlow({
+			keystr : 'mmproduce',
+			projectId : this.projectId
+		})*/
+		
+	/*	this.ourProcreditMaterialsView=new OurProcreditMaterialsViewProduct_FinanceProduct({
+			isProduct:false,
+			projectId:this.projectId,
+			isReadOnly:true,
+			isAllReadOnly:true,
+			isTurnover:true,
+			hiddenAdd:true,
+			hiddenedit:true,
+			hiddenDel:true,
+			isHidden_materials:true,
+			customerType:"('investPerson')"
+		});*/
+		
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'plMmOrderInfoService.investFlowNext'
+			},{
+				xtype : 'fieldset',
+				title : '理财产品信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanPanel]
+			},{
+				xtype : 'fieldset',
+				title : '投资人信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInvestPersonInfo]
+			},{
+				xtype : 'fieldset',
+				title : '销售信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInfoPanel]
+			},{
+				xtype : 'fieldset',
+				title : '购买信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanBuyPanel]
+			},{
+				xtype : 'fieldset',
+				title : '债权匹配',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'actualClaims',
+				autoHeight:true,
+//				items : [this.plMmOrderViewOrderFlow]
+				items :[{
+					layout : "column",
+					border : false,
+					scope : this,
+					defaults : {
+						anchor : '100%',
+						columnWidth : 1,
+						isFormField : true,
+						labelWidth : 100,
+						labelAlign:'left'
+					},
+					items : [{
+						columnWidth : .25,
+						layout : 'form',
+						labelWidth : 85,
+						items:[{
+							fieldLabel : '匹配日期',
+							name : 'matchDate',
+							xtype : 'datefield',
+							format : "Y-m-d",
+							maxValue : new Date(),
+							anchor:'90%',
+							value : new Date()
+						}]
+					},{
+						columnWidth : .1,
+						layout : 'form',
+						labelWidth : 85,
+						items:[{
+							iconCls : 'btn-ok',
+							text : '初始快速匹配',
+							xtype : 'button',
+							scope : this,
+							handler : this.halfAutomatching
+						}]
+					},{
+						columnWidth : .25,
+						layout : 'form',
+						labelWidth : 85,
+						items:[{
+							iconCls : 'btn-ok',
+							text : '手动匹配',
+							xtype : 'button',
+							scope : this,
+							handler : this.createRs
+						}]
+					}]
+				}]
+			}/*,{
+				xtype : 'fieldset',
+				title : '材料清单',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.ourProcreditMaterialsView]
+			}*/]
+		})
+		this.loadData({
+			url : __ctxPath + '/creditFlow/financingAgency/getTurnoverInfoPlManageMoneyPlan.do?projectId='+ this.projectId + '&slTaskId=' + this.taskId,
+			method : "POST",									  
+			preName : ['csInvestmentperson','plManageMoneyPlan','plManageMoneyPlanBuyinfo','plManageMoneyPlanGiftInfo','plManageMoneyPlanOtherInfo' ],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				
+				var matchingDetail= new PlManageMoneyMatchingDetail({
+					orderId :alarm_fields.data.plManageMoneyPlanBuyinfo.orderId,
+					investPersonName : alarm_fields.data.plManageMoneyPlanBuyinfo.investPersonName,
+					mmName :alarm_fields.data.plManageMoneyPlanBuyinfo.mmName,
+					buyMoney :alarm_fields.data.plManageMoneyPlanBuyinfo.buyMoney,
+					orderlimit :alarm_fields.data.plManageMoneyPlanBuyinfo.orderlimit,
+					promisIncomeSum:alarm_fields.data.plManageMoneyPlanBuyinfo.promisIncomeSum,
+					currentGetedMoney : alarm_fields.data.plManageMoneyPlanBuyinfo.currentGetedMoney,
+					keystr : 'mmproduce'
+				});
+				
+				this.getCmpByName('actualClaims').items.add(matchingDetail);
+				this.getCmpByName('actualClaims').doLayout();
+				if(alarm_fields.data.comments){
+				    this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);
+				}
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		/*	formPanel.getForm().submit({
+			    clientValidation: false, 
+				url : __ctxPath + '/creditFlow/financingAgency/savaByFlowPlMmOrderInfo.do?id=' + this.projectId,
+				params : {
+					'comments':formPanel.comments
+				},
+				method : 'post',
+				waitMsg : '数据正在提交，请稍后...',
+				scope: this,
+				success : function(fp, action) {
+					var object = Ext.util.JSON.decode(action.response.responseText)
+					Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				},
+				failure : function(fp, action) {
+					Ext.MessageBox.show({
+						title : '操作信息',
+						msg : '信息保存出错，请联系管理员！',
+						buttons : Ext.MessageBox.OK,
+						icon : 'ext-mb-error'
+					});
+				}
+			});*/
+	},
+	validate : function(outpanel) {
+		return true;
+	},
+	createRs : function() {
+		var seachDate = this.getCmpByName('matchDate').getValue();
+//		var currentMatchingMoney=this.getCmpByName('plManageMoneyPlanBuyinfo.currentMatchingMoney').getValue();
+		var currentMatchingMoney=this.getCmpByName('plMmOrderInfo.buyMoney').getValue();
+		if (currentMatchingMoney == 0) {
+			Ext.ux.Toast.msg('操作信息', '匹配金额已经为0，不能再匹配了');
+		} else {
+			new PlMmChildrenObligatoryRightView({
+				orderId : this.getCmpByName('plMmOrderInfo.orderId').getValue(),
+				seachDate : seachDate,
+				keystr : 'mmproduce',
+				childType : 'mmproduceOr',
+				currentMatchingMoney : currentMatchingMoney
+			}).show();
+		}
+	},
+	halfAutomatching:function(){
+		var seachDate = this.getCmpByName('matchDate').getValue();
+		var loadMask1 = new Ext.LoadMask(Ext.getBody(), {
+			msg : '正在匹配中······,请稍候······',
+			removeMask : true
+		});
+		loadMask1.show(); // 显示
+		Ext.Ajax.request({
+	    	url : __ctxPath
+				+ "/creditFlow/financingAgency/halfAutomatchingPlMmOrderChildrenOr.do",
+		    method : 'post',
+		    success : function(response, request) {
+		    	loadMask1.hide();
+				Ext.getCmp("PlMmOrderChildrenOrGridmmproduce").getStore().reload();
+				Ext.ux.Toast.msg('操作信息', '初始快速匹配成功');
+			},
+			params : {
+				ids : this.getCmpByName('plMmOrderInfo.orderId').getValue(),
+				seachDate : seachDate,
+				childType : 'mmproduceOr'
+			}
+		});
+	}
+})
+
+
+

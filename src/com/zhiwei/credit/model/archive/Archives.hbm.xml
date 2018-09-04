@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.Archives" table="archives" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="archivesId" column="archivesId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="128" not-null="false" unique="false"/>  
+    <property name="archivesNo" type="java.lang.String" update="true" insert="true" access="property" column="archivesNo" length="100" not-null="true" unique="false"/>  
+    <property name="issueDep" type="java.lang.String" update="true" insert="true" access="property" column="issueDep" length="128" not-null="true" unique="false"/>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="issueDate" type="java.util.Date" update="true" insert="true" access="property" column="issueDate" length="19" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.String" update="true" insert="true" access="property" column="status" length="128" not-null="true" unique="false"/>  
+    <property name="shortContent" type="java.lang.String" update="true" insert="true" access="property" column="shortContent" length="1024" not-null="false" unique="false"/>  
+    <property name="fileCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="fileCounts" length="10" not-null="false" unique="false"/>  
+    <property name="privacyLevel" type="java.lang.String" update="true" insert="true" access="property" column="privacyLevel" length="50" not-null="false" unique="false"/>  
+    <property name="urgentLevel" type="java.lang.String" update="true" insert="true" access="property" column="urgentLevel" length="50" not-null="false" unique="false"/>  
+    <property name="issuer" type="java.lang.String" update="true" insert="true" access="property" column="issuer" length="50" not-null="false" unique="false"/>  
+    <property name="issuerId" type="java.lang.Long" update="true" insert="true" access="property" column="issuerId" length="19" not-null="false" unique="false"/>  
+    <property name="keywords" type="java.lang.String" update="true" insert="true" access="property" column="keywords" length="256" not-null="false" unique="false"/>  
+    <property name="sources" type="java.lang.String" update="true" insert="true" access="property" column="sources" length="50" not-null="false" unique="false"/>  
+    <property name="archType" type="java.lang.Short" update="true" insert="true" access="property" column="archType" length="5" not-null="true" unique="false"/>  
+    <property name="recDepIds" type="java.lang.String" update="true" insert="true" access="property" column="recDepIds" length="2000" not-null="false" unique="false"/>  
+    <property name="recDepNames" type="java.lang.String" update="true" insert="true" access="property" column="recDepNames" length="2000" not-null="false" unique="false"/>  
+    <property name="handlerUids" type="java.lang.String" update="true" insert="true" access="property" column="handlerUids" length="256" not-null="false" unique="false"/>  
+    <property name="handlerUnames" type="java.lang.String" update="true" insert="true" access="property" column="handlerUnames" length="256" not-null="false" unique="false"/>  
+    <property name="orgArchivesId" type="java.lang.Long" update="true" insert="true" access="property" column="orgArchivesId" length="19" not-null="false" unique="false"/>  
+    <property name="depSignNo" type="java.lang.String" update="true" insert="true" access="property" column="depSignNo" length="100" not-null="false" unique="false"/>  
+    <property name="runId" type="java.lang.Long" update="true" insert="true" access="property" column="runId" length="19" not-null="false" unique="false"/>  
+    <property name="archStatus" type="java.lang.Short" update="true" insert="true" access="property" column="archStatus" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ArchivesType -->  
+    <many-to-one name="archivesType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one>  
+    <many-to-one name="archivesRecType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="glo_proTypeId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to Department -->  
+    <many-to-one name="department" class="com.zhiwei.credit.model.system.Department" not-null="false" fetch="select"> 
+      <column name="depId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to ArchivesDep -->  
+    <set name="archivesDeps" table="archives_dep" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="archivesId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.archive.ArchivesDep"/> 
+    </set>  
+    <set name="archivesDocs" table="archives_doc" lazy="true" inverse="false" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key column="archivesId"/>  
+      <one-to-many class="com.zhiwei.credit.model.archive.ArchivesDoc"/> 
+    </set>  
+    <set name="archivesDispatch" table="arch_dispatch" lazy="true" inverse="false" cascade="save-update" sort="unsorted"> 
+      <key column="archivesId"/>  
+      <one-to-many class="com.zhiwei.credit.model.archive.ArchDispatch"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

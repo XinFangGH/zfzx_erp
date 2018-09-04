@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<zhiwei>
+	<description>webServices配置文件</description>
+	<webServicesConfig>
+	<isOpen>false</isOpen>
+	<customerIsOpen>false</customerIsOpen>
+		  <url>http://172.16.100.18/uapws/service/webser</url> 
+		  <!--<url>http://nc.zyhtchina.cn/uapws/service/webser</url> -->
+	</webServicesConfig>
+</zhiwei>

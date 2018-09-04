@@ -1,0 +1,115 @@
+## This is a velocity template
+## to generate a Spring controller class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+#set ($classManager    = "${class}Manager")
+#set ($classVarManager = "${classVar}Manager")
+package ${packagePrefix}.${packageModot}.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.web.servlet.ModelAndView;
+
+import ${packagePrefix}.core.command.QueryFilter;
+import ${packagePrefix}.core.command.QueryResult;
+import ${packagePrefix}.core.controller.BaseListController;
+
+import ${packagePrefix}.model.${packageModot}.${class};
+import ${packagePrefix}.${packageModot}.service.${class}Manager;
+
+/**
+ * 
+ * @Author author
+ * @Vesion 1.0
+ * Create Time:
+ * <p><b>Class Description:</b>[TODO]<p>
+ */
+public class ${class}Controller extends BaseListController {
+	
+	private ${class}Manager ${classVar}Manager=null;
+
+	public void set${class}Manager(${class}Manager ${classVar}Manager) {
+		this.${classVar}Manager = ${classVar}Manager;
+	}
+	
+	/**对象列表页，提供最基本的分页显示
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView defaultAction(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		
+		QueryResult ${classVar}s=${classVar}Manager.getAll(new QueryFilter(request));
+		
+		return new ModelAndView("admin/${packageModot}/${classVar}List","${classVar}s",${classVar}s);
+	}
+	
+	/**
+	 * 批量删除，通过页面传回对象的主键数组进行逐条删除
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView multiDelete(HttpServletRequest request,	HttpServletResponse response) {
+		String[] ${keyVar}s=request.getParameterValues("${keyVar}");
+		if(${keyVar}s!=null){
+			for(String ${keyVar}:${keyVar}s){
+				${classVar}Manager.remove(new Long(${keyVar}));
+			}
+			saveMessage(request, getText("${classVar}.mutiDeleted"));
+		}
+		String url=request.getHeader("Referer");
+		if(StringUtils.isNotEmpty(url)){
+			return new ModelAndView("redirect:"+url);
+		}
+		return new ModelAndView(getSuccessView());
+	}
+	
+	/**
+	 * 删除单个实体对象
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView delete(HttpServletRequest request,	HttpServletResponse response){
+		String ${keyVar}=request.getParameter("${keyVar}");
+		if(StringUtils.isNotEmpty(${keyVar})){
+			${class} ${classVar}=${classVar}Manager.get(new Long(${keyVar}));
+			${classVar}Manager.remove(${classVar});
+			saveMessage(request,getText("${classVar}.deleted",new Object[]{${classVar}.get${keyVarUC}()}));
+		}
+		String url=request.getHeader("Referer");
+		if(StringUtils.isNotEmpty(url)){
+			return new ModelAndView("redirect:"+url);
+		}
+		return new ModelAndView(getSuccessView());
+	}
+	
+	/**
+	 * 查看实体对象详细信息
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView viewDetail(HttpServletRequest request,	HttpServletResponse response){
+		String ${keyVar}=request.getParameter("${keyVar}");
+		${class} ${classVar}=null;
+		if(StringUtils.isNotEmpty(${keyVar})){
+			${classVar}=${classVar}Manager.get(new Long(${keyVar}));
+		}
+		return new ModelAndView("admin/${packageModot}/${classVar}Detail","${classVar}",${classVar});
+	}
+}

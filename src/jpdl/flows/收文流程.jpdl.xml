@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process key="ArchivesRecFlow" name="ArchivesRecFlow" xmlns="http://jbpm.org/4.4/jpdl">
+   <start g="71,2,84,48" name="收文员登记">
+      <transition g="-36,-7" name="提交" to="办公室主任审批"/>
+   </start>
+   <task g="17,81,158,47" name="办公室主任审批">
+      <transition g="-36,-3" name="提交" to="主要领导、分管领导审批"/>
+      <transition g="-53,-15" name="下派" to="收文员分发文件"/>
+   </task>
+   <task g="7,320,176,54" name="主要领导、分管领导审批">
+      <transition g="7,4" name="下派" to="收文员分发文件"/>
+   </task>
+   <task g="139,178,154,46" name="收文员分发文件">
+      <transition g="-35,-8" name="下派" to="各科室收文"/>
+   </task>
+   <task g="321,322,135,51" name="各科室收文">
+      <transition name="申请归档" to="收文员申请归档" g="14,-14"/>
+   </task>
+   <task g="323,177,136,48" name="收文员申请归档">
+      <transition g="22,-4" name="办公室归档" to="档案管理员办公室归档"/>
+   </task>
+   <task g="312,87,153,50" name="档案管理员办公室归档">
+      <transition g="19,-1" name="归档结束" to="归档结束"/>
+   </task>
+   <end g="366,11,48,48" name="归档结束"/>
+</process>

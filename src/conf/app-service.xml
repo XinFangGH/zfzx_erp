@@ -1,0 +1,2518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.zhiwei.credit.service" />
+
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 通过xml 配置  aop bean -->
+	<bean id="logAspect" class="com.zhiwei.core.log.LogAspect" />
+	
+	<!-- IntegralAop  积分Aop切面类 -->
+	<bean id="integralAop" class="com.zhiwei.core.integral.IntegralAop" ></bean>
+	
+	<!-- java 类中 配置 aop bean  -->
+	<bean id="logAspectJava" class="com.zhiwei.core.log.LogAspectJava" />
+
+
+	<!--<bean id="integration" class="com.zhiwei.credit.action.system.Integration"/>
+
+	--><aop:config>
+		<aop:pointcut id="servicePointCut"
+			expression="execution(* com.zhiwei.credit.service..*(..))" />
+		<aop:pointcut id="servicePointCut2"
+			expression="execution(* com.zhiwei.core.service..*(..))" />
+		<aop:pointcut id="servicePointCut3"
+			expression="execution(* com.credit.proj.*.*.service..*(..))" />
+		<!--
+			客户管理,多级数据字典add by chencc
+		-->
+		<aop:pointcut id="servicePointCut4"
+			expression="execution(* com.credit.proj.customer.person.relation.service..*(..))" />
+		<!--
+			关系人 add by chencc
+		-->
+		<aop:pointcut id="servicePointCut5"
+			expression="execution(* com.credit.proj.customer.*.ajax..*(..))" />
+		<!--
+			客户管理AJAX验证 add by chencc
+		-->
+		<aop:pointcut id="servicePointCut6"
+			expression="execution(* com.credit.publicmodel.*.service..*(..))" />
+		<!--
+			数据字典/模板/文件上传 add by chencc
+		-->
+		<aop:pointcut id="servicePointCut7"
+			expression="execution(* com.credit.proj.workflow.guarantee.enterprise.*.service..*(..))" />
+		<!--
+			业务经营情况,合同add by chencc
+		-->
+		<aop:pointcut id="serviceMortgage"
+			expression="execution(* com.credit.proj.mortgage.*.service..*(..))" />
+		<!--
+			反担保add by luqh
+		-->
+		<aop:pointcut id="servicePointCut8"
+			expression="execution(* com.credit.proj.creditmanagement.*.service..*(..))" />
+		<!--
+			企业资信评估add by zhangcy
+		-->
+		<!--
+			<aop:pointcut id="serviceMortgage" expression="execution(*
+			com.credit.proj.mortgage.business.service..*(..))"/>
+		-->
+		<aop:pointcut id="daoPointCut"
+			expression="execution(* com.zhiwei.credit.core.commons.CreditBaseDao.*(..))" />
+		<!--
+			直接拦截基类dao chencc
+		-->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut2" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut3" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut4" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut5" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut6" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut7" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="daoPointCut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMortgage" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointCut8" />
+
+		<aop:aspect ref="logAspect">
+			<aop:pointcut id="logPointCut" expression="execution(* com.zhiwei.credit.action..*(..))" />
+			<aop:around pointcut-ref="logPointCut" method="doSystemLog" />
+			<!--
+				<aop:after-throwing pointcut-ref="logPointCut"
+				method="doRecovertyActions" throwing="ex" />
+			-->
+		</aop:aspect>
+		
+<!-- 		<aop:aspect ref="integralAop">
+			<aop:pointcut id="integralAopCut" expression="execution(* com.zhiwei.credit.service..*.*(..))" />
+			<aop:around pointcut-ref="integralAopCut" method="integralEngine" arg-names="obj" />
+			<aop:after-returning method="doAfter" pointcut-ref="integralAopCut" returning="val" />
+		</aop:aspect> -->
+		
+	<!--
+		 <aop:aspect id="TestAspect" ref="integration">  
+            <aop:pointcut id="businessService"  
+                expression="(execution(* com.zhiwei.credit.action.system.AspectAction.*(..)))||(execution(* com.zhiwei.credit.action.system.LoginAction.ajaxValidation(..)))"/>  
+            <aop:before pointcut-ref="businessService" method="doBefore"/>  
+            <aop:after  pointcut-ref="businessService" method="doAfter"/>
+            <aop:after-throwing method="doException" pointcut-ref="businessService" throwing="ex"/>
+           	<aop:after-returning pointcut-ref="businessService" method="doAfterReturn" returning="retVal"/>
+        </aop:aspect>
+	-->
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<!--
+				<tx:method name="get*" read-only="true"/> <tx:method name="is*"
+				read-only="true"/> <tx:method name="find*" read-only="true"/>
+			-->
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="jbpmService" class="com.zhiwei.credit.service.flow.impl.JbpmServiceImpl" />
+
+	<bean id="flowFormService" class="com.zhiwei.credit.service.flow.impl.FlowFormServiceImpl" />
+
+	<bean id="processService" class="com.zhiwei.credit.service.flow.impl.ProcessServiceImpl" />
+
+	<!-- add the bean you define here -->
+
+	<bean id="appUserService"
+		class="com.zhiwei.credit.service.system.impl.AppUserServiceImpl">
+		<constructor-arg index="0" ref="appUserDao" />
+	</bean>
+
+	<bean id="appRoleService"
+		class="com.zhiwei.credit.service.system.impl.AppRoleServiceImpl">
+		<constructor-arg index="0" ref="appRoleDao" />
+	</bean>
+
+	<bean id="departmentService"
+		class="com.zhiwei.credit.service.system.impl.DepartmentServiceImpl">
+		<constructor-arg index="0" ref="departmentDao" />
+	</bean>
+
+	<bean id="companyService"
+		class="com.zhiwei.credit.service.system.impl.CompanyServiceImpl">
+		<constructor-arg index="0" ref="companyDao" />
+	</bean>
+	<bean id="shortMessageService"
+		class="com.zhiwei.credit.service.info.impl.ShortMessageServiceImpl">
+		<constructor-arg index="0" ref="shortMessageDao" />
+	</bean>
+	<bean id="inMessageService"
+		class="com.zhiwei.credit.service.info.impl.InMessageServiceImpl">
+		<constructor-arg index="0" ref="inMessageDao" />
+	</bean>
+	<!--
+		start: Generated for Diary From Template: app-service.xml.beansvm
+	-->
+	<bean id="diaryService" class="com.zhiwei.credit.service.system.impl.DiaryServiceImpl">
+		<constructor-arg index="0" ref="diaryDao" />
+	</bean>
+	<!--
+		end: Generated for Diary From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FileAttach From Template: app-service.xml.beansvm
+	-->
+	<bean id="fileAttachService"
+		class="com.zhiwei.credit.service.system.impl.FileAttachServiceImpl">
+		<constructor-arg index="0" ref="fileAttachDao" />
+	</bean>
+	<!--
+		end: Generated for FileAttach From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ReportTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="reportTemplateService"
+		class="com.zhiwei.credit.service.system.impl.ReportTemplateServiceImpl">
+		<constructor-arg index="0" ref="reportTemplateDao" />
+	</bean>
+	<!--
+		end: Generated for ReportTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DocFolder From Template: app-service.xml.beansvm
+	-->
+	<bean id="docFolderService"
+		class="com.zhiwei.credit.service.document.impl.DocFolderServiceImpl">
+		<constructor-arg index="0" ref="docFolderDao" />
+	</bean>
+	<!--
+		end: Generated for DocFolder From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Document From Template: app-service.xml.beansvm
+	-->
+	<bean id="documentService"
+		class="com.zhiwei.credit.service.document.impl.DocumentServiceImpl">
+		<constructor-arg index="0" ref="documentDao" />
+	</bean>
+	<!--
+		end: Generated for Document From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for News From Template: app-service.xml.beansvm
+	-->
+	<bean id="newsService" class="com.zhiwei.credit.service.info.impl.NewsServiceImpl">
+		<constructor-arg index="0" ref="newsDao" />
+	</bean>
+	<!--
+		end: Generated for News From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for MailFolder From Template: app-service.xml.beansvm
+	-->
+	<bean id="mailFolderService"
+		class="com.zhiwei.credit.service.communicate.impl.MailFolderServiceImpl">
+		<constructor-arg index="0" ref="mailFolderDao" />
+	</bean>
+	<!--
+		end: Generated for MailFolder From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Mail From Template: app-service.xml.beansvm
+	-->
+	<bean id="mailService"
+		class="com.zhiwei.credit.service.communicate.impl.MailServiceImpl">
+		<constructor-arg index="0" ref="mailDao" />
+	</bean>
+	<!--
+		end: Generated for Mail From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for MailBox From Template: app-service.xml.beansvm
+	-->
+	<bean id="mailBoxService"
+		class="com.zhiwei.credit.service.communicate.impl.MailBoxServiceImpl">
+		<constructor-arg index="0" ref="mailBoxDao" />
+	</bean>
+	<!--
+		end: Generated for MailBox From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for PhoneBook From Template: app-service.xml.beansvm
+	-->
+	<bean id="phoneBookService"
+		class="com.zhiwei.credit.service.communicate.impl.PhoneBookServiceImpl">
+		<constructor-arg index="0" ref="phoneBookDao" />
+	</bean>
+	<!--
+		end: Generated for PhoneBook From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for PhoneGroup From Template: app-service.xml.beansvm
+	-->
+	<bean id="phoneGroupService"
+		class="com.zhiwei.credit.service.communicate.impl.PhoneGroupServiceImpl">
+		<constructor-arg index="0" ref="phoneGroupDao" />
+	</bean>
+	<!--
+		end: Generated for PhoneGroup From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DocPrivilege From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="docPrivilegeService"
+		class="com.zhiwei.credit.service.document.impl.DocPrivilegeServiceImpl">
+		<constructor-arg index="0" ref="docPrivilegeDao" />
+	</bean>
+	<!--
+		end: Generated for DocPrivilege From Template: app-service.xml.beansvm
+	-->
+	
+	<!--
+		start: Generated for ProDefinition From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="proDefinitionService"
+		class="com.zhiwei.credit.service.flow.impl.ProDefinitionServiceImpl">
+		<constructor-arg index="0" ref="proDefinitionDao" />
+	</bean>
+	<!--
+		end: Generated for ProDefinition From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ProUserAssign From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="proUserAssignService"
+		class="com.zhiwei.credit.service.flow.impl.ProUserAssignServiceImpl">
+		<constructor-arg index="0" ref="proUserAssignDao" />
+	</bean>
+	<!--
+		end: Generated for ProUserAssign From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ProcessRun From Template: app-service.xml.beansvm
+	-->
+	<bean id="processRunService"
+		class="com.zhiwei.credit.service.flow.impl.ProcessRunServiceImpl">
+		<constructor-arg index="0" ref="processRunDao" />
+	</bean>
+	<!--
+		end: Generated for ProcessRun From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for RunData From Template: app-service.xml.beansvm
+	-->
+	<bean id="runDataService" class="com.zhiwei.credit.service.flow.impl.RunDataServiceImpl">
+		<constructor-arg index="0" ref="runDataDao" />
+	</bean>
+	<!--
+		end: Generated for RunData From Template: app-service.xml.beansvm
+	-->
+	
+	<!--
+		start: Generated for ProcessForm From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="processFormService"
+		class="com.zhiwei.credit.service.flow.impl.ProcessFormServiceImpl">
+		<constructor-arg index="0" ref="processFormDao" />
+	</bean>
+	<!--
+		end: Generated for ProcessForm From Template: app-service.xml.beansvm
+	-->
+
+	<bean id="flowTaskService" class="com.zhiwei.credit.service.flow.impl.TaskServiceImpl">
+		<constructor-arg index="0" ref="taskDao" />
+	</bean>
+	<!--
+		start: Generated for OfficeGoodsType From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="officeGoodsTypeService"
+		class="com.zhiwei.credit.service.admin.impl.OfficeGoodsTypeServiceImpl">
+		<constructor-arg index="0" ref="officeGoodsTypeDao" />
+	</bean>
+	<!--
+		end: Generated for OfficeGoodsType From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for OfficeGoods From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="officeGoodsService"
+		class="com.zhiwei.credit.service.admin.impl.OfficeGoodsServiceImpl">
+		<constructor-arg index="0" ref="officeGoodsDao" />
+	</bean>
+	<!--
+		end: Generated for OfficeGoods From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for GoodsApply From Template: app-service.xml.beansvm
+	-->
+	<bean id="goodsApplyService"
+		class="com.zhiwei.credit.service.admin.impl.GoodsApplyServiceImpl">
+		<constructor-arg index="0" ref="goodsApplyDao" />
+	</bean>
+	<!--
+		end: Generated for GoodsApply From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for InStock From Template: app-service.xml.beansvm
+	-->
+	<bean id="inStockService" class="com.zhiwei.credit.service.admin.impl.InStockServiceImpl">
+		<constructor-arg index="0" ref="inStockDao" />
+	</bean>
+	<!--
+		end: Generated for InStock From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Book From Template: app-service.xml.beansvm
+	-->
+	<bean id="bookService" class="com.zhiwei.credit.service.admin.impl.BookServiceImpl">
+		<constructor-arg index="0" ref="bookDao" />
+	</bean>
+	<!--
+		end: Generated for Book From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BookBorRet From Template: app-service.xml.beansvm
+	-->
+	<bean id="bookBorRetService"
+		class="com.zhiwei.credit.service.admin.impl.BookBorRetServiceImpl">
+		<constructor-arg index="0" ref="bookBorRetDao" />
+	</bean>
+	<!--
+		end: Generated for BookBorRet From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BookSn From Template: app-service.xml.beansvm
+	-->
+	<bean id="bookSnService" class="com.zhiwei.credit.service.admin.impl.BookSnServiceImpl">
+		<constructor-arg index="0" ref="bookSnDao" />
+	</bean>
+	<!--
+		end: Generated for BookSn From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BookType From Template: app-service.xml.beansvm
+	-->
+	<bean id="bookTypeService"
+		class="com.zhiwei.credit.service.admin.impl.BookTypeServiceImpl">
+		<constructor-arg index="0" ref="bookTypeDao" />
+	</bean>
+	<!--
+		end: Generated for BookType From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Region From Template: app-service.xml.beansvm
+	-->
+	<bean id="regionService" class="com.zhiwei.credit.service.system.impl.RegionServiceImpl">
+		<constructor-arg index="0" ref="regionDao" />
+	</bean>
+	<!--
+		end: Generated for Region From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Customer From Template: app-service.xml.beansvm
+	-->
+	<bean id="customerService"
+		class="com.zhiwei.credit.service.customer.impl.CustomerServiceImpl">
+		<constructor-arg index="0" ref="customerDao" />
+	</bean>
+	<!--
+		end: Generated for Customer From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CusLinkman From Template: app-service.xml.beansvm
+	-->
+	<bean id="cusLinkmanService"
+		class="com.zhiwei.credit.service.customer.impl.CusLinkmanServiceImpl">
+		<constructor-arg index="0" ref="cusLinkmanDao" />
+	</bean>
+	<!--
+		end: Generated for CusLinkman From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Appointment From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="appointmentService"
+		class="com.zhiwei.credit.service.task.impl.AppointmentServiceImpl">
+		<constructor-arg index="0" ref="appointmentDao" />
+	</bean>
+	<!--
+		end: Generated for Appointment From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CalendarPlan From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="calendarPlanService"
+		class="com.zhiwei.credit.service.task.impl.CalendarPlanServiceImpl">
+		<constructor-arg index="0" ref="calendarPlanDao" />
+	</bean>
+	<!--
+		end: Generated for CalendarPlan From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Car From Template: app-service.xml.beansvm
+	-->
+	<bean id="carService" class="com.zhiwei.credit.service.admin.impl.CarServiceImpl">
+		<constructor-arg index="0" ref="carDao" />
+	</bean>
+	<!-- end:  Generated for Car From Template: app-service.xml.beansvm  -->
+	<!--
+		start: Generated for CartRepair From Template: app-service.xml.beansvm
+	-->
+	<bean id="cartRepairService"
+		class="com.zhiwei.credit.service.admin.impl.CartRepairServiceImpl">
+		<constructor-arg index="0" ref="cartRepairDao" />
+	</bean>
+	<!--
+		end: Generated for CartRepair From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CarApply From Template: app-service.xml.beansvm
+	-->
+	<bean id="carApplyService"
+		class="com.zhiwei.credit.service.admin.impl.CarApplyServiceImpl">
+		<constructor-arg index="0" ref="carApplyDao" />
+	</bean>
+	<!--
+		end: Generated for CarApply From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DepreType From Template: app-service.xml.beansvm
+	-->
+	<bean id="depreTypeService"
+		class="com.zhiwei.credit.service.admin.impl.DepreTypeServiceImpl">
+		<constructor-arg index="0" ref="depreTypeDao" />
+	</bean>
+	<!--
+		end: Generated for DepreType From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for AssetsType From Template: app-service.xml.beansvm
+	-->
+	<bean id="assetsTypeService"
+		class="com.zhiwei.credit.service.admin.impl.AssetsTypeServiceImpl">
+		<constructor-arg index="0" ref="assetsTypeDao" />
+	</bean>
+	<!--
+		end: Generated for AssetsType From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FixedAssets From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="fixedAssetsService"
+		class="com.zhiwei.credit.service.admin.impl.FixedAssetsServiceImpl">
+		<constructor-arg index="0" ref="fixedAssetsDao" />
+	</bean>
+	<!--
+		end: Generated for FixedAssets From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DepreRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="depreRecordService"
+		class="com.zhiwei.credit.service.admin.impl.DepreRecordServiceImpl">
+		<constructor-arg index="0" ref="depreRecordDao" />
+	</bean>
+	<!--
+		end: Generated for DepreRecord From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CusConnection From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="cusConnectionService"
+		class="com.zhiwei.credit.service.customer.impl.CusConnectionServiceImpl">
+		<constructor-arg index="0" ref="cusConnectionDao" />
+	</bean>
+	<!--
+		end: Generated for CusConnection From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Project From Template: app-service.xml.beansvm
+	-->
+	<bean id="projectService"
+		class="com.zhiwei.credit.service.customer.impl.ProjectServiceImpl">
+		<constructor-arg index="0" ref="projectDao" />
+	</bean>
+	<!--
+		end: Generated for Project From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Contract From Template: app-service.xml.beansvm
+	-->
+	<bean id="contractService"
+		class="com.zhiwei.credit.service.customer.impl.ContractServiceImpl">
+		<constructor-arg index="0" ref="contractDao" />
+	</bean>
+	<!--
+		end: Generated for Contract From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ContractConfig From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="contractConfigService"
+		class="com.zhiwei.credit.service.customer.impl.ContractConfigServiceImpl">
+		<constructor-arg index="0" ref="contractConfigDao" />
+	</bean>
+	<!--
+		end: Generated for ContractConfig From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for PlanType From Template: app-service.xml.beansvm
+	-->
+	<bean id="planTypeService" class="com.zhiwei.credit.service.task.impl.PlanTypeServiceImpl">
+		<constructor-arg index="0" ref="planTypeDao" />
+	</bean>
+	<!--
+		end: Generated for PlanType From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for WorkPlan From Template: app-service.xml.beansvm
+	-->
+	<bean id="workPlanService" class="com.zhiwei.credit.service.task.impl.WorkPlanServiceImpl">
+		<constructor-arg index="0" ref="workPlanDao" />
+	</bean>
+	<!--
+		end: Generated for WorkPlan From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for AppFunction From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="appFunctionService"
+		class="com.zhiwei.credit.service.system.impl.AppFunctionServiceImpl">
+		<constructor-arg index="0" ref="appFunctionDao" />
+	</bean>
+	<!--
+		end: Generated for AppFunction From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FunUrl From Template: app-service.xml.beansvm
+	-->
+	<bean id="funUrlService" class="com.zhiwei.credit.service.system.impl.FunUrlServiceImpl">
+		<constructor-arg index="0" ref="funUrlDao" />
+	</bean>
+	<!--
+		end: Generated for FunUrl From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for HolidayRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="holidayRecordService"
+		class="com.zhiwei.credit.service.personal.impl.HolidayRecordServiceImpl">
+		<constructor-arg index="0" ref="holidayRecordDao" />
+	</bean>
+	<!--
+		end: Generated for HolidayRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DutySection From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="dutySectionService"
+		class="com.zhiwei.credit.service.personal.impl.DutySectionServiceImpl">
+		<constructor-arg index="0" ref="dutySectionDao" />
+	</bean>
+	<!--
+		end: Generated for DutySection From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DutySystem From Template: app-service.xml.beansvm
+	-->
+	<bean id="dutySystemService"
+		class="com.zhiwei.credit.service.personal.impl.DutySystemServiceImpl">
+		<constructor-arg index="0" ref="dutySystemDao" />
+	</bean>
+	<!--
+		end: Generated for DutySystem From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Duty From Template: app-service.xml.beansvm
+	-->
+	<bean id="dutyService" class="com.zhiwei.credit.service.personal.impl.DutyServiceImpl">
+		<constructor-arg index="0" ref="dutyDao" />
+	</bean>
+	<!--
+		end: Generated for Duty From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DutyRegister From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="dutyRegisterService"
+		class="com.zhiwei.credit.service.personal.impl.DutyRegisterServiceImpl">
+		<constructor-arg index="0" ref="dutyRegisterDao" />
+	</bean>
+	<!--
+		end: Generated for DutyRegister From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for PlanAttend From Template: app-service.xml.beansvm
+	-->
+	<bean id="planAttendService"
+		class="com.zhiwei.credit.service.task.impl.PlanAttendServiceImpl">
+		<constructor-arg index="0" ref="planAttendDao" />
+	</bean>
+	<!--
+		end: Generated for PlanAttend From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ErrandsRegister From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="errandsRegisterService"
+		class="com.zhiwei.credit.service.personal.impl.ErrandsRegisterServiceImpl">
+		<constructor-arg index="0" ref="errandsRegisterDao" />
+	</bean>
+	<!--
+		end: Generated for ErrandsRegister From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Provider From Template: app-service.xml.beansvm
+	-->
+	<bean id="providerService"
+		class="com.zhiwei.credit.service.customer.impl.ProviderServiceImpl">
+		<constructor-arg index="0" ref="providerDao" />
+	</bean>
+	<!--
+		end: Generated for Provider From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Product From Template: app-service.xml.beansvm
+	-->
+	<bean id="productService"
+		class="com.zhiwei.credit.service.customer.impl.ProductServiceImpl">
+		<constructor-arg index="0" ref="productDao" />
+	</bean>
+	<!--
+		end: Generated for Product From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SysConfig From Template: app-service.xml.beansvm
+	-->
+	<bean id="sysConfigService"
+		class="com.zhiwei.credit.service.system.impl.SysConfigServiceImpl">
+		<constructor-arg index="0" ref="sysConfigDao" />
+	</bean>
+	<!--
+		end: Generated for SysConfig From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for NewsComment From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="newsCommentService"
+		class="com.zhiwei.credit.service.info.impl.NewsCommentServiceImpl">
+		<constructor-arg index="0" ref="newsCommentDao" />
+	</bean>
+	<!--
+		end: Generated for NewsComment From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ReportParam From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="reportParamService"
+		class="com.zhiwei.credit.service.system.impl.ReportParamServiceImpl">
+		<constructor-arg index="0" ref="reportParamDao" />
+	</bean>
+	<!--
+		end: Generated for ReportParam From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for Dictionary From Template: app-service.xml.beansvm
+	-->
+	<bean id="dictionaryService"
+		class="com.zhiwei.credit.service.system.impl.DictionaryServiceImpl">
+		<constructor-arg index="0" ref="dictionaryDao" />
+	</bean>
+	<!--
+		end: Generated for Dictionary From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for StandSalary From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="standSalaryService"
+		class="com.zhiwei.credit.service.hrm.impl.StandSalaryServiceImpl">
+		<constructor-arg index="0" ref="standSalaryDao" />
+	</bean>
+	<!--
+		end: Generated for StandSalary From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SalaryItem From Template: app-service.xml.beansvm
+	-->
+	<bean id="salaryItemService"
+		class="com.zhiwei.credit.service.hrm.impl.SalaryItemServiceImpl">
+		<constructor-arg index="0" ref="salaryItemDao" />
+	</bean>
+	<!--
+		end: Generated for SalaryItem From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for StandSalaryItem From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="standSalaryItemService"
+		class="com.zhiwei.credit.service.hrm.impl.StandSalaryItemServiceImpl">
+		<constructor-arg index="0" ref="standSalaryItemDao" />
+	</bean>
+	<!--
+		end: Generated for StandSalaryItem From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for HireIssue From Template: app-service.xml.beansvm
+	-->
+	<bean id="hireIssueService" class="com.zhiwei.credit.service.hrm.impl.HireIssueServiceImpl">
+		<constructor-arg index="0" ref="hireIssueDao" />
+	</bean>
+	<!--
+		end: Generated for HireIssue From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Resume From Template: app-service.xml.beansvm
+	-->
+	<bean id="resumeService" class="com.zhiwei.credit.service.hrm.impl.ResumeServiceImpl">
+		<constructor-arg index="0" ref="resumeDao" />
+	</bean>
+	<!--
+		end: Generated for Resume From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for JobChange From Template: app-service.xml.beansvm
+	-->
+	<bean id="jobChangeService" class="com.zhiwei.credit.service.hrm.impl.JobChangeServiceImpl">
+		<constructor-arg index="0" ref="jobChangeDao" />
+	</bean>
+	<!--
+		end: Generated for JobChange From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Job From Template: app-service.xml.beansvm
+	-->
+	<bean id="jobService" class="com.zhiwei.credit.service.hrm.impl.JobServiceImpl">
+		<constructor-arg index="0" ref="jobDao" />
+	</bean>
+	<!-- end:  Generated for Job From Template: app-service.xml.beansvm  -->
+	<!--
+		start: Generated for EmpProfile From Template: app-service.xml.beansvm
+	-->
+	<bean id="empProfileService"
+		class="com.zhiwei.credit.service.hrm.impl.EmpProfileServiceImpl">
+		<constructor-arg index="0" ref="empProfileDao" />
+	</bean>
+	<!--
+		end: Generated for EmpProfile From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for SalaryPayoff From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="salaryPayoffService"
+		class="com.zhiwei.credit.service.hrm.impl.SalaryPayoffServiceImpl">
+		<constructor-arg index="0" ref="salaryPayoffDao" />
+	</bean>
+	<!--
+		end: Generated for SalaryPayoff From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FormDef From Template: app-service.xml.beansvm
+	-->
+	<bean id="formDefService" class="com.zhiwei.credit.service.flow.impl.FormDefServiceImpl">
+		<constructor-arg index="0" ref="formDefDao" />
+	</bean>
+	<!--
+		end: Generated for FormDef From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for IndexDisplay From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="indexDisplayService"
+		class="com.zhiwei.credit.service.system.impl.IndexDisplayServiceImpl">
+		<constructor-arg index="0" ref="indexDisplayDao" />
+	</bean>
+	<!--
+		end: Generated for IndexDisplay From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SystemLog From Template: app-service.xml.beansvm
+	-->
+	<bean id="systemLogService"
+		class="com.zhiwei.credit.service.system.impl.SystemLogServiceImpl">
+		<constructor-arg index="0" ref="systemLogDao" />
+	</bean>
+
+	<!--
+		end: Generated for SystemLog From Template: app-service.xml.beansvm
+	-->
+	<bean id="appTipsService" class="com.zhiwei.credit.service.info.impl.AppTipsServiceImpl">
+		<constructor-arg index="0" ref="appTipsDao" />
+	</bean>
+
+	<!--
+		start: Generated for OutMailUserSeting From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="outMailUserSetingService"
+		class="com.zhiwei.credit.service.communicate.impl.OutMailUserSetingServiceImpl">
+		<constructor-arg index="0" ref="outMailUserSetingDao" />
+	</bean>
+	<!--
+		end: Generated for OutMailUserSeting From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for OutMail From Template: app-service.xml.beansvm
+	-->
+	<bean id="outMailService"
+		class="com.zhiwei.credit.service.communicate.impl.OutMailServiceImpl">
+		<constructor-arg index="0" ref="outMailDao" />
+	</bean>
+	<!--
+		end: Generated for OutMail From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for OutMailFolder From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="outMailFolderService"
+		class="com.zhiwei.credit.service.communicate.impl.OutMailFolderServiceImpl">
+		<constructor-arg index="0" ref="outMailFolderDao" />
+	</bean>
+	<!--
+		end: Generated for OutMailFolder From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SmsMobile From Template: app-service.xml.beansvm
+	-->
+	<bean id="smsMobileService"
+		class="com.zhiwei.credit.service.communicate.impl.SmsMobileServiceImpl">
+		<constructor-arg index="0" ref="smsMobileDao" />
+	</bean>
+	<!--
+		end: Generated for SmsMobile From Template: app-service.xml.beansvm
+	-->
+	
+	<!--
+		start: Generated for GlobalType From Template: app-service.xml.beansvm
+	-->
+	<bean id="globalTypeService"
+		class="com.zhiwei.credit.service.system.impl.GlobalTypeServiceImpl">
+		<constructor-arg index="0" ref="globalTypeDao" />
+	</bean>
+	<!--
+		end: Generated for GlobalType From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for TypeKey From Template: app-service.xml.beansvm
+	-->
+	<bean id="typeKeyService"
+		class="com.zhiwei.credit.service.system.impl.TypeKeyServiceImpl">
+		<constructor-arg index="0" ref="typeKeyDao" />
+	</bean>
+	<!--
+		end: Generated for TypeKey From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SuggestBox From Template: app-service.xml.beansvm
+	-->
+	<bean id="suggestBoxService"
+		class="com.zhiwei.credit.service.info.impl.SuggestBoxServiceImpl">
+		<constructor-arg index="0" ref="suggestBoxDao" />
+	</bean>
+	<!--
+		end: Generated for SuggestBox From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Regulation From Template: app-service.xml.beansvm
+	-->
+	<bean id="regulationService"
+		class="com.zhiwei.credit.service.admin.impl.RegulationServiceImpl">
+		<constructor-arg index="0" ref="regulationDao" />
+	</bean>
+	<!--
+		end: Generated for Regulation From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for PaintTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="paintTemplateService"
+		class="com.zhiwei.credit.service.document.impl.PaintTemplateServiceImpl">
+		<constructor-arg index="0" ref="paintTemplateDao" />
+	</bean>
+	<!--
+		end: Generated for PaintTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Seal From Template: app-service.xml.beansvm
+	-->
+	<bean id="sealService" class="com.zhiwei.credit.service.document.impl.SealServiceImpl">
+		<constructor-arg index="0" ref="sealDao" />
+	</bean>
+	<!--
+		end: Generated for Seal From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Section From Template: app-service.xml.beansvm
+	-->
+	<bean id="sectionService" class="com.zhiwei.credit.service.info.impl.SectionServiceImpl">
+		<constructor-arg index="0" ref="sectionDao" />
+	</bean>
+	<!--
+		end: Generated for Section From Template: app-service.xml.beansvm
+	-->
+	
+	<!--
+		start: Generated for FormTable From Template: app-service.xml.beansvm
+	-->
+	<bean id="formTableService"
+		class="com.zhiwei.credit.service.flow.impl.FormTableServiceImpl">
+		<constructor-arg index="0" ref="formTableDao" />
+	</bean>
+	<!--
+		end: Generated for FormTable From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FormField From Template: app-service.xml.beansvm
+	-->
+	<bean id="formFieldService"
+		class="com.zhiwei.credit.service.flow.impl.FormFieldServiceImpl">
+		<constructor-arg index="0" ref="formFieldDao" />
+	</bean>
+	<!--
+		end: Generated for FormField From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ProDefRights From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="proDefRightsService"
+		class="com.zhiwei.credit.service.flow.impl.ProDefRightsServiceImpl">
+		<constructor-arg index="0" ref="proDefRightsDao" />
+	</bean>
+	<!--
+		end: Generated for ProDefRights From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for RelativeJob From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="relativeJobService"
+		class="com.zhiwei.credit.service.system.impl.RelativeJobServiceImpl">
+		<constructor-arg index="0" ref="relativeJobDao" />
+	</bean>
+	<!--
+		end: Generated for RelativeJob From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for RelativeUser From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="relativeUserService"
+		class="com.zhiwei.credit.service.system.impl.RelativeUserServiceImpl">
+		<constructor-arg index="0" ref="relativeUserDao" />
+	</bean>
+	<!--
+		end: Generated for RelativeUser From Template: app-service.xml.beansvm
+	-->
+	<bean id="formTableGenService"
+		class="com.zhiwei.credit.service.flow.impl.FormTableGenServiceImpl">
+		<constructor-arg index="0" ref="formTableDao" />
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="hibernateDialect" value="${hibernate.dialect}" />
+	</bean>
+	<!--
+		start: Generated for FormDefMapping From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="formDefMappingService"
+		class="com.zhiwei.credit.service.flow.impl.FormDefMappingServiceImpl">
+		<constructor-arg index="0" ref="formDefMappingDao" />
+	</bean>
+	<!--
+		end: Generated for FormDefMapping From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FieldRights From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="fieldRightsService"
+		class="com.zhiwei.credit.service.flow.impl.FieldRightsServiceImpl">
+		<constructor-arg index="0" ref="fieldRightsDao" />
+	</bean>
+	<!--
+		end: Generated for FieldRights From Template: app-service.xml.beansvm
+	-->
+	<!--
+		<bean id="dynamicService"
+		class="com.zhiwei.core.service.impl.DynamicServiceImpl">
+		<constructor-arg index="0" ref="dynamicDao"/> </bean>
+	-->
+	<!--
+		start: Generated for TaskSign From Template: app-service.xml.beansvm
+	-->
+	<bean id="taskSignService" class="com.zhiwei.credit.service.flow.impl.TaskSignServiceImpl">
+		<constructor-arg index="0" ref="taskSignDao" />
+	</bean>
+	<!--
+		end: Generated for TaskSign From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for TaskSignData From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="taskSignDataService"
+		class="com.zhiwei.credit.service.flow.impl.TaskSignDataServiceImpl">
+		<constructor-arg index="0" ref="taskSignDataDao" />
+	</bean>
+	<!--
+		end: Generated for TaskSignData From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for FormTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="formTemplateService"
+		class="com.zhiwei.credit.service.flow.impl.FormTemplateServiceImpl">
+		<constructor-arg index="0" ref="formTemplateDao" />
+	</bean>
+	<!--
+		end: Generated for FormTemplate From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ArchFond From Template: app-service.xml.beansvm
+	-->
+	<bean id="archFondService" class="com.zhiwei.credit.service.arch.impl.ArchFondServiceImpl">
+		<constructor-arg index="0" ref="archFondDao" />
+	</bean>
+	<!--
+		end: Generated for ArchFond From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ArchRoll From Template: app-service.xml.beansvm
+	-->
+	<bean id="archRollService" class="com.zhiwei.credit.service.arch.impl.ArchRollServiceImpl">
+		<constructor-arg index="0" ref="archRollDao" />
+	</bean>
+	<!--
+		end: Generated for ArchRoll From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for RollFile From Template: app-service.xml.beansvm
+	-->
+	<bean id="rollFileService" class="com.zhiwei.credit.service.arch.impl.RollFileServiceImpl">
+		<constructor-arg index="0" ref="rollFileDao" />
+	</bean>
+	<!--
+		end: Generated for RollFile From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for RollFileList From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="rollFileListService"
+		class="com.zhiwei.credit.service.arch.impl.RollFileListServiceImpl">
+		<constructor-arg index="0" ref="rollFileListDao" />
+	</bean>
+	<!--
+		end: Generated for RollFileList From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BorrowFileList From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="borrowFileListService"
+		class="com.zhiwei.credit.service.arch.impl.BorrowFileListServiceImpl">
+		<constructor-arg index="0" ref="borrowFileListDao" />
+	</bean>
+	<!--
+		end: Generated for BorrowFileList From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BorrowRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="borrowRecordService"
+		class="com.zhiwei.credit.service.arch.impl.BorrowRecordServiceImpl">
+		<constructor-arg index="0" ref="borrowRecordDao" />
+	</bean>
+	<!--
+		end: Generated for BorrowRecord From Template: app-service.xml.beansvm
+	-->
+
+	<!-- 新增   行政管理-会议管理-会议室管理 -->
+	<bean id="boardRooService"
+		class="com.zhiwei.credit.service.admin.impl.BoardRooServiceImpl">
+		<constructor-arg index="0" ref="boardRooDao" />
+	</bean>
+	<!-- 新增  行政管理-会议类型设置 -->
+	<bean id="boardTypeService"
+		class="com.zhiwei.credit.service.admin.impl.BoardTypeServiceImpl">
+		<constructor-arg index="0" ref="boardTypeDao"></constructor-arg>
+	</bean>
+	<bean id="confSummaryService"
+		class="com.zhiwei.credit.service.admin.impl.ConfSummaryServiceImpl">
+		<constructor-arg index="0" ref="confSummaryDao" />
+	</bean>
+	<bean id="conferenceSerivce"
+		class="com.zhiwei.credit.service.admin.impl.ConferenceServiceImpl">
+		<constructor-arg index="0" ref="conferenceDao" />
+	</bean>
+	<bean id="confPrivilegeService"
+		class="com.zhiwei.credit.service.admin.impl.ConfPrivilegeServiceImpl">
+		<constructor-arg index="0" ref="confPrivilegeDao" />
+	</bean>
+
+	<bean id="historyTaskService"
+		class="com.zhiwei.credit.service.flow.impl.HistoryTaskServiceImpl">
+		<constructor-arg index="0" ref="historyTaskDao" />
+	</bean>
+
+	<!-- 公文模块service -->
+	<!--
+		start: Generated for ArchTemplate From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="archTemplateService"
+		class="com.zhiwei.credit.service.archive.impl.ArchTemplateServiceImpl">
+		<constructor-arg index="0" ref="archTemplateDao" />
+	</bean>
+	<!--
+		end: Generated for ArchTemplate From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for ArchivesDep From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="archivesDepService"
+		class="com.zhiwei.credit.service.archive.impl.ArchivesDepServiceImpl">
+		<constructor-arg index="0" ref="archivesDepDao" />
+	</bean>
+	<!--
+		end: Generated for ArchivesDep From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for ArchivesDoc From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="archivesDocService"
+		class="com.zhiwei.credit.service.archive.impl.ArchivesDocServiceImpl">
+		<constructor-arg index="0" ref="archivesDocDao" />
+	</bean>
+	<!--
+		end: Generated for ArchivesDoc From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for DocHistory From Template: app-service.xml.beansvm
+	-->
+	<bean id="docHistoryService"
+		class="com.zhiwei.credit.service.archive.impl.DocHistoryServiceImpl">
+		<constructor-arg index="0" ref="docHistoryDao" />
+	</bean>
+	<!--
+		end: Generated for DocHistory From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for ArchHasten From Template: app-service.xml.beansvm
+	-->
+	<bean id="archHastenService"
+		class="com.zhiwei.credit.service.archive.impl.ArchHastenServiceImpl">
+		<constructor-arg index="0" ref="archHastenDao" />
+	</bean>
+	<!--
+		end: Generated for ArchHasten From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for IndexDisplay From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for ArchDispatch From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="archDispatchService"
+		class="com.zhiwei.credit.service.archive.impl.ArchDispatchServiceImpl">
+		<constructor-arg index="0" ref="archDispatchDao" />
+	</bean>
+	<!--
+		end: Generated for ArchDispatch From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Archives From Template: app-service.xml.beansvm
+	-->
+	<bean id="archivesService"
+		class="com.zhiwei.credit.service.archive.impl.ArchivesServiceImpl">
+		<constructor-arg index="0" ref="archivesDao" />
+	</bean>
+	<!--
+		end: Generated for Archives From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ArchFlowConf From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="archFlowConfService"
+		class="com.zhiwei.credit.service.archive.impl.ArchFlowConfServiceImpl">
+		<constructor-arg index="0" ref="archFlowConfDao" />
+	</bean>
+	<!--
+		end: Generated for ArchFlowConf From Template: app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for ProcessModule From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="processModuleService"
+		class="com.zhiwei.credit.service.flow.impl.ProcessModuleServiceImpl">
+		<constructor-arg index="0" ref="processModuleDao" />
+	</bean>
+	<!--
+		end: Generated for ProcessModule From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for ProHandleComp From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="proHandleCompService"
+		class="com.zhiwei.credit.service.flow.impl.ProHandleCompServiceImpl">
+		<constructor-arg index="0" ref="proHandleCompDao" />
+	</bean>
+	<!--
+		end: Generated for ProHandleComp From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for Demension From Template: app-service.xml.beansvm
+	-->
+	<bean id="demensionService"
+		class="com.zhiwei.credit.service.system.impl.DemensionServiceImpl">
+		<constructor-arg index="0" ref="demensionDao" />
+	</bean>
+	<!--
+		end: Generated for Demension From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Organization From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="organizationService"
+		class="com.zhiwei.credit.service.system.impl.OrganizationServiceImpl">
+		<constructor-arg index="0" ref="organizationDao" />
+	</bean>
+	<!--
+		end: Generated for Organization From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for UserOrg From Template: app-service.xml.beansvm
+	-->
+	<bean id="userOrgService"
+		class="com.zhiwei.credit.service.system.impl.UserOrgServiceImpl">
+		<constructor-arg index="0" ref="userOrgDao" />
+	</bean>
+	<!--
+		end: Generated for UserOrg From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for Position From Template: app-service.xml.beansvm
+	-->
+	<bean id="positionService"
+		class="com.zhiwei.credit.service.system.impl.PositionServiceImpl">
+		<constructor-arg index="0" ref="positionDao" />
+	</bean>
+	<!--
+		end: Generated for Position From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for UserPosition From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="userPositionService"
+		class="com.zhiwei.credit.service.system.impl.UserPositionServiceImpl">
+		<constructor-arg index="0" ref="userPositionDao" />
+	</bean>
+	<!--
+		end: Generated for UserPosition From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlBankAccount From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slBankAccountService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlBankAccountServiceImpl">
+		<constructor-arg index="0" ref="slBankAccountDao" />
+	</bean>
+	<!--
+		end: Generated for SlBankAccount From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CsDicAreaDynam From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="csDicAreaDynamService"
+		class="com.zhiwei.credit.service.system.impl.CsDicAreaDynamServiceImpl">
+		<constructor-arg index="0" ref="csDicAreaDynamDao" />
+	</bean>
+	<!--
+		end: Generated for CsDicAreaDynam From Template:
+		app-service.xml.beansvm
+	-->
+	<!-- 数据字典 add by chencc -->
+	<!--<import
+		resource="classpath:com/credit/publicmodel/dictionary/xmls/applicationContext-service.xml" />
+	--><!--
+		start: Generated for SlCompanyMain From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slCompanyMainService"
+		class="com.zhiwei.credit.service.creditFlow.ourmain.impl.SlCompanyMainServiceImpl">
+		<constructor-arg index="0" ref="slCompanyMainDao" />
+	</bean>
+	<!--
+		end: Generated for SlCompanyMain From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlPersonMain From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slPersonMainService"
+		class="com.zhiwei.credit.service.creditFlow.ourmain.impl.SlPersonMainServiceImpl">
+		<constructor-arg index="0" ref="slPersonMainDao" />
+	</bean>
+	<!--
+		end: Generated for SlPersonMain From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CsEnterpriseShareequity From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="csEnterpriseShareequityService"
+		class="com.zhiwei.credit.service.customer.impl.CsEnterpriseShareequityServiceImpl">
+		<constructor-arg index="0" ref="csEnterpriseShareequityDao" />
+	</bean>
+	<!--
+		end: Generated for CsEnterpriseShareequity From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SVEnterprisePerson1 From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="sVEnterprisePersonService"
+		class="com.zhiwei.credit.service.creditFlow.thirdRalation.impl.SVEnterprisePersonServiceImpl">
+		<constructor-arg index="0" ref="sVEnterprisePersonDao" />
+	</bean>
+	<!--
+		end: Generated for SVEnterprisePerson1 From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlMortgage From Template: app-service.xml.beansvm
+	-->
+	<!--<bean id="slMortgageService"
+		class="com.zhiwei.credit.service.creditFlow.ourmortgage.impl.SlMortgageServiceImpl">
+		<constructor-arg index="0" ref="slMortgageDao" />
+	</bean>
+	--><!--
+		end: Generated for SlMortgage From Template: app-service.xml.beansvm
+	-->
+	<!--<bean id="enterprise1Service"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.EnterpriseServiceImpl">
+		<constructor-arg index="0" ref="enterprise1Dao" />
+	</bean>
+	--><!--<bean id="personService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.PersonServiceImpl">
+		<constructor-arg index="0" ref="personDao" />
+	</bean>
+	--><!--<bean id="enterpriseBankService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.EnterpriseBankServiceImpl">
+		<constructor-arg index="0" ref="enterpriseBankDao" />
+	</bean>
+	-->
+
+	<!--
+		end: Generated for SlSmallloanProject From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="EnterpriseShareequityService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.EnterpriseShareequityServiceImpl">
+		<constructor-arg index="0" ref="EnterpriseShareequityDao" />
+	</bean>
+	<bean id="vCommonProjectFlowService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.VCommonProjectFlowServiceImpl">
+		<constructor-arg index="0" ref="vCommonProjectFlowDao" />
+	</bean>
+	<!--
+		<bean id="processRunDataService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.ProcessRunDataServiceImpl">
+		<constructor-arg index="0" ref="processRunDataDao"/> </bean>
+	-->
+	<bean id="slFundQlideService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlFundQlideServiceImpl">
+		<constructor-arg index="0" ref="slFundQlideDao" />
+	</bean>
+
+	<!--
+		start: Generated for SlFundIntent From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slFundIntentService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlFundIntentServiceImpl">
+		<constructor-arg index="0" ref="slFundIntentDao" />
+	</bean>
+	<!--
+		end: Generated for SlFundIntent From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlProcreditAssuretenet From Template:
+		app-service.xml.beansvm 已经移包 by shendexuan
+	-->
+	<bean id="slProcreditAssuretenetService"
+		class="com.zhiwei.credit.service.creditFlow.assuretenet.impl.SlProcreditAssuretenetServiceImpl">
+		<constructor-arg index="0" ref="slProcreditAssuretenetDao" />
+	</bean>
+	<!--
+		end: Generated for SlProcreditAssuretenet From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlProcreditMaterials From Template:
+		app-service.xml.beansvm 已经移bao by shendexuan
+	-->
+	<bean id="slProcreditMaterialsService"
+		class="com.zhiwei.credit.service.creditFlow.materials.impl.SlProcreditMaterialsServiceImpl">
+		<constructor-arg index="0" ref="slProcreditMaterialsDao" />
+	</bean>
+	<!--  copy by gaoqingrui -->
+	<bean id="globalGuaranteeMaterialsDetailService"
+		class="com.zhiwei.credit.service.creditFlow.materials.impl.GlobalGuaranteeMaterialsDetailServiceImpl">
+		<constructor-arg index="0"
+			ref="globalGuaranteeMaterialsDetailDao" />
+	</bean>
+	<!--
+		end: Generated for SlProcreditMaterials From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlFundDetail From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slFundDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlFundDetailServiceImpl">
+		<constructor-arg index="0" ref="slFundDetailDao" />
+	</bean>
+	<!--
+		end: Generated for SlFundDetail From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlConferenceRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slConferenceRecordService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.meeting.impl.SlConferenceRecordServiceImpl">
+		<constructor-arg index="0" ref="slConferenceRecordDao" />
+	</bean>
+	<!--
+		end: Generated for SlConferenceRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlMortgageFinancing From Template:
+		app-service.xml.beansvm
+	-->
+	<!--<bean id="slMortgageFinancingService"
+		class="com.zhiwei.credit.service.creditFlow.ourmortgage.impl.SlMortgageFinancingServiceImpl">
+		<constructor-arg index="0" ref="slMortgageFinancingDao" />
+	</bean>
+	--><!--
+		end: Generated for SlMortgageFinancing From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for GlBankGuaranteemoney From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="glBankGuaranteemoneyService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.EnterpriseBusiness.impl.GlBankGuaranteemoneyServiceImpl">
+		<constructor-arg index="0" ref="glBankGuaranteemoneyDao" />
+	</bean>
+	<!--
+		end: Generated for GlBankGuaranteemoney From Template:
+		app-service.xml.beansvm
+	-->
+
+
+
+
+	
+
+
+	<!--
+		start: Generated for SlPlansToCharge From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slPlansToChargeService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlPlansToChargeServiceImpl">
+		<constructor-arg index="0" ref="slPlansToChargeDao" />
+	</bean>
+	<!--
+		end: Generated for SlPlansToCharge From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlActualToCharge From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slActualToChargeService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlActualToChargeServiceImpl">
+		<constructor-arg index="0" ref="slActualToChargeDao" />
+	</bean>
+	<!--
+		end: Generated for SlActualToCharge From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for OurProcreditAssuretenet From Template:
+		app-service.xml.beansvm 已经移包 by shendexuan
+	-->
+	<bean id="ourProcreditAssuretenetService"
+		class="com.zhiwei.credit.service.creditFlow.assuretenet.impl.OurProcreditAssuretenetServiceImpl">
+		<constructor-arg index="0" ref="ourProcreditAssuretenetDao" />
+	</bean>
+	<!--
+		end: Generated for OurProcreditAssuretenet From Template:
+		app-service.xml.beansvm
+	-->
+
+
+	<!--
+		start: Generated for SlRepaymentSource From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slRepaymentSourceService"
+		class="com.zhiwei.credit.service.creditFlow.repaymentSource.impl.SlRepaymentSourceServiceImpl">
+		<constructor-arg index="0" ref="slRepaymentSourceDao" />
+	</bean>
+	<!--
+		end: Generated for SlRepaymentSource From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for OurProcreditMaterials From Template:
+		app-service.xml.beansvm 已经移包 by shendexuan
+	-->
+
+
+	<bean id="systemWordService"
+		class="com.zhiwei.credit.service.system.impl.SystemWordServiceImpl">
+		<constructor-arg index="0" ref="systemWordDao" />
+	</bean>
+	<!--
+		end: Generated for SystemWord From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for OurProcreditMaterialsEnterprise From Template:
+		app-service.xml.beansvm 已经移包了 by shendexuan
+	-->
+	<bean id="ourProcreditMaterialsEnterpriseService"
+		class="com.zhiwei.credit.service.creditFlow.materials.impl.OurProcreditMaterialsEnterpriseServiceImpl">
+		<constructor-arg index="0"
+			ref="ourProcreditMaterialsEnterpriseDao" />
+	</bean>
+	<!-- add by gaoqingrui -->
+	<bean id="globalGuaranteeMaterialsExtService"
+		class="com.zhiwei.credit.service.creditFlow.materials.impl.GlobalGuaranteeMaterialsExtServiceImpl">
+		<constructor-arg index="0"
+			ref="globalGuaranteeMaterialsExtDao" />
+	</bean>
+
+
+	<bean id="slChargeDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlChargeDetailServiceImpl">
+		<constructor-arg index="0" ref="slChargeDetailDao" />
+	</bean>
+	<bean id="creditProjectService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.CreditProjectServiceImpl">
+		<!--<constructor-arg index="0" ref="bankServ"/>
+   	 -->
+	</bean>
+	<bean id="globalTypeIndependentService"
+		class="com.zhiwei.credit.service.system.impl.GlobalTypeIndependentServiceImpl">
+		<constructor-arg index="0" ref="globalTypeIndependentDao" />
+	</bean>
+	<bean id="dictionaryIndependentService"
+		class="com.zhiwei.credit.service.system.impl.DictionaryIndependentServiceImpl">
+		<constructor-arg index="0" ref="dictionaryIndependentDao" />
+	</bean>
+
+	<!--<bean id="vProcreditContractCategoryService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.VProcreditContractCategoryServiceImpl">
+		<constructor-arg index="0" ref="vProcreditContractCategoryDao" />
+	</bean>
+	--><!--<bean id="fileFormService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.FileFormServiceImpl">
+		<constructor-arg index="0" ref="fileFormDao" />
+	</bean>
+	--><!-- 融资租赁   拓展放在commen里   以后尽量用这个 add by gao -->
+
+		<bean id="globalSupervisemanageService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.GlobalSupervisemanageServiceImpl">
+		<constructor-arg index="0" ref="globalSupervisemanageDao" />
+	</bean>
+	<import
+		resource="classpath:com/zhiwei/credit/service/creditFlow/smallLoan/xmls/app-service.xml" />
+	<import
+		resource="classpath:com/zhiwei/credit/service/creditFlow/guarantee/xmls/app-service.xml" />
+	<import
+		resource="classpath:com/zhiwei/credit/service/creditFlow/financeProject/xmls/app-service.xml" />
+	<import
+		resource="classpath:com/zhiwei/credit/service/creditFlow/pawn/xmls/app-service.xml" />
+	<bean id="vGuaranteeloanProjectService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.project.impl.VGuaranteeloanProjectServiceImpl">
+		<constructor-arg index="0" ref="vGuaranteeloanProjectDao" />
+	</bean>
+	<!--
+		start: Generated for GlAccountRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="glAccountRecordService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.guaranteefinance.impl.GlAccountRecordServiceImpl">
+		<constructor-arg index="0" ref="glAccountRecordDao" />
+	</bean>
+	<!--
+		end: Generated for GlAccountRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for GlAccountBankCautionmoney From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="glAccountBankCautionmoneyService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.guaranteefinance.impl.GlAccountBankCautionmoneyServiceImpl">
+		<constructor-arg index="0" ref="glAccountBankCautionmoneyDao" />
+	</bean>
+	<!--
+		end: Generated for GlAccountBankCautionmoney From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for GlAccountBank From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="glAccountBankService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.guaranteefinance.impl.GlAccountBankServiceImpl">
+		<constructor-arg index="0" ref="glAccountBankDao" />
+	</bean>
+	<!--
+		end: Generated for GlAccountBank From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="vFundDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.VFundDetailServiceImpl">
+		<constructor-arg index="0" ref="vFundDetailDao" />
+	</bean>
+	<bean id="vChargeDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.VChargeDetailServiceImpl">
+		<constructor-arg index="0" ref="vChargeDetailDao" />
+	</bean>
+	<!--
+		start: Generated for PlArchives From Template: app-service.xml.beansvm
+	-->
+	<bean id="plArchivesService"
+		class="com.zhiwei.credit.service.creditFlow.archives.impl.PlArchivesServiceImpl">
+		<constructor-arg index="0" ref="plArchivesDao" />
+	</bean>
+	<!--
+		end: Generated for PlArchives From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for PlProjectArchives From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="plProjectArchivesService"
+		class="com.zhiwei.credit.service.creditFlow.archives.impl.PlProjectArchivesServiceImpl">
+		<constructor-arg index="0" ref="plProjectArchivesDao" />
+	</bean>
+	<bean id="vProjectArchivesService"
+		class="com.zhiwei.credit.service.creditFlow.archives.impl.VProjectArchivesServiceImpl">
+		<constructor-arg index="0" ref="vProjectArchivesDao" />
+	</bean>
+	<!--
+		end: Generated for PlProjectArchives From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for GlFlownodeComments From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="glFlownodeCommentsService"
+		class="com.zhiwei.credit.service.creditFlow.guarantee.EnterpriseBusiness.impl.GlFlownodeCommentsServiceImpl">
+		<constructor-arg index="0" ref="glFlownodeCommentsDao" />
+	</bean>
+	<!--
+		end: Generated for GlFlownodeComments From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="sysDatabaseBRService"
+		class="com.zhiwei.credit.service.system.impl.SysDatabaseBRServiceImpl">
+		<constructor-arg index="0" ref="sysDatabaseBRDao" />
+	</bean>
+	<bean id="vSmallloanProjectService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.project.impl.VSmallloanProjectServiceImpl">
+		<constructor-arg index="0" ref="vSmallloanProjectDao" />
+	</bean>
+	<bean id="vFinancingProjectService"
+		class="com.zhiwei.credit.service.creditFlow.financeProject.impl.VFinancingProjectServiceImpl">
+		<constructor-arg index="0" ref="vFinancingProjectDao" />
+	</bean>
+	<!--
+		start: Generated for SgLawsuitguaranteeProject From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="sgLawsuitguaranteeProjectService"
+		class="com.zhiwei.credit.service.creditFlow.lawsuitguarantee.project.impl.SgLawsuitguaranteeProjectServiceImpl">
+		<constructor-arg index="0" ref="sgLawsuitguaranteeProjectDao" />
+	</bean>
+	<!--
+		end: Generated for SgLawsuitguaranteeProject From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="vCustomerService"
+		class="com.zhiwei.credit.service.customer.impl.VCustomerServiceImpl">
+		<constructor-arg index="0" ref="vCustomerDao" />
+	</bean>
+	<!--
+		start: Generated for SlEarlyRepaymentRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slEarlyRepaymentRecordService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.finance.impl.SlEarlyRepaymentRecordServiceImpl">
+		<constructor-arg index="0" ref="slEarlyRepaymentRecordDao" />
+	</bean>
+	<!--
+		end: Generated for SlEarlyRepaymentRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlFundintentUrge From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slFundintentUrgeService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlFundintentUrgeServiceImpl">
+		<constructor-arg index="0" ref="slFundintentUrgeDao" />
+	</bean>
+	<!--
+		end: Generated for SlFundintentUrge From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlAlterAccrualRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slAlterAccrualRecordService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.finance.impl.SlAlterAccrualRecordServiceImpl">
+		<constructor-arg index="0" ref="slAlterAccrualRecordDao" />
+	</bean>
+	<!--
+		end: Generated for SlAlterAccrualRecord From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="vLawsuitguarantProjectService"
+		class="com.zhiwei.credit.service.creditFlow.lawsuitguarantee.project.impl.VLawsuitguarantProjectServiceImpl">
+		<constructor-arg index="0" ref="vLawsuitguarantProjectDao" />
+	</bean>
+	<!--
+		start: Generated for PlArchivesMaterials From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="plArchivesMaterialsService"
+		class="com.zhiwei.credit.service.creditFlow.archives.impl.PlArchivesMaterialsServiceImpl">
+		<constructor-arg index="0" ref="plArchivesMaterialsDao" />
+	</bean>
+	<!--
+		end: Generated for PlArchivesMaterials From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for OurArchivesMaterials From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="ourArchivesMaterialsService"
+		class="com.zhiwei.credit.service.creditFlow.archives.impl.OurArchivesMaterialsServiceImpl">
+		<constructor-arg index="0" ref="ourArchivesMaterialsDao" />
+	</bean>
+	<!--
+		end: Generated for OurArchivesMaterials From Template:
+		app-service.xml.beansvm
+	-->
+
+
+	<!--
+		start: Generated for FinanceInfo From Template:
+		app-service.xml.beansvm
+	--><!--
+	<bean id="financeInfoService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.finance.impl.FinanceInfoServiceImpl">
+		<constructor-arg index="0" ref="financeInfoDao" />
+	</bean>
+	--><!--
+		end: Generated for FinanceInfo From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for BorrowerInfo From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="borrowerInfoService"
+		class="com.zhiwei.credit.service.creditFlow.smallLoan.finance.impl.BorrowerInfoServiceImpl">
+		<constructor-arg index="0" ref="borrowerInfoDao" />
+	</bean>
+	<bean id="procreditMortgageService"
+		class="com.webServices.mortgage.impl.ProcreditMortgageServiceImpl">
+		<constructor-arg index="0" ref="dictionaryDao" />
+	</bean>
+	<!--
+		end: Generated for BorrowerInfo From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlPunishInterest From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slPunishInterestService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlPunishInterestServiceImpl">
+		<constructor-arg index="0" ref="slPunishInterestDao" />
+	</bean>
+	<!--
+		end: Generated for SlPunishInterest From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlAccrued From Template: app-service.xml.beansvm
+	-->
+	<bean id="slAccruedService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlAccruedServiceImpl">
+		<constructor-arg index="0" ref="slAccruedDao" />
+	</bean>
+	<!--
+		end: Generated for SlAccrued From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlPunishDetail From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slPunishDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlPunishDetailServiceImpl">
+		<constructor-arg index="0" ref="slPunishDetailDao" />
+	</bean>
+	<!--
+		end: Generated for SlPunishDetail From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="vPunishDetailService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.VPunishDetailServiceImpl">
+		<constructor-arg index="0" ref="vPunishDetailDao" />
+	</bean>
+	<!--
+		start: Generated for SlDataList From Template: app-service.xml.beansvm
+	-->
+	<bean id="slDataListService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlDataListServiceImpl">
+		<constructor-arg index="0" ref="slDataListDao" />
+	</bean>
+	<!--
+		end: Generated for SlDataList From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlDataInfo From Template: app-service.xml.beansvm
+	-->
+	<bean id="slDataInfoService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlDataInfoServiceImpl">
+		<constructor-arg index="0" ref="slDataInfoDao" />
+	</bean>
+	<!--
+		end: Generated for SlDataInfo From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for SlLoanAccountErrorLog From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="slLoanAccountErrorLogService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.SlLoanAccountErrorLogServiceImpl">
+		<constructor-arg index="0" ref="slLoanAccountErrorLogDao" />
+	</bean>
+	<bean id="baseCustomService" class="com.webServices.custom.impl.BaseCustomServiceImpl">
+		<constructor-arg index="0" ref="dictionaryDao" />
+	</bean>
+	<bean id="fundQlideFromWebService"
+		class="com.webServices.finance.impl.FundQlideFromWebServiceImpl">
+		<constructor-arg index="0" ref="slFundQlideDao" />
+	</bean>
+
+	<bean id="ftpService" class="com.zhiwei.credit.service.system.impl.FTPServiceImpl">
+
+	</bean>
+	<!--
+		end: Generated for SlLoanAccountErrorLog From Template:
+		app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for CsBank From Template: app-service.xml.beansvm
+	-->
+	<bean id="csBankService"
+		class="com.zhiwei.credit.service.creditFlow.common.impl.CsBankServiceImpl">
+		<constructor-arg index="0" ref="csBankDao" />
+	</bean>
+	<!--
+		end: Generated for CsBank From Template: app-service.xml.beansvm
+	-->
+	
+	<!--
+		start: Generated for ProfitRateMaintenance From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="profitRateMaintenanceService"
+		class="com.zhiwei.credit.service.creditFlow.finance.impl.ProfitRateMaintenanceServiceImpl">
+		<constructor-arg index="0" ref="profitRateMaintenanceDao" />
+	</bean>
+	<!--
+		end: Generated for ProfitRateMaintenance From Template:
+		app-service.xml.beansvm
+	-->
+
+	<!--
+		start: Generated for CsHoliday From Template: app-service.xml.beansvm
+	-->
+	<bean id="csHolidayService"
+		class="com.zhiwei.credit.service.system.impl.CsHolidayServiceImpl">
+		<constructor-arg index="0" ref="csHolidayDao" />
+	</bean>
+	<!--
+		end: Generated for CsHoliday From Template: app-service.xml.beansvm
+	-->
+	<!--
+		start: Generated for InvestPerson From Template:
+		app-service.xml.beansvm
+	-->
+	<bean id="investPersonService"
+		class="com.zhiwei.credit.service.customer.impl.InvestPersonServiceImpl">
+		<constructor-arg index="0" ref="investPersonDao" />
+	</bean>
+	<!--
+		end: Generated for InvestPerson From Template: app-service.xml.beansvm
+	-->
+
+	<import	resource="classpath:com/zhiwei/credit/service/creditFlow/leaseFinance/xmls/app-service.xml" />
+
+	<!--<bean id="makeScoreService"
+		class="com.credit.proj.creditmanagement.service.MakeScoreService">
+		<constructor-arg index="0" ref="makeScoreDao" />
+		<constructor-arg index="1" ref="creditRatingDao" />
+		<constructor-arg index="2" ref="ratingTemplateDao" />
+		<constructor-arg index="3" ref="scoreGradeOfClassDao" />
+		<constructor-arg index="4" ref="indicatorDao" />
+		<constructor-arg index="5" ref="makeScoreGetSubDao" />
+	</bean>
+
+--><!-- start:  Generated for InvestPersonCare From Template: app-service.xml.beansvm  -->
+	 <bean id="investPersonCareService" class="com.zhiwei.credit.service.customer.impl.InvestPersonCareServiceImpl">
+   	 	<constructor-arg index="0" ref="investPersonCareDao"/>
+   	 </bean>
+<!-- end:  Generated for OurProcreditMaterials From Template: app-service.xml.beansvm  -->
+ <bean id="mySelfService"
+  class="com.zhiwei.credit.service.creditFlow.smallLoan.project.MySelfService">
+  <constructor-arg index="0" ref="mySelfDao" />
+ </bean>
+
+<!-- start:  Generated for AreaManagement From Template: app-service.xml.beansvm  -->
+	 <bean id="areaManagementService" class="com.zhiwei.credit.service.creditFlow.common.impl.AreaManagementServiceImpl">
+   	 	<constructor-arg index="0" ref="areaManagementDao"/>
+   	 </bean>
+<!-- end:  Generated for AreaManagement From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for CsElementCategory From Template: app-service.xml.beansvm  --><!--
+	 <bean id="csElementCategoryService" class="com.zhiwei.credit.service.document.impl.CsElementCategoryServiceImpl">
+   	 	<constructor-arg index="0" ref="csElementCategoryDao"/>
+   	 </bean>
+--><!-- end:  Generated for CsElementCategory From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for InvestEnterprise From Template: app-service.xml.beansvm  -->
+	 <bean id="investEnterpriseService" class="com.zhiwei.credit.service.customer.impl.InvestEnterpriseServiceImpl">
+   	 	<constructor-arg index="0" ref="investEnterpriseDao"/>
+   	 </bean>
+<!-- end:  Generated for InvestEnterprise From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for Customerbanklinkman From Template: app-service.xml.beansvm  -->
+	 <bean id="customerbanklinkmanService" class="com.zhiwei.credit.service.customer.impl.CustomerbanklinkmanServiceImpl">
+   	 	<constructor-arg index="0" ref="customerbanklinkmanDao"/>
+   	 </bean>
+   	 <bean id="bpProductParameterService" class="com.zhiwei.credit.service.system.product.impl.BpProductParameterServiceImpl">
+   	 	<constructor-arg index="0" ref="bpProductParameterDao"/>
+   	 </bean>
+   	 <bean id="workCompanyService" class="com.zhiwei.credit.service.creditFlow.customer.person.workcompany.impl.WorkCompanyServiceImpl">
+   	 	<constructor-arg index="0" ref="workCompanyDao"/>
+   	 </bean>
+   	 <bean id="bpMoneyBorrowDemandService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.BpMoneyBorrowDemandServiceImpl">
+   	 	<constructor-arg index="0" ref="bpMoneyBorrowDemandDao"/>
+   	 </bean>
+   	 <bean id="investIntentionService" class="com.zhiwei.credit.service.customer.impl.InvestIntentionServiceImpl">
+   	 	<constructor-arg index="0" ref="investIntentionDao"/>
+   	 </bean>
+   	 <bean id="fundsToPromoteService" class="com.zhiwei.credit.service.creditFlow.finance.impl.FundsToPromoteServiceImpl">
+   	 	<constructor-arg index="0" ref="fundsToPromoteDao"/>
+   	 </bean>
+   	 <bean id="BpFundProjectService" class="com.zhiwei.credit.service.creditFlow.fund.project.impl.BpFundProjectServiceImpl">
+   		<constructor-arg index="0" ref="bpFundProjectDao"/>
+   	</bean>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/customer/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/creditAssignment/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/contract/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/fileUploads/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/multiLevelDic/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/creditmanagement/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/log/xmls/app-service.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/bonusSystem/xmls/app-service.xml"/>
+<!-- 互联网 金融前台展示贷款材料 -->
+<import resource="classpath:com/zhiwei/credit/service/p2p/xmls/app-service.xml"/>
+
+<!-- start:  Generated for BpPersonPhonecheckInfo From Template: app-service.xml.beansvm  -->
+	 <bean id="bpPersonPhonecheckInfoService" class="com.zhiwei.credit.service.creditFlow.personrelation.phonecheck.impl.BpPersonPhonecheckInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="bpPersonPhonecheckInfoDao"/>
+   	 </bean>
+<!-- end:  Generated for BpPersonPhonecheckInfo From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpPersonNetCheckInfo From Template: app-service.xml.beansvm  -->
+	 <bean id="bpPersonNetCheckInfoService" class="com.zhiwei.credit.service.creditFlow.personrelation.netcheck.impl.BpPersonNetCheckInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="bpPersonNetCheckInfoDao"/>
+   	 </bean>
+   	  <bean id="investPersonInfoService" class="com.zhiwei.credit.service.customer.impl.InvestPersonInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="investPersonInfoDao"/>
+   	 </bean>
+<!-- end:  Generated for BpPersonNetCheckInfo From Template: app-service.xml.beansvm  -->
+
+<!-- 互联网金融  -->
+<bean id="buildHtml2WebService" class="com.zhiwei.credit.service.system.impl.BuildHtml2WebImpl">
+   	 </bean>
+   	 <bean id="ResultWebPmsService" class="com.zhiwei.credit.service.system.impl.ResultWebPmsServiceImpl">
+   	 </bean>
+   	 
+<!-- start:  Generated for Articlecategory From Template: app-service.xml.beansvm  -->
+	 <bean id="articlecategoryService" class="com.zhiwei.credit.service.p2p.impl.ArticlecategoryServiceImpl">
+   	 	<constructor-arg index="0" ref="articlecategoryDao"/>
+   	 </bean>
+<!-- end:  Generated for Articlecategory From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for Article From Template: app-service.xml.beansvm  -->
+	 <bean id="articleService" class="com.zhiwei.credit.service.p2p.impl.ArticleServiceImpl">
+   	 	<constructor-arg index="0" ref="articleDao"/>
+   	 </bean>
+<!-- end:  Generated for Article From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for P2pFriendlink From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pFriendlinkService" class="com.zhiwei.credit.service.p2p.impl.P2pFriendlinkServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pFriendlinkDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pFriendlink From Template: app-service.xml.beansvm  -->
+
+<!-- start:  Generated for BpCustLoginlog From Template: app-service.xml.beansvm  -->
+	 <bean id="bpCustLoginlogService" class="com.zhiwei.credit.service.p2p.impl.BpCustLoginlogServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustLoginlogDao"/>
+   	 </bean>
+<!-- end:  Generated for BpCustLoginlog From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for IndexShow From Template: app-service.xml.beansvm  -->
+	 <bean id="indexShowService" class="com.zhiwei.credit.service.p2p.impl.IndexShowServiceImpl">
+   	 	<constructor-arg index="0" ref="indexShowDao"/>
+   	 </bean>
+<!-- end:  Generated for IndexShow From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpCustMember From Template: app-service.xml.beansvm  -->
+	 <bean id="bpCustMemberService" class="com.zhiwei.credit.service.p2p.impl.BpCustMemberServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustMemberDao"/>
+   	 </bean>
+<!-- end:  Generated for BpCustMember From Template: app-service.xml.beansvm  -->
+
+<!-- start:  Generated for BpBusinessDirPro From Template: app-service.xml.beansvm  -->
+	 <bean id="bpBusinessDirProService" class="com.zhiwei.credit.service.creditFlow.financingAgency.business.impl.BpBusinessDirProServiceImpl">
+   	 	<constructor-arg index="0" ref="bpBusinessDirProDao"/>
+   	 </bean>
+<!-- end:  Generated for BpBusinessDirPro From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpBusinessOrPro From Template: app-service.xml.beansvm  -->
+	 <bean id="bpBusinessOrProService" class="com.zhiwei.credit.service.creditFlow.financingAgency.business.impl.BpBusinessOrProServiceImpl">
+   	 	<constructor-arg index="0" ref="bpBusinessOrProDao"/>
+   	 </bean>
+<!-- end:  Generated for BpBusinessOrPro From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpPersionDirPro From Template: app-service.xml.beansvm  -->
+	 <bean id="bpPersionDirProService" class="com.zhiwei.credit.service.creditFlow.financingAgency.persion.impl.BpPersionDirProServiceImpl">
+   	 	<constructor-arg index="0" ref="bpPersionDirProDao"/>
+   	 </bean>
+<!-- end:  Generated for BpPersionDirPro From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpPersionOrPro From Template: app-service.xml.beansvm  -->
+	 <bean id="bpPersionOrProService" class="com.zhiwei.credit.service.creditFlow.financingAgency.persion.impl.BpPersionOrProServiceImpl">
+   	 	<constructor-arg index="0" ref="bpPersionOrProDao"/>
+   	 </bean>
+<!-- end:  Generated for BpPersionOrPro From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlBidInfo From Template: app-service.xml.beansvm  -->
+	 <bean id="plBidInfoService" class="com.zhiwei.credit.service.creditFlow.financingAgency.impl.PlBidInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="plBidInfoDao"/>
+   	 </bean>
+<!-- end:  Generated for PlBidInfo From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlBidPlan From Template: app-service.xml.beansvm  -->
+	 <bean id="plBidPlanService" class="com.zhiwei.credit.service.creditFlow.financingAgency.impl.PlBidPlanServiceImpl">
+   	 	<constructor-arg index="0" ref="plBidPlanDao"/>
+   	 </bean>
+<!-- end:  Generated for PlBidPlan From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlBiddingType From Template: app-service.xml.beansvm  -->
+	 <bean id="plBiddingTypeService" class="com.zhiwei.credit.service.creditFlow.financingAgency.typeManger.impl.PlBiddingTypeServiceImpl">
+   	 	<constructor-arg index="0" ref="plBiddingTypeDao"/>
+   	 </bean>
+<!-- end:  Generated for PlBiddingType From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlBusinessDirProKeep From Template: app-service.xml.beansvm  -->
+	 <bean id="plBusinessDirProKeepService" class="com.zhiwei.credit.service.creditFlow.financingAgency.business.impl.PlBusinessDirProKeepServiceImpl">
+   	 	<constructor-arg index="0" ref="plBusinessDirProKeepDao"/>
+   	 </bean>
+<!-- end:  Generated for PlBusinessDirProKeep From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlKeepCreditlevel From Template: app-service.xml.beansvm  -->
+	 <bean id="plKeepCreditlevelService" class="com.zhiwei.credit.service.creditFlow.financingAgency.typeManger.impl.PlKeepCreditlevelServiceImpl">
+   	 	<constructor-arg index="0" ref="plKeepCreditlevelDao"/>
+   	 </bean>
+<!-- end:  Generated for PlKeepCreditlevel From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlKeepGtorz From Template: app-service.xml.beansvm  -->
+	 <bean id="plKeepGtorzService" class="com.zhiwei.credit.service.creditFlow.financingAgency.typeManger.impl.PlKeepGtorzServiceImpl">
+   	 	<constructor-arg index="0" ref="plKeepGtorzDao"/>
+   	 </bean>
+<!-- end:  Generated for PlKeepGtorz From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlKeepProtype From Template: app-service.xml.beansvm  -->
+	 <bean id="plKeepProtypeService" class="com.zhiwei.credit.service.creditFlow.financingAgency.typeManger.impl.PlKeepProtypeServiceImpl">
+   	 	<constructor-arg index="0" ref="plKeepProtypeDao"/>
+   	 </bean>
+<!-- end:  Generated for PlKeepProtype From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlPersionDirProKeep From Template: app-service.xml.beansvm  -->
+	 <bean id="plPersionDirProKeepService" class="com.zhiwei.credit.service.creditFlow.financingAgency.persion.impl.PlPersionDirProKeepServiceImpl">
+   	 	<constructor-arg index="0" ref="plPersionDirProKeepDao"/>
+   	 </bean>
+<!-- end:  Generated for PlPersionDirProKeep From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for OaNewsMessage From Template: app-service.xml.beansvm  -->
+	 <bean id="oaNewsMessageService" class="com.zhiwei.credit.service.p2p.impl.OaNewsMessageServiceImpl">
+   	 	<constructor-arg index="0" ref="oaNewsMessageDao"/>
+   	 </bean>
+<!-- end:  Generated for OaNewsMessage From Template: app-service.xml.beansvm  -->
+<!-- 互联网金融end -->
+
+<!-- start:  Generated for BpCustRelation From Template: app-service.xml.beansvm  -->
+	 <bean id="bpCustRelationService" class="com.zhiwei.credit.service.customer.impl.BpCustRelationServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustRelationDao"/>
+   	 </bean>
+<!-- end:  Generated for BpCustRelation From Template: app-service.xml.beansvm  -->
+
+	<bean id="fundIntentService" class="com.zhiwei.credit.service.creditFlow.finance.impl.FundIntentServiceImpl">
+		<constructor-arg index="0" ref="fundIntentDao"/>
+	</bean>
+
+
+<!-- start:  Generated for BpBidLoan From Template: app-service.xml.beansvm  -->
+	 <bean id="bpBidLoanService" class="com.zhiwei.credit.service.pay.impl.BpBidLoanServiceImpl">
+   	 	<constructor-arg index="0" ref="bpBidLoanDao"/>
+   	 </bean>
+<!-- end:  Generated for BpBidLoan From Template: app-service.xml.beansvm  -->
+
+<bean id="thirdPayMessageService" class="com.zhiwei.credit.service.pay.impl.ThirdPayMessageServiceImpl">
+   	 	<constructor-arg index="0" ref="thirdPayMessageDao"/>
+   	 </bean>
+   	 
+   	 <bean id="bpMoneyManagerService" class="com.zhiwei.credit.service.pay.impl.BpMoneyManagerServiceImpl">
+   	 	<constructor-arg index="0" ref="bpMoneyManagerDao"/>
+   	 </bean>
+   	 <bean id="bpFundIntentService" class="com.zhiwei.credit.service.creditFlow.finance.impl.BpFundIntentServiceImpl">
+   	 	<constructor-arg index="0" ref="bpFundIntentDao"/>
+   	 </bean>
+   	 <bean id="plBidAutoService"
+		class="com.zhiwei.credit.service.creditFlow.auto.impl.PlBidAutoServiceImpl">
+		<constructor-arg index="0" ref="plBidAutoDao" />
+	</bean>
+<!-- start:  Generated for PlManageMoneyType From Template: app-service.xml.beansvm  -->
+	 <bean id="plManageMoneyTypeService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlManageMoneyTypeServiceImpl">
+   	 	<constructor-arg index="0" ref="plManageMoneyTypeDao"/>
+   	 </bean>
+<!-- end:  Generated for PlManageMoneyType From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlManageMoneyPlan From Template: app-service.xml.beansvm  -->
+	 <bean id="plManageMoneyPlanService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlManageMoneyPlanServiceImpl">
+   	 	<constructor-arg index="0" ref="plManageMoneyPlanDao"/>
+   	 </bean>
+<!-- end:  Generated for PlManageMoneyPlan From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlManageMoneyPlanBuyinfo From Template: app-service.xml.beansvm  -->
+	 <bean id="plManageMoneyPlanBuyinfoService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlManageMoneyPlanBuyinfoServiceImpl">
+   	 	<constructor-arg index="0" ref="plManageMoneyPlanBuyinfoDao"/>
+   	 </bean>
+<!-- end:  Generated for PlManageMoneyPlanBuyinfo From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlMmObligatoryRightChildren From Template: app-service.xml.beansvm  -->
+	 <bean id="plMmObligatoryRightChildrenService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlMmObligatoryRightChildrenServiceImpl">
+   	 	<constructor-arg index="0" ref="plMmObligatoryRightChildrenDao"/>
+   	 </bean>
+<!-- end:  Generated for PlMmObligatoryRightChildren From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for PlMmOrderChildrenOr From Template: app-service.xml.beansvm  -->
+	 <bean id="plMmOrderChildrenOrService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlMmOrderChildrenOrServiceImpl">
+   	 	<constructor-arg index="0" ref="plMmOrderChildrenOrDao"/>
+   	 </bean>
+<!-- end:  Generated for PlMmOrderChildrenOr From Template: app-service.xml.beansvm  -->
+
+<!-- start:  Generated for BpThirdpayCity From Template: app-service.xml.beansvm  -->
+	 <bean id="bpThirdpayCityService" class="com.zhiwei.credit.service.thirdPay.impl.BpThirdpayCityServiceImpl">
+   	 	<constructor-arg index="0" ref="bpThirdpayCityDao"/>
+   	 </bean>
+<!-- end:  Generated for BpThirdpayCity From Template: app-service.xml.beansvm  -->
+<bean id="plMmOrderAssignInterestService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlMmOrderAssignInterestServiceImpl">
+   	 	<constructor-arg index="0" ref="plMmOrderAssignInterestDao"/>
+   	 </bean>
+ <bean id="plMmOrderChildrenorTestService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlMmOrderChildrenorTestServiceImpl">
+   	 	<constructor-arg index="0" ref="plMmOrderChildrenorTestDao"/>
+   	 </bean>
+<!-- start:  Generated for PlThirdInterfaceLog From Template: app-service.xml.beansvm  -->
+	 <bean id="plThirdInterfaceLogService" class="com.zhiwei.credit.service.thirdInterface.impl.PlThirdInterfaceLogServiceImpl">
+   	 	<constructor-arg index="0" ref="plThirdInterfaceLogDao"/>
+   	 </bean>
+<!-- end:  Generated for PlThirdInterfaceLog From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for WebTemplateMessage From Template: app-service.xml.beansvm  -->
+	 <bean id="webTemplateMessageService" class="com.zhiwei.credit.service.web.impl.WebTemplateMessageServiceImpl">
+   	 	<constructor-arg index="0" ref="webTemplateMessageDao"/>
+   	 </bean>
+<!-- end:  Generated for WebTemplateMessage From Template: app-service.xml.beansvm  -->
+<bean id="slUrgeRecordService" class="com.zhiwei.credit.service.creditFlow.smallLoan.finance.impl.SlUrgeRecordServiceImpl">
+	<constructor-arg index="0" ref="slUrgeRecordDao"/>	
+</bean>
+
+<bean id="webBankCodeService" class="com.zhiwei.credit.service.thirdInterface.impl.WebBankCodeServiceImpl">
+   	 	<constructor-arg index="0" ref="webBankCodeDao"/>
+   	 </bean>
+ <bean id="webBankcardService" class="com.zhiwei.credit.service.thirdInterface.impl.WebBankcardServiceImpl">
+   	 	<constructor-arg index="0" ref="webBankcardDao"/>
+   	 </bean>
+ <bean id="bankCodeService" class="com.zhiwei.credit.service.pay.impl.BankCodeServiceImpl">
+   	 	<constructor-arg index="0" ref="bankCodeDao"/>
+   	 </bean>
+<!-- start:  Generated for BpFinanceApplyUser From Template: app-service.xml.beansvm  -->
+	 <bean id="bpFinanceApplyUserService" class="com.zhiwei.credit.service.p2p.impl.BpFinanceApplyUserServiceImpl">
+   	 	<constructor-arg index="0" ref="bpFinanceApplyUserDao"/>
+   	 </bean>
+<!-- end:  Generated for BpFinanceApplyUser From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for WebFinanceApplyUploads From Template: app-service.xml.beansvm  -->
+	 <bean id="webFinanceApplyUploadsService" class="com.zhiwei.credit.service.p2p.impl.WebFinanceApplyUploadsServiceImpl">
+   	 	<constructor-arg index="0" ref="webFinanceApplyUploadsDao"/>
+   	 </bean>
+<!-- end:  Generated for WebFinanceApplyUploads From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpCustRedEnvelope From Template: app-service.xml.beansvm  -->
+	 <bean id="bpCustRedEnvelopeService" class="com.zhiwei.credit.service.p2p.redMoney.impl.BpCustRedEnvelopeServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustRedEnvelopeDao"/>
+   	 </bean>
+	<!-- end:  Generated for BpCustRedEnvelope From Template: app-service.xml.beansvm  -->
+	<!-- start:  Generated for BpCustRedMember From Template: app-service.xml.beansvm  -->
+	 <bean id="bpCustRedMemberService" class="com.zhiwei.credit.service.p2p.redMoney.impl.BpCustRedMemberServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustRedMemberDao"/>
+   	 </bean>
+	<!-- end:  Generated for BpCustRedMember From Template: app-service.xml.beansvm  -->
+	<!-- start:  Generated for PlEarlyRedemption From Template: app-service.xml.beansvm  -->
+	 <bean id="plEarlyRedemptionService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlEarlyRedemptionServiceImpl">
+   	 	<constructor-arg index="0" ref="plEarlyRedemptionDao"/>
+   	 </bean>
+	<!-- end:  Generated for PlEarlyRedemption From Template: app-service.xml.beansvm  -->
+	<bean id="projectCommentsHistoryService" class="com.zhiwei.credit.service.creditFlow.common.impl.ProjectCommentsHistoryServiceImpl">
+		<constructor-arg index="0" ref="projectCommentsHistoryDao"/>
+	</bean>
+	
+	<!-- start:  Generated for UploadLog From Template: app-service.xml.beansvm  -->
+	 <bean id="uploadLogService" class="com.zhiwei.credit.service.system.impl.UploadLogServiceImpl">
+   	 	<constructor-arg index="0" ref="uploadLogDao"/>
+   	 </bean>
+<!-- end:  Generated for UploadLog From Template: app-service.xml.beansvm  -->
+ <!-- start:  Generated for P2pBannerlink From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pBannerlinkService" class="com.zhiwei.credit.service.p2p.impl.P2pBannerlinkServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pBannerlinkDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pBannerlink From Template: app-service.xml.beansvm  -->
+ <bean id="plBidSaleService" class="com.zhiwei.credit.service.creditFlow.financingAgency.impl.PlBidSaleServiceImpl">
+   	 	<constructor-arg index="0" ref="plBidSaleDao"/>
+   	 </bean>
+   	 
+   	 
+	<import resource="classpath:com/zhiwei/credit/service/creditFlow/finance/plateFormFinanceManage/xmls/app-plateFormService.xml" />
+  <bean id="bpPageSettingService" class="com.zhiwei.credit.service.creditFlow.common.impl.BpPageSettingServiceImpl">
+   	 	<constructor-arg index="0" ref="bpPageSettingDao"/>
+  </bean>
+<!-- start:  Generated for CsCooperationEnterprise From Template: app-service.xml.beansvm  -->
+	 <bean id="csCooperationEnterpriseService" class="com.zhiwei.credit.service.creditFlow.customer.cooperation.impl.CsCooperationEnterpriseServiceImpl">
+   	 	<constructor-arg index="0" ref="csCooperationEnterpriseDao"/>
+   	 </bean>
+<!-- end:  Generated for CsCooperationEnterprise From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for CsCooperationPerson From Template: app-service.xml.beansvm  -->
+	 <bean id="csCooperationPersonService" class="com.zhiwei.credit.service.creditFlow.customer.cooperation.impl.CsCooperationPersonServiceImpl">
+   	 	<constructor-arg index="0" ref="csCooperationPersonDao"/>
+   	 </bean>
+   	 
+ 	 <bean id="plMmOrderInfoService" class="com.zhiwei.credit.service.creditFlow.financingAgency.manageMoney.impl.PlMmOrderInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="plMmOrderInfoDao"/>
+   	 </bean>
+	<import resource="classpath:com/zhiwei/credit/service/coupon/xmls/service-coupon.xml" />
+<!-- start:  Generated for BpActivityManage From Template: app-service.xml.beansvm  -->
+	 <bean id="bpActivityManageService" class="com.zhiwei.credit.service.activity.impl.BpActivityManageServiceImpl">
+   	 	<constructor-arg index="0" ref="bpActivityManageDao"/>
+   	 </bean>
+<!-- end:  Generated for BpActivityManage From Template: app-service.xml.beansvm  -->
+
+<!-- start:  Generated for OaNewsMessagerinfo From Template: app-service.xml.beansvm  -->
+	 <bean id="oaNewsMessagerinfoService" class="com.zhiwei.credit.service.p2p.impl.OaNewsMessagerinfoServiceImpl">
+   	 	<constructor-arg index="0" ref="oaNewsMessagerinfoDao"/>
+   	 </bean>
+<!-- end:  Generated for OaNewsMessagerinfo From Template: app-service.xml.beansvm  -->
+ <bean id="systemServiceUpdateService" class="com.zhiwei.credit.service.system.impl.SystemServiceUpdateServiceImpl">
+   	 	<constructor-arg index="0" ref="systemServiceUpdateDao"/>
+   	 </bean>
+ 
+
+ <bean id="rarUpAndUnService" class="com.zhiwei.credit.service.system.impl.RarUpAndUnServiceImpl">
+   	 </bean>
+
+<!-- start:  Generated for BpLoneExternal From Template: app-service.xml.beansvm  -->
+	 <bean id="bpLoneExternalService" class="com.zhiwei.credit.service.creditFlow.riskControl.creditInvestigation.impl.BpLoneExternalServiceImpl">
+   	 	<constructor-arg index="0" ref="bpLoneExternalDao"/>
+   	 </bean>
+<!-- end:  Generated for BpLoneExternal From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BpBadCredit From Template: app-service.xml.beansvm  -->
+	 <bean id="bpBadCreditService" class="com.zhiwei.credit.service.creditFlow.riskControl.creditInvestigation.impl.BpBadCreditServiceImpl">
+   	 	<constructor-arg index="0" ref="bpBadCreditDao"/>
+   	 </bean>
+<!-- end:  Generated for BpBadCredit From Template: app-service.xml.beansvm  -->
+<!-- 站岗资金 -->
+<import resource="classpath:com/zhiwei/credit/service/financeProduct/xmls/serice-financeProduct.xml"/>
+<import resource="classpath:com/zhiwei/credit/service/creditFlow/finance/compensatory/xmls/appcompensatory-service.xml"/>
+<!-- start:  Generated for P2pLoanProduct From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pLoanProductService" class="com.zhiwei.credit.service.p2p.loan.impl.P2pLoanProductServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pLoanProductDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pLoanProduct From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanConditionOrMaterial From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pLoanConditionOrMaterialService" class="com.zhiwei.credit.service.p2p.loan.impl.P2pLoanConditionOrMaterialServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pLoanConditionOrMaterialDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pLoanConditionOrMaterial From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanRate From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pLoanRateService" class="com.zhiwei.credit.service.p2p.loan.impl.P2pLoanRateServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pLoanRateDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pLoanRate From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanApplyStep From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pLoanApplyStepService" class="com.zhiwei.credit.service.p2p.loan.impl.P2pLoanApplyStepServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pLoanApplyStepDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pLoanApplyStep From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for P2pLoanBasisMaterial From Template: app-service.xml.beansvm  -->
+	 <bean id="p2pLoanBasisMaterialService" class="com.zhiwei.credit.service.p2p.loan.impl.P2pLoanBasisMaterialServiceImpl">
+   	 	<constructor-arg index="0" ref="p2pLoanBasisMaterialDao"/>
+   	 </bean>
+<!-- end:  Generated for P2pLoanBasisMaterial From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for CoreParameterConfig From Template: app-service.xml.beansvm  -->
+	 <bean id="coreParameterConfigService" class="com.zhiwei.credit.service.p2p.impl.CoreParameterConfigServiceImpl">
+   	 	<constructor-arg index="0" ref="coreParameterConfigDao"/>
+   	 </bean>
+<!-- end:  Generated for CoreParameterConfig From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for BusPayAccount From Template: app-service.xml.beansvm  -->
+	 <bean id="busPayAccountService" class="com.zhiwei.credit.service.p2p.impl.BusPayAccountServiceImpl">
+   	 	<constructor-arg index="0" ref="busPayAccountDao"/>
+   	 </bean>
+<!-- end:  Generated for BusPayAccount From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for ThirdPayRecord From Template: app-service.xml.beansvm  -->
+	 <bean id="thirdPayRecordService" class="com.thirdPayInterface.ThirdPayLog.service.impl.ThirdPayRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="thirdPayRecordDao"/>
+   	 </bean>
+<!-- end:  Generated for ThirdPayRecord From Template: app-service.xml.beansvm  -->
+<!-- start:调用第三方生成日志 -->       
+     <bean id="thirdPayLogService" class="com.thirdPayInterface.ThirdPayLog.service.impl.ThirdPayLogServiceImpl">
+   	 	<constructor-arg index="0" ref="thirdPayLogDao"/>
+   	 </bean>
+<!-- end:调用第三方生成日志 -->
+<!-- start:  Generated for PlatDataPublish From Template: app-service.xml.beansvm  -->
+	 <bean id="platDataPublishService" class="com.zhiwei.credit.service.p2p.impl.PlatDataPublishServiceImpl">
+   	 	<constructor-arg index="0" ref="platDataPublishDao"/>
+   	 </bean>
+<!-- end:  Generated for PlatDataPublish From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for TaskProxy From Template: app-service.xml.beansvm  -->
+	 <bean id="taskProxyService" class="com.zhiwei.credit.service.flow.impl.TaskProxyServiceImpl">
+   	 	<constructor-arg index="0" ref="taskProxyDao"/>
+   	 </bean>
+<!-- end:  Generated for TaskProxy From Template: app-service.xml.beansvm  -->
+
+<import resource="classpath:com/highchart/xml/service-highchart.xml"/>
+
+<import resource="classpath:com/messageAlert/xml/service-messageAlert.xml"/>
+
+<import resource="classpath:com/zhiwei/credit/service/htmobile/xmls/app-service.xml"/>
+<!-- start:  Generated for SettlementReviewerPay From Template: app-service.xml.beansvm  -->
+	 <bean id="settlementReviewerPayService" class="com.zhiwei.credit.service.creditFlow.fund.project.impl.SettlementReviewerPayServiceImpl">
+   	 	<constructor-arg index="0" ref="settlementReviewerPayDao"/>
+   	 </bean>
+<!-- end:  Generated for SettlementReviewerPay From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for SettlementInfo From Template: app-service.xml.beansvm  -->
+	 <bean id="settlementInfoService" class="com.zhiwei.credit.service.creditFlow.fund.project.impl.SettlementInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="settlementInfoDao"/>
+   	 </bean>
+<!-- end:  Generated for SettlementInfo From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for SettlementInfo From Template: app-service.xml.beansvm  -->
+	 <bean id="ownerShipService" class="com.zhiwei.credit.service.creditFlow.fund.project.impl.OwnerShipServiceImpl">
+   	 	<constructor-arg index="0" ref="ownerShipDao"/>
+   	 </bean>
+<!-- end:  Generated for SettlementInfo From Template: app-service.xml.beansvm  -->
+<!-- start:  Generated for OaHolidayMessage From Template: app-service.xml.beansvm  -->
+	 <bean id="oaHolidayMessageService" class="com.zhiwei.credit.service.p2p.impl.OaHolidayMessageServiceImpl">
+   	 	<constructor-arg index="0" ref="oaHolidayMessageDao"/>
+   	 </bean>
+<!-- end:  Generated for OaHolidayMessage From Template: app-service.xml.beansvm  -->
+</beans>

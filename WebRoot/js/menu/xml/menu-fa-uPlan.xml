@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa_uplan" text="P2P理财业务" iconCls="mod-org">
+  	<Items id="UPlanAdd" iconCls="btn-tree-team30" text="U计划管理">
+		<Item id="UPlanTypeView?keystr=UPlan" iconCls="btn-tree-team30" text="计划类型配置"></Item>
+		<Item id="UPlanView?keystr=UPlan" iconCls="btn-tree-team30" text="计划招标制定"></Item>
+		<Item id="UPlanBidPublish?state=0&amp;keystr=UPlan&amp;buttonType=0" iconCls="btn-tree-team30" text="计划招标预览"></Item>
+		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=1" iconCls="btn-tree-team30" text="计划招标发布"></Item>
+  	</Items>
+ 	<Items id="UPlanPreSale" iconCls="btn-tree-team30" text="U计划预售">
+ 		<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=dys" iconCls="btn-tree-team30" text="待预售计划"></Item>
+ 		<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=ysz" iconCls="btn-tree-team30" text="预售中计划"></Item>
+ 	</Items>
+  	<Items id="UPlanBidding" iconCls="btn-tree-team30" text="招投标管理">
+  		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=2" iconCls="btn-tree-team30" text="理财计划关闭"></Item>
+  		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=3" iconCls="btn-tree-team30" text="手动起息办理"></Item>
+  	</Items>
+  	<Items id="UPlanEarlyOutList" iconCls="btn-tree-team30" text="提前赎回管理">
+		<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=0&amp;buttonType=0" iconCls="btn-tree-team30" text="待审核申请"></Item>
+		<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=0&amp;buttonType=1" iconCls="btn-tree-team30" text="审核通过返款"></Item>
+		<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=1&amp;buttonType=2" iconCls="btn-tree-team30" text="已通过申请"></Item>
+		<Item id="EarlyOutList?keystr=UPlan&amp;Q_checkStatus_SN_EQ=3&amp;buttonType=3" iconCls="btn-tree-team30" text="已驳回申请"></Item>
+	</Items>
+	<Items id="UPlanRepayment" iconCls="btn-tree-team30" text="派息还款管理">
+		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=4" iconCls="btn-tree-team30" text="派息还款授权"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=UPlan&amp;buttonType=5" iconCls="btn-tree-team30" text="理财还款派息"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=UPlan&amp;buttonType=7" iconCls="btn-tree-team30" text="理财派息返款"></Item>
+		<Item id="investmentMmAssignInterestView?keystr=UPlan&amp;buttonType=6" iconCls="btn-tree-team30" text="逾期派息提醒"></Item>
+		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=7" iconCls="btn-tree-team30" text="理财结清管理"></Item>
+	</Items>
+	<Items id="UPlanSelect" iconCls="btn-tree-team30" text="理财计划查询">
+		<Item id="UPlanBidPublishManage?keystr=UPlan&amp;buttonType=8" iconCls="btn-tree-team30" text="全部理财计划查询"></Item>
+		<Item id="UPlanInfo?keystr=UPlan" iconCls="btn-tree-team30" text="投标记录查询"></Item>	
+	</Items>
+	<Items id="UPlanState" iconCls="btn-tree-team30" text="理财计划台账" >
+		<Item id="UPlanBidPublish?state=1&amp;keystr=UPlan&amp;isPresale=zbz" iconCls="btn-tree-team30" text="招标中计划台账"></Item>
+		<Item id="UPlanBidPublish?state=2&amp;keystr=UPlan" iconCls="btn-tree-team30" text="已满标计划台账"></Item>
+		<Item id="UPlanBidPublish?state=4&amp;keystr=UPlan" iconCls="btn-tree-team30" text="已到期计划台账"></Item>
+		<Item id="UPlanBidPublish?state=7&amp;keystr=UPlan" iconCls="btn-tree-team30" text="还款中计划台账"></Item>
+		<Item id="UPlanBidPublish?state=10&amp;keystr=UPlan" iconCls="btn-tree-team30" text="已完成计划台账"></Item>
+		<Item id="UPlanBidPublish?state=-1&amp;keystr=UPlan" iconCls="btn-tree-team30" text="已关闭计划台账"></Item>
+	</Items>
+	<Items id="UPlanInvest" text="理财投向管理" iconCls="btn-tree-team30">	
+	    <Item id="PlMmChildrenObligatoryViewUPlan?childType=UPlanOr" iconCls="btn-tree-team30" text="U计划债权库"></Item>
+		<Item id="plMmOrderView?keystr=UPlan&amp;childType=UPlanOr" iconCls="btn-tree-team30" text="投资债权匹配"></Item>
+    	<Item id="ObligatoryrightBalance?keystr=UPlanOr" iconCls="btn-tree-team30" text="债权余额查询"></Item>
+    </Items>
+</Menus>

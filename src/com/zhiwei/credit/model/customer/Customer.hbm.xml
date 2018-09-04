@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.Customer" table="customer" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="customerId" column="customerId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="customerNo" type="java.lang.String" update="true" insert="true" access="property" column="customerNo" length="64" not-null="true" unique="false"/>  
+    <property name="industryType" type="java.lang.String" update="true" insert="true" access="property" column="industryType" length="64" not-null="true" unique="false"/>  
+    <property name="customerSource" type="java.lang.String" update="true" insert="true" access="property" column="customerSource" length="64" not-null="false" unique="false"/>  
+    <property name="customerType" type="java.lang.Short" update="true" insert="true" access="property" column="customerType" length="5" not-null="true" unique="false"/>  
+    <property name="companyScale" type="java.lang.Integer" update="true" insert="true" access="property" column="companyScale" not-null="false" unique="false"/>  
+    <property name="customerName" type="java.lang.String" update="true" insert="true" access="property" column="customerName" length="128" not-null="true" unique="false"/>  
+    <property name="customerManager" type="java.lang.String" update="true" insert="true" access="property" column="customerManager" length="32" not-null="true" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="32" not-null="true" unique="false"/>  
+    <property name="fax" type="java.lang.String" update="true" insert="true" access="property" column="fax" length="32" not-null="false" unique="false"/>  
+    <property name="site" type="java.lang.String" update="true" insert="true" access="property" column="site" length="128" not-null="false" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="128" not-null="false" unique="false"/>  
+    <property name="state" type="java.lang.String" update="true" insert="true" access="property" column="state" length="32" not-null="false" unique="false"/>  
+    <property name="city" type="java.lang.String" update="true" insert="true" access="property" column="city" length="32" not-null="false" unique="false"/>  
+    <property name="zip" type="java.lang.String" update="true" insert="true" access="property" column="zip" length="32" not-null="false" unique="false"/>  
+    <property name="address" type="java.lang.String" update="true" insert="true" access="property" column="address" length="100" not-null="false" unique="false"/>  
+    <property name="registerFun" type="java.math.BigDecimal" update="true" insert="true" access="property" column="registerFun" length="10" not-null="false" unique="false"/>  
+    <property name="turnOver" type="java.math.BigDecimal" update="true" insert="true" access="property" column="turnOver" length="10" not-null="false" unique="false"/>  
+    <property name="currencyUnit" type="java.lang.String" update="true" insert="true" access="property" column="currencyUnit" length="32" not-null="false" unique="false"/>  
+    <property name="otherDesc" type="java.lang.String" update="true" insert="true" access="property" column="otherDesc" length="800" not-null="false" unique="false"/>  
+    <property name="principal" type="java.lang.String" update="true" insert="true" access="property" column="principal" length="32" not-null="false" unique="false"/>  
+    <property name="openBank" type="java.lang.String" update="true" insert="true" access="property" column="openBank" length="64" not-null="false" unique="false"/>  
+    <property name="accountsNo" type="java.lang.String" update="true" insert="true" access="property" column="accountsNo" length="64" not-null="false" unique="false"/>  
+    <property name="taxNo" type="java.lang.String" update="true" insert="true" access="property" column="taxNo" length="64" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="rights" type="java.lang.Short" update="true" insert="true" access="property" column="rights" length="5" not-null="true" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to CusLinkman  -->  
+    <set name="cusLinkmans" table="cus_linkman" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="customerId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.customer.CusLinkman"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to Project  -->  
+    <set name="projects" table="project" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="customerId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.customer.Project"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to Project  -->  
+    <set name="cusConnections" table="cus-connections" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="customerId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.customer.CusConnection"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

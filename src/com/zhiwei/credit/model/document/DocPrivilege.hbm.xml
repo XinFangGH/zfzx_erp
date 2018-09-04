@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.document.DocPrivilege" table="doc_privilege" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="privilegeId" column="privilegeId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="rights" type="java.lang.Integer" update="true" insert="true" access="property" column="rights" length="10" not-null="true" unique="false"/>  
+    <property name="udrId" type="java.lang.Integer" update="true" insert="true" access="property" column="udrId" length="10" not-null="false" unique="false"/>  
+    <property name="udrName" type="java.lang.String" update="true" insert="true" access="property" column="udrName" length="128" not-null="false" unique="false"/>  
+    <property name="flag" type="java.lang.Short" update="true" insert="true" access="property" column="flag" length="5" not-null="true" unique="false"/>  
+    <property name="fdFlag" type="java.lang.Short" update="true" insert="true" access="property" column="fdFlag" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Document -->  
+    <many-to-one name="document" class="com.zhiwei.credit.model.document.Document" not-null="false" fetch="select"> 
+      <column name="docId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to DocFolder -->  
+    <many-to-one name="docFolder" class="com.zhiwei.credit.model.document.DocFolder" not-null="false" fetch="select"> 
+      <column name="folderId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

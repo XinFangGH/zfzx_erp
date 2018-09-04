@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- =============================================================== -->
+<!-- Ant build file to run codegen                                   -->
+<!-- =============================================================== -->
+<project name="zhiwei-CODEGEN" default="generate" basedir=".">
+	<!-- <property name="lib" value="${basedir}/../../web/WEB-INF/lib" /> -->
+	<property name="lib" value="${basedir}/lib" /> 
+	<!--不再在properties文件里面配置framework等，而基本上也没有什么参数需要配置的-->
+	<!--<loadproperties srcFile="${basedir}/conf/generator.properties" />-->
+
+	<target name="generate" depends="">
+		<condition property="specifiedTables" value="@specifiedTables">
+			<not>
+				<isset property="specifiedTables" />
+			</not>
+		</condition>
+		<java classname="com.codegenerator.runner.AppFuseGenerator" fork="true">
+			<classpath>
+				<pathelement location="${basedir}/" />
+				<pathelement location="${basedir}/conf/" />
+				<fileset dir="${lib}">
+				</fileset>
+			</classpath>
+			<jvmarg value="-Dfile.encoding=UTF-8"/>
+			<arg value="${specifiedTables}" />
+			<arg value="sys=appfuse" />
+			<arg value="forcedOverwrite=${forcedOverwrite}" />
+			<arg value="removeCode=${removeCode}" />
+		</java>
+	</target>
+
+	<target name="gen-specified">
+		<echo>==============Generate the sources specified overwrite==============</echo>
+		<antcall target="generate">
+			<param name="forcedOverwrite" value="false" />
+		</antcall>
+	</target>
+
+	<target name="gen-overwrite">
+		<echo>==============Generate the sources overwrite==============</echo>
+		<antcall target="generate">
+			<param name="forcedOverwrite" value="true" />
+		</antcall>
+	</target>
+
+	<target name="gen-all">
+		<echo>==============Generate all the sources==============</echo>
+		<property name="specifiedTables" value="@specifiedTables" />
+		<antcall target="generate">
+			<param name="forcedOverwrite" value="true" />
+		</antcall>
+	</target>
+
+	<target name="remove-generated">
+		<echo>==============Remove generate the sources==============</echo>
+		<property name="specifiedTables" value="@specifiedTables" />
+		<antcall target="generate">
+			<param name="removeCode" value="true" />
+		</antcall>
+	</target>
+
+</project>

@@ -1,0 +1,203 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	id : "form1",
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType : '$!operationType',
+	safeLevel : 1,
+	constructor : function(_cfg){
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+					iconCls : 'menu-profile-create',
+					border : false
+				});
+	},
+	initComponents:function(){
+		var jsArr = [
+			__ctxPath + '/js/customer/InvestPersonInfoPanelView.js',
+			__ctxPath + '/js/creditFlow/smallLoan/project/loadDataCommonCredit.js',// 加载数据JS
+    		__ctxPath + '/js/creditFlow/smallLoan/project/loadDataCommonZjpp.js',
+    		__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+			__ctxPath + '/js/customer/InvestEnterpriseView.js',
+			__ctxPath + '/js/customer/InvestEnterpriseForm.js',
+			__ctxPath + '/js/customer/CustomeLinkmanGridPanel.js',
+			__ctxPath+'/js/customer/CustomerCareRecords.js',
+			__ctxPath+'/js/customer/InvestEnterpriseCareForm.js',
+			__ctxPath + '/js/customer/InvestPersonView.js',
+			__ctxPath + '/js/customer/InvestPersonForm.js',
+			__ctxPath + '/js/customer/InvestPersonCareForm.js',
+			__ctxPath + '/js/creditFlow/fund/project/platFormFund.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+		//平台资金款项
+	},
+	constructPanel:function(){
+		this.projectInfoFinance= new platFormFund({
+			isAllReadOnly:false,
+			isStartDateReadOnly:false,
+			isReadOnly:true,
+			isAllReadOnly:true,
+			isStartDateReadOnly:true,
+			isHiddencalculateBtn:true,
+		 	projectId:this.projectId,
+		 	name:'platFormfinanceInfoFieldset',
+		 	isFundMatch:true,
+			idDefinition:'tongyongliucheng2'
+		});
+		
+		this.investPersonInfoPanelView = new InvestPersonInfoPanelView({
+			projectId : this.projectId,
+			isHidden : false,
+			bussinessType : "SmallLoan",
+			object:this.projectInfoFinance,
+			isFlow:false
+		});
+		//财务服务费
+		this.actualToChange = new SlActualToCharge({
+				projId : this.projectId,
+				businessType : 'SmallLoan',// 小贷
+				editor:true,
+				isHidden : true
+		});
+		
+		
+		this.formPanel = new Ext.form.FormPanel({
+			layout : 'form',
+			bodyStyle : 'padding:10px',
+			border : false,
+			autoHeight:true,
+			autoScroll : true,
+			frame : true,
+			defaults : {
+				anchor : '96%,96%'
+			},
+			items : [this.projectInfoFinance, this.investPersonInfoPanelView,this.actualToChange,{
+						xtype : 'hidden',
+						name : 'platFormBpFundProject.projectId',
+						value : this.projectId
+					},{
+						xtype : 'hidden',
+						name : 'investData1'
+					},{
+						xtype : 'hidden',
+						name : 'slFundIntentData1'
+					},{
+						xtype:'hidden',
+						name:'projectId',
+						value:this.projectId
+					},{
+						xtype:'hidden',
+						name:'businessType',
+						value:this.businessType
+					},{
+						xtype:'hidden',
+						name:'preHandler',
+						value:'slSmallloanProjectService.matchingFundsStep'
+					}]
+		});
+		
+		this.loadData({
+				url : __ctxPath + '/fund/getBpFundProject.do?projectId='+ this.projectId,
+				root : 'data',
+				preName : ['platFormBpFundProject','aa','bb'],
+				success : function(response, options) {
+					var respText = response.responseText;
+					var alarm_fields = Ext.util.JSON.decode(respText);
+					
+					if(alarm_fields.data.platFormBpFundProject){
+						if(alarm_fields.data.platFormBpFundProject.platFormJointMoney){
+							this.formPanel.getCmpByName('platFormBpFundProjectMoney').setValue(Ext.util.Format.number(alarm_fields.data.platFormBpFundProject.platFormJointMoney,'0,000.00'));
+						}
+						fillFundData(this.formPanel,alarm_fields,'tongyongliucheng2');
+					}
+					//Q_moneyPlanId_L_EQ+this.object.getCmpByName('platFormBpFundProject.id').getValue()
+					
+					this.investPersonInfoPanelView.grid_sharteequity.getStore().load({
+						params :{Q_moneyPlanId_L_EQ:alarm_fields.data.platFormBpFundProject.id}
+					});
+				}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel) {
+		var datas = getGridDate1(this.investPersonInfoPanelView);
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/project/saveCommentsSlSmallloanProject.do',
+			params : {
+				comments : formPanel.comments,
+				investor:datas
+			},
+		    method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			    Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	 },
+	nextStep:function(rootObj,outpanel){
+		var datas = getGridDate1(this.investPersonInfoPanelView);
+		return false;
+	},
+	validate : function(outpanel) {
+		var investors = this.investPersonInfoPanelView;
+		var store = investors.grid_sharteequity.getStore();
+		var money = 0;
+		store.each(function(record){
+			money += parseFloat(record.data.investMoney);
+		},this);
+		if(this.getCmpByName('platFormBpFundProject.platFormJointMoney')){
+			var pmoney = this.getCmpByName('platFormBpFundProject.platFormJointMoney').getValue();
+			if(pmoney>money){
+				 Ext.ux.Toast.msg('警告', '总投资金额小于对接金额!');
+				 return false;
+			}
+		}
+		var datas = getGridDate1(this.investPersonInfoPanelView.grid_sharteequity);
+		this.formPanel.getCmpByName('investData1').setValue(datas)
+		return true;
+	}
+})

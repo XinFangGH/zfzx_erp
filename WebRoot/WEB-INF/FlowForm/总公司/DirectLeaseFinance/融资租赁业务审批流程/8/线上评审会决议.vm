@@ -1,0 +1,502 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType:'$!operationType',//DirectLeaseFinance 目前流程的operationType   by gao
+	safeLevel:1,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			 iconCls : 'menu-profile-create',
+			 border : false
+		});
+	},
+	initComponents : function() {
+	      		var jsArr = [__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',//股东信息
+				__ctxPath + '/js/creditFlow/leaseFinance/UpdateLeaseFinanceMaterialsWin.js',//抵质押担保更新  for  leasefinance
+				__ctxPath + '/js/creditFlow/leaseFinance/enterpriseBusiness/EnterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/leaseFinance/LeaseFinanceMaterialsForm.js',//抵质押担保材料上传表单
+				__ctxPath + '/js/creditFlow/leaseFinance/LeaseFinanceMaterialsView.js',//抵质押担保上传
+				__ctxPath + '/js/creditFlow/leaseFinance/LeaseFinanceAddDzyMortgageWin.js',//抵质押担保上传
+				/*租赁标的清单start*/
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/LeaseObjectList.js',//租赁标的清单
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/LeaseObjectInsuranceInfo.js',//租赁物保险信息
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/AddLeaseObjectWin.js',//租赁标的增加
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/LeaseFinanceSuppliorInfo.js',//供货方信息   必须要加载  在win中延迟加载，第一次访问不了  add  by gao
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/selectSupplior.js',//供货方信息  弹窗
+//				__ctxPath + '/publicmodel/uploads/js/upload.js',
+//				__ctxPath + '/js/fileupload/FlexUploadDialog.js',//供货方信息  弹窗
+				__ctxPath + '/js/creditFlow/leaseFinance/leaseobject/LeaseFinanceUploads.js',//供货方信息  弹窗
+				/*租赁标的清单end*/
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',//实际收费项目
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterpriseProcreditMaterialsForm.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterPriseProcreditMaterialsView.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/customer/bankrelationperson/bankDaRelationPersonList.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SeeThirdContractWindow.js',// 查看担保措施合同详情
+				__ctxPath + '/js/creditFlow/smallLoan/contract/OperateThirdContractWindow.js',// 编辑反担保措施合同
+//				__ctxPath + '/js/creditFlow/assuretenet/SlProcreditAssuretenetForm.js',// 贷款准入原则
+//				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/EnterpriseEvaluation.js', //客户资信评估
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseFinanceInfoPanel.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseFundIntentView.js',
+				__ctxPath + '/js/creditFlow/leaseFinance/finance/LeaseLoadFinanceData.js',
+				__ctxPath + '/js/creditFlow/guarantee/contract/LetterAndBookView.js'// 担保意向书、对外担保承诺函
+		
+		        ];
+		        $ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+	        this.projectInfo = new EnterpriseBusinessProjectInfoPanel({
+			   isDiligenceReadOnly : true,
+			   isAllReadOnly:true,
+			   isMineNameEditable:false
+		    });
+		    this.SlProcreditMaterialsView = new SlEnterPriseProcreditMaterialsView({
+			     projectId : this.projectId,
+			     isHidden_materials:true,
+			     businessType:this.businessType,
+			     isHiddenArchive : true,
+			     operationType:this.operationType
+		    });
+
+
+			
+	        var title="企业客户信息";
+	        this.perMain = "";
+		    if(this.oppositeType =="person_customer") 
+		    {
+			    this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+			    	isEditPerson : false,
+			    	isHidden:true
+			    });
+			    title="个人客户信息";
+		    } 
+		    else if(this.oppositeType =="company_customer")
+		    {
+			    this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				projectId : this.projectId,
+			    bussinessType:this.businessType,
+			    isHidden:true,
+			    isAllReadOnly:true,
+				isEnterpriseShortNameReadonly : true,
+				isEditEnterprise : false,
+				isGudongDiseditable : true
+			    });
+		    };
+		    this.LeaseObjectList = new LeaseObjectList({projectId:this.projectId,readOnly:true});//,readOnly:true 只查看   暂不支持查看
+		    this.SlReportView = new SlReportView({
+		    	projectId : this.projectId,
+		    	businessType : this.businessType,
+		    	isHiddenColumn : false,
+		    	isShowBorder : true,
+		    	isHidden : false,
+		    	isHidden_report:true,
+		    	hiddenUpLoad:true,// 隐藏上传按钮
+		    	hiddenDownLoad:true,//隐藏下载按钮
+		    	isHiddenAffrim : true
+		    });
+		    this.riskReportView = new SlReportView({
+		    	projectId : this.projectId,
+		    	businessType : 'LeaseFinance',
+		    	isHiddenColumn : false,
+		    	isShowBorder : true,
+		    	ReportTemplate:'LeaseFinanceRiskReport',
+		    	isHidden : false,
+		    	hiddenUpLoad:true,// 隐藏上传按钮
+		    	hiddenDownLoad:true,//隐藏下载按钮
+		    	isHidden_report:true,
+		    	isHiddenAffrim : true
+		    });
+		    this.LetterAndBookView = new LetterAndBookView({
+		    	projectId : this.projectId,
+		    	businessType : this.businessType,
+		    	LBTemplate : 'simulateEnterpriseBook',
+		    	isHidden : false
+		    });
+		    this.projectInfoFinance= new LeaseFinanceInfoPanel({
+//				isDiligenceReadOnly : true,
+				projectId : this.projectId,
+				isStartDateReadOnly:false,
+				isAllReadOnly:true,
+				isStartDateReadOnly:true,
+				idDefinition : 'leaseFinanceliucheng'+this.taskId ,
+				isHiddencalculateBtn : true,
+				isHiddenbackBtn : true ,
+				isHiddenParams : true
+			});
+		this.leaseFundIntentView=new LeaseFundIntentView({
+			projectId : this.projectId,
+			object : this.projectInfoFinance,
+			projectInfoObject : this.projectInfo,
+			businessType : this.businessType,
+			isHiddenAddBtn:true,
+			isHiddenDelBtn:true,
+			isHiddenResBtn1:true,//手动对账
+			isHiddenseeqlideBtn:true,//差看单项流水记录
+			isHiddenseesumqlideBtn:true,//项目总流水记录
+			isHiddenExcel:true,//导出excel
+			isHiddenOverdue:true,
+			isHiddenautocreateBtn : true
+		})
+		this.slActualToCharge = new SlActualToCharge({
+			projId : this.projectId,
+			isHidden:true,
+			isHiddenPayMoney:true,
+			businessType :this.businessType      //小贷
+		});
+		//讨论会会议纪要
+		    this.argumentReportView = new SlReportView({
+		    	projectId : this.projectId,
+		    	businessType : 'LeaseFinance',
+		    	isHiddenColumn : false,
+		    	isShowBorder : true,
+		    	ReportTemplate:'LeaseFinanceArgumentReport',
+		    	isHidden : false,
+		    	isHidden_report:true,
+		    	hiddenUpLoad:true,
+		    	hiddenDownLoad:true,
+		    	isHiddenAffrim : true
+		    });
+/*		       //资信评估
+		    this.EnterpriseEvaluation=new EnterpriseEvaluationGuarantee({
+		        projectId : this.projectId
+		    });*/
+		   
+		    this.outPanel = new Ext.Panel({
+		        modal : true,
+				labelWidth : 100,
+				buttonAlign : 'center',
+				layout : 'form',
+				border : false,
+				defaults : {
+					anchor : '100%',
+					xtype : 'fieldset',
+					columnWidth : 1,
+					labelAlign : 'right',
+					collapsible : true,
+					autoHeight : true
+			    },
+			    labelAlign : "right",
+			    items : [
+			    {
+					    xtype : 'hidden',
+					    name : 'preHandler',
+					    value : 'flLeaseFinanceProjectService.onlineJudgementNextStep'
+			    },
+			    {
+				     xtype : 'hidden',
+				     name : 'gudongInfo'
+		        }, {
+				     xtype : 'hidden',
+				     name : 'fundIntentJsonData1'
+		        }, {
+				     xtype : 'hidden',
+				     name : 'slActualToChargeJsonData1'
+		        }, /*{
+				     xtype : 'hidden',
+				     name : 'ATCCompanyId'
+		        }, */{xtype:'hidden',name :'safeLevel',value:1},{
+						xtype : 'fieldset',
+						title : '项目控制信息',
+						name:'projectInfo',
+						collapsible : true,
+						autoHeight : true,
+						labelAlign : 'right',
+						items : [this.projectInfo]
+				}, {xtype : 'fieldset',
+						title : '客户基本信息',
+						collapsible : true,
+						autoHeight : true,
+						labelAlign : 'right',
+						items : [this.perMain]
+				},{
+				       	xtype : 'fieldset',
+						title : '租赁标的清单',
+						name:'leaseObjectList',
+						collapsible : true,
+						autoHeight : true,
+						labelAlign : 'right',
+						items : [this.LeaseObjectList]
+			    }, {       
+			    xtype : 'fieldset',
+				title : '贷款基本信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'financeInfoFieldset',
+				autoHeight : true,
+				items : [
+					this.projectInfoFinance,
+					this.leaseFundIntentView,
+					this.slActualToCharge
+				]
+			}, {
+				xtype : 'fieldset',
+				title : '担保措施',
+				collapsible : true,
+				autoHeight : true,
+				items : [
+					new DZYMortgageView({
+						projectId : this.projectId,
+						titleText : '抵质押担保',
+						businessType : this.businessType,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isRecieveHidden:true,
+						isHiddenAddBtn:true,//增
+						isHiddenDelBtn:true,//删
+						isHiddenEdiBtn:true,//改  隐藏
+						isblHidden:true,
+						isgdHidden:true
+					}),
+					new BaozMortgageView({
+						projectId : this.projectId,
+						titleText : '保证担保',
+						businessType : this.businessType,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isHiddenAddBtn:true,//增
+						isHiddenDelBtn:true,//删
+						isHiddenEdiBtn:true,//改  隐藏
+						isblHidden:true,
+						isgdHidden:true,
+						isRecieveHidden:true
+					})
+					]
+			},{
+					xtype : 'fieldset',
+					title : '业务材料',
+					collapsible : true,
+					autoHeight : true,
+					items : [this.SlProcreditMaterialsView]
+			    },{
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '调查报告',
+					items : [this.SlReportView]
+				},{
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '风险分析报告',
+					items : [this.riskReportView]
+				}, {
+					xtype : 'fieldset',
+					collapsible : true,
+					autoHeight : true,
+					title : '讨论会会议纪要',
+					items : [this.argumentReportView]
+				},{
+				     xtype:'hidden',
+				     name:'task_id',
+				     value:this.taskId
+		        }]
+		    })
+    this.loadData({
+    	 	url : __ctxPath + '/creditFlow/leaseFinance/project/getInfoFlLeaseFinanceProject.do?flProjectId='+this.projectId+'&flTaskId='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'flLeaseFinanceProject','customerBankRelationPerson','enterpriseBank',"businessType"],
+			root : 'data',
+			success : function(response, options) {
+		              var respText = response.responseText;  
+				      var alarm_fields = Ext.util.JSON.decode(respText); 
+				      this.getCmpByName('flLeaseFinanceProject.mineName').setValue(alarm_fields.data.mineName);
+				    
+				      //回填款项信息数据 start
+					this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.projectMoney,'0,000.00'));
+					this.getCmpByName('leaseDepositMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.leaseDepositMoney,'0,000.00'));
+					this.getCmpByName('allMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.allMoney,'0,000.00'));
+					this.getCmpByName('leaseRetentionFeeMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.leaseRetentionFeeMoney,'0,000.00'));
+					this.getCmpByName('rentalFeeMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.rentalFeeMoney,'0,000.00'));
+					this.getCmpByName('rentalMoney1').setValue(Ext.util.Format.number(alarm_fields.data.flLeaseFinanceProject.rentalMoney,'0,000.00'));
+				    //回填款项信息数据 end
+				      if(alarm_fields.data.comments){
+						if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+					}
+				     
+				      // 初始化币种 ,贷款用途结束  
+				      
+				      this.getCmpByName('appUsersOfA').clearInvalid();
+				      fillLeaseData(this, alarm_fields, 'leaseFinanceliucheng'+this.taskId)
+			          
+			           //设置发送邮件默认选中 开始
+				       	/*var  nextForm=this.ownerCt.ownerCt;
+					    var emailNext=nextForm.commentsPanel.getCmpByName("emailcheck");;
+					    emailNext.setValue(true);*/
+				    	//设置发送邮件结束
+					
+				      
+			}
+		    });
+	        this.add(this.outPanel);
+		    this.doLayout(); 
+		    this.outPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+			Ext.Ajax.request({
+				url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+				method : 'POST',
+				scope:this,
+				success : function(response, request) {
+					obj = Ext.util.JSON.decode(response.responseText);
+					var projectName = obj.data.projectName;
+					var createTime = obj.data.createTime;
+					var dueTime = obj.data.dueTime;
+					var creator = obj.data.creator;
+					if(obj.success==true){
+						this.getCmpByName('projectInfo').setTitle('项目基本信息[ '+'    任务分配时间：'+createTime+'   任务完成时限：'+dueTime+'   当前处理人：'+creator+' ]');
+					}else{
+						Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+					}
+				},
+				failure : function(response,request) {
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				},
+				params : {
+					taskId : taskId,
+					businessType : '$!businessType',
+					projectId:'$!projectId'
+				}
+			});
+	},
+	saveBusDatas : function(formPanel) {
+       /* var oppType=this.oppositeType;
+        var vDates="";
+        if(this.oppositeType=="company_customer")
+        {
+           var eg=this.perMain.getCmpByName('gudong_store').get(0).get(1);
+           vDates=getGridDate(eg);
+           if(vDates!=""){
+              var arrStr=vDates.split("@");
+			  for(var i=0;i<arrStr.length;i++){
+				  var str=arrStr[i];
+				  var object = Ext.util.JSON.decode(str)
+				 if(object.personid==""){
+					 Ext.ux.Toast.msg('操作信息','股东名称不能为空，请选择股东名称');
+					 return;
+				 }
+				  if(object.shareholdertype==""){
+						 Ext.ux.Toast.msg('操作信息','股东类别不能为空，请选择股东类别');
+						 return;
+					 }
+			  }
+		  }
+        
+        }*/
+        var gridPanel=this.leaseFundIntentView;
+        var fundIntentJson=gridPanel.getGridDate()
+        var slActualToCharge=this.slActualToCharge
+        var slActualToChargeJson=slActualToCharge.getGridDate();
+		 formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/creditFlow/leaseFinance/project/updateFlLeaseFinanceProject.do?flProjectId='+this.projectId+'&flTaskId='+this.taskId,
+			params : {
+			/*	"gudongInfo" : vDates,//暂时保留，当前节点是不需要。*/
+				'fundIntentJson' : fundIntentJson,
+				slActualToChargeJson:slActualToChargeJson,
+				"comments" : formPanel.comments
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			     /*var  kk= action.response.responseText;
+			     var obj = Ext.decode(kk);
+			     if(obj.result[0].bankId!=0){
+			        formPanel.getCmpByName('customerBankRelationPerson.id').setValue(obj.result[0].bankId);
+			     }*/
+				 /*gridPanel.save();
+				 slActualToCharge.savereload();*/
+				 Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				/* if(oppType=="company_customer"){
+				   eg.getStore().reload();
+				}*/
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(outpanel) {
+/*	    var loanRate=this.getCmpByName('flLeaseFinanceProject.loanRate');
+	    if(null==loanRate.getValue() || ""==loanRate.getValue()){
+	    	loanRate.setValue(0)
+	    }*/
+	    /*var vDates="";
+        if(this.oppositeType=="company_customer")
+        {
+           var eg=this.perMain.getCmpByName('gudong_store').get(0).get(1);
+           vDates=getGridDate(eg);
+           if(vDates!=""){
+              var arrStr=vDates.split("@");
+			  for(var i=0;i<arrStr.length;i++){
+				  var str=arrStr[i];
+				  var object = Ext.util.JSON.decode(str)
+				 if(object.personid==""){
+					 Ext.ux.Toast.msg('操作信息','股东名称不能为空，请选择股东名称');
+					 return;
+				 }
+				  if(object.shareholdertype==""){
+						 Ext.ux.Toast.msg('操作信息','股东类别不能为空，请选择股东类别');
+						 return;
+					 }
+			  }
+		  }
+        }*/
+/*       	var endDate=this.getCmpByName('flLeaseFinanceProject.intentDate');
+       	var startDate=this.getCmpByName('flLeaseFinanceProject.acceptDate');
+       	if(startDate.getValue()!="" && endDate.getValue()!=""){
+	        if(!compareDate(endDate,startDate)){     
+         		endDate.invalidText="贷款截至日期必须在贷款开始日期之后!"; 
+         		alert("贷款截至日期必须在贷款开始日期之后!");
+         		return false;
+	        }
+       	}*/
+
+		
+//此节点 不再需要更新股东信息了		  add  by gaoqingrui
+/*		var vDates="";
+        if(this.oppositeType=="company_customer")
+        {
+           var eg=this.perMain.getCmpByName('gudong_store').get(0).get(1);
+           vDates=getGridDate(eg);
+           if(vDates!=""){
+              var arrStr=vDates.split("@");
+			  for(var i=0;i<arrStr.length;i++){
+				  var str=arrStr[i];
+				  var object = Ext.util.JSON.decode(str)
+				 if(object.personid==""){
+					 Ext.ux.Toast.msg('操作信息','股东名称不能为空，请选择股东名称');
+					 return;
+				 }
+				  if(object.shareholdertype==""){
+						 Ext.ux.Toast.msg('操作信息','股东类别不能为空，请选择股东类别');
+						 return;
+					 }
+			  }
+		  }
+        }
+		var obj = this.getCmpByName('gudongInfo');
+		obj.setValue(vDates);*/
+        var slActualToCharge=this.slActualToCharge
+        var slActualToChargeJson=slActualToCharge.getGridDate();
+		outpanel.getCmpByName('slActualToChargeJsonData1').setValue(slActualToChargeJson);
+		return true;
+	}
+})

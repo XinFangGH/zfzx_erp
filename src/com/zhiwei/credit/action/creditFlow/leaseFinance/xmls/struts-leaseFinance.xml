@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<!-- 融资租赁actionstart -->
+	<package name="leaseFinanceProject" extends="struts-default" namespace="/creditFlow/leaseFinance/project">
+		<action name="*LfOffer" class="LfOfferAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseFinanceProject" class="FlLeaseFinanceProjectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseobjectInfo" class="FlLeaseobjectInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlObjectSupplior" class="FlObjectSuppliorAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseFinanceInsuranceInfo" class="FlLeaseFinanceInsuranceInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseObjectManagePlace" class="FlLeaseObjectManagePlaceAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseFinanceInsurancePay" class="FlLeaseFinanceInsurancePayAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlLeaseObjectManageOwner" class="FlLeaseObjectManageOwnerAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+<!-- 融资租赁action end -->
+</struts>

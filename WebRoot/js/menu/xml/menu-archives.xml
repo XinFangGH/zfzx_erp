@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_Archives" text="公文管理" iconCls="mod-archives"> 
+  <Items id="Archives" text="公文管理" iconCls="menu-archive-issue"> 
+    <Item id="ArchFlowConfView" text="公文配置" iconCls="menu-archive-setting"/>  
+    <Item id="ArchiveTypeTempView" text="公文类别、模板管理" iconCls="menu-archive-template"/>
+    <Item id="ArchivesMonitor" text="公文流程监控" iconCls="menu-archive-monitor"/>  
+  </Items> 
+</Menus>

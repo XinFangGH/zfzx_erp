@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+ xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>zhiwei</display-name>
+	<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:conf/app-context.xml</param-value>
+   </context-param>
+   <context-param>
+		<param-name>sitemesh.configfile</param-name>
+		<param-value>/WEB-INF/classes/conf/sitemesh.xml</param-value>
+  </context-param>
+  <context-param>
+	  <param-name>log4jConfigLocation</param-name>
+      <param-value>/WEB-INF/classes/conf/log4j.xml</param-value>
+   </context-param> 
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>
+			org.apache.cxf.transport.servlet.CXFServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+        <servlet-name>SimpleCaptcha</servlet-name>
+        <servlet-class>com.zhiwei.core.web.servlet.SimpleCaptchaServlet</servlet-class>
+    </servlet>
+
+  <servlet>
+  	<servlet-name>fileUpload</servlet-name>
+  	<servlet-class>com.zhiwei.core.web.servlet.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>jasperUpload</servlet-name>
+  	<servlet-class>com.zhiwei.core.web.servlet.JasperUploadServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+  	<servlet-name>fileDownload</servlet-name>
+  	<servlet-class>com.zhiwei.core.web.servlet.FileDownloadServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>ReportServlet</display-name>
+  	<servlet-name>ReportServlet</servlet-name>
+  	<servlet-class>com.zhiwei.core.web.servlet.ReportServlet</servlet-class>
+  </servlet>
+  <!-- 工作流图形显示 -->
+  <servlet>
+      <servlet-name>JpdlImageServlet</servlet-name>
+      <servlet-class>com.zhiwei.core.jbpm.servlet.JpdlImageServlet</servlet-class>
+  </servlet>
+  <filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+</filter><!--
+  <filter>
+	     <filter-name>authorizationFilter</filter-name>
+	     <filter-class>com.zhiwei.core.web.filter.AuthorizationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>authorizationFilter</filter-name>
+	    <url-pattern>/login.jsp</url-pattern>
+	</filter-mapping>
+--><filter>
+   <filter-name>UrlRewriteFilter</filter-name>
+  <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    <init-param>
+     <param-name>logLevel</param-name>
+      <param-value>WARN</param-value>
+    </init-param>
+ </filter>
+  <filter>
+	<filter-name>sitemeshFilter</filter-name>
+	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	<init-param>
+		<param-name>targetBeanName</param-name>
+		<param-value>sitemeshFilterBean</param-value>
+	</init-param>
+	<init-param>
+		<param-name>targetFilterLifecycle</param-name>
+		<param-value>true</param-value>
+	</init-param>
+  </filter>
+  	<!-- 不进行缓存 -->
+   <filter>  
+       <filter-name>NoCache</filter-name>  
+       <filter-class>com.zhiwei.core.web.filter.ResponseHeaderFilter</filter-class>  
+       <init-param>  
+           <param-name>Cache-Control</param-name>  
+           <param-value>no-cache, must-revalidate</param-value>  
+       </init-param>  
+   </filter> 
+   <filter-mapping>  
+        <filter-name>NoCache</filter-name>  
+        <url-pattern>*.do</url-pattern>  
+   </filter-mapping>  
+   
+   <!-- 防止 Xss攻击  --><!--
+	<filter> 
+		 <filter-name>XssEscape</filter-name> 
+		 <filter-class>com.zhiwei.core.web.filter.XssFilter</filter-class> 
+	</filter> 
+	<filter-mapping> 
+		 <filter-name>XssEscape</filter-name> 
+		 <url-pattern>/*</url-pattern> 
+		 <dispatcher>REQUEST</dispatcher> 
+	</filter-mapping>
+	--><!-- 进行缓存 ，开发时可去掉该缓存配置--> 
+   <filter>  
+       <filter-name>CacheForWeek</filter-name>  
+       <filter-class>com.zhiwei.core.web.filter.ResponseHeaderFilter</filter-class>  
+       <init-param>  
+           <param-name>Cache-Control</param-name>  
+           <param-value>max-age=604800, public</param-value>  
+       </init-param>  
+   </filter>
+   	<filter>
+	     <filter-name>mySessionFilter</filter-name>
+	     <filter-class>com.zhiwei.core.web.filter.MySessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>mySessionFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+    <filter-mapping>  
+        <filter-name>CacheForWeek</filter-name>  
+        <url-pattern>/images/*</url-pattern>  
+    </filter-mapping>
+    <filter-mapping>  
+        <filter-name>CacheForWeek</filter-name>  
+        <url-pattern>/ext3/*</url-pattern>  
+    </filter-mapping>  
+    <filter-mapping>  
+        <filter-name>CacheForWeek</filter-name>  
+        <url-pattern>/js/*</url-pattern>  
+    </filter-mapping>  
+    <filter-mapping>  
+        <filter-name>CacheForWeek</filter-name>  
+        <url-pattern>/css/*</url-pattern>  
+    </filter-mapping>   
+    
+     <filter-mapping>
+	    <filter-name>UrlRewriteFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+    </filter-mapping>
+   
+   <filter>  
+	     <filter-name>GzipJsFilter</filter-name>  
+	     <filter-class>com.zhiwei.core.web.filter.GzipJsFilter</filter-class>  
+	     <init-param>  
+	         <param-name>headers</param-name>  
+	         <param-value>Content-Encoding=gzip</param-value>  
+	     </init-param>
+  </filter>
+  <filter-mapping>
+		<filter-name>GzipJsFilter</filter-name>
+		<url-pattern>*.gzjs</url-pattern>
+	</filter-mapping>
+ 
+  <servlet-mapping>
+  	<servlet-name>JpdlImageServlet</servlet-name>
+  	<url-pattern>/jbpmImage</url-pattern>
+  </servlet-mapping>
+	<filter-mapping>
+		<filter-name>sitemeshFilter</filter-name>
+		<url-pattern>/mobile/*</url-pattern>
+	</filter-mapping>
+  	<filter>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>  
+	<!--解决HTML报表中图片不显示的问题-->
+	<servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<!--<servlet-class>net.sf.jasperreports.j2ee.servlets.ImageServlet</servlet-class>-->
+		<servlet-class>com.zhiwei.core.web.servlet.MyJsperServelet</servlet-class>
+		</servlet>
+    <filter>
+        <filter-name>lazyLoadingFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+        <init-param>
+		  <param-name>flushMode</param-name>   
+		  <param-value>AUTO</param-value>   
+		 </init-param>
+    </filter>
+    <filter-mapping>
+	  <filter-name>lazyLoadingFilter</filter-name>
+	  <url-pattern>/*</url-pattern>
+   </filter-mapping>
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>*.do</url-pattern>
+   </filter-mapping>
+   
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/messagebroker/*</url-pattern>
+   </filter-mapping>
+   
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/j_security_check</url-pattern>
+   </filter-mapping>
+   
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/index.jsp</url-pattern>
+   </filter-mapping>
+   
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/file-upload</url-pattern>
+   </filter-mapping>
+   
+   <filter-mapping>
+	  <filter-name>springSecurityFilterChain</filter-name>
+	  <url-pattern>/file-download</url-pattern>
+   </filter-mapping>
+
+	<servlet-mapping>
+        <servlet-name>SimpleCaptcha</servlet-name>
+        <url-pattern>/CaptchaImg</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ConnectorServlet</servlet-name>
+		<url-pattern>/js/fckeditor/editor/filemanager/browser/default/connectors/jsp/connector</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  	<servlet-name>fileUpload</servlet-name>
+	  	<url-pattern>/file-upload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  	<servlet-name>jasperUpload</servlet-name>
+	  	<url-pattern>/jasper-upload</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	  	<servlet-name>fileDownload</servlet-name>
+	  	<url-pattern>/file-download</url-pattern>
+	</servlet-mapping>
+	
+    <servlet-mapping>
+	  	<servlet-name>ReportServlet</servlet-name>
+	  	<url-pattern>/ReportServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!--
+		文件下载
+	-->
+	<servlet>
+		<servlet-name>fileDownLoad</servlet-name>
+		<servlet-class>com.zhiwei.credit.action.system.FileDownloadServlet</servlet-class>
+	</servlet>
+  	<servlet-mapping>
+		<servlet-name>fileDownLoad</servlet-name>
+		<url-pattern>/file-downLoad</url-pattern>
+	</servlet-mapping>    
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+
+	
+	
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>*.do</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+   
+	<!--增加报表图片映射路径，映射的是jasper文件所在的路径-->
+	<servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/report/jasper</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+    	<listener-class>com.zhiwei.core.web.listener.StartupListener</listener-class>
+    </listener>
+   <!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.zhiwei.core.web.listener.UserSessionListener</listener-class>
+	</listener>
+	
+	<listener>
+	  <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
+	<!-- Http Flex Session attribute and binding listener support -->
+    <listener>
+        <listener-class>flex.messaging.HttpFlexSession</listener-class>
+    </listener>
+ 
+    <!-- MessageBroker Servlet -->
+    <servlet>
+        <servlet-name>MessageBrokerServlet</servlet-name>
+        <servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
+        <init-param>
+            <param-name>services.configuration.file</param-name>
+            <param-value>/WEB-INF/flex/services-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MessageBrokerServlet</servlet-name>
+        <url-pattern>/messagebroker/*</url-pattern>
+    </servlet-mapping>
+
+   <!-- axis2 -->
+ <display-name>Apache-Axis2</display-name>
+    <servlet>
+        <servlet-name>AxisServlet</servlet-name>
+       <display-name >Apache-Axis Servlet</display-name>
+        <servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
+        <!--<init-param>-->
+        <!--<param-name>axis2.xml.path</param-name>-->
+        <!--<param-value>/WEB-INF/conf/axis2.xml</param-value>-->
+        <!--<param-name>axis2.xml.url</param-name>-->
+        <!--<param-value>http://localhost/myrepo/axis2.xml</param-value>-->
+        <!--<param-name>axis2.repository.path</param-name>-->
+        <!--<param-value>/WEB-INF</param-value>-->
+        <!--<param-name>axis2.repository.url</param-name>-->
+        <!--<param-value>http://localhost/myrepo</param-value>-->
+        <!--</init-param>-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+       	<servlet>
+       	
+	<servlet-name>Xml4SwfServlet</servlet-name>
+		<servlet-class>net.sf.jasperreports.j2ee.servlets.Xml4SwfServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Xml4SwfServlet</servlet-name>
+		<url-pattern>/report/servlets/xml4swf</url-pattern>
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/servlet/AxisServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AxisServlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/403.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+
+</web-app>

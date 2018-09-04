@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_ent" text="方便测试" iconCls="mod-ent">
+
+	<Items id="Ent" text="企业管理" iconCls="menu-ent">
+	<Item id="opponentMortgageCheckView" text="反担保措施登记" iconCls="menu-flowNew333" />
+	<Item id="MiddleSupervision" text="保中监管" iconCls="menu-flowNew444" />
+	<Item id="GlContract" text="合同确认" iconCls="menu-flowNew555" />
+<!-- start:  Generated for SalesOrder From Template: menu-ent.xml.vm  -->
+<Item id="SalesOrderView" text="SalesOrder">
+	<Function id="_SalesOrderList" text="订单查询"/>
+	<Function id="_SalesOrderAdd" text="订单添加">
+		<url>/ent/saveSalesOrder.do</url>
+		<url>/ent/getSalesOrder.do</url>
+		<url>/ent/listSalesDetail.do</url>
+	</Function>
+	<Function id="_SalesOrderDel" text="订单删除"/>
+</Item> 
+
+<!-- end:  Generated for SalesOrder From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SalesDetail From Template: menu-ent.xml.vm  -->
+<Item id="SalesDetailView" text="SalesDetail"/> 
+<!-- end:  Generated for SalesDetail From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for InfoType From Template: menu-ent.xml.vm  -->
+<Item id="InfoTypeView" text="InfoType"/> 
+<!-- end:  Generated for InfoType From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for Information From Template: menu-ent.xml.vm  -->
+<Item id="InformationView" text="Information"/> 
+<!-- end:  Generated for Information From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for ProcessModule From Template: menu-ent.xml.vm  -->
+<Item id="ProcessModuleView" text="ProcessModule"/> 
+<!-- end:  Generated for ProcessModule From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlCompanyMain From Template: menu-ent.xml.vm  -->
+<Item id="SlCompanyMainView" text="企业主体管理"/> 
+<!-- end:  Generated for SlCompanyMain From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlPersonMain From Template: menu-ent.xml.vm  -->
+<Item id="SlPersonMainView" text="个人主体管理"/> 
+<!-- end:  Generated for SlPersonMain From Template: menu-ent.xml.vm  -->
+
+<!-- start:  Generated for SVEnterprisePerson1 From Template: menu-ent.xml.vm  -->
+<Item id="SVEnterprisePersonView" text="SVEnterprisePerson"/> 
+<!-- end:  Generated for SVEnterprisePerson1 From Template: menu-ent.xml.vm  -->
+
+<!-- start:  Generated for SlSmallloanProject From Template: menu-ent.xml.vm  -->
+<Item id="SlSmallloanProjectView" text="SlSmallloanProject"/> 
+<!-- end:  Generated for SlSmallloanProject From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlMortgage From Template: menu-ent.xml.vm  -->
+<Item id="SlMortgageView" text="SlMortgage"/> 
+<!-- end:  Generated for SlMortgage From Template: menu-ent.xml.vm  -->
+
+<!-- start:  Generated for CsDicAreaDynam From Template: menu-ent.xml.vm  -->
+<Item id="CsDicAreaDynamView" text="CsDicAreaDynam"/> 
+<!-- end:  Generated for CsDicAreaDynam From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlFundIntent From Template: menu-ent.xml.vm  -->
+<Item id="SlFundIntentView" text="SlFundIntent"/> 
+<!-- end:  Generated for SlFundIntent From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlFundDetail From Template: menu-ent.xml.vm  -->
+<Item id="SlFundDetailView" text="SlFundDetail"/> 
+<Item id="SlConferenceRecordView" text="SlConferenceRecordView"/> 
+<!-- end:  Generated for SlFundDetail From Template: menu-ent.xml.vm  -->
+</Items>
+ <Items id="CsEnterpriseShareequityView" text="我的测试" iconCls="menu-attachment">
+ 	<Item id="SlReportTemplateView" text="模板viewtest" />
+	<Item id="SlContractView" text="合同test" />
+	<Item id="SlContractQSView" text="合同签署test" />
+<!-- start:  Generated for GlBankGuaranteemoney From Template: menu-ent.xml.vm  -->
+<Item id="GlBankGuaranteemoneyView" text="GlBankGuaranteemoney"/> 
+<!-- end:  Generated for GlBankGuaranteemoney From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for OurProcreditAssuretenet From Template: menu-ent.xml.vm  -->
+<Item id="OurProcreditAssuretenetView" text="OurProcreditAssuretenet"/> 
+<!-- end:  Generated for OurProcreditAssuretenet From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for OurProcreditMaterials From Template: menu-ent.xml.vm  -->
+<Item id="OurProcreditMaterialsView" text="OurProcreditMaterials"/> 
+<!-- end:  Generated for OurProcreditMaterials From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SystemWord From Template: menu-ent.xml.vm  -->
+<Item id="SystemWordView" text="SystemWord"/> 
+<!-- end:  Generated for SystemWord From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for OurProcreditMaterialsEnterprise From Template: menu-ent.xml.vm  -->
+<Item id="OurProcreditMaterialsEnterpriseView" text="OurProcreditMaterialsEnterprise"/> 
+<!-- end:  Generated for OurProcreditMaterialsEnterprise From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlSuperviseIn From Template: menu-ent.xml.vm  -->
+
+<!-- end:  Generated for SlSuperviseIn From Template: menu-ent.xml.vm  -->
+<!-- start:  Generated for SlSuperviseRecord From Template: menu-ent.xml.vm  -->
+<Item id="SlSuperviseRecordView" text="SlSuperviseRecord"/> 
+<!-- end:  Generated for SlSuperviseRecord From Template: menu-ent.xml.vm  -->
+</Items>
+ 
+</Menus>

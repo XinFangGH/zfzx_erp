@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.StandSalary" table="stand_salary" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="standardId" column="standardId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="standardNo" type="java.lang.String" update="true" insert="true" access="property" column="standardNo" length="128" not-null="true" unique="false"/>  
+    <property name="standardName" type="java.lang.String" update="true" insert="true" access="property" column="standardName" length="128" not-null="true" unique="false"/>  
+    <property name="totalMoney" type="java.math.BigDecimal" update="true" insert="true" access="property" column="totalMoney" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="framer" type="java.lang.String" update="true" insert="true" access="property" column="framer" length="64" not-null="false" unique="false"/>  
+    <property name="setdownTime" type="java.util.Date" update="true" insert="true" access="property" column="setdownTime" length="19" not-null="false" unique="false"/>  
+    <property name="checkName" type="java.lang.String" update="true" insert="true" access="property" column="checkName" length="64" not-null="false" unique="false"/>  
+    <property name="checkTime" type="java.util.Date" update="true" insert="true" access="property" column="checkTime" length="19" not-null="false" unique="false"/>  
+    <property name="modifyName" type="java.lang.String" update="true" insert="true" access="property" column="modifyName" length="64" not-null="false" unique="false"/>  
+    <property name="modifyTime" type="java.util.Date" update="true" insert="true" access="property" column="modifyTime" length="19" not-null="false" unique="false"/>  
+    <property name="checkOpinion" type="java.lang.String" update="true" insert="true" access="property" column="checkOpinion" length="512" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="memo" type="java.lang.String" update="true" insert="true" access="property" column="memo" length="512" not-null="false" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to StandSalaryItem -->  
+    <set name="standSalaryItems" table="stand_salary_item" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="standardId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.hrm.StandSalaryItem"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

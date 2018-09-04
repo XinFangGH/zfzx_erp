@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.zhiwei.credit.model.creditFlow.leaseFinance.project.LfOffer"
+		table="lf_offer" select-before-update="false" dynamic-update="false"
+		dynamic-insert="false" optimistic-lock="version">
+		<id name="id" column="id" type="java.lang.Long" length="19">
+			<generator class="native" />
+		</id>
+		<property name="cname" type="java.lang.String" update="true"
+			insert="true" access="property" column="cname" length="20" not-null="false"
+			unique="false" />
+		<property name="mastername" type="java.lang.String" update="true"
+			insert="true" access="property" column="mastername" length="20"
+			not-null="false" unique="false" />
+		<property name="cphone" type="java.lang.String" update="true"
+			insert="true" access="property" column="cphone" length="20" not-null="false"
+			unique="false" />
+		<property name="cfax" type="java.lang.String" update="true"
+			insert="true" access="property" column="cfax" length="20" not-null="false"
+			unique="false" />
+		<property name="newlinkmen" type="java.lang.String" update="true"
+			insert="true" access="property" column="newlinkmen" length="20"
+			not-null="false" unique="false" />
+		<property name="newlinkmenphone" type="java.lang.String"
+			update="true" insert="true" access="property" column="newlinkmenphone"
+			length="20" not-null="false" unique="false" />
+		<property name="caddress" type="java.lang.String" update="true"
+			insert="true" access="property" column="caddress" length="20"
+			not-null="false" unique="false" />
+		<property name="remark" type="java.lang.String" update="true"
+			insert="true" access="property" column="remark" length="50" not-null="false"
+			unique="false" />
+		<property name="cposition" type="java.lang.String" update="true"
+			insert="true" access="property" column="cposition" length="20" not-null="false"
+			unique="false" />
+	</class>
+</hibernate-mapping>

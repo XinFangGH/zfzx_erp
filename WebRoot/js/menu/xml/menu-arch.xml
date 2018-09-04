@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_arch" text="档案管理" iconCls="mod-arch">
+	<Items id="Arch" text="档案管理" iconCls="mod-arch">
+		<Item id="ArchFondView" text="全宗管理" iconCls="menu-archFond" ></Item>
+		<Item id="ArchRollView" text="案卷管理" iconCls="menu-archRoll" ></Item>
+		<Item id="RollFileView" text="卷内文件管理" iconCls="menu-rollFile" ></Item>
+		<Item id="TidyFileView" text="归档文件管理" iconCls="menu-tidyFile" ></Item>	
+		<Item id="NewBorrowRecordFormPan" text="借阅申请" iconCls="menu-newBorrowRecord" ></Item>
+		<Item id="MyBorrowRecordView" text="我的借阅" iconCls="menu-myBorrowRecord" ></Item>
+		<Item id="CheckBorrowRecordView" text="借阅审批" iconCls="menu-checkBorrowRecord" ></Item>
+		<Item id="archSetingManager" text="档案系统设置" iconCls="menu-archSet" ></Item>
+		<Items id="ArchSat" text="档案统计" iconCls="menu-archSat">
+			<Item id="StatisticsArchYearReportPanel" text="年度统计" iconCls="menu-archYearReport" ></Item>
+			<Item id="StatisticsArchRollReportPanel" text="案卷统计" iconCls="menu-archRollReport" ></Item>
+			<Item id="StatisticsArchFileReportPanel" text="文件统计" iconCls="menu-archFileReport" ></Item>
+		</Items>
+	</Items>
+</Menus>

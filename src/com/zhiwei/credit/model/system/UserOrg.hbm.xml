@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.UserOrg" table="USER_ORG" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="userOrgId" column="USER_ORG_ID" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="isPrimary" type="java.lang.Short" update="true" insert="true" access="property" column="IS_PRIMARY" length="11" not-null="true" unique="false"/>  
+    <property name="isCharge" type="java.lang.Short" update="true" insert="true" access="property" column="IS_CHARGE" length="11" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="USERID"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to Organization -->  
+    <many-to-one name="organization" class="com.zhiwei.credit.model.system.Organization" not-null="false" fetch="select"> 
+      <column name="ORG_ID"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

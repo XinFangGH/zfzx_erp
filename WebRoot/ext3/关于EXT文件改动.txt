@@ -1,0 +1,5 @@
+关于担保EXT和小贷EXT3文件的拷贝
+1.将EXT中css/icons.css拷贝到EXT3中css/icons.css
+2.将EXT中ext/ux/css/Ext.ux.form.LovCombo.css拷贝到EXT3中ext3/ux/css/Ext.ux.form.LovCombo.css
+3.将EXT中ext/ux/js/Ext.ux.util.js拷贝到EXT3中ext3/ux/js/Ext.ux.util.js
+4.将EXT中ext/ux/js/Ext.ux.form.LovCombo.js拷贝到EXT3中ext3/ux/js/Ext.ux.form.LovCombo.js

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.info.AppTips" table="app_tips" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="tipsId" column="tipsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="tipsName" type="java.lang.String" update="true" insert="true" access="property" column="tipsName" length="128" not-null="false" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="1000" not-null="false" unique="false"/>  
+    <property name="disheight" type="java.lang.Integer" update="true" insert="true" access="property" column="disheight" length="10" not-null="false" unique="false"/>  
+    <property name="diswidth" type="java.lang.Integer" update="true" insert="true" access="property" column="diswidth" length="10" not-null="false" unique="false"/>  
+    <property name="disleft" type="java.lang.Integer" update="true" insert="true" access="property" column="disleft" length="10" not-null="false" unique="false"/>  
+    <property name="distop" type="java.lang.Integer" update="true" insert="true" access="property" column="distop" length="10" not-null="false" unique="false"/>  
+    <property name="dislevel" type="java.lang.Integer" update="true" insert="true" access="property" column="dislevel" length="10" not-null="false" unique="false"/>  
+    <property name="createTime" type="java.util.Date" update="true" insert="true" access="property" column="createTime" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

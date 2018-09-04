@@ -1,0 +1,9 @@
+
+决策二
+String tranTo="to 线上审贷会";
+
+if("信审初审".equals(nextStepName)){
+   tranTo="to 信审初审";
+}else if("终止1".equals(nextStepName)){
+	tranTo="to 终止1";
+}

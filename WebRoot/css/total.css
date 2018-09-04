@@ -1,0 +1,65 @@
+/*北京恒信骏生科技有限责任公司*/
+
+/*以下为通用样式*/
+body
+{
+
+    padding:0px;
+    border:0px;
+    margin:0px;
+    font-size:12px;
+    font-family:宋体;
+
+    /*background-color:#DBECFE;*/
+}
+
+
+A:link{TEXT-DECORATION: none; font-size:12px;}
+A:visited{TEXT-DECORATION: none; font-size:12px;}
+A:hover{TEXT-DECORATION: none; font-size:12px;}
+A:active{TEXT-DECORATION: none; font-size:12px;}
+
+p
+{
+	text-indent:2em;
+	line-height:200%;
+	letter-spacing:1px;
+}
+
+img
+{
+	border:0px;
+}
+
+.readonlyField {
+	 background-color:#DFE8F6;
+}
+
+
+.content-top-left{ background-image:url('../images/content_top_left.jpg'); width:10px; height:28px}
+.content_top_middle{ background-image:url('../images/content_top_middle.jpg'); height:28px; text-align:left; font-size:12px; font-weight:600; color:#15428B}
+.content_top_right{ background-image:url('../images/content_top_right.jpg');width:11px; height:28px}
+.content_center_left{ background-image:url('../images/content_center_left.jpg');width:10px}
+.content_center_center{ background-image:url('../images/content_center_center.jpg');}
+.content_center_right{ background-image:url('../images/content_center_right.jpg');width:11px}
+.content_bottom_left{ background-image:url('../images/content_bottom_left.jpg'); height:8px;width:10px}
+.content_bottom_center{background-image:url('../images/content_bottom_center.jpg'); height:8px}
+.content_bottom_right{background-image:url('../images/content_bottom_right.jpg'); height:8px;width:11px}
+.bottom_content_left{background-image:url('../images/bottom_content_left.jpg');width:10px}
+.bottom_content_center{background-image:url('../images/bottom_content_center.jpg');}
+.bottom_content_right{background-image:url('../images/bottom_center_right.jpg'); width:11px}
+.bottom_bottom_left{background-image:url('../images/bottom_bottom_left.jpg');height:9px; width:10px}
+.bottom_bottom_cneter{background-image:url('../images/bottom_bottom_cneter.jpg');height:9px }
+.bottom_bottom_right{background-image:url('../images/bottom_bottom_right.jpg');height:9px; width:11px}
+.content-left{font-size:12px;text-align: right}
+.content-right{font-size:12px}
+.panelMargin {
+	margin-top: 5px;
+}
+.disabledClass {
+	font-weight : 600 !important;
+}
+.readOnlyClass {
+	background:#FFFDCC !important;
+	color : gray;
+}

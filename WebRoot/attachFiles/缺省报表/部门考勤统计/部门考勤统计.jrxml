@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="部门考勤情况" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" isIgnorePagination="true">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="34"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="New Dataset 1">
+		<parameter name="Q_registerDate_S" class="java.sql.Time">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_registerDate_E" class="java.sql.Time">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_DepName" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+
+      count(1) as  DUTY_REGISTER_count,
+      case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+     "DEPARTMENT" DEPARTMENT INNER JOIN "APP_USER" APP_USER ON DEPARTMENT."DEPID" = APP_USER."DEPID"
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+
+where 1 = 1
+ AND DEPARTMENT."DEPNAME" LIKE $P{Q_DepName}
+ AND DUTY_REGISTER."REGISTERDATE" >=  $P{Q_registerDate_S}
+ AND DUTY_REGISTER."REGISTERDATE" <=  $P{Q_registerDate_E}
+
+group by DUTY_REGISTER."REGFLAG"]]>
+		</queryString>
+		<field name="DUTY_REGISTER_COUNT" class="java.math.BigDecimal"/>
+		<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+		<group name="DUTY_REGISTER_REGFLAG">
+			<groupExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="New Dataset 2">
+		<parameter name="Q_registerDate_S" class="java.sql.Time">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_registerDate_E" class="java.sql.Time">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Q_DepName" class="java.lang.String">
+			<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     DEPARTMENT."DEPNAME" AS DEPARTMENT_DEPNAME,
+     count(1) as DEPARTMENT_count,
+      case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+    "DEPARTMENT" DEPARTMENT INNER JOIN "APP_USER" APP_USER ON DEPARTMENT."DEPID" = APP_USER."DEPID"
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+
+where
+1 = 1
+
+ AND DEPARTMENT."DEPNAME" LIKE $P{Q_DepName}
+ AND DUTY_REGISTER."REGISTERDATE" >=  $P{Q_registerDate_S}
+ AND DUTY_REGISTER."REGISTERDATE" <=  $P{Q_registerDate_E}
+group by DUTY_REGISTER."REGFLAG" ,DEPARTMENT."DEPID",DEPARTMENT."DEPNAME"]]>
+		</queryString>
+		<field name="DEPARTMENT_DEPNAME" class="java.lang.String"/>
+		<field name="DEPARTMENT_COUNT" class="java.math.BigDecimal"/>
+		<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+		<group name="DEPARTMENT_DEPNAME">
+			<groupExpression><![CDATA[$F{DEPARTMENT_DEPNAME}]]></groupExpression>
+		</group>
+		<group name="DUTY_REGISTER_REGFLAG">
+			<groupExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="Q_registerDate_S" class="java.sql.Time">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Q_registerDate_E" class="java.sql.Time">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Q_DepName" class="java.lang.String">
+		<defaultValueExpression><![CDATA['%']]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     DEPARTMENT."DEPNAME" AS DEPARTMENT_DEPNAME,
+
+      case DUTY_REGISTER."REGFLAG"
+      when 1 then '正常'
+      when 2 then '迟到'
+      when 3 then '早退'
+      when 4 then '休息'
+      when 5 then '旷工'
+      when 6 then '放假'
+       END
+      DUTY_REGISTER_REGFLAG
+FROM
+     "DEPARTMENT" DEPARTMENT INNER JOIN "APP_USER" APP_USER ON DEPARTMENT."DEPID" = APP_USER."DEPID"
+     INNER JOIN "DUTY_REGISTER" DUTY_REGISTER ON APP_USER."USERID" = DUTY_REGISTER."USERID"
+
+where
+1 = 1
+ and  DEPARTMENT."DEPNAME"  like $P{Q_DepName}
+ AND DUTY_REGISTER."REGISTERDATE" >=  $P{Q_registerDate_S}
+ AND DUTY_REGISTER."REGISTERDATE" <=  $P{Q_registerDate_E}]]>
+	</queryString>
+	<field name="DEPARTMENT_DEPNAME" class="java.lang.String"/>
+	<field name="DUTY_REGISTER_REGFLAG" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="32" isBold="true" isStrikeThrough="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[部门考勤情况]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Prevent"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="539" height="281"/>
+				<box>
+					<pen lineWidth="0.01"/>
+					<topPen lineWidth="0.01"/>
+					<leftPen lineWidth="0.01"/>
+					<bottomPen lineWidth="0.01"/>
+					<rightPen lineWidth="0.01"/>
+				</box>
+				<bar3DChart>
+					<chart>
+						<reportElement x="0" y="0" width="539" height="281"/>
+						<chartTitle/>
+						<chartSubtitle>
+							<font size="14"/>
+						</chartSubtitle>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<dataset>
+							<datasetRun subDataset="New Dataset 2">
+								<datasetParameter name="Q_DepName">
+									<datasetParameterExpression><![CDATA[$P{Q_DepName}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="Q_registerDate_S">
+									<datasetParameterExpression><![CDATA[$P{Q_registerDate_S}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="Q_registerDate_E">
+									<datasetParameterExpression><![CDATA[$P{Q_registerDate_E}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+						</dataset>
+						<categorySeries>
+							<seriesExpression><![CDATA[$F{DEPARTMENT_DEPNAME}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></categoryExpression>
+							<valueExpression><![CDATA[$F{DEPARTMENT_COUNT}]]></valueExpression>
+						</categorySeries>
+					</categoryDataset>
+					<bar3DPlot>
+						<plot/>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+						<categoryAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</valueAxisFormat>
+					</bar3DPlot>
+				</bar3DChart>
+			</frame>
+			<frame>
+				<reportElement x="0" y="298" width="539" height="265"/>
+				<box>
+					<pen lineWidth="0.01"/>
+					<topPen lineWidth="0.01"/>
+					<leftPen lineWidth="0.01"/>
+					<bottomPen lineWidth="0.01"/>
+					<rightPen lineWidth="0.01"/>
+				</box>
+				<pieChart>
+					<chart>
+						<reportElement x="0" y="0" width="539" height="265"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<pieDataset>
+						<dataset>
+							<datasetRun subDataset="New Dataset 1">
+								<datasetParameter name="Q_DepName">
+									<datasetParameterExpression><![CDATA[$P{Q_DepName}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="Q_registerDate_S">
+									<datasetParameterExpression><![CDATA[$P{Q_registerDate_S}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="Q_registerDate_E">
+									<datasetParameterExpression><![CDATA[$P{Q_registerDate_E}]]></datasetParameterExpression>
+								</datasetParameter>
+							</datasetRun>
+						</dataset>
+						<keyExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></keyExpression>
+						<valueExpression><![CDATA[$F{DUTY_REGISTER_COUNT}]]></valueExpression>
+					</pieDataset>
+					<piePlot>
+						<plot/>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</piePlot>
+				</pieChart>
+			</frame>
+			<crosstab columnBreakOffset="100">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="577" width="539" height="100"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="30"/>
+							<textElement verticalAlignment="Top">
+								<font size="14"/>
+							</textElement>
+							<text><![CDATA[部门\标记]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="DEPARTMENT_DEPNAME" width="125" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{DEPARTMENT_DEPNAME}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{DEPARTMENT_DEPNAME}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="25"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H"/>
+								</textElement>
+								<text><![CDATA[合计]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="DUTY_REGISTER_REGFLAG" height="30">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement>
+									<font size="14"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{DUTY_REGISTER_REGFLAG}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="DUTY_REGISTER_REGFLAGMeasure" class="java.lang.Integer" calculation="Count">
+					<measureExpression><![CDATA[$F{DUTY_REGISTER_REGFLAG}]]></measureExpression>
+				</measure>
+				<crosstabCell width="69" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="69" height="25" rowTotalGroup="DEPARTMENT_DEPNAME">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font size="14"/>
+							</textElement>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="DUTY_REGISTER_REGFLAG">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="DEPARTMENT_DEPNAME" columnTotalGroup="DUTY_REGISTER_REGFLAG">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.lang.Integer"><![CDATA[$V{DUTY_REGISTER_REGFLAGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>

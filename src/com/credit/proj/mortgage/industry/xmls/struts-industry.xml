@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="industry" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addIndustry" class="industryAction" method="addIndustry"></action>
+		
+		<!-- 查看信息从视图 -->
+		<action name="seeIndustry" class="industryAction" method="seeIndustry"></action>
+		
+		<!-- 查看信息从工业用地表查询数据显示在更新页面 -->
+		<action name="seeIndustryForUpdate" class="industryAction" method="seeIndustryForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateIndustry" class="industryAction" method="updateIndustry" ></action>
+		
+	</package>
+</struts>  

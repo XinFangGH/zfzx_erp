@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.financingAgency.typeManger.PlKeepProtype"
+        table="pl_keep_protype"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="typeId"
+            column="typeId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="name"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="keyStr"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="keyStr"
+            length="50"
+            not-null="false"
+            unique="false"
+        />
+       <property
+            name="isDelete"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="isDelete"
+            length="5"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remark"
+            length="65535"
+            not-null="false"
+            unique="false"
+        />
+  <!-- exported bi-directional one-to-many association to PlBusinessDirProKeep -->
+	<set name="plBusinessDirProKeeps"
+	     table="pl_business_dir_pro_keep"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="typeId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.creditFlow.financingAgency.business.PlBusinessDirProKeep"
+		/>
+	</set>     
+ <!-- exported bi-directional one-to-many association to PlPersionDirProKeep -->
+	<set name="plPersionDirProKeeps"
+	     table="pl_persion_dir_pro_keep"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="typeId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.creditFlow.financingAgency.persion.PlPersionDirProKeep"
+		/>
+	</set>     
+    </class>
+</hibernate-mapping>

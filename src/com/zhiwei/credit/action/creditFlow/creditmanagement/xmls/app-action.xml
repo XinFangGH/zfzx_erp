@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">   
+     <bean id="IndicatorStoreAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.IndicatorStoreAction" scope="prototype"/>
+	 <bean id="IndicatorAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.IndicatorAction" scope="prototype"/>
+	 <bean id="MakeScoreAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.MakeScoreAction" scope="prototype"/>
+	  <bean id="OptionAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.OptionAction" scope="prototype"/>
+	   <bean id="ScoreGradeOfClassAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.ScoreGradeOfClassAction" scope="prototype"/>
+	    <bean id="RatingTemplateAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.RatingTemplateAction" scope="prototype"/>
+	    <bean id="CreditRatingAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.CreditRatingAction" scope="prototype"/>
+	     <bean id="ElementAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.ElementAction" scope="prototype"/>
+	     <bean id="TemplateOptionAction" class="com.zhiwei.credit.action.creditFlow.creditmanagement.TemplateOptionAction" scope="prototype"/>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="machineinfo" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addMachineinfo" class="machineinfoAction" method="addMachineinfo">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<!-- 查看信息从视图 -->
+		<action name="seeMachineinfo" class="machineinfoAction" method="seeMachineinfo"></action>
+		
+		<!-- 查看信息从机器设备表 -->
+		<action name="seeMachineinfoForUpdate" class="machineinfoAction" method="seeMachineinfoForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateMachineinfo" class="machineinfoAction" method="updateMachineinfo" ></action>
+		
+	</package>
+</struts>   

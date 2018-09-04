@@ -1,0 +1,21 @@
+是以从上到下的决策来区分一 二 三 的 
+
+决策一：
+ String tranTo="to 初审";
+
+if("客服录入".equals(OutletPrincipalReCheckResult)){
+   tranTo="to 客服录入";
+}
+
+决策二：
+String tranTo="to 终审";
+
+if("客服录入".equals(OutletPrincipalReCheckResult)){
+   tranTo="to 客服录入";
+}
+决策三：
+String tranTo="to 终审";
+
+if("客服录入".equals(OutletPrincipalReCheckResult)){
+   tranTo="to 客服录入";
+}

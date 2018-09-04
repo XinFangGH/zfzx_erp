@@ -1,0 +1,242 @@
+﻿//LendForm.js
+Ext.define('htmobile.FlowForm.PersonalCreditLoanBusiness.PersonCreditLoanMain', {
+    extend: 'Ext.form.Panel',
+    name: 'LendForm',
+    constructor: function (config) {
+         config = config || {};
+    	var taskId=config.taskId;
+		var defId=config.defId;
+		var preTaskName=config.preTaskName;
+		var isSignTask=config.isSignTask;
+		var trans=config.trans;
+		var taskName=config.taskName;
+		var vars=config.vars[0];
+		var activityName=config.activityName;
+		var projectId= vars.projectId;
+		var personId=vars.personId;
+		var businessType=vars.businessType;
+		var productId=vars.productId;
+		var oppositeType=vars.oppositeType;
+	    this.projectId= vars.projectId;
+		this.businessType= businessType;
+        Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/getPersonIdVmInfo.do',
+						params : {
+							projectId : vars.projectId,
+							businessType : vars.businessType
+						},
+						success : function(response) {
+							var obj = Ext.util.JSON.decode(response.responseText);
+							personId = obj.oppositeID
+						}
+					});
+
+    	Ext.apply(config,{
+		    fullscreen: true,
+		    width:'100%',
+		    height:'100%',
+		    scrollable:{
+		    	direction: 'vertical'
+		    },
+		    items: [{
+				xtype : 'hiddenfield',
+			    name : 'preHandler',
+				value : 'vmInfoSerivce.carCheckMergernextStep'
+			},{
+				xtype : 'hiddenfield',
+			    name : 'projectId',
+				value : projectId
+			},{
+				xtype : 'hiddenfield',
+			    name : 'businessType',
+				value : businessType
+			},{
+				html:'<div class=\"vmMain\" fun=\"creditLoanProjectInfo\"  style=\"background-image:url(htmobile/resources/images/pro_manage1.png)\">' +
+		    	   	'<span>项目基本信息</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'+
+		           
+		           '<div class=\"vmMain\"  fun=\"getLendForm\" style=\"background-image:url(htmobile/resources/images/pro_manage2.png)\">' +
+		    	   	'<span>借款需求</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'+
+		           
+		           '<div class=\"vmMain\"  fun=\"getCustom\" style=\"background-image:url(htmobile/resources/images/pro_manage3.png)\">' +
+		    	   	'<span>'+(oppositeType=='person_customer'?'个人客户信息':'企业客户信息')+'</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'+
+		           
+		           '<div class=\"vmMain\"  fun=\"getFundInfo\" style=\"background-image:url(htmobile/resources/images/pro_manage12.png)\">' +
+		    	   	'<span>资金款项信息</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'+
+		           
+		           
+		           '<div class=\"vmMain\"  fun=\"getHaveFundInfo\" style=\"background-image:url(htmobile/resources/images/pro_manage13.png)\">' +
+		    	   	'<span>自有资金款项信息</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'+
+		           
+		           
+		           '<div class=\"vmMain\"  fun=\"getPlatformFundInfo\" style=\"background-image:url(htmobile/resources/images/pro_manage14.png)\">' +
+		    	   	'<span>平台资金款项信息</span>'+
+		    	   	'<b id=\"click_btn\" class=\"\"></b>'+
+		           '</div>'
+		           
+			}]
+    	});
+    	this.callParent([config]);
+    	//项目基本信息
+       	var creditLoanProjectInfo=function(){
+		   Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/getCreditLoanProjectInfoVmInfo.do',
+						params:{
+						   projectId:vars.projectId
+						},
+					    success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText);
+						     mobileNavi.push(
+				             Ext.create('htmobile.creditFlow.public.CreditLoanProjectInfoPanel',{
+					         data:result.data,
+					         readOnly:true
+				        	})
+			    	);
+					}
+				})
+    	}
+    	    //接口需求
+	  var getLendForm=function(){
+		   Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/lendNeedVmInfo.do',
+						params:{
+						  projectId:vars.projectId
+						},
+					    success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText);
+					     mobileNavi.push(Ext.create('htmobile.creditFlow.public.main.LendForm',{
+				        	data:result.data,
+				        	projectId:vars.projectId,
+				         	readOnly:true
+			        	})
+			    	);
+					}
+				})
+	    }
+	    //客户信息
+	    var getCustom=function(){
+	    	if(oppositeType=='person_customer'){
+	          Ext.Ajax.request({
+						url : __ctxPath + '/creditFlow/customer/person/seeInfoPerson.do',
+						async:false,
+						params:{
+						    id:personId
+						},
+					    success : function(response) {
+							var obj = Ext.util.JSON.decode(response.responseText);
+						    mobileNavi.push(Ext.create('htmobile.customer.person.PersonDetail',{
+						        result:obj.data,
+						        readOnly:true
+				        	})
+			    	);
+					}
+				});
+	    	
+	    	}else{
+	                Ext.Ajax.request({
+						url : __ctxPath+ '/creditFlow/customer/enterprise/loadInfoEnterprise.do',
+						params:{
+						    id:personId
+						},
+					    success : function(response) {
+							var obj = Ext.util.JSON.decode(response.responseText);
+							var data = obj.data.enterprise;
+							var persondata= obj.data.person;
+						    mobileNavi.push(
+				            Ext.create('htmobile.customer.enterprise.EnterpriseDetail',{
+					        result:data,
+					        persondata:persondata,
+					        readOnly:true
+				        	})
+			    	);
+					}
+				});
+	    	}
+	    }
+    
+		//资金款项信息
+	     var getFundInfo=function(){
+		   Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/getCreditLoanProjectInfoVmInfo.do',
+						params:{
+						   projectId:projectId,
+						   isOwn:1
+						},
+					    success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText);
+							data = result.data;
+						     mobileNavi.push(
+				             Ext.create('htmobile.creditFlow.public.FundInfo',{
+						         result:data,
+						         projectId:projectId,
+						         type:'daikuan',
+						         readOnly:false,
+						         MoneyIsRdOnly:false
+				        	})
+			    	);
+					}
+				})
+	    }
+	    
+	    //自有资金款项信息
+	    var getHaveFundInfo=function(){
+	    	Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/getCreditLoanProjectInfoVmInfo.do',
+						params:{
+						   projectId:projectId,
+						   isOwn:1
+						},
+					    success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText);
+							data = result.data;
+						     mobileNavi.push(
+				             Ext.create('htmobile.creditFlow.public.FundInfo',{
+						         result:data,
+						         projectId:projectId,
+						         type:'daikuan',
+						         readOnly:false,
+						         MoneyIsRdOnly:false
+				        	})
+			    	);
+					}
+				})
+	    }
+	    //平台资金款项信息
+	    var getPlatformFundInfo=function(){
+	    	Ext.Ajax.request({
+						url : __ctxPath + '/htmobile/getCreditLoanProjectInfoVmInfo.do',
+						params:{
+						   projectId:projectId,
+						   isOwn:1
+						},
+					    success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText);
+							data = result.data;
+						     mobileNavi.push(
+				             Ext.create('htmobile.creditFlow.public.FundInfo',{
+						         result:data,
+						         projectId:projectId,
+						         type:'daikuan',
+						         readOnly:false,
+						         MoneyIsRdOnly:false
+				        	})
+			    	);
+					}
+				})
+	    }
+    	//为html div添加点击事件
+	    $('div.vmMain').each(function(){
+	    	$(this).on('click',eval($(this).attr('fun')));
+	    });
+    }
+
+});

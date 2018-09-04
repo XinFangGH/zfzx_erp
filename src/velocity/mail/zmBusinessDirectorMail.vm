@@ -1,0 +1,11 @@
+<html>
+	<title><智维担保业务系统>提示</title>
+	<body>
+		<p>${appUser.fullname}您好:</p>
+		<p>项目名称为：${projectName},项目编号为：${projectNumber}的项目,
+		已由项目经理<${creatorName}>完成<项目尽调上报材料>,并于${endTime}
+		通过业务主管<${creatorNameZG}>的审核,提交至<风险主管调配任务>节点。
+		请登录系统，在项目信息库功能中的保前项目管理【进行中项目管理】中根据项目名称和编号查阅项目信息。</p>
+		<p>注：本邮件由<业务系统>系统平台自动产生，请勿回复。</p>
+	</body>
+</html>

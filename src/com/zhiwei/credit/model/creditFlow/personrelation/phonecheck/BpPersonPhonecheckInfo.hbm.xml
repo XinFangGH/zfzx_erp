@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.personrelation.phonecheck.BpPersonPhonecheckInfo"
+        table="bp_person_phonecheckInfo"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="personRelationId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="personRelationId"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="isKnowLoan"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="isKnowLoan"
+            length="5"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="phoneText"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="phoneText"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="checkUserId"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="checkUserId"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="projectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="projectId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

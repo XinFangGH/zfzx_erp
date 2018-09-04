@@ -1,0 +1,7 @@
+<html>
+	<title>来自【${project}】优惠券派发提醒</title>
+	<body>
+		<p>${content}</p>
+		<p>注：本邮件由<业务系统>系统平台自动产生，请勿回复。</p>
+	</body>
+</html>

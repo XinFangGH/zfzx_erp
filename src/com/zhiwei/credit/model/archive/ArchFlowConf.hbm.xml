@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.ArchFlowConf" table="arch_flow_conf" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="configId" column="configId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="processName" type="java.lang.String" update="true" insert="true" access="property" column="processName" length="128" not-null="true" unique="false"/>  
+    <property name="defId" type="java.lang.Long" update="true" insert="true" access="property" column="defId" length="19" not-null="false" unique="false"/>  
+    <property name="archType" type="java.lang.Short" update="true" insert="true" access="property" column="archType" length="5" not-null="false" unique="false"/>  
+    <property name="depId" type="java.lang.Long" update="true" insert="true" access="property" column="depId" length="19" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

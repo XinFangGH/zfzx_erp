@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.fund.project.SettlementInfo"
+        table="settlement_Info"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="infoId"
+            column="infoId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="settleMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="settleMoney"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="royaltyRatio"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="royaltyRatio"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="royaltyMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="royaltyMoney"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="createDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="createDate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="orgId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="orgId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

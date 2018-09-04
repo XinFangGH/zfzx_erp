@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.DepreRecord" table="depre_record" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="recordId" column="recordId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="workCapacity" type="java.math.BigDecimal" update="true" insert="true" access="property" column="workCapacity" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="depreAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="depreAmount" precision="18" scale="4" not-null="true" unique="false"/>  
+    <property name="calTime" type="java.util.Date" update="true" insert="true" access="property" column="calTime" length="19" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to FixedAssets -->  
+    <many-to-one name="fixedAssets" class="com.zhiwei.credit.model.admin.FixedAssets" not-null="false" fetch="select"> 
+      <column name="assetsId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

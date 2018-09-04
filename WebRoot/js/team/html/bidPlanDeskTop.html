@@ -1,0 +1,114 @@
+<div class="container-all">
+    <div class="content">
+         <div class="row">
+            <div class="info-box w-20">
+                <span class="info-box-icon bg-color-1">
+                    <i class="top-arrow" id="useruserhb"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-one"><em id="adduser">0</em>人</span>
+                    <span class="info-box-number">新增注册</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sb">
+                <span class="info-box-icon bg-color-2">
+                    <i  class="down-arrow" id="isCheckCardhb"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-two"><em id="isCheckCard">0</em>人</span>
+                    <span class="info-box-number">实名认证</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sby">
+                <span class="info-box-icon bg-color-3">
+                    <i  class="down-arrow" id="investPercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-three"><em id="investMoney">0万</em></span>
+                    <span class="info-box-number">新增投资</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0-sb">
+                <span class="info-box-icon bg-color-4">
+                    <i  class="down-arrow" id="rechargePercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-four"><em id="rechargeMoney">0万</em></span>
+                    <span class="info-box-number">新增充值</span>
+                </div>
+            </div>
+            <div class="info-box w-20 mr-0">
+                <span class="info-box-icon bg-color-5">
+                    <i class="top-arrow" id="withdrawPercent"></i>
+                    <em>环比</em>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text colr-five"><em id="withdrawMoney">0万</em></span>
+                    <span class="info-box-number">新增提现</span>
+            </div>
+        </div>
+    </div>
+    
+        <div class="clearfix"></div>
+    <div class="data-left-all">
+        <!--start:data-left-->
+    	<div class="data-left" style="width:100%;" >
+            <div class="w49 data-list01">
+                <h2>散标异常情况管理图
+                	<p class="select-box">
+                        <select id="bidExceptionMapData" onchange="bidExceptionMapData(this.options[this.options.selectedIndex].value)">
+                        	 <option value="">请选择时间</option>
+                            <option value="4">按年显示</option>
+                            <option value="3">按季显示</option>
+                            <option value="2">按月显示</option>
+                            <option value="1">按天显示</option>
+                        </select>
+                    </p>
+                </h2>
+              	<div class="dynamic-graph txt-alg" id="BidExceptionMap"><img src="highchart/images/deskImages/shanb-01.png"/></div>
+            </div>
+            <div class="w49 data-list01 data-list02 data-list03">
+                <h2>充值取现趋势分析
+                    <p class="select-box">
+                        <select id="trendData" onchange="changeTrendData(this.options[this.options.selectedIndex].value)">
+                            <option value="">请选择时间</option>
+                            <option value="4">按年显示</option>
+                            <option value="3">按季显示</option>
+                            <option value="2">按月显示</option>
+                            <option value="1">按天显示</option>
+                        </select>
+                    </p>
+                </h2>
+                <div class="dynamic-graph txt-alg"  id="rechargeAndWithdrawTrend"   ><img src="highchart/images/deskImages/shanb-02.png"/></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="w49 data-list01">
+                <h2>散标类型占比统计图
+                </h2>
+                <div class="dynamic-graph txt-alg" id="BidTypeProportion"><img src="highchart/images/deskImages/shanb-03.png"/></div>
+            </div>
+
+            <div class="w49 data-list01 data-list02 data-list03">
+                <h2>散标销售统计图
+                    <p class="select-box">
+                        <select id="bidSaleStatisticsData" onchange="bidSaleStatisticsData(this.options[this.options.selectedIndex].value)">
+                            <option value="">请选择时间</option>
+                            <option value="4">按年显示</option>
+                            <option value="3">按季显示</option>
+                            <option value="2">按月显示</option>
+                            <option value="1">按天显示</option>
+                        </select>
+                    </p>
+                </h2>
+                <div class="dynamic-graph txt-alg"  id="BidSaleStatistics"><img src="highchart/images/deskImages/shanb-04.png"/></div>
+            </div>
+        </div>
+        <!--end:data-left-->
+       
+    </div>
+</div>
+

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+     <bean id="csPersonHouseService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.CsPersonHouseServiceImpl">
+   	 	<constructor-arg index="0" ref="csPersonHouseDao"/>
+   	 </bean>
+
+	 <bean id="csPersonCarService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.CsPersonCarServiceImpl">
+   	 	<constructor-arg index="0" ref="csPersonCarDao"/>
+   	 </bean>
+	<bean id="enterpriseService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseDao"/>
+   	 </bean>
+   	 <bean id="personService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.PersonServiceImpl">
+   	 	<constructor-arg index="0" ref="personDao"/>
+   	 </bean>
+   	 <bean id="enterpriseFinanceService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseFinanceServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseFinanceDao"/>
+   	 </bean>
+   	 	 <bean id="enterpriseBankService" class="com.zhiwei.credit.service.creditFlow.customer.common.impl.EnterpriseBankServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseBankDao"/>
+   	 </bean>
+   	 <bean id="enterpriseEmployeeStructureService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseEmployeeStructureServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseEmployeeStructureDao"/>
+   	 </bean>
+   	  <bean id="enterpriseRelationPersonService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseRelationPersonServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseRelationPersonDao"/>
+   	 </bean>
+   	  <bean id="enterpriseLeadteamService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseLeadteamServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseLeadteamDao"/>
+   	 </bean>
+   	 <bean id="enterpriseDebtService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseDebtServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseDebtDao"/>
+   	 </bean>
+   	 <bean id="enterpriseCreditorService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseCreditorServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseCreditorDao"/>
+   	 </bean>
+   	 <bean id="enterpriseOutassureService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseOutassureServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseOutassureDao"/>
+   	 </bean>
+   	 <bean id="enterpriseOutinvestService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterpriseOutinvestServiceImpl">
+   	 	<constructor-arg index="0" ref="enterpriseOutinvestDao"/>
+   	 </bean>
+   	  <bean id="enterprisePrizeService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.EnterprisePrizeServiceImpl">
+   	 	<constructor-arg index="0" ref="enterprisePrizeDao"/>
+   	 </bean>
+   	 <bean id="personThereunderService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.PersonThereunderServiceImpl">
+   	 	<constructor-arg index="0" ref="personThereunderDao"/>
+   	 </bean>
+   	  <bean id="processPersonCarReditregistriesService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.ProcessPersonCarReditregistriesServiceImpl">
+   	 	<constructor-arg index="0" ref="processPersonCarReditregistriesDao"/>
+   	 </bean>
+   	 <bean id="personRelationService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.PersonRelationServiceImpl">
+   	 	<constructor-arg index="0" ref="personRelationDao"/>
+   	 </bean>
+   	 <bean id="personCreditLoanHistoryService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.PersonCreditLoanHistoryServiceImpl">
+   	 	<constructor-arg index="0" ref="personCreditLoanHistoryDao"/>
+   	 </bean>
+   	 <bean id="spouseService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.SpouseServiceImpl">
+   	 	<constructor-arg index="0" ref="spouseDao"/>
+   	 </bean>
+   	  <bean id="customerBankRelationPersonService" class="com.zhiwei.credit.service.creditFlow.customer.bankRelationPerson.impl.CustomerBankRelationPersonServiceImpl">
+   	 	<constructor-arg index="0" ref="customerBankRelationPersonDao"/>
+   	 </bean>
+   	 <bean id="ajaxValidatorService1" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.AjaxValidatorServiceImpl">
+   	 </bean>
+	 <bean id="bpCustPersonEducationService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.BpCustPersonEducationServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustPersonEducationDao"/>
+   	 </bean>
+	 <bean id="bpCustPersonNegativeSurveyService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.BpCustPersonNegativeSurveyServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustPersonNegativeSurveyDao"/>
+   	 </bean>
+	 <bean id="bpCustPersonPublicActivityService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.BpCustPersonPublicActivityServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustPersonPublicActivityDao"/>
+   	 </bean>
+	 <bean id="bpCustPersonWorkExperienceService" class="com.zhiwei.credit.service.creditFlow.customer.person.impl.BpCustPersonWorkExperienceServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustPersonWorkExperienceDao"/>
+   	 </bean>
+	 <!--<bean id="bpChannelInfoService" class="com.zhiwei.credit.service.creditFlow.customer.channel.impl.BpChannelInfoServiceImpl">
+   	 	<constructor-arg index="0" ref="bpChannelInfoDao"/>
+   	 </bean>
+	-->
+	 <bean id="bpCustEntDownstreamCustomService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntDownstreamCustomServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntDownstreamCustomDao"/>
+   	 </bean>
+	 <bean id="bpCustEntUpstreamCustomService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntUpstreamCustomServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntUpstreamCustomDao"/>
+   	 </bean>
+	 <bean id="bpCustEntUpanddownstreamService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntUpanddownstreamServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntUpanddownstreamDao"/>
+   	 </bean>
+	 <bean id="bpCustEntLawsuitService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntLawsuitServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntLawsuitDao"/>
+   	 </bean>
+	 <bean id="bpCustEntCashflowAndSaleIncomeService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntCashflowAndSaleIncomeServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntCashflowAndSaleIncomeDao"/>
+   	 </bean>
+	 <bean id="bpCustEntUpanddowncontractService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntUpanddowncontractServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntUpanddowncontractDao"/>
+   	 </bean>
+ <bean id="bpCustEntUpstreamContractService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntUpstreamContractServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntUpstreamContractDao"/>
+   	 </bean>
+   	 <bean id="bpCustEntDownstreamContractService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntDownstreamContractServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntDownstreamContractDao"/>
+   	 </bean>
+	 <bean id="bpCustEntPaytaxService" class="com.zhiwei.credit.service.creditFlow.customer.enterprise.impl.BpCustEntPaytaxServiceImpl">
+   	 	<constructor-arg index="0" ref="bpCustEntPaytaxDao"/>
+   	 </bean>
+	<bean id="bpCustProspectiveFollowupService" class="com.zhiwei.credit.service.creditFlow.customer.prosperctive.impl.BpCustProspectiveFollowupServiceImpl">
+   	<constructor-arg index="0" ref="bpCustProspectiveFollowupDao"/>
+</bean>
+<bean id="bpCustProsperctiveService" class="com.zhiwei.credit.service.creditFlow.customer.prosperctive.impl.BpCustProsperctiveServiceImpl">
+   <constructor-arg index="0" ref="bpCustProsperctiveDao"/>
+</bean>
+<bean id="bpCustProspectiveRelationService" class="com.zhiwei.credit.service.creditFlow.customer.prosperctive.impl.BpCustProspectiveRelationServiceImpl">
+	<constructor-arg index="0" ref="bpCustProspectiveRelationDao"/>
+</bean>
+<bean id="csSalesRecordService" class="com.zhiwei.credit.service.creditFlow.customer.salesRecord.impl.CsSalesRecordServiceImpl">
+	<constructor-arg index="0" ref="csSalesRecordDao"/>
+</bean>
+</beans>

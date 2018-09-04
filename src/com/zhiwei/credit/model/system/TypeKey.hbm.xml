@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.TypeKey" table="type_key" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="typekeyId" column="typekeyId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="64" not-null="true" unique="false"/>  
+    <property name="typeKey" type="java.lang.String" update="true" insert="true" access="property" column="typeKey" length="64" not-null="true" unique="false"/>  
+    <property name="sn" type="java.lang.Integer" update="true" insert="true" access="property" column="sn" length="10" not-null="true" unique="false"/> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zhiwei.credit.model.system"> 
+  <class name="AppRole" table="app_role"> 
+    <id name="roleId" type="java.lang.Long"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="roleName" column="roleName" not-null="true" type="java.lang.String"/>  
+    <property name="roleDesc" column="roleDesc" type="java.lang.String"/>  
+    <property name="status" column="status" type="java.lang.Short"/>  
+    <property name="rights" column="rights" type="java.lang.String" length="65535"/>  
+    <property name="isDefaultIn" column="isDefaultIn" type="java.lang.Short" not-null="true"/>  
+    <set name="functions" table="role_fun" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="roleId"/>  
+      <many-to-many fetch="join" class="AppFunction" column="functionId"/> 
+    </set>  
+    <set name="appUsers" table="user_role" cascade="save-update" inverse="true" lazy="true"> 
+      <key column="roleId"/>  
+      <many-to-many fetch="join" class="AppUser" column="userId"/> 
+    </set> 
+    <set name="controlFunctions" table="role_fun" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="roleId"/>  
+      <many-to-many fetch="join" class="AppFunction" column="functionId"/> 
+    </set>   
+    <property name="orgId" type="java.lang.Long" update="true" insert="true" access="property" column="org_id" length="18" not-null="false" unique="false"/>  
+    <property name="orgPath" type="java.lang.String" update="true" insert="true" access="property" column="org_path" length="256" not-null="false" unique="false"/> 
+    <property name="roleType" column="roleType" type="java.lang.String" length="20"/>   
+    <property name="controlCompanyId" column="controlCompanyId" type="java.lang.String" length="100"/>  
+    <property name="controlRights" column="controlRights" type="java.lang.String" length="65535"/>
+    <property name="org_type" column="org_type" type="java.lang.Short"/>
+    <property name="desks" type="java.lang.String" column="desks" length="65535"/>   
+  </class> 
+</hibernate-mapping>

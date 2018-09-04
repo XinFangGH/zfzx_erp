@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.finance.SlDataInfo"
+        table="sl_data_info"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="dataInfoId"
+            column="dataInfoId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="dataTypeName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="dataTypeName"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="createTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="createTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="filePath"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="filePath"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="dataId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="dataId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="dataTypeStatus"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="dataTypeStatus"
+            length="6"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="sitemeshFilterBean" class="com.opensymphony.sitemesh.webapp.SiteMeshFilter" />
+
+	<bean id="appUtil" class="com.zhiwei.core.util.AppUtil" />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:conf/jdbc.properties</value>
+				<value>classpath:conf/config.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!--
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close"> <property name="driverClassName"
+		value="${jdbc.driverClassName}"/> <property name="url"
+		value="${jdbc.url}"/> <property name="username"
+		value="${jdbc.username}"/> <property name="password"
+		value="${jdbc.password}"/> <property name="maxActive" value="100"/>
+		<property name="maxWait" value="1000"/> <property
+		name="poolPreparedStatements" value="true"/> <property
+		name="defaultAutoCommit" value="true"/> </bean>
+	-->
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+		<!--连接池中保留的最小连接数。-->
+		<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+		<!--
+			JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements
+			属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。
+			如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0
+		-->
+		<property name="maxStatements" value="${c3p0.maxStatements}" />
+		<!--每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}" />
+		<!--两次连接中间隔时间，单位毫秒，默认为1000 -->
+		<property name="acquireRetryDelay" value="${c3p0.acquireRetryDelay}" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}" />
+		<!--
+			获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。但是数据源仍有效
+			保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试
+			获取连接失败后该数据源将申明已断开并永久关闭。Default: false
+		-->
+		<property name="breakAfterAcquireFailure" value="${c3p0.breakAfterAcquireFailure}" />
+		<!--
+			因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的
+			时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable
+			等方法来提升连接测试的性能。Default: false
+		-->
+		<property name="testConnectionOnCheckout" value="${c3p0.testConnectionOnCheckout}" />
+		<!--
+			c3p0是异步操作的，缓慢的JDBC操作通过帮助进程完成。扩展这些操作可以有效的提升性能
+			通过多线程实现多个操作同时被执行。Default: 3
+		-->
+		<property name="numHelperThreads" value="${c3p0.numHelperThreads}" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="lobHandler" lazy-init="true"
+		class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtrator">
+			<ref bean="nativeJdbcExtractor" />
+		</property>
+	</bean>
+	<bean id="nativeJdbcExtractor" lazy-init="true"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+	<bean id="sessionFactory" class="com.zhiwei.core.spring.MyLocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>classpath*:com/zhiwei/credit/model/**/*.hbm.xml</value>
+				 <value>classpath*:com/thirdPayInterface/ThirdPayLog/model/*.hbm.xml</value>
+				<value>classpath*:com/credit/publicmodel/**/entity/hbms/*.hbm.xml
+				</value><!-- 数据字典,上传 add by chencc -->
+				<value>classpath*:com/credit/publicmodel/document/entity/*.hbm.xml
+				</value><!-- 模板 add by chencc -->
+				<value>classpath*:com/credit/proj/hbms/*.hbm.xml</value>
+				<!--
+					客户管理 add by chencc
+				-->
+				<value>classpath*:com/credit/proj/workflow/guarantee/enterprise/hbms/*.hbm.xml
+				</value><!-- 企业客户-业务经营情况 add by chencc -->
+				<value>classpath*:com/credit/proj/workflow/guarantee/person/car/before/hbms/*.hbm.xml
+				</value><!-- 个人客户-征信记录 add by chencc -->
+				<value>classpath:jbpm.repository.hbm.xml</value>
+				<value>classpath:jbpm.execution.hbm.xml</value>
+				<value>classpath:jbpm.history.hbm.xml</value>
+				<value>classpath:jbpm.task.hbm.xml</value>
+				<value>classpath:jbpm.identity.hbm.xml</value>
+				<value>classpath*:com/credit/proj/creditmanagement/entity/hbm/*.hbm.xml
+				</value><!-- 企业资信管理 add by zhangcy -->
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="connection.useUnicode">true</prop>
+				<prop key="connection.characterEncoding">utf-8</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- 使SQL语句格式更加美观统一-->
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- 使SQL语句中自动注入注释，增加可读性-->
+				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.jdbc.fetch_size">20</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="net.sf.ehcache.configurationResourceName">conf/ehcache.xml</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				
+			</props>
+		</property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="0" />
+		<property name="basenames">
+			<list>
+				<value>classpath:message_zh_CN</value>
+			</list>
+		</property>
+		<property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="classpath:velocity/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="runtime.log.error.stacktrace">true</prop>
+				<prop key="runtime.log.invalid.reference">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="flowVelocityEngine" class="com.zhiwei.core.jbpm.FlowVelocityEngine">
+		<property name="templatePath" value="WEB-INF/FlowForm/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="runtime.log.error.stacktrace">true</prop>
+				<prop key="runtime.log.invalid.reference">true</prop>
+				<prop key="resource.loader">file</prop>
+				<prop key="file.resource.loader.class">org.apache.velocity.runtime.resource.loader.FileResourceLoader
+				</prop>
+				<prop key="file.resource.loader.cache">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- ========邮件发送引擎========== -->
+	<bean id="mailEngine" class="com.zhiwei.core.engine.MailEngine">
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="mailSender" ref="mailSender" />
+		<property name="from" value="${mail.from}" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="defaultEncoding" value="${mail.defaultEncoding}" />
+		<property name="port" value="${mail.port}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- ========定时器========== add by chencc-->
+	
+	<bean name="quartzClock" class="com.zhiwei.credit.core.creditUtils.QuartzClock" />
+	<bean id="methodInvokingJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzClock" />
+		</property>
+		<property name="targetMethod">
+			<value>executeClockTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用quartzClock，因为它要求的是一个jobDetail类型的对象，所以得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="methodInvokingJobDetail" />
+		</property>
+		<!-- 每日0秒30分2小时触发 -->
+		<property name="cronExpression">
+			<value>0 30 2 * * ?</value>
+		</property>
+
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 添加触发器 -->
+		<property name="triggers">
+			<list>
+				<ref local="cronTrigger" />
+			</list>
+		</property>
+	</bean>
+	<!-- 系统日志定时任务 end-->
+</beans>

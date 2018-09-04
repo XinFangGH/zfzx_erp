@@ -1,0 +1,38 @@
+决策2
+String tranTo="to 初审复议";
+
+if("结束2".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束2";
+}
+决策3
+String tranTo="to 信审复审";
+
+if("结束3".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束3";
+}
+
+决策5
+String tranTo="to 复审复议";
+
+if("结束4".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束4";
+}
+决策6
+String tranTo="to 信审终审";
+
+if("结束5".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束5";
+}
+决策7
+String tranTo="to 合同制作";
+
+if("结束6".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束6";
+}
+决策8
+String tranTo="to 合同签署";
+
+
+if("结束7".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束7";
+}

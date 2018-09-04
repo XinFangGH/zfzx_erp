@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.hrm.Resume" table="resume" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="resumeId" column="resumeId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="64" not-null="true" unique="false"/>  
+    <property name="age" type="java.lang.Integer" update="true" insert="true" access="property" column="age" length="10" not-null="false" unique="false"/>  
+    <property name="birthday" type="java.util.Date" update="true" insert="true" access="property" column="birthday" length="19" not-null="false" unique="false"/>  
+    <property name="address" type="java.lang.String" update="true" insert="true" access="property" column="address" length="128" not-null="false" unique="false"/>  
+    <property name="zip" type="java.lang.String" update="true" insert="true" access="property" column="zip" length="32" not-null="false" unique="false"/>  
+    <property name="sex" type="java.lang.String" update="true" insert="true" access="property" column="sex" length="32" not-null="false" unique="false"/>  
+    <property name="position" type="java.lang.String" update="true" insert="true" access="property" column="position" length="64" not-null="false" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="64" not-null="false" unique="false"/>  
+    <property name="mobile" type="java.lang.String" update="true" insert="true" access="property" column="mobile" length="64" not-null="false" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="128" not-null="false" unique="false"/>  
+    <property name="hobby" type="java.lang.String" update="true" insert="true" access="property" column="hobby" length="256" not-null="false" unique="false"/>  
+    <property name="religion" type="java.lang.String" update="true" insert="true" access="property" column="religion" length="128" not-null="false" unique="false"/>  
+    <property name="party" type="java.lang.String" update="true" insert="true" access="property" column="party" length="128" not-null="false" unique="false"/>  
+    <property name="nationality" type="java.lang.String" update="true" insert="true" access="property" column="nationality" length="32" not-null="false" unique="false"/>  
+    <property name="race" type="java.lang.String" update="true" insert="true" access="property" column="race" length="32" not-null="false" unique="false"/>  
+    <property name="birthPlace" type="java.lang.String" update="true" insert="true" access="property" column="birthPlace" length="128" not-null="false" unique="false"/>  
+    <property name="eduCollege" type="java.lang.String" update="true" insert="true" access="property" column="eduCollege" length="128" not-null="false" unique="false"/>  
+    <property name="eduDegree" type="java.lang.String" update="true" insert="true" access="property" column="eduDegree" length="128" not-null="false" unique="false"/>  
+    <property name="eduMajor" type="java.lang.String" update="true" insert="true" access="property" column="eduMajor" length="128" not-null="false" unique="false"/>  
+    <property name="startWorkDate" type="java.util.Date" update="true" insert="true" access="property" column="startWorkDate" length="19" not-null="false" unique="false"/>  
+    <property name="idNo" type="java.lang.String" update="true" insert="true" access="property" column="idNo" length="64" not-null="false" unique="false"/>  
+    <property name="photo" type="java.lang.String" update="true" insert="true" access="property" column="photo" length="128" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.String" update="true" insert="true" access="property" column="status" length="64" not-null="false" unique="false"/>  
+    <property name="memo" type="java.lang.String" update="true" insert="true" access="property" column="memo" length="1024" not-null="false" unique="false"/>  
+    <property name="registor" type="java.lang.String" update="true" insert="true" access="property" column="registor" length="64" not-null="false" unique="false"/>  
+    <property name="regTime" type="java.util.Date" update="true" insert="true" access="property" column="regTime" length="19" not-null="false" unique="false"/>  
+    <property name="workCase" type="java.lang.String" update="true" insert="true" access="property" column="workCase" length="65535" not-null="false" unique="false"/>  
+    <property name="trainCase" type="java.lang.String" update="true" insert="true" access="property" column="trainCase" length="65535" not-null="false" unique="false"/>  
+    <property name="projectCase" type="java.lang.String" update="true" insert="true" access="property" column="projectCase" length="65535" not-null="false" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to ResumeFile -->  
+    <set name="resumeFiles" table="resume_file" lazy="true" inverse="false" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="resumeId"/> 
+      </key>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.FileAttach" column="fileId"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

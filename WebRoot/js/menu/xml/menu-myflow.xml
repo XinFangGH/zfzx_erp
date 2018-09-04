@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_Myflow" text="我的流程" iconCls="mod-myflow">
+	<Items id="Flow" text="我的流程" iconCls="menu-flow" isPublic="false">  
+	    <Item id="NewProcess" text="新建流程" iconCls="menu-flowNew"/>  
+	    <Item id="MyTaskView" text="待办事项" iconCls="menu-flowWait"/>
+	    <Item id="MyRunningTaskView" text="任务追回" iconCls="menu-flowPr" />  
+	    <Item id="MyProcessRunView" text="我参与的流程" iconCls="menu-flowPr"/>  
+	    <Item id="ProcessRunView" text="我的申请流程" iconCls="menu-flowMine"/>  
+	    <Item id="ProcessRunFinishView" text="已办结流程" iconCls="menu-flowEnd"/> 
+  	</Items> 
+</Menus>

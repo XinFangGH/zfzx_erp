@@ -1,0 +1,289 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	runId : '$!runId',
+	projectId : '$!projectId',
+	businessType : '$!businessType',
+	oppositeType : '$!oppositeType',
+	investPersonId : '$!investPersonId',
+	mmplanId : '$!mmplanId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInfoPanel.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderInvestPersonInfo.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmOrderAssigninterestVM.js',
+				__ctxPath+'/js/creditFlow/financingAgency/manageMoney/PlMmPlanPanel.js',
+				__ctxPath+'/js/customer/selectInvestPersonList.js',
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',
+				__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsViewProduct_FinanceProduct.js',//贷款材料清单
+    			__ctxPath+'/js/creditFlow/smallLoan/materials/OurProcreditMaterialsForm.js'
+    		
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//投资基本信息
+		this.PlMmOrderInfoPanel = new PlMmOrderInfoPanel({
+			isReadOnly: true,
+			projectId : this.projectId
+		});
+		
+		//投资人信息
+		this.PlMmOrderInvestPersonInfo = new PlMmOrderInvestPersonInfo({
+			isRead: true,
+			investPersonId : this.investPersonId
+		});
+		
+		//理财产品信息
+		this.PlMmPlanPanel = new PlMmPlanPanel({
+			mmplanId : this.mmplanId
+		});
+		
+		//理财产品购买信息
+		this.PlMmPlanBuyPanel = new PlMmPlanBuyPanel({
+			isReadOnly: true,
+			projectId : this.projectId,
+			hiddenInterest : false,
+			readStartinInterestTime : true
+		});
+		
+		//理财产品款项计划表
+		this.PlMmOrderAssigninterestVM = new PlMmOrderAssigninterestVM({
+			projectId : this.projectId,
+			plMmPlanBuyPanel : this.PlMmPlanBuyPanel,
+			isHiddenautocreateBtn : false,//生成
+			isHiddenAddBtn : false,// 生成
+			isHiddenDelBtn : false// 删除
+		});
+		
+		//合同明细
+		this.htReportView = new SlReportView({
+			projectId : this.projectId,
+			Template : 'HTMX',
+			businessType : 'SmallLoan',
+	    	isHidden_report : false
+		});
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'plMmOrderInfoService.investFlowNext'
+			},{
+				xtype : 'hidden',
+				name : 'thisTaskName',
+				value : 'financeConfirm'//标记为账务确认节点
+			},{
+				xtype : 'hidden',
+				name : 'plMmOrderAssigninterest_JSONSTR'
+			},{
+				xtype : 'fieldset',
+				title : '理财产品信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanPanel]
+			},{
+				xtype : 'fieldset',
+				title : '投资人信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInvestPersonInfo]
+			},{
+				xtype : 'fieldset',
+				title : '销售信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderInfoPanel]
+			},{
+				xtype : 'fieldset',
+				title : '购买信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmPlanBuyPanel]
+			},{
+				xtype : 'fieldset',
+				title : '投资人款项台账',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.PlMmOrderAssigninterestVM]
+			},{
+				xtype : 'fieldset',
+				title : '合同明细',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [this.htReportView]
+			},{
+				xtype : 'fieldset',
+				title : '确认到账',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight:true,
+				items : [{
+							columnWidth : 1,
+							labelWidth : 120,
+							layout : 'column',
+							items : [{
+										xtype : 'radio',
+										boxLabel : '系统自动充值扣除账户余额',
+										anchor : "100%",
+										name : 'plMmOrderInfo.confirmType',
+										inputValue : "0",
+										checked : true,
+									//	disabled : this.isAllReadOnly,
+										listeners : {
+											scope : this,
+											check : function(obj, checked) {}
+										 }
+									 },{
+										xtype : 'radio',
+										boxLabel : '已充值扣除账户余额',
+										anchor : "100%",
+										name : 'plMmOrderInfo.confirmType',
+										inputValue : "1",
+									//	disabled : this.isAllReadOnly,
+										listeners : {
+											scope : this,
+											check : function(obj, checked) {}
+										 }
+									 }]
+							}
+											
+						]
+			}]
+		})
+	
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		/*	formPanel.getForm().submit({
+			    clientValidation: false, 
+				url : __ctxPath + '/creditFlow/financingAgency/savaByFlowPlMmOrderInfo.do?id=' + this.projectId,
+				params : {
+					'comments':formPanel.comments
+				},
+				method : 'post',
+				waitMsg : '数据正在提交，请稍后...',
+				scope: this,
+				success : function(fp, action) {
+					var object = Ext.util.JSON.decode(action.response.responseText)
+					Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				},
+				failure : function(fp, action) {
+					Ext.MessageBox.show({
+						title : '操作信息',
+						msg : '信息保存出错，请联系管理员！',
+						buttons : Ext.MessageBox.OK,
+						icon : 'ext-mb-error'
+					});
+				}
+			});*/
+	},
+	validate : function(outpanel) {
+		
+		var submitGroup = this.getOriginalContainer().getCmpByName('taskSubmit');
+		var arr= submitGroup.items.items
+		if(submitGroup.getValue().inputValue.indexOf("理财产品认购")==-1){
+		
+			if(this.PlMmOrderAssigninterestVM.gridPanel.getStore().getCount()==0){
+				Ext.ux.Toast.msg('操作信息', '请生成投资人款项计划表!');
+				return false;
+			}
+			outpanel.getCmpByName('plMmOrderAssigninterest_JSONSTR').setValue(this.PlMmOrderAssigninterestVM.getGridDate());
+			
+			var confirmType = this.getCmpByName("plMmOrderInfo.confirmType").getValue()
+			if(!confirmType){
+				var flag = false;
+				var plMmOrderInfoId = this.PlMmPlanBuyPanel.getCmpByName('plMmOrderInfo.id').getValue();
+				Ext.Ajax.request( {
+					url : __ctxPath + '/creditFlow/financingAgency/checkInvestMoneyPlMmOrderInfo.do?plMmOrderInfoId='+plMmOrderInfoId,
+					method : 'POST',
+					async: false,
+					success : function(response) {
+						var result = Ext.util.JSON.decode(response.responseText); 
+						if (result.flag) {
+							flag = true;
+						} else{
+							Ext.ux.Toast.msg('操作信息',result.msg);
+						}
+					}
+				});
+				
+				return flag;
+			}else{
+				return true;
+			}
+			
+		}else{
+			return true;
+		}
+		
+	}
+})
+
+
+

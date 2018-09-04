@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zhiwei.credit.model.info"> 
+  <class name="ShortMessage" table="short_message"> 
+    <id name="messageId" type="java.lang.Long"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="content" type="java.lang.String" not-null="true"/>  
+    <property name="sender" type="java.lang.String" not-null="true"/>  
+    <property name="msgType" type="java.lang.Short" not-null="true"/>  
+    <property name="sendTime" type="java.util.Date" not-null="true"/>  
+    <property name="senderId" type="java.lang.Long" not-null="true"/>  
+    <!--
+    <set name="messages">
+    	<key column="messageId"/>
+    	<one-to-many class="com.zhiwei.credit.model.info.InMessage" />
+    </set>
+    --> 
+  </class> 
+</hibernate-mapping>

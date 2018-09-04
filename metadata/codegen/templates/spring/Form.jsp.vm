@@ -1,0 +1,69 @@
+## This is a velocity template
+## to generate a form jsp file from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keyfieldLC = $keyfield.toLowerCase())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($appname=$prop.getProperty("appname"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($dl = "${")
+#set ($dot=".")
+<%@ page language="java"  pageEncoding="UTF-8"%>
+<%@include file="/common/taglibs.jsp" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	    <title><fmt:message key="${classVar}Detail.heading"/></title>
+	    <link rel="stylesheet" type="text/css" media="screen" href="${ctxPath}/css/form.css">
+		<v:javascript formName="${classVar}" staticJavascript="false"/>
+	 	<script type="text/javascript" src="${ctxPath}/js/validator.jsp"></script>
+  </head>
+  <body>
+	  	<div class="post">
+			<div class="story">
+				<h3><fmt:message key="${classVar}Detail.heading"/></h3>
+				<ul>功能介绍
+					<li>[TODO]</li>
+				</ul>
+			</div>
+		</div>
+ 		<div id="form-outer">
+ 			<div class="content">
+ 				<form:form method="post" id="${classVar}" onsubmit="return validate${class}(this);" commandName="${classVar}" action="edit${class}.do">	
+						<form:hidden path="${keyVar}"/>					
+#foreach( $column in $sqlTable.sqlColumns)
+#if  (!$column.isKey())
+#if  (!$column.isVersion())
+#set ($colname = ${column.attName})
+#if  (!$firstField)
+#set ($firstField = ${colname})
+#end
+			<p>
+ 				<label><fmt:message key="${classVar}.${colname}"/></label>
+				<form:input id="${colname}" path="${colname}"/>
+ 				<form:errors path="${colname}" cssClass="fieldError" />
+			</p>
+#end
+#end
+#end ##end of foreach
+				 		<div class="last">
+							<label>&nbsp;</label>
+							<input name="submit" type="submit" onclick="bCancel=false" value=" 保存 " class="save"/>
+							&nbsp;
+							<input name="cancel" type="submit" onclick="bCancel=true" value=" 取消 " class="cancel"/>
+						</div>
+						
+					</form:form>
+ 			
+ 			</div>
+ 		</div>
+		
+  </body>
+</html>

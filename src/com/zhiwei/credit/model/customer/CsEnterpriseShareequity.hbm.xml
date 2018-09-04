@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.zhiwei.credit.model.customer.CsEnterpriseShareequity"
+		table="cs_enterprise_shareequity" select-before-update="false"
+		dynamic-update="false" dynamic-insert="false" optimistic-lock="version">
+		<id name="id" column="id" type="java.lang.Long" length="19">
+			<generator class="native" />
+		</id>
+		<property name="personid" type="java.lang.Long" update="true"
+			insert="true" access="property" column="personid" length="19"
+			not-null="false" unique="false" />
+		<property name="enterpriseid" type="java.lang.Long" update="true"
+			insert="true" access="property" column="enterpriseid" length="19"
+			not-null="false" unique="false" />
+		<property name="shareholdertype" type="java.lang.String"
+			update="true" insert="true" access="property" column="shareholdertype"
+			length="45" not-null="false" unique="false" />
+		<property name="shareholdercode" type="java.lang.String"
+			update="true" insert="true" access="property" column="shareholdercode"
+			length="45" not-null="false" unique="false" />
+		<property name="capital" type="java.lang.Double" update="true"
+			insert="true" access="property" column="capital" length="20"
+			not-null="false" unique="false" />
+		<property name="capitaltype" type="java.lang.String" update="true"
+			insert="true" access="property" column="capitaltype" length="45"
+			not-null="false" unique="false" />
+		<property name="share" type="java.lang.Double" update="true"
+			insert="true" access="property" column="share" length="20" not-null="false"
+			unique="false" />
+		<property name="shareholder" type="java.lang.String" update="true"
+			insert="true" access="property" column="shareholder" length="255"
+			not-null="false" unique="false" />
+		<property name="remarks" type="java.lang.String" update="true"
+			insert="true" access="property" column="remarks" length="65535"
+			not-null="false" unique="false" />
+	</class>
+</hibernate-mapping>

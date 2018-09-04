@@ -1,0 +1,375 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType : '$!operationType',
+	safeLevel : 1,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+			    __ctxPath + '/js/creditFlow/smallLoan/project/loadDataCommon.js',// 加载数据JS
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',//股东信息
+				__ctxPath + '/js/creditFlow/smallLoan/materials/SlProcreditMaterialsView.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/finance/FundIntent_formulate_editGrid.js',
+				__ctxPath + '/js/creditFlow/finance/calculateFundIntent.js',
+				__ctxPath + '/js/creditFlow/finance/calulateFinancePanel.js',
+				__ctxPath + '/js/creditFlow/finance/caluateIntentGrid.js',
+				__ctxPath + '/js/creditFlow/finance/calulateloadDataCommon.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/mortgage/AddDzyMortgageWin.js',
+				__ctxPath + '/js/creditFlow/mortgage/business/BusinessForm.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/FinanceInfo.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/BorrowerInfo.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SlContractView.js',// 合同确认
+				__ctxPath + '/js/creditFlow/archives/PlArchivesMaterialsView.js'
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		this.customerInfoPanel=new ExtUD.Ext.CustomerInfoPanel({isAllReadOnly:true,isReadOnly:true,isHidden : false,isNameReadOnly:true})
+		this.thereunderPanelView=new ThereunderPanelView({
+			projectId : this.projectId,
+			operationType : this.operationType,
+			isHiddenAddBtn : true,
+			isHiddenEditBtn : true,
+			isHiddenDelBtn : true
+		})
+		this.financeInfo=new FinanceInfo({
+			projectId : this.projectId,
+			businessType : this.businessType,
+			isReadOnly : true
+		})
+		this.borrowerInfo=new BorrowerInfo({
+			projectId : this.projectId,
+			isReadOnly : true,
+			isHiddenAddBtn : true,
+			isHiddenDelBtn:true
+		})
+
+		this.SlProcreditMaterialsView = new SlProcreditMaterialsView({
+			projectId : this.projectId,
+			businessType : this.businessType,
+			isHiddenEdit:true,
+			isHidden_materials : true,
+			operationType :this.operationType
+		});
+
+		this.projectInfo = new ExtUD.Ext.McroLoanProjectInfoPanel({
+			isAllReadOnly : true 
+		});
+		this.projectInfoFinance= new ExtUD.Ext.ProjectInfoFinancePanel({
+			isDiligenceReadOnly : true,
+			isAllReadOnly:true,
+			isProjectMoneyReadOnly:true,//判断放款金额是否只读
+			projectId:this.projectId,
+			idDefinition:'mcroliucheng'+this.taskId,
+			isHiddencalculateBtn:false 
+			
+		});
+		this.SlReportView = new SlReportView({
+			projectId : this.projectId,
+			businessType : 'SmallLoan',
+	    	isHidden_report : true
+		});
+/*		this.gridPanel = new FundIntent_formulate_editGrid({
+			projId : this.projectId,
+			object : this.projectInfoFinance,
+			titleText : '放款收息表',
+			isHidden : true,
+			calcutype : 1 ,           //贷款
+			businessType : 'SmallLoan'
+			
+		});*/
+/*		this.slActualToCharge = new SlActualToCharge({
+			projId : this.projectId,
+			businessType :'SmallLoan' ,     //小贷
+			isHidden : true
+			
+		});
+	*/
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [/*{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSmallloanProjectService.updateReviewComments'
+			},*/ {
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '项目控制信息 ',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			}, {       
+			    xtype : 'fieldset',
+				title : '贷款基本信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name:'financeInfoFieldset',
+				autoHeight : true,
+				items : [
+					this.projectInfoFinance
+					//this.gridPanel,
+					//this.slActualToCharge
+				]
+			}, {       
+			    xtype : 'fieldset',
+				title : '客户信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.customerInfoPanel]
+			},{
+				 xtype : 'fieldset',
+				title : '配偶信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				name : 'spousePanel',
+				autoHeight : true,
+				items : [new SpousePanel({isReadOnly:true,spouseHidden:true})]
+			}, {       
+			    xtype : 'fieldset',
+				title : '旗下公司',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.thereunderPanelView]
+			}, {       
+			    xtype : 'fieldset',
+				title : '财务信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.financeInfo]
+			}, {       
+			    xtype : 'fieldset',
+				title : '共同借款人信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.borrowerInfo]
+			},{
+				xtype : 'fieldset',
+				title : '担保措施',
+				collapsible : true,
+				autoHeight : true,
+				items : [new DZYMortgageView({
+						projectId : this.projectId,
+						titleText : '抵质押担保',
+						businessType : '$!businessType',
+						isHiddenAddContractBtn:false,
+						isHiddenDelContractBtn:false,
+						isHiddenEdiContractBtn:false,
+						isHiddenRelieve:true,
+						isblHidden:true,
+						isgdHidden:true,
+						isHiddenAddBtn:true,
+						isHiddenDelBtn:true,
+						isHiddenEdiBtn:true,
+						isfwEdit:true,
+						isSeeContractHidden:false,
+						isqsHidden:true,
+						isRecieveHidden : true,
+						formPanel:this.projectInfoFinance
+					}),
+					new BaozMortgageView({
+						projectId : this.projectId,
+						titleText : '保证担保',
+						businessType : '$!businessType',
+						isHiddenAddContractBtn:false,
+						isHiddenDelContractBtn:false,
+						isHiddenEdiContractBtn:false,
+						isHiddenRelieve:true,
+						isblHidden:true,
+						isgdHidden:true,
+						isHiddenAddBtn:true,
+						isHiddenDelBtn:true,
+						isHiddenEdiBtn:true,
+						isfwEdit:true,
+						isSeeContractHidden:false,
+						isqsHidden:true,
+						isRecieveHidden : true
+					})]
+			}/*,{
+				xtype : 'fieldset',
+				title : '其他文件',
+				collapsible : true,
+				autoHeight : true,
+				items : [new SlContractView({
+					projectId : this.projectId,
+			    	businessType : 'SmallLoan',
+			    	HTLX : 'OtherFiles',
+			    	htType :'otherFiles',
+			    	isHiddenAddBtn : false,
+					isHiddenEdiBtn : false,
+					isHiddenDelBtn : false,
+					isHidden : true
+				})]
+			},{
+				xtype : 'fieldset',
+				title : '项目文件',
+				collapsible : true,
+				autoHeight : true,
+				items : [new SlContractView({
+					projectId : this.projectId,
+			    	businessType : 'SmallLoan',
+			    	htType : null,
+			    	HTLX : 'XEDQ',
+			    	isHiddenAddBtn : false,
+					isHiddenEdiBtn : false,
+					isHiddenDelBtn : false,
+					isHidden:true
+				})]
+			}*/,{
+				xtype : 'fieldset',
+				title : '借款合同',
+				collapsible : true,
+				autoHeight : true,
+				items : [new SlContractView({
+					projectId : this.projectId,
+			    	businessType : 'SmallLoan',
+			    	HTLX : 'loanContract',
+			    	htType :'loanContract',
+			    	isHiddenAddBtn : false,
+					isHiddenEdiBtn : false,
+					isHiddenDelBtn : false,
+					isHidden : true
+				})]
+			}, {
+				xtype : 'hidden',
+        		name : 'safeLevel',
+        		value : 1
+			},{
+			     xtype:'hidden',
+			     name:'task_id',
+			     value:this.taskId
+	        }]
+		})
+
+		this.loadData({
+			url : __ctxPath + '/creditFlow/getMcroLoanInfoCreditProject.do?taskId='+this.projectId+'&type='+this.businessType+'&task_id='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'slSmallloanProject',"businessType","enterpriseBank","spouse"],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				this.infosourceId=alarm_fields.data.slSmallloanProject.infosourceId
+				var st = this.getCmpByName('infosourceName').getStore();
+				st.on("load", function() {
+					this.getCmpByName('infosourceName').setValue(this.infosourceId)
+					
+				},this)
+			     if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}				
+				this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.slSmallloanProject.projectMoney,'0,000.00'))
+				this.getCmpByName('enterpriseBank.areaName').setValue(alarm_fields.data.enterpriseBank.areaName)
+				var appUsers= alarm_fields.data.slSmallloanProject.appUsers;
+				var appUserId= alarm_fields.data.slSmallloanProject.appUserId;
+				if(""!=appUserId &&  null!=appUserId){
+				
+				   this.getCmpByName('degree').setValue(appUserId);
+				   this.getCmpByName('degree').setRawValue(appUsers);
+				   this.getCmpByName('degree').nextSibling().setValue(appUserId);
+				}
+				if(alarm_fields.data.person.marry==317){
+					this.getCmpByName('spousePanel').show()
+				}else{
+					this.getCmpByName('spousePanel').hide()
+				}
+				fillData(this,alarm_fields,'mcroliucheng'+this.taskId);
+			var  nextForm=this.ownerCt.ownerCt;
+					var jumpBack=nextForm.getTopToolbar().get(3);
+  					jumpBack.hide();
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel) {
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/project/saveCommentsSlSmallloanProject.do',
+			params : {
+				comments : formPanel.comments
+			},
+		    method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+			    Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	 },
+	
+	validate : function(outpanel) {
+		return true;
+	}
+})

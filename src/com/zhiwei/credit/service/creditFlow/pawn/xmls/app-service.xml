@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+	<bean id="plPawnProjectService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PlPawnProjectServiceImpl">
+   		<constructor-arg index="0" ref="plPawnProjectDao"/>
+   	</bean>
+   	 <bean id="pawnItemsListService" class="com.zhiwei.credit.service.creditFlow.pawn.pawnItems.impl.PawnItemsListServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnItemsListDao"/>
+   	 </bean>
+   	  <bean id="pawnContinuedManagmentService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PawnContinuedManagmentServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnContinuedManagmentDao"/>
+   	 </bean>
+   	  <bean id="pawnRedeemManagementService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PawnRedeemManagementServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnRedeemManagementDao"/>
+   	 </bean>
+   	  <bean id="pawnVastMaragementService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PawnVastMaragementServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnVastMaragementDao"/>
+   	 </bean>
+   	 	 <bean id="pawnCrkRecordService" class="com.zhiwei.credit.service.creditFlow.pawn.pawnItems.impl.PawnCrkRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnCrkRecordDao"/>
+   	 </bean>
+	 <bean id="pawnInspectionRecordService" class="com.zhiwei.credit.service.creditFlow.pawn.pawnItems.impl.PawnInspectionRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnInspectionRecordDao"/>
+   	 </bean>
+   	  <bean id="pawnTicketLossRecordService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PawnTicketLossRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnTicketLossRecordDao"/>
+   	 </bean>
+	 <bean id="pawnTicketReissueRecordService" class="com.zhiwei.credit.service.creditFlow.pawn.project.impl.PawnTicketReissueRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="pawnTicketReissueRecordDao"/>
+   	 </bean>
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.SmsMobile" table="sms_mobile" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="smsId" column="smsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="sendTime" type="java.util.Date" update="true" insert="true" access="property" column="sendTime" length="10" not-null="true" unique="false"/>  
+    <property name="recipients" type="java.lang.String" update="true" insert="true" access="property" column="recipients" length="128" not-null="false" unique="false"/>  
+    <property name="phoneNumber" type="java.lang.String" update="true" insert="true" access="property" column="phoneNumber" length="128" not-null="true" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="false" unique="false"/>  
+    <property name="userName" type="java.lang.String" update="true" insert="true" access="property" column="userName" length="128" not-null="false" unique="false"/>  
+    <property name="smsContent" type="java.lang.String" update="true" insert="true" access="property" column="smsContent" length="1024" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/> 
+  </class> 
+</hibernate-mapping>

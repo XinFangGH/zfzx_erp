@@ -1,0 +1,27 @@
+## This is a velocity template
+## to generate a model class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot"))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+package ${packagePrefix}.credit.dao${packageModot};
+/*
+ *  北京互融时代软件有限公司   -- http://www.zhiweitime.com
+ *	Copyright @ 2004 - 2010 Yuseen.com all rights reserved.京ICP备 05007290 号
+*/
+import ${packagePrefix}.core.dao.BaseDao;
+import ${packagePrefix}.credit.model${packageModot}.${class};
+
+/**
+ * 
+ * @author 
+ *
+ */
+public interface ${class}Dao extends BaseDao<${class}>{
+	
+}

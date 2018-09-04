@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Modules>
+        <!-- 客户中心  -->
+   		<module name="customer" file="menu-customer_1.xml"/>
+   		
+   		<!-- 网贷中心 -->
+   		<!-- (左侧菜单初始化)后台方法是根据Mod_和 module的name拼接而成-->
+   		<module name="fa_online" file="menu-fa-online.xml"/>
+   		<!--<module name="fa_base" file="menu-fa-base.xml"/>-->
+   		<module name="fa_p2p" file="menu-fa-p2p.xml"/>
+   		<module name="fa_p2c" file="menu-fa-p2c.xml"/>
+   		<module name="fa_pa2p" file="menu-fa-pa2p.xml"/>
+   		<module name="fa_ca2p" file="menu-fa-ca2p.xml"/>
+   		<module name="fa_secondtransaction" file="menu-fa-secondTransaction.xml"/>
+   		<module name="fa_dplan" file="menu-fa-dPlan.xml"/>
+   		<module name="fa_uplan" file="menu-fa-uPlan.xml"/>
+   		<module name="fa_bao" file="menu-fa-bao.xml"/>
+   		
+   		<!-- 运营中心 -->
+        <module name="p2p" file="menu-p2p.xml"></module>
+        
+   		<!-- 报表中心 -->
+   		<module name="report" file="menu-report_1.xml"/>
+   		
+        <!-- 系统管理 -->
+       <module name="erp" file="menu-erp.xml"></module>
+</Modules>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProcessRun" table="process_run" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="runId" column="runId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="128" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="piId" type="java.lang.String" update="true" insert="true" access="property" column="piId" length="64" not-null="false" unique="false"/>  
+    <property name="busDesc" type="java.lang.String" update="true" insert="true" access="property" column="busDesc" length="1024" not-null="false" unique="false"/>  
+    <property name="entityName" type="java.lang.String" update="true" insert="true" access="property" column="entityName" length="128" not-null="false" unique="false"/>  
+    <property name="entityId" type="java.lang.String" update="true" insert="true" access="property" column="entityId" length="64" not-null="false" unique="false"/>  
+    <property name="formDefId" type="java.lang.Long" update="true" insert="true" access="property" column="formDefId" length="18" not-null="false" unique="false"/>  
+    <property name="runStatus" type="java.lang.Short" update="true" insert="true" access="property" column="runStatus" length="6" not-null="true" unique="false"/>
+    <property name="projectId" type="java.lang.Long" update="true" insert="true" access="property" column="projectId" length="18" not-null="false" unique="false"/>
+    <property name="businessType" type="java.lang.String" update="true" insert="true" access="property" column="businessType" length="30" not-null="false" unique="false"/> 
+    <property name="customerName" type="java.lang.String" update="true" insert="true" access="property" column="customerName" length="200" not-null="false" unique="false"/>
+    <property name="projectNumber" type="java.lang.String" update="true" insert="true" access="property" column="projectNumber" length="50" not-null="false" unique="false"/> 
+    <property name="piDbid" type="java.lang.Long" update="true" insert="true" access="property" column="piDbid" length="18" not-null="false" unique="false"/>
+    <property name="pdId" type="java.lang.String" update="true" insert="true" access="property" column="pdId" length="64" not-null="false" unique="false"/>
+    <property name="processName" type="java.lang.String" update="true" insert="true" access="property" column="processName" length="255" not-null="false" unique="false"/> 
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <many-to-one name="proDefinition" class="com.zhiwei.credit.model.flow.ProDefinition" not-null="false" fetch="select"> 
+      <column name="defId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to ProcessForm -->  
+    <set name="processForms" table="process_form" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="runId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.flow.ProcessForm"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

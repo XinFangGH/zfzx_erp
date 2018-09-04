@@ -1,0 +1,62 @@
+流程名称：长春博方信贷流程
+key：ccbfCreditFlow
+节点顺序：
+客服录件   10_zftServiceRecord
+信审初审20_zftCreditFirestExamine
+信审复审40_zftCreditFirestReExamine
+初审未通过33_zftCreditFirestWrong
+实地核查36_zftCreditFieldExamine
+初审复议38_zftCreditFirestReconde
+复审未通过43_zftCreditSecondWrong
+信审终审50_zftCreditLastExamine
+复审复议46_zftCreditSecondReExamine
+合同制作及签署60 _zftCrontract
+财务放款确认1000_zftLoanMoney
+放款回款确认1010_zftVisitLoan
+项目归档1020_zftDocument
+上传客户资料15_zftUploadCustomerFile
+总经理审批55_zftManagerExamine
+发布产品1030_zftRlus
+
+
+决策:
+决策1
+String tranTo="to 信审复审";
+
+if("初审未通过".equals(OutletPrincipalExamineResult)){
+   tranTo="to 初审未通过";
+}else if("实地核查".equals(OutletPrincipalExamineResult)){
+	tranTo="to 实地核查";
+}
+决策2
+String tranTo="to 初审复议";
+
+if("结束2".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束2";
+}
+决策3
+String tranTo="to 信审复审";
+
+if("结束3".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束3";
+}
+决策4
+String tranTo="to 信审终审";
+
+if("客服录件".equals(OutletPrincipalExamineResult)){
+   tranTo="to 客服录件";
+}else if("复审未通过".equals(OutletPrincipalExamineResult)){
+	tranTo="to 复审未通过";
+}
+决策5
+String tranTo="to 复审复议";
+
+if("结束4".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束4";
+}
+决策6
+String tranTo="to 信审终审";
+
+if("结束5".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束5";
+}

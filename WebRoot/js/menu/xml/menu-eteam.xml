@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_eTeam" text="贷款办理" iconCls="mod-internetfinance">
+	<Items id="slenterDealManger" text="企贷办理" iconCls="menu-finance" >
+	<!--<Item id="NewProjectFormEnterPrise" text="企贷申请 " iconCls="btn-tree-team1" isControl="false" />
+	--><Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness" text="标准企贷申请 " iconCls="btn-tree-team1" isControl="false" />
+	<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=dir" text="直投标快速补录 " iconCls="btn-tree-team1" isControl="false" />
+	<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=or" text="债权转让标快速补录 " iconCls="btn-tree-team1" isControl="false" />
+	<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=entSmall" text="企业客户小贷申请 " iconCls="btn-tree-team1" isControl="false" />
+	<Item id="CreateNewProjectFrom?operationType=SmallLoan_SmallLoanBusiness&amp;history=entHistory" text="企贷历史补录流程" iconCls="btn-tree-team1" isControl="false" />
+	</Items>
+</Menus>

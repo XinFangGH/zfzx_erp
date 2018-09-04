@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.arch.RollFileList" table="roll_file_list" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="listId" column="listId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="downLoads" type="java.lang.Integer" update="true" insert="true" access="property" column="downLoads" length="10" not-null="false" unique="false"/>  
+    <property name="sn" type="java.lang.Integer" update="true" insert="true" access="property" column="sn" length="10" not-null="false" unique="false"/>  
+    <property name="shortDesc" type="java.lang.String" update="true" insert="true" access="property" column="shortDesc" length="500" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to RollFile -->  
+    <many-to-one name="rollFile" class="com.zhiwei.credit.model.arch.RollFile" not-null="false" fetch="select"> 
+      <column name="rollFileId"/> 
+    </many-to-one>  
+    <many-to-one name="fileAttach" class="com.zhiwei.credit.model.system.FileAttach" not-null="false" fetch="select" unique="true"> 
+      <column name="fileId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

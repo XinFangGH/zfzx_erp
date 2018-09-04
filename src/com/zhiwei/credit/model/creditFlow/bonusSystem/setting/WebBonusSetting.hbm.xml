@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.bonusSystem.setting.WebBonusSetting"
+        table="web_bonus_setting"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="bonusId"
+            column="bonusId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="userAction"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="userAction"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="bonusType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bonusType"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="bonusName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bonusName"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="bonus"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bonus"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="isBonus"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="isBonus"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="userActionKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="userActionKey"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="bomusPeriod"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="bomusPeriod"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="periodBonusLimit"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="periodBonusLimit"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="sendMsgType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="sendMsgType"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="memberLevel"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="memberLevel"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="memberLevelValue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="memberLevelValue"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property name="bomusPeriodType" column="bomusPeriodType" type="java.lang.String"></property>
+        <property name="bonusswitch" column="bonusswitch" type="java.lang.String"></property>
+        <property name="flagKey" column="flagKey" type="java.lang.String"></property>
+        <property name="description" column="description" type="java.lang.String"></property>
+        
+		<property type="java.lang.String" name="bonusIntention" column="bonusIntention"></property>
+    
+    </class>
+</hibernate-mapping>

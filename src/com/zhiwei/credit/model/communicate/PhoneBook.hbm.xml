@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.communicate.PhoneBook" table="phone_book" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="phoneId" column="phoneId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="128" not-null="true" unique="false"/>  
+    <property name="title" type="java.lang.String" update="true" insert="true" access="property" column="title" length="32" not-null="true" unique="false"/>  
+    <property name="birthday" type="java.util.Date" update="true" insert="true" access="property" column="birthday" length="19" not-null="false" unique="false"/>  
+    <property name="nickName" type="java.lang.String" update="true" insert="true" access="property" column="nickName" length="32" not-null="false" unique="false"/>  
+    <property name="duty" type="java.lang.String" update="true" insert="true" access="property" column="duty" length="50" not-null="false" unique="false"/>  
+    <property name="spouse" type="java.lang.String" update="true" insert="true" access="property" column="spouse" length="32" not-null="false" unique="false"/>  
+    <property name="childs" type="java.lang.String" update="true" insert="true" access="property" column="childs" length="40" not-null="false" unique="false"/>  
+    <property name="companyName" type="java.lang.String" update="true" insert="true" access="property" column="companyName" length="100" not-null="false" unique="false"/>  
+    <property name="companyAddress" type="java.lang.String" update="true" insert="true" access="property" column="companyAddress" length="128" not-null="false" unique="false"/>  
+    <property name="companyPhone" type="java.lang.String" update="true" insert="true" access="property" column="companyPhone" length="32" not-null="false" unique="false"/>  
+    <property name="companyFax" type="java.lang.String" update="true" insert="true" access="property" column="companyFax" length="32" not-null="false" unique="false"/>  
+    <property name="homeAddress" type="java.lang.String" update="true" insert="true" access="property" column="homeAddress" length="128" not-null="false" unique="false"/>  
+    <property name="homeZip" type="java.lang.String" update="true" insert="true" access="property" column="homeZip" length="12" not-null="false" unique="false"/>  
+    <property name="mobile" type="java.lang.String" update="true" insert="true" access="property" column="mobile" length="32" not-null="false" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="32" not-null="false" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="32" not-null="false" unique="false"/>  
+    <property name="qqNumber" type="java.lang.String" update="true" insert="true" access="property" column="QQ" length="64" not-null="false" unique="false"/>  
+    <property name="msn" type="java.lang.String" update="true" insert="true" access="property" column="MSN" length="128" not-null="false" unique="false"/>  
+    <property name="note" type="java.lang.String" update="true" insert="true" access="property" column="note" length="500" not-null="false" unique="false"/>  
+    <property name="isShared" type="java.lang.Short" update="true" insert="true" access="property" column="isShared" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to PhoneGroup -->  
+    <many-to-one name="phoneGroup" class="com.zhiwei.credit.model.communicate.PhoneGroup" not-null="false" fetch="select"> 
+      <column name="groupId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

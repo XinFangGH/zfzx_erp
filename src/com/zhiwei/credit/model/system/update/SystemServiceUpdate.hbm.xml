@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.system.update.SystemServiceUpdate"
+        table="system_service_update"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="updatetime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="updatetime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="updatesize"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="updatesize"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="filepath"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="filepath"
+            length="512"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="operatorname"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="operatorname"
+            length="64"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="projname"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="projname"
+            length="128"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="ifsuccess"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="ifsuccess"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

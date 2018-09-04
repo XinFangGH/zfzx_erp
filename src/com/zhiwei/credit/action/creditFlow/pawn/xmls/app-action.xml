@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">   
+	
+    <bean id="PlPawnProjectAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PlPawnProjectAction" scope="prototype"/>
+	 <bean id="PawnItemsListAction" class="com.zhiwei.credit.action.creditFlow.pawn.pawnItems.PawnItemsListAction" scope="prototype"/>
+	  <bean id="PawnContinuedManagmentAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PawnContinuedManagmentAction" scope="prototype"/>
+	   <bean id="PawnRedeemManagementAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PawnRedeemManagementAction" scope="prototype"/>
+	   <bean id="PawnVastMaragementAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PawnVastMaragementAction" scope="prototype"/>
+	    <bean id="PawnCrkRecordAction" class="com.zhiwei.credit.action.creditFlow.pawn.pawnItems.PawnCrkRecordAction" scope="prototype"/>
+ 	<bean id="PawnInspectionRecordAction" class="com.zhiwei.credit.action.creditFlow.pawn.pawnItems.PawnInspectionRecordAction" scope="prototype"/>
+ 	 <bean id="PawnTicketLossRecordAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PawnTicketLossRecordAction" scope="prototype"/>
+	 <bean id="PawnTicketReissueRecordAction" class="com.zhiwei.credit.action.creditFlow.pawn.project.PawnTicketReissueRecordAction" scope="prototype"/>
+</beans>

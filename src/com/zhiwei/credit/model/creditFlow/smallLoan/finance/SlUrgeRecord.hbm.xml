@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.smallLoan.finance.SlUrgeRecord"
+        table="sl_urge_record"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="recordId"
+            column="recordId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+        <property
+            name="insertDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="insertDate"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="creatorId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="creatorId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="findIntentId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="findIntentId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="recordText"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="recordText"
+            length="200"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

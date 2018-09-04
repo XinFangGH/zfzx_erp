@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.OfficeGoods" table="office_goods" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="goodsId" column="goodsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="goodsName" type="java.lang.String" update="true" insert="true" access="property" column="goodsName" length="128" not-null="true" unique="false"/>  
+    <property name="goodsNo" type="java.lang.String" update="true" insert="true" access="property" column="goodsNo" length="128" not-null="true" unique="false"/>  
+    <property name="specifications" type="java.lang.String" update="true" insert="true" access="property" column="specifications" length="256" not-null="true" unique="false"/>  
+    <property name="unit" type="java.lang.String" update="true" insert="true" access="property" column="unit" length="64" not-null="true" unique="false"/>  
+    <property name="isWarning" type="java.lang.Short" update="true" insert="true" access="property" column="isWarning" length="5" not-null="true" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="stockCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="stockCounts" not-null="true" unique="false"/>  
+    <property name="warnCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="warnCounts" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to OfficeGoodsType -->  
+    <many-to-one name="officeGoodsType" class="com.zhiwei.credit.model.admin.OfficeGoodsType" not-null="false" fetch="select"> 
+      <column name="typeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to GoodsApply -->  
+    <set name="goodsApplys" table="goods_apply" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="goodsId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.GoodsApply"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to InStock -->  
+    <set name="inStocks" table="in_stock" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="goodsId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.InStock"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

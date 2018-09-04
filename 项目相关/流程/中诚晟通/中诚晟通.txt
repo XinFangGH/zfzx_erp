@@ -1,0 +1,36 @@
+在zhiwei.xml中将：flowType节点内容修改为：zcstCreditFlow
+
+流程名称：中诚晟通信贷流程
+key：zcstCreditFlow
+节点
+门店资料录入 10_zcrtMaterialRecord
+上传资料20_zcrtUploadMeterial
+门店负责人审核30_zcrtManagerExamine
+平台分配任务40_zcrtAllocationTask
+网审50_zcrtNetExamine
+电审60_zcrtDepartmentExamine
+平台合规性审查确认70_zcrtPlatExamine
+风控确认80_zcrtRiskQuery
+制定资金方案100_zcrtMakeFinace
+总经理审批90_zcrtMangerCheck
+资金匹配110_zcrtFinance
+自有资金放款1000_zcrtOwnLoan
+放款确认1010_zcrtLoanQuery
+业务归档1020_zcrtDocument
+
+决策：
+决策1：
+String tranTo="to 制定资金方案";
+if("风控确认".equals(OutletPrincipalExamineResult)){
+   tranTo="to 风控确认";
+}
+决策2：
+String tranTo="to 制定资金方案";
+if("结束1".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束1";
+}
+决策3：
+String tranTo="to 自有资金放款";
+if("资金匹配".equals(OutletPrincipalExamineResult)){
+   tranTo="to 资金匹配";
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.GoodsApply" table="goods_apply" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="applyId" column="applyId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="applyDate" type="java.util.Date" update="true" insert="true" access="property" column="applyDate" length="19" not-null="true" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="true" unique="false"/>  
+    <property name="applyNo" type="java.lang.String" update="true" insert="true" access="property" column="applyNo" length="128" not-null="true" unique="false"/>  
+    <property name="useCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="useCounts" not-null="true" unique="false"/>  
+    <property name="proposer" type="java.lang.String" update="true" insert="true" access="property" column="proposer" length="32" not-null="true" unique="false"/>  
+    <property name="username" type="java.lang.String" update="true" insert="true" access="property" column="username" length="32" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="approvalStatus" type="java.lang.Short" update="true" insert="true" access="property" column="approvalStatus" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to OfficeGoods -->  
+    <many-to-one name="officeGoods" class="com.zhiwei.credit.model.admin.OfficeGoods" not-null="false" fetch="select"> 
+      <column name="goodsId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

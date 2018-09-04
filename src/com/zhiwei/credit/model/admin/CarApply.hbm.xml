@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.CarApply" table="car_apply" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="applyId" column="applyId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="department" type="java.lang.String" update="true" insert="true" access="property" column="department" length="64" not-null="true" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="true" unique="false"/>  
+    <property name="userFullname" type="java.lang.String" update="true" insert="true" access="property" column="userFullname" length="32" not-null="true" unique="false"/>  
+    <property name="applyDate" type="java.util.Date" update="true" insert="true" access="property" column="applyDate" length="10" not-null="true" unique="false"/>  
+    <property name="reason" type="java.lang.String" update="true" insert="true" access="property" column="reason" length="512" not-null="true" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="false" unique="false"/>  
+    <property name="proposer" type="java.lang.String" update="true" insert="true" access="property" column="proposer" length="32" not-null="true" unique="false"/>  
+    <property name="mileage" type="java.math.BigDecimal" update="true" insert="true" access="property" column="mileage" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="oilUse" type="java.math.BigDecimal" update="true" insert="true" access="property" column="oilUse" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="128" not-null="false" unique="false"/>  
+    <property name="approvalStatus" type="java.lang.Short" update="true" insert="true" access="property" column="approvalStatus" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Car -->  
+    <many-to-one name="car" class="com.zhiwei.credit.model.admin.Car" not-null="false" fetch="select"> 
+      <column name="carId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

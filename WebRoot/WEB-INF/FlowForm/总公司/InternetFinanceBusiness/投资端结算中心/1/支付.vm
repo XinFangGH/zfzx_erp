@@ -1,0 +1,207 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	settlementReviewerPayId:'$!settlementReviewerPayId',
+	organizationId:'$!organizationId',
+	businessType:'$!businessType',
+	type:'$!type',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/SettlementReviewerPay.js',
+				__ctxPath + '/js/creditFlow/fund/project/SettlementInfoPanel.js',
+				__ctxPath + '/js/creditFlow/fund/project/SettlementInfoView.js',
+				__ctxPath + '/js/creditFlow/fund/project/SettlementReviewerPayForm.js',
+				__ctxPath + '/js/creditFlow/finance/SettlementPayToChange.js',
+				__ctxPath + '/js/creditFlow/financingAgency/manageMoney/investValueInformation.js'
+				
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		//每日结算记录
+		this.settlementInfoPanel = new SettlementInfoPanel({organizationId:this.organizationId,object:this.SettlementReviewerPay,type:this.type});
+		
+		//选择结算时间
+		this.SettlementReviewerPay=new SettlementReviewerPay({
+			organizationId:this.organizationId,
+			settlementReviewerPayId:this.settlementReviewerPayId,
+			isreadOnly:true,
+			object : this.settlementInfoPanel
+		});
+		//手续费添加
+		this.settlementPayToChange = new SettlementPayToChange({
+			projectId:this.settlementReviewerPayId,
+			isHidden:true,
+			editor:false,
+			businessType:this.businessType
+		});
+		
+		//系统基本信息
+		this.settlementReviewerPayForm = new SettlementReviewerPayForm({
+			changeObject:this.settlementPayToChange,
+			isreadOnly:true,
+			infoObject : this.settlementInfoPanel
+			
+		});
+		
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				labelAlign : 'left',
+//				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'settlementReviewerPayService.updateInfoNextStep'
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				collapsible : false,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.SettlementReviewerPay]
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '基本信息',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.settlementReviewerPayForm]
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '其他结算金额',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.settlementPayToChange]
+			},{
+				xtype : 'fieldset',
+				name:'projectInfo',
+				title : '明细信息',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.settlementInfoPanel]
+			},{
+				xtype : 'hidden',
+				name : 'settlementPayToChangeJson'
+			},{
+				xtype : 'hidden',
+				name : 'taskName',
+				value:"zhifu"
+			},{
+				xtype : 'hidden',
+				name : 'projectId',
+				value:this.projectId
+			}]
+		})
+		this.loadData({
+			url : __ctxPath + '/web/getSettlementReviewerPay.do?id='+this.settlementReviewerPayId,
+			method : "POST",
+			preName : "settlementReviewerPay",
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				//查询提成明细
+				var payStartDate = alarm_fields.data.payStartDate;
+				var payEndDate = alarm_fields.data.payEndDate;
+				if(payStartDate&&payEndDate){
+					var store = this.settlementInfoPanel.gridPanel.getStore();
+					store.reload({
+						params : {
+							orgId : this.organizationId,
+							startDate:payStartDate,
+							endDate:payEndDate
+						}
+					});
+				}
+				//设置经办人
+				this.getCmpByName('settlementReviewerPay.payer').setValue(currentUserFullName);
+			}
+		});
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.ownerCt.ownerCt.getCmpByName('commentsRecords').setTitle('任务处理历史【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		var settlementPayToChange = this.settlementPayToChange;
+		this.getCmpByName('settlementPayToChangeJson').setValue(this.settlementPayToChange.getGridDate());
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/web/updateSettlementReviewerPay.do',
+			params : {
+				'comments':formPanel.comments
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope: this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText);
+				settlementPayToChange.gridPanel.getStore().reload();
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(outpanel) {
+	    return true;
+	}
+})

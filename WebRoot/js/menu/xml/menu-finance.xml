@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_finance" text="财务信息库" iconCls="mod-finance"> 
+<Items id="Finance" text="财务信息库" iconCls="mod-finance">
+	<Items id="Finance" text="财务管理" iconCls="menu-finance">
+		<Item id="SlBankAccountView" iconCls="menu-resume" text="我方银行帐户管理" >
+		    <Function id="_create_b" text="添加账户" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_b" text="删除账户" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_b" text="编辑账户" iconCls="btn-edit">
+			</Function>
+			<Function id="_zhlsdetail_b" text="账户流水明细" iconCls="btn-del">
+			</Function>
+			<Function id="_uploadyhzh_b" text="上传银行账户" iconCls="btn-edit">
+			</Function>
+			
+		</Item>
+        	<Item id="SlBankAccountQlideView" iconCls="menu-resume" text="账户流水明细查询" >
+		</Item>
+
+		<Item id="CashQlideView" iconCls="menu-cashqlide" text="现金流水管理" >
+		   <Function id="_createall_b" text="批量添加" iconCls="btn-add">
+			</Function>
+             <Function id="_createxjls_b" text="添加" iconCls="btn-add">
+			</Function>
+			<Function id="_removexjls_b" text="删除" iconCls="btn-del">
+			</Function>
+			<Function id="_editxjls_b" text="编辑" iconCls="btn-edit">
+			</Function>
+			
+		</Item>
+		<Item id="SlFundQlideView2" iconCls="menu-dutyStats" text="银行流水管理" >
+		    <Function id="_creatednls_q" text="添加对内流水" iconCls="btn-add">
+			</Function>
+			<Function id="_createdwls_q" text="添加对外流水" iconCls="btn-del">
+			</Function>
+			<Function id="_createalldwls_q" text="批量添加对外流水" iconCls="sldownIcon">
+			</Function>
+		    <Function id="_editls_q" text="编辑" iconCls="btn-add">
+			</Function>
+			<Function id="_removels_q" text="删除" iconCls="btn-del">
+			</Function>
+			<Function id="_loadlsmb_q" text="下载流水模板" iconCls="sldownIcon">
+			</Function>
+			<Function id="_uploadzjls_q" text="上传资金流水" iconCls="slupIcon">
+			</Function>
+		</Item>
+		<Item id="AccountBankManage" iconCls="menu-accountbankmanage" text="银行保证金账户管理">
+		   <Function id="_addzhbzj_q" text="添加总行保证金" iconCls="btn-add">
+			</Function>
+			<Function id="_addzhbzjzh_q" text="添加支行保证金账户" iconCls="btn-del">
+			</Function>
+			<Function id="_editzhbzjzh_q" text="编辑" iconCls="sldownIcon">
+			</Function>
+		    <Function id="_removezhbzjzh_q" text="删除" iconCls="btn-add">
+			</Function>
+			<Function id="_seezhbzjzh_q" text="查看" iconCls="btn-del">
+			</Function>
+			<Function id="_addbzjzhjl_q" text="增加保证金账户记录" iconCls="sldownIcon">
+			</Function>
+			<Function id="_editbzjzhjl_q" text="编辑保证金账户记录" iconCls="sldownIcon">
+			</Function>
+		    <Function id="_removebzjzhjl_q" text="删除保证金账户记录" iconCls="btn-add">
+			</Function>
+			<Function id="_seebzjzhjl_q" text="查看保证金账户记录" iconCls="btn-del">
+			</Function>
+		</Item>
+		<Item id="AccountBankManageProj" iconCls="menu-accountbankmanageproj" text="保证金账户项目记录管理">
+		    <Function id="_adddjxmjl_q" text="添加冻结项目记录" iconCls="btn-del">
+			</Function>
+			<Function id="_editdjxmjl_q" text="编辑冻结项目记录" iconCls="sldownIcon">
+			</Function>
+			<Function id="_removexmxgjl_q" text="删除项目相关记录" iconCls="sldownIcon">
+			</Function>
+		    <Function id="_seexmxgjl_q" text="查看项目相关记录" iconCls="btn-add">
+			</Function>
+			<Function id="_jdbzj_q" text="解冻保证金" iconCls="btn-del">
+			</Function>
+		</Item>
+	</Items>
+	<Items id="FlContactFinance" text="款项台账" iconCls="menu-finance-qlide" >
+
+		
+		
+		
+		<Item id="SlFundIntentView?businessType=all" iconCls="menu-archive-issue" text="款项对账" >
+		    <Function id="_liushui_f_all" text="流水对账" iconCls="btn-user-sel">
+			</Function>
+			<Function id="_cash_f_all" text="现金对账" iconCls="btn-details">
+			</Function>
+			<Function id="_liushuisee_f_all" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_all" text="核销" iconCls="btn-ok">
+			</Function>
+			<Function id="_sOverdue_f_all" text="逾期状态" iconCls="btn-setting">
+			</Function>
+			<Function id="_uploaddownpz_f_all" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_all" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+		<Item id="VFundDetail" iconCls="menu-archive-history" text="款项对账历史记录" >
+		    <Function id="_cxdz_f" text="撤销对账" iconCls="btn-setting">
+			</Function>
+		</Item>
+		<Item id="SlActualToChargeView?businessType=all" iconCls="menu-flowWait" text="经办费用对账" >
+		    <Function id="_liushui_a_all" text="流水对账" iconCls="btn-user-sel">
+			</Function>
+			<Function id="_cash_a_all" text="现金对账" iconCls="btn-details">
+			</Function>
+			<Function id="_liushuisee_a_all" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_a_all" text="核销" iconCls="btn-ok">
+			</Function>
+			<Function id="_sOverdue_a_all" text="逾期状态" iconCls="btn-setting">
+			</Function>
+			
+		</Item>
+
+		<Item id="VChargeDetail" iconCls="menu-archive-history" text="费用对账历史记录" >
+		 <Function id="_cxfydzlsjl_f" text="撤销对账" iconCls="btn-setting">
+			</Function>
+		</Item>
+
+	</Items>
+	<Items id="Customer_InvestPersonView" text="投资客户" iconCls="mod-customer" isPublic="false">
+		<Items id="InvestEnterpriseView" iconCls="btn-tree-team22" text="企业客户管理">
+			<Item id="InvestEnterpriseView?businessType=SmallLoan" iconCls="btn-tree-team23" text="小贷企业客户">
+				<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+			<Item id="InvestEnterpriseView?businessType=Pawn" iconCls="btn-tree-team23" text="典当企业客户">
+				<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+		</Items>
+		
+		<!--<Item id="InvestEnterpriseView" iconCls="btn-tree-team22" text="企业客户管理">
+			<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+			<Function id="_create_qykh_invest" text="添加" iconCls="btn-add"isControl="false" />
+			<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+			<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+			<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+			<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+		</Item>
+		-->
+	
+		<Item id="InvestPersonView" iconCls="btn-tree-team23" text="个人客户">
+			<Function id="_detail_sygrtzkh" text="查看所有客户" iconCls="btn-detail">
+			</Function>
+			<Function id="_see_grtzkh" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_create_grtzkh" text="增加" iconCls="btn-add"
+				isControl="false">
+			</Function>
+			<Function id="_edit_grtzkh" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_grtzkh" text="删除" iconCls="btn-delete">
+			</Function>
+			<Function id="_export_grtzkh" text="导出到Excel" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="investmentAccountView?accountType=account" iconCls="btn-tree-invest64"
+			text="投资人账户管理">
+			<Function id="_apply_recharge" text="申请充值" iconCls="btn-edit" />
+			<Function id="_apply_getMoney" text="申请取现" iconCls="btn-edit" />
+		</Item>
+		<Item id="investmentAccountView?accountType=accountInfo" iconCls="btn-tree-invest65"
+			text="投资账户收支查询">
+			<Function id="_see_accountInOut" text="账户收支查询" iconCls="btn-detail" />
+			<Function id="_see_accountDetail" text="账户明细查询" iconCls="btn-detail" />
+		</Item>
+		<Item id="InvestmentProject" iconCls="btn-tree-invest65" text="投资人项目">
+			<Function id="_see_project" text="查看项目详情" iconCls="btn-detail" />
+		</Item>
+		<Item id="InvestPersonCareView" iconCls="btn-tree-team22" text="投资人关怀管理">
+			<Function id="_see_tzghkh" text="查看" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghkh" text="增加" iconCls="btn-add" isControl="false"></Function>
+			<Function id="_edit_tzghkh" text="编辑" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		<Item id="InvestEnterpriseCareView" iconCls="btn-tree-team22" text="企业客户关怀管理">
+			<Function id="_see_tzghqykh_invest" text="查看客户关怀记录" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghqykh_invest" text="增加客户关怀记录" iconCls="btn-add" isControl="false"></Function>
+			<Function id="_edit_tzghqykh_invest" text="编辑客户关怀记录" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		
+		<Item id="CustomerGrantManager_InvestPersonView" iconCls="menu-customer-manager" text="投资人授权管理">
+			<Function id="_see_person_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_person_skgxr_invest" text="授权共享人" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		<Item id="EnterpriseGrantManagerView" iconCls="menu-customer-manager" text="企业客户授权管理">
+			<Function id="_see_enterprise_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_enterprise_skgxr_invest" text="授权共享人" iconCls="btn-add" isControl="false"></Function>
+		
+		</Item>
+		
+	</Items>
+		
+	
+	<Items id="reportFinance" text="财务报表" iconCls="menu-finance-report" >
+	<Items id="SLreportFinance" text="小贷贷款" iconCls="menu-smallloan-info" >
+	<Item id="ReportMenuSmallloanprojectdetail?reportKey=projectdetail" iconCls="menu-arch-detail" text="贷款信息明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectintentdetail" iconCls="menu-arch-detail" text="贷款本金利息明细表" />
+		<Item id="ReportMenuSmallloanprojectintentdetail?reportKey=projectchargedetail" iconCls="menu-biaodan" text="贷款手续收支明细表" />
+		
+	</Items>
+	  <Items id="GTreportFinance" text="金融担保" iconCls="menu-guarantee-info" >
+		
+	    <Item id="ReportMenuGuaranteeprojectdetail?reportKey=guaranteeprojectdetail" iconCls="menu-arch-detail" text="担保明细表" />
+	    <Item id="ReportMenuGuaranteeprojectintentdetail?reportKey=guaranteeprojectintentdetail" iconCls="menu-arch-detail" text="担保款项明细表" />
+	    
+	</Items>
+	 <Items id="FCreportFinance" text="资金融资" iconCls="menu-financing-info" >
+		 <Item id="ReportMenuFinancingprojectdetail?reportKey=financingprojectdetail" iconCls="menu-arch-detail" text="融资明细表" />
+	</Items>
+	 <Items id="PWreportFinance" text="金融典当" iconCls="menu-pawn-info" >
+		
+	</Items>
+	 <Items id="ITreportFinance" text="风险投资" iconCls="menu-investments-info" >
+		
+	</Items>
+		
+	</Items>
+</Items>
+</Menus>

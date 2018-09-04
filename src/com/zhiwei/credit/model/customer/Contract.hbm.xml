@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.Contract" table="contract" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="contractId" column="contractId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="contractNo" type="java.lang.String" update="true" insert="true" access="property" column="contractNo" length="64" not-null="true" unique="false"/>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="128" not-null="true" unique="false"/>  
+    <property name="contractAmount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="contractAmount" length="10" not-null="true" unique="false"/>  
+    <property name="mainItem" type="java.lang.String" update="true" insert="true" access="property" column="mainItem" length="4000" not-null="false" unique="false"/>  
+    <property name="salesAfterItem" type="java.lang.String" update="true" insert="true" access="property" column="salesAfterItem" length="4000" not-null="false" unique="false"/>  
+    <property name="validDate" type="java.util.Date" update="true" insert="true" access="property" column="validDate" length="19" not-null="true" unique="false"/>  
+    <property name="expireDate" type="java.util.Date" update="true" insert="true" access="property" column="expireDate" length="19" not-null="true" unique="false"/>  
+    <property name="serviceDep" type="java.lang.String" update="true" insert="true" access="property" column="serviceDep" length="64" not-null="false" unique="false"/>  
+    <property name="serviceMan" type="java.lang.String" update="true" insert="true" access="property" column="serviceMan" length="64" not-null="false" unique="false"/>  
+    <property name="signupUser" type="java.lang.String" update="true" insert="true" access="property" column="signupUser" length="64" not-null="true" unique="false"/>  
+    <property name="signupTime" type="java.util.Date" update="true" insert="true" access="property" column="signupTime" length="19" not-null="true" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="32" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="consignAddress" type="java.lang.String" update="true" insert="true" access="property" column="consignAddress" length="128" not-null="false" unique="false"/>  
+    <property name="consignee" type="java.lang.String" update="true" insert="true" access="property" column="consignee" length="32" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Project -->  
+    <many-to-one name="project" class="com.zhiwei.credit.model.customer.Project" not-null="false" fetch="select"> 
+      <column name="projectId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to ContractConfig -->  
+    <set name="contractConfigs" table="contract_config" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="contractId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.customer.ContractConfig"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to ContractFile 	-->  
+    <set name="contractFiles" table="contract_file" lazy="true" cascade="save-update,delete-orphan"> 
+      <key> 
+        <column name="contractId"/> 
+      </key>  
+      <many-to-many class="com.zhiwei.credit.model.system.FileAttach" column="fileId" fetch="join"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准_subreport1" language="groovy" pageWidth="940" pageHeight="1500" columnWidth="940" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="60" isSummaryWithPageHeaderAndFooter="true" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="21"/>
+	<property name="ireport.y" value="240"/>
+	<parameter name="qingdingDate" class="java.util.Date"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     activemq_lock.`ID` AS activemq_lock_ID,
+     activemq_lock.`TIME` AS activemq_lock_TIME,
+     activemq_lock.`BROKER_NAME` AS activemq_lock_BROKER_NAME
+FROM
+     `activemq_lock` activemq_lock]]>
+	</queryString>
+	<field name="activemq_lock_ID" class="java.lang.Long"/>
+	<field name="activemq_lock_TIME" class="java.lang.Long"/>
+	<field name="activemq_lock_BROKER_NAME" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="899" splitType="Stretch">
+			<staticText>
+				<reportElement x="569" y="742" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[证明人：北京互融时代有限公司]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="128" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       4.2乙方承诺并保证：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="224" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[五、违约责任]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="794" width="198" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[签章：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="858" width="46" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       4.1甲方承诺并保证：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[             4.2.1其有权受让本协议项下的债权并能独立承担民事责任；]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="536" width="871" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       6.5 转让人声明：债权转让自债权转让款到账之日起生效。债权转让生效后，署有本人签章的本文件即代表受让人对上述债权的所有权。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="440" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[            《信用咨询与管理服务协议》。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="64" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[             4.1.1其有权实施本协议项下的债权转让并能够独立承担民事责任；]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="504" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       6.4 在本协议履行过程中发生的纠纷，双方应友好协商解决：协商不成的，任何一方均有权向本协议签订地人民法院起诉。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="695" width="304" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[        本人特此签章证明：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="376" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       6.1 双方同意北京互融时代有限公司作为本协议签订的见证人]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="288" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[      须要向守约方赔偿守约方因此遭受的一切经济损失。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="569" y="794" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[盖章：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="472" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       6.3 对本协议所作的任何修改及补充，必须采用书面形式签署。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="192" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[             4.2.2其按照甲方与第三方所签订的《借款协议》约定的到期债权数额和还款期限实现债权。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="344" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[六、其他规定]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="96" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[             4.1.2其转让的债权系甲方与第三方签订的《借款协议》所发生借贷关系而形成的合法、有效的债权。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="256" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       双方同意，如果一方违反其在本协议中所作的陈述、保证、承诺或任何其他义务，致使其他方遭受或发生损害、损失等责任，违约方]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="742" width="198" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[转让人：解宇舟]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="408" width="860" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[       6.2 乙方同意委托北京互融时代有限公司对其受让债权进行信用咨询和管理服务。乙方与北京互融时代有限公司另行签订]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="725" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[四、陈述，保证和承诺]]></text>
+			</staticText>
+			<textField pattern="yyyy年MM月dd日">
+				<reportElement x="351" y="858" width="152" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{qingdingDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

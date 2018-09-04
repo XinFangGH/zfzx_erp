@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.RunData" table="run_data" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="dataId" column="dataId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fieldLabel" type="java.lang.String" update="true" insert="true" access="property" column="fieldLabel" length="128" not-null="false" unique="false"/>  
+    <property name="fieldName" type="java.lang.String" update="true" insert="true" access="property" column="fieldName" length="64" not-null="true" unique="false"/>  
+    <property name="intValue" type="java.lang.Integer" update="true" insert="true" access="property" column="intValue" length="10" not-null="false" unique="false"/>  
+    <property name="longValue" type="java.lang.Long" update="true" insert="true" access="property" column="longValue" length="19" not-null="false" unique="false"/>  
+    <property name="decValue" type="java.math.BigDecimal" update="true" insert="true" access="property" column="decValue" precision="18" scale="4" not-null="false" unique="false"/>  
+    <property name="dateValue" type="java.util.Date" update="true" insert="true" access="property" column="dateValue" length="19" not-null="false" unique="false"/>  
+    <property name="strValue" type="java.lang.String" update="true" insert="true" access="property" column="strValue" length="5000" not-null="false" unique="false"/>  
+    <property name="blobValue" type="java.lang.String" update="true" insert="true" access="property" column="blobValue" length="65535" not-null="false" unique="false"/>  
+    <property name="boolValue" type="java.lang.Short" update="true" insert="true" access="property" column="boolValue" length="5" not-null="false" unique="false"/>  
+    <property name="textValue" type="java.lang.String" update="true" insert="true" access="property" column="textValue" length="65535" not-null="false" unique="false"/>  
+    <property name="fieldType" type="java.lang.String" update="true" insert="true" access="property" column="fieldType" length="32" not-null="false" unique="false"/>  
+    <property name="isShowed" type="java.lang.Short" update="true" insert="true" access="property" column="isShowed" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProcessForm -->  
+    <many-to-one name="processRun" class="com.zhiwei.credit.model.flow.ProcessRun" not-null="false" fetch="select"> 
+      <column name="runId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

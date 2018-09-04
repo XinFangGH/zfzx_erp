@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.ArchivesDep" table="archives_dep" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="archDepId" column="archDepId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="signNo" type="java.lang.String" update="true" insert="true" access="property" column="signNo" length="128" not-null="false" unique="false"/>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="256" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="signTime" type="java.util.Date" update="true" insert="true" access="property" column="signTime" length="19" not-null="false" unique="false"/>  
+    <property name="signFullname" type="java.lang.String" update="true" insert="true" access="property" column="signFullname" length="64" not-null="false" unique="false"/>  
+    <property name="signUserID" type="java.lang.Long" update="true" insert="true" access="property" column="signUserID" length="19" not-null="false" unique="false"/>  
+    <property name="handleFeedback" type="java.lang.String" update="true" insert="true" access="property" column="handleFeedback" length="1024" not-null="false" unique="false"/>  
+    <property name="isMain" type="java.lang.Short" update="true" insert="true" access="property" column="isMain" length="5" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ArchRecType 
+		<many-to-one
+			name="archRecType"
+			class="com.zhiwei.credit.model.archive.ArchRecType"
+            not-null="false"
+			fetch="select"
+		>	
+			<column name="typeId" />
+		</many-to-one>
+		-->  
+    <!-- imported bi-directional many-to-one association to Archives -->  
+    <many-to-one name="archives" class="com.zhiwei.credit.model.archive.Archives" not-null="false" fetch="select"> 
+      <column name="archivesId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to Department -->  
+    <many-to-one name="department" class="com.zhiwei.credit.model.system.Department" not-null="false" fetch="select"> 
+      <column name="depId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

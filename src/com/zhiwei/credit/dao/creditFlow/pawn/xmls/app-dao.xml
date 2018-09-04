@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+           
+     <bean id="plPawnProjectDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PlPawnProjectDaoImpl" parent="baseDao"/>
+	 <bean id="pawnItemsListDao" class="com.zhiwei.credit.dao.creditFlow.pawn.pawnItems.impl.PawnItemsListDaoImpl" parent="baseDao"/>
+	 <bean id="pawnContinuedManagmentDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PawnContinuedManagmentDaoImpl" parent="baseDao"/>
+	 <bean id="pawnRedeemManagementDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PawnRedeemManagementDaoImpl" parent="baseDao"/>
+ 	<bean id="pawnVastMaragementDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PawnVastMaragementDaoImpl" parent="baseDao"/>
+ 	<bean id="pawnCrkRecordDao" class="com.zhiwei.credit.dao.creditFlow.pawn.pawnItems.impl.PawnCrkRecordDaoImpl" parent="baseDao"/>
+	<bean id="pawnInspectionRecordDao" class="com.zhiwei.credit.dao.creditFlow.pawn.pawnItems.impl.PawnInspectionRecordDaoImpl" parent="baseDao"/>
+	<bean id="pawnTicketLossRecordDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PawnTicketLossRecordDaoImpl" parent="baseDao"/>
+	<bean id="pawnTicketReissueRecordDao" class="com.zhiwei.credit.dao.creditFlow.pawn.project.impl.PawnTicketReissueRecordDaoImpl" parent="baseDao"/>
+</beans>

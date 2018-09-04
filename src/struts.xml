@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.ui.theme" value="xhtml" />
+	<constant name="struts.multipart.maxSize" value="1000000000"/>
+	<!-- <package name="*" extends="struts-default" namespace="*"> <global-results> 
+		<result name="input">/error.jsp </result> </global-results> </package> <constant 
+		name="struts.custom.i18n.resources" value="conf/message" /> -->
+
+	<package name="creditcustomer" extends="struts-default" namespace="/credit/customer/enterprise">
+		<action name="*Enterprise" method="{1}" class="EnterpriseAction">
+	    </action>
+	</package>
+	<package name="fund" extends="struts-default" namespace="/fund">
+		<action name="*BpFundProject" method="{1}" class="BpFundProjectAction">
+			<result>${successResultValue}</result>
+	    </action>
+	</package>
+
+	<package name="system" extends="struts-default" namespace="/system">
+		<action name="*SystemProperties" class="SystemPropertiesAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*OfflineRecommend" class="OfflineRecommendAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*LoanReport" class="LoanReportAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*WealthReport" class="WealthReportAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		
+		<action name="*InternetReport" class="InternetReportAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+
+		<action name="*Aspect" class="AspectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*RelativeUser" class="RelativeUserAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*RelativeJob" class="RelativeJobAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="fileAttachDetail" class="FileAttachDetailAction">
+			<result>/pages/system/fileUploadImageDetailView.jsp</result>
+		</action>
+		<action name="*AppUser" class="AppUserAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="enterpriseAppUser">/credit/customer/enterprise/enterpriseList.jsp</result>
+			<result name="personAppUser">/credit/customer/person/personList.jsp</result>
+			<result name="bankAppUser">/credit/customer/bankrelationperson/bankRelationPersonList.jsp</result>
+		</action>
+		<action name="grantXmlAppRole" class="AppRoleAction" method="grantXml">
+			<result>/jsonXml.jsp</result>
+		</action>
+		<action name="*AppRole" class="AppRoleAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="upLoadFalse">/accessuploadFalse.jsp</result>
+			<result name="upLoadSuccess">/accessuploadSuccess.jsp</result>
+		</action>
+		<action name="*Department" class="DepartmentAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FileAttach" class="FileAttachAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Company" class="CompanyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Diary" class="DiaryAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="check">/pages/task/diarydetail.jsp</result>
+			<result name="display">/pages/indexpages/diaryListPage.jsp</result>
+		</action>
+		<action name="*ReportTemplate" class="ReportTemplateAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ReportParam" class="ReportParamAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Region" class="RegionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SysConfig" class="SysConfigAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Dictionary" class="DictionaryAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*IndexDisplay" class="IndexDisplayAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SystemLog" class="SystemLogAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CsHoliday" class="CsHolidayAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SystemConfig" class="SystemConfigAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="*GlobalType" class="GlobalTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*TypeKey" class="TypeKeyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*OutMailSet" class="OutMailSetAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*Demension" class="DemensionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Organization" class="OrganizationAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/system/organizationDetail.jsp</result>
+		</action>
+		<action name="*UserOrg" class="UserOrgAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*UserPosition" class="UserPositionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Position" class="PositionAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/system/positionDetail.jsp</result>
+		</action>
+
+
+		<action name="*DicAreaDynam" class="CsDicAreaDynamAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*SystemWord" class="SystemWordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*GlobalTypeIndependent" class="GlobalTypeIndependentAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*DictionaryIndependent" class="DictionaryIndependentAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SysDatabaseBR" class="SysDatabaseBRAction" method="{1}">
+		   <result>${successResultValue}</result>
+	    </action>
+		<action name="*BpProductParameter" class="BpProductParameterAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*UploadLog" class="UploadLogAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="communicate" extends="struts-default" namespace="/communicate">
+		<action name="*PhoneGroup" class="PhoneGroupAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PhoneBook" class="PhoneBookAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/phonebook/PhoneBook.jsp</result>
+		</action>
+		<action name="*MailFolder" class="MailFolderAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Mail" class="MailAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/mail/mail.jsp</result>
+			<result name="display">/pages/indexpages/mailListPage.jsp</result>
+		</action>
+
+		<action name="*OutMailUserSeting" class="OutMailUserSetingAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*OutMailFolder_" class="OutMailFolderAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*OutMail_" class="OutMailAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/outmail/outmail.jsp</result>
+		</action>
+
+		<action name="*SmsMobile" class="SmsMobileAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+	</package>
+	<package name="info" extends="struts-default" namespace="/info">
+		<action name="*News" class="NewsAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/indexpages/newsListPage.jsp</result>
+			<result name="image">/pages/indexpages/deskNewsListPage.jsp</result>
+		</action>
+		<action name="*ShortMessage" class="ShortMessageAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InMessage" class="InMessageAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/indexpages/messageListPage.jsp</result>
+			<result name="detail">/pages/info/messagedetail.jsp</result>
+		</action>
+		<action name="*NewsComment" class="NewsCommentAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*AppTips" class="AppTipsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SuggestBox" class="SuggestBoxAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Section" class="SectionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="jforum" class="JforumAction">
+			<result>/pages/info/jforum.jsp</result>
+		</action>
+	</package>
+
+	<package name="document" extends="struts-default" namespace="/document">
+		<action name="*DocFolder" class="DocFolderAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Document" class="DocumentAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="detail">/pages/document/DocumentShared.jsp</result>
+			<result name="publicDetail">/pages/document/PublicDocument.jsp</result>
+			<result name="display">/pages/indexpages/documentListPage.jsp</result>
+		</action>
+		<action name="*DocPrivilege" class="DocPrivilegeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PaintTemplate" class="PaintTemplateAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Seal" class="SealAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+
+	<package name="flow" extends="struts-default" namespace="/flow">
+		<action name="*TaskProxy" class="TaskProxyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProDefinition" class="ProDefinitionAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProUserAssign" class="ProUserAssignAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProcessActivity" class="ProcessActivityAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+			<result name="formHtml">/pages/flow/formHtml.jsp</result>
+			<result name="formExt">/pages/flow/formExt.jsp</result>
+			<result name="formUrl">/pages/flow/formUrl.jsp</result>
+			<result name="signList">/pages/flow/signList.jsp</result>
+			<result name="signExtList">${successResultValue}</result>
+		</action>
+		<action name="*ProcessRun" class="ProcessRunAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FormDef" class="FormDefAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Task" class="TaskAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/indexpages/taskListPage.jsp</result>
+		</action>
+		<action name="processRunDetail" class="ProcessRunDetailAction">
+			<result name="RunProgressList">${successResultValue}</result>
+			<result>/pages/flow/processRunDetail.jsp</result>
+		</action>
+		<action name="processDetail" class="ProcessDetailAction">
+			<result>/pages/flow/processDetail.jsp</result>
+		</action>
+		<action name="*FormField" class="FormFieldAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProDefRights" class="ProDefRightsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FormTable" class="FormTableAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FieldRights" class="FieldRightsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FlowFormQuery" class="FlowFormQueryAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*TaskSign" class="TaskSignAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FormTemplate" class="FormTemplateAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- start: Generated for ProcessModule From Template: struts-ent.xml.vm -->
+		<action name="*ProcessModule" class="ProcessModuleAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- end: Generated for ProcessModule From Template: struts-ent.xml.vm -->
+		<action name="*ProHandleComp" class="ProHandleCompAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<action name="*ConfPrivilege" class="ConfPrivilegeAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- 新增会议室管理 -->
+		<action name="*BoardRoo" class="BoardRooAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- 新增会议类型设置 -->
+		<action name="*BoardType" class="BoardTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- 新增会议内容信息展示 -->
+		<action name="*Conference" class="ConferenceAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/admin/myConferenceListPage.jsp</result>
+			<result name="displayApply">/pages/admin/applyConferenceListPage.jsp</result>
+		</action>
+		<action name="conferenceDetail" class="ConferenceDetailAction">
+			<result>/pages/admin/conferenceDetail.jsp</result>
+		</action>
+		<!-- 新增会议纪要查询展示 -->
+		<action name="*ConfSummary" class="ConfSummaryAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/admin/confSummaryListPage.jsp</result>
+		</action>
+		<action name="confSummaryDetail" class="ConfSummaryDetailAction">
+			<result>/pages/admin/confSummaryDetail.jsp</result>
+		</action>
+		<action name="*OfficeGoods" class="OfficeGoodsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*GoodsApply" class="GoodsApplyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InStock" class="InStockAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*OfficeGoodsType" class="OfficeGoodsTypeAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Book" class="BookAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BookType" class="BookTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BookSn" class="BookSnAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BookBorRet" class="BookBorRetAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Car" class="CarAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CartRepair" class="CartRepairAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CarApply" class="CarApplyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*AssetsType" class="AssetsTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DepreType" class="DepreTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FixedAssets" class="FixedAssetsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DepreRecord" class="DepreRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Regulation" class="RegulationAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+
+	<package name="customer" extends="struts-default" namespace="/customer">
+	<!-- p2p he erp 客户关系表  -->
+	<action name="*BpCustRelation" class="BpCustRelationAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- p2p he erp 客户关系表 -->
+		<action name="*Customer" class="CustomerAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InvestPersonInfo" class="InvestPersonInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InvestIntention" class="InvestIntentionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InvestPerson" class="InvestPersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*InvestPersonCare" class="InvestPersonCareAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CusLinkman" class="CusLinkmanAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CusConnection" class="CusConnectionAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Project" class="ProjectAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Contract" class="ContractAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ContractConfig" class="ContractConfigAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Provider" class="ProviderAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Product" class="ProductAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="send" class="MutilMailAction" method="send">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="loadVm" class="MutilMailAction" method="loadVm">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- start: 股东信息 Generated for CsEnterpriseShareequity From Template: struts-ent.xml.vm -->
+		<action name="*CsEnterpriseShareequity" class="CsEnterpriseShareequityAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+			<action name="*InvestEnterprise" class="InvestEnterpriseAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*Customerbanklinkman" class="CustomerbanklinkmanAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*BpCustRedEnvelope" class="BpCustRedEnvelopeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*BpCustRedMember" class="BpCustRedMemberAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+	<package name="task" extends="struts-default" namespace="/task">
+		<action name="*Appointment" class="AppointmentAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/indexpages/appointmentListPage.jsp
+			</result>
+		</action>
+		<action name="*CalendarPlan" class="CalendarPlanAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="display">/pages/indexpages/calendarPlanListPage.jsp
+			</result>
+		</action>
+		<action name="*PlanType" class="PlanTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*WorkPlan" class="WorkPlanAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="show">/pages/task/workplandetail.jsp</result>
+			<result name="display">/pages/indexpages/myPlanListPage.jsp</result>
+			<result name="displayDep">/pages/indexpages/depPlanListPage.jsp</result>
+		</action>
+	</package>
+
+	<package name="personal" extends="struts-default" namespace="/personal">
+		<action name="*HolidayRecord" class="HolidayRecordAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DutySection" class="DutySectionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DutySystem" class="DutySystemAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Duty" class="DutyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DutyRegister" class="DutyRegisterAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ErrandsRegister" class="ErrandsRegisterAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+
+	<package name="hrm" extends="struts-default" namespace="/hrm">
+		<action name="*StandSalaryItem" class="StandSalaryItemAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SalaryItem" class="SalaryItemAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*StandSalary" class="StandSalaryAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*HireIssue" class="HireIssueAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="load">/pages/hrm/hireIssueCheck.jsp</result>
+		</action>
+		<action name="*Resume" class="ResumeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*JobChange" class="JobChangeAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="load">/pages/hrm/JobChangeCheck.jsp</result>
+		</action>
+		<action name="*Job" class="JobAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EmpProfile" class="EmpProfileAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SalaryPayoff" class="SalaryPayoffAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="mobile" extends="struts-default" namespace="/mobile">
+		<action name="signIn" class="SignInAction">
+			<result type="redirect">/mobile/index.do</result>
+			<result name="input">/mobile/login.jsp</result>
+		</action>
+		<action name="index" class="IndexPageAction">
+			<result>/mobile/index.jsp</result>
+		</action>
+
+		<action name="*MobileTask" class="MobileTaskAction" method="{1}">
+			<result>/mobile/flow/myTask.jsp</result>
+			<result name="next" type="velocity">/mobile/flow/FlowForm/${vmPath}.vm
+			</result>
+			<result name="start" type="velocity">/mobile/flow/FlowForm/${vmPath}.vm
+			</result>
+			<result name="list" type="redirect">/mobile/listMobileTask.do</result>
+		</action>
+
+		<action name="*MobileProDef" class="MobileProDefAction" method="{1}">
+			<result>/mobile/flow/flowDefs.jsp</result>
+		</action>
+
+	</package>
+	<package name="archive" extends="struts-default" namespace="/archive">
+		<action name="*ArchTemplate" class="ArchTemplateAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Archives" class="ArchivesAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ArchivesDep" class="ArchivesDepAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ArchivesDoc" class="ArchivesDocAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*DocHistory" class="DocHistoryAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ArchDispatch" class="ArchDispatchAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ArchFlowConf" class="ArchFlowConfAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="arch" extends="struts-default" namespace="/arch">
+		<action name="*ArchFond" class="ArchFondAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ArchRoll" class="ArchRollAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*RollFile" class="RollFileAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*RollFileList" class="RollFileListAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*BorrowFileList" class="BorrowFileListAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*BorrowRecord" class="BorrowRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*ArchType" class="ArchTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*ArchReport" class="ArchReportAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="menu" extends="struts-default" namespace="/menu">
+		<action name="*Menu" class="MenuAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Icon" class="IconAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="bpm" extends="struts-default" namespace="/bpm">
+		<action name="*BpmXML" class="BpmXMLAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="bpmDesign" class="BpmDesignAction">
+			<result>/pages/bpm/bpmeditor.jsp</result>
+		</action>
+	</package>
+	<package name="default" extends="struts-default">
+		<default-action-ref name="defaultAction" />
+		<action name="defaultAction" class="BaseAction">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="iText" extends="struts-default" namespace="/iText">
+		<action name="flexPaper" class="FlexPaperAction">
+			<result>/pages/iText/flexPaper.jsp</result>
+		</action>
+	</package>
+	<package name="/" extends="struts-default" namespace="/">
+		<action name="login" class="LoginAction" method="login">
+			<result name="input">/login.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="logout" class="LoginAction" method="logout">
+			<result name="success" type="redirect">/${returnURL}</result>
+		</action>
+		<action name="authorization" class="LoginAction" method="authorization">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="ajaxValidation" class="LoginAction" method="ajaxValidation">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="modelsMenu" class="MenuAction" method="models">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="itemsMenu" class="MenuAction" method="items">
+			<result>/jsonXml.jsp</result>
+		</action>
+		<action name="panelTreeMenu" class="MenuAction" method="panelTree">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="check" class="LoginAction" method="check">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="fileDetail" class="FileDetailAction">
+			<result>/pages/document/fileDetail.jsp</result>
+		</action>
+	</package>
+	<!--<package name="ourmortgage" extends="struts-default" namespace="/creditFlow/ourmortgage">
+		<action name="*SlMortgageFinancing" class="SlMortgageFinancingAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlMortgage" class="SlMortgageAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>-->
+	
+	<package name="auto" extends="struts-default" namespace="/creditFlow/auto">
+		<!-- start:  Generated for PlBidAuto From Template: struts-ent.xml.vm  -->
+	<action name="*PlBidAuto" class="PlBidAutoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlBidAuto From Template: struts-ent.xml.vm  -->
+	</package>
+	
+	
+	<package name="archives" extends="struts-default" namespace="/creditFlow/archives">
+		<action name="*PlArchives" class="PlArchivesAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PlProjectArchives" class="PlProjectArchivesAction" method="{1}">
+		    <result>${successResultValue}</result>
+	   </action>
+	   <action name="*VProjectArchives" class="VProjectArchivesAction" method="{1}">
+		    <result>${successResultValue}</result>
+	   </action>
+	   	<action name="*PlArchivesMaterials" class="PlArchivesMaterialsAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*OurArchivesMaterials" class="OurArchivesMaterialsAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+	<package name="finance" extends="struts-default" namespace="/creditFlow/finance">
+
+		<!-- start: Generated for SlBankAccount From Template: struts-ent.xml.vm -->
+		<action name="*SlBankAccount" class="SlBankAccountAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlFinanceReport" class="SlFinanceReportAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<!-- end: Generated for SlBankAccount From Template: struts-ent.xml.vm -->
+
+		<!--<action name="*SlBankAccount" class="SlBankAccountAction" method="{1}"> 
+			<result>${successResultValue}</result> </action> -->
+		<action name="*SlFundQlide" class="SlFundQlideAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="failure">${successResultValue}</result>
+			<result name="upLoadFalse">/testuploadFalse.jsp</result>
+			<result name="upLoadSuccess">/testuploadSuccess.jsp</result>
+			<result name="list1success">${successResultValue}</result>
+		</action>
+		<action name="*BpFundIntent" class="BpFundIntentAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlFundIntent" class="SlFundIntentAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="checkfail">${successResultValue}</result>
+		</action>
+
+		<action name="*SlPlansToCharge" class="SlPlansToChargeAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlActualToCharge" class="SlActualToChargeAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlChargeDetail" class="SlChargeDetailAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*VFundDetail" class="VFundDetailAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*VPunishDetail" class="VPunishDetailAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*VChargeDetail" class="VChargeDetailAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	<action name="*ExeclToMysql" class="ExeclToMysqlAction" method="{1}">
+			<result>${successResultValue}</result>
+			<result name="failure">${successResultValue}</result>
+			<result name="upLoadFalse">/testuploadFalse.jsp</result>
+			<result name="upLoadSuccess">/testuploadSuccess.jsp</result>
+			<result name="list1success">${successResultValue}</result>
+		</action>
+	<action name="*SlFundintentUrge" class="SlFundintentUrgeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+		<action name="*SlPunishInterest" class="SlPunishInterestAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*SlAccrued" class="SlAccruedAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+	<action name="*SlDataList" class="SlDataListAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*SlDataInfo" class="SlDataInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+
+	<action name="*SlLoanAccountErrorLog" class="SlLoanAccountErrorLogAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*ProfitRateMaintenance" class="ProfitRateMaintenanceAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+<package name="guaranteefinance" extends="struts-default" namespace="/creditFlow/guarantee/guaranteefinance">
+<!-- start:  Generated for GlAccountRecord From Template: struts-ent.xml.vm  -->
+	<action name="*GlAccountRecord" class="GlAccountRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for GlAccountRecord From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for GlAccountBankCautionmoney From Template: struts-ent.xml.vm  -->
+	<action name="*GlAccountBankCautionmoney" class="GlAccountBankCautionmoneyAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for GlAccountBankCautionmoney From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for GlAccountBank From Template: struts-ent.xml.vm  -->
+	<action name="*GlAccountBank" class="GlAccountBankAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for GlAccountBank From Template: struts-ent.xml.vm  -->
+
+	</package>
+	<package name="ourmain" extends="struts-default" namespace="/creditFlow/ourmain">
+		<action name="*SlCompanyMain" class="SlCompanyMainAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SlPersonMain" class="SlPersonMainAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+	</package>
+	<package name="thirdRalation" extends="struts-default"
+		namespace="/creditFlow/thirdRalation">
+
+		<action name="*SVEnterprisePerson" class="SVEnterprisePersonAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="repaymentSource" extends="struts-default"
+		namespace="/creditFlow/repaymentSource">
+
+		<action name="*SlRepaymentSource" class="SlRepaymentSourceAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+	</package>
+	
+	<package name="glFlownodeComments" extends="struts-default" namespace="/creditFlow/guarantee/glFlownodeComments">
+	<!-- start:  Generated for GlFlownodeComments From Template: struts-ent.xml.vm  -->
+		<action name="*GlFlownodeComments" class="GlFlownodeCommentsAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	<!-- end:  Generated for GlFlownodeComments From Template: struts-ent.xml.vm  -->
+
+	</package>
+
+	<!-- 企业客户管理 add by chencc -->
+	<!--<include file="com/credit/proj/customer/enterprise/xmls/struts-customer.xml" />
+	--><!-- 个人客户管理 add by chencc -->
+	<!--<include file="com/credit/proj/customer/person/xmls/struts-person.xml" />
+	--><!--<include
+		file="com/credit/proj/customer/person/relation/xml/struts-relationPersonMessage.xml" />
+	--><!-- 数据字典 add by chencc -->
+	<!--<include file="com/credit/publicmodel/dictionary/xmls/struts-AreaDic.xml" />
+	--><!--<include file="com/credit/publicmodel/dictionary/xmls/struts-area.xml" />
+	--><!--<include file="com/credit/publicmodel/dictionary/xmls/struts-dictionary.xml" />
+	--><!--<include file="com/credit/publicmodel/dictionary/xmls/struts-IsicRev4.xml" />
+	-->
+	<!-- 企业客户-业务经营情况 add by chencc 
+	<include
+		file="com/credit/proj/workflow/guarantee/enterprise/nodework/xmls/struts-businessinfo.xml" />
+	-->
+
+	<!-- 合同/模板文档 chencc -->
+	<include file="com/credit/publicmodel/document/xmls/struts-document.xml"></include>
+	<!-- 文件上传 chencc -->
+	<include file="com/credit/publicmodel/uploads/xmls/struts-uploads.xml"></include>
+
+	<include file="com/credit/proj/customer/dictionary/xmls/struts-dictionary.xml" />
+
+	<!-- 汽车制造商 luqh -->
+	<!--<include file="com/credit/proj/customer/car/xml/struts-carMessage.xml"></include>
+	--><!-- 抵质押物 luqh -->
+	<include file="com/credit/proj/mortgage/morservice/xmls/struts-mortgage.xml"></include>
+
+	<package name="creditFlow" extends="struts-default" namespace="/creditFlow">
+		<!--<action name="*CreditFlow" class="CreditFlowAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		--><action name="*CreditProject" class="creditProjectAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<!--<package name="slenterprise" extends="struts-default" namespace="/slenterprise"> 
+		<action name="*Enterprise" class="EnterpriseAction" method="{1}"> <result>${successResultValue}</result> 
+		</action> </package> -->
+	<package name="assuretenet" extends="struts-default" namespace="/assuretenet">
+		<action name="*SlProcreditAssuretenet" class="SlProcreditAssuretenetAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*OurProcreditAssuretenet" class="OurProcreditAssuretenetAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+
+	<package name="materials" extends="struts-default" namespace="/materials">
+		<!-- start: Generated for SlProcreditMaterials From Template: struts-ent.xml.vm -->
+		<action name="*SlProcreditMaterials" class="SlProcreditMaterialsAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*GlobalGuaranteeMaterialsDetail" class="GlobalGuaranteeMaterialsDetailAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	
+		<action name="*OurProcreditMaterialsEnterprise" class="OurProcreditMaterialsEnterpriseAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*GlobalGuaranteeMaterialsExt" class="GlobalGuaranteeMaterialsExtAction"
+			method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	
+	</package>
+	<package name="common" extends="struts-default" namespace="/creditFlow/common">
+		<action name="*Shareequity" class="ShareequityAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*FileForm" class="FileFormAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CsBank" class="CsBankAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*AreaManagement" class="AreaManagementAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProjectCommentsHistory" class="projectCommentsHistoryAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BpPageSetting" class="BpPageSettingAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="financeInfo" extends="struts-default" namespace="/creditFlow/smallLoan/finance"><!--
+		<action name="*FinanceInfo" class="FinanceInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		--><action name="*BorrowerInfo" class="BorrowerInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+			<action name="*SlUrgeRecord" class="SlUrgeRecordAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="webservice" extends="struts-default" namespace="/webservice">
+		<action name="*FundIntentPrincipalLending" class="FundIntentPrincipalLendingAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+
+		<action name="*CreateFianceExcelData" class="CreateFianceExcelDataAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*SendDataFromExcel" class="SendDataFromExcelAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="*CreateFAccruedExcelData" class="CreateFAccruedExcelDataAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="*FundQlideFromWebService" class="FundQlideFromWebServiceAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		
+		<action name="*SendAccruedFromExcel" class="SendAccruedFromExcelAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+			<action name="*ReCreateExcelByType" class="ReCreateExcelByTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<action name="*ReSendDataByType" class="ReSendDataByTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CancelDataByType" class="CancelDataByTypeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+	</package>
+	<package name="workplace" extends="struts-default" namespace="/creditFlow/customer/person/workcompany">
+		<action name="*WorkCompany" class="WorkCompanyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="bpMoneyBorrowDemand" extends="struts-default" namespace="/bpMoneyBorrowDemand">
+		<action name="*BpMoneyBorrowDemand" class="BpMoneyBorrowDemandAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="bpPersonPhonecheckInfo" extends="struts-default" namespace="/bpPersonPhonecheckInfo">
+		<action name="*BpPersonPhonecheckInfo" class="BpPersonPhonecheckInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="bpPersonNetCheckInfo" extends="struts-default" namespace="/bpPersonNetCheckInfo">
+		<action name="*BpPersonNetCheckInfo" class="BpPersonNetCheckInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<!-- 流程上的合同 chencc -->
+	<!--<include
+		file="com/credit/proj/workflow/guarantee/enterprise/before/xmls/struts-smallloan.xml" />
+	--><!--<include file ="/com/credit/proj/customer/dictionary/xmls/struts-dictionary.xml"/> -->
+
+	<!--<include
+		file="com/credit/proj/customer/dictionary/xmls/struts-dictionary.xml" />
+
+	--><package name="actualCharges" extends="struts-default"
+		namespace="/actualCharges">
+		<!-- start: Generated for SlProcreditMaterials From Template: struts-ent.xml.vm -->
+		<!-- end: Generated for SlProcreditMaterials From Template: struts-ent.xml.vm -->
+	</package>
+	<!-- end: Generated for FlFinancingProject From Template: struts-ent.xml.vm -->
+	<!-- 企业客户管理 add by chencc -->
+	<!--<include file="com/credit/proj/customer/enterprise/xmls/struts-customer.xml" />
+	--><!-- 个人客户管理 add by chencc -->
+	<!--<include file="com/credit/proj/customer/person/xmls/struts-person.xml" />
+	--><!--<include
+		file="com/credit/proj/customer/person/relation/xml/struts-relationPersonMessage.xml" />
+	--><!-- 数据字典 add by chencc -->
+	<include file="com/credit/publicmodel/dictionary/xmls/struts-AreaDic.xml" />
+	<include file="com/credit/publicmodel/dictionary/xmls/struts-dictionary.xml" />
+	<include file="com/credit/publicmodel/dictionary/xmls/struts-IsicRev4.xml" />
+	
+	<!-- 企业客户-业务经营情况 add by chencc 
+	<include
+		file="com/credit/proj/workflow/guarantee/enterprise/nodework/xmls/struts-businessinfo.xml" />
+	-->
+	
+	<!--合同/模板文档 chencc -->
+	<include file="com/credit/publicmodel/document/xmls/struts-document.xml"></include>
+	<!--文件上传 chencc -->
+	<!--<include file="com/credit/publicmodel/uploads/xmls/struts-uploads.xml"></include>
+	--><include
+		file="com/credit/proj/customer/dictionary/xmls/struts-dictionary.xml" />
+	<!-- 银行联系人 chencc -->
+	<!--<include file="com/credit/proj/customer/bankrelationperson/xmls/struts-bankrelationperson.xml" />
+		
+	--><!--<include file="com/credit/proj/creditmanagement/xmls/struts-creditManagement.xml" />
+		
+	--><include file="com/zhiwei/credit/action/creditFlow/smallLoan/xmls/struts-smallLoan.xml"></include>
+	
+	<include file="com/zhiwei/credit/action/creditFlow/financeProject/xmls/struts-finance.xml"></include>
+	
+	<include file="com/zhiwei/credit/action/creditFlow/guarantee/xmls/struts-guarantee.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/lawsuitguarantee/xmls/struts-lawsuitguarantee.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/pawn/xmls/struts-pawn.xml"></include>
+	<!-- 用户登录日志 chencc --><!--
+	<include file="com/credit/publicmodel/system/xmls/struts-log.xml"></include>
+	--><include file="com/zhiwei/credit/action/creditFlow/leaseFinance/xmls/struts-leaseFinance.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/customer/xmls/struts-customer.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/creditAssignment/xmls/struts-creditAssignment.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/contract/xmls/struts-contract.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/fileUploads/xmls/struts-fileUploads.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/multiLevelDic/xmls/struts-multiLevelDic.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/creditmanagement/xmls/struts-creditmanagement.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/log/xmls/struts-log.xml"></include>
+	<include file="com/zhiwei/credit/action/creditFlow/bonusSystem/xmls/struts-bonusSystem.xml"></include>
+	<!-- 互联网 金融前台展示贷款材料 -->
+	<include file="com/zhiwei/credit/action/p2p/xmls/struts-p2p.xml"></include>
+    <include file="com/zhiwei/credit/action/pay/YeePay/struts-yeepay.xml"></include>
+    <include file="com/zhiwei/credit/action/creditFlow/finance/plateFormFinanceManage/xmls/struts-plateForm.xml"></include>
+    <!-- <include file="com/thirdPayInteface/struts-thirdpay.xml"></include> -->
+	<include file="com/thirdPayInterface/struts-thirdpay.xml"></include>
+   	<!--优惠券使用的struts配置文件  -->
+    <include file="com/zhiwei/credit/action/coupon/xmls/struts-coupon.xml"></include>
+    <!--站岗资金使用的struts配置文件 -->
+    <include file="com/zhiwei/credit/action/financeProduct/xmls/struts-financeProducts.xml"></include>
+     <include file="com/zhiwei/credit/action/creditFlow/finance/compensatory/xmls/appcompensatory-struts.xml"></include>
+	<!-- 互联网 金融 start -->
+	<package name="financingAgency" extends="struts-default" namespace="/creditFlow/financingAgency">
+	
+	<action name="*PlMmOrderInfo" class="PlMmOrderInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	
+	<action name="*PlBidInfo" class="PlBidInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PlBidPlan" class="PlBidPlanAction" method="{1}">
+		<result>${successResultValue}</result>
+		<result name="display">/pages/indexpages/plBidPlanListPage.jsp
+		</result>
+	</action>
+	<action name="*PlManageMoneyType" class="PlManageMoneyTypeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PlManageMoneyPlan" class="PlManageMoneyPlanAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PlManageMoneyPlanBuyinfo" class="PlManageMoneyPlanBuyinfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*PlMmObligatoryRightChildren" class="PlMmObligatoryRightChildrenAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PlMmOrderChildrenOr" class="PlMmOrderChildrenOrAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+   <action name="*PlBidSale" class="PlBidSaleAction" method="{1}">
+		  <result>${successResultValue}</result>
+	    </action>
+
+	<action name="*PlMmOrderAssignInterest" class="PlMmOrderAssignInterestAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	
+		<action name="*PlMmOrderChildrenorTest" class="PlMmOrderChildrenorTestAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*PlEarlyRedemption" class="PlEarlyRedemptionAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+	
+	<package name="financingAgencyBusiness" extends="struts-default" namespace="/creditFlow/financingAgency/business">
+	
+	
+
+<!-- start:  Generated for BpBusinessDirPro From Template: struts-ent.xml.vm  -->
+	<action name="*BpBusinessDirPro" class="BpBusinessDirProAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpBusinessDirPro From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpBusinessOrPro From Template: struts-ent.xml.vm  -->
+	<action name="*BpBusinessOrPro" class="BpBusinessOrProAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpBusinessOrPro From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for PlBusinessDirProKeep From Template: struts-ent.xml.vm  -->
+	<action name="*PlBusinessDirProKeep" class="PlBusinessDirProKeepAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlBusinessDirProKeep From Template: struts-ent.xml.vm  -->
+	
+	</package>
+	
+	<package name="financingAgencyPersion" extends="struts-default" namespace="/creditFlow/financingAgency/persion">
+	<!-- start:  Generated for PlPersionDirProKeep From Template: struts-ent.xml.vm  -->
+	<action name="*PlPersionDirProKeep" class="PlPersionDirProKeepAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlPersionDirProKeep From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpPersionDirPro From Template: struts-ent.xml.vm  -->
+	<action name="*BpPersionDirPro" class="BpPersionDirProAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpPersionDirPro From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpPersionOrPro From Template: struts-ent.xml.vm  -->
+	<action name="*BpPersionOrPro" class="BpPersionOrProAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpPersionOrPro From Template: struts-ent.xml.vm  -->
+</package>
+	
+  <package name="financingAgencyTypeManger" extends="struts-default" namespace="/creditFlow/financingAgency/typeManger">
+	<!-- start:  Generated for PlBiddingType From Template: struts-ent.xml.vm  -->
+	<action name="*PlBiddingType" class="PlBiddingTypeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlBiddingType From Template: struts-ent.xml.vm  -->
+
+<!-- start:  Generated for PlKeepCreditlevel From Template: struts-ent.xml.vm  -->
+	<action name="*PlKeepCreditlevel" class="PlKeepCreditlevelAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlKeepCreditlevel From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for PlKeepGtorz From Template: struts-ent.xml.vm  -->
+	<action name="*PlKeepGtorz" class="PlKeepGtorzAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlKeepGtorz From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for PlKeepProtype From Template: struts-ent.xml.vm  -->
+	<action name="*PlKeepProtype" class="PlKeepProtypeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlKeepProtype From Template: struts-ent.xml.vm  -->
+	</package>
+	<package name="thirdInterface" extends="struts-default" namespace="/thirdInterface">
+		<action name="*WebBankCode" class="WebBankCodeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*PlThirdInterfaceLog" class="PlThirdInterfaceLogAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="p2p" extends="struts-default" namespace="/p2p">
+	<action name="*BusPayAccount" class="BusPayAccountAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	
+	<!-- start:  Generated for Articlecategory From Template: struts-ent.xml.vm  -->
+		<action name="*P2pLoanApplyStep" class="P2pLoanApplyStepAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		
+	<action name="*SystemServiceUpdate" class="SystemServiceUpdateAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	
+	
+	<action name="*Articlecategory" class="ArticlecategoryAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*BpFinanceApplyUser" class="BpFinanceApplyUserAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<!--融资申请-->
+		<action name="*BpFinanceApply" class="BpFinanceApplyAction" method="{1}">
+		<result>${successResultValue}</result>
+		</action>
+<!-- end:  Generated for Articlecategory From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for Article From Template: struts-ent.xml.vm  -->
+	<action name="*Article" class="ArticleAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for Article From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pFriendlink From Template: struts-ent.xml.vm  -->
+	<action name="*P2pFriendlink" class="P2pFriendlinkAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pFriendlink From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pBannerlink From Template: struts-ent.xml.vm  -->
+	<action name="*P2pBannerlink" class="P2pBannerlinkAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pBannerlink From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustLoginlog From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustLoginlog" class="BpCustLoginlogAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustLoginlog From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for IndexShow From Template: struts-ent.xml.vm  -->
+	<action name="*IndexShow" class="IndexShowAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for IndexShow From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for BpCustMember From Template: struts-ent.xml.vm  -->
+	<action name="*BpCustMember" class="BpCustMemberAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for BpCustMember From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for OaNewsMessage From Template: struts-ent.xml.vm  -->
+	<action name="*OaNewsMessage" class="OaNewsMessageAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for OaNewsMessage From Template: struts-ent.xml.vm  -->
+	<action name="*WebFinanceApplyUploads" class="WebFinanceApplyUploadsAction" method="{1}">
+			<result>${successResultValue}</result>
+	</action>
+	<!-- start:  Generated for OaNewsMessagerinfo From Template: struts-ent.xml.vm  -->
+	<action name="*OaNewsMessagerinfo" class="OaNewsMessagerinfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for OaNewsMessagerinfo From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for OaHolidayMessage From Template: struts-ent.xml.vm  -->
+	<action name="*OaHolidayMessage" class="OaHolidayMessageAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for OaHolidayMessage From Template: struts-ent.xml.vm  -->
+	
+<!-- start:  Generated for P2pLoanProduct From Template: struts-ent.xml.vm  -->
+	<action name="*P2pLoanProduct" class="P2pLoanProductAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pLoanProduct From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pLoanConditionOrMaterial From Template: struts-ent.xml.vm  -->
+	<action name="*P2pLoanConditionOrMaterial" class="P2pLoanConditionOrMaterialAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pLoanConditionOrMaterial From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pLoanRate From Template: struts-ent.xml.vm  -->
+	<action name="*P2pLoanRate" class="P2pLoanRateAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pLoanRate From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pLoanApplyStep From Template: struts-ent.xml.vm  -->
+	<action name="*P2pLoanApplyStep" class="P2pLoanApplyStepAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pLoanApplyStep From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for P2pLoanBasisMaterial From Template: struts-ent.xml.vm  -->
+	<action name="*P2pLoanBasisMaterial" class="P2pLoanBasisMaterialAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for P2pLoanBasisMaterial From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for CoreParameterConfig From Template: struts-ent.xml.vm  -->
+	<action name="*CoreParameterConfig" class="CoreParameterConfigAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for CoreParameterConfig From Template: struts-ent.xml.vm  -->
+<!-- start:  Generated for PlatDataPublish From Template: struts-ent.xml.vm  -->
+	<action name="*PlatDataPublish" class="PlatDataPublishAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+<!-- end:  Generated for PlatDataPublish From Template: struts-ent.xml.vm  -->
+	</package>
+	<!-- 互联网金融end -->
+	
+	<package name="pay" extends="struts-default"
+		namespace="/pay">
+		<action name="*BpBidLoan" class="BpBidLoanAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*Pay" class="PayAction" method="{1}">
+		<result>${successResultValue}</result>
+		<result  name="freemarker" type="freemarker">${successResultValue}</result>
+	</action>
+	<action name="*Back" class="BackAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*Font" class="FontAction" method="{1}">
+		<result>/pages/pay/msg.jsp</result>
+	</action>
+	
+	<action name="*FontHuiFu" class="FontHuiFuAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	
+	<action name="*BkHuiFu" class="BkHuiFuAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+	
+	<package name="web" extends="struts-default" namespace="/web">
+	
+	<!-- start:  Generated for WebTemplateMessage From Template: struts-ent.xml.vm  -->
+	<action name="*WebTemplateMessage" class="WebTemplateMessageAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*SettlementReviewerPay" class="SettlementReviewerPayAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<!-- start:  Generated for SettlementInfo From Template: struts-ent.xml.vm  -->
+	<action name="*SettlementInfo" class="SettlementInfoAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<!-- end:  Generated for SettlementInfo From Template: struts-ent.xml.vm  -->
+	</package>
+	
+	<package name="BpActivityManage" extends="struts-default" namespace="/activity">
+		<action name="*BpActivityManage" class="BpActivityManageAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	
+	<package name="Cooperatio"  extends="struts-default" namespace="/creditFlow/customer/cooperation"  >
+		<action name="*CsCooperationEnterprise" class="CsCooperationEnterpriseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CsCooperationPerson" class="CsCooperationPersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="riskControlCreditInvestigation " extends="struts-default" namespace="/creditFlow/riskControl/creditInvestigation">
+			<action name="*BpLoneExternal" class="BpLoneExternalAction" method="{1}">
+				<result>${successResultValue}</result>
+			</action>
+			<action name="*BpBadCredit" class="BpBadCreditAction" method="{1}">
+				<result>${successResultValue}</result>
+			</action>
+	</package>
+	
+	<include file="com/highchart/xml/struts-highchart.xml"></include>
+	<include file="com/messageAlert/xml/struts-messageAlert.xml"></include>
+	
+	<include file="com/zhiwei/credit/action/htmobile/xmls/struts-htmobile.xml"></include>
+</struts>

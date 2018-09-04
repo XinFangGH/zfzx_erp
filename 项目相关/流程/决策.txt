@@ -1,0 +1,21 @@
+决策一
+String tranTo="to 制定资金方案";
+
+if("结束1".equals(slnRiskManagerCheckResult)){
+  tranTo="to 结束1";
+}else if("尽职调查".equals(slnRiskManagerCheckResult)){
+  tranTo="to 尽职调查";
+}
+决策二
+String tranTo="to 放款终审";
+
+if("结束1".equals(slnRiskManagerCheckResult)){
+  tranTo="to 结束1";
+}
+决策三
+String tranTo="to 发布债券";
+
+
+if("项目归档".equals(slnRiskManagerCheckResult)){
+  tranTo="to 项目归档";
+}

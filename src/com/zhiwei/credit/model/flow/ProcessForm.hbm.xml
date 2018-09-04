@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProcessForm" table="process_form" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="formId" column="formId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="activityName" type="java.lang.String" update="true" insert="true" access="property" column="activityName" length="128" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="creatorId" type="java.lang.Long" update="true" insert="true" access="property" column="creatorId" length="19" not-null="false" unique="false"/>  
+    <property name="creatorName" type="java.lang.String" update="true" insert="true" access="property" column="creatorName" length="64" not-null="false" unique="false"/>  
+    <property name="endtime" type="java.util.Date" update="true" insert="true" access="property" column="endtime" length="19" not-null="false" unique="false"/>  
+    <property name="durtimes" type="java.lang.Long" update="true" insert="true" access="property" column="durtimes" length="19" not-null="false" unique="false"/>  
+    <property name="fromTask" type="java.lang.String" update="true" insert="true" access="property" column="fromTask" length="256" not-null="false" unique="false"/>  
+    <property name="fromTaskId" type="java.lang.String" update="true" insert="true" access="property" column="fromTaskId" length="64" not-null="false" unique="false"/>  
+    <property name="comments" type="java.lang.String" update="true" insert="true" access="property" column="comments" length="2000" not-null="false" unique="false"/>  
+    <property name="taskId" type="java.lang.String" update="true" insert="true" access="property" column="taskId" length="64" not-null="false" unique="false"/>  
+    <property name="transTo" type="java.lang.String" update="true" insert="true" access="property" column="transTo" length="256" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="6" not-null="false" unique="false"/>  
+    <property name="preFormId" type="java.lang.Long" update="true" insert="true" access="property" column="preFormId" length="19" not-null="false" unique="false"/>
+    <property name="taskLimitTime" type="java.util.Date" update="true" insert="true" access="property" column="taskLimitTime" length="19" not-null="false" unique="false"/>
+    <property name="safeLevel" type="java.lang.Short" update="true" insert="true" access="property" column="safeLevel" length="6" not-null="false" unique="false"/>
+    <property name="taskSequenceNodeKey" type="java.lang.String" update="true" insert="true" access="property" column="taskSequenceNodeKey" length="200" not-null="false" unique="false"/>
+    <property name="projectAssign" type="java.lang.String" update="true" insert="true" access="property" column="projectAssign" length="200" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProcessRun -->  
+    <many-to-one name="processRun" class="com.zhiwei.credit.model.flow.ProcessRun" not-null="false" fetch="select"> 
+      <column name="runId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

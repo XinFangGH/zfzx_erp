@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.zhiwei.credit.model.creditFlow.contract.CreditDocument" table="cs_document" >
+		 <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="documentname" type="java.lang.String">
+            <column name="documentname" length="224"/>
+        </property>
+        <property name="businesstype" type="java.lang.Integer">
+            <column name="businesstype" length="24"/>
+        </property>
+        <property name="istempletrelated" type="java.lang.Boolean">
+            <column name="istempletrelated" length="1"/>
+        </property>
+        <property name="documenttype" type="java.lang.Integer">
+            <column name="documenttype" length="24"/>
+        </property>
+        <property name="templetid" type="java.lang.Integer">
+            <column name="templetid" length="24"/>
+        </property>
+        <property name="describe" type="java.lang.String">
+            <column name="describe" length="224"/>
+        </property>
+	</class>
+</hibernate-mapping>

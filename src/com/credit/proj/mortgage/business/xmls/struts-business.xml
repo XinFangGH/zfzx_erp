@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="business" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addBusiness" class="businessAction" method="addBusiness">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<!-- 查看信息 从视图查询-->
+		<action name="seeBusiness" class="businessAction" method="seeBusiness"></action>
+		
+		<!-- 查看信息 从商业表查询显示在更新页面-->
+		<action name="seeBusinessForUpdate" class="businessAction" method="seeBusinessForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateBusiness" class="businessAction" method="updateBusiness" ></action>
+		
+	</package>
+</struts>

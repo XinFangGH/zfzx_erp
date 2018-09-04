@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.zhiwei.credit.model.creditFlow.smallLoan.meeting.SlConferenceRecord"
+		table="sl_conference_record" select-before-update="false"
+		dynamic-update="false" dynamic-insert="false" optimistic-lock="version">
+		<id name="conforenceId" column="conforenceId" type="java.lang.Long"
+			length="19">
+			<generator class="native" />
+		</id>
+		<property name="conforenceTime" type="java.util.Date" update="true"
+			insert="true" access="property" column="conforenceTime" length="19"
+			not-null="false" unique="false" />
+		<property name="conforencePlace" type="java.lang.String"
+			update="true" insert="true" access="property" column="conforencePlace"
+			length="200" not-null="false" unique="false" />
+		<property name="recordPersonId" type="java.lang.String" update="true"
+			insert="true" access="property" column="recordPersonId" length="200"
+			not-null="false" unique="false" />
+		<property name="recordPersonName" type="java.lang.String" update="true"
+			insert="true" access="property" column="recordPersonName" length="200"
+			not-null="false" unique="false" />
+		<property name="jionPersonId" type="java.lang.String" update="true"
+			insert="true" access="property" column="jionPersonId" length="200"
+			not-null="false" unique="false" />
+		<property name="jionPersonName" type="java.lang.String" update="true"
+			insert="true" access="property" column="jionPersonName" length="200"
+			not-null="false" unique="false" />
+		<property name="decisionType" type="java.lang.String"
+			update="true" insert="true" access="property" column="decisionType"
+			length="30" not-null="false" unique="false" />
+		<property name="conferenceResult" type="java.lang.String"
+			update="true" insert="true" access="property" column="conferenceResult"
+			length="30" not-null="false" unique="false" />
+		<!--
+			imported bi-directional many-to-one association to SlSmallloanProject
+	
+		<many-to-one name="slSmallloanProject"
+			class="com.zhiwei.credit.model.project.SlSmallloanProject" not-null="false"
+			fetch="select">
+			<column name="projectId" />
+		</many-to-one>	-->
+		<property name="projectId" type="java.lang.Long"
+			update="true" insert="true" access="property" column="projectId"
+			length="19" not-null="false" unique="false" />
+		<property name="businessType" type="java.lang.String"
+			update="true" insert="true" access="property" column="businessType"
+			length="30" not-null="false" unique="false" />
+	</class>
+</hibernate-mapping>

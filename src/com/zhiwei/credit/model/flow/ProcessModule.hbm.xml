@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProcessModule" table="PROCESS_MODULE" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="moduleid" column="MODULEID" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="modulename" type="java.lang.String" update="true" insert="true" access="property" column="MODULENAME" length="256" not-null="true" unique="false"/>  
+    <property name="modulekey" type="java.lang.String" update="true" insert="true" access="property" column="MODULEKEY" length="128" not-null="true" unique="false"/>  
+    <property name="descp" type="java.lang.String" update="true" insert="true" access="property" column="DESCP" length="4000" not-null="false" unique="false"/>  
+    <property name="processkey" type="java.lang.String" update="true" insert="true" access="property" column="PROCESSKEY" length="256" not-null="false" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="CREATOR" length="64" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="CREATETIME" length="7" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProDefinition -->  
+    <many-to-one name="proDefinition" class="com.zhiwei.credit.model.flow.ProDefinition" not-null="false" fetch="select"> 
+      <column name="DEFID"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

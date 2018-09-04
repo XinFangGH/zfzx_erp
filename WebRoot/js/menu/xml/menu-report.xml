@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_report" text="台账报表" iconCls="mod-org"> 
+	<Items id="Chart" text="图表" iconCls="menu-finance-report1">
+		<Item id="reChargeWithDraw" iconCls="btn-tree-team39" text="充值提现统计图" />
+		<Item id="userQuantityTrends" iconCls="btn-tree-team39" text="用户数量趋势分析图" />
+		<!--<Item id="overdueLoanStatistics" iconCls="btn-tree-team39" text="逾期借款统计图" />-->
+	</Items>
+	<!--<Items id="LoanReport" text="借贷中心报表" iconCls="menu-finance-report">
+		<Items id="CustomerCountType" text="客户统计" iconCls="btn-tree-team40">
+			<Item id="ReportFormalDetail?reportKey=FormalCustomerP" iconCls="btn-tree-team39" text="正式个人客户明细表" />
+			<Item id="ReportFormalDetail?reportKey=FormalCustomerE" iconCls="btn-tree-team39" text="正式企业客户明细表" />
+			<Item id="CustomerBirthdayAnalysis?reportKey=CustomerBirthdayAnalysis" iconCls="btn-tree-team39" text="即将生日客户明细表" />
+			<Item id="LoanCustomerDetail?reportKey=LoanCustomerDetail" iconCls="btn-tree-team39" text="贷款客户明细表" />
+			<Item id="TenMaxLoanCustomer?reportKey=TenMaxLoanCustomer" iconCls="btn-tree-team39" text="单笔贷款最大十户统计表" />
+			<Item id="ReportPAIPaidDetail?reportKey=MaxLoanPerson" iconCls="btn-tree-team39" text="十大借款报表(个人)" />
+			<Item id="ReportPAIPaidDetail?reportKey=MaxLoanEnterprise" iconCls="btn-tree-team39" text="十大借款报表(企业)" />
+			<Item id="ReportPAIPaidDetail?reportKey=MaxLoanCustomerP" iconCls="btn-tree-team39" text="客户借款统计表(个人)" />
+			<Item id="ReportPAIPaidDetail?reportKey=MaxLoanCustomerE" iconCls="btn-tree-team39" text="客户借款统计表(企业)" />
+		</Items>
+		
+		<Items id="ProjectBestowType" text="贷款发放统计" iconCls="btn-tree-team40">
+			<Item id="ReportLoanInfoDetail?reportKey=LoanInfoDetail" iconCls="btn-tree-team39" text="贷款信息明细表" />
+			<Item id="ReportLoanAllotDetail?reportKey=LoanAllotDetail" iconCls="btn-tree-team39" text="贷款发放明细表" />
+			<Item id="ReportLoanAllotDetail?reportKey=LoanAllotDetail2" iconCls="btn-tree-team39" text="贷款发放明细表2" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKFFHZBMonth" iconCls="btn-tree-team39" text="贷款发放汇总表（月报）" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKFFHZBQuarter" iconCls="btn-tree-team39" text="贷款发放汇总表（季报）" />
+			<Item id="ReportLoanAfterBackDetail?reportKey=ContractRegister" iconCls="btn-tree-team39" text="合同登记簿" />
+			<Item id="ReportContractDetail?reportKey=ContractDQTJB" iconCls="btn-tree-team39" text="合同到期统计表" />
+			<Item id="ReportRiskTypeDetail?reportKey=RiskTypeDetail" iconCls="btn-tree-team40" text="风险分类明细表" />
+		</Items>
+		
+		<Items id="FinanceEarning" text="财务收益统计" iconCls="btn-tree-team40">
+		    <Item id="ReportFFLoanSumDetail?reportKey=FFLoanSumDetail" iconCls="btn-tree-team39" text="发放贷款汇总表" />
+			<Item id="ReportPAIPaidDetail?reportKey=PAIAccountsDetail" iconCls="btn-tree-team39" text="贷款本息应收统计表" />
+			<Item id="ReportPAIPaidDetail?reportKey=PAIPaidDetail" iconCls="btn-tree-team39" text="贷款本息实收明细表" />
+			<Item id="ReportLoanIncomeDetail?reportKey=LoanIncomeDetail" iconCls="btn-tree-team39" text="贷款收入明细表" />
+			<Item id="ReportPAIPaidDetail?reportKey=PAIMatureDetail" iconCls="btn-tree-team39" text="贷款到期明细表" />
+			<Item id="ReportPAIComplexDetail?reportKey=PAIComplexDetail" iconCls="btn-tree-team39" text="贷款财务综合汇总表" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKQKHZBMonth" iconCls="btn-tree-team39" text="贷款情况汇总表（月报）" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKQKHZBSeason" iconCls="btn-tree-team39" text="贷款情况汇总表（季报）" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKQKHZBYear" iconCls="btn-tree-team39" text="贷款情况汇总表（年报）" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKXMYBBP" iconCls="btn-tree-team40" text="贷款项目月报表（个贷）" />
+			<Item id="ReportPAIComplexDetail?reportKey=DKXMYBBE" iconCls="btn-tree-team40" text="贷款项目月报表（企贷）" />
+		</Items>
+		
+		<Items id="LoanAfterType" text="贷后统计" iconCls="btn-tree-team40">
+			<Item id="ReportLoanAfterBackDetail?reportKey=LoanBackDetail" iconCls="btn-tree-team39" text="贷款还款明细表" />
+			<Item id="ReportPAIPaidDetail?reportKey=LoanCreditsDetail" iconCls="btn-tree-team39" text="贷款额度区间分析表" />
+			<Item id="ReportPAIPaidDetail?reportKey=LoanCreditsDetail2" iconCls="btn-tree-team39" text="贷款即将还款明细表（不含逾期）" />
+			<Item id="ReportPAIComplexDetail?reportKey=SHYQDKMX" iconCls="btn-tree-team39" text="收回逾期贷款明细" />
+			<Item id="ReportPAIComplexDetail?reportKey=FXFLHZBMonth" iconCls="btn-tree-team39" text="风险分类汇总表（月报）" />
+			<Item id="ReportPAIComplexDetail?reportKey=FXFLHZBQuarter" iconCls="btn-tree-team39" text="风险分类汇总表（季报）" />
+		</Items>
+
+		
+	</Items>
+
+	
+
+	<Items id="WealthReport" text="财富中心报表" iconCls="menu-finance-report" isPublic="false">
+		<Items id="CsInvestmentperson" text="投资客户统计" iconCls="btn-tree-team40" isPublic="false">
+			<Item id="CsInvestmentpersonDetailInfo?reportKey=PersonDetailInfo" iconCls="btn-tree-team39" text="投资客户明细表 " />
+		    <Item id="CsInvestmentpersonNewlyAdded?reportKey=NewlyAdded" iconCls="btn-tree-team39" text="新增投资客户月度统计表 " />
+		    <Item id="CsInvestmentpersonBirthday?reportKey=BeGoingBirthday" iconCls="btn-tree-team39" text="投资客户即将生日表 " />
+		    <Item id="CsInvestmentpersonSumInvest?reportKey=CsInvestPersonSumInvest" iconCls="btn-tree-team39" text="投资客户累计投资统计表 " />
+		    <Item id="CsInvestmentpersonCount?reportKey=CsInvestmentpersonCount" iconCls="btn-tree-team39" text="投资大客户累计投资统计表 " />
+		</Items>
+
+		
+		<Items id="FinancialProductsBuy" text="理财产品统计" iconCls="btn-tree-team40" isPublic="false">
+			<Item id="FinancialProductsDetail?reportKey=ProductsDetailBuy" iconCls="btn-tree-team39" text="理财产品购买明细表" />
+			<Item id="FinancialProductsDividendMonth?reportKey=ProductsDividendMonth" iconCls="btn-tree-team39" text="理财产品派息预算表" />
+			<Item id="FinancialProductsDividend?reportKey=ProductsDividend" iconCls="btn-tree-team39" text="理财产品派息预算明细表" />
+			<Item id="FinancialProductsDividendAlready?reportKey=ProductsDividendAlready" iconCls="btn-tree-team39" text="理财产品派息明细表" />
+			<Item id="FinancialProductsDetailShop?reportKey=ProductsDetailBuyShop" iconCls="btn-tree-team39" text="门店理财产品购买明细表" />
+			<Item id="FinancialProductsDetailDividendShop?reportKey=ProductsDetailBuyDividendShop" iconCls="btn-tree-team39" text="门店理财产品派息预算表" />
+			<Item id="FinancialProductsDetailAlreadyShop?reportKey=ProductsDetailBuyAlreadyShop" iconCls="btn-tree-team39" text="门店理财产品派息明细表" />
+		</Items>
+
+	</Items>
+	
+	--><Items id="InternetReport" text="互联网金融报表" iconCls="menu-finance-report">
+		
+		<Items id="member" text="会员统计报表" iconCls="menu-finance-report">
+			<Item id="ReportMemberAdd?reportKey=ReportMemberAdd" iconCls="menu-finance-report" text="会员新增明细表" />
+			<Item id="ReportMemberRecommend?reportKey=ReportMemberRecommend" iconCls="menu-finance-report" text="会员推荐明细表" />
+			<Item id="ReportMemberRecommendInvest?reportKey=ReportMemberRecommendInvest" iconCls="menu-finance-report" text="推荐投资统计表" />
+			<Item id="ReportMemberIncome?reportKey=ReportMemberIncome" iconCls="menu-finance-report" text="会员收益统计表" />
+			<Item id="ReportMemberInvest?reportKey=ReportMemberInvest" iconCls="menu-finance-report" text="投资收益统计表" />
+		</Items>
+
+		<Items id="loosePlPlanBid" text="散标统计报表" iconCls="menu-finance-report">
+			<Item id="ReportPlBidFullDate?reportKey=ReportPlBidFullDate" iconCls="menu-finance-report" text="满标时间分析表" />
+			<Item id="ReportPlBidPlanDir?reportKey=ReportPlBidPlanDir" iconCls="menu-finance-report" text="直投标放款明细表" />
+			<!--<Item id="ReportPlBidPlanOr?reportKey=ReportPlBidPlanOr" iconCls="menu-finance-report" text="转让标放款明细表" />-->
+			<Item id="ReportPlBidDirIntentExpire?reportKey=DirIntentExpire" iconCls="menu-finance-report" text="直投标放款统计表" />
+			<!--<Item id="ReportPlBidOrIntentExpire?reportKey=OrIntentExpire" iconCls="menu-finance-report" text="债权标放款统计表" />-->
+			<Item id="ReportCreditorDeal?reportKey=ReportCreditorDeal" iconCls="menu-finance-report" text="债权交易明细表" />
+			<Item id="ReportPlBidExpire?reportKey=ReportPlBidExpire" iconCls="menu-finance-report" text="到期款项明细表" />
+			<Item id="ReportPlBidIntentExpire?reportKey=IntentExpire" iconCls="menu-finance-report" text="到期款项统计表" />
+			<!--<Item id="ReportPlBidOverdue?reportKey=ReportPlBidOverdue" iconCls="menu-finance-report" text="逾期款项明细表" />-->
+			<Item id="ReportPlLoanBid?reportKey=LoanBid" iconCls="menu-finance-report" text="借款标统计表" />
+			<Item id="ReportFinanceReMainMoney?reportKey=FinanceReMainMoney" iconCls="menu-finance-report" text="融资部保有量报表" />
+			<Item id="ReportInvestReMainMoney?reportKey=InvestReMainMoney" iconCls="menu-finance-report" text="投资部保有量报表" />
+		</Items>
+		
+		<!--<Items id="managePlan" text="理财统计统计" iconCls="menu-finance-report">
+			<Item id="ReportManagePlan?reportKey=ReportManagePlan" iconCls="menu-finance-report" text="投资起息明细表" />
+			<Item id="ReportAssigninterestExpire?reportKey=assigninterestExpire" iconCls="menu-finance-report" text="款项到期统计表" />
+		</Items>
+		
+		--><Items id="platformReport" text="平台统计报表" iconCls="menu-finance-report">
+			<Item id="ReportplatformDeail?reportKey=ReportplatformDeail" iconCls="menu-finance-report" text="交易年度统计表" />
+			<Item id="ReportTerraceIncome?reportKey=ReportTerraceIncome" iconCls="menu-finance-report" text="平台收费明细表" />
+			<Item id="ReportPlatformWithInterest?reportKey=PlatformWithInterest" iconCls="menu-finance-report" text="平台随息费汇总表" />
+		</Items>
+	<!--<Items id="OfflineReport" text="员工推荐报表" iconCls="menu-finance-report">
+			<Item id="Recommend?reportKey=OneRecommend" iconCls="menu-finance-report" text="一级业绩统计表" />
+			<Item id="Recommend?reportKey=SecondRecommend" iconCls="menu-finance-report" text="二级业绩统计表" />
+			<Item id="Recommend?reportKey=OnePerformance" iconCls="menu-finance-report" text="一级类型统计表" />
+			<Item id="Recommend?reportKey=SecondPerformance" iconCls="menu-finance-report" text="二级类型统计表" />
+	</Items>
+	--></Items>
+	
+	
+		
+<!--
+	
+	<Items id="PlateFormFianceManager" text="平台台账管理" iconCls="menu-finance-report" isPublic="false">
+	 <Items id="PlateLedger" text="平台总账管理" iconCls="menu-finance-report" > 
+			<Item id="PlateFormAccountManagerView?accountType=plateFormAccount" iconCls="menu-finance-report" text="平台账户管理">
+				<Function id="PlateFormAccountManager_createAccount" text="开通平台账户" iconCls="btn-flow-chart"/>
+				<Function id="PlateFormAccountManager_recharge" text="充值" iconCls="btn-flow-chart"/>
+				<Function id="PlateFormAccountManager_withdraw" text="取现" iconCls="btn-flow-chart"/>
+				<Function id="PlateFormAccountManager_transfer" text="转账" iconCls="btn-flow-chart"/>
+			</Item>
+			<Item id="PlateFormAccountManagerView?accountType=plateFormRiskAccount" iconCls="menu-finance-report" text="保证金账户管理">
+				<Function id="PlateFormRiskAccountManager_createAccount" text="开通风险保证金账户" iconCls="btn-flow-chart"/>
+			</Item>
+			<Item id="PlateFormGuaranteeAccountManagerView" iconCls="menu-finance-report" text="担保账户管理">
+				<Function id="PlateFormGuaranteeAccountManager_createAccount" text="开通担保账户" iconCls="btn-flow-chart"/>
+			</Item>
+	</Items>
+			--><Items id="PlateFormFianceClassifyDetail" iconCls="menu-finance-report" text="平台分类台账">
+				<!--<Item id="PlateFormFianceMembershipFeesDetailView" iconCls="menu-finance-report" text="会费台账"></Item>
+				<Item id="PlateFormFianceGuaranteeAccountIncomeDetailView" iconCls="menu-finance-report" text="担保费台账"></Item>
+				--><Item id="PlateFormFianceRedEnvelopeDetailView" iconCls="menu-finance-report" text="红包发放台账"></Item>
+				<Item id="NewPlateFormFianceBidIncomeDetailView" iconCls="menu-finance-report" text="平台随息费台账"></Item>
+				<Item id="PlateFormFianceRiskAccountIncomeDetailView" iconCls="menu-finance-report" text="平台其他收费台账"></Item>
+				<Item id="PlateFormFianceTransferFeeDetailView" iconCls="menu-finance-report" text="债权交易手续费台账"></Item>
+				<!--<Item id="PlateFormFianceRiskAccountIncomeDetailView" iconCls="menu-finance-report" text="风险保证收取金台账"></Item>
+				<Item id="PlateFormFianceRiskAccountPayDetailView" iconCls="menu-finance-report" text="风险保证金代偿台账"></Item>
+				-->
+				<!--<Item id="PlateFormFianceOtherDetailView?transferType=other" iconCls="menu-finance-report" text="非业务相关台账"></Item>-->
+				<!--<Item id="PlateFormFianceVoucherDetailView" iconCls="menu-finance-report" text="代金券发放台账"></Item>
+				
+			-->
+			</Items>
+		
+	        
+	        <Items id="PlateFormObaccountdealInfo" text="平台交易台账" iconCls="menu-finance-report" >
+				<Item id="plateDeal" iconCls="menu-finance-report" text="平台交易总览"></Item>
+				<Item id="plateRechargeDeal" iconCls="menu-finance-report" text="平台充值台账"></Item>
+				<Item id="plateWithdrawDeal" iconCls="menu-finance-report" text="平台取现台账"></Item>
+				<!--  <Item id="plateInvestDeal" iconCls="menu-finance-report" text="平台投资台账"></Item> -->
+	        </Items>	
+	        
+	        
+	        
+	        <Items id="PlateAwardFundInent" text="散标奖励台账" iconCls="menu-finance-report" >
+	        <Item id="RaiseRateBpFundIntent" iconCls="menu-finance-report" text="募集期奖励台账"></Item>
+				<Item id="CouponsBpFundIntent" iconCls="menu-finance-report" text="优惠券奖励台账"></Item>
+				<Item id="AddrateBpFundIntent" iconCls="menu-finance-report" text="普通加息奖励台账"></Item>
+				
+	        </Items>
+	        <!--<Items id="PlateAwardAssign" text="理财奖励台账" iconCls="menu-finance-report" >
+				<Item id="RaiseRateAssignIntent" iconCls="menu-finance-report" text="募集期奖励台账"></Item>
+				<Item id="CouponsAssignIntent" iconCls="menu-finance-report" text="优惠券奖励台账"></Item>
+				<Item id="AddrateAssignIntent" iconCls="menu-finance-report" text="普通加息奖励台账"></Item>
+
+	        </Items>
+		 	--><Items id="PlateFormFianceCheck" text="平台交易对账" iconCls="menu-finance-report" >
+				<Item id="SystemAccountTotalCheckFile" iconCls="menu-finance-report" text="会员账户对账单"></Item>
+				<Item id="SystemAccountIsException" iconCls="menu-finance-report" text="会员资金异常账单"></Item>
+			    <!--<Item id="RechargeReconciliation" iconCls="menu-finance-report" text="充值对账"></Item>
+			    <Item id="WithdrawalsReconciliation" iconCls="menu-finance-report" text="提现对账"></Item>
+			    <Item id="StandardReconciliation" iconCls="menu-finance-report" text="标的对账"></Item>
+		        <Item id="BidTransferReconciliation" iconCls="menu-finance-report" text="标的转账"></Item>
+			    <Item id="StandardReconciliationTransfer" iconCls="menu-finance-report" text="转账对账"></Item>
+	        --></Items>	
+	<!--<Items id="YeePaySingleQueryManager" text="支付实时查询" iconCls="menu-finance-report" isPublic="false">
+	    <Item id="YeePaySingleQueryView?modeType=1" iconCls="menu-finance-report" text="充值记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=2" iconCls="menu-finance-report" text="放款记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=3" iconCls="menu-finance-report" text="还款记录查询"></Item>
+		<Item id="YeePaySingleQueryView?modeType=4" iconCls="menu-finance-report" text="取现记录查询"></Item>
+		<Item id="UMPayBidFlowQuery" iconCls="menu-finance-report" text="标的账户查询"></Item>
+		<Item id="YeePayQueryView" iconCls="menu-finance-report" text="总览记录查询"></Item>
+	</Items>
+--></Menus>

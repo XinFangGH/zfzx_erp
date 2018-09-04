@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="person" location="0,0" size="0,0">
+    <action name="*CsPersonHouse" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*CsPersonCar" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*Person" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*PersonThereunder" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*ProcessPersonCarReditregistries" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*PersonRelation" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*Spouse" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*PersonAjaxValidator" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustPersonNegativeSurvey" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustPersonEducation" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustPersonWorkExperience" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustPersonPublicActivity" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="enterprise" location="0,0" size="0,0">
+    <action name="*Enterprise" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseFinance" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseEmployeeStructure" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseRelationPerson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseLeadteam" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseDebt" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseCreditor" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseOutassure" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterpriseOutinvest" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*EnterprisePrize" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*AjaxValidator" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BatchImportDatabase" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustEntUpanddownstream" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustEntLawsuit" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustEntCashflowAndSaleIncome" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustEntUpanddowncontract" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="*BpCustEntPaytax" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="customerCommon" location="0,0" size="0,0">
+    <action name="*EnterpriseBank" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="customerBank" location="0,0" size="0,0">
+    <action name="*CustomerBankRelationPerson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+</Struts2Diagram>
+

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntDownstreamCustom"
+        table="bp_cust_ent_downstream_custom"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="downCustomId"
+            column="downCustomId"
+            type="java.lang.Integer"
+            length="10"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="customName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="customName"
+            length="255"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="cooperativeDuration"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="cooperativeDuration"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="saleGoods"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="saleGoods"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="yearOrderNumber"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="yearOrderNumber"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="salePrice"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="salePrice"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="settleType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="settleType"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+<many-to-one name="bpCustEntUpanddownstream" class="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpanddownstream" > 
+        <column name="upAndDownCustomId"/> 
+        </many-to-one>
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,254 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType:'$!operationType',
+	projectMoney : '$!projectMoney',
+	payProjectMoney : '$!payProjectMoney',
+	smallbusinessType:'$!smallbusinessType',
+	smallProjectId:'$!smallProjectId',
+	safeLevel : 1,
+	closesave : true,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			iconCls : 'menu-profile-create',
+			border : false
+		});
+		
+	},
+	initComponents : function() {
+			var jsArr = [
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFinancePanel.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseFundIntent.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseIntentGrid.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/SuperviseLoadDataCommon.js',
+				__ctxPath + '/js/creditFlow/finance/SlFundIntentViewVM.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/finance/detailView.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/FinanceExtensionlPanel.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/loadDataExtension.js'
+			];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+		var DeferApplyInfoPanel =new FinanceExtensionlPanel({
+	      	continuationMoney:(this.projectMoney-this.payProjectMoney),
+	      	projectId :this.projectId,
+	      	businessType:this.businessType,
+	      	idDefinition:'extenstion'+this.taskId
+	    })
+     	this.slActualToCharge = new SlActualToCharge({
+			projId : this.smallProjectId,
+			isThisSuperviseRecord : "yes",
+			slSuperviseRecordId : this.projectId,
+			businessType :'SmallLoan'      //小贷
+		});
+		this.formPanel = new Ext.Panel({
+			modal : true,
+			labelWidth : 100,
+			buttonAlign : 'center',
+			layout : 'form',
+			border : false,
+			defaults : {
+				anchor : '100%',
+				xtype : 'fieldset',
+				labelAlign : 'left',
+				collapsible : true,
+				autoHeight : true
+			},
+			items : [{
+				xtype : 'hidden',
+				name : 'preHandler',
+				value : 'slSuperviseRecordService.postponedApplyForNextStep'
+			}, {
+				name : 'slActualToChargeJson',
+				xtype : 'hidden'
+			},{
+				xtype : 'fieldset',
+				title : '当前资金款项信息 ',
+				name:'projectInfo',
+				collapsible : true,
+				autoHeight : true,
+				items : [new SlFundIntentViewVM({
+				        	isHiddenOperation : false,
+							projectId : this.smallProjectId,
+							businessType : this.smallbusinessType,
+							isHiddenAddBtn : true,
+						    isHiddenDelBtn : true,
+						    isHiddenCanBtn : true,
+						    isHiddenResBtn : true,
+						    isHiddenautocreateBtn:true,
+							isHiddenResBtn1:true,
+							isFinbtn:true,
+							isHidden1:true,
+						    slSuperviseRecordId : this.projectId,
+						    isUnLoadData :false,
+							isThisSuperviseRecord :'no'
+						})]
+			}, {       
+			    xtype : 'fieldset',
+				title : '展期登记信息',
+				collapsible : true,
+				autoHeight : true,
+				items : [DeferApplyInfoPanel,
+					this.slActualToCharge,
+					new DZYMortgageView({
+						projectId : this.smallProjectId,
+						titleText : '抵质押担保',
+						businessType : this.smallbusinessType,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isblHidden:true,
+						isRecieveHidden:true,
+						isgdHidden:true,
+						formPanel:DeferApplyInfoPanel
+					}),
+					new BaozMortgageView({
+						projectId : this.smallProjectId,
+						titleText : '保证担保',
+						businessType : this.smallbusinessType,
+						isHiddenAddContractBtn:true,
+						isHiddenDelContractBtn:true,
+						isHiddenEdiContractBtn:true,
+						isHiddenRelieve:true,
+						isRecieveHidden:true,
+						isblHidden:true,
+						isgdHidden:true
+					})
+				]
+			}, {
+				xtype : 'fieldset',
+				title :'展期申请书',
+				collapsible : true,
+				autoHeight : true,
+				items : [new uploads({
+		    	projectId : this.projectId,
+		    	isHidden : false,
+		    	businessType :this.businessType,
+		    	isNotOnlyFile : false,
+		    	isHiddenColumn : false,
+		    	isDisabledButton : false,
+		    	setname :'展期申请书',
+		    	titleName :'展期申请书',
+		    	uploadsSize:100,
+		    	tableName:'typeiszhanqiws',
+		    	typeisfile :'typeiszhanqiws',
+		    	isHiddenOnlineButton :false,
+		    	isDisabledOnlineButton :false
+		    })]
+			}, {
+				xtype : 'hidden',
+        		name : 'safeLevel',
+        		value : 1
+			},{
+			     xtype:'hidden',
+			     name:'task_id',
+			     value:this.taskId
+	        }]
+		})
+		this.loadData({
+			url : __ctxPath + '/supervise/getInfoSlSuperviseRecord.do?projectId='+this.smallProjectId+'&slSuperviseRecordId='+this.projectId+'&task_id='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'slSmallloanProject',"slSuperviseRecord",'comments'],
+			root : 'data',
+			success : function(response, options) {
+				var respText = response.responseText;
+				var alarm_fields = Ext.util.JSON.decode(respText);
+				if(null!=alarm_fields.data.slSuperviseRecord.dateMode){
+					var dateModelCom=this.getCmpByName('slSuperviseRecord.dateMode');
+					var st=dateModelCom.getStore();
+					st.on('load',function(){
+						dateModelCom.setValue(alarm_fields.data.slSuperviseRecord.dateMode)
+					})
+				}
+				if(null!=alarm_fields.data.slSuperviseRecord.continuationMoney){
+					this.getCmpByName('projectMoney1').setValue(alarm_fields.data.slSuperviseRecord.continuationMoney)
+				}else{
+					this.getCmpByName('projectMoney1').setValue(this.projectMoney-this.payProjectMoney)
+					this.getCmpByName('slSuperviseRecord.continuationMoney').setValue(this.projectMoney-this.payProjectMoney)
+				}
+				if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+				fillDataExtension(DeferApplyInfoPanel,alarm_fields,'extenstion'+this.taskId)
+			}
+		});
+
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	
+	},
+	onGetTaskInfo : function(taskId){
+		Ext.Ajax.request({
+			url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+			method : 'POST',
+			scope:this,
+			success : function(response, request) {
+				obj = Ext.util.JSON.decode(response.responseText);
+				var projectName = obj.data.projectName;
+				var createTime = obj.data.createTime;
+				var dueTime = obj.data.dueTime;
+				var creator = obj.data.creator;
+				if(obj.success==true){
+					this.getCmpByName('projectInfo').setTitle('项目基本信息【任务分配时间：'+createTime+'&nbsp;&nbsp;任务完成时限：'+dueTime+'&nbsp;&nbsp;当前处理人：'+creator+'】');
+				}else{
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				}
+			},
+			failure : function(response,request) {
+				Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+			},
+			params : {
+				taskId : taskId,
+				businessType : '$!businessType',
+				projectId:'$!projectId'
+			}
+		});
+	},
+	saveBusDatas : function(formPanel,fun) {
+		var slActualToChargeJsonData=this.slActualToCharge.getGridDate();
+		var slActualToCharge=this.slActualToCharge;
+		formPanel.getForm().submit({
+		    clientValidation: false, 
+			url : __ctxPath + '/supervise/updateInfoSlSuperviseRecord.do',
+			params : {
+				'comments':formPanel.comments,
+				"slActualToChargeJsonData":slActualToChargeJsonData,
+				'slSuperviseRecordId':this.projectId,
+				'projectId':this.smallProjectId
+			},
+			method : 'post',
+			waitMsg : '数据正在提交，请稍后...',
+			scope: this,
+			success : function(fp, action) {
+				var object = Ext.util.JSON.decode(action.response.responseText);
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				slActualToCharge.savereload();
+			 	if(fun){
+					fun.call( this.ownerCt.ownerCt)
+				}
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		});
+	},
+	validate : function(outpanel) {
+		var rootObj = this;
+		outpanel.getCmpByName('slActualToChargeJson').setValue(rootObj.slActualToCharge.getGridDate());
+	    return true;
+	}
+})

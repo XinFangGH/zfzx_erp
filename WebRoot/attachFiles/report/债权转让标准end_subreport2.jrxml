@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="债权转让标准_subreport1" language="groovy" pageWidth="940" pageHeight="1500" columnWidth="860" leftMargin="40" rightMargin="40" topMargin="60" bottomMargin="60">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="426"/>
+	<parameter name="sqlcondition" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="investPersonName" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cardnumber" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="intentData" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+		CASE c.proType
+WHEN "P_Or" THEN
+	(
+		SELECT
+			case proj.oppositeType
+			when "person_customer"
+			THEN (
+				select person.name from cs_person person
+				where person.id = proj.oppositeID
+			)
+			WHEN "company_customer"
+			THEN(
+				select enter.enterprisename  from cs_enterprise enter
+				where enter.id = proj.oppositeID
+			)
+			END
+		FROM
+			bp_persion_or_pro bpop,
+			sl_smallloan_project proj
+		WHERE
+			bpop.proId = proj.projectId
+		AND bpop.pOrProId = c.pOrProId
+	)
+WHEN "B_Or" THEN
+	(
+		SELECT
+				case proj.oppositeType
+			when "person_customer"
+			THEN (
+				select person.name from cs_person person
+				where person.id = proj.oppositeID
+			)
+			WHEN "company_customer"
+			THEN(
+				select enter.enterprisename  from cs_enterprise enter
+				where enter.id = proj.oppositeID
+			)
+			END
+		FROM
+			bp_business_or_pro bbop,
+			sl_smallloan_project proj
+		WHERE
+			bbop.proId = proj.projectId
+			AND bbop.borProId = c.pOrProId
+	)
+END AS creditName,
+	CASE c.proType
+WHEN "P_Or" THEN
+	(
+		SELECT
+			person.cardnumber
+		FROM
+			bp_persion_or_pro bpop,
+			sl_smallloan_project proj,
+			cs_person person
+		WHERE
+			bpop.proId = proj.projectId
+		AND proj.oppositeType = "person_customer"
+		AND person.id = proj.oppositeID
+		AND bpop.pOrProId = c.pOrProId
+	)
+WHEN "B_Or" THEN
+	(
+		SELECT
+			person.cardnumber
+		FROM
+			bp_business_or_pro bbop,
+			sl_smallloan_project proj,
+			cs_person person
+		WHERE
+			bbop.proId = proj.projectId
+		AND proj.oppositeType = "person_customer"
+		AND person.id = proj.oppositeID
+	)
+END AS cardnumber,
+ childrenOr.matchingMoney,
+ childrenOr.matchingStartDate,
+ (
+	SELECT
+		pmoa.intentDate
+	FROM
+		pl_mm_order_assignInterest pmoa
+	WHERE
+		pmoa.orderId = childrenOr.orderId
+	ORDER BY
+		pmoa.intentDate ASC
+	LIMIT 1
+) AS intentData,
+ info.promisYearRate as yeaRate
+
+FROM
+	pl_mm_order_childrenOr childrenOr
+LEFT JOIN pl_mm_obligatoryRight_children b ON b.childrenorId = childrenOr.childrenorId
+left join pl_managemoneyplan_buyinfo info on info.orderId and childrenOr.orderId
+left JOIN pl_bid_plan c ON c.bidId = b.parentOrBidId
+LEFT JOIN pl_manageMoney_plan pmp ON pmp.mmplanId = childrenOr.mmplanId
+where 1=1 $P!{sqlcondition}
+group by childrenOr.matchId]]>
+	</queryString>
+	<field name="creditName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cardnumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="matchingMoney" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="matchingStartDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="intentData" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="yeaRate" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="totalMatchingMoney" class="java.lang.Long">
+		<variableExpression><![CDATA[new java.lang.Long($V{totalMatchingMoney}.longValue()+($F{matchingMoney}==null?new java.lang.Long("0"):$F{matchingMoney}.longValue()))]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Long("0")]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="331" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="63" width="860" height="44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权列表]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="139" width="345" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["身份证（护照）号码："+$P{cardnumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="107" width="345" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["转让人（原债权人）："+$P{investPersonName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="235" width="345" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[受让人（新债权人）：解宇舟]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="267" width="345" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[身份证（护照）号码：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="299" width="860" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权转让明细：]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="30" width="67" height="33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[序号]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="30" width="145" height="33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[借款人姓名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="737" height="30"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权基本信息]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="442" y="30" width="153" height="33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[本次转让债权价值]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="30" width="230" height="33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[借款人身份证号码]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="30" width="142" height="33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[债权转让日期]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="67" y="0" width="145" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{creditName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="442" y="0" width="153" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{matchingMoney}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="212" y="0" width="230" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cardnumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="67" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy-MM-dd" isBlankWhenNull="true">
+				<reportElement x="595" y="0" width="142" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{intentData}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="252" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="442" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[总和]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="442" y="0" width="295" height="32"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{totalMatchingMoney}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="163" width="256" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[签字：]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="208" width="256" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["日期：" + $P{intentData}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="335" y="163" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[签字：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="121" width="227" height="32"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[受让人：解宇舟]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="335" y="208" width="227" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["日期：" + $P{intentData}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="121" width="256" height="32"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="14" isBold="false" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["转让人："+$P{investPersonName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

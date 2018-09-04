@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+   
+    <bean id="gLGuaranteeloanProjectService" class="com.zhiwei.credit.service.creditFlow.guarantee.project.impl.GLGuaranteeloanProjectServiceImpl">
+   		<constructor-arg index="0" ref="gLGuaranteeloanProjectDao"/>
+   	</bean>
+   	
+    <bean id="glSuperviseRecordService" class="com.zhiwei.credit.service.creditFlow.guarantee.EnterpriseBusiness.impl.GlSuperviseRecordServiceImpl">
+   	 	<constructor-arg index="0" ref="glSuperviseRecordDao"/>
+   	</bean>
+   	<bean id="gLGuaranteeloanZmNormalFlowProjectService" class="com.zhiwei.credit.service.creditFlow.guarantee.zmNormalFlow.impl.GLGuaranteeloanZmNormalFlowProjectServiceImpl">
+   	    <constructor-arg index="0" ref="gLGuaranteeloanProjectDao"/>
+   	</bean>
+	 <bean id="glCompensatoryService" class="com.zhiwei.credit.service.creditFlow.guarantee.EnterpriseBusiness.impl.GlCompensatoryServiceImpl">
+   	 	<constructor-arg index="0" ref="glCompensatoryDao"/>
+   	 </bean>
+
+	 <bean id="glRecoveryService" class="com.zhiwei.credit.service.creditFlow.guarantee.EnterpriseBusiness.impl.GlRecoveryServiceImpl">
+   	 	<constructor-arg index="0" ref="glRecoveryDao"/>
+   	 </bean>
+
+</beans>

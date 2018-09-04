@@ -1,0 +1,74 @@
+
+/** when a task isn't readed, we so the task bold-font*/
+.x-grid-record-bold div{  
+    font-weight:600;
+}
+
+.deny div{
+	font-weight:600;
+	color:red;
+}
+
+.x-grid-record-red table{
+	color: red;
+}
+.x-grid-record-line table{ text-decoration:line-through; color:#666;}
+
+/**define font size -- as EXT's standard*/
+.myfont{
+	color: #15428B;
+	font-size: 13px;
+	overflow : scroll;
+	line-height: 20px;
+}
+
+/**Row Editor 用的  ↓*/
+.x-grid3 .x-window-ml{
+	padding-left: 0;	
+} 
+.x-grid3 .x-window-mr {
+	padding-right: 0;
+} 
+.x-grid3 .x-window-tl {
+	padding-left: 0;
+} 
+.x-grid3 .x-window-tr {
+	padding-right: 0;
+} 
+.x-grid3 .x-window-tc .x-window-header {
+	height: 3px;
+	padding:0;
+	overflow:hidden;
+} 
+.x-grid3 .x-window-mc {
+	border-width: 0;
+	background: #cdd9e8;
+} 
+.x-grid3 .x-window-bl {
+	padding-left: 0;
+} 
+.x-grid3 .x-window-br {
+	padding-right: 0;
+}
+.x-grid3 .x-panel-btns {
+	padding:0;
+}
+.x-grid3 .x-panel-btns td.x-toolbar-cell {
+	padding:3px 3px 0;
+}
+.x-box-inner {
+	zoom:1;
+}
+.icon-user-add {
+    background-image: url(../shared/icons/fam/user_add.gif) !important;
+}
+.icon-user-delete {
+    background-image: url(../shared/icons/fam/user_delete.gif) !important;
+}
+/**Row Editor 用的  ↑*/
+
+.div_mid {
+	text-align: center;
+	font-size:12px;
+}
+

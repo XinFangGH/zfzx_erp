@@ -1,0 +1,443 @@
+## This is an the velocity template
+## to generate a.oa.model class from an sql table input
+#set ($table = $sqlTable.Table.toLowerCase())
+#set ($class = $utility.makeClassName($sqlTable.Table))
+#set ($pojoClass = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($pojoClassVar = $utility.makeFirstLetterLowerCase($pojoClass))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot"))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($mailId    = $prop.getProperty("mailId"))
+#set ($mailName  = $prop.getProperty("mailName"))
+#set ($keyGenerated = "N")
+package ${packagePrefix}.credit.model${packageModot};
+/*
+ *  北京互融时代软件有限公司   -- http://www.zhiweitime.com
+ *	Copyright @ 2004 - 2010 Yuseen.com all rights reserved.京ICP备 05007290 号
+*/
+#if ($sqlTable.hasCompositeKey)
+import java.util.Map;
+import java.util.HashMap;
+#end
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+
+/**
+ * 
+ * @author 
+ *
+ */
+/**
+ * $class Base Java Bean, base class for the.credit.model, mapped directly to database table
+ * 
+ * Avoid changing this file if not necessary, will be overwritten. 
+ *
+ * $sqlTable.remarks
+ */
+public class ${class} extends com.zhiwei.core.model.BaseModel {
+
+#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+#if ($sqlTable.hasCompositeKey)
+#if ($keyGenerated.equals("N"))
+	protected ${pojoClass}PK ${pojoClassVar}PK = new ${pojoClass}PK();
+#set ($keyGenerated = "Y")
+#end
+#else
+    protected $column.attType $column.attName;
+#end
+#else
+#############################################################
+## Generate normal attribute.
+## Skip generation of attribute if it is an attribute that
+## is in the imported keys of this table
+#############################################################
+#if (!$sqlTable.getHasImportedKeyParentColumn($column.colname))
+	protected $column.attType $column.attName#if("deleted"==${column.attName}) = Constants.MARK_NOT_DELETED#end;
+#end
+#end
+#end
+##########################################
+##  Foreign Imported Keys declaration generation
+##########################################
+#foreach ($foreignKey in $sqlTable.importedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+	protected java.util.Set ${fkPojoClassVar}s = new java.util.HashSet();
+#else
+	protected ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} ${fkPojoClassVar};
+#end
+#end
+
+###############################################
+##  Foreign Exported Keys declaration generation
+###############################################
+#foreach ($foreignKey in $sqlTable.exportedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+	protected java.util.Set ${fkPojoClassVar}s = new java.util.HashSet();
+#else
+	protected ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} ${fkPojoClassVar};	
+#end
+#end
+
+	/**
+	 * Default Empty Constructor for class ${class}
+	 */
+	public ${class} () {
+		super();
+	}
+	
+	/**
+	 * Default Key Fields Constructor for class ${class}
+	 */
+	public ${class} (
+#set ($comma = " ")
+#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+		${comma}${column.attType} in_${column.attName}
+#set ($comma=",")
+#end
+#end
+        ) {
+#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+		this.set${column.attNameUC}(in_${column.attName});
+#end
+#end
+    }
+
+####################################################
+##  Foreign Imported Keys Getters Setters Generation 
+###################################################
+#foreach ($foreignKey in $sqlTable.importedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+
+	public java.util.Set get${fkPojoClass}s () {
+		return ${fkPojoClassVar}s;
+	}	
+	
+	public void set${fkPojoClass}s (java.util.Set in_${fkPojoClassVar}s) {
+		this.${fkPojoClassVar}s = in_${fkPojoClassVar}s;
+	}
+#else
+	
+	public ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} get${fkPojoClass} () {
+		return ${fkPojoClassVar};
+	}	
+	
+	public void set${fkPojoClass} (${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} in_${fkPojoClassVar}) {
+		this.${fkPojoClassVar} = in_${fkPojoClassVar};
+	}
+#end
+#end
+####################################################
+##  Foreign Exported Keys Getters Setters Generation 
+###################################################
+#foreach ($foreignKey in $sqlTable.exportedKeys.associatedTables.orderedValues)
+#set ($fkSqlTable = $foreignKey.sqlTable)
+#set ($fkTable    = $fkSqlTable.Table.toLowerCase())
+#set ($fkClass    = $utility.makeClassName($fkSqlTable.Table))
+#set ($fkClassVar = $utility.makeFirstLetterLowerCase($fkClass))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+##########################################
+##  xxx to one ForeignKey generation 
+##########################################
+#if ($foreignKey.secondRelation.equals("many"))
+
+	public java.util.Set get${fkPojoClass}s () {
+		return ${fkPojoClassVar}s;
+	}	
+	
+	public void set${fkPojoClass}s (java.util.Set in_${fkPojoClassVar}s) {
+		this.${fkPojoClassVar}s = in_${fkPojoClassVar}s;
+	}
+#else
+	
+	public ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} get${fkPojoClass} () {
+		return ${fkPojoClassVar};
+	}	
+	
+	public void set${fkPojoClass} (${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass} in_${fkPojoClassVar}) {
+		this.${fkPojoClassVar} = in_${fkPojoClassVar};
+	}
+#end
+#end
+#if ($sqlTable.hasCompositeKey)
+  /**
+	* @return ${pojoClassVar}PK
+	*/
+	public ${pojoClass}PK get${pojoClass}PK() {
+		return this.${pojoClassVar}PK;
+	}
+	
+  /**
+	* @set ${pojoClassVar}PK
+	*/
+	public void set${pojoClass}PK(${pojoClass}PK aPrimaryKey) {
+		this.${pojoClassVar}PK = aPrimaryKey;
+	}
+#end
+    
+#foreach( $column in $sqlTable.sqlColumns)
+
+	/**
+	 * #if (${column.remarks})${column.remarks}#end
+	 * @return $column.attType
+#####begin of set hibernate doc
+#if ($column.isKey())
+     * @hibernate.id column="$column.colname" type="$column.javaType" generator-class="native"
+#else
+#if ($sqlTable.getHasImportedKeyParentColumn($column.colname))
+##Not solved yet, pending only
+#else
+##unique is not solved yet, TODO.
+	 * @hibernate.property column="$column.colname" type="$column.javaType" length="$column.colsize" not-null="$column.notNullable" unique="false"
+#end
+#end
+#####end of set hibernate doc
+	 */
+	public $column.attType get${column.attNameUC}() {
+#if ($column.isKey())
+#if ($sqlTable.hasCompositeKey)
+		return this.get${pojoClass}PK().get${column.attNameUC}();
+#else
+		return this.$column.attName;
+#end
+#else
+#######################################################################
+## generate getter for a foreign key column from the associated entity
+########################################################################
+#if ($sqlTable.getHasImportedKeyParentColumn($column.colname))
+#set ($fkey = $sqlTable.getImportedKeyParentColumn($column.colname))
+#set ($fkeyTable = $fkey.getTableName())
+#set ($fkeyCol   = $fkey.getColumn($column.colname))
+#set ($fkeyClass = $utility.makeClassName($fkeyTable))
+#set ($fkSqlTable = $prop.getSqlTable($fkeyTable))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+		return this.get${fkPojoClass}()==null?null:this.get${fkPojoClass}().get${column.attNameUC}();
+#else
+		return this.$column.attName;
+#end
+#end
+	}
+##end for getter
+	
+	/**
+	 * Set the $column.attName
+#####begin of set spring.validator
+#if ($column.isKey())
+##
+#else
+#if ($sqlTable.getHasImportedKeyParentColumn($column.colname))
+##
+#else
+##unique is not solved yet, TODO.
+#if ("true"==${column.notNullable})
+	 * @spring.validator type="required"
+#end
+#end
+#end
+#####end of set spring.validator
+	 */	
+	public void set${column.attNameUC}(${column.attType} aValue) {
+#if ($column.isKey())
+#######################################################################
+## generate setter for a foreign key column from the associated entity
+########################################################################
+#if ($sqlTable.getHasImportedKeyParentColumn($column.colname))
+#set ($fkey = $sqlTable.getImportedKeyParentColumn($column.colname))
+#set ($fkeyTable = $fkey.getTableName())
+#set ($fkeyCol   = $fkey.getColumn($column.colname))
+#set ($fkeyClass = $utility.makeClassName($fkeyTable))
+#set ($fkSqlTable = $prop.getSqlTable($fkeyTable))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+	    if (aValue==null) {
+	    	${fkPojoClassVar} = null;
+	    } else {
+	        $fkPojoClassVar = new ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}(aValue);
+	        ${fkPojoClassVar}.setVersion(new Integer(0));//set a version to cheat hibernate only
+	    }
+#end
+#if ($sqlTable.hasCompositeKey)
+		this.get${pojoClass}PK().set${column.attNameUC}(aValue);
+#else
+		this.$column.attName = aValue;
+#end
+#else
+##end of isKey(), below is code for not a key column
+#######################################################################
+## generate setter for a foreign key column from the associated entity
+########################################################################
+#if ($sqlTable.getHasImportedKeyParentColumn($column.colname))
+#set ($fkey = $sqlTable.getImportedKeyParentColumn($column.colname))
+#set ($fkeyTable = $fkey.getTableName())
+#set ($fkeyCol   = $fkey.getColumn($column.colname))
+#set ($fkeyClass = $utility.makeClassName($fkeyTable))
+#set ($fkSqlTable = $prop.getSqlTable($fkeyTable))
+#set ($fkPojoClass = $utility.makeClassName($fkSqlTable.EntityName))
+#set ($fkPojoClassVar = $utility.makeFirstLetterLowerCase($fkPojoClass))
+#set ($fkProps    = $utility.getResolvedProperties($fkSqlTable))
+#set ($fkPackageModot  = $fkProps.get("packageModot"))
+	    if (aValue==null) {
+	    	${fkPojoClassVar} = null;
+	    } else if ($fkPojoClassVar == null) {
+	        $fkPojoClassVar = new ${packagePrefix}.credit.model${fkPackageModot}.${fkPojoClass}(aValue);
+	        ${fkPojoClassVar}.setVersion(new Integer(0));//set a version to cheat hibernate only
+	    } else {
+	    	//
+			${fkPojoClassVar}.set${column.attNameUC}(aValue);
+	    }
+#else
+		this.$column.attName = aValue;
+#end
+#end
+	}	
+#end
+
+	/**
+	 * @see java.lang.Object#equals(Object)
+	 */
+	public boolean equals(Object object) {
+		if (!(object instanceof ${class})) {
+			return false;
+		}
+		${class} rhs = (${class}) object;
+		return new EqualsBuilder()
+		#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+#if ($sqlTable.hasCompositeKey)
+		.append(this.${pojoClassVar}PK.$column.attName, rhs.${pojoClassVar}PK.$column.attName)
+#else
+		.append(this.$column.attName, rhs.$column.attName)
+#end
+#else
+#if (!$sqlTable.getHasImportedKeyParentColumn($column.colname))
+		.append(this.$column.attName, rhs.$column.attName)
+#end
+#end
+		#end
+		.isEquals();
+	}
+
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	public int hashCode() {
+		return new HashCodeBuilder(-82280557, -700257973)
+		#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+#if ($sqlTable.hasCompositeKey)
+		.append(this.${pojoClassVar}PK.$column.attName) 
+#else
+		.append(this.$column.attName) 
+#end
+#else
+#if (!$sqlTable.getHasImportedKeyParentColumn($column.colname))
+		.append(this.$column.attName) 
+#end
+#end
+		#end
+		.toHashCode();
+	}
+
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return new ToStringBuilder(this)
+		#foreach( $column in $sqlTable.sqlColumns)
+#if ($column.isKey())
+#if ($sqlTable.hasCompositeKey)
+		.append("$column.attName", this.${pojoClassVar}PK.$column.attName) 
+#else
+		.append("$column.attName", this.$column.attName) 
+#end
+#else
+#if (!$sqlTable.getHasImportedKeyParentColumn($column.colname))
+		.append("$column.attName", this.$column.attName) 
+#end
+#end
+		#end
+		.toString();
+	}
+
+
+
+#if ($sqlTable.hasCompositeKey)
+	/**
+	 * Return the primary key as a hashmap
+	 */
+	public Map getPrimaryKeyMap() {
+		
+		Map pkMap = new HashMap();
+#foreach( $column in $sqlTable.primaryKeys)
+#set ($keyname = $utility.makeVarName($column.colname))
+#set ($keynameUC = $utility.makeFirstLetterUpperCase($keyname))
+	    pkMap.put("$keyname",   this.get${keynameUC}());
+#end
+		return pkMap;
+	}
+
+	/**
+	 * Return the primary key String as key value pairs
+	 */
+	public String getPrimaryKeyString() {
+		
+		java.lang.StringBuffer pkeyString = new java.lang.StringBuffer("[");
+#set ($incomma="N")
+#foreach( $column in $sqlTable.primaryKeys)
+#set ($keyname = $utility.makeVarName($column.colname))
+#set ($keynameUC = $utility.makeFirstLetterUpperCase($keyname))
+#if ($incomma.equals("Y"))
+		pkeyString.append(",");
+#end
+	    pkeyString.append("$keyname=");
+	    pkeyString.append(this.get${keynameUC}());
+#set ($incomma="Y")
+#end
+	    pkeyString.append("]");
+		return pkeyString.toString();
+	}
+#end
+}

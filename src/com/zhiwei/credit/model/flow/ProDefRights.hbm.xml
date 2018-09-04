@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProDefRights" table="pro_def_rights" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="rightsId" column="rightsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="roleNames" type="java.lang.String" update="true" insert="true" access="property" column="roleNames" length="2000" not-null="false" unique="false"/>  
+    <property name="depNames" type="java.lang.String" update="true" insert="true" access="property" column="depNames" length="2000" not-null="false" unique="false"/>  
+    <property name="userNames" type="java.lang.String" update="true" insert="true" access="property" column="userNames" length="2000" not-null="false" unique="false"/>  
+    <property name="userIds" type="java.lang.String" update="true" insert="true" access="property" column="userIds" length="2000" not-null="false" unique="false"/>  
+    <property name="roleIds" type="java.lang.String" update="true" insert="true" access="property" column="roleIds" length="2000" not-null="false" unique="false"/>  
+    <property name="depIds" type="java.lang.String" update="true" insert="true" access="property" column="depIds" length="2000" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ProDefinition -->  
+    <many-to-one name="proDefinition" class="com.zhiwei.credit.model.flow.ProDefinition" not-null="false" fetch="select"> 
+      <column name="defId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to GlobalType -->  
+    <many-to-one name="globalType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

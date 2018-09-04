@@ -1,0 +1,73 @@
+
+
+Ext.define('htmobile.customer.person.menudetail.FamilyEconomyCarList', {
+    extend: 'mobile.List',
+    
+    name: 'FamilyEconomyCarList',
+
+    constructor: function (config) {
+		this.personId=config.data.id;
+    	config = config || {};
+    	
+    	Ext.apply(config,{
+    		title:config.title,
+    		fields:[
+							{
+								name : 'id'
+							},
+							{
+								name : 'personId'
+							},{
+								name : 'propertyOwner'
+							},
+							{
+								name : 'carSystemType'
+							},
+							{
+								name : 'carType'
+							},
+							{
+								name : 'carLicenseNumber'
+							},
+							{
+								name : 'isMortgage'
+							},
+							{
+								name : 'newCarValue'
+							},{
+								name : 'loanMoney'
+							},{
+								name : 'carFactValue'
+							},{
+								name : 'yearOfCarUse'
+							},{
+								name : 'finalCertificationPrice'
+							},{
+								name : 'loanMoney'
+							}
+
+					],
+    		url : __ctxPath+ '/creditFlow/customer/person/listCsPersonCar.do?personId='+ this.personId,
+    		root:'result',
+    	    totalProperty: 'totalCounts',
+		    itemTpl: "<span style='font-size:14px;color:#a7573b;float:left;margin-left:12px;width:50px'  >{propertyOwner}</span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+		    		"<span style='font-size:14px;color:#a7573b;float:left;margin-left:12px;width:50px' >{loanMoney}</span>&nbsp;&nbsp;&nbsp;&nbsp;",
+		  /*  pullRefresh: true,
+		    listPaging: true,*/
+		    onItemDisclosure:function(record,element,index,e){}
+		    /*listeners: {
+    			 itemsingletap:this.itemsingletap
+    		}*/
+    	});
+
+    	this.callParent([config]);
+
+    },
+    detail:function(){
+       mobileNavi.push(
+		Ext.create('htmobile.customer.person.PersonDetailMenu',{
+		        	})
+		    	);
+    }
+
+});

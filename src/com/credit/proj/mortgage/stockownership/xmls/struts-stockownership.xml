@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="stockownership" extends="struts-default">
+		<!-- 添加信息 -->
+		<action name="addStockownership" class="stockownershipAction" method="addStockownership">
+			<result>${successResultValue}</result>
+		</action>
+		
+		<!-- 查看信息从视图 -->
+		<action name="seeStockownership" class="stockownershipAction" method="seeStockownership"></action>
+		
+		<!-- 查看信息从股权表查询数据显示在更新页面 -->
+		<action name="seeStockownershipForUpdate" class="stockownershipAction" method="seeStockownershipForUpdate"></action>
+		
+		<!-- 更新信息 -->
+		<action name="updateStockownership" class="stockownershipAction" method="updateStockownership"></action>
+		
+	</package>
+</struts>   

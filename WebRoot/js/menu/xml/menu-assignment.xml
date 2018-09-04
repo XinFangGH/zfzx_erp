@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_assignment" text="债权转让" iconCls="mod-public"> 
+
+
+	<Items id="investFiancemanage" text="投资理财管理" iconCls="mod-investFiancemanage"
+		isPublic="false">
+		<Item id="mappingObligationToInvestView" iconCls="btn-tree-invest69"
+			text="为投资人匹配债权">
+			<Function id="_create_obligation" text="添加债权" iconCls="btn-add" />
+			<Function id="_revocate_obligation" text="撤销债权" iconCls="btn-edit" />
+		</Item>
+		<Item id="investmentObligationRemindView" iconCls="btn-tree-invest70"
+			text="债权到期提醒">
+			<Function id="_obligation_detail_1" text="债权详情" iconCls="btn-detail" />
+		</Item>
+		<Item id="branchCompanyStastistic" iconCls="btn-tree-invest70"
+			text="分公司在保金额统计">
+			
+		</Item>
+	</Items>
+
+	<Items id="obligationProductmanage" text="债权产品管理"
+		iconCls="mod-obligationProductmanage" isPublic="false">
+		<Item id="obligationproductInfoView?managerType=Info" iconCls="btn-tree-obliga72"
+			text="债权产品信息管理">
+			<Function id="_create_product" text="添加产品" iconCls="btn-add" />
+			<Function id="_edit_product" text="编辑产品信息" iconCls="btn-edit" />
+			<Function id="_see_productDetail" text="查看产品详细信息" iconCls="btn-detail" />
+			<Function id="_see_projectDetail_1" text="查看项目信息" iconCls="btn-detail" />
+		</Item>
+		<Item id="obligationproductInfoView?managerType=Mapping" iconCls="btn-tree-obliga73"
+			text="债权产品匹配管理">
+			<Function id="_match_investP" text="匹配投资人" iconCls="btn-add" />
+			<Function id="_match_detail_1" text="匹配详情" iconCls="btn-detail" />
+		</Item>
+		<Item id="obligationProductTab?openType=switchManager" iconCls="btn-tree-obliga74"
+			text="债权产品开关管理">
+			<Function id="_close_obligation" text="关闭债权产品" iconCls="btn-edit" />
+			<Function id="_open_enchashmentList" text="激活债权产品" iconCls="btn-edit" />
+			<Function id="_match_detail_2" text="匹配详情" iconCls="btn-detail" />
+			<Function id="_see_projectDetail_2" text="查看项目信息" iconCls="btn-detail" />
+		</Item>
+		<!--<Item id="obligationproductFundDynamicView" iconCls="btn-tree-obliga75"
+			text="债权产品资金动态">
+		</Item>
+	--></Items>
+
+	<Items id="obligationSourceQuery" text="债权库查询"
+		iconCls="mod-obligationSourceQuery" isPublic="false">
+		<Item id="obligationMappingInfoView?obligationState=0" iconCls="btn-tree-obliga77"
+			text="债权匹配情况">
+			<Function id="_obligation_detail_2" text="债权详情" iconCls="btn-detail" />
+		</Item>
+		
+		
+	</Items>
+
+	<Items id="rechargeAuditmanage" text="充值审核管理" iconCls="mod-rechargeAuditmanage"
+		isPublic="false">
+		
+		
+		
+	</Items>
+	<Items id="investContactFinance" text="投资人款项台账" iconCls="menu-finance-qlide">
+		<Item id="FinanceSlFundIntententView?rechargeType=enchashment"
+			iconCls="btn-tree-team29" text="取现台账">
+			
+		</Item>
+		<Item id="FinanceSlFundIntententView?rechargeType=recharge"
+			iconCls="btn-tree-team29" text="充值台账">
+			
+		</Item>
+	</Items>
+	<Items id="DocumentManagerAssignment" text="合同管理" iconCls="mod-analysis" >
+		<Item id="CreditDocumentManager?businessType=Assignment" text="合同模板制作" iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm_Assignment" text="新增模板类型" iconCls="btn-add"/>
+			<Function id="_edit_cdm_Assignment" text="修改模板类型信息" iconCls="btn-edit"/>
+			<Function id="_remove_cdm_Assignment" text="删除模板类型" iconCls="btn-del"/>
+			<Function id="_read_cdm_Assignment" text="查看系统要素" iconCls="btn-readdocument"/>
+			<Function id="_output_cdm_Assignment" text="导出系统要素" iconCls="btn-xls"/>
+		</Item>
+	</Items>
+
+	<Items id="SlFinanceProjectQuery11" text="资金匹配" iconCls="menu-finance">
+		<Item id="FundsToPromoteView" text="资金推介" iconCls="menu-finance"></Item>
+		<Item id="MatchFundsTab" text="资金匹配" iconCls="menu-finance">
+		<Function id="_seeAllPro_p12" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="_showFlowImg_p12" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_exportPro_p12" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p12" text="编辑项目" iconCls="btn-edit" ></Functions>
+		</Item>
+		<Item id="PromotePackage" text="推介资料包" iconCls="menu-finance"></Item>
+	</Items>
+	
+		<Items id="Customer_InvestPersonView" text="投资客户" iconCls="mod-customer" isPublic="false">
+		<Items id="InvestEnterpriseView" iconCls="btn-tree-team22" text="企业客户管理">
+			<Item id="InvestEnterpriseView?businessType=SmallLoan" iconCls="btn-tree-team23" text="小贷企业客户">
+				<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+			<Item id="InvestEnterpriseView?businessType=Pawn" iconCls="btn-tree-team23" text="典当企业客户">
+				<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+		</Items>
+		</Items>
+</Menus>

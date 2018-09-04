@@ -1,0 +1,35 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="creditmanagement" extends="struts-default" namespace="/creditFlow/creditmanagement">
+		<action name="*IndicatorStore" class="IndicatorStoreAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Indicator" class="IndicatorAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*MakeScore" class="MakeScoreAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Option" class="OptionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ScoreGradeOfClass" class="ScoreGradeOfClassAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*RatingTemplate" class="RatingTemplateAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CreditRating" class="CreditRatingAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Element" class="ElementAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*TemplateOption" class="TemplateOptionAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+</struts>

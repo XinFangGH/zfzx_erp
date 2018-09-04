@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.InStock" table="in_stock" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="buyId" column="buyId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="providerName" type="java.lang.String" update="true" insert="true" access="property" column="providerName" length="128" not-null="false" unique="false"/>  
+    <property name="stockNo" type="java.lang.String" update="true" insert="true" access="property" column="stockNo" length="128" not-null="true" unique="false"/>  
+    <property name="price" type="java.math.BigDecimal" update="true" insert="true" access="property" column="price" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="inCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="inCounts" not-null="false" unique="false"/>  
+    <property name="amount" type="java.math.BigDecimal" update="true" insert="true" access="property" column="amount" precision="18" scale="2" not-null="true" unique="false"/>  
+    <property name="inDate" type="java.util.Date" update="true" insert="true" access="property" column="inDate" length="19" not-null="true" unique="false"/>  
+    <property name="buyer" type="java.lang.String" update="true" insert="true" access="property" column="buyer" length="128" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to OfficeGoods -->  
+    <many-to-one name="officeGoods" class="com.zhiwei.credit.model.admin.OfficeGoods" not-null="false" fetch="select"> 
+      <column name="goodsId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

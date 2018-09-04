@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.CartRepair" table="cart_repair" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="repairId" column="repairId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="repairDate" type="java.util.Date" update="true" insert="true" access="property" column="repairDate" length="19" not-null="true" unique="false"/>  
+    <property name="reason" type="java.lang.String" update="true" insert="true" access="property" column="reason" length="128" not-null="true" unique="false"/>  
+    <property name="executant" type="java.lang.String" update="true" insert="true" access="property" column="executant" length="128" not-null="true" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="128" not-null="false" unique="false"/>  
+    <property name="repairType" type="java.lang.String" update="true" insert="true" access="property" column="repairType" length="128" not-null="true" unique="false"/>  
+    <property name="fee" type="java.math.BigDecimal" update="true" insert="true" access="property" column="fee" precision="18" scale="2" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Car -->  
+    <many-to-one name="car" class="com.zhiwei.credit.model.admin.Car" not-null="false" fetch="select"> 
+      <column name="carId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

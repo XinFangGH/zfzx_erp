@@ -1,0 +1,70 @@
+.item-options {
+	display: inline-block;
+	position: relative;
+	left: 100%
+}
+
+.item-options .option-button {
+	position: relative;
+	padding: 0 12px;
+	min-width: 52px;
+	text-overflow: ellipsis;
+	line-height: 42px;
+	cursor: pointer;
+	height: 100%;
+	display: -webkit-inline-box;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.item-options .option-button.pressed {
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))
+}
+
+.x-list-options-plugin .x-list-item {
+	z-index: 1
+}
+
+.x-list-options-plugin .item-options-wrapper {
+	position: absolute;
+	width: 100%
+}
+
+.item-options .option-button {
+	position: relative;
+	padding: 0 12px;
+	min-width: 52px;
+	text-overflow: ellipsis;
+	line-height: 42px;
+	cursor: pointer;
+	height: 100%;
+	display: -webkit-inline-box;
+	display: inline-flex;
+	-webkit-box-align: center;
+	align-items: center
+}
+
+/*自己写不同颜色的按钮样式，文字颜色和背景色*/
+.option-button.red {
+	background-color: #880000;
+	color: #fff
+}
+
+.option-button.blue {
+	background-color: #003377;
+	color: #fff
+}
+.option-button.yellow {
+	background-color: #FF8800;
+	color: #fff
+}
+.option-button.grey {
+	background-color: #888888;
+	color: #fff
+}
+.option-button.green {
+	background-color: #227700;
+	color: #fff
+}

@@ -1,0 +1,9 @@
+.nav{position:absolute; z-index:100;top: 10px;left:10px}
+.nav div{position: absolute;width:20px;height:20px;cursor:pointer;background-repeat: no-repeat;}
+.up{background:url(imagesn/up.gif);left: 21px;}
+.right{background:url(imagesn/right.gif);left: 42px; top: 21px;}
+.down{background:url(imagesn/down.gif);top:42px;left: 21px;}
+.left{background:url(imagesn/left.gif);top:21px;left: 0;}
+.zoom{background:url(imagesn/zoom.gif);top:21px;;left: 21px;}
+.in{background:url(imagesn/in.gif);top:63px;;left: 21px;}
+.out{background:url(imagesn/out.gif);top:84px;;left: 21px;}

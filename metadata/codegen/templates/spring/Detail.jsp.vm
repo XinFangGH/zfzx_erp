@@ -1,0 +1,34 @@
+## This is a velocity template
+## to generate a form jsp file from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keyfieldLC = $keyfield.toLowerCase())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($appname=$prop.getProperty("appname"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($dl = "${")
+#set ($dot=".")
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jsp" %>
+<div id="div-detail">
+#foreach( $column in $sqlTable.sqlColumns)
+#if  (!$column.isKey())
+#if  (!$column.isVersion())
+#set ($colname = ${column.attName})
+#if  (!$firstField)
+#set ($firstField = ${colname})
+#end
+	<div class="row">
+		<label><fmt:message key="${classVar}.${colname}"/></label>
+		${dl}${classVar}.${colname}}
+	</div>
+#end
+#end
+#end ##end of foreach
+</div>

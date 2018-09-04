@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.flow.ProUserAssign" table="pro_user_assign" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="assignId" column="assignId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="deployId" type="java.lang.String" update="true" insert="true" access="property" column="deployId" length="128" not-null="true" unique="false"/>  
+    <property name="activityName" type="java.lang.String" update="true" insert="true" access="property" column="activityName" length="128" not-null="true" unique="false"/>  
+    <property name="roleId" type="java.lang.String" update="true" insert="true" access="property" column="roleId" length="128" not-null="false" unique="false"/>  
+    <property name="roleName" type="java.lang.String" update="true" insert="true" access="property" column="roleName" length="256" not-null="false" unique="false"/>  
+    <property name="userId" type="java.lang.String" update="true" insert="true" access="property" column="userId" length="128" not-null="false" unique="false"/>  
+    <property name="username" type="java.lang.String" update="true" insert="true" access="property" column="username" length="256" not-null="false" unique="false"/>  
+    <property name="isSigned" type="java.lang.Short" update="true" insert="true" access="property" column="isSigned" length="6" not-null="false" unique="false"/>  
+    <property name="jobId" type="java.lang.String" update="true" insert="true" access="property" column="jobId" length="128" not-null="false" unique="false"/>  
+    <property name="jobName" type="java.lang.String" update="true" insert="true" access="property" column="jobName" length="128" not-null="false" unique="false"/>  
+    <property name="depPosIds" type="java.lang.String" update="true" insert="true" access="property" column="depPosIds" length="128" not-null="false" unique="false"/>  
+    <property name="depPosNames" type="java.lang.String" update="true" insert="true" access="property" column="depPosNames" length="128" not-null="false" unique="false"/>  
+    <property name="reJobId" type="java.lang.String" update="true" insert="true" access="property" column="reJobId" length="128" not-null="false" unique="false"/>  
+    <property name="reJobName" type="java.lang.String" update="true" insert="true" access="property" column="reJobName" length="128" not-null="false" unique="false"/>  
+    <property name="depIds" type="java.lang.String" update="true" insert="true" access="property" column="depIds" length="512" not-null="false" unique="false"/>  
+    <property name="depNames" type="java.lang.String" update="true" insert="true" access="property" column="depNames" length="512" not-null="false" unique="false"/>  
+    <property name="posUserFlag" type="java.lang.Short" update="true" insert="true" access="property" column="posUserFlag" length="6" not-null="false" unique="false"/> 
+    <property name="taskTimeLimit" type="java.lang.Short" update="true" insert="true" access="property" column="taskTimeLimit" length="6" not-null="false" unique="false"/>
+    <property name="timeLimitType" type="java.lang.Short" update="true" insert="true" access="property" column="timeLimitType" length="6" not-null="false" unique="false"/>
+    <property name="isJumpToTargetTask" type="java.lang.Short" update="true" insert="true" access="property" column="isJumpToTargetTask" length="6" not-null="false" unique="false"/>
+    <property name="taskSequence" type="java.lang.String" update="true" insert="true" access="property" column="taskSequence" length="200" not-null="false" unique="false"/>
+    <property name="isProjectChange" type="java.lang.Short" update="true" insert="true" access="property" column="isProjectChange" length="6" not-null="false" unique="false"/>
+ 	<property name="isseparate" column="isseparate" type="java.lang.String"></property>
+ 	<property name="isReSetNext" column="isReSetNext" type="java.lang.String"></property>
+  </class> 
+</hibernate-mapping>

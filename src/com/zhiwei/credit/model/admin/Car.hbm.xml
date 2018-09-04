@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.Car" table="car" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="carId" column="carId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="carNo" type="java.lang.String" update="true" insert="true" access="property" column="carNo" length="128" not-null="true" unique="false"/>  
+    <property name="carType" type="java.lang.String" update="true" insert="true" access="property" column="carType" length="64" not-null="true" unique="false"/>  
+    <property name="engineNo" type="java.lang.String" update="true" insert="true" access="property" column="engineNo" length="128" not-null="false" unique="false"/>  
+    <property name="buyInsureTime" type="java.util.Date" update="true" insert="true" access="property" column="buyInsureTime" length="19" not-null="false" unique="false"/>  
+    <property name="auditTime" type="java.util.Date" update="true" insert="true" access="property" column="auditTime" length="19" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="factoryModel" type="java.lang.String" update="true" insert="true" access="property" column="factoryModel" length="64" not-null="true" unique="false"/>  
+    <property name="driver" type="java.lang.String" update="true" insert="true" access="property" column="driver" length="32" not-null="true" unique="false"/>  
+    <property name="buyDate" type="java.util.Date" update="true" insert="true" access="property" column="buyDate" length="10" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="cartImage" type="java.lang.String" update="true" insert="true" access="property" column="cartImage" length="128" not-null="false" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to CarApply  -->  
+    <set name="carApplys" table="car_apply" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="carId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.CarApply"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to CartRepair  -->  
+    <set name="cartRepairs" table="cart_repair" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="carId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.CartRepair"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

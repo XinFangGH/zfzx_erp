@@ -1,0 +1,8 @@
+流程名称：债券历史补录流程
+key：historyCreditFlowFlow
+节点：
+补录历史详细信息：10_hisRecordProject
+客服录件：5_hisRecord
+
+
+将流程发布成 ：2版本

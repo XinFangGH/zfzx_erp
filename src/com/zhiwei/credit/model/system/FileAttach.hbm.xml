@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.FileAttach" table="file_attach" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="fileId" column="fileId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fileName" type="java.lang.String" update="true" insert="true" access="property" column="fileName" length="128" not-null="true" unique="false"/>  
+    <property name="filePath" type="java.lang.String" update="true" insert="true" access="property" column="filePath" length="128" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="ext" type="java.lang.String" update="true" insert="true" access="property" column="ext" length="32" not-null="false" unique="false"/>  
+    <property name="fileType" type="java.lang.String" update="true" insert="true" access="property" column="fileType" length="32" not-null="false" unique="false"/>  
+    <property name="note" type="java.lang.String" update="true" insert="true" access="property" column="note" length="1024" not-null="false" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="32" not-null="true" unique="false"/>  
+    <property name="totalBytes" type="java.lang.Long" update="true" insert="true" access="property" column="totalBytes" length="32" not-null="false" unique="false"/>  
+    <property name="delFlag" type="java.lang.Integer" update="true" insert="true" access="property" column="delFlag" length="18" not-null="false" unique="false"/>  
+    <property name="creatorId" type="java.lang.Long" update="true" insert="true" access="property" column="creatorId" length="128" not-null="false" unique="false"/>
+    <property name="csFileId" type="java.lang.Integer" update="true" insert="true" access="property" column="csFileId" length="11" not-null="false" unique="false"/>
+    <property name="csContractId" type="java.lang.Integer" update="true" insert="true" access="property" column="csContractId" length="11" not-null="false" unique="false"/>
+      
+    <many-to-one name="globalType" column="proTypeId" class="com.zhiwei.credit.model.system.GlobalType"/> 
+  </class> 
+</hibernate-mapping>

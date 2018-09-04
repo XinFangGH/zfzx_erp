@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus id="Mod_finance" text="小额贷款" iconCls="mod-finance"
+	isPublic="true">
+	<Items id="Flow" text="任务管理" iconCls="mod-myflow">
+		<Item id="newProjectForm" text="新建项目" iconCls="menu-profile-create" />
+		<Item id="MyTaskView" text="待办任务" iconCls="menu-flowWait" />
+		<Item id="MyRunningTaskView" text="任务追回" iconCls="menu-flowPr" />
+		<Item id="MyProcessRunView" text="我参与的任务" iconCls="menu-flowPr" />
+		<Item id="ProcessRunView" text="我发起的任务" iconCls="menu-flowMine" />
+		<Item id="ProcessRunFinishView" text="已办结任务" iconCls="menu-flowEnd" />
+		<Item id="SmallLoanActivityTaskView" text="待处理任务" iconCls="menu-section-manage"></Item>
+		<Item id="SmallLoanCompleteTaskView" text="已完成任务" iconCls="menu-flowEnd"></Item>
+	</Items>
+	<Items id="Customer" text="客户管理" iconCls="menu-customer"
+		isPublic="false">
+		<Item id="EnterpriseView" iconCls="menu-appuser" text="企业客户"
+			url="/credit/customer/enterprise/enterpriseList.jsp" />
+		<Item id="PersonView" iconCls="menu-person" text="个人客户"
+			url="/credit/customer/person/personList.jsp" />
+	</Items>
+	<!--<Items id="CommonFlow" text="常规流程" iconCls="menu-flows" isPublic="false">
+		<Item id="newProjectForm" text="新建项目" iconCls="menu-project"></Item>
+		<Item id="DiligenceForm" text="尽职调查" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm1" text="风险部综合分析" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm2" text="审贷会决议" iconCls="menu-diligence1"></Item>
+		<Item id="DiligenceFormMeeting" text="上传会议纪要" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm3" text="制定款项计划" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm4" text="合同制作" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm5" text="合同签署" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm6" text="办理抵质押物手续" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm7" text="归档确认" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm8" text="项目放款" iconCls="menu-diligence"></Item>
+		<Item id="DiligenceForm9" text="贷款项目信息" iconCls="menu-diligence"></Item>
+	</Items>
+	<Items id="FastFlow" text="快速流程" iconCls="menu-info2">
+		<Item id="ProjectInfo" text="项目信息"></Item>
+		<Item id="CashLoanPlan" text="制定收放款计划"></Item>
+		<Item id="ContractManufacturing" text="合同制作"></Item>
+		<Item id="ContractSigning" text="合同签署"></Item>
+		<Item id="ProjectLoan" text="项目放款"></Item>
+	</Items>
+	-->
+	<Items id="RFinanceProject" text="融资项目信息管理" iconCls="menu-finance-info"
+		isPublic="true">
+		<Item id="BeforeFinancingProjectInfoView" iconCls="menu-flowNew" text="融资前项目管理" />
+		<Item id="MiddleFinancingProjectInfoView" iconCls="menu-flowMine" text="还款中项目管理" />
+		<Item id="DoneFinancingProjectInfoView" iconCls="menu-flowEnd" text="已完成项目管理" />
+		<Item id="StopFinancingProjectInfoView" iconCls="menu-del" text="提前终止项目管理" />
+	</Items>
+	
+	<Items id="DFinanceProject" text="贷款项目信息管理" iconCls="menu-finance-info"
+		isPublic="true">
+		<Item id="BeforeSlProjectInfoView" text="贷前项目管理" iconCls="menu-flowNew" />
+		<Item id="MiddleSlProjectInfoView" text="贷中项目管理" iconCls="menu-flowMine" />
+		<Item id="DoneSlProjectInfoView" text="已完成项目管理" iconCls="menu-flowEnd" />
+		<Item id="StopSlProjectInfoView" text="提前终止项目管理" iconCls="menu-del" />
+	</Items>
+	<Items id="Sale" text="业绩管理" iconCls="menu-archive-handout" isPublic="false">
+		<Item id="PerformanceManagement" iconCls="menu-arch-leader" text="人员管理" />
+	</Items>
+	<Items id="DocTemplate" text="文档模板管理" iconCls="btn-myAssign"
+		isPublic="true">
+		<Item id="FinanceDocmentView" iconCls="btn-operation"
+			text="小额贷款模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?businessType=SmallLoan" />
+		<!-- <Item id="ClauseDocmentView" iconCls="menu-new-document"
+			text="展期合同模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=8&amp;businessType=1747" />
+		<Item id="ReportDocmentView" iconCls="menu-find-doc" text="报告模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=5&amp;businessType=1744" />
+		<Item id="OtherDocmentView" iconCls="menu-template" text="其他模板文档"
+			url="/credit/document/contractTemplateDocumentList.jsp?templettype=7&amp;businessType=1746" />
+			 -->
+	</Items>
+	<Items id="Finance" text="财务管理" iconCls="menu-add_salay"
+		isPublic="false">
+		<Item id="SlBankAccountView" iconCls="menu-resume" text="我方账户管理" />
+		<Item id="SlFundQlideView2" iconCls="menu-dutyStats" text="账户流水管理" />
+		<Items id="checkFinance" text="对账管理" iconCls="menu-job-check"
+		isPublic="false">
+		<Item id="SlFundIntentView" iconCls="menu-archive-issue" text="款项对账" />
+		<Item id="SlActualToChargeView" iconCls="menu-flowWait" text="杂项费用对账" />
+		</Items>
+		<Item id="SlPlansToChargeView?chargekey=SmallLoan" iconCls="menu-archive-draft-manage" text="杂项费用配置管理" />
+		<Item id="ReportTemplateMenu?reportKey=projectdetail" iconCls="menu-arch-detail" text="项目明细表" />
+		<Item id="ReportTemplateMenu?reportKey=yearaccrual" iconCls="menu-biaodan" text="项目年化净利率报表" />
+		<Item id="ReportTemplateMenu?reportKey=profit" iconCls="menu-report" text="贷款项目利润率报表" />	
+	</Items>
+	<Items id="SystemManage" text="系统配置" iconCls="menu-contract_config"
+		isPublic="false">
+		<Items id="OurMain" text="我方主体管理" iconCls="menu-newBorrowRecord">
+			<Item id="SlCompanyMainView" text="企业主体管理" iconCls="menu-company"/>
+			<Item id="SlPersonMainView" text="个人主体管理" iconCls="online-user"/>
+		</Items>
+		<Item id="SlMortgageView" text="我方抵质押物管理" iconCls="menu-product"/>
+		<Item id="OurProcreditAssuretenetLoanView" text="贷款准入原则管理" iconCls="menu-seal"/>
+		<Item id="OurProcreditAssuretenetGuaranteeView" text="担保准入原则管理" iconCls="menu-seal"/>
+		<Item id="OurProcreditMaterialsView" text="贷款材料管理" iconCls="menu-car_repair"/>
+		<Item id="OurProcreditMaterialsEnterpriseView" text="担保材料管理" iconCls="menu-onlinedoc"/>
+	</Items>
+	<Items id="Statistics" text="统计表" iconCls="menu-archRollReport"
+		isPublic="false">
+		<Item id="ReportTemplateMenuCapital?reportKey=CapitalFlow" text="资金流预测分析" iconCls="menu-personal-salary"/>
+		<Item id="ReportTemplateMenu?reportKey=newProfit" text="平均年化净利率分析" iconCls="menu-grade_one"/>
+		<Item id="ReportTemplateMenu?reportKey=accralRates" text="贷款项目平均利润率分析" iconCls="menu-assets"/>
+		
+		<Item id="ReportTemplateMenu?reportKey=projectNum" text="融贷项目数量统计分析图" iconCls="menu-archSat"/>
+		<Item id="ReportTemplateMenu?reportKey=projectMoney" text="融贷金额统计分析图" iconCls="menu-boardRoom"/>
+		<Item id="ReportTemplateMenu?reportKey=projectAccrual" text="融贷利息统计分析图" iconCls="mod-report"/>
+	
+	</Items>
+	<Items id="OutWarnTools" text="外部提醒工具" iconCls="menu-zhong"
+		isPublic="false">
+	</Items>
+	
+</Menus>

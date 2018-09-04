@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.info.News" table="news" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="newsId" column="newsId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="subjectIcon" type="java.lang.String" update="true" insert="true" access="property" column="subjectIcon" length="128" not-null="false" unique="false"/>  
+    <property name="subject" type="java.lang.String" update="true" insert="true" access="property" column="subject" length="128" not-null="true" unique="false"/>  
+    <property name="author" type="java.lang.String" update="true" insert="true" access="property" column="author" length="32" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="expTime" type="java.util.Date" update="true" insert="true" access="property" column="expTime" length="19" not-null="false" unique="false"/>  
+    <property name="replyCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="replyCounts" length="10" not-null="false" unique="false"/>  
+    <property name="viewCounts" type="java.lang.Integer" update="true" insert="true" access="property" column="viewCounts" length="10" not-null="false" unique="false"/>  
+    <property name="issuer" type="java.lang.String" update="true" insert="true" access="property" column="issuer" length="32" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="65535" not-null="true" unique="false"/>  
+    <property name="updateTime" type="java.util.Date" update="true" insert="true" access="property" column="updateTime" length="19" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="isDeskImage" type="java.lang.Short" update="true" insert="true" access="property" column="isDeskImage" length="5" not-null="false" unique="false"/>  
+    <property name="isNotice" type="java.lang.Short" update="true" insert="true" access="property" column="isNotice" length="5" not-null="false" unique="false"/>  
+    <property name="sn" type="java.lang.Integer" update="true" insert="true" access="property" column="sn" length="10" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Section -->  
+    <many-to-one name="section" class="com.zhiwei.credit.model.info.Section" not-null="false" fetch="select"> 
+      <column name="sectionId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to NewsComment -->  
+    <set name="newsComments" table="news_comment" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="newsId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.info.NewsComment"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

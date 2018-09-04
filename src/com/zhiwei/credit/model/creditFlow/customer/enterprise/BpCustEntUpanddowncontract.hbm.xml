@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpanddowncontract"
+        table="bp_cust_ent_upanddowncontract"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="upAndDownContractId"
+            column="upAndDownContractId"
+            type="java.lang.Integer"
+            length="10"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="upremarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="upremarks"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="downremarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="downremarks"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+ <many-to-one name="enterprise" class="com.zhiwei.credit.model.creditFlow.customer.enterprise.Enterprise" > 
+        <column name="enterpriseId"/> 
+        </many-to-one> 
+            <set name="bpCustEntDownstreamContractlist" table="bp_cust_ent_downstream_contract" lazy="true"  sort="unsorted"> 
+      <key> 
+        <column name="upAndDownContractId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntDownstreamContract"/> 
+    </set>
+        <set name="bpCustEntUpstreamContractlist" table="bp_cust_ent_upstream_contract" lazy="true"  sort="unsorted"> 
+      <key> 
+        <column name="upAndDownContractId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.creditFlow.customer.enterprise.BpCustEntUpstreamContract"/> 
+    </set>
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+## This is a velocity template
+## to generate additional properties from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($busClass = $utility.makeBusName($utility.replaceString($sqlTable.EntityName,"_"," ")))
+##----若使用表注释进行表名的填充，可以用以下方式替换以上方式(busClass)。
+##if ($sqlTable && $sqlTable.remarks != "")
+##set ($busClass = $utility.makeBusName($utility.replaceString($sqlTable.EntityName,"_"," ")))
+##else
+##set ($busClass = $utility.makeBusName($sqlTable.remarks))
+##end
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+menu.view${class}s=[${busClass}]管理
+
+# --- ${busClass} page --
+#foreach( $column in $sqlTable.sqlColumns)
+#set ($attName    = $utility.makeVarName($column.colname))
+#if ($column.remarks && $column.remarks != "")
+#set ($busName    = $utility.replaceString($utility.makeBusName($column.remarks),"_"," "))
+#else
+#set ($busName    = $utility.replaceString($utility.makeBusName($column.colname),"_"," "))
+#end
+${classVar}.${attName}=${busName}
+#end
+
+# -- ${busClass} profile page --
+${classVar}Detail.heading=[${busClass}]详细信息
+
+# -- ${busClass} list page --
+${classVar}List.heading=[${busClass}]列表
+${classVar}List.no${classVar}s=<span>对不起，没有找到[${busClass}]的任何记录。</span>
+${classVar}.added=<span>成功添加[${busClass}]{0}。</span>
+${classVar}.deleted=<span>成功删除[${busClass}]{0}。</span>
+${classVar}.updated=<span>成功更新[${busClass}]{0}。</span>
+${classVar}.mutiDeleted=<span>您已经成功删除您所选的[${busClass}]。</span>

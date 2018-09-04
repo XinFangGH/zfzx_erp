@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_pawn" text="典当行软件" iconCls="mod-team"> 
+	<Items id="PawnProjectQuery" text="典当业务管理" iconCls="mod-analysis" >
+		<Item id="PlPawnProjectManager?projectStatus=7" text="全部典当业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p7" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_stopPawnPro_p7" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePawnPro_p7" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showPawnFlowImg_p7" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_pawnyjysm_p7" text="意见与说明" iconCls="btn-detail"/>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=0" text="审批中业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p0" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p0" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_0" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_0" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_0" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_0" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_0" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_0" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_0" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_0" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_0" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_0" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_0" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_0" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_0" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_0" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_0" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_0" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_0" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_0" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p0" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_0" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p0" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePawnPro_p0" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showPawnFlowImg_p0" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_pawnyjysm_p0" text="意见与说明" iconCls="btn-detail"/>
+			<Functions id="_detailPawnPro_p0" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_editPawnbusinessInfo_0" text="业务信息" iconCls="">
+					<Function id="editPawnProjectInfo_0" text="项目基本信息" iconCls=""/>
+					<Function id="editPawnCustomerInfo_0" text="客户信息" iconCls=""/>
+					<Function id="editPawnFinanceInfo_0" text="典当信息" iconCls="mod-finance"/>
+					<Functions id="editPawnItemsList_0" text="当物清单" iconCls="mod-finance">
+						<Function id="addPawnItemsListInfo_0" text="增加当物" iconCls=""/>
+						<Function id="editPawnItemsListInfo_0" text="编辑当物" iconCls=""/>
+						<Function id="removePawnItemsListInfo_0" text="删除当物" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnFundIntent_0" text="放款收息表" iconCls="mod-finance">
+						<Function id="addPawnFundInent_0" text="增加" iconCls=""/>
+						<Function id="delPawnFundInent_0" text="删除" iconCls=""/>
+						<Function id="canPawnFundInent_0" text="取消" iconCls=""/>
+						<Function id="resPawnFundInent_0" text="还原" iconCls=""/>
+						<Function id="reconPawnFundInent_0" text="手动对账" iconCls=""/>
+						<Function id="seeqlidePawmFundInent_0" text="查看单项流水记录" iconCls=""/>
+						<Function id="seesumqlidePawnFundInent_0" text="项目总流水记录" iconCls=""/>
+						<Function id="ecportExcel_0" text="导出Excel" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnContractInfo_0" text="合同列表" iconCls="mod-finance">
+						<Function id="addPawnContractInfo_0" text="增加" iconCls=""/>
+						<Function id="delPawnContractInfo_0" text="删除" iconCls=""/>
+						<Function id="editPawnContract_0" text="编辑" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnUploads_0" text="办理文件" iconCls="mod-finance">
+						<Function id="addPawnUploads_0" text="上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnPreAssessmentReportInfo_0" text="预评估报告" iconCls="mod-finance">
+						<Function id="addPawnPreAssessmentReportInfo_0" text="下载模板以及上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnMaterials_0" text="归档材料清单" iconCls="mod-finance">
+						<Function id="addPawnMaterials_0" text="增加以及删除" iconCls=""/>
+					</Functions>
+					<Function id="editPawnOnlineReviewMeeting_0" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="editPawnReviewMeeting_0" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_editPawnRecordInfo_0" text="当后记录" iconCls="">
+					<Functions id="editPawnContinuedInfo_0" text="续当记录" iconCls="">
+						<Function id="editPawnContinued_0" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnRedeemInfo_0" text="赎当记录" iconCls="">
+						<Function id="editPawnRedeem_0" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnVastInfo_0" text="绝当记录" iconCls="mod-finance">
+						<Function id="editPawnVast_0" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketLoss_0" text="挂失记录" iconCls="mod-finance">
+						<Function id="editPawnTicketLossRecord_0" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketReissue_0" text="补发记录" iconCls="mod-finance">
+						<Function id="editPawnTicketReissueRecord_0" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+				</Functions>
+				<Functions id="_editPawnProcessControl_p0" text="流程控制" iconCls="">
+					<Function id="editPawnAgreements_0" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="editPawnShowFlowImg_0" text="流程示意图" iconCls="btn-detail"/>
+					<Function id="editPawnTaskHandler_0" text="任务换人" iconCls="btn-detail"/>
+					<Function id="editPawnPathChange_0" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="editPawnStopPro_0" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+			</Functions>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=1" text="在当业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p1" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p1" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_1" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_1" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_1" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_1" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_1" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_1" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_1" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_1" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_1" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_1" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_1" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_1" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_1" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_1" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_1" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_1" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_1" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_1" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p1" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_1" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p1" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePawnPro_p1" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showPawnFlowImg_p1" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_pawnyjysm_p1" text="意见与说明" iconCls="btn-detail"/>
+			<Functions id="_detailPawnPro_p1" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_editPawnbusinessInfo_1" text="业务信息" iconCls="">
+					<Function id="editPawnProjectInfo_1" text="项目基本信息" iconCls=""/>
+					<Function id="editPawnCustomerInfo_1" text="客户信息" iconCls=""/>
+					<Function id="editPawnFinanceInfo_1" text="典当信息" iconCls="mod-finance"/>
+					<Functions id="editPawnItemsList_1" text="当物清单" iconCls="mod-finance">
+						<Function id="addPawnItemsListInfo_1" text="增加当物" iconCls=""/>
+						<Function id="editPawnItemsListInfo_1" text="编辑当物" iconCls=""/>
+						<Function id="removePawnItemsListInfo_1" text="删除当物" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnFundIntent_1" text="放款收息表" iconCls="mod-finance">
+						<Function id="addPawnFundInent_1" text="增加" iconCls=""/>
+						<Function id="delPawnFundInent_1" text="删除" iconCls=""/>
+						<Function id="canPawnFundInent_1" text="取消" iconCls=""/>
+						<Function id="resPawnFundInent_1" text="还原" iconCls=""/>
+						<Function id="reconPawnFundInent_1" text="手动对账" iconCls=""/>
+						<Function id="seeqlidePawmFundInent_1" text="查看单项流水记录" iconCls=""/>
+						<Function id="seesumqlidePawnFundInent_1" text="项目总流水记录" iconCls=""/>
+						<Function id="ecportExcel_1" text="导出Excel" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnContractInfo_1" text="合同列表" iconCls="mod-finance">
+						<Function id="addPawnContractInfo_1" text="增加" iconCls=""/>
+						<Function id="delPawnContractInfo_1" text="删除" iconCls=""/>
+						<Function id="editPawnContract_1" text="编辑" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnUploads_1" text="办理文件" iconCls="mod-finance">
+						<Function id="addPawnUploads_1" text="上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnPreAssessmentReportInfo_1" text="预评估报告" iconCls="mod-finance">
+						<Function id="addPawnPreAssessmentReportInfo_1" text="下载模板以及上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnMaterials_1" text="归档材料清单" iconCls="mod-finance">
+						<Function id="addPawnMaterials_1" text="增加以及删除" iconCls=""/>
+					</Functions>
+					<Function id="editPawnOnlineReviewMeeting_1" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="editPawnReviewMeeting_1" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_editPawnRecordInfo_1" text="当后记录" iconCls="">
+					<Functions id="editPawnContinuedInfo_1" text="续当记录" iconCls="">
+						<Function id="editPawnContinued_1" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnRedeemInfo_1" text="赎当记录" iconCls="">
+						<Function id="editPawnRedeem_1" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnVastInfo_1" text="绝当记录" iconCls="mod-finance">
+						<Function id="editPawnVast_1" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketLoss_1" text="挂失记录" iconCls="mod-finance">
+						<Function id="editPawnTicketLossRecord_1" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketReissue_1" text="补发记录" iconCls="mod-finance">
+						<Function id="editPawnTicketReissueRecord_1" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+				</Functions>
+			<Functions id="_editPawnProcessControl_p1" text="流程控制" iconCls="">
+					<Function id="editPawnAgreements_1" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="editPawnShowFlowImg_1" text="流程示意图" iconCls="btn-detail"/>
+					<Function id="editPawnTaskHandler_1" text="任务换人" iconCls="btn-detail"/>
+					<Function id="editPawnPathChange_1" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="editPawnStopPro_1" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+			</Functions>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=4" text="续当业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p4" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p4" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_4" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_4" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_4" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_4" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_4" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_4" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_4" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_4" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_4" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_4" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_4" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_4" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_4" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_4" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_4" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_4" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_4" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_4" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p4" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_4" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_4" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p4" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePawnPro_p4" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showPawnFlowImg_p4" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_pawnyjysm_p4" text="意见与说明" iconCls="btn-detail"/>
+			<Functions id="_detailPawnPro_p4" text="编辑项目" iconCls="btn-edit" >
+				<Functions id="_editPawnbusinessInfo_4" text="业务信息" iconCls="">
+					<Function id="editPawnProjectInfo_4" text="项目基本信息" iconCls=""/>
+					<Function id="editPawnCustomerInfo_4" text="客户信息" iconCls=""/>
+					<Function id="editPawnFinanceInfo_4" text="典当信息" iconCls="mod-finance"/>
+					<Functions id="editPawnItemsList_4" text="当物清单" iconCls="mod-finance">
+						<Function id="addPawnItemsListInfo_4" text="增加当物" iconCls=""/>
+						<Function id="editPawnItemsListInfo_4" text="编辑当物" iconCls=""/>
+						<Function id="removePawnItemsListInfo_4" text="删除当物" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnFundIntent_4" text="放款收息表" iconCls="mod-finance">
+						<Function id="addPawnFundInent_4" text="增加" iconCls=""/>
+						<Function id="delPawnFundInent_4" text="删除" iconCls=""/>
+						<Function id="canPawnFundInent_4" text="取消" iconCls=""/>
+						<Function id="resPawnFundInent_4" text="还原" iconCls=""/>
+						<Function id="reconPawnFundInent_4" text="手动对账" iconCls=""/>
+						<Function id="seeqlidePawmFundInent_4" text="查看单项流水记录" iconCls=""/>
+						<Function id="seesumqlidePawnFundInent_4" text="项目总流水记录" iconCls=""/>
+						<Function id="ecportExcel_4" text="导出Excel" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnContractInfo_4" text="合同列表" iconCls="mod-finance">
+						<Function id="addPawnContractInfo_4" text="增加" iconCls=""/>
+						<Function id="delPawnContractInfo_4" text="删除" iconCls=""/>
+						<Function id="editPawnContract_4" text="编辑" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnUploads_4" text="办理文件" iconCls="mod-finance">
+						<Function id="addPawnUploads_4" text="上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnPreAssessmentReportInfo_4" text="预评估报告" iconCls="mod-finance">
+						<Function id="addPawnPreAssessmentReportInfo_4" text="下载模板以及上传" iconCls=""/>
+					</Functions>
+					<Functions id="editPawnMaterials_4" text="归档材料清单" iconCls="mod-finance">
+						<Function id="addPawnMaterials_4" text="增加以及删除" iconCls=""/>
+					</Functions>
+					<Function id="editPawnOnlineReviewMeeting_4" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="editPawnReviewMeeting_4" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_editPawnRecordInfo_4" text="当后记录" iconCls="">
+					<Functions id="editPawnContinuedInfo_4" text="续当记录" iconCls="">
+						<Function id="editPawnContinued_4" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnRedeemInfo_4" text="赎当记录" iconCls="">
+						<Function id="editPawnRedeem_4" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnVastInfo_4" text="绝当记录" iconCls="mod-finance">
+						<Function id="editPawnVast_4" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketLoss_4" text="挂失记录" iconCls="mod-finance">
+						<Function id="editPawnTicketLossRecord_4" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+					<Functions id="editPawnTicketReissue_4" text="补发记录" iconCls="mod-finance">
+						<Function id="editPawnTicketReissueRecord_4" text="编辑" iconCls="mod-finance"/>
+					</Functions>
+				</Functions>
+				<Functions id="_editPawnProcessControl_p4" text="流程控制" iconCls="">
+					<Function id="editPawnAgreements_4" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="editPawnShowFlowImg_4" text="流程示意图" iconCls="btn-detail"/>
+					<Function id="editPawnTaskHandler_4" text="任务换人" iconCls="btn-detail"/>
+					<Function id="editPawnPathChange_4" text="流程跳转" iconCls="btn-detail"/>
+					<Function id="editPawnStopPro_4" text="终止项目" iconCls="btn-close"/>
+				</Functions>
+			</Functions>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=5" text="赎当业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p5" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p5" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_5" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_5" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_5" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_5" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_5" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_5" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_5" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_5" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_5" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_5" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_5" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_5" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_5" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_5" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_5" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_5" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_5" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_5" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p5" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_5" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_5" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p5" text="终止项目" iconCls="btn-close"/>
+				<Function id="_removePawnPro_p5" text="删除项目" iconCls="btn-del"/>
+				<Function id="_showPawnFlowImg_p5" text="流程示意图" iconCls="btn-flow-chart"/>
+				<Function id="_pawnyjysm_p5" text="意见与说明" iconCls="btn-detail"/>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=6" text="绝当业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p6" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p6" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_6" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_6" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_6" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_6" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_6" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_6" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_6" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_6" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_6" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_6" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_6" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_6" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_6" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_6" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_6" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_6" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_6" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_6" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p6" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_6" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_6" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p6" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePawnPro_p6" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showPawnFlowImg_p6" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_pawnyjysm_p6" text="意见与说明" iconCls="btn-detail"/>
+		</Item>
+		<Item id="PlPawnProjectManager?projectStatus=3" text="提前终止业务" iconCls="btn-tree-team47" >
+			<Function id="_seeAllPawnPro_p3" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Functions id="_seePawnPro_p3" text="查看项目" iconCls="btn-detail">
+				<Functions id="_seePawnbusinessInfo_3" text="业务信息" iconCls="">
+					<Function id="seePawnProjectInfo_3" text="项目基本信息" iconCls=""/>
+					<Function id="seePawnCustomerInfo_3" text="客户信息" iconCls=""/>
+					<Function id="seePawnFinanceInfo_3" text="典当信息" iconCls="mod-finance"/>
+					<Function id="seePawnItemsList_3" text="当物清单" iconCls="mod-finance"/>
+					<Function id="seePawnFundIntent_3" text="放款收息表" iconCls="mod-finance"/>
+					<Function id="seePawnContractInfo_3" text="合同列表" iconCls="mod-finance"/>
+					<Function id="seePawnUploads_3" text="办理文件" iconCls="mod-finance"/>
+					<Function id="seePawnPreAssessmentReportInfo_3" text="预评估报告" iconCls="mod-finance"/>
+					<Function id="seePawnMaterials_3" text="归档材料清单" iconCls="mod-finance"/>
+					<Function id="seePawnOnlineReviewMeeting_3" text="评审会决议" iconCls="mod-finance"/>
+					<Function id="seePawnReviewMeeting_3" text="线下评审会决议" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnRecordInfo_3" text="当后记录" iconCls="">
+					<Function id="seePawnContinuedInfo_3" text="续当记录" iconCls=""/>
+					<Function id="seePawnRedeemInfo_3" text="赎当记录" iconCls=""/>
+					<Function id="seePawnVastInfo_3" text="绝当记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketLoss_3" text="挂失记录" iconCls="mod-finance"/>
+					<Function id="seePawnTicketReissue_3" text="补发记录" iconCls="mod-finance"/>
+				</Functions>
+				<Functions id="_seePawnProcessControl_p3" text="流程控制" iconCls="">
+					<Function id="seePawnAgreements_3" text="意见与说明记录" iconCls="btn-detail"/>
+					<Function id="seePawnshowFlowImg_3" text="流程示意图" iconCls="btn-detail"/>
+				</Functions>
+				
+			</Functions>
+			<Function id="_stopPawnPro_p6" text="终止项目" iconCls="btn-close"/>
+			<Function id="_removePawnPro_p6" text="删除项目" iconCls="btn-del"/>
+			<Function id="_showPawnFlowImg_p6" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_pawnyjysm_p6" text="意见与说明" iconCls="btn-detail"/>
+		</Item>
+	</Items>
+	<Items id="PawnManagment" text="在当管理" iconCls="mod-analysis" >
+		<Item id="SlFundintentUrgTab?businessType=Pawn" text="还款催收" iconCls="btn-tree-team47" >
+		</Item>
+		<Item id="PawnProjectManagment?type=1" text="续当办理" iconCls="btn-tree-team47" >
+			<Function id="_pawn_continued_managment" text="续当办理" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnInfo1" text="查看典当详情" iconCls="btn-user-sel"/>
+		</Item>
+		<Item id="PawnProjectManagment?type=2" text="赎当办理" iconCls="btn-tree-team47" >
+			<Function id="_pawn_redeem_managment" text="赎当办理" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnInfo2" text="查看典当详情" iconCls="btn-user-sel"/>
+		</Item>
+		<Item id="PawnProjectManagment?type=3" text="绝当办理" iconCls="btn-tree-team47" >
+			<Function id="_pawn_vast_managment" text="绝当办理" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnInfo3" text="查看典当详情" iconCls="btn-user-sel"/>
+		</Item>
+		<Item id="PawnProjectManagment?type=4" text="当票挂失" iconCls="btn-tree-team47" >
+			<Function id="_pawn_ticket_loss" text="当票挂失" iconCls="btn-user-sel"/>
+			<Function id="_pawn_ticket_reissue" text="当票补发" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnInfo4" text="查看典当详情" iconCls="btn-user-sel"/>
+		</Item>
+		<!--<Item id="PawnProjectManagment?type=5" text="当票转当" iconCls="btn-tree-team47" >
+		</Item>
+	--></Items>
+	<Items id="PawnItemsManagment" text="当物管理" iconCls="mod-analysis" >
+		<Item id="PawnItemsListManagment?type=underway" text="在当物品" iconCls="btn-tree-team47" >
+			<Function id="_add_crkrecord_underway" text="添加出入库记录" iconCls="btn-user-sel"/>
+			<Function id="_see_crkrecord_underway" text="查看出入库记录" iconCls="btn-user-sel"/>
+			<Function id="_add_jcrecord_underway" text="添加检查记录" iconCls="btn-user-sel"/>
+			<Function id="_see_jcrecord_underway" text="查看检查记录" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnItemsList_underway" text="查看典当物详细信息" iconCls="btn-user-sel"/>
+		</Item>
+		<Item id="PawnItemsListManagment?type=finish" text="赎当物品" iconCls="btn-tree-team47" >
+			<Function id="_see_crkrecord_finish" text="查看出入库记录" iconCls="btn-user-sel"/>
+			<Function id="_see_jcrecord_finish" text="查看检查记录" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnItemsList_finish" text="查看典当物详细信息" iconCls="btn-user-sel"/>
+		</Item>
+		<Item id="PawnItemsListManagment?type=vast" text="绝当物品" iconCls="btn-tree-team47" >
+			<Function id="_see_crkrecord_vast" text="查看出入库记录" iconCls="btn-user-sel"/>
+			<Function id="_see_jcrecord_vast" text="查看检查记录" iconCls="btn-user-sel"/>
+			<Function id="_see_pawnItemsList_vast" text="查看典当物详细信息" iconCls="btn-user-sel"/>
+		</Item>
+		
+	</Items>
+		<Items id="contactFinancePawn" text="款项台账" iconCls="menu-finance-qlide" >
+		<Item id="TabSlFundIntentPrincipalPay?businessType=Pawn" iconCls="btn-tree-team29" text="本金放款台账" >
+			<Function id="_liushui_f_principalPay_Pawn" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalPay_Pawn" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalPay_Pawn" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalPay_all" text="平账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalPay_Pawn" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalPay_Pawn" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentprincipalIncome?businessType=Pawn" iconCls="btn-tree-team29" text="本金收款台账" >
+		    <Function id="_liushui_f_principalIncome_Pawn" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalIncome_Pawn" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_principalIncome_Pawn" text="查看" iconCls="btn-detail"/>
+			<Function id="_ping_f_principalIncome_Pawn" text="平账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_principalIncome_Pawn" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_principalIncome_Pawn" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentInterestIncome?businessType=Pawn" iconCls="btn-tree-team29" text="利息收款台账" >
+		    <Function id="_liushui_f_interestIncome_Pawn" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_interestIncome_Pawn" text="现金对账" iconCls="btn-details"/>
+			<Function id="_liushuisee_f_interestIncome_Pawn" text="查看对账明细" iconCls="btn-detail"/>
+			<Function id="_ping_f_interestIncome_Pawn" text="平账" iconCls="btn-ok"/>
+			<Function id="_fa_f_interestIncome_Pawn" text="罚息对账" iconCls="btn-ok"/>
+			<Function id="_uploaddownpz_f_interestIncome_Pawn" text="上传/下载凭证" iconCls="slupIcon"/>
+			<Function id="_previewpz_f_interestIncome_Pawn" text="预览凭证" iconCls="btn-setting"/>
+		</Item>
+		<Item id="TabSlFundIntentOtherPay?businessType=Pawn" iconCls="btn-tree-team29" text="其他支出台账" >
+			 <Function id="_liushui_f_OtherPay_Pawn" text="流水对账" iconCls="btn-user-sel">
+			</Function>
+			<Function id="_cash_f_OtherPay_Pawn" text="现金对账" iconCls="btn-details">
+			</Function>
+			<Function id="_liushuisee_f_OtherPay_Pawn" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_OtherPay_Pawn" text="平账" iconCls="btn-ok">
+			</Function>
+			<Function id="_uploaddownpz_f_OtherPay_Pawn" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_OtherPay_Pawn" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+
+		<Item id="VFundDetail?businessType=Pawn" iconCls="menu-archive-history" text="本金利息台账日志" >
+		    <Function id="_cxdz_f_Pawn" text="撤销核销" iconCls="btn-setting"/>
+		</Item>
+	</Items>
+	<Items id="DocumentManagerPawn" text="合同管理" iconCls="mod-analysis" >
+	
+		<Item id="CreditDocumentManager?businessType=Pawn" text="合同模板制作" iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm_Pawn" text="新增模板类型" iconCls="btn-add"/>
+			<Function id="_edit_cdm_Pawn" text="修改模板类型信息" iconCls="btn-edit"/>
+			<Function id="_remove_cdm_Pawn" text="删除模板类型" iconCls="btn-del"/>
+			<Function id="_read_cdm_Pawn" text="查看系统要素" iconCls="btn-readdocument"/>
+			<Function id="_output_cdm_Pawn" text="导出系统要素" iconCls="btn-xls"/>
+		</Item>
+		<Item id="ContractManager?businessType=Pawn" text="合同管理" iconCls="btn-tree-team31" ></Item>
+		<Item id="CsElementCategoryView?businessType=Pawn" text="合同要素" iconCls="btn-tree-team31" />
+	</Items>
+	
+	<Items id="PlArchivesViewMenu?businessType=Pawn" text="归档管理" iconCls="btn-tree-team33" >
+		 <Item id="PlProjectArchivesView?businessType=Pawn" text="归档管理" iconCls="btn-tree-team33">
+		    <Function id="_Archives_add_Pawn" text="办理归档" iconCls="btn-see">
+			</Function>
+			<Function id="_Archivesproj_see_Pawn" text="查看项目详情" iconCls="btn-see">
+			</Function>
+		</Item>
+	</Items><!--
+	
+	
+	--><Items id="PNSetting" text="业务配置管理" iconCls="menu-smallloan-info" expanded="false">
+		
+		<Item id="OurPawnMaterialsView?businessType=Pawn" text="当物材料清单管理" iconCls="menu-materials">
+			<Function id="_create_dbdc_pawn" text="添加当物材料" iconCls="btn-add"/>
+			<Function id="_edit_dbdc_pawn" text="编辑当物材料" iconCls="btn-edit"/>
+			<Function id="_remove_dbdc_pawn" text="删除当物材料" iconCls="btn-del"/>
+			<Function id="_create_dbdcx_pawn" text="添加当物材料项" iconCls="btn-add"/>
+			<Function id="_edit_dbdcx_pawn" text="编辑当物材料项" iconCls="btn-edit"/>
+			<Function id="_remove_dbdcx_pawn" text="删除当物材料项" iconCls="btn-del"/>
+		</Item>
+		
+		<Item id="OurArchivesMaterialsView?businessType=Pawn" text="典当归档材料清单管理" iconCls="menu-materials" isShow="false">
+			<Function id="_create_archives_Pawn" text="添加归档材料" iconCls="btn-add"/>
+			<Function id="_remove_archives_Pawn" text="删除归档材料" iconCls="btn-del"/>
+			<Function id="_edit_archives_Pawn" text="编辑归档材料" iconCls="btn-edit"/>
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=Pawn" text="文档模板管理" iconCls="btn-tree-team48" isShow="false" >
+			<Function id="_create_ddm_Pawn" text="新增模板文档项" iconCls="btn-add"/>
+			<Function id="_edit_ddm_Pawn" text="修改模板文档项" iconCls="btn-edit"/>
+			<Function id="_remove_ddm_Pawn" text="删除模板文档项" iconCls="btn-del"/>
+		</Item>
+		
+		
+	</Items>
+	<Items id="PawnReport" text="典当报表" iconCls="menu-smallloan-info" expanded="false">
+	<Item id="ReportMenuPawnDetail?reportKey=pawnDetail" iconCls="btn-tree-team40" text="典当明细表" />
+	<Item id="ReportMenuMonthPawnPayment?reportKey=monthPawnPayment" iconCls="btn-tree-team40" text="典当发放情况" />		
+	</Items>
+</Menus>

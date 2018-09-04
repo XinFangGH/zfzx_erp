@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.RelativeUser" table="relative_user" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="relativeUserId" column="relativeUserId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="isSuper" type="java.lang.Short" update="true" insert="true" access="property" column="isSuper" length="5" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to RelativeJob -->  
+    <many-to-one name="relativeJob" class="com.zhiwei.credit.model.system.RelativeJob" not-null="false" fetch="select"> 
+      <column name="reJobId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="jobUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="jobUserId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

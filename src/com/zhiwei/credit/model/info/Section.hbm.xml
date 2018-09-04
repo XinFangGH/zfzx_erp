@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.info.Section" table="section" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="sectionId" column="sectionId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="sectionName" type="java.lang.String" update="true" insert="true" access="property" column="sectionName" length="256" not-null="true" unique="false"/>  
+    <property name="sectionDesc" type="java.lang.String" update="true" insert="true" access="property" column="sectionDesc" length="1024" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="sectionType" type="java.lang.Short" update="true" insert="true" access="property" column="sectionType" length="5" not-null="true" unique="false"/>  
+    <property name="username" type="java.lang.String" update="true" insert="true" access="property" column="username" length="256" not-null="false" unique="false"/>  
+    <property name="userId" type="java.lang.Long" update="true" insert="true" access="property" column="userId" length="19" not-null="false" unique="false"/>  
+    <property name="colNumber" type="java.lang.Integer" update="true" insert="true" access="property" column="colNumber" length="10" not-null="false" unique="false"/>  
+    <property name="rowNumber" type="java.lang.Integer" update="true" insert="true" access="property" column="rowNumber" length="10" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to News -->  
+    <set name="newss" table="news" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="sectionId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.info.News"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.CusLinkman" table="cus_linkman" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="linkmanId" column="linkmanId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="32" not-null="true" unique="false"/>  
+    <property name="sex" type="java.lang.Short" update="true" insert="true" access="property" column="sex" length="5" not-null="true" unique="false"/>  
+    <property name="position" type="java.lang.String" update="true" insert="true" access="property" column="position" length="32" not-null="false" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="32" not-null="false" unique="false"/>  
+    <property name="mobile" type="java.lang.String" update="true" insert="true" access="property" column="mobile" length="32" not-null="true" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="100" not-null="false" unique="false"/>  
+    <property name="msn" type="java.lang.String" update="true" insert="true" access="property" column="msn" length="100" not-null="false" unique="false"/>  
+    <property name="qq" type="java.lang.String" update="true" insert="true" access="property" column="qq" length="64" not-null="false" unique="false"/>  
+    <property name="fax" type="java.lang.String" update="true" insert="true" access="property" column="fax" length="32" not-null="false" unique="false"/>  
+    <property name="birthday" type="java.util.Date" update="true" insert="true" access="property" column="birthday" length="10" not-null="false" unique="false"/>  
+    <property name="homeAddress" type="java.lang.String" update="true" insert="true" access="property" column="homeAddress" length="128" not-null="false" unique="false"/>  
+    <property name="homeZip" type="java.lang.String" update="true" insert="true" access="property" column="homeZip" length="32" not-null="false" unique="false"/>  
+    <property name="homePhone" type="java.lang.String" update="true" insert="true" access="property" column="homePhone" length="32" not-null="false" unique="false"/>  
+    <property name="hobby" type="java.lang.String" update="true" insert="true" access="property" column="hobby" length="100" not-null="false" unique="false"/>  
+    <property name="isPrimary" type="java.lang.Short" update="true" insert="true" access="property" column="isPrimary" length="5" not-null="true" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <!--         <property
+            name="customerId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="customerId"
+            length="19"
+            not-null="true"
+        />
+         -->  
+    <!-- imported bi-directional many-to-one association to Customer -->  
+    <many-to-one name="customer" class="com.zhiwei.credit.model.customer.Customer" not-null="false" fetch="select"> 
+      <column name="customerId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

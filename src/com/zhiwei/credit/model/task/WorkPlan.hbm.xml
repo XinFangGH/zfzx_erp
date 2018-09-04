@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.task.WorkPlan" table="work_plan" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="planId" column="planId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="planName" type="java.lang.String" update="true" insert="true" access="property" column="planName" length="128" not-null="true" unique="false"/>  
+    <property name="planContent" type="java.lang.String" update="true" insert="true" access="property" column="planContent" length="5000" not-null="false" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="true" unique="false"/>  
+    <property name="issueScope" type="java.lang.String" update="true" insert="true" access="property" column="issueScope" length="2000" not-null="false" unique="false"/>  
+    <property name="participants" type="java.lang.String" update="true" insert="true" access="property" column="participants" length="2000" not-null="false" unique="false"/>  
+    <property name="principal" type="java.lang.String" update="true" insert="true" access="property" column="principal" length="256" not-null="true" unique="false"/>  
+    <property name="note" type="java.lang.String" update="true" insert="true" access="property" column="note" length="500" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="isPersonal" type="java.lang.Short" update="true" insert="true" access="property" column="isPersonal" length="5" not-null="true" unique="false"/>  
+    <property name="icon" type="java.lang.String" update="true" insert="true" access="property" column="icon" length="128" not-null="false" unique="false"/>  
+    <!--  <property
+            name="typeId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="typeId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />-->  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="64" not-null="false" unique="false"/>  
+    <many-to-one name="globalType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select" lazy="false"> 
+      <column name="proTypeId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to PlanType 
+		<many-to-one
+			name="planType"
+			class="com.zhiwei.credit.model.task.PlanType"
+            not-null="false"
+			fetch="select"
+			lazy="false"
+		>	
+			<column name="typeId" />
+		</many-to-one>-->  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="false" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to PlanFile -->  
+    <set name="planFiles" table="plan_file" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="planId"/>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.FileAttach" column="fileId"/> 
+    </set>  
+    <set name="planAttends" table="plan_attend" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="planId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.task.PlanAttend"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

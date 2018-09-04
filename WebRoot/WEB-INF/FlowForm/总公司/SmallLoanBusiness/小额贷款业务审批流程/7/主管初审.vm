@@ -1,0 +1,90 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+
+	id : "form1",
+	formPanel : null,
+	topbar : null,
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	operationType : '$!operationType',
+	safeLevel : 1,
+	constructor : function(_cfg) {
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+					iconCls : 'menu-profile-create',
+					border : false
+				});
+	},
+	initComponents : function() {
+		var jsArr = [
+				__ctxPath + '/js/ah_ext/factory/ahinput.js',// 封装方法
+				__ctxPath + '/js/commonFlow/ExtUD.Ext.js',// 客户信息 项目基本信息
+				__ctxPath + '/js/ah_ext/anLoadData.js',
+				__ctxPath + '/js/ah_ext/factory/getFilest.js',
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',// 股东信息
+			
+				__ctxPath
+						+ '/js/creditFlow/assuretenet/SlProcreditAssuretenetedForm.js',// 贷款准入原则
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/report/SlRiskReportView.js',// 风险调查报告
+				__ctxPath + '/js/creditFlow/finance/calculateFundIntent.js',
+				__ctxPath + '/js/creditFlow/finance/calulateFinancePanel.js',
+				__ctxPath + '/js/creditFlow/finance/caluateIntentGrid.js',
+				__ctxPath + '/js/creditFlow/finance/calulateloadDataCommon.js',
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/mortgage/AddDzyMortgageWin.js',
+				__ctxPath + '/js/creditFlow/mortgage/business/BusinessForm.js',
+				__ctxPath + '/js/creditFlow/smallLoan/finance/BorrowerInfo.js',
+				__ctxPath + '/js/creditFlow/repaymentSource/RepaymentSource.js', // 第一还款来源
+				__ctxPath
+						+ '/js/creditFlow/guarantee/meeting/CensorMeetingCollectivityDecisionConfirm.js',
+				__ctxPath
+						+ '/js/creditFlow/smallLoan/meeting/MeetingSummaryForm.js',
+							__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterPriseProcreditMaterialsView.js',// 贷
+				__ctxPath
+						+ '/js/creditFlow/smallLoan/meeting/MeetingSummaryUpload.js',
+				__ctxPath + '/js/ah_ext/getPanel.js',// 创建工厂
+				__ctxPath + '/js/ah_ext/doLoad.js'// 封装方法
+		];
+		$ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	// 构造页面
+	constructPanel : function() {
+		var pson = {
+			projectId : '$!projectId',
+			oppositeType : '$!oppositeType',
+			businessType : '$!businessType',
+			operationType : '$!operationType',
+			runId : '$!runId',
+			taskId : this.taskId,
+			title : "xxx"
+		}
+		var j = ["ah_3", "ah_a2", "ah_b2", "ah_c2", "ah_d2", "ah_e2", "ah_f2",
+				"ah_g11", "ah_h2", "ah_i2"];
+		this.formPanel = makePanle.create(j, pson);
+		this.loadData(Ext.ah.DoLoad.baseInfo.call(this, this.projectId,
+				this.taskId));
+		this.add(this.formPanel);
+		this.doLayout();
+		this.formPanel.on('render', this.onGetTaskInfo.call(this, this.taskId));
+	},
+	// 数据初始化
+	onGetTaskInfo : function() {
+	},
+	saveBusDatas : function(formPanel, fun) {
+		Ext.ah.DoLoad.baseSave.call(this, formPanel, fun);
+	},
+	nextStep : function(rootObj, outpanel) {
+		Ext.ah.DoLoad.baseNext.call(this, rootObj, outpanel);
+		return true;
+	},
+	validate : function(outpanel) {
+		return true;
+
+	}
+})

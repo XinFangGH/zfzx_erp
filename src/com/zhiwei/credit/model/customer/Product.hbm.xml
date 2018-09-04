@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.Product" table="product" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="productId" column="productId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="productName" type="java.lang.String" update="true" insert="true" access="property" column="productName" length="128" not-null="true" unique="false"/>  
+    <property name="productModel" type="java.lang.String" update="true" insert="true" access="property" column="productModel" length="128" not-null="false" unique="false"/>  
+    <property name="unit" type="java.lang.String" update="true" insert="true" access="property" column="unit" length="128" not-null="false" unique="false"/>  
+    <property name="costPrice" type="java.math.BigDecimal" update="true" insert="true" access="property" column="costPrice" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="salesPrice" type="java.math.BigDecimal" update="true" insert="true" access="property" column="salesPrice" precision="18" scale="2" not-null="false" unique="false"/>  
+    <property name="productDesc" type="java.lang.String" update="true" insert="true" access="property" column="productDesc" length="512" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="updatetime" length="19" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Provider -->  
+    <many-to-one name="provider" class="com.zhiwei.credit.model.customer.Provider" not-null="false" fetch="select"> 
+      <column name="providerId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

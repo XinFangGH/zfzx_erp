@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.Book" table="book" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="bookId" column="bookId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="bookName" type="java.lang.String" update="true" insert="true" access="property" column="bookName" length="128" not-null="true" unique="false"/>  
+    <property name="author" type="java.lang.String" update="true" insert="true" access="property" column="author" length="128" not-null="true" unique="false"/>  
+    <property name="isbn" type="java.lang.String" update="true" insert="true" access="property" column="isbn" length="64" not-null="true" unique="false"/>  
+    <property name="publisher" type="java.lang.String" update="true" insert="true" access="property" column="publisher" length="128" not-null="false" unique="false"/>  
+    <property name="price" type="java.math.BigDecimal" update="true" insert="true" access="property" column="price" length="10" not-null="true" unique="false"/>  
+    <property name="location" type="java.lang.String" update="true" insert="true" access="property" column="location" length="128" not-null="true" unique="false"/>  
+    <property name="department" type="java.lang.String" update="true" insert="true" access="property" column="department" length="64" not-null="true" unique="false"/>  
+    <property name="amount" type="java.lang.Integer" update="true" insert="true" access="property" column="amount" length="10" not-null="true" unique="false"/>  
+    <property name="leftAmount" type="java.lang.Integer" update="true" insert="true" access="property" column="leftAmount" length="10" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to BookType -->  
+    <many-to-one name="bookType" class="com.zhiwei.credit.model.admin.BookType" not-null="false" fetch="select"> 
+      <column name="typeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to BookSn -->  
+    <!-- -->  
+    <set name="bookSns" table="book_sn" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="bookId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.admin.BookSn"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

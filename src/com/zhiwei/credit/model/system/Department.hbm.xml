@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zhiwei.credit.model.system"> 
+  <class name="Department" table="organization" where=" DEM_ID=1 "> 
+    <id name="depId" type="java.lang.Long" column="org_id"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="depName" type="java.lang.String" update="true" insert="true" access="property" column="org_name" length="128" not-null="true" unique="false"/>  
+    <property name="depDesc" type="java.lang.String" update="true" insert="true" access="property" column="org_desc" length="256" not-null="false" unique="false"/>  
+    <property name="depLevel" type="java.lang.Integer" update="true" insert="true" access="property" column="depth" not-null="true" unique="false"/>  
+    <property name="parentId" type="java.lang.Long" update="true" insert="true" access="property" column="org_sup_id" not-null="false" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="128" not-null="false" unique="false"/>  
+    <property name="orgType" type="java.lang.Short" update="true" insert="true" access="property" column="ORG_TYPE" length="11" not-null="false" unique="false"/>  
+    <property name="creatorId" type="java.lang.Long" update="true" insert="true" access="property" column="CREATOR_ID" length="18" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="CREATETIME" length="7" not-null="false" unique="false"/>  
+    <property name="updateId" type="java.lang.Long" update="true" insert="true" access="property" column="UPDATE_ID" length="18" not-null="false" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="UPDATETIME" length="7" not-null="false" unique="false"/>  
+    <many-to-one name="demension" class="com.zhiwei.credit.model.system.Demension" not-null="false" fetch="select"> 
+      <column name="DEM_ID"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to AppUser -->  
+    <set name="appUsers" table="app_user" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="ORG_ID"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.system.AppUser"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to UserOrg -->  
+    <set name="userOrgs" table="user_org" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="ORG_ID"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.system.UserOrg"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

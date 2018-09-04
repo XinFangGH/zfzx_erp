@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.ConfSummary" table="conf_summary" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="sumId" column="sumId" type="java.lang.Long" length="10"> 
+      <generator class="native"></generator> 
+    </id>  
+    <many-to-one name="confId" column="confId" class="com.zhiwei.credit.model.admin.Conference" cascade="save-update" outer-join="true"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="10" not-null="true" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="32" not-null="true" unique="false"/>  
+    <property name="sumContent" type="java.lang.String" update="true" insert="true" access="property" column="sumContent" length="65535" not-null="true" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="false" unique="false"/>  
+    <set name="attachFiles" table="conf_sum_attach" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="sumId"/>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.FileAttach" column="fileId"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

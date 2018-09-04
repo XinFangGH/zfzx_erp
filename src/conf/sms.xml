@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sms>
+	<title>短信模板配置文件</title>
+	<templates>	
+		<template serialNumber="1" key="sms_huankuancuishou" useExplain="款项到期提醒" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您的借款项目${projName}第${payintentPeriod}期，现尚余${money}元将于${year}年${month}月${day}日到期，请抓紧筹措资金按期归还借款，如到期未还，我公司即依照借款合同有关规定予以处理。【${subject}】
+		</template>
+		<template serialNumber="2" key="sms_endTimeCoupons" useExplain="优惠券到期提醒，通知短信" prohibitUse="no" isTest="no">
+			您好，您账户中的${parValue}优惠券即将过期，优惠券有效期到：${endTime}，请登 录平台及时使用，如有疑问请致电：${phone}【${subject}】
+		</template>
+		<template serialNumber="3" key="sms_oaMessage" useExplain="优惠券送达提醒，通知短信" prohibitUse="no" isTest="no">
+			恭喜您，成功收到一张 ${parValue}优惠券，优惠券有效期到：${endTime} ，请登录平台查收使用，如有疑问请致电：${phone}【${subject}】
+		</template>
+		<template serialNumber="4" key="sms_nextnoderemind" useExplain="待办任务通知" prohibitUse="no" isTest="no">
+			流程流转提醒：“${projectName}” 流转到 “${signalName}” 节点,请登陆系统及时处理。【${subject}】
+		</template>
+		<template serialNumber="5" key="sms_flowpass" useExplain="项目审批通过/审批进度通知" prohibitUse="no" isTest="no">
+			你参与的编号为“${projNumber}”的“${projectName}”项目已通过了“${flowName}”,请知悉。【${subject}】
+		</template>
+		<template serialNumber="6" key="sms_flowstop" useExplain="项目终止" prohibitUse="no" isTest="no">
+			你参与的编号为“${projNumber}”的“${projectName}”项目已终止“${flowName}”,请知悉。【${subject}】
+		</template>
+		<template serialNumber="7" key="sms_flowStandard" useExplain="流标，通知短信" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您投资编号为“${projNumber}”的项目“${projName}”${code}元已流标,投标资金已成功解冻进入账户余额。如有疑问请致电${phone}【${subject}】
+		</template>
+		<template serialNumber="8" key="sms_paymentRemind" useExplain="派息短信通知" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您投资的${projName}第${payintentPeriod}期，本期收益已转到您的个人账户，其中本金${investPrincipal} 收益${investInterest} 。有问题请致电${phone} 【${subject}】
+		</template>
+		<template serialNumber="9" key="sms_overdueProj" useExplain="款项逾期提醒，通知短信" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您的借款项目${projName}第${payintentPeriod}期今日已逾期，应还金额${money}元，逾期后将开始计算罚息，请及时还款。如有疑问请致电${phone}【${subject}】
+		</template>
+		<template serialNumber="10" key="sms_bpCoupons" useExplain="优惠券激活码，通知短信" prohibitUse="no" isTest="no">
+			恭喜您，成功收到一张 ${parValue}优惠券，激活码为：${couponNumber},优惠券有效期到：${endTime} ，请登录平台激活使用，如有疑问请致电：${phone}【${subject}】
+		</template>
+		<template serialNumber="11" key="sms_redeemSuccess" useExplain="提前赎回审批通过，通知短信" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您申请赎回标的（${projName}）-（${projNumber}）已通过审批，结算金额（${code}）元，请查收。如有疑问请致电${phone}【${subject}】
+		</template>
+		<template serialNumber="12" key="sms_redeemFail" useExplain="提前赎回审批驳回，通知短信" prohibitUse="no" isTest="no">
+			尊敬的客户${name}您好，您申请赎回标的（${projName}）-（${projNumber}）已被驳回。如有疑问请致电${phone}【${subject}】
+		</template>
+	</templates>
+</sms>

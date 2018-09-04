@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.Position" table="POSITION" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="posId" column="POS_ID" type="java.lang.Long" length="18"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="posName" type="java.lang.String" update="true" insert="true" access="property" column="POS_NAME" length="128" not-null="true" unique="false"/>  
+    <property name="posDesc" type="java.lang.String" update="true" insert="true" access="property" column="POS_DESC" length="1024" not-null="false" unique="false"/>  
+    <property name="posSupId" type="java.lang.Long" update="true" insert="true" access="property" column="POS_SUP_ID" length="18" not-null="false" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="PATH" length="256" not-null="false" unique="false"/>  
+    <property name="depth" type="java.lang.Long" update="true" insert="true" access="property" column="DEPTH" length="22" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Organization -->  
+    <many-to-one name="organization" class="com.zhiwei.credit.model.system.Organization" not-null="false" fetch="select"> 
+      <column name="ORG_ID"/> 
+    </many-to-one>  
+    <set name="mainPositionSubs" table="position_sub" lazy="true" cascade="save-update"> 
+      <key column="MAINPOSITIONID"/>  
+      <many-to-many class="com.zhiwei.credit.model.system.Position" column="SUBPOSITIONID" fetch="join"/> 
+    </set>  
+    <set name="subPositionSubs" table="position_sub" lazy="true" cascade="save-update"> 
+      <key column="SUBPOSITIONID"/>  
+      <many-to-many class="com.zhiwei.credit.model.system.Position" column="MAINPOSITIONID" fetch="join"/> 
+    </set>  
+    <set name="roles" table="role_position" cascade="save-update" inverse="false" lazy="true"> 
+      <key column="pos_id"/>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.AppRole" column="roleId"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to UserPosition -->  
+    <set name="userPositions" table="user_position" lazy="true" inverse="true" cascade="save-update" sort="unsorted"> 
+      <key> 
+        <column name="POS_ID"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.system.UserPosition"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

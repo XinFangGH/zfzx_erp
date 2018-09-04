@@ -1,0 +1,239 @@
+DiligenceForm = Ext.extend(Ext.Panel, {
+	projectId : '$!projectId',
+	oppositeType : '$!oppositeType',
+	businessType : '$!businessType',
+	superviseManageId : '$!superviseManageId',
+	safeLevel:1,
+	constructor : function(_cfg) {
+	    
+		if (_cfg == null) {
+			_cfg = {};
+		}
+		Ext.applyIf(this, _cfg);
+		this.initComponents();
+		DiligenceForm.superclass.constructor.call(this, {
+			 iconCls : 'menu-profile-create',
+			 border : false
+		});
+	},
+	initComponents : function() {
+	      		var jsArr = [__ctxPath + '/js/commonFlow/ExtUD.Ext.js',//客户信息 项目基本信息
+				__ctxPath + '/js/selector/UserDialog.js',
+				__ctxPath + '/js/creditFlow/common/EnterpriseShareequity.js',//股东信息
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/enterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/extEnterpriseBusinessUI.js',//项目基本信息
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',//实际收费项目
+				__ctxPath + '/js/creditFlow/finance/SlActualToChargePremium.js',//保费列表
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterpriseProcreditMaterialsForm.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/guarantee/materials/SlEnterPriseProcreditMaterialsView.js',// 贷款材料
+				__ctxPath + '/js/creditFlow/report/SlReportView.js',// 调查报告
+				__ctxPath + '/js/creditFlow/finance/SlActualToCharge.js',
+				__ctxPath + '/js/creditFlow/customer/bankrelationperson/bankDaRelationPersonList.js',
+				__ctxPath + '/js/creditFlow/smallLoan/contract/SeeThirdContractWindow.js',// 查看担保措施合同详情
+				__ctxPath + '/js/creditFlow/smallLoan/contract/OperateThirdContractWindow.js',// 编辑反担保措施合同
+				__ctxPath + '/js/creditFlow/assuretenet/SlProcreditAssuretenetForm.js',// 贷款准入原则
+				__ctxPath + '/js/creditFlow/guarantee/enterpriseBusiness/EnterpriseEvaluation.js', //企业评估报告
+				__ctxPath + '/js/creditFlow/guarantee/contract/LetterAndBookView.js',// 担保意向书、对外担保承诺函
+				__ctxPath + '/js/creditFlow/common/GlobalSupervisionRecord.js'// 监管信息
+		        ];
+		        $ImportSimpleJs(jsArr, this.constructPanel, this);
+	},
+	constructPanel : function() {
+	        this.projectInfo = new extEnterpriseBusinessProjectInfoPanel({
+			   isDiligenceReadOnly : true,
+			   isAllReadOnly:true
+		    });
+		    this.projectInfoFinance=new ProjectInfoGuaranteeFinancePanel({isAllReadOnly:true});
+		    this.GlActualToChargePanel=new SlActualToCharge({
+		    projId : this.projectId,
+			businessType :'Guarantee',
+			isHiddenPayMoney:true,
+			isHidden : true
+		    });
+		   this.slActualToChargePremium=new SlActualToChargePremium({
+			    projId : this.projectId,
+			    object : this.projectInfoFinance,
+			    isHidden : true,
+				businessType :'Guarantee'      
+		    });
+			
+		
+		  
+		    this.bankInfo=new ExtUD.Ext.BankInfoPanel({isAllReadOnly:true});
+	        var title="企业客户信息";
+	        this.perMain = "";
+		    if(this.oppositeType =="person_customer") 
+		    {
+			    this.perMain = new ExtUD.Ext.PeerPersonMainInfoPanel({
+			    	isEditPerson : true,
+			    	isHidden:true
+			    });
+			    title="个人客户信息";
+		    } 
+		    else if(this.oppositeType =="company_customer")
+		    {
+			    this.perMain = new ExtUD.Ext.PeerMainInfoPanel({
+				projectId : this.projectId,
+			    bussinessType:this.businessType,
+			    isHidden:true,
+				isEnterpriseShortNameReadonly : true,
+				isEditEnterprise : false,
+				isGudongDiseditable : true
+			    });
+		    };
+		   this.globalSupervisionRecord = new GlobalSupervisionRecord({
+			projectId : this.projectId,
+			businessType:this.businessType,
+			superviseManageId : this.superviseManageId
+		});
+		   
+		    this.outPanel = new Ext.Panel({
+		        modal : true,
+				labelWidth : 100,
+				buttonAlign : 'center',
+				layout : 'form',
+				border : false,
+				defaults : {
+					anchor : '100%',
+					xtype : 'fieldset',
+					columnWidth : 1,
+					labelAlign : 'right',
+					collapsible : true,
+					autoHeight : true
+			    },
+			    labelAlign : "right",
+			    items : [{ 
+			    	xtype : 'hidden',
+				    name : 'preHandler',
+				    value : 'gLGuaranteeloanProjectService.changeStatusCreditFlowProject'
+			}, {
+				xtype:'hidden',
+				name :'safeLevel',
+				value:1
+			
+			},{
+				xtype : 'fieldset',
+				title : '项目控制信息',
+				name:'projectInfo',
+				collapsible : true,
+				autoHeight : true,
+				labelAlign : 'right',
+				items : [this.projectInfo]
+			}, {
+		        title :title,
+		        items : [this.perMain]
+		    }, {
+				xtype : 'fieldset',
+				title : '银行信息',
+				collapsible : true,
+				autoHeight : true,
+				items : [this.bankInfo]
+			}, {       
+			    xtype : 'fieldset',
+				title : '资金款项信息',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [
+					 this.projectInfoFinance,
+					 this.slActualToChargePremium,
+					 this.GlActualToChargePanel
+				]
+			}, {
+				xtype : 'fieldset',
+				title : '监管信息录入',
+				bodyStyle : 'padding-left:0px',
+				collapsible : true,
+				labelAlign : 'right',
+				autoHeight : true,
+				items : [this.globalSupervisionRecord]
+			}, {
+				xtype : 'hidden',
+				name : 'superviseManageId',
+				value : this.superviseManageId
+			},{
+				     xtype:'hidden',
+				     name:'task_id',
+				     value:this.taskId
+		        }]
+		    })
+    this.loadData({
+            
+			//url : __ctxPath + '/creditFlow/getInfoCreditProject.do?taskId='+this.projectId+'&type='+this.businessType+'&task_id='+this.taskId,
+    	 	url : __ctxPath + '/creditFlow/guarantee/EnterpriseBusiness/getInfoGLGuaranteeloanProject.do?glProjectId='+this.projectId+'&glTaskId='+this.taskId,
+			method : "POST",
+			preName : ['enterprise', 'person', 'gLGuaranteeloanProject','customerBankRelationPerson','enterpriseBank',"businessType"],
+			root : 'data',
+			success : function(response, options) {
+			
+		              var respText = response.responseText;  
+				      var alarm_fields = Ext.util.JSON.decode(respText); 
+				      var businessType=alarm_fields.data.gLGuaranteeloanProject.businessType;
+				      this.getCmpByName('projectMoney1').setValue(Ext.util.Format.number(alarm_fields.data.gLGuaranteeloanProject.projectMoney,'0,000.00'));
+				      if(alarm_fields.data.comments){
+						if(typeof(alarm_fields.data.comments)!="undefined"){this.ownerCt.ownerCt.getCmpByName('comments').setValue(alarm_fields.data.comments);	}else{this.ownerCt.ownerCt.getCmpByName('comments').setValue("");}
+					}	
+			}
+		    });
+	        this.add(this.outPanel);
+		    this.doLayout(); 
+		    this.outPanel.on('render', this.onGetTaskInfo.call(this,this.taskId));
+	},
+	onGetTaskInfo : function(taskId){
+			Ext.Ajax.request({
+				url : __ctxPath + "/creditFlow/getTaskInfoCreditProject.do",
+				method : 'POST',
+				scope:this,
+				success : function(response, request) {
+					obj = Ext.util.JSON.decode(response.responseText);
+					var projectName = obj.data.projectName;
+					var createTime = obj.data.createTime;
+					var dueTime = obj.data.dueTime;
+					var creator = obj.data.creator;
+					if(obj.success==true){
+						this.getCmpByName('projectInfo').setTitle('项目基本信息[ '+'    任务分配时间：'+createTime+'   任务完成时限：'+dueTime+'   当前处理人：'+creator+' ]');
+					}else{
+						Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+					}
+				},
+				failure : function(response,request) {
+					Ext.ux.Toast.msg('操作信息', '查询任务完成时限操作失败!');
+				},
+				params : {
+					taskId : taskId,
+					businessType : '$!businessType',
+					projectId:'$!projectId'
+				}
+			});
+	},
+	saveBusDatas : function(formPanel) {
+	    formPanel.getForm().submit({
+			clientValidation: false,
+			url : __ctxPath + '/creditFlow/guarantee/EnterpriseBusiness/saveSupervisonInfoGLGuaranteeloanProject.do',
+			method : 'post',
+			params : {
+				comments : formPanel.comments
+			},
+			waitMsg : '数据正在提交，请稍后...',
+			success : function(fp, action) {
+				Ext.ux.Toast.msg('操作信息', '保存信息成功!');
+				
+			},
+			failure : function(fp, action) {
+				Ext.MessageBox.show({
+					title : '操作信息',
+					msg : '信息保存出错，请联系管理员！',
+					buttons : Ext.MessageBox.OK,
+					icon : 'ext-mb-error'
+				});
+			}
+		})
+
+	},
+	validate : function(outpanel) {
+	  
+		return true;
+	}
+})
+					  

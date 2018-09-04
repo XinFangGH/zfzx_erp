@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_public" text="公共功能" iconCls="mod-public"> 
+<Items id="flowtasks" text="任务处理 " iconCls="btn-tree-team4" >
+		<Item id="NewProjectFormSSZZ" text="项目申请 " iconCls="btn-tree-team1" isControl="false" />
+		<!--<Item id="MyTaskView" text="待办任务" iconCls="menu-flowWait" />-->
+		
+		<Item id="ActivityTaskView" text="待办任务" iconCls="btn-tree-team2"  >
+		<!-- <Function id="_detailPro" text="处理任务" iconCls="menu-flowWait">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>-->
+			<Function id="_flowRecords" text="查看任务流转记录" iconCls="btn-detail"></Function>
+			<Function id="_showFlowImg" text="流程示意图" iconCls="btn-flow-chart"></Function>
+		</Item>
+		<!--<Item id="MyRunningTaskView_p" text="任务追回" iconCls="btn-tree-team3">
+			<Function id="_rollbackTask" text="追回" iconCls="btn-back">
+			</Function>
+		</Item>
+		
+		<Item id="MyProcessRunView_p" text="我参与的贷款" iconCls="btn-tree-team4" ></Item>
+		<Item id="ProcessRunView_p" text="我发起的贷款 " iconCls="btn-tree-team5" />-->
+		<Item id="CompleteTaskView" text="已办结任务 " iconCls="btn-tree-team6" >
+			<Function id="_comFlowRecords" text="查看任务流转记录" iconCls="btn-detail"></Function>
+			<Function id="_comShowFlowImg" text="流程示意图" iconCls="btn-flow-chart"></Function>
+		</Item>
+		<Item id="MyProcessRunView_p" text="我参与的贷款" iconCls="btn-tree-team4" ></Item>
+</Items>
+<Items id="Customer" text="客户" iconCls="mod-customer" isPublic="false">
+		<Item id="EnterpriseView" iconCls="btn-tree-team22" text="企业客户">
+				<Function id="_seeAll_qykh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_detail_qykh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_qykh" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh" text="编辑" iconCls="btn-edit"/>
+				<Function id="_editBelongeder_qykh" text="编辑客户所有人" iconCls="btn-edit"/>
+				<Function id="_remove_qykh" text="删除" iconCls="btn-delete"/>
+				<Function id="_enterprise_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_qykh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_qykh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_qykh" text="编辑客户级别" iconCls="btn-edit"/>
+		</Item>
+		<Item id="PersonView" iconCls="btn-tree-team23" text="个人客户">
+				<Function id="_detail_sygrkh" text="查看所有客户" iconCls="btn-detail"/>
+				<Function id="_See_grkh" text="查看" iconCls="btn-detail"/>
+				<Function id="_create_grkh" text="增加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_grkh" text="编辑" iconCls="btn-edit"/>			
+				<Function id="_editBelongeder_grkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				<Function id="_remove_grkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_detail_ywwl" text="业务往来" iconCls="btn-detail"/>
+				<Function id="_export_grkh" text="导出到excel" iconCls="btn-xls"/>
+				<Function id="_addBlack_grkh" text="加入黑名单" iconCls="btn-xls"/>
+				<Function id="_editCustomerLevel_grkh" text="编辑客户级别" iconCls="btn-edit"/>
+		</Item>
+		<Item id="BankRelationPersonView" iconCls="menu-bank" text="银行客户">
+				<Function id="_detail_syyhkh" text="查看所有客户" iconCls="btn-detail"/>
+			 	<Function id="_detail_yhkh" text="查看" iconCls="btn-detail"/>
+			 	<Function id="_create_yhkh" text="添加" iconCls="btn-add"/>
+				<Functions id="_edit_yhkh" text="编辑" iconCls="btn-edit">
+					<Function id="_editBelongeder_yhkh" text="编辑客户所有人" iconCls="btn-edit"/>
+				</Functions>
+				<Function id="_remove_yhkh" text="删除" iconCls="btn-delete"/>
+				<Function id="_export_yhkh" text="导出到excel" iconCls="btn-xls"/>
+		</Item>
+		<Item id="LfOfferView" iconCls="btn-tree-team23" text="供货方客户">
+			<Function id="_detail_offerView" text="查看所有客户" iconCls="btn-detail">
+			</Function>
+			<Function id="_see_offerView" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_create_offerView" text="增加" iconCls="btn-add"
+				isControl="false">
+			</Function>
+			<Function id="_edit_offerView" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_offerView" text="删除" iconCls="btn-delete">
+			</Function>
+			<Function id="_export_offerView" text="导出到Excel" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="BlackList" iconCls="btn-tree-team62" text="黑名单">
+		      <Function id="_black_see_customer" text="查看所有列表" iconCls="btn-edit"/>
+		      <Function id="_seeCustomerInfo" text="查看客户详细信息" iconCls="btn-edit"/>
+			  <Function id="_revocateBlack" text="撤销黑名单" iconCls="btn-edit"/>
+		</Item>
+		<Item id="CustomerGrantManagement" iconCls="menu-customer-manager" text="客户授权管理">
+				
+		</Item>
+</Items>
+
+<Items id="Customer_InvestPersonView" text="投资客户" iconCls="mod-customer" isPublic="false">
+		<Items id="InvestEnterpriseView" iconCls="btn-tree-team22" text="企业客户管理">
+			<Item id="InvestEnterpriseView?businessType=SmallLoan" iconCls="btn-tree-team23" text="小贷企业客户">
+				<Function id="_detail_qykh_invest_SmallLoan" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest_SmallLoan" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest_SmallLoan" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest_SmallLoan" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest_SmallLoan" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest_SmallLoan" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+			<Item id="InvestEnterpriseView?businessType=Pawn" iconCls="btn-tree-team23" text="典当企业客户">
+				<Function id="_detail_qykh_invest_Pawn" text="查看" iconCls="btn-detail" />
+				<Function id="_create_qykh_invest_Pawn" text="添加" iconCls="btn-add" isControl="false" />
+				<Function id="_edit_qykh_invest_Pawn" text="编辑" iconCls="btn-edit" />
+				<Function id="_editBelongeder_qykh_invest_Pawn" text="编辑客户所有人" iconCls="btn-edit" />
+				<Function id="_remove_qykh_invest_Pawn" text="删除" iconCls="btn-delete" />
+				<Function id="_export_qykh_invest_Pawn" text="导出到excel" iconCls="btn-xls" />
+			</Item>
+		</Items>
+		
+		<!--<Item id="InvestEnterpriseView" iconCls="btn-tree-team22" text="企业客户管理">
+			<Function id="_detail_qykh_invest" text="查看" iconCls="btn-detail" />
+			<Function id="_create_qykh_invest" text="添加" iconCls="btn-add"isControl="false" />
+			<Function id="_edit_qykh_invest" text="编辑" iconCls="btn-edit" />
+			<Function id="_editBelongeder_qykh_invest" text="编辑客户所有人" iconCls="btn-edit" />
+			<Function id="_remove_qykh_invest" text="删除" iconCls="btn-delete" />
+			<Function id="_export_qykh_invest" text="导出到excel" iconCls="btn-xls" />
+		</Item>
+		-->
+	
+		<Item id="InvestPersonView" iconCls="btn-tree-team23" text="个人客户">
+			<Function id="_detail_sygrtzkh" text="查看所有客户" iconCls="btn-detail">
+			</Function>
+			<Function id="_see_grtzkh" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_create_grtzkh" text="增加" iconCls="btn-add"
+				isControl="false">
+			</Function>
+			<Function id="_edit_grtzkh" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_grtzkh" text="删除" iconCls="btn-delete">
+			</Function>
+			<Function id="_export_grtzkh" text="导出到Excel" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="investmentAccountView?accountType=account" iconCls="btn-tree-invest64"
+			text="投资人账户管理">
+			<Function id="_apply_recharge" text="申请充值" iconCls="btn-edit" />
+			<Function id="_apply_getMoney" text="申请取现" iconCls="btn-edit" />
+		</Item>
+		<Item id="investmentAccountView?accountType=accountInfo" iconCls="btn-tree-invest65"
+			text="投资账户收支查询">
+			<Function id="_see_accountInOut" text="账户收支查询" iconCls="btn-detail" />
+			<Function id="_see_accountDetail" text="账户明细查询" iconCls="btn-detail" />
+		</Item>
+		<Item id="InvestmentProject" iconCls="btn-tree-invest65" text="投资人项目">
+			<Function id="_see_project" text="查看项目详情" iconCls="btn-detail" />
+		</Item>
+		<Item id="InvestPersonCareView" iconCls="btn-tree-team22" text="投资人关怀管理">
+			<Function id="_see_tzghkh" text="查看" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghkh" text="增加" iconCls="btn-add" isControl="false"></Function>
+			<Function id="_edit_tzghkh" text="编辑" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		<Item id="InvestEnterpriseCareView" iconCls="btn-tree-team22" text="企业客户关怀管理">
+			<Function id="_see_tzghqykh_invest" text="查看客户关怀记录" iconCls="btn-detail"></Function>
+			<Function id="_create_tzghqykh_invest" text="增加客户关怀记录" iconCls="btn-add" isControl="false"></Function>
+			<Function id="_edit_tzghqykh_invest" text="编辑客户关怀记录" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		
+		<Item id="CustomerGrantManager_InvestPersonView" iconCls="menu-customer-manager" text="投资人授权管理">
+			<Function id="_see_person_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_person_skgxr_invest" text="授权共享人" iconCls="btn-add" isControl="false"></Function>
+		</Item>
+		<Item id="EnterpriseGrantManagerView" iconCls="menu-customer-manager" text="企业客户授权管理">
+			<Function id="_see_enterprise_invest" text="查看客户信息" iconCls="btn-detail"></Function>
+			<Function id="_enterprise_skgxr_invest" text="授权共享人" iconCls="btn-add" isControl="false"></Function>
+		
+		</Item>
+		
+</Items>
+	
+<Items id="GroupControl" text="加盟商管控" iconCls="menu-finance" isShow="false" isGroup="true">
+	       <Item id="BranchOfficeView" iconCls="btn-tree-team25" text="加盟商管理" />
+	       <Item id="OrganizationStructureView" iconCls="btn-tree-team25" text="加盟商组织架构管理" />
+	       <Item id="ControlRoleManager" iconCls="btn-tree-team25" text="加盟商管控角色管理" >
+	       		<Function id="_add_control" text="增加" iconCls="btn-edit"/>
+			   	<Function id="_remove_control" text="删除" iconCls="btn-edit"/>
+			   	<Function id="_resource_control" text="授权" iconCls="btn-edit"/>
+			   	<Function id="_save_control" text="保存" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="BusinessRoleManager" iconCls="btn-tree-team25" text="加盟商业务角色管理" >
+	       		<Function id="_add_business" text="增加" iconCls="btn-edit"/>
+			   	<Function id="_remove_business" text="删除" iconCls="btn-edit"/>
+			   	<Function id="_resource_business" text="授权" iconCls="btn-edit"/>
+			   	<Function id="_edit_business" text="编辑" iconCls="btn-edit"/>
+	       </Item>
+	       <Item id="NormalFlowMnagerView" text="标准业务流程管理" iconCls="btn-tree-team25">
+	        <Function id="_FlowDesign2" text="在线流程设计" iconCls="btn-flow-design"/>
+	        <Function id="_FlowCreateUpdateType2" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="_FlowUpdateBranchCompany" text="更新分公司流程" iconCls="btn-edit"/>
+			<Function id="_FlowQuery2" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage2" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit2" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel2" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck2" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting2" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+	     
+	     
+	       <Item id="AssignFlowView" text="加盟商业务品种管理" iconCls="btn-tree-team25">
+	        <Function id="_FlowCreateBussinessFlow1" text="创建业务流程" iconCls="btn-add"/>
+	        <Function id="_FlowDesign1" text="在线流程设计" iconCls="btn-flow-design"/>
+			<!--<Function id="_FlowCreateUpdateType1" text="新建/修改分类" iconCls="btn-setting"/>
+			--><Function id="_FlowQuery1" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage1" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit1" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel1" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck1" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting1" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+</Items>
+<Items id="TouZiYiXian" text="投资意向管理" iconCls="btn-tree-team22" isPublic="false">
+		<Item id="InvestIntentionView" text="投资意向" iconCls="btn-tree-team22" isPublic="false">
+		</Item>
+</Items>
+<Items id="SlFinanceProjectQuery11" text="资金匹配" iconCls="menu-finance">
+		<Item id="FundsToPromoteView" text="资金推介" iconCls="menu-finance"></Item>
+		<Item id="MatchFundsTab" text="资金匹配" iconCls="menu-finance">
+		<Function id="_seeAllPro_p12" text="列表查询（查看所有列表记录）" iconCls="" isControl="false"/>
+			<Function id="_showFlowImg_p12" text="流程示意图" iconCls="btn-flow-chart"/>
+			<Function id="_exportPro_p12" text="导出项目" iconCls="menu-zmexport"/>
+			<Functions id="_detailPro_p12" text="编辑项目" iconCls="btn-edit" ></Functions>
+		</Item>
+		<Item id="PromotePackage" text="推介资料包" iconCls="menu-finance"></Item>
+</Items>
+<Items id="Finance" text="资金管理" iconCls="menu-finance">
+		<Item id="SlBankAccountView" iconCls="btn-tree-team25" text="银行账户管理" >
+		    <Function id="_createAccount_b" text="添加账户" iconCls="btn-add" isControl="false" />
+			<Function id="_remove_b" text="删除账户" iconCls="btn-del"/>
+			<Function id="_see_b" text="查看账户" iconCls="btn-edetail"/>
+			<Function id="_edit_b" text="编辑账户" iconCls="btn-edit"/>
+			<Function id="_zhlsdetail_b" text="账户流水明细" iconCls="btn-del"/>
+			<Function id="_uploadyhzh_b" text="上传银行账户" iconCls="btn-edit"/>
+		</Item>
+
+		<Item id="SlFundQlideView2" iconCls="btn-tree-team26" text="银行流水录入 " >
+		    <Function id="_creatednls_q" text="添加对内流水" iconCls="btn-add" isControl="false"/>
+			<Function id="_createdwls_q" text="添加对外流水" iconCls="btn-del" isControl="false"/>
+			<Function id="_createalldwls_q" text="批量添加对外流水" iconCls="sldownIcon" isControl="false"/>
+			<Function id="_seels_q" text="查看" iconCls="btn-detail"/>
+		    <Function id="_editls_q" text="编辑" iconCls="btn-edit"/>
+			<Function id="_removels_q" text="删除" iconCls="btn-del"/>
+			<Function id="_loadlsmb_q" text="下载流水模板" iconCls="sldownIcon"/>
+			<Function id="_uploadzjls_q" text="上传资金流水" iconCls="slupIcon"/>
+			<Function id="_importBank_q" text="手动导入银行流水" iconCls="slupIcon"/>
+		</Item>
+		<Item id="CashQlideView" iconCls="btn-tree-team27" text="现金流水录入" >
+		   <Function id="_createall_b" text="批量添加" iconCls="btn-add" isControl="false"/>
+             <Function id="_createxjls_b" text="添加" iconCls="btn-add" isControl="false"/>
+			<Function id="_removexjls_b" text="删除" iconCls="btn-del"/>
+			<Function id="_seexjls_b" text="查看" iconCls="btn-detail"/>
+			<Function id="_editxjls_b" text="编辑" iconCls="btn-edit"/>
+		</Item>
+        	<Item id="SlBankAccountQlideView" iconCls="btn-tree-team28" text="银行账户明细" />
+        	<Item id="AccountBankManage" iconCls="menu-accountbankmanage" text="银行保证金账户管理">
+		   <Function id="_addzhbzj_q" text="添加总行保证金" iconCls="btn-add"/>
+			<Function id="_addzhbzjzh_q" text="添加支行保证金账户" iconCls="btn-del"/>
+			<Function id="_editzhbzjzh_q" text="编辑" iconCls="sldownIcon"/>
+		    <Function id="_removezhbzjzh_q" text="删除" iconCls="btn-add"/>
+			<Function id="_seezhbzjzh_q" text="查看" iconCls="btn-del"/>
+			<Function id="_addbzjzhjl_q" text="增加保证金账户记录" iconCls="sldownIcon"/>
+			<Function id="_editbzjzhjl_q" text="编辑保证金账户记录" iconCls="sldownIcon"/>
+		    <Function id="_removebzjzhjl_q" text="删除保证金账户记录" iconCls="btn-add"/>
+			<Function id="_seebzjzhjl_q" text="查看保证金账户记录" iconCls="btn-del"/>
+		</Item>
+	<Item id="AccountBankManageProj" iconCls="menu-accountbankmanageproj" text="保证金账户项目记录管理">
+		    <Function id="_adddjxmjl_q" text="添加冻结项目记录" iconCls="btn-del"/>
+			<Function id="_editdjxmjl_q" text="编辑冻结项目记录" iconCls="sldownIcon"/>
+			<Function id="_removexmxgjl_q" text="删除项目相关记录" iconCls="sldownIcon"/>
+		    <Function id="_seexmxgjl_q" text="查看项目相关记录" iconCls="btn-add"/>
+			<Function id="_jdbzj_q" text="解冻保证金" iconCls="btn-del"/>
+		</Item>
+        	
+        	
+			<Item id="AreaDicView?treeId=89" text="银行数据字典" iconCls="btn-tree-team52" isShow="false">
+			    <Function id="_addzdx" text="添加字典项" iconCls="btn-add"/>
+			    <Function id="_seezdx" text="查看字典项" iconCls="btn-detail"/>
+				<Function id="_editzdx" text="修改字典项" iconCls="btn-edit"/>
+				<Function id="_removezdx" text="删除字典项" iconCls="btn-del"/>
+			</Item>
+			<Item id="AreaManagement" text="地区管理" iconCls="btn-tree-team53" isShow="false">
+			    <Function id="_addArea" text="添加字典项" iconCls="btn-add"/>
+			    <Function id="_seeArea" text="查看字典项" iconCls="btn-detail"/>
+				<Function id="_editArea" text="修改字典项" iconCls="btn-edit"/>
+				<Function id="_removeArea" text="删除字典项" iconCls="btn-del"/>
+			</Item>
+        	<!--<Item id="SlBankAccountQlideView" iconCls="btn-tree-team28" text="银行账户明细" >
+        	
+		</Item>
+		--><Item id="CsBankView" iconCls="btn-tree-team28" text="银行管理" />
+</Items>
+	
+	
+	
+	<!--<Items id="EnterpriseEvaluation" text="资信评估管理" iconCls="menu-enterpriseevaluation" isShow="false" >
+			<Item id="IndicatorManagement" text="指标体系管理" iconCls="btn-tree-team34" >
+			    <Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/indicatorList.do</url>
+			         <url>/credit/creditmanagement/indicatorStoreList.do</url>
+			     </Function>
+			     <Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+				     <url>/credit/creditmanagement/addIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_ic_add" text="增加" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_update" text="修改" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			         <url>/credit/creditmanagement/updateIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_see" text="查看" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			     </Function>
+			</Item>
+			<Item id="ClassTypeView" text="信用等级管理" iconCls="btn-tree-team35">
+				<Function id="_ct_see" text="查看" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/classTypeList.do</url>
+			     </Function>
+			     <Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+				     <url>/credit/creditmanagement/saveClassAndGrand.do</url>				     
+			     </Function>
+			     <Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+			          <url>/credit/creditmanagement/saveClassAndGrand.do</url>
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			     <Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/deleteClassType.do</url>
+			     </Function>
+			     <Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			     <Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/saveClassAndGrand.do</url>
+			          <url>/credit/creditmanagement/getClassType.do</url>
+			          <url>/credit/creditmanagement/getScoreGradeList.do</url>
+			     </Function>
+			</Item>
+			
+			<Item id="TemplateManagement" text="评估模板管理" iconCls="btn-tree-team36" >
+			     <Function id="_see" text="查看" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/ratingTemplateList.do</url>
+			         <url>/credit/creditmanagement/templateContentList.do</url>
+			     </Function>
+			     <Function id="_Template_add" text="增加模板" iconCls="addIcon">
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/addRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/updateRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+			     </Function>
+			     <Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/credit/creditmanagement/addTemplateIndicator.do</url> 
+			     </Function>
+			     <Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteTemplateIndicator.do</url>
+			     </Function>
+			     <Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/updateTemplateIndicator.do</url>
+			     </Function>
+			</Item>
+			
+			<Item id="CreditRatingManage?type=all" text="客户资信评估" iconCls="btn-tree-team37">
+			     <Function id="_zx_see_all" text="查看所有列表" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/creditRatingList.do</url>
+			     </Function>
+			     <Function id="_creditRating_add_all" text="新建资信评估" iconCls="addIcon">
+				     <url>/credit/creditmanagement/addCreditRatingSub.do</url>
+				     <url>/credit/creditmanagement/addCreditRatingJson.do</url>
+				     <url>/credit/creditmanagement/getScoreGrade.do</url>				     
+			     </Function>
+			     <Function id="_creditRating_delete_all" text="删除资信评估" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteCreditRating.do</url>
+			     </Function>
+			     <Function id="_creditRating_see_all" text="查看资信评估" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/CreditRatingResult.do</url>
+			     </Function>
+			</Item>
+		</Items>
+	
+    -->
+	<Items id="newEnterpriseEvaluation" text="资信评估管理" iconCls="menu-enterpriseevaluation"
+			isShow="false">
+			<Item id="IndicatorManagement1" text="定量指标管理" iconCls="btn-tree-team34">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			
+			
+			<Item id="IndicatorManagement2" text="定性指标管理" iconCls="btn-tree-team34">
+				<Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+					<url>/credit/creditmanagement/indicatorList.do</url>
+					<url>/credit/creditmanagement/indicatorStoreList.do</url>
+				</Function>
+				<Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon"> 
+					<url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicatorStore.do</url>
+				</Function>
+				<Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+				</Function>
+				<Function id="_ic_add" text="增加" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/addIndicator.do</url>
+				</Function>
+				<Function id="_ic_update" text="修改" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+					<url>/credit/creditmanagement/updateIndicator.do</url>
+				</Function>
+				<Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteIndicator.do</url>
+				</Function>
+				<Function id="_ic_see" text="查看" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getIndicatorInfo.do</url>
+				</Function>
+			</Item>
+			<Item id="ClassTypeView" text="信用等级管理" iconCls="btn-tree-team35">
+				<Function id="_ct_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/classTypeList.do</url>
+				</Function>
+				<Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+				</Function>
+				<Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+					<url>/credit/creditmanagement/deleteClassType.do</url>
+				</Function>
+				<Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+				<Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+					<url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+					<url>/credit/creditmanagement/getClassType.do</url>
+					<url>/credit/creditmanagement/getScoreGradeList.do</url>
+				</Function>
+			</Item>
+
+			<Item id="TemplateManagement" text="评估模板管理" iconCls="btn-tree-team36">
+				<Function id="_see" text="查看" iconCls="updateIcon">
+					<url>/credit/creditmanagement/ratingTemplateList.do</url>
+					<url>/credit/creditmanagement/templateContentList.do</url>
+				</Function>
+				<Function id="_Template_add" text="增加模板" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/updateRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteRatingTemplate.do</url>
+				</Function>
+				<Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/getRatingTemplateInfo.do</url>
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				</Function>
+				<Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+					<url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+					<url>/credit/creditmanagement/addTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteTemplateIndicator.do</url>
+				</Function>
+				<Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+					<url>/credit/creditmanagement/updateTemplateIndicator.do</url>
+				</Function>
+			</Item>
+
+			<Item id="CreditRatingManage?type=all" text="客户资信评估" iconCls="btn-tree-team37">
+				<Function id="_zx_see_all" text="查看所有列表" iconCls="updateIcon">
+					<url>/credit/creditmanagement/creditRatingList.do</url>
+				</Function>
+				<Function id="_creditRating_add_all" text="新建资信评估" iconCls="addIcon">
+					<url>/credit/creditmanagement/addCreditRatingSub.do</url>
+					<url>/credit/creditmanagement/addCreditRatingJson.do</url>
+					<url>/credit/creditmanagement/getScoreGrade.do</url>
+				</Function>
+				<Function id="_creditRating_delete_all" text="删除资信评估"
+					iconCls="deleteIcon">
+					<url>/credit/creditmanagement/deleteCreditRating.do</url>
+				</Function>
+				<Function id="_creditRating_see_all" text="查看资信评估" iconCls="updateIcon">
+					<url>/credit/creditmanagement/CreditRatingResult.do</url>
+				</Function>
+			</Item>
+		</Items>
+    
+    
+    <Items id="publicSetting" text="公共业务配置管理" iconCls="menu-smallloan-info" expanded="false">
+		
+		<Item id="SlCompanyMainView" text="企业主体管理" iconCls="menu-company" >
+			<Function id="_create_cm" text="添加企业主体" iconCls="btn-add"/>
+			<Function id="_remove_cm" text="删除企业主体" iconCls="btn-del"/>
+			<Function id="_edit_cm" text="编辑企业主体" iconCls="btn-edit"/>
+		</Item>
+		<Item id="SlPersonMainView" text="个人主体管理" iconCls="online-user">
+			<Function id="_create_pm" text="添加个人主体" iconCls="btn-add"/>
+			<Function id="_remove_pm" text="删除个人主体" iconCls="btn-del"/>
+			<Function id="_edit_pm" text="编辑个人主体" iconCls="btn-edit"/>
+		</Item>
+		
+			<Item id="AreaDicView?treeId=1" text="地区数据字典" iconCls="btn-tree-team53" isShow="false"/>
+			<Item id="DicManager" iconCls="btn-tree-team51" text="单级数据字典">
+				<Function id="_DictionaryQuery" text="查看字典" iconCls="menu-dictionary">
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAdd" text="添加" iconCls="menu-add">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryEdit" text="编辑" iconCls="btn-edit">
+					<url>/system/listDictionary.do</url>
+					<url>/system/saveDictionary.do</url>
+					<url>/system/itemsDictionary.do</url>
+					<url>/system/getDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryDel" text="删除" iconCls="menu-del">
+					<url>/system/listDictionary.do</url>
+					<url>/system/multiDelDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryChange" text="转移类型" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/typeChangeDictionary.do</url>
+					<url>/system/listDictionary.do</url>
+				</Function>
+				<Function id="_DictionaryAddType" text="新建分类" iconCls="btn-edit">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+				</Function>
+				<Function id="_DictionaryDelType" text="删除分类" iconCls="menu-del">
+					<url>/system/deleteGlobalType.do</url>
+					<url>/system/treeGlobalType.do</url>
+				</Function>
+				<Function id="_DictionaryEditType" text="编辑分类" iconCls="menu-del">
+					<url>/system/treeGlobalType.do</url>
+					<url>/system/saveGlobalType.do</url>
+					<url>/system/getGlobalType.do</url>
+				</Function>
+			</Item>
+		<Item id="AreaDicView?treeId=10092" text="行业类别字典" iconCls="btn-tree-team53" isShow="false"/>
+		<Item id="ProfitRateMaintenanceView" text="基准利率管理" iconCls="online-user"/>
+		<Item id="CsHolidayView" text="节假日维护管理" iconCls="online-user"/>
+		<Item id="SystemConfigViewForCustomer" iconCls="btn-setting" text="系统相关配置" isShow="false"></Item>
+	</Items>
+	
+	<Items id="companySetting" text="公司人员管理" iconCls="mod-customer" isPublic="false" >
+		
+		<Item id="ProfileForm" text="修改个人资料" iconCls="menu-customer" />
+		<Item id="CompanyOfUesrView" text="部门人员管理" iconCls="menu-OrgSetting"  />
+		<!-- <Item id="PositionUserView" text="岗位人员管理" iconCls="menu-position" /> -->
+		<Item id="AppRoleView" iconCls="menu-role" text="角色设置">
+			<Function id="_AppRoleList" text="查看角色" iconCls="menu-list">
+				<url>/system/listAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleAdd" text="添加角色" iconCls="menu-add">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleEdit" text="编辑角色" iconCls="btn-edit">
+				<url>/system/listAppRole.do</url>
+				<url>/system/saveAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleDel" text="删除角色" iconCls="menu-del">
+				<url>/system/listAppRole.do</url>
+				<url>/system/mulDelAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleGrant" text="授权角色" iconCls="btn-grant">
+				<url>/system/listAppRole.do</url>
+				<url>/system/grantXmlAppRole.do</url>
+				<url>/system/getAppRole.do</url>
+				<url>/system/grantAppRole.do</url>
+			</Function>
+			<Function id="_AppRoleExit" text="导出权限" iconCls="menu-del"/>
+			<Function id="_AppRoleImport" text="导入权限" iconCls="menu-del"/>
+		</Item>
+		<!--<Item id="OrgSettingView" text="组织架构设置" iconCls="menu-OrgSetting" />
+		<Item id="PositionUserView" text="岗位人员管理" iconCls="menu-position" />
+		<Item id="DepUserView" text="部门人员管理" iconCls="menu-department" />
+	--></Items>
+	<Items id="productConfigManager" text="产品配置管理" iconCls="mod-customer" isPublic="false" >
+		<Item id="BpProductParameterView" text="产品配置" iconCls="menu-customer" />
+	</Items>
+	<Items id="title_setting" text="系统管理" iconCls="mod-setting" >
+	<Items id="flow_setting" text="流程管理" iconCls="mod-setting" >
+		<Item id="TaskManager" text="流程任务管理" iconCls="menu-task-manage">
+	    	<Function id="_szdqsj" text="设置到期时间" iconCls="menu-list"/>
+			<Function id="_ggdbr" text="更改代办人" iconCls="menu-add"/>
+			<Function id="_ggzxlj" text="更改执行路径" iconCls="btn-edit"/>
+			<Function id="_rwdb" text="任务代办" iconCls="menu-del"/>
+		</Item>
+		<Item id="FlowManagerViewForCustomer" text="流程定义查看" iconCls="menu-flowManager"/>
+	</Items>
+		
+		
+		<Item id="SysLogView" iconCls="menu-role" text="用户登录记录"></Item>
+		<Item id="SystemLogView" iconCls="menu-role" text="系统操作记录" isShow="false"></Item>
+	
+	  <Item id="SmsMobileView" iconCls="menu-mobile" text="手机短信"/>  
+	    <Item id="SysDatabaseBRView" iconCls="menu-backup" text="数据库备份与还原" isShow="false">
+	    	<Function id="SysDatabaseBRView_backup" text="手动备份数据库" iconCls="btn-copyrole">
+	    	     <url>/system/saveSysDatabaseBR.do</url>
+			</Function>
+			<!--<Function id="SysDatabaseBRView_restore" text="还原已备份数据库" iconCls="btn-reseted">
+			     <url>/system/restoreSysDatabaseBR.do</url>
+			</Function>
+			--><Function id="SysDatabaseBRView_del" text="删除备份数据库" iconCls="btn-del">
+			    <url>/system/multiDelSysDatabaseBR.do</url>
+			</Function>
+			<Function id="SysDatabaseBRView_download" text="下载备份数据库" iconCls="btn-subordinate">
+			    <url>/system/downloadSysDatabaseBR.do</url>
+			</Function>
+	    </Item>
+	</Items>
+		<Items id="title_setting_our" text="系统管理(供开发人员使用)" iconCls="mod-setting" >
+		<Item id="BranchFlowMnagerView" text="流程定义管理" iconCls="menu-flowManager">
+			<Function id="_FlowDesign3" text="在线流程设计" iconCls="btn-flow-design"/>
+			<Function id="_FlowCreateUpdateType3" text="新建/修改分类" iconCls="btn-setting"/>
+			<Function id="_FlowQuery3" text="查看流程" iconCls="menu-list">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_ProTypeManage3" text="流程类型" iconCls="menu-manage">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/saveProType.do</url>
+				<url>/flow/removeProType.do</url>
+				<url>/flow/getProType.do</url>
+			</Function>
+			<Function id="_FlowEdit3" text="编辑流程" iconCls="btn-edit">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/saveProDefinition.do</url>
+				<url>/flow/listProType.do</url>
+				<url>/flow/getProDefinition.do</url>
+			</Function>
+			<Function id="_FlowDel3" text="删除流程" iconCls="menu-del">
+				<url>/flow/rootProType.do</url>
+				<url>/flow/listProDefinition.do</url>
+				<url>/flow/multiDelProDefinition.do</url>
+			</Function>
+			<Function id="_FlowCheck3" text="查看" iconCls="menu-list">
+				<url>/flow/processDetail.do</url>
+			</Function>
+			<Function id="_FlowSetting3" text="人员设置" iconCls="menu-manage">
+				<url>/flow/saveProUserAssign.do</url>
+				<url>/flow/listProUserAssign.do</url>
+			</Function>
+		</Item>
+		<Item id="DicIndepManager" iconCls="menu-dictionary" text="独立数据字典" isShow="false" >
+                <Function id="_addsjzd" text="添加数据字典" iconCls="menu-list"/>
+				<Function id="_savesjzd" text="保存" iconCls="menu-add"/>
+				<Function id="_removesjzd" text="删除" iconCls="menu-add"/>
+				<Function id="_changetype" text="转移类型" iconCls="menu-list"/>
+				<Function id="_editsjzdx" text="编辑数据字典项" iconCls="menu-add"/>
+    	</Item>
+    	<Item id="ReportTemplateView" iconCls="menu-report" text="报表管理" isShow="false" >
+			<Function id="_ReportTemplateQuery" text="查看报表" iconCls="menu-list">
+				<url>/system/listReportTemplate.do</url>
+				<url>report/report.jsp</url>
+			</Function>
+			<Function id="_ReportTemplateAdd" text="添加报表" iconCls="menu-add">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/saveReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportTemplateEdit" text="编辑报表" iconCls="btn-edit">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/getReportTemplate.do</url>
+			</Function>
+			<Function id="_ReportParamSetting" text="参数设置" iconCls="btn-setting">
+				<url>/system/loadReportTemplate.do</url>
+				<url>/system/submitReportTemplate.do</url>
+				<url>/system/listReportParam.do</url>
+				<url>/system/multiDelReportParam.do</url>
+				<url>/system/saveReportTemplate.do</url>
+				<url>/system/saveReportParam.do</url>
+				<url>/system/getReportParam.do</url>
+			</Function>
+			<Function id="_ReportTemplateDel" text="删除报表" iconCls="menu-del">
+				<url>/system/listReportTemplate.do</url>
+				<url>/system/multiDelReportTemplate.do</url>
+			</Function>
+		</Item>
+		<Item id="SystemConfigView" iconCls="btn-setting" text="系统配置" isShow="false"></Item>
+		</Items>
+</Menus>

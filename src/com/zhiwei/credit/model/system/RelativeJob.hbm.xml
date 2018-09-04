@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.system.RelativeJob" table="relative_job" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="reJobId" column="reJobId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="jobName" type="java.lang.String" update="true" insert="true" access="property" column="jobName" length="128" not-null="true" unique="false"/>  
+    <property name="jobCode" type="java.lang.String" update="true" insert="true" access="property" column="jobCode" length="256" not-null="false" unique="false"/>  
+    <property name="parent" type="java.lang.Long" update="true" insert="true" access="property" column="parent" length="19" not-null="false" unique="false"/>  
+    <property name="path" type="java.lang.String" update="true" insert="true" access="property" column="path" length="128" not-null="false" unique="false"/>  
+    <property name="depath" type="java.lang.Integer" update="true" insert="true" access="property" column="depath" length="10" not-null="false" unique="false"/> 
+  </class> 
+</hibernate-mapping>

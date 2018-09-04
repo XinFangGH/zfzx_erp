@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.archive.ArchivesDoc" table="archives_doc" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="docId" column="docId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="64" not-null="false" unique="false"/>  
+    <property name="creatorId" type="java.lang.Long" update="true" insert="true" access="property" column="creatorId" length="19" not-null="false" unique="false"/>  
+    <property name="menderId" type="java.lang.Long" update="true" insert="true" access="property" column="menderId" length="19" not-null="false" unique="false"/>  
+    <property name="mender" type="java.lang.String" update="true" insert="true" access="property" column="mender" length="64" not-null="false" unique="false"/>  
+    <property name="docName" type="java.lang.String" update="true" insert="true" access="property" column="docName" length="128" not-null="true" unique="false"/>  
+    <property name="docStatus" type="java.lang.Short" update="true" insert="true" access="property" column="docStatus" length="5" not-null="true" unique="false"/>  
+    <property name="curVersion" type="java.lang.Integer" update="true" insert="true" access="property" column="curVersion" length="10" not-null="true" unique="false"/>  
+    <property name="docPath" type="java.lang.String" update="true" insert="true" access="property" column="docPath" length="128" not-null="true" unique="false"/>  
+    <property name="updatetime" type="java.util.Date" update="true" insert="true" access="property" column="updatetime" length="19" not-null="true" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="19" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Archives -->  
+    <many-to-one name="archives" class="com.zhiwei.credit.model.archive.Archives" not-null="false" fetch="select"> 
+      <column name="archivesId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to FileAttach -->  
+    <many-to-one name="fileAttach" class="com.zhiwei.credit.model.system.FileAttach" not-null="false" fetch="select" lazy="false"> 
+      <column name="fileId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to DocHistory -->  
+    <set name="docHistorys" table="doc_history" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="docId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.archive.DocHistory"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

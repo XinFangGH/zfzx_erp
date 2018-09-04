@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.OfficeGoodsType" table="office_goods_type" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="typeId" column="typeId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="128" not-null="true" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to OfficeGoods -->  
+    <!-- 
+	<set name="officeGoodss"
+	     table="office_goods"
+	     lazy="true"
+	     inverse="true"
+	     cascade="save-update"
+	     sort="unsorted"
+	>
+		<key>
+			<column name="typeId"/>
+		</key>
+		<one-to-many
+			class="com.zhiwei.credit.model.admin.OfficeGoods"
+		/>
+	</set>     --> 
+  </class> 
+</hibernate-mapping>

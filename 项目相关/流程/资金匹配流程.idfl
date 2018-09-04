@@ -1,0 +1,101 @@
+<diagram xmlns:bg="bpm.graphic" xmlns:ciied="com.ibm.ilog.elixir.diagram" xmlns:fg="flash.geom">
+  <bg:StartEvent id="startEvent1" height="51" width="36" x="390" y="140">
+    <label>开始</label>
+    <ports>
+      <ciied:Port id="port1" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port2" y="1"/>
+      <ciied:Port id="port3" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port4" y="1"/>
+      <ciied:Port id="port5" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:StartEvent>
+  <bg:Task id="task1" height="50" width="90" x="369" y="210">
+    <expression></expression>
+    <label>放款终审</label>
+    <ports>
+      <ciied:Port id="port6" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port7" y="0"/>
+      <ciied:Port id="port8" y="1"/>
+      <ciied:Port id="port9" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port10" y="0"/>
+      <ciied:Port id="port11" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task2" height="50" width="90" x="369" y="280">
+    <expression></expression>
+    <label>贷款发放确认</label>
+    <ports>
+      <ciied:Port id="port12" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port13" y="0"/>
+      <ciied:Port id="port14" y="1"/>
+      <ciied:Port id="port15" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port16" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:Task id="task3" height="50" width="90" x="369" y="350">
+    <expression></expression>
+    <label>业务归档</label>
+    <ports>
+      <ciied:Port id="port17" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port18" y="0"/>
+      <ciied:Port id="port19" y="1"/>
+      <ciied:Port id="port20" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port21" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:EndEvent id="endEvent1" height="51" width="36" x="400" y="430">
+    <label>完成</label>
+    <ports>
+      <ciied:Port id="port22" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port23" y="0"/>
+      <ciied:Port id="port24" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port25" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow1" endPort="port13" startPort="port8">
+    <fallbackEndPoint>
+      <fg:Point id="point1" x="414" y="288"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point2"/>
+    </fallbackStartPoint>
+    <label>to 贷款发放确认</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow2" endPort="port18" startPort="port14">
+    <fallbackEndPoint>
+      <fg:Point id="point3" x="416" y="357"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point4"/>
+    </fallbackStartPoint>
+    <label>to 业务归档</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow3" endPort="port23" startPort="port19">
+    <fallbackEndPoint>
+      <fg:Point id="point5" x="417" y="437"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point6"/>
+    </fallbackStartPoint>
+    <label>to 完成</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow4" endPort="port10" startPort="port4">
+    <fallbackEndPoint>
+      <fg:Point id="point7" x="414" y="223"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point8"/>
+    </fallbackStartPoint>
+    <label>to 放款终审</label>
+  </bg:SequenceFlow>
+</diagram>

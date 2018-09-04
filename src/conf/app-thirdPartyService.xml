@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+
+ <!-- 第三方支付查询接口  -->
+ 	 <bean id="iPayService" class="com.zhiwei.credit.service.pay.impl.IPayServiceImpl">
+   	 </bean>
+   	  <!-- 富有 支付 -->
+   	  <bean id="thirdPayService" class="com.zhiwei.credit.service.thirdPay.fuiou.impl.ThirdPayServiceImpl">
+   	 </bean>
+   	 <bean id="goPayThirdPayService" class="com.zhiwei.credit.service.thirdPay.goPay.impl.GoPayThirdPayServiceImpl">
+   	 </bean>
+   	  <bean id="thirdpayClientService" class="com.zhiwei.credit.service.thirdPay.impl.ThirdpayClientServiceImpl">
+   	 </bean>
+   	  <bean id="goPayService" class="com.zhiwei.credit.service.thirdInterface.impl.GoPayServiceImpl">
+   	 </bean>
+   	  <bean id="huiFuService" class="com.zhiwei.credit.service.thirdInterface.impl.HuiFuServiceImpl">
+   	 </bean>
+   	 <bean id="easyPayService" class="com.zhiwei.credit.service.thirdInterface.impl.EasyPayServiceImpl">
+   	 </bean>
+   	  <bean id="fuiouService" class="com.zhiwei.credit.service.thirdInterface.impl.FuiouServiceImpl">
+   	   </bean>
+   	   <bean id="yeePayService" class="com.zhiwei.credit.service.thirdInterface.impl.YeePayServiceImpl">
+   	 </bean>
+   	 
+   	 <!-- 通用第三方支付接口 配置 Beta1  By Yuan.zc-->
+       <!-- 双乾  -->
+   	 <bean id="MMThirdPayService" class="com.thirdInterface.pay.service.MMThirdPayServiceImpl">
+   	 <property name="action" value="2" />
+   	 <property name="transferType" value="2" />
+   	 <property name="needAudit" value="1" />
+   	 <property name="auditType" value="1" />
+	</bean>
+	 <bean id="FUThirdPayService" class="com.thirdInterface.pay.service.FUThirdPayServiceImpl">
+	 </bean>
+<!-- 	 <bean id="ZWThirdPayService" class="com.thirdInterface.pay.service.ZWThirdPayServiceImpl">
+	 </bean> -->
+	    	 <bean id="opraterBussinessDataService" class="com.zhiwei.credit.service.thirdInterface.impl.OpraterBussinessDataServiceImpl">
+   	 </bean>
+   	 <bean id="rdPropertyConfigurer" class="com.rd.bds.common.property.RdPropertyCtx">
+		<property name="locations">  
+            <list>
+                <value>classpath:com/thirdPayInterface/FuDianPay/ConfigCert.properties</value>  
+            </list>
+        </property>
+		<property name="fileEncoding" value="utf-8" />
+	</bean>
+</beans>

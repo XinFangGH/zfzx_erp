@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.arch.RollFile" table="roll_file" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="rollFileId" column="rollFileId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="128" not-null="false" unique="false"/>  
+    <property name="fileName" type="java.lang.String" update="true" insert="true" access="property" column="fileName" length="128" not-null="true" unique="false"/>  
+    <property name="fileNo" type="java.lang.String" update="true" insert="true" access="property" column="fileNo" length="64" not-null="true" unique="false"/>  
+    <property name="dutyPerson" type="java.lang.String" update="true" insert="true" access="property" column="dutyPerson" length="32" not-null="false" unique="false"/>  
+    <property name="afNo" type="java.lang.String" update="true" insert="true" access="property" column="afNo" length="64" not-null="false" unique="false"/>  
+    <property name="catNo" type="java.lang.String" update="true" insert="true" access="property" column="catNo" length="64" not-null="false" unique="false"/>  
+    <property name="rollNo" type="java.lang.String" update="true" insert="true" access="property" column="rollNo" length="64" not-null="false" unique="false"/>  
+    <property name="seqNo" type="java.lang.Integer" update="true" insert="true" access="property" column="seqNo" length="10" not-null="false" unique="false"/>  
+    <property name="pageNo" type="java.lang.Integer" update="true" insert="true" access="property" column="pageNo" length="10" not-null="false" unique="false"/>  
+    <property name="pageNums" type="java.lang.Integer" update="true" insert="true" access="property" column="pageNums" length="10" not-null="false" unique="false"/>  
+    <property name="secretLevel" type="java.lang.String" update="true" insert="true" access="property" column="secretLevel" length="64" not-null="false" unique="false"/>  
+    <property name="timeLimit" type="java.lang.String" update="true" insert="true" access="property" column="timeLimit" length="64" not-null="false" unique="false"/>  
+    <property name="openStyle" type="java.lang.String" update="true" insert="true" access="property" column="openStyle" length="64" not-null="false" unique="false"/>  
+    <property name="keyWords" type="java.lang.String" update="true" insert="true" access="property" column="keyWords" length="512" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="4000" not-null="false" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="65535" not-null="false" unique="false"/>  
+    <property name="fileTime" type="java.util.Date" update="true" insert="true" access="property" column="fileTime" length="19" not-null="false" unique="false"/>  
+    <property name="creatorName" type="java.lang.String" update="true" insert="true" access="property" column="creatorName" length="128" not-null="false" unique="false"/>  
+    <property name="createTime" type="java.util.Date" update="true" insert="true" access="property" column="createTime" length="19" not-null="false" unique="false"/>  
+    <property name="archStatus" type="java.lang.Short" update="true" insert="true" access="property" column="archStatus" length="5" not-null="false" unique="false"/>  
+    <property name="tidyName" type="java.lang.String" update="true" insert="true" access="property" column="tidyName" length="128" not-null="false" unique="false"/>  
+    <property name="tidyTime" type="java.util.Date" update="true" insert="true" access="property" column="tidyTime" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ArchRoll -->  
+    <many-to-one name="archRoll" class="com.zhiwei.credit.model.arch.ArchRoll" not-null="false" fetch="select"> 
+      <column name="rollId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to GlobalType -->  
+    <many-to-one name="globalType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to ArchBorrow -->  
+    <set name="borrowFileList" table="borrow_file_list" lazy="true" inverse="false" sort="unsorted"> 
+      <key> 
+        <column name="rollFileId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.arch.BorrowFileList"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to RollFileList -->  
+    <set name="rollFileLists" table="roll_file_list" lazy="true" inverse="true" sort="unsorted"> 
+      <key> 
+        <column name="rollFileId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.arch.RollFileList"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

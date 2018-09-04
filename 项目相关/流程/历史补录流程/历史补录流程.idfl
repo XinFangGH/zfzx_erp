@@ -1,0 +1,78 @@
+<diagram xmlns:bg="bpm.graphic" xmlns:ciied="com.ibm.ilog.elixir.diagram" xmlns:fg="flash.geom">
+  <bg:StartEvent id="startEvent1" height="51" width="36" x="360" y="80">
+    <label>开始</label>
+    <ports>
+      <ciied:Port id="port1" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port2" y="1"/>
+      <ciied:Port id="port3" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port4" y="1"/>
+      <ciied:Port id="port5" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:StartEvent>
+  <bg:Task id="task1" height="50" width="90" x="329" y="220">
+    <expression></expression>
+    <label>补录历史详细信息</label>
+    <ports>
+      <ciied:Port id="port6" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port7" y="0"/>
+      <ciied:Port id="port8" y="1"/>
+      <ciied:Port id="port9" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port10" y="0"/>
+      <ciied:Port id="port11" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:EndEvent id="endEvent1" height="51" width="36" x="360" y="300">
+    <label>结束1</label>
+    <ports>
+      <ciied:Port id="port12" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port13" y="0"/>
+      <ciied:Port id="port14" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port15" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:EndEvent>
+  <bg:SequenceFlow id="sequenceFlow1" endPort="port13" startPort="port8">
+    <fallbackEndPoint>
+      <fg:Point id="point1" x="381" y="207"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point2"/>
+    </fallbackStartPoint>
+    <label>to 结束1</label>
+  </bg:SequenceFlow>
+  <bg:Task id="task2" height="50" width="90" x="329" y="150">
+    <expression></expression>
+    <label>客服录件</label>
+    <ports>
+      <ciied:Port id="port16" clipOnShape="true" movable="false"/>
+      <ciied:Port id="port17" y="0"/>
+      <ciied:Port id="port18" y="1"/>
+      <ciied:Port id="port19" clipOnShape="true" movable="false">
+        <id>CENTER</id>
+      </ciied:Port>
+    </ports>
+  </bg:Task>
+  <bg:SequenceFlow id="sequenceFlow2" endPort="port17" startPort="port4">
+    <fallbackEndPoint>
+      <fg:Point id="point3" x="375" y="157"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point4"/>
+    </fallbackStartPoint>
+    <label>to 客服录件</label>
+  </bg:SequenceFlow>
+  <bg:SequenceFlow id="sequenceFlow3" endPort="port10" startPort="port18">
+    <fallbackEndPoint>
+      <fg:Point id="point5" x="369" y="233"/>
+    </fallbackEndPoint>
+    <fallbackStartPoint>
+      <fg:Point id="point6"/>
+    </fallbackStartPoint>
+    <label>to 补录历史详细信息</label>
+  </bg:SequenceFlow>
+</diagram>

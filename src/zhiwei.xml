@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<zhiwei>
+	<description>zhiwei配置文件</description>
+	<systemConfig>
+		<isOA>true</isOA>									<!-- 是否包含OA系统  -->
+		<isGroupVersion>false</isGroupVersion>          	<!-- 是否是集团版  -->
+		<systemVersion>Version 3.5</systemVersion>      	<!-- 系统版本  -->
+		<zipOutPutPath>E:\\zip_project\\</zipOutPutPath>	<!-- 生成压缩文件路径 根目录 -->
+		<zipProjectName>erp</zipProjectName>				<!-- 生成压缩文件的名称 -->
+		<projStr>proj_wenandai</projStr>					<!-- 项目名称-->
+		<thirdPayType>0</thirdPayType>
+	</systemConfig>
+</zhiwei>

@@ -1,0 +1,9 @@
+## This is a velocity template
+## to generate a action servlet template file from an sql table input
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+			 /admin/${packageModot}/${classVar}s.do=${classVar}Controller
+			 /admin/${packageModot}/edit${class}.do=${classVar}FormController

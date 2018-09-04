@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.Provider" table="provider" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="providerId" column="providerId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="providerName" type="java.lang.String" update="true" insert="true" access="property" column="providerName" length="128" not-null="true" unique="false"/>  
+    <property name="contactor" type="java.lang.String" update="true" insert="true" access="property" column="contactor" length="128" not-null="true" unique="false"/>  
+    <property name="phone" type="java.lang.String" update="true" insert="true" access="property" column="phone" length="32" not-null="true" unique="false"/>  
+    <property name="fax" type="java.lang.String" update="true" insert="true" access="property" column="fax" length="32" not-null="false" unique="false"/>  
+    <property name="site" type="java.lang.String" update="true" insert="true" access="property" column="site" length="128" not-null="false" unique="false"/>  
+    <property name="email" type="java.lang.String" update="true" insert="true" access="property" column="email" length="128" not-null="false" unique="false"/>  
+    <property name="address" type="java.lang.String" update="true" insert="true" access="property" column="address" length="128" not-null="true" unique="false"/>  
+    <property name="zip" type="java.lang.String" update="true" insert="true" access="property" column="zip" length="32" not-null="false" unique="false"/>  
+    <property name="openBank" type="java.lang.String" update="true" insert="true" access="property" column="openBank" length="128" not-null="false" unique="false"/>  
+    <property name="account" type="java.lang.String" update="true" insert="true" access="property" column="account" length="64" not-null="false" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="500" not-null="false" unique="false"/>  
+    <property name="rank" type="java.lang.Integer" update="true" insert="true" access="property" column="rank" length="10" not-null="false" unique="false"/>  
+    <!-- exported bi-directional one-to-many association to Product -->  
+    <set name="products" table="product" lazy="true" inverse="true" cascade="save-update,delete-orphan" sort="unsorted"> 
+      <key> 
+        <column name="providerId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.customer.Product"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

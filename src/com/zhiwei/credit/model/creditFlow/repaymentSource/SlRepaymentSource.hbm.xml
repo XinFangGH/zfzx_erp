@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.repaymentSource.SlRepaymentSource"
+        table="sl_repayment_source"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="sourceId"
+            column="sourceId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="projId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="projId"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="typeId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="typeId"
+            length="20"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="objectName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="objectName"
+            length="100"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="money"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="money"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="repaySourceDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="repaySourceDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remarks"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remarks"
+            length="250"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

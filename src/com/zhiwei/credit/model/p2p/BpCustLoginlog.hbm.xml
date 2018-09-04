@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.p2p.BpCustLoginlog"
+        table="bp_cust_loginlog"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="type"
+            type="java.lang.Integer"
+            update="true"
+            insert="true"
+            access="property"
+            column="type"
+            length="10"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="loginIp"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="loginIp"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="loginTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="loginTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="memberId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="memberId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="exitTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="exitTime"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>

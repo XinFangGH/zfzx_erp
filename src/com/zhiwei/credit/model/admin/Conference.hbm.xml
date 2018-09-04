@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.admin.Conference" table="conference" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="confId" column="confId" type="java.lang.Long" length="10"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="roomId" type="java.lang.Long" update="true" insert="true" access="property" column="roomId" not-null="true" unique="false"/>  
+    <property name="confProperty" type="java.lang.String" update="true" insert="true" access="property" column="confProperty" length="128" not-null="true" unique="false"/>  
+    <property name="confTopic" type="java.lang.String" update="true" insert="true" access="property" column="confTopic" length="128" not-null="true" unique="false"/>  
+    <property name="importLevel" type="java.lang.Short" update="true" insert="true" access="property" column="importLevel" length="5" not-null="true" unique="false"/>  
+    <property name="feeBudget" type="java.lang.Double" update="true" insert="true" access="property" column="feeBudget" not-null="false" unique="false"/>  
+    <property name="compere" type="java.lang.String" update="true" insert="true" access="property" column="compere" length="64" not-null="false" unique="false"/>  
+    <property name="recorder" type="java.lang.String" update="true" insert="true" access="property" column="recorder" length="64" not-null="false" unique="false"/>  
+    <property name="attendUsers" type="java.lang.String" update="true" insert="true" access="property" column="attendUsers" length="500" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="true" unique="false"/>  
+    <property name="isEmail" type="java.lang.Short" update="true" insert="true" access="property" column="isEmail" length="5" not-null="false" unique="false"/>  
+    <property name="isMobile" type="java.lang.Short" update="true" insert="true" access="property" column="isMobile" length="5" not-null="false" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="10" not-null="true" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="10" not-null="true" unique="false"/>  
+    <property name="roomName" type="java.lang.String" update="true" insert="true" access="property" column="roomName" length="64" not-null="false" unique="false"/>  
+    <property name="roomLocation" type="java.lang.String" update="true" insert="true" access="property" column="roomLocation" length="128" not-null="false" unique="false"/>  
+    <property name="confContent" type="java.lang.String" update="true" insert="true" access="property" column="confContent" length="65535" not-null="false" unique="false"/>  
+    <property name="createtime" type="java.util.Date" update="true" insert="true" access="property" column="createtime" length="10" not-null="false" unique="false"/>  
+    <property name="sendtime" type="java.util.Date" update="true" insert="true" access="property" column="sendtime" length="10" not-null="false" unique="false"/>  
+    <property name="compereName" type="java.lang.String" update="true" insert="true" access="property" column="compereName" not-null="false" unique="false" length="256"/>  
+    <property name="recorderName" type="java.lang.String" update="true" insert="true" access="property" column="recorderName" not-null="false" unique="false" length="256"/>  
+    <property name="attendUsersName" type="java.lang.String" update="true" insert="true" access="property" column="attendUsersName" not-null="false" unique="false" length="4000"/>  
+    <property name="checkUserId" type="java.lang.Long" update="true" insert="true" access="property" column="checkUserId" not-null="false" unique="false" length="18"/>  
+    <property name="checkName" type="java.lang.String" update="true" insert="true" access="property" column="checkName" not-null="false" unique="false" length="64"/>  
+    <property name="checkReason" type="java.lang.String" update="true" insert="true" access="property" column="checkReason" not-null="false" unique="false" length="512"/>  
+    <property name="typeId" type="java.lang.Long" update="true" insert="true" access="property" column="typeId" not-null="true" unique="false" length="18"/>  
+    <set name="attachFiles" table="conf_attach" cascade="all" inverse="false" lazy="true"> 
+      <key column="confId"/>  
+      <many-to-many fetch="join" class="com.zhiwei.credit.model.system.FileAttach" column="fileId"/> 
+    </set>  
+    <set name="confPrivilege" table="conf_privilege" cascade="all" inverse="false" lazy="true"> 
+      <key column="confId"/>  
+      <one-to-many class="com.zhiwei.credit.model.admin.ConfPrivilege"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

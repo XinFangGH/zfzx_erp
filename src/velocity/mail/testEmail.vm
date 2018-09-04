@@ -1,0 +1,6 @@
+<html>
+	<title>来自【${project}】测试邮件是否可以正常发送。</title>
+	<body>
+		<p>注：本邮件无需回复。</p>
+	</body>
+</html>

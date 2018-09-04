@@ -1,0 +1,103 @@
+## This is an the velocity template
+## to generate a primarky key model class from an sql table input
+#set ($table = $sqlTable.Table.toLowerCase())
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot"))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($mailId    = $prop.getProperty("mailId"))
+#set ($mailName  = $prop.getProperty("mailName"))
+package ${packagePrefix}.common.model${packageModot}.base;
+/*
+ *  Created on $utility.getCurrentDate()
+ *
+ */
+import java.io.Serializable;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+
+/**
+ * ${class} Primary Key Class  
+ * 
+ * This is the Primary Key class for $table
+ * 
+ */
+ 
+public class ${class}PK  implements Serializable {
+
+#foreach ($column in $sqlTable.primaryKeys)
+    protected $column.attType $column.attName;
+#end
+
+/**
+ * Default Constructor for Primary Key Class
+ */
+public ${class}PK() {
+	super();
+}
+/**
+ * Keys Constructor for Primary Key Class
+ */
+#set ($comma = " ")
+public ${class}PK(
+#foreach( $column in $sqlTable.primaryKeys)
+	     ${comma}${column.attType} in_${column.attName}
+#set ($comma = ",")#end) {
+	     super();
+#foreach( $column in $sqlTable.primaryKeys)
+	     this.$column.attName =  in_$column.attName;
+#end
+}
+#foreach( $column in $sqlTable.primaryKeys)
+  /**
+	*
+	* @return $column.attType
+	*/
+	public $column.attType get${column.attNameUC}() {
+		return this.$column.attName;
+	}
+	
+  /**
+	* Set the $column.attName
+	*/	
+	public void set${column.attNameUC}(${column.attType} aValue) {
+		this.$column.attName = aValue;
+	}
+#end
+   /**
+	 * @see java.lang.Object#equals(Object)
+	 */
+	public boolean equals(Object object) {
+		if (!(object instanceof ${class}PK)) {
+			return false;
+		}
+		${class}PK rhs = (${class}PK) object;
+		return new EqualsBuilder()
+		#foreach( $column in $sqlTable.primaryKeys)
+		.append(this.$column.attName, rhs.$column.attName)
+		#end
+		.isEquals();
+	}
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	public int hashCode() {
+		return new HashCodeBuilder(-82280557, -700257973)
+		#foreach( $column in $sqlTable.primaryKeys)
+		.append(this.$column.attName) 
+		#end
+		.toHashCode();
+	}
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		return new ToStringBuilder(this)
+		#foreach( $column in $sqlTable.primaryKeys)
+		.append("$column.attName", this.$column.attName) 
+		#end
+		.toString();
+	}
+}

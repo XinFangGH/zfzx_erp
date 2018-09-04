@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.customer.CusConnection" table="cus_connection" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="connId" column="connId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="contactor" type="java.lang.String" update="true" insert="true" access="property" column="contactor" length="32" not-null="true" unique="false"/>  
+    <property name="startDate" type="java.util.Date" update="true" insert="true" access="property" column="startDate" length="10" not-null="true" unique="false"/>  
+    <property name="endDate" type="java.util.Date" update="true" insert="true" access="property" column="endDate" length="10" not-null="true" unique="false"/>  
+    <property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" length="512" not-null="true" unique="false"/>  
+    <property name="notes" type="java.lang.String" update="true" insert="true" access="property" column="notes" length="1000" not-null="false" unique="false"/>  
+    <property name="creator" type="java.lang.String" update="true" insert="true" access="property" column="creator" length="32" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to Customer -->  
+    <many-to-one name="customer" class="com.zhiwei.credit.model.customer.Customer" not-null="false" fetch="select"> 
+      <column name="customerId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

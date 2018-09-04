@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+   	<bean id="procreditContractService" class="com.zhiwei.credit.service.creditFlow.contract.impl.ProcreditContractServiceImpl">
+   		<constructor-arg index="0" ref="procreditContractDao"/>
+   	</bean>
+   	<bean id="documentTempletService" class="com.zhiwei.credit.service.creditFlow.contract.impl.DocumentTempletServiceImpl">
+   		<constructor-arg index="0" ref="documentTempletDao"/>
+   	</bean>
+   	<bean id="ElementHandleServiceService" class="com.zhiwei.credit.service.creditFlow.contract.impl.ElementHandleServiceImpl">
+   		
+   	</bean>
+   	<bean id="csElementCategoryService" class="com.zhiwei.credit.service.creditFlow.contract.impl.CsElementCategoryServiceImpl">
+   		<constructor-arg index="0" ref="csElementCategoryDao"/>
+   	</bean>
+   	<bean id="vProcreditContractService" class="com.zhiwei.credit.service.creditFlow.contract.impl.VProcreditContractServiceImpl">
+   		<constructor-arg index="0" ref="vProcreditContractDao"/>
+   	</bean>
+   	
+   	<!-- @HT_version3.0合同新增 -->
+   	<bean id="signElement" class="com.contract.SignElement"/>
+   	<bean id="signP2PElement" class="com.contract.SignP2PElement"/>
+</beans>

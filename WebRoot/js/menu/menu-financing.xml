@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_financing" text="融资业务软件" iconCls="mod_financing">
+	
+	<Items id="FProjectInfo" text="融资查询" iconCls="menu-guarantee-info">
+		<Items id="SlFinanceProjectQueryF" text="融资查询 " iconCls="btn-tree-team57">
+		<Item id="FinancingProjectManager?projectStatus=6" text="全部融资项目" iconCls="btn-tree-team16">
+			<Function id="_seeAllPro_f6" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_seePro_f6" text="查看项目" iconCls="btn-detail" />
+			<Function id="_detailPro_f6" text="编辑项目" iconCls="btn-edit" />
+			<Function id="_stopPro_f6" text="终止项目" iconCls="btn-close" />
+			<Function id="_showFlowImg_f6" text="流程示意图" iconCls="btn-flow-chart" />
+		</Item>
+		<Item id="FinancingProjectManager?projectStatus=0" text="办理中项目" iconCls="btn-tree-team17">
+			<Function id="_seeAllPro_f0" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_seePro_f0" text="查看项目" iconCls="btn-detail" />
+			<Function id="_detailPro_f0" text="编辑项目" iconCls="btn-edit" />
+			<Function id="_stopPro_f0" text="终止项目" iconCls="btn-close" />
+			<Function id="_removePro_f0" text="删除项目" iconCls="btn-del" />
+			<Function id="_showFlowImg_f0" text="流程示意图" iconCls="btn-flow-chart" />
+		</Item>
+		<Item id="FinancingProjectManager?projectStatus=1" text="还款中项目" iconCls="btn-tree-team18">
+			<Function id="_seeAllPro_f1" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_seePro_f1" text="查看项目" iconCls="btn-detail" />
+			<Function id="_detailPro_f1" text="编辑项目" iconCls="btn-edit" />
+			<Function id="_stopPro_f1" text="终止项目" iconCls="btn-close" />
+			<Function id="_showFlowImg_f1" text="流程示意图" iconCls="btn-flow-chart" />
+		</Item>
+		<Item id="FinancingProjectManager?projectStatus=2" text="已完成项目" iconCls="btn-tree-team60">
+			<Function id="_seeAllPro_f2" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_seePro_f2" text="查看项目" iconCls="btn-detail" />
+			<Function id="_showFlowImg_f2" text="流程示意图" iconCls="btn-flow-chart" />
+		</Item>
+		<Item id="FinancingProjectManager?projectStatus=3" text="提前终止项目"
+			iconCls="menu-del">
+			<Function id="_seeAllPro_f3" text="列表查询（查看所有列表记录）" iconCls="" isControl="false" />
+			<Function id="_seePro_f3" text="查看项目" iconCls="btn-detail" />
+			<Function id="_showFlowImg_f3" text="流程示意图" iconCls="btn-flow-chart" />
+		</Item>
+	</Items>
+	
+	<Items id="SlFinanceProjectAfterF" text="融后管理 " iconCls="btn-tree-team56">
+		<Item id="AdvanceRepayment" text="提前还款" iconCls="btn-tree-team15">
+			<Function id="handleAdvanceRepaymentF" text="提前还款办理" iconCls="" />
+		</Item>
+		<Item id="SlFundintentUrgTab?businessType=Financing" text="还款提醒" iconCls="btn-tree-team13" ></Item>
+		<Item id="ProjectFinished" text="项目结项" iconCls="btn-ok">
+			<Function id="handleCompleteProject" text="项目结项办理" iconCls="" />
+		</Item>
+	</Items>
+	</Items>
+
+	<Items id="Customer_InvestPersonView" text="投资客户" iconCls="mod-customer" isPublic="false">
+		<Item id="InvestPersonView" iconCls="btn-tree-team23" text="个人客户">
+			<Function id="_detail_sygrtzkh" text="查看所有客户" iconCls="btn-detail">
+			</Function>
+			<Function id="_see_grtzkh" text="查看" iconCls="btn-detail">
+			</Function>
+			<Function id="_create_grtzkh" text="增加" iconCls="btn-add"
+				isControl="false">
+			</Function>
+			<Function id="_edit_grtzkh" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_grtzkh" text="删除" iconCls="btn-delete">
+			</Function>
+			<Function id="_export_grtzkh" text="导出到Excel" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="CustomerGrantManager_InvestPersonView" iconCls="menu-customer-manager" text="投资人授权管理">
+		</Item>
+	</Items>
+	<Items id="FCcontactFinance" text="融资款项台账" iconCls="menu-finance-qlide">
+
+		<Item id="TabSlFundIntentprincipalIncome?businessType=Financing"
+			iconCls="btn-tree-team29" text="融资借入台账">
+			<Function id="_liushui_f_principalIncome_Financing" text="对账"
+				iconCls="btn-user-sel">
+			</Function>
+			<Function id="_liushuisee_f_principalIncome_Financing" text="查看"
+				iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_principalIncome_Financing" text="核销 "
+				iconCls="btn-ok">
+			</Function>
+			<Function id="_uploaddownpz_f_principalIncome_Financing" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_principalIncome_Financing" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+		<Item id="TabSlFundIntentPrincipalPay?businessType=Financing&amp;type=1" iconCls="btn-tree-team29" text="利息还款台账" >
+		
+		  <Function id="_liushui_f_principalPay_Financing1" text="流水对账" iconCls="btn-user-sel"/>
+			<Function id="_cash_f_principalPay_Financing1" text="对账"
+				iconCls="btn-user-sel">
+			</Function>
+			<Function id="_liushuisee_f_principalPay_Financing1" text="查看"
+				iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_principalPay_Financing_1" text="核销"
+				iconCls="btn-ok">
+			</Function>
+			<Function id="_uploaddownpz_f_principalPay_Financing1" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_principalPay1" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+		<Item id="TabSlFundIntentPrincipalPay?businessType=Financing&amp;type=2"
+			iconCls="btn-tree-team29" text="融资还款台账">
+			<Function id="_liushui_f_principalPay_Financing2" text="对账"
+				iconCls="btn-user-sel">
+			</Function>
+			<Function id="_liushuisee_f_principalPay_Financing2" text="查看"
+				iconCls="btn-detail">
+			</Function>
+			<Function id="_ping_f_principalPay_Financing2" text="核销"
+				iconCls="btn-ok">
+			</Function>
+			<Function id="_uploaddownpz_f_principalPay_Financing2" text="上传/下载凭证" iconCls="slupIcon">
+			</Function>
+			<Function id="_previewpz_f_principalPay_Financing2" text="预览凭证" iconCls="btn-setting">
+			</Function>
+		</Item>
+
+		<Item id="VFundDetail?businessType=Financing" iconCls="menu-archive-history"
+			text="融资利息台账日志">
+			<Function id="_cxdz_f_Financing" text="撤销对账" iconCls="btn-setting">
+			</Function>
+		</Item>
+	</Items><!--
+
+	<Items id="DocumentManager" text="合同管理" iconCls="btn-tree-team31" >
+	<Item id="CreditDocumentManager?businessType=Financing" text="合同模板制作"
+			iconCls="btn-tree-team47" isShow="false" >
+			<Function id="_create_cdm" text="新增模板类型" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_cdm" text="修改模板类型信息" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_cdm" text="删除模板类型" iconCls="btn-del">
+			</Function>
+			<Function id="_read_cdm" text="查看系统要素" iconCls="btn-readdocument">
+			</Function>
+			<Function id="_output_cdm" text="导出系统要素" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="ContractManager?businessType=Financing" text="合同管理" iconCls="btn-tree-team31" >
+		</Item>
+	</Items>
+	
+
+	--><Items id="PerformancesManagement" text="业绩管理" iconCls="menu-finance-report">
+		<Item id="PerformanceManagement" iconCls="menu-finance-report" text="业绩管理">
+			<Function id="_seeAllPerformances" text="业绩查询（查看所有业绩记录）" iconCls=""
+				isControl="false" />
+		</Item>
+	</Items>
+
+	<Items id="reportFinance_Financing" text="融资报表" iconCls="menu-report">
+		<Item id="ReportMenuFinancingprojectdetail?reportKey=raypaymentdetail"
+			iconCls="btn-tree-team39" text="付息明细报表"></Item>
+		<Item id="ReportMenuFinancingprojectInterestPayment?reportKey=interestPayment"
+			iconCls="btn-tree-team39" text="利息打款报表"></Item>
+		<Item id="ReportMenuFinancingproject?reportKey=financing"
+			iconCls="btn-tree-team39" text="融资报表"></Item>
+		<Item id="ReportMenuFinancingprojectAnalysis?reportKey=analysis"
+			iconCls="btn-tree-team40" text="融资分析报表"></Item>
+		<Item id="ReportMenuFinancingprojectAchievement?reportKey=achievement"
+			iconCls="btn-tree-team40" text="业绩统计报表"></Item>
+	</Items>
+
+	<Items id="title_analysis_Financing" text="统计分析" iconCls="mod-analysis">
+		<Item id="ReportTemplateMenuCapital?reportKey=CapitalFlow" text="月度资金统计表"
+			iconCls="btn-tree-team41" isShow="false" />
+			<Item id="ReportTemplateMenu1?reportKey=projectNumOfFinance" text="融资数量统计分析图" iconCls="menu-archSat"/>
+			<Item id="ReportTemplateMenu1?reportKey=projectMoneyOfFinance" text="融资金额统计分析图" iconCls="menu-boardRoom"/>
+			<Item id="ReportTemplateMenu1?reportKey=projectAccrualOfFinance" text="融资利息统计分析图" iconCls="mod-report"/>
+	</Items>
+
+
+
+</Menus>

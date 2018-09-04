@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_fa_secondtransaction" text="债权交易业务" iconCls="mod-org">
+	<Items id="PlBidSaleSelectManage" text="债权交易查询" iconCls="btn-tree-team30">
+		<Item id="allPlBidSaleList" iconCls="btn-tree-team30" text="全部债权查询"></Item>
+		<Item id="transferingList?mark=sale_1" iconCls="btn-tree-team30" text="交易中债权查询"></Item>
+		<Item id="closeedList" iconCls="btn-tree-team30" text="已关闭债权查询"></Item>
+		<Item id="ingTransferList" iconCls="btn-tree-team30" text="正在交易债权查询"></Item>
+		<Item id="transferedList?mark=sale_2" iconCls="btn-tree-team30" text="交易成功债权查询"></Item>
+	    <!--<Item id="transfereToOrList?mark=sale_3" iconCls="btn-tree-team30" text="已转到债权库查询"></Item>-->
+</Items>
+	<Items id="PlBidSaleSelect" text="债权交易管理" iconCls="btn-tree-team30">
+   		<Item id="transferingList?mark=sale_4" iconCls="btn-tree-team30" text="取消挂牌交易"></Item>
+   		<Item id="transferedList?mark=sale_5" iconCls="btn-tree-team30" text="确认实收手续费"></Item>
+   		<!--<Item id="transfereToOrList?mark=sale_6" iconCls="btn-tree-team30" text="已转到债权库手续费管理"></Item>
+   		--><!--<Item id="returnTransfered?mark=sale_7" iconCls="btn-tree-team30" text="债权交易返款"></Item>
+   	--></Items>	
+   	<Items id="transferedList_fa7" text="交易服务费记录" iconCls="btn-tree-team30">
+      	<Item id="transferedList?keystr=transferFee&amp;mark=sale_7" iconCls="btn-tree-team30" text="交易服务费记录"></Item>
+	</Items>
+</Menus>

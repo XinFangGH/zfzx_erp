@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="${TableName}" entity-name="${EntityName}">
+		##循环开始 
+		#foreach( $item  in $fields )
+		##外键
+		#if(${item.foreignClass} !="" && ${item.foreignEntity} !=""	&& ${item.foreignKey} !="")
+			<many-to-one name="${item.foreignEntity}" entity-name="${item.foreignEntity}" not-null="false" fetch="select">
+				<column name="${item.foreignKey}"></column>
+			</many-to-one>
+		#else
+			##主键
+			#if($item.isPrimary ==1)
+				<id name="${item.property}" column="${item.column}" type="${item.fieldType}">
+            		<generator class="native"/>
+       			</id>
+			#else
+				#if(${item.bag}!="" && ${item.bag}=="true")
+					<bag name="${item.bagName}"
+					     table="${item.bagTable}"
+					     lazy="false"
+					     inverse="true"
+					     cascade="save-update,delete-orphan">
+						<key>
+							<column name="${item.bagColumn}"/>
+						</key>
+						<one-to-many entity-name="${item.bagEntity}"/>
+					</bag>
+				#else	
+					##String 类型
+					#if(($item.fieldType =="String" || $item.fieldType=="java.lang.String") && $item.fieldSize!="")
+						<property name="${item.property}" column="${item.column}" type="${item.fieldType}" length="${item.fieldSize}"/>
+					#else	
+						<property name="${item.property}" column="${item.column}" type="${item.fieldType}"/>
+					#end
+				#end	
+			#end
+		#end 
+		#end
+		##循环结束
+	</class>
+</hibernate-mapping>	
+	
+	
+	
+      
+        
+        

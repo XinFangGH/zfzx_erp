@@ -1,0 +1,109 @@
+<div class="container-all">
+    <!--content-->
+    <div class="content">
+        <!--data-left-all-->
+        <div class="data-left-all">
+            <!--start:data-left-->
+            <div class="data-left">
+                <!--row-->
+                <div class="row">
+                    <!--info-box-->
+                    <div class="info-box w-25">
+                        <span class="info-box-icon bg-color-1" id="ysje2">
+                            <i class="top-arrow"></i>10%
+                            <em>环比</em>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text colr-one"><em id="ysje1">200</em></span>
+                            <span class="info-box-number">本月应收</span>
+                        </div>
+                    </div>
+                    <!--info-box-->
+                    <div class="info-box w-25 mr-0-cw">
+                        <span class="info-box-icon bg-color-2" id="ssje2">
+                            <i  class="down-arrow"></i>10%
+                            <em>环比</em>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text colr-two"><em id="ssje1">200</em></span>
+                            <span class="info-box-number">本月实收</span>
+                        </div>
+                    </div>
+                    <!--info-box-->
+                    <div class="info-box w-25">
+                        <span class="info-box-icon bg-color-3" id="yqsje2">
+                            <i  class="down-arrow"></i>10%
+                            <em>环比</em>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text colr-three"><em id="yqsje1">2000</em></span>
+                            <span class="info-box-number">截止欠收</span>
+                        </div>
+                    </div>
+                    <!--info-box-->
+                    <div class="info-box w-25 mr-0">
+                        <span class="info-box-icon bg-color-4" id="xqsje2">
+                            <i  class="down-arrow"></i>10%
+                            <em>环比</em>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text colr-four"><em id="xqsje1">2000</em></span>
+                            <span class="info-box-number">新增欠收</span>
+                        </div>
+                    </div>
+                </div>
+                <!--row-->
+                <div class="clearfix"></div>
+                <!--data-list01-->
+                <div class="data-list01">
+                    <h2>公司账号总览</h2>
+                        <p class="select-box">
+				           <select id="yearInPayData" onchange="changeDateInPay(this.options[this.options.selectedIndex].value)">
+					       <option>2016</option>
+					       </select></p>
+					       
+                   <div class="dynamic-graph txt-alg" id="LoanIncomePayTrends"><img src="highchart/images/deskImages/12.png"/></div>
+                </div>
+                <!--data-list01-->
+                <div class="data-list01 data-list02">
+                    <h2>月度放款统计</h2>
+                     <p class="select-box">
+				           <select id="yearLoanData2" onchange="changeDate(this.options[this.options.selectedIndex].value)">
+					       <option>2016</option>
+					       </select></p>
+                    <div class="dynamic-graph txt-alg" id="LoanMoneyYearTrends2"><img src="highchart/images/deskImages/13.png"/></div>
+                </div>
+                <div class="clearfix"></div>
+                <!--data-list01-->
+                <div class="data-list01">
+                    <h2>回收统计图</h2>
+                    <div class="dynamic-graph txt-alg" id="LoanOverdueTrends"><img src="highchart/images/deskImages/14.png"/></div>
+                </div>
+                <!--data-list01-->
+                <div class="data-list01 data-list02">
+                    <h2>未对账流水</h2>
+                    <div class="best-list">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="wdzls">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--end:data-left-->
+            <!--start:data-right-->
+            <div class="data-right" style="min-height:820px;">
+                <!--best-seller-->
+                <div class="best-seller">
+                    <h2>逾期款项提醒</h2>
+                    <div class="best-list">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="fyqtx">
+                        </table>
+                    </div>
+                </div>
+                <!--end:best-seller-->
+            </div>
+            <!--end:data-right-->
+        </div>
+        <!--end:data-left-all-->
+    </div>
+    <!--end:content-->
+</div>

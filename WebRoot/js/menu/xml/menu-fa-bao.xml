@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Menus id="Mod_fa_baohlw" text="活期理财业务" iconCls="mod-org">
+   	    <Items id="PlFinanceProductManager" iconCls="btn-tree-team30" text="活期业务管理">
+			<Item id="PlFinanceProductForm?typeId=1" iconCls="btn-tree-team30" text="理财参数设置"></Item>
+			<Item id="PlFinanceProductRate" iconCls="btn-tree-team30" text="基金收益率设置"></Item>
+		</Items>
+		<Items id="PlFinanceProductAccountQuery" iconCls="btn-tree-team30" text="活期账户管理">
+			<Item id="PlFinanceProductUserAccount" iconCls="btn-tree-team30" text="活期业务账户查询"></Item>
+			<Item id="PlFinanceProductUserAccount?buttonType=1&amp;accountType=1" iconCls="btn-tree-team30" text="活期业务账户锁定"></Item>
+			<Item id="PlFinanceProductUserAccount?buttonType=2&amp;accountType=-1" iconCls="btn-tree-team30" text="活期业务账户解锁"></Item>
+			<Item id="PlFinanceProductUserAccountInfo" iconCls="btn-tree-team30" text="账户交易查询"></Item>
+		</Items>	
+		<Items id="PlFinanceProductPlateQuery" iconCls="btn-tree-team30" text="平台交易台账"> 
+			<Item id="PlFinanceProductUserAccountInfo?queryType=1" iconCls="btn-tree-team30" text="转入记录台账"></Item>
+			<Item id="PlFinanceProductUserAccountInfo?queryType=2" iconCls="btn-tree-team30" text="转出交易台账"></Item>
+			<Item id="PlFinanceProductExceptionDealView" iconCls="btn-tree-team30" text="异常交易台账"></Item>
+		</Items>
+
+		<Items id="PlFinanceProductIntentQuery" iconCls="btn-tree-team30" text="派息查询">
+			<Item id="PlFinanceProductIntentView" iconCls="btn-tree-team30" text="派息记录查询"></Item>
+			
+		</Items>	
+		<!--  <Items id="PlFinanceProductSa" iconCls="btn-tree-team39" text="台账统计">
+			<Item id="SA1" iconCls="btn-tree-team39" text="转入统计查询"></Item>
+			<Item id="SA2" iconCls="btn-tree-team39" text="转出统计查询"></Item>
+			<Item id="SA3" iconCls="btn-tree-team39" text="派息统计查询"></Item>
+			<Item id="SA4" iconCls="btn-tree-team39" text="综合统计查询"></Item>
+		</Items>-->
+</Menus>

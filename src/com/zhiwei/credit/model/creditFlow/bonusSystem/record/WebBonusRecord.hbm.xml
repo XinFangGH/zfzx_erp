@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.bonusSystem.record.WebBonusRecord"
+        table="web_bonus_record"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="recordId"
+            column="recordId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+		
+		<property type="java.lang.Long" name="recordNumber" column="recordNumber"></property>
+		<property type="java.lang.String" name="recordDirector" column="recordDirector"></property>
+		<property type="java.lang.String" name="recordMsg" column="recordMsg"></property>
+		<property type="java.lang.String" name="customerType" column="customerType"></property>
+		<property type="java.lang.String" name="customerId" column="customerId"></property>
+		<property type="java.lang.String" name="customerName" column="customerName"></property>
+		<property type="java.lang.String" name="bonusId" column="bonusId"></property>
+		<property type="java.util.Date" name="createTime" column="createTime"></property>
+		
+		<property type="java.lang.String" name="operationType" column="operationType"></property>
+		<property type="java.lang.String" name="bonusKey" column="bonusKey"></property>
+		<property type="java.lang.String" name="bonusIntention" column="bonusIntention"></property>
+		<property type="java.lang.String" name="bonusDescription" column="bonusDescription"></property>
+		<property type="java.lang.String" name="activityNumber" column="activityNumber"></property>
+		<property type="java.lang.Long" name="totalNumber" column="totalNumber"></property>
+		
+		
+    </class>
+</hibernate-mapping>

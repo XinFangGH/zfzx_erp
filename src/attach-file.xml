@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Menus>
+	<Items id="myDesktop" text="我的桌面">
+		<Items id="profile" text="修改个人资料" />
+		<Items id="PersonalWorkPlan" text="我的计划"/>
+	</Items>
+	<Items id="archive" text="公文管理">
+		<Items id="archiveIssue" text="发文管理" >
+			<Items id="archiveTypeTemp" text="公文类别、模板管理" />
+			<Items id="archivesDraft" text="发文拟稿" />
+		</Items>
+		<Items id="archiveReceive" text="收文管理">
+			<Items id="archivesRec" text="收文登记"/>
+		</Items>
+	</Items>
+	<Items id="system" text="系统设置">
+		<Items id="appUser" text="员工管理" />
+		<Items id="company" text="公司信息管理" />
+		<Items id="reportTemplate" text="报表管理"/>
+	</Items>
+	<Items id="info" text="信息管理">
+		<Items id="news" text="新闻管理" />
+		<Items id="notice" text="公告管理" />
+	</Items>
+	<Items id="communication" text="通讯管理">
+		<Items id="innerMail" text="内部邮件" />
+		<Items id="outMail" text="外部邮件" />
+	</Items>
+	<Items id="document" text="文档管理">
+		<Items id="privateDocument" text="个人文档" />
+		<Items id="knowledgeManage" text="知识管理" />
+	</Items>
+	<Items id="flow" text="流程"/>
+	<Items id="report" text="报表管理" />
+</Menus>

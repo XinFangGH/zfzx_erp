@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.arch.ArchRoll" table="arch_roll" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="rollId" column="rollId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="typeName" type="java.lang.String" update="true" insert="true" access="property" column="typeName" length="32" not-null="false" unique="false"/>  
+    <property name="rolllName" type="java.lang.String" update="true" insert="true" access="property" column="rolllName" length="128" not-null="true" unique="false"/>  
+    <property name="afNo" type="java.lang.String" update="true" insert="true" access="property" column="afNo" length="64" not-null="true" unique="false"/>  
+    <property name="rollNo" type="java.lang.String" update="true" insert="true" access="property" column="rollNo" length="64" not-null="true" unique="false"/>  
+    <property name="catNo" type="java.lang.String" update="true" insert="true" access="property" column="catNo" length="64" not-null="false" unique="false"/>  
+    <property name="timeLimit" type="java.lang.String" update="true" insert="true" access="property" column="timeLimit" length="64" not-null="false" unique="false"/>  
+    <property name="startTime" type="java.util.Date" update="true" insert="true" access="property" column="startTime" length="19" not-null="false" unique="false"/>  
+    <property name="endTime" type="java.util.Date" update="true" insert="true" access="property" column="endTime" length="19" not-null="false" unique="false"/>  
+    <property name="openStyle" type="java.lang.String" update="true" insert="true" access="property" column="openStyle" length="64" not-null="false" unique="false"/>  
+    <property name="author" type="java.lang.String" update="true" insert="true" access="property" column="author" length="32" not-null="false" unique="false"/>  
+    <property name="setupTime" type="java.util.Date" update="true" insert="true" access="property" column="setupTime" length="19" not-null="false" unique="false"/>  
+    <property name="checker" type="java.lang.String" update="true" insert="true" access="property" column="checker" length="32" not-null="false" unique="false"/>  
+    <property name="creatorName" type="java.lang.String" update="true" insert="true" access="property" column="creatorName" length="32" not-null="false" unique="false"/>  
+    <property name="createTime" type="java.util.Date" update="true" insert="true" access="property" column="createTime" length="19" not-null="false" unique="false"/>  
+    <property name="keyWords" type="java.lang.String" update="true" insert="true" access="property" column="keyWords" length="512" not-null="false" unique="false"/>  
+    <property name="editCompany" type="java.lang.String" update="true" insert="true" access="property" column="editCompany" length="128" not-null="false" unique="false"/>  
+    <property name="editDep" type="java.lang.String" update="true" insert="true" access="property" column="editDep" length="128" not-null="false" unique="false"/>  
+    <property name="decp" type="java.lang.String" update="true" insert="true" access="property" column="decp" length="65535" not-null="false" unique="false"/>  
+    <property name="status" type="java.lang.Short" update="true" insert="true" access="property" column="status" length="5" not-null="false" unique="false"/>  
+    <property name="archFondId" type="java.lang.Long" insert="false" update="false" access="property" column="archFondId" length="19" not-null="false" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to ArchFond -->  
+    <many-to-one name="archFond" class="com.zhiwei.credit.model.arch.ArchFond" not-null="false" fetch="select"> 
+      <column name="archFondId"/> 
+    </many-to-one>  
+    <!-- imported bi-directional many-to-one association to GlobalType -->  
+    <many-to-one name="globalType" class="com.zhiwei.credit.model.system.GlobalType" not-null="false" fetch="select"> 
+      <column name="proTypeId"/> 
+    </many-to-one>  
+    <!-- exported bi-directional one-to-many association to ArchBorrow -->  
+    <set name="borrowFileList" table="borrow_file_list" lazy="true" inverse="false" sort="unsorted"> 
+      <key> 
+        <column name="rollId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.arch.BorrowFileList"/> 
+    </set>  
+    <!-- exported bi-directional one-to-many association to RollFile -->  
+    <set name="rollFiles" table="roll_file" lazy="true" inverse="false" sort="unsorted"> 
+      <key> 
+        <column name="rollId"/> 
+      </key>  
+      <one-to-many class="com.zhiwei.credit.model.arch.RollFile"/> 
+    </set> 
+  </class> 
+</hibernate-mapping>

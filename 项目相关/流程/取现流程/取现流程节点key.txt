@@ -1,0 +1,32 @@
+流程类型：客户业务
+流程名称：取现流程
+流程key：enchashmentFlow
+流程状态：禁用
+流程描述：取现流程
+
+
+节点名称：			节点key：
+
+线下投资客户取现一次审核	10_EFfirstApproval
+
+线下投资客户取现复审		20_EFsecondApproval
+
+线下投资客户取现办理		30_EFenchashmentTranction
+
+
+
+决策1
+
+String tranTo="to 取现复审";
+if("线下投资客户取现办理".equals(decisionResult)){
+   tranTo="to 取现办理";
+}else if("终止1".equals(decisionResult)){
+   tranTo="to 终止1";
+}
+
+决策2
+
+String tranTo="to 取现办理";
+if("终止2".equals(decisionResult)){
+   tranTo="to 终止2";
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+  <class name="com.zhiwei.credit.model.personal.DutyRegister" table="duty_register" select-before-update="false" dynamic-update="false" dynamic-insert="false" optimistic-lock="version"> 
+    <id name="registerId" column="registerId" type="java.lang.Long" length="19"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="registerDate" type="java.util.Date" update="true" insert="true" access="property" column="registerDate" length="19" not-null="true" unique="false"/>  
+    <property name="regFlag" type="java.lang.Short" update="true" insert="true" access="property" column="regFlag" length="5" not-null="true" unique="false"/>  
+    <property name="regMins" type="java.lang.Integer" update="true" insert="true" access="property" column="regMins" length="10" not-null="true" unique="false"/>  
+    <property name="reason" type="java.lang.String" update="true" insert="true" access="property" column="reason" length="128" not-null="false" unique="false"/>  
+    <property name="dayOfWeek" type="java.lang.Integer" update="true" insert="true" access="property" column="dayOfWeek" length="10" not-null="true" unique="false"/>  
+    <property name="inOffFlag" type="java.lang.Short" update="true" insert="true" access="property" column="inOffFlag" length="5" not-null="true" unique="false"/>  
+    <property name="fullname" type="java.lang.String" update="true" insert="true" access="property" column="fullname" length="32" not-null="true" unique="false"/>  
+    <!-- imported bi-directional many-to-one association to AppUser -->  
+    <many-to-one name="appUser" class="com.zhiwei.credit.model.system.AppUser" not-null="true" fetch="select"> 
+      <column name="userId"/> 
+    </many-to-one>  
+    <many-to-one name="dutySection" class="com.zhiwei.credit.model.personal.DutySection" not-null="true" fetch="select"> 
+      <column name="sectionId"/> 
+    </many-to-one> 
+  </class> 
+</hibernate-mapping>

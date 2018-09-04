@@ -1,0 +1,53 @@
+body {
+	margin: 0 ;
+	padding: 0;
+	background-color:#EEF2F6;
+}
+
+
+.login-icon{
+	background: url(../images/login.png) no-repeat !important;
+}
+
+.btn-login{
+	background: url(../images/blogin.png) no-repeat !important;
+	width:60px;
+	padding:2px 0px 2px 18px;
+}
+
+.btn-login-reset{
+	background: url(../images/login-reset.png) no-repeat !important;
+	margin-left:20px;
+	width:60px;
+	padding:2px 0px 2px 18px;
+}
+
+.text-lock{
+	border:0;
+	width:177px;
+	padding:2px 0px 2px 1px;
+	width:100px;
+}
+
+.text-code{
+	border:0;
+	
+	width:87px;
+	width:95px\9;
+	height:28px;
+	height:28px\9;
+	background-image:url('../images/login/checkcode.jpg');
+	padding:2px 2px 2px 15px;
+	padding:7px 2px 2px 15px\9;
+}
+
+.text-user{
+	border:0;
+	width:100px;
+	padding:2px 0px 2px 1px;
+}
+
+.text-dynamic{
+	background: url('../images/login/dynamic.png') no-repeat !important ;
+	padding:2px 0px 2px 18px;
+}

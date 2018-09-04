@@ -1,0 +1,28 @@
+*{margin:0 auto;padding:0;font-family:"微软雅黑","黑体","宋体";font-size:12px;list-style:none;}
+img,ul,li{border:0; margin:0; padding:0px}
+body{list-style:none; background:#8ABEED; }
+
+.content{width:869px; height:418px; background:url(../images/imagesteam/login/cent_bg01.jpg) 96px 0 no-repeat;margin-top:11%; color:#FFFFFF}
+.content .content_top{width:688px; height:350px}
+.content .content_top .version{float:right; padding:15px 38px 0 0}
+.content .content_top .cont_box{width:100%; height:auto; display:inline}
+.content .content_top .cont_box .logo{width:104px; height:100px; margin-top:96px; margin-left:96px; float:left; display:inline}
+.content .content_top .cont_box .login_content{ width:400px;height:auto; margin:48px 0 0 46px; float:left}
+.content .content_top .cont_box .login_content h1{ font-size:30px; font-family:"微软雅黑"; letter-spacing:2px;}
+.content .content_top .cont_box .login_content span{font-family:Arial, Helvetica, sans-serif; color:#E7F3FD; margin:0; padding-top:15px;}
+.content .content_top .cont_box .login_content ul{width:100%; height:auto; margin-top:20px}
+.content .content_top .cont_box .login_content ul li{width:auto; height:20px; line-height:20px; text-align:left; font-size:14px; padding-bottom:20px}
+.content .content_top .cont_box .login_content ul li input.txt1{width:140px; height:20px; line-height:20px}
+.content .content_top .cont_box .login_content ul li input.txt2{width:80px; height:20px;line-height:20px}
+.content .content_top .cont_box .login_content ul li a{color:#FBF0B0}
+.content .content_top .cont_box .login_content ul li span{color:#0C7BE2; font-size:14px}
+.content .content_top .cont_box .login_content ul li.li_03{padding-left:55px}
+
+.content .content_btm{width:869px; height:68px; background:url(../images/imagesteam/login/btn_bg.jpg) 0 0 no-repeat}
+.content .content_btm .btn_box{width:210px; height:24px; margin-left:336px; float:left; margin-top:15px; line-height:24px; display:inline}
+.content .content_btm .btn_box input{margin-right:15px; float:left; border:0;}
+.content .content_btm .btn_box input.btn01{width:67px; height:24px; background:url(../images/imagesteam/login/login_btn01.jpg); cursor:pointer}
+.content .content_btm .btn_box input.btn02{width:67px; height:24px; background:url(../images/imagesteam/login/login_btn02.jpg); cursor:pointer}
+.content .content_btm .btn_box a{color:#224476}
+.footer{color:#000000; width:678px; height:40px; text-align:right; line-height:40px}
+.footer a{text-decoration:none; color:#000000}

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.financingAgency.manageMoney.PlMmOrderInfo"
+        table="pl_mm_order_info"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="id"
+            column="id"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="investPersonId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="investPersonId"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="investPersonName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="investPersonName"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="mmplanId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="mmplanId"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="mmplanName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="mmplanName"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="mmplanNumber"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="mmplanNumber"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="investDue"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="investDue"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="rate"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="rate"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="buyMoney"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            access="property"
+            column="buyMoney"
+            precision="20"
+            scale="2"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="orderNumber"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="orderNumber"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="counselor"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="counselor"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="buyDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="buyDate"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        
+        <property type="java.lang.String" name="departMentName"  column="departMentName" />
+        <property type="java.lang.String" name="departId"  column="departId" />
+        <property type="java.lang.String" name="departUser"  column="departUser" />
+        <property type="java.lang.String" name="departUserId"  column="departUserId" />
+        <property type="java.lang.String" name="teamManageName"  column="teamManageName" />
+        <property type="java.lang.String" name="teamManageNameId"  column="teamManageNameId" />
+        <property type="java.lang.String" name="customerManagerName"  column="customerManagerName" />
+        <property type="java.lang.String" name="customerManagerNameId"  column="customerManagerNameId" />
+        
+        <property type="java.util.Date" name="startinInterestTime"  column="startinInterestTime" />
+        <property type="java.util.Date" name="endinInterestTime"  column="endinInterestTime" />
+        
+        
+        <property type="java.lang.String" name="orderlimit"  column="orderlimit" />
+        
+        <property type="java.lang.String" name="confirmType"  column="confirmType" />
+        <property type="java.lang.String" name="recordNumber"  column="recordNumber" />
+        <property type="java.lang.String" name="orderId"  column="orderId" />
+        <property type="java.lang.String" name="investDescription"  column="investDescription" />
+        <property type="java.lang.String" name="orderpostType"  column="orderpostType" />
+        
+        
+     </class>
+</hibernate-mapping>

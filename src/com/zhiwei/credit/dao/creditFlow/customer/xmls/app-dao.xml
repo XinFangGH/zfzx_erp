@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+           
+    <bean id="csPersonHouseDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.CsPersonHouseDaoImpl" parent="baseDao"/>
+	<bean id="csPersonCarDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.CsPersonCarDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseDaoImpl" parent="baseDao"/>
+	<bean id="personDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.PersonDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseFinanceDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseFinanceDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseBankDao" class="com.zhiwei.credit.dao.creditFlow.customer.common.impl.EnterpriseBankDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseEmployeeStructureDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseEmployeeStructureDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseRelationPersonDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseRelationPersonDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseLeadteamDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseLeadteamDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseDebtDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseDebtDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseCreditorDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseCreditorDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseOutassureDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseOutassureDaoImpl" parent="baseDao"/>
+	<bean id="enterpriseOutinvestDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterpriseOutinvestDaoImpl" parent="baseDao"/>
+	<bean id="enterprisePrizeDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.EnterprisePrizeDaoImpl" parent="baseDao"/>
+	<bean id="personThereunderDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.PersonThereunderDaoImpl" parent="baseDao"/>
+	<bean id="processPersonCarReditregistriesDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.ProcessPersonCarReditregistriesDaoImpl" parent="baseDao"/>
+	<bean id="personRelationDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.PersonRelationDaoImpl" parent="baseDao"/>
+	<bean id="personCreditLoanHistoryDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.PersonCreditLoanHistoryDaoImpl" parent="baseDao"/>
+	<bean id="spouseDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.SpouseDaoImpl" parent="baseDao"/>
+	<bean id="customerBankRelationPersonDao" class="com.zhiwei.credit.dao.creditFlow.customer.bankRelationPerson.impl.CustomerBankRelationPersonDaoImpl" parent="baseDao"/>
+	<bean id="bpCustPersonEducationDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.BpCustPersonEducationDaoImpl" parent="baseDao"/>
+	<bean id="bpCustPersonNegativeSurveyDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.BpCustPersonNegativeSurveyDaoImpl" parent="baseDao"/>
+	<bean id="bpCustPersonPublicActivityDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.BpCustPersonPublicActivityDaoImpl" parent="baseDao"/>
+	<bean id="bpCustPersonWorkExperienceDao" class="com.zhiwei.credit.dao.creditFlow.customer.person.impl.BpCustPersonWorkExperienceDaoImpl" parent="baseDao"/>
+	<!--<bean id="bpChannelInfoDao" class="com.zhiwei.credit.dao.creditFlow.customer.channel.impl.BpChannelInfoDaoImpl" parent="baseDao"/>-->
+	<bean id="bpCustEntDownstreamCustomDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntDownstreamCustomDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntUpstreamCustomDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntUpstreamCustomDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntUpanddownstreamDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntUpanddownstreamDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntLawsuitDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntLawsuitDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntCashflowAndSaleIncomeDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntCashflowAndSaleIncomeDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntUpanddowncontractDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntUpanddowncontractDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntUpstreamContractDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntUpstreamContractDaoImpl" parent="baseDao"/>
+    <bean id="bpCustEntDownstreamContractDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntDownstreamContractDaoImpl" parent="baseDao"/>
+	<bean id="bpCustEntPaytaxDao" class="com.zhiwei.credit.dao.creditFlow.customer.enterprise.impl.BpCustEntPaytaxDaoImpl" parent="baseDao"/>
+	<bean id="bpCustProspectiveFollowupDao" class="com.zhiwei.credit.dao.creditFlow.customer.prosperctive.impl.BpCustProspectiveFollowupDaoImpl" parent="baseDao"/>
+<bean id="bpCustProsperctiveDao" class="com.zhiwei.credit.dao.creditFlow.customer.prosperctive.impl.BpCustProsperctiveDaoImpl" parent="baseDao"/>
+<bean id="bpCustProspectiveRelationDao" class="com.zhiwei.credit.dao.creditFlow.customer.prosperctive.impl.BpCustProspectiveRelationDaoImpl" parent="baseDao"/>
+<bean id="csSalesRecordDao" class="com.zhiwei.credit.dao.creditFlow.customer.salesRecord.impl.CsSalesRecordDaoImpl" parent="baseDao"/>
+</beans>

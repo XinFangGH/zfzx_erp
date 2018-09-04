@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.archives.PlProjectArchives"
+        table="pl_project_archives"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="projtoarchiveId"
+            column="projtoarchiveId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="plarchivesId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="plarchivesId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="projectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="projectId"
+            length="19"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="remark"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="remark"
+            length="255"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="isArchives"
+            type="java.lang.Short"
+            update="true"
+            insert="true"
+            access="property"
+            column="isArchives"
+            length="5"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="archivesTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            access="property"
+            column="archivesTime"
+            length="8"
+            not-null="false"
+            unique="false"
+        />
+         <property
+            name="businessType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="businessType"
+            length="30"
+            not-null="false"
+            unique="false"
+        /> 
+     </class>
+</hibernate-mapping>

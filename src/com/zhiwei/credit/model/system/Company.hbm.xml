@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zhiwei.credit.model.system"> 
+  <class name="Company" table="company"> 
+    <id name="companyId" type="java.lang.Long"> 
+      <generator class="native"></generator> 
+    </id>  
+    <property name="companyNo" type="java.lang.String"/>  
+    <property name="companyName" not-null="true"/>  
+    <property name="companyDesc"/>  
+    <property name="legalPerson" type="java.lang.String"/>  
+    <property name="setup" type="java.util.Date"/>  
+    <property name="phone" type="java.lang.String"/>  
+    <property name="fax" type="java.lang.String"/>  
+    <property name="site" type="java.lang.String"/>  
+    <property name="logo" type="java.lang.String"/> 
+  </class> 
+</hibernate-mapping>

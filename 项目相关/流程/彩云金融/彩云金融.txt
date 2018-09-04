@@ -1,0 +1,27 @@
+流程名称：彩云信贷流程
+key：cyjrCreditFlow
+
+节点：
+客服录件  10_cyServiceRecord
+信审初审  20_cyCreditFirstExamine
+信审终审  30_cyCreditLastExamine
+合同制作与签署 40_cyContractMake
+财务放款确认  1000_cyLoanMoney
+项目归档  1010_cyDocument
+发布产品 1020_cyRlus
+
+决策：
+
+决策1
+	String tranTo="to 信审终审";
+
+if("客服录件".equals(OutletPrincipalExamineResult)){
+   tranTo="to 客服录件";
+}
+
+决策7
+	String tranTo="to 合同制作与签署";
+
+if("结束2".equals(OutletPrincipalExamineResult)){
+   tranTo="to 结束2";
+}

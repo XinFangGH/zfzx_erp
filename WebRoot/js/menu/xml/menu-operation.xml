@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Menus id="Mod_operation" text="运营管理" iconCls="mod-operation">
+<Items id="title_operation" text="运营管理" iconCls="mod-operation"
+		isPublic="false">
+	<Items id="companySetting" text="公司设置" iconCls="mod-customer"
+		isPublic="false">
+		<Item id="OrgSettingView" text="组织架构设置" iconCls="menu-OrgSetting" />
+		<Item id="PositionUserView" text="岗位人员管理" iconCls="menu-position" />
+		<Item id="DepUserView" text="部门人员管理" iconCls="menu-department" />
+		<Item id="CompanyView" text="公司单位信息" iconCls="menu-company" />
+		<Item id="DemensionView" text="维度管理" iconCls="btn-weidu" />
+	</Items>
+	<Items id="OurMain" text="我方主体管理" iconCls="menu-newBorrowRecord">
+		<Item id="SlCompanyMainView" text="企业主体管理" iconCls="menu-company">
+			<Function id="_create_cm" text="添加企业主体" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_cm" text="删除企业主体" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_cm" text="编辑企业主体" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="SlPersonMainView" text="个人主体管理" iconCls="online-user">
+			<Function id="_create_pm" text="添加个人主体" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_pm" text="删除个人主体" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_pm" text="编辑个人主体" iconCls="btn-edit">
+			</Function>
+		</Item>
+	</Items>
+	
+	
+
+	<Items id="propertyView" text="抵质押物管理" iconCls="menu-property">
+	<Item id="MortgageManagementQuery" text="客户抵质押物查询" iconCls="menu-property"/>
+		<Item id="MortgageManagement" text="客户抵质押物办理" iconCls="menu-property">
+	<Function id="_seeMortgage" text="查看"
+				iconCls="menu-dictionary">
+				<url>/credit/mortgage/getMortgageList.do</url>
+			</Function>
+			<Function id="_seeMortgageInfo" text="查看抵质押物详情"
+				iconCls="btn-readdocument">
+				
+			</Function>
+			<Function id="_seeThirdContract" text="查看合同详情"
+				iconCls="btn-readdocument">
+			</Function>
+			<Function id="_seeProjectInfo" text="查看项目详情"
+				iconCls="btn-readdocument">
+				<url>/creditFlow/getProjectViewObjectCreditProject.do</url>
+			</Function>
+			<Function id="_banliMortgage" text="办理抵质押物"
+				iconCls="btn-flow-design">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+			<Function id="_relieveMortgage" text="解除抵质押物 "
+				iconCls="deleteIcon">
+				<url>/credit/mortgage/getMortgageInfo.do</url>
+				<url>/credit/mortgage/updateMortgage.do</url>
+			</Function>
+		</Item>
+		<Item id="FinanceMortgageMenuQuery" text="我方抵质押物查询" iconCls="menu-product">
+	        <Function id="_see_mg_query" text="查看抵质押物" iconCls="btn-detail">
+			</Function>
+		</Item>
+		<Item id="FinanceMortgageMenuView" text="我方抵质押物管理" iconCls="menu-product">
+			<Function id="_create_mg" text="添加抵质押物措施" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_mg" text="删除抵质押物" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_mg" text="编辑抵质押物" iconCls="btn-edit">
+			</Function>
+			<Function id="_see_mg" text="查看抵质押物" iconCls="btn-detail">
+			</Function>
+	
+		</Item>
+	
+	</Items>
+	<Items id="PlArchivesViewMenu" text="归档管理" iconCls="menu-plarchives">
+		
+       <Item id="PlArchivesView" text="档案柜管理" iconCls="menu-pllarchivesView">
+           <Function id="_cabinet_add" text="添加档案柜" iconCls="btn-add">
+			</Function>
+			<Function id="_cabinet_edit" text="修改档案柜" iconCls="btn-edit">
+			</Function> 
+			<Function id="_cabinet_del" text="删除档案柜" iconCls="btn-del">
+			</Function>
+			<Function id="_checker_add" text="添加格子" iconCls="btn-add">
+			</Function> 
+			<Function id="_checker_del" text="删除格子" iconCls="btn-del">
+			</Function>
+			<Function id="_checker_edit" text="修改格子" iconCls="btn-edit">
+			</Function>
+			
+		</Item>
+		 <Item id="PlProjectArchivesView" text="归档管理" iconCls="menu-plarchives">
+		    <Function id="_Archives_add" text="办理归档" iconCls="btn-see">
+			</Function>
+			<Function id="_Archivesproj_see" text="查看项目详情" iconCls="btn-see">
+			</Function>
+			
+		</Item>
+	</Items>
+	<Items id="achievementView" text="业绩管理" iconCls="mod-achievement">
+		<Items id="SLachievement" text="小贷贷款" iconCls="menu-smallloan-info">
+           
+		</Items>
+		<Items id="GTachievement" text="金融担保" iconCls="menu-guarantee-info">
+
+		</Items>
+		<Items id="FCachievement" text="资金融资" iconCls="menu-financing-info">
+
+		</Items>
+		<Items id="PWachievement" text="金融典当" iconCls="menu-pawn-info">
+
+		</Items>
+		<Items id="ITachievement" text="风险投资" iconCls="menu-investments-info">
+
+		</Items>
+
+	</Items>
+
+
+	<Items id="EnterpriseEvaluation" text="资信评估管理" iconCls="menu-enterpriseevaluation">
+			<Item id="IndicatorManagement" text="指标库管理" iconCls="menu-indicator" >
+			        <Function id="_im_see" text="查看指标库" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/indicatorList.do</url>
+			         <url>/credit/creditmanagement/indicatorStoreList.do</url>
+			     </Function>
+			     <Function id="_mulu_add" text="增加目录类型" iconCls="addIcon">
+				     <url>/credit/creditmanagement/addIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_update" text="修改目录类型" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_mulu_delete" text="删除目录类型" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_add" text="增加要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicatorStore.do</url>
+				    
+			     </Function>
+			     <Function id="_yaosu_update" text="修改要素名称" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorStoreInfo.do</url>
+				     <url>/credit/creditmanagement/updateIndicatorStore.do</url>
+			     </Function>
+			     <Function id="_yaosu_delete" text="删除要素名称" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicatorStore.do</url>
+			     
+			     </Function>
+			     <Function id="_ic_add" text="增加" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/addIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_update" text="修改" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			         <url>/credit/creditmanagement/updateIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_delete" text="删除" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/deleteIndicator.do</url>
+			     </Function>
+			      <Function id="_ic_see" text="查看" iconCls="deleteIcon">
+			         <url>/credit/creditmanagement/getIndicatorInfo.do</url>
+			     </Function>
+			</Item>
+				<Item id="ClassTypeView" text="信用评级标准管理" iconCls="menu-ratingstandard">
+			   <Function id="_ct_see" text="查看" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/classTypeListScoreGradeOfClass.do</url>
+			     </Function>
+			     <Function id="_classType_add" text="新建资信评级" iconCls="addIcon">
+				     <url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>				     
+			     </Function>
+			     <Function id="_classType_update" text="修改资信评级" iconCls="updateIcon">
+			          <url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+			          <url>/creditFlow/creditmanagement/getClassTypeScoreGradeOfClass.do</url>
+			          <url>/creditFlow/creditmanagement/getScoreGradeListScoreGradeOfClass.do</url>
+			     </Function>
+			     <Function id="_classType_delete" text="删除资信评级" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/deleteClassTypeScoreGradeOfClass.do</url>
+			     </Function>
+			     <Function id="_classType_see" text="查看资信评级" iconCls="deleteIcon">
+			          <url>/creditFlow/creditmanagement/getClassTypeScoreGradeOfClass.do</url>
+			          <url>/creditFlow/creditmanagement/getScoreGradeListScoreGradeOfClass.do</url>
+			     </Function>
+			     <Function id="_classType_copy" text="复制资信评级" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/saveClassAndGrandScoreGradeOfClass.do</url>
+			          <url>/creditFlow/creditmanagement/getClassTypeScoreGradeOfClass.do</url>
+			          <url>/creditFlow/creditmanagement/getScoreGradeListScoreGradeOfClass.do</url>
+			     </Function>
+			</Item>
+			<Item id="TemplateManagement" text="评估模板库管理" iconCls="menu-templatemanagement" >
+			     <Function id="_see" text="查看" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/rtListRatingTemplate.do</url>
+			         <url>/credit/creditmanagement/templateContentList.do</url>
+			     </Function>
+			     <Function id="_Template_add" text="增加模板" iconCls="addIcon">
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/creditFlow/creditmanagement/addRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_update" text="修改模板" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/getInfoRatingTemplate.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/creditFlow/creditmanagement/updateRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_delete" text="删除模板" iconCls="deleteIcon">
+			         <url>/creditFlow/creditmanagement/deleteRsRatingTemplate.do</url>
+			     </Function>
+			     <Function id="_Template_see" text="查看模板" iconCls="deleteIcon">
+			         <url>/creditFlow/creditmanagement/getInfoRatingTemplate.do</url>
+				     <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+			     </Function>
+			     <Function id="_Indicator_add" text="增加指标" iconCls="addIcon">
+			         <url>/credit/creditmanagement/getIndicatorCheckTree.do</url>
+				     <url>/creditFlow/creditmanagement/addTemplateIndicatorRatingTemplate.do</url> 
+			     </Function>
+			     <Function id="_Indicator_delete" text="删除指标" iconCls="deleteIcon">
+			         <url>/creditFlow/creditmanagement/deleteTemplateIndicatorRatingTemplate.do</url>
+			     
+			     </Function>
+			     <Function id="_Indicator_save" text="保存" iconCls="deleteIcon">
+			         <url>/creditFlow/creditmanagement/updateTemplateIndicatorRatingTemplate.do</url>
+			     </Function>
+			</Item>
+			<Item id="CreditRatingManage?type=all" text="客户资信评估管理" iconCls="menu-creditrating">
+
+			     <Function id="_zx_see" text="查看" iconCls="updateIcon">
+			         <url>/creditFlow/creditmanagement/crListCreditRating.do</url>
+			     </Function>
+			     <Function id="_creditRating_add" text="新建资信评估" iconCls="addIcon">
+				     <url>/creditFlow/creditmanagement/addSubCreditRating.do</url>
+				     <url>/creditFlow/creditmanagement/addJsonCreditRating.do</url>
+				     <url>/creditFlow/creditmanagement/getScoreGradeCreditRating.do</url>				     
+			     </Function>
+			     <Function id="_creditRating_delete" text="删除资信评估" iconCls="updateIcon">
+			         <url>/credit/creditmanagement/deleteCreditRating.do</url>
+			     </Function>
+			     <Function id="_creditRating_see" text="查看资信评估" iconCls="deleteIcon">
+			         <url>/creditFlow/creditmanagement/resultCreditRating.do</url>
+			     </Function>
+			</Item>
+		
+		</Items>
+	<Items id="SLSetting" text="小额贷款配置管理" iconCls="menu-smallloan-info"
+		expanded="false">
+		<Item id="OurProcreditAssuretenetLoanView" text="贷款准入原则管理"
+			iconCls="menu-seal">
+			<Function id="_create_zr" text="添加准入原则" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_zr" text="删除准入原则" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_zr" text="编辑准入原则" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="OurProcreditMaterialsView" text="贷款资料清单管理" iconCls="menu-materials">
+			<Function id="_create_dc" text="添加贷款资料" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_dc" text="删除贷款资料" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_dc" text="编辑贷款资料" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="OurArchivesMaterialsView?businessType=SmallLoan&amp;operationType=SmallLoanBusiness" text="归档材料清单管理" iconCls="menu-materials">
+		<Function id="_create_archives" text="添加归档材料" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_archives" text="删除归档材料" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_archives" text="编辑归档材料" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="CreditDocumentManager?businessType=SmallLoan" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+			<Function id="_create_cdm" text="新增模板类型" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_cdm" text="修改模板类型信息" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_cdm" text="删除模板类型" iconCls="btn-del">
+			</Function>
+			<Function id="_read_cdm" text="查看系统要素" iconCls="btn-readdocument">
+			</Function>
+			<Function id="_output_cdm" text="导出系统要素" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=SmallLoan" text="下载模板管理"
+			iconCls="menu-downloaddocument">
+			<Function id="_create_ddm" text="新增模板文档项" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_ddm" text="修改模板文档项" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_ddm" text="删除模板文档项" iconCls="btn-del">
+			</Function>
+		</Item>
+		<!--<Item id="FinanceDocmentView" iconCls="btn-operation" text="模板文档管理"
+			url="/credit/document/contractTemplateDocumentList.jsp?businessType=SmallLoan" />
+
+		--><Item id="DicManagerOfType?nodeKey=SmallLoan_dic" iconCls="menu-dictionary"
+			text="数据字典管理">
+			<Function id="_DictionaryQuerySmallLoan_dic" text="查看字典"
+				iconCls="menu-dictionary">
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddSmallLoan_dic" text="添加"
+				iconCls="menu-add">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryEditSmallLoan_dic" text="编辑"
+				iconCls="btn-edit">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+				<url>/system/getDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryDelSmallLoan_dic" text="删除"
+				iconCls="menu-del">
+				<url>/system/listDictionary.do</url>
+				<url>/system/multiDelDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryChangeSmallLoan_dic" text="转移类型"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/typeChangeDictionary.do</url>
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddTypeSmallLoan_dic" text="新建分类"
+				iconCls="btn-edit">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+
+			</Function>
+			<Function id="_DictionaryDelTypeSmallLoan_dic" text="删除分类"
+				iconCls="menu-del">
+				<url>/system/deleteGlobalType.do</url>
+				<url>/system/treeGlobalType.do</url>
+			</Function>
+			<Function id="_DictionaryEditTypeSmallLoan_dic" text="编辑分类"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+				<url>/system/getGlobalType.do</url>
+			</Function>
+		</Item>
+		<Item id="SlPlansToChargeView?businessType=SmallLoan" iconCls="menu-archive-draft-manage"
+			text="经办费用配置管理">
+			<Function id="_create_zxpz_SmallLoan" text="添加" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_zxpz_SmallLoan" text="删除" iconCls="btn-del">
+			</Function>
+			<Function id="_save_zxpz_SmallLoan" text="保存" iconCls="btn-save">
+			</Function>
+		</Item>
+		<Item id="SystemWordView?wordKey=SmallLoan" text="词条管理" iconCls="menu-wordview">
+			<Function id="_create_ctgl" text="添加" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_ctgl" text="编辑" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_ctgl" text="删除" iconCls="btn-del">
+			</Function>
+
+		</Item>
+
+	</Items>
+
+
+	<Items id="GTSetting" text="金融担保配置管理" iconCls="menu-guarantee-info"
+		expanded="false">
+		<Item id="OurProcreditAssuretenetGuaranteeView" text="担保准入原则管理"
+			iconCls="menu-seal">
+			<Function id="_create_dbzr" text="添加准入原则" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_dbzr" text="删除准入原则" iconCls="btn-del">
+			</Function>
+			<Function id="_edit_dbzr" text="编辑准入原则" iconCls="btn-edit">
+			</Function>
+		</Item>
+		<Item id="OurProcreditMaterialsEnterpriseView" text="担保材料清单管理"
+			iconCls="menu-materials">
+			<Function id="_create_dbdc" text="添加担保材料" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_dbdc" text="编辑担保材料" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_dbdc" text="删除担保材料" iconCls="btn-del">
+			</Function>
+			<Function id="_create_dbdcx" text="添加担保材料项" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_dbdcx" text="编辑担保材料项" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_dbdcx" text="删除担保材料项" iconCls="btn-del">
+			</Function>
+		</Item>
+		<Item id="CreditDocumentManager?businessType=Guarantee" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+			<Function id="_create_cdm" text="新增模板类型" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_cdm" text="修改模板类型信息" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_cdm" text="删除模板类型" iconCls="btn-del">
+			</Function>
+			<Function id="_read_cdm" text="查看系统要素" iconCls="btn-readdocument">
+			</Function>
+			<Function id="_output_cdm" text="导出系统要素" iconCls="btn-xls">
+			</Function>
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=Guarantee" text="下载模板管理"
+			iconCls="menu-downloaddocument">
+			<Function id="_create_ddm" text="新增模板文档项" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_ddm" text="修改模板文档项" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_ddm" text="删除模板文档项" iconCls="btn-del">
+			</Function>
+		</Item>
+		<!--<Item id="guaranteeDocment" iconCls="menu-car_repair" text="模板文档管理"
+			url="/credit/document/contractTemplateDocumentListDB.jsp?businessType=Guarantee" />
+		--><Item id="DicManagerOfType?nodeKey=Guarantee_dic" iconCls="menu-dictionary"
+			text="数据字典管理">
+			<Function id="_DictionaryQueryGuarantee_dic" text="查看字典"
+				iconCls="menu-dictionary">
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddGuarantee_dic" text="添加"
+				iconCls="menu-add">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryEditGuarantee_dic" text="编辑"
+				iconCls="btn-edit">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+				<url>/system/getDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryDelGuarantee_dic" text="删除"
+				iconCls="menu-del">
+				<url>/system/listDictionary.do</url>
+				<url>/system/multiDelDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryChangeGuarantee_dic" text="转移类型"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/typeChangeDictionary.do</url>
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddTypeGuarantee_dic" text="新建分类"
+				iconCls="btn-edit">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+
+			</Function>
+			<Function id="_DictionaryDelTypeGuarantee_dic" text="删除分类"
+				iconCls="menu-del">
+				<url>/system/deleteGlobalType.do</url>
+				<url>/system/treeGlobalType.do</url>
+			</Function>
+			<Function id="_DictionaryEditTypeGuarantee_dic" text="编辑分类"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+				<url>/system/getGlobalType.do</url>
+			</Function>
+		</Item>
+		<Item id="SlPlansToChargeView?businessType=Guarantee" iconCls="menu-archive-draft-manage"
+			text="经办费用配置管理">
+			<Function id="_create_zxpz_Guarantee" text="添加" iconCls="btn-add">
+			</Function>
+			<Function id="_remove_zxpz_Guarantee" text="删除" iconCls="btn-del">
+			</Function>
+			<Function id="_save_zxpz_Guarantee" text="保存" iconCls="btn-save">
+			</Function>
+		</Item>
+		<Item id="SystemWordView?wordKey=Guarantee" text="词条管理" iconCls="menu-wordview" />
+	</Items>
+
+	<Items id="FCSetting" text="资金融资配置管理" iconCls="menu-financing-info">
+		<Item id="CreditDocumentManager?businessType=Financing" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+			<Function id="_create_cdm" text="新增模板类型" iconCls="btn-add">
+			</Function>
+			<Function id="_edit_cdm" text="修改模板类型信息" iconCls="btn-edit">
+			</Function>
+			<Function id="_remove_cdm" text="删除模板类型" iconCls="btn-del">
+			</Function>
+			<Function id="_read_cdm" text="查看系统要素" iconCls="btn-readdocument">
+			</Function>
+			<Function id="_output_cdm" text="导出系统要素" iconCls="btn-xls">
+			</Function>
+		</Item>
+		
+		<!--<Item id="FinancingDocmentView" iconCls="btn-operation" text="模板文档管理"
+			url="/credit/document/contractTemplateDocumentList.jsp?businessType=Financing" />
+		--><Item id="DicManagerOfType?nodeKey=Financing_dic" iconCls="menu-dictionary"
+			text="数据字典管理">
+			<Function id="_DictionaryQueryFinancing_dic" text="查看字典"
+				iconCls="menu-dictionary">
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddFinancing_dic" text="添加"
+				iconCls="menu-add">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryEditFinancing_dic" text="编辑"
+				iconCls="btn-edit">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+				<url>/system/getDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryDelFinancing_dic" text="删除"
+				iconCls="menu-del">
+				<url>/system/listDictionary.do</url>
+				<url>/system/multiDelDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryChangeFinancing_dic" text="转移类型"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/typeChangeDictionary.do</url>
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddTypeFinancing_dic" text="新建分类"
+				iconCls="btn-edit">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+
+			</Function>
+			<Function id="_DictionaryDelTypeFinancing_dic" text="删除分类"
+				iconCls="menu-del">
+				<url>/system/deleteGlobalType.do</url>
+				<url>/system/treeGlobalType.do</url>
+			</Function>
+			<Function id="_DictionaryEditTypeFinancing_dic" text="编辑分类"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+				<url>/system/getGlobalType.do</url>
+			</Function>
+		</Item>
+		<Item id="SlPlansToChargeView?businessType=Financing" iconCls="menu-archive-draft-manage"
+			text="经办费用配置管理" />
+
+	</Items>
+
+	<Items id="PWSetting" text="金融典当配置管理" iconCls="menu-pawn-info">
+		<Item id="CreditDocumentManager?businessType=Pawn" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=Pawn" text="下载模板管理"
+			iconCls="menu-downloaddocument">
+		</Item>
+		<!--<Item id="PawnDocmentView" iconCls="menu-car_repair" text="模板文档管理"
+			url="/credit/document/contractTemplateDocumentList.jsp?businessType=Pawn" />
+		--><Item id="DicManagerOfType?nodeKey=Pawn_dic" iconCls="menu-dictionary"
+			text="数据字典管理">
+			<Function id="_DictionaryQueryPawn_dic" text="查看字典"
+				iconCls="menu-dictionary">
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddPawn_dic" text="添加" iconCls="menu-add">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryEditPawn_dic" text="编辑" iconCls="btn-edit">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+				<url>/system/getDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryDelPawn_dic" text="删除" iconCls="menu-del">
+				<url>/system/listDictionary.do</url>
+				<url>/system/multiDelDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryChangePawn_dic" text="转移类型"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/typeChangeDictionary.do</url>
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddTypePawn_dic" text="新建分类"
+				iconCls="btn-edit">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+
+			</Function>
+			<Function id="_DictionaryDelTypePawn_dic" text="删除分类"
+				iconCls="menu-del">
+				<url>/system/deleteGlobalType.do</url>
+				<url>/system/treeGlobalType.do</url>
+			</Function>
+			<Function id="_DictionaryEditTypePawn_dic" text="编辑分类"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+				<url>/system/getGlobalType.do</url>
+			</Function>
+		</Item>
+	</Items>
+
+	<Items id="ITSetting" text="风险投资配置管理" iconCls="menu-investments-info">
+		<Item id="CreditDocumentManager?businessType=Investment" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=Investment" text="下载模板管理"
+			iconCls="menu-downloaddocument">
+		</Item>
+		<!--<Item id="InvestmentDocmentView" iconCls="menu-car_repair" text="模板文档管理"
+			url="/credit/document/contractTemplateDocumentList.jsp?businessType=Investment" />
+		--><Item id="DicManagerOfType?nodeKey=Investment_dic" iconCls="menu-dictionary"
+			text="数据字典管理">
+			<Function id="_DictionaryQueryInvestment_dic" text="查看字典"
+				iconCls="menu-dictionary">
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddInvestment_dic" text="添加"
+				iconCls="menu-add">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryEditInvestment_dic" text="编辑"
+				iconCls="btn-edit">
+				<url>/system/listDictionary.do</url>
+				<url>/system/saveDictionary.do</url>
+				<url>/system/itemsDictionary.do</url>
+				<url>/system/getDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryDelInvestment_dic" text="删除"
+				iconCls="menu-del">
+				<url>/system/listDictionary.do</url>
+				<url>/system/multiDelDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryChangeInvestment_dic" text="转移类型"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/typeChangeDictionary.do</url>
+				<url>/system/listDictionary.do</url>
+			</Function>
+			<Function id="_DictionaryAddTypeInvestment_dic" text="新建分类"
+				iconCls="btn-edit">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+
+			</Function>
+			<Function id="_DictionaryDelTypeInvestment_dic" text="删除分类"
+				iconCls="menu-del">
+				<url>/system/deleteGlobalType.do</url>
+				<url>/system/treeGlobalType.do</url>
+			</Function>
+			<Function id="_DictionaryEditTypeInvestment_dic" text="编辑分类"
+				iconCls="menu-del">
+				<url>/system/treeGlobalType.do</url>
+				<url>/system/saveGlobalType.do</url>
+				<url>/system/getGlobalType.do</url>
+			</Function>
+		</Item>
+
+
+	</Items>
+	
+		<Items id="BeNotSetting" text="诉讼担保配置管理" iconCls="menu-smallloan-info"
+		expanded="false">
+		
+		<Item id="OurLawsuitMaterialsView" text="业务材料清单管理" iconCls="menu-materials">
+		</Item>
+		<Item id="CreditDocumentManager?businessType=BeNotFinancing" text="合同模板管理"
+			iconCls="menu-onlinedoc">
+			
+		</Item>
+		<Item id="DownLoadDocumentManager?businessType=BeNotFinancing" text="下载模板管理"
+			iconCls="menu-downloaddocument">
+			
+		</Item>
+		
+		<Item id="SlPlansToChargeView?businessType=BeNotFinancing" iconCls="menu-archive-draft-manage"
+			text="经办费用配置管理">
+			
+		</Item>
+		
+
+	</Items>
+	<Items id="ContractManager" text="合同管理" iconCls="menu-pawn-info">
+	<Item id="ContractManager" text="合同管理"
+		iconCls="menu-onlinedoc">
+	</Item>
+	</Items>
+	</Items>
+
+	<!--
+		<Items id="GTachievement" text="金融担保" iconCls="menu-guarantee-info" >
+
+		</Items> <Items id="FCachievement" text="资金融资"
+		iconCls="menu-financing-info" > </Items> <Items id="PWachievement"
+		text="金融典当" iconCls="menu-pawn-info" > </Items> <Items
+		id="ITachievement" text="风险投资" iconCls="menu-investments-info" >
+
+		</Items>
+	-->
+</Menus>

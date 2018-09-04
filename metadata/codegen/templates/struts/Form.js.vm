@@ -1,0 +1,152 @@
+## This is a velocity template
+## to generate a Spring controller class from an sql table input
+#set ($table = $sqlTable.Table)
+#set ($class = $utility.makeClassName($sqlTable.EntityName))
+#set ($classVar = $utility.makeFirstLetterLowerCase($class))
+#set ($packagePrefix  = $prop.getProperty("packagePrefix"))
+#set ($packageModot  = $prop.getProperty("packageModot").substring(1))
+#set ($keyColumn = $sqlTable.getPrimaryKey(0))
+#set ($keyfield = $sqlTable.getPrimaryKey(0).getColname())
+#set ($keytype  = $sqlTable.getPrimaryKey(0).getAttType())
+#set ($keyVar= $utility.makeVarName($keyfield))
+#set ($keyVarUC = $utility.makeFirstLetterUpperCase($keyVar))
+/**
+ * @author 
+ * @createtime 
+ * @class ${class}Form
+ * @extends Ext.Window
+ * @description ${class}表单
+ * @company 智维软件
+ */
+${class}Form = Ext.extend(Ext.Window, {
+			//构造函数
+			constructor : function(_cfg) {
+				Ext.applyIf(this, _cfg);
+				//必须先初始化组件
+				this.initUIComponents();
+				${class}Form.superclass.constructor.call(this, {
+							id : '${class}FormWin',
+							layout : 'fit',
+							items : this.formPanel,
+							modal : true,
+							height : 400,
+							width : 500,
+							maximizable : true,
+							title : '[${class}]详细信息',
+							buttonAlign : 'center',
+							buttons : [
+										{
+											text : '保存',
+											iconCls : 'btn-save',
+											scope : this,
+											handler : this.save
+										}, {
+											text : '重置',
+											iconCls : 'btn-reset',
+											scope : this,
+											handler : this.reset
+										}, {
+											text : '取消',
+											iconCls : 'btn-cancel',
+											scope : this,
+											handler : this.cancel
+										}
+							         ]
+				});
+			},//end of the constructor
+			//初始化组件
+			initUIComponents : function() {
+				this.formPanel = new Ext.FormPanel({
+							layout : 'form',
+							bodyStyle : 'padding:10px',
+							border : false,
+							autoScroll:true,
+							//id : '${class}Form',
+							defaults : {
+								anchor : '96%,96%'
+							},
+							defaultType : 'textfield',
+							items : [{
+								name : '${classVar}.${keyVar}',
+								xtype : 'hidden',
+								value : this.${keyVar} == null ? '' : this.${keyVar}
+							}
+							############################字段类型#######################################
+							#foreach( $column in $sqlTable.sqlColumns)
+							#if  (!$column.isKey())
+							#if  (!$column.isVersion())
+							#set ($colname = $column.attName)
+							,{
+								#if (${column.remarks})##if1
+								fieldLabel : '${column.remarks.trim()}',	
+								#else
+								fieldLabel : '${column.attName}',
+								#end ##end if1
+								name : '${classVar}.${column.attName}'
+								#if ("true"==${column.notNullable})##if2
+								,allowBlank:false
+								#end ##end if2
+								#if ("Integer"==${column.attType} || "Short"==${column.attType} || "Long"==${column.attType} || "Double"==${column.attType} || "Float"==${column.attType})##if3
+								,xtype:'numberfield'
+								#elseif("java.sql.Timestamp"==${column.attType} || "java.util.Date"==${column.attType}) 
+								,xtype:'datefield',
+								format:'Y-m-d',
+								value:new Date()
+								#elseif ("String"==${column.attType})
+								#if ($column.colsize>256) ##if4
+								,xtype:'textarea'
+								#end ##end if4
+								,maxLength: ${column.colsize}
+								#end ##end if3
+							}
+							#end
+							#end
+							#end
+							###########################字段类型###########################################
+							]
+						});
+				//加载表单对应的数据	
+				if (this.${keyVar} != null && this.${keyVar} != 'undefined') {
+					this.formPanel.loadData({
+								url : __ctxPath + '/${packageModot}/get${class}.do?${keyVar}='+ this.${keyVar},
+								root : 'data',
+								preName : '${classVar}'
+							});
+				}
+				
+			},//end of the initcomponents
+
+			/**
+			 * 重置
+			 * @param {} formPanel
+			 */
+			reset : function() {
+				this.formPanel.getForm().reset();
+			},
+			/**
+			 * 取消
+			 * @param {} window
+			 */
+			cancel : function() {
+				this.close();
+			},
+			/**
+			 * 保存记录
+			 */
+			save : function() {
+				$postForm({
+						formPanel:this.formPanel,
+						scope:this,
+						url:__ctxPath + '/${packageModot}/save${class}.do',
+						callback:function(fp,action){
+							var gridPanel = Ext.getCmp('${class}Grid');
+							if (gridPanel != null) {
+								gridPanel.getStore().reload();
+							}
+							this.close();
+						}
+					}
+				);
+			}//end of save
+
+		});

@@ -1,0 +1,136 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="person" extends="struts-default" namespace="/creditFlow/customer/person">
+		<action name="*CsPersonHouse" class="CsPersonHouseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*CsPersonCar" class="CsPersonCarAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Person" class="PersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PersonThereunder" class="PersonThereunderAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*ProcessPersonCarReditregistries" class="ProcessPersonCarReditregistriesAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PersonRelation" class="PersonRelationAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PersonCreditLoanHistory" class="PersonCreditLoanHistoryAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*Spouse" class="SpouseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*PersonAjaxValidator" class="PersonAjaxValidatorAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BpCustPersonNegativeSurvey" class="BpCustPersonNegativeSurveyAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BpCustPersonEducation" class="BpCustPersonEducationAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BpCustPersonWorkExperience" class="BpCustPersonWorkExperienceAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BpCustPersonPublicActivity" class="BpCustPersonPublicActivityAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	 <package name="enterprise" extends="struts-default" namespace="/creditFlow/customer/enterprise">
+		<action name="*Enterprise" class="EnterpriseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseFinance" class="EnterpriseFinanceAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseEmployeeStructure" class="EnterpriseEmployeeStructureAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseRelationPerson" class="EnterpriseRelationPersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseLeadteam" class="EnterpriseLeadteamAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseDebt" class="EnterpriseDebtAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseCreditor" class="EnterpriseCreditorAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseOutassure" class="EnterpriseOutassureAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterpriseOutinvest" class="EnterpriseOutinvestAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*EnterprisePrize" class="EnterprisePrizeAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*AjaxValidator" class="AjaxValidatorAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+		<action name="*BatchImportDatabase" class="BatchImportDatabaseAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+			<action name="*BpCustEntUpanddownstream" class="BpCustEntUpanddownstreamAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*BpCustEntLawsuit" class="BpCustEntLawsuitAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	<action name="*BpCustEntCashflowAndSaleIncome" class="BpCustEntCashflowAndSaleIncomeAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*BpCustEntUpanddowncontract" class="BpCustEntUpanddowncontractAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+		<action name="*BpCustEntPaytax" class="BpCustEntPaytaxAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+	</package>
+    <package name="customerCommon" extends="struts-default" namespace="/creditFlow/customer/common">
+		<action name="*EnterpriseBank" class="EnterpriseBankAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="customerBank" extends="struts-default" namespace="/creditFlow/customer/bankRelationPerson">
+		<action name="*CustomerBankRelationPerson" class="CustomerBankRelationPersonAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<!--
+	<package name="channel" extends="struts-default" namespace="/creditFlow/customer/channel">
+		<action name="*BpChannelInfo" class="BpChannelInfoAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	-->
+		<package name="customerProsperctiveFollowup" extends="struts-default" namespace="/creditFlow/customer/customerProsperctiveFollowup">
+		<action name="*BpCustProspectiveFollowup" class="BpCustProspectiveFollowupAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="customerProsperctive" extends="struts-default" namespace="/creditFlow/customer/customerProsperctive">
+		<action name="*BpCustProsperctive" class="BpCustProsperctiveAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="customerProsperctiveRelation" extends="struts-default" namespace="/creditFlow/customer/customerProsperctiveRelation">
+		<action name="*BpCustProspectiveRelation" class="BpCustProspectiveRelationAction" method="{1}">
+			<result>${successResultValue}</result>
+		</action>
+	</package>
+	<package name="salesRecord" extends="struts-default" namespace="/customer/salesRecord">
+	<action name="*CsSalesRecord" class="CsSalesRecordAction" method="{1}">
+		<result>${successResultValue}</result>
+	</action>
+</package>
+</struts>

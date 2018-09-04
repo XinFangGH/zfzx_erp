@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Modules>
+	<!-- 企业贷 -->
+	<module name="guarantee" file="menu-guarantee.xml"/>
+	<!-- 小额贷 -->
+	<module name="finance" file="menu-finance.xml"/>
+	<!--典当 -->
+	<module name="pawn" file="menu-pawn.xml"/>
+	<!--投资 -->
+	<module name="investment" file="menu-investment.xml"/>
+	<!--私幕基金 -->
+	<module name="ent" file="menu-selfish.xml"/>
+	<!--办公 -->
+	<module name="credit" file="menu-oa.xml"/>
+	<!--系统管理 -->
+	<module name="setting" file="menu-setting.xml"/>
+	<!--
+	<module name="myflow" file="menu-myflow.xml"/>
+	<module name="arch" file="menu-arch.xml"/>
+	<module name="archives" file="menu-archives.xml"/>
+	
+	<module name="knowledge" file="menu-knowledge.xml"/>
+		<module name="setting" file="menu-setting.xml"/>
+	<module name="hr" file="menu-hr.xml"/>
+	-->
+
+	
+	
+	
+	
+</Modules>

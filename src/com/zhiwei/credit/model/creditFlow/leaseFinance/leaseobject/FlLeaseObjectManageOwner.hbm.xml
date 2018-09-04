@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="com.zhiwei.credit.model.creditFlow.leaseFinance.leaseobject.FlLeaseObjectManageOwner"
+        table="fl_leaseObject_manageOwner"
+        select-before-update="false"
+        dynamic-update="false"
+        dynamic-insert="false"
+        optimistic-lock="version"
+    >
+		<id
+            name="recordId"
+            column="recordId"
+            type="java.lang.Long"
+            length="19"
+        >
+            <generator class="native"/>
+        </id>
+         <property
+            name="leaseObjectId"
+            type="java.lang.Long"
+            update="true"
+            insert="true"
+            access="property"
+            column="leaseObjectId"
+            length="19"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="oldOwner"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="oldOwner"
+            length="255"
+            not-null="true"
+            unique="false"
+        />
+        <property
+            name="changeReason"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="changeReason"
+            length="500"
+            not-null="false"
+            unique="false"
+        />
+        <property
+            name="newOwner"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            access="property"
+            column="newOwner"
+            length="255"
+            not-null="true"
+            unique="false"
+        />
+     </class>
+</hibernate-mapping>
